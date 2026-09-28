@@ -3,6 +3,7 @@ import { dirname, join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { buildBosses } from './lib/facts/bosses.mjs';
 import { buildElements } from './lib/facts/elements.mjs';
+import { buildHabitats } from './lib/facts/habitats.mjs';
 import { buildLandmarks } from './lib/facts/landmarks.mjs';
 import { buildMap } from './lib/facts/map.mjs';
 import { buildNames } from './lib/facts/names.mjs';
@@ -20,7 +21,8 @@ const ACTOR_KINDS = {
   startPoints: /^BP_LevelObject_StaticRespawnPoint_C$/,
   towers: /^BP_PalBossTower(_[A-Za-z]+)?_C$/,
   dungeonMarkers: /^BP_DungeonPortalMarker_.+_C$/,
-  dungeonEntrances: /^BP_DungeonFixedEntrance_.+_C$/
+  dungeonEntrances: /^BP_DungeonFixedEntrance_.+_C$/,
+  eggSpawners: /^bp_palmapobjectspawner_palegg_.+_C$/
 };
 
 function usage(message) {
@@ -80,7 +82,16 @@ async function main() {
       'regions.json': buildRegions(game, world, actors.regionTriggers, gameVersion),
       'landmarks.json': landmarks,
       'bosses.json': buildBosses(game, species, landmarks.towers, gameVersion),
-      'names.json': buildNames(game, species, gameVersion)
+      'names.json': buildNames(game, species, gameVersion),
+      'habitats.json': buildHabitats(
+        game,
+        world,
+        actors.eggSpawners,
+        species,
+        map,
+        landmarks,
+        gameVersion
+      )
     };
     for (const [name, data] of Object.entries(files)) {
       const size = await writeJson(out, name, data);
@@ -108,7 +119,9 @@ async function main() {
         `raid summons ${files['bosses.json'].raids.length}`,
         `technologies ${files['names.json'].technologies.length}`,
         `structures ${files['names.json'].structures.length}`,
-        `humans ${files['names.json'].humans.length}`
+        `humans ${files['names.json'].humans.length}`,
+        `habitats ${files['habitats.json'].species.filter((entry) => entry.ways.length > 0).length}`,
+        `egg spawners ${actors.eggSpawners.length}`
       ].join(', ')
     );
     console.log(`done in ${((Date.now() - started) / 1000).toFixed(1)} s`);
