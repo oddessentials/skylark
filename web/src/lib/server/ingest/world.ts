@@ -36,6 +36,7 @@ type SnapshotPal = Schemas['SnapshotPal'];
 
 export const positionSampleMs = 10_000;
 export const stationarySampleMs = 60_000;
+export const sampleSlackMs = 1_000;
 export const stationaryMeters = 1;
 export const absentAfterMs = 90_000;
 export const rejoinGraceMs = 30_000;
@@ -78,9 +79,9 @@ async function samplePosition(
   const last = rows[0];
   if (last) {
     const elapsedMs = ts.getTime() - last.ts.getTime();
-    if (elapsedMs < positionSampleMs) return;
+    if (elapsedMs < positionSampleMs - sampleSlackMs) return;
     const moved = Math.hypot(entry.x - last.x, entry.y - last.y) / 100;
-    if (moved < stationaryMeters && elapsedMs < stationarySampleMs) return;
+    if (moved < stationaryMeters && elapsedMs < stationarySampleMs - sampleSlackMs) return;
   }
   await ctx.tx
     .insert(positions)
