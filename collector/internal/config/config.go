@@ -8,6 +8,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strconv"
 	"strings"
 	"time"
@@ -60,6 +61,12 @@ type File struct {
 	Path string `toml:"path"`
 }
 
+type Saves struct {
+	Reader   string        `toml:"reader"`
+	Dir      string        `toml:"dir"`
+	Interval time.Duration `toml:"interval"`
+}
+
 type Intervals struct {
 	Players      time.Duration `toml:"players"`
 	Snapshot     time.Duration `toml:"snapshot"`
@@ -77,12 +84,14 @@ type Config struct {
 	Docker     Docker    `toml:"docker"`
 	File       File      `toml:"file"`
 	Intervals  Intervals `toml:"intervals"`
+	Saves      Saves     `toml:"saves"`
 	SendIPs    bool      `toml:"send_ips"`
 	JournalDir string    `toml:"journal_dir"`
 
 	Path      string         `toml:"-"`
 	Location  *time.Location `toml:"-"`
 	ServerIni *ServerIni     `toml:"-"`
+	SaveRoots []string       `toml:"-"`
 	Warnings  []string       `toml:"-"`
 }
 
@@ -171,6 +180,7 @@ func applyDefaults(cfg *Config, options Options) {
 		{&cfg.Intervals.Heartbeat, 60 * time.Second},
 		{&cfg.Intervals.Flush, 2 * time.Second},
 		{&cfg.Launch.ShutdownWait, 5 * time.Second},
+		{&cfg.Saves.Interval, 5 * time.Minute},
 	}
 	for _, entry := range defaults {
 		if *entry.target == 0 {
@@ -195,6 +205,27 @@ func applyDefaults(cfg *Config, options Options) {
 		cfg.JournalDir = filepath.Join(base, "skylark-journal")
 	}
 	cfg.Site.URL = strings.TrimSpace(cfg.Site.URL)
+	if cfg.Saves.Reader == "" && options.ExeDir != "" {
+		cfg.Saves.Reader = findSaveReader(options.ExeDir, options.Platform)
+	}
+}
+
+func findSaveReader(dir, platform string) string {
+	goos := platform
+	if goos == "" {
+		goos = runtime.GOOS
+	}
+	suffix := ""
+	if goos == "windows" {
+		suffix = ".exe"
+	}
+	for _, name := range []string{"skylark-savereader" + suffix, "skylark-savereader-" + goos + "-" + runtime.GOARCH + suffix} {
+		candidate := filepath.Join(dir, name)
+		if info, err := os.Stat(candidate); err == nil && !info.IsDir() {
+			return candidate
+		}
+	}
+	return ""
 }
 
 func derive(cfg *Config, restURLSet bool, platform string) error {
@@ -220,6 +251,25 @@ func derive(cfg *Config, restURLSet bool, platform string) error {
 		password = cfg.ServerIni.AdminPassword
 	}
 	cfg.Palworld.AdminPassword = password
+	switch {
+	case cfg.Saves.Dir != "":
+		cfg.SaveRoots = []string{cfg.Saves.Dir}
+	default:
+		if launch.UserDir != "" {
+			cfg.SaveRoots = append(cfg.SaveRoots, filepath.Join(launch.UserDir, "Saved"))
+		}
+		if cfg.Palworld.ServerDir != "" {
+			cfg.SaveRoots = append(cfg.SaveRoots, filepath.Join(cfg.Palworld.ServerDir, "Pal", "Saved"))
+		}
+	}
+	if cfg.Saves.Reader != "" {
+		if _, err := os.Stat(cfg.Saves.Reader); err != nil {
+			cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("saves.reader %s: %v; the world save is not read", cfg.Saves.Reader, err))
+			cfg.Saves.Reader = ""
+		} else if len(cfg.SaveRoots) == 0 {
+			cfg.Warnings = append(cfg.Warnings, "the save reader is here but the world save folder is unknown; set saves.dir (or palworld.server_dir) so the collector can read it")
+		}
+	}
 	if !restURLSet {
 		port := 8212
 		if cfg.ServerIni != nil && cfg.ServerIni.RESTAPIPort > 0 {
@@ -295,11 +345,15 @@ func validate(cfg *Config, dryRun bool) error {
 		{"intervals.heartbeat", cfg.Intervals.Heartbeat},
 		{"intervals.flush", cfg.Intervals.Flush},
 		{"launch.shutdown_wait", cfg.Launch.ShutdownWait},
+		{"saves.interval", cfg.Saves.Interval},
 	}
 	for _, interval := range intervals {
 		if interval.value < time.Second {
 			problems = append(problems, fmt.Sprintf("%s must be at least 1s (use a duration string such as \"5s\")", interval.name))
 		}
+	}
+	if cfg.Saves.Interval < 30*time.Second {
+		problems = append(problems, "saves.interval must be at least 30s; the save reader reads the whole world")
 	}
 	if cfg.Intervals.Heartbeat > 150*time.Second {
 		problems = append(problems, "intervals.heartbeat must be at most 150s; the site declares a collector lost after 180s without a batch")
@@ -392,6 +446,9 @@ var envSetters = []envSetter{
 	durationSetter("SKYLARK_INTERVALS_METRICS", func(c *Config) *time.Duration { return &c.Intervals.Metrics }),
 	durationSetter("SKYLARK_INTERVALS_HEARTBEAT", func(c *Config) *time.Duration { return &c.Intervals.Heartbeat }),
 	durationSetter("SKYLARK_INTERVALS_FLUSH", func(c *Config) *time.Duration { return &c.Intervals.Flush }),
+	stringSetter("SKYLARK_SAVES_READER", func(c *Config) *string { return &c.Saves.Reader }),
+	stringSetter("SKYLARK_SAVES_DIR", func(c *Config) *string { return &c.Saves.Dir }),
+	durationSetter("SKYLARK_SAVES_INTERVAL", func(c *Config) *time.Duration { return &c.Saves.Interval }),
 	boolSetter("SKYLARK_SEND_IPS", func(c *Config) *bool { return &c.SendIPs }),
 	stringSetter("SKYLARK_JOURNAL_DIR", func(c *Config) *string { return &c.JournalDir }),
 }

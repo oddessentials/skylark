@@ -331,6 +331,63 @@ export const pals = pgTable(
   ]
 );
 
+export interface SavedProgress {
+  palpedia: number;
+  species_captured: number;
+  captures: number;
+  tower_bosses: string[];
+  field_bosses: number;
+  dungeon_clears: number;
+  fixed_dungeon_clears: number;
+  technologies: number;
+  fast_travel_points: number;
+}
+
+export interface SavedGuildMember {
+  player_id: string;
+  name: string;
+  role: string;
+}
+
+export interface SavedWorker {
+  instance_id: string;
+  character_id: string;
+  level: number;
+  name: string | null;
+}
+
+export const playerSaves = pgTable('player_saves', {
+  playerUid: text('player_uid').primaryKey(),
+  savedAt: utc('saved_at').notNull(),
+  name: text('name'),
+  level: integer('level'),
+  guildId: text('guild_id'),
+  lastOnlineAt: utc('last_online_at'),
+  progress: jsonb('progress').$type<SavedProgress | null>(),
+  goneAt: utc('gone_at')
+});
+
+export const guildSaves = pgTable('guild_saves', {
+  guildId: text('guild_id').primaryKey(),
+  savedAt: utc('saved_at').notNull(),
+  name: text('name').notNull(),
+  baseCampLevel: integer('base_camp_level'),
+  members: jsonb('members').$type<SavedGuildMember[]>().notNull(),
+  goneAt: utc('gone_at')
+});
+
+export const baseSaves = pgTable('base_saves', {
+  baseId: text('base_id').primaryKey(),
+  savedAt: utc('saved_at').notNull(),
+  guildId: text('guild_id'),
+  name: text('name'),
+  x: doublePrecision('x').notNull(),
+  y: doublePrecision('y').notNull(),
+  z: doublePrecision('z'),
+  workers: jsonb('workers').$type<SavedWorker[]>().notNull(),
+  goneAt: utc('gone_at')
+});
+
 export const worldLive = pgTable('world_live', {
   id: integer('id').primaryKey(),
   snapshotAt: utc('snapshot_at').notNull(),
@@ -416,5 +473,16 @@ export type ActionRow = typeof actions.$inferSelect;
 export type JobRow = typeof jobs.$inferSelect;
 export type PalRow = typeof pals.$inferSelect;
 export type BaseRow = typeof bases.$inferSelect;
+export type PlayerSaveRow = typeof playerSaves.$inferSelect;
+export type GuildSaveRow = typeof guildSaves.$inferSelect;
+export type BaseSaveRow = typeof baseSaves.$inferSelect;
 
-export const projectionTables = [sessions, levelUps, deaths, chatMessages] as const;
+export const projectionTables = [
+  sessions,
+  levelUps,
+  deaths,
+  chatMessages,
+  playerSaves,
+  guildSaves,
+  baseSaves
+] as const;

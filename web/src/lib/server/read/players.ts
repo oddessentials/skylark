@@ -21,6 +21,7 @@ import {
   type Schemas
 } from './common';
 import { partiesOf } from './status';
+import { playerSaveOf, progressOf } from './saves';
 
 export type PlayerSummary = Schemas['PlayerSummary'];
 export type Player = Schemas['Player'];
@@ -123,7 +124,7 @@ export async function getPlayer(
   now = new Date()
 ): Promise<Player> {
   const row = await visiblePlayer(db, id);
-  const [current, levels, recent, died, state, names] = await Promise.all([
+  const [current, levels, recent, died, state, names, save] = await Promise.all([
     row.currentSessionId === null
       ? Promise.resolve([] as SessionRow[])
       : db.select().from(sessions).where(eq(sessions.id, row.currentSessionId)).limit(1),
@@ -145,7 +146,8 @@ export async function getPlayer(
       .orderBy(desc(deaths.at), desc(deaths.id))
       .limit(5),
     readServerState(db),
-    guildNames(db, [row.guildId])
+    guildNames(db, [row.guildId]),
+    playerSaveOf(db, row.playerUid)
   ]);
   const open = current[0] ?? null;
   const parties = features.pals
@@ -170,7 +172,8 @@ export async function getPlayer(
       y: features.positions ? death.y : null,
       cause: death.cause,
       killer: death.killer
-    }))
+    })),
+    progress: progressOf(save)
   };
 }
 

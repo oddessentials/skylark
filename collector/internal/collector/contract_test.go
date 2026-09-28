@@ -14,6 +14,7 @@ import (
 	"github.com/oddessentials/skylark/collector/internal/event"
 	"github.com/oddessentials/skylark/collector/internal/ingest"
 	"github.com/oddessentials/skylark/collector/internal/palrest"
+	"github.com/oddessentials/skylark/collector/internal/saves"
 	"github.com/oddessentials/skylark/collector/internal/serverlog"
 	"github.com/oddessentials/skylark/collector/internal/world"
 )
@@ -85,7 +86,21 @@ func TestEveryEmittedTypeMatchesTheContract(t *testing.T) {
 		emission{event.TypeCollectorStarted, at, startedData(event.CollectorLayers{Rest: true, GameData: true, Logs: true, LogsSource: event.String("launch")}, &event.ServerInfo{Version: "v1.0.5.102999", Name: "Skylark Test", WorldGUID: "D09CACDB477D6CE562170AA79C524138"}, curateSettings(map[string]any{"DayTimeSpeedRate": 1.0, "NightTimeSpeedRate": 1.0, "ServerPlayerMaxNum": 32.0}))},
 		emission{event.TypeCollectorStarted, at, startedData(event.CollectorLayers{}, nil, nil)},
 		emission{event.TypeCollectorHeartbeat, at, event.CollectorHeartbeatData{UptimeS: 60.5, QueueDepth: 3, Rest: "down", GameData: "unavailable", Logs: "error"}},
+		emission{event.TypeCollectorHeartbeat, at, event.CollectorHeartbeatData{UptimeS: 360, Rest: "ok", GameData: "ok", Logs: "ok", Saves: "ok"}},
 	)
+	level := 24
+	saved := &saves.Result{
+		SavedAt: at,
+		Players: []event.SavePlayerData{
+			{SavedAt: at, PlayerID: playerID, Name: event.String("Wanderer"), Level: &level, GuildID: event.String("6011D000000000000000000000000001"), LastOnlineAt: &at, Progress: &event.SaveProgress{Palpedia: 3, SpeciesCaptured: 2, Captures: 4, TowerBosses: []string{"GrassBoss"}, FieldBosses: 2, DungeonClears: 5, FixedDungeonClears: 2, Technologies: 3, FastTravelPoints: 1}},
+			{SavedAt: at, PlayerID: "7A3B22D1000000000000000000000000"},
+		},
+		Guilds: []event.SaveGuildData{{SavedAt: at, GuildID: "6011D000000000000000000000000001", Name: "Lark Riders", BaseCampLevel: 3, Members: []event.SaveGuildMember{{PlayerID: playerID, Name: "Wanderer", Role: "guild_master"}}}},
+		Bases:  []event.SaveBaseData{{SavedAt: at, BaseID: "BA5E0000000000000000000000000003", Name: event.String("Hilltop"), X: -73080.5, Y: -69035.25, Z: event.Float(-948.5), Workers: []event.SaveWorker{{InstanceID: "21000000000000000000000000000000", CharacterID: "SheepBall", Level: 9}}}},
+	}
+	for _, item := range saves.NewTracker().Changes(saved) {
+		items = append(items, emission{item.Type, at, item.Data})
+	}
 
 	factory := event.NewFactory(event.NewUUID())
 	seen := map[string]bool{}

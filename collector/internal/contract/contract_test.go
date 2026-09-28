@@ -37,6 +37,19 @@ func TestEverySchemaNamedHereExistsInTheContract(t *testing.T) {
 	}
 }
 
+func TestTheCollectorKnowsEveryTypeTheContractDocuments(t *testing.T) {
+	validator := load(t)
+	documented := validator.ContractTypes()
+	if len(documented) < len(DocumentedTypes()) {
+		t.Fatalf("read %d types from the contract, fewer than the %d the collector maps", len(documented), len(DocumentedTypes()))
+	}
+	for _, eventType := range documented {
+		if EventSchema(eventType) == "OtherEvent" {
+			t.Errorf("the contract documents %s but the collector maps it to OtherEvent", eventType)
+		}
+	}
+}
+
 func TestTheValidatorRejectsBadData(t *testing.T) {
 	validator := load(t)
 	bad := `{"id":"7c9e6679-7425-40de-944b-e07fc1f90ae7","seq":1,"run_id":"7c9e6679-7425-40de-944b-e07fc1f90ae7","ts":"2026-09-27T20:03:31.000Z","type":"chat.message","data":{"name":"Wanderer","channel":"Global","text":"hello"}}`

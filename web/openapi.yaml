@@ -2103,6 +2103,11 @@ components:
           maxItems: 5
           items:
             $ref: '#/components/schemas/Death'
+        progress:
+          description: The player's records from the world save; null until the collector's save reader has read it.
+          anyOf:
+            - $ref: '#/components/schemas/PlayerProgress'
+            - type: 'null'
       required:
         - id
         - name
@@ -2123,6 +2128,81 @@ components:
         - level_history
         - recent_sessions
         - recent_deaths
+        - progress
+      additionalProperties: false
+    TowerBossRef:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The game's boss type, for example GrassBoss.
+        name:
+          type: string
+      required:
+        - id
+        - name
+      additionalProperties: false
+    PlayerProgress:
+      type: object
+      description: What the world save records about a player.
+      properties:
+        saved_at:
+          type: string
+          format: date-time
+          description: When the server wrote the save these come from.
+        last_online_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        palpedia:
+          type: integer
+          minimum: 0
+          description: Palpedia entries unlocked.
+        palpedia_total:
+          type: integer
+          minimum: 0
+          description: Palpedia entries in this version of the game.
+        species_captured:
+          type: integer
+          minimum: 0
+        captures:
+          type: integer
+          minimum: 0
+        tower_bosses:
+          type: array
+          description: Tower bosses defeated at least once.
+          items:
+            $ref: '#/components/schemas/TowerBossRef'
+        tower_bosses_total:
+          type: integer
+          minimum: 0
+        field_bosses:
+          type: integer
+          minimum: 0
+          description: Field bosses, alpha Pals and bounty targets, defeated at least once.
+        dungeon_clears:
+          type: integer
+          minimum: 0
+        technologies:
+          type: integer
+          minimum: 0
+        fast_travel_points:
+          type: integer
+          minimum: 0
+      required:
+        - saved_at
+        - last_online_at
+        - palpedia
+        - palpedia_total
+        - species_captured
+        - captures
+        - tower_bosses
+        - tower_bosses_total
+        - field_bosses
+        - dungeon_clears
+        - technologies
+        - fast_travel_points
       additionalProperties: false
     TrailPoint:
       type: object
@@ -2237,6 +2317,11 @@ components:
             - string
             - 'null'
           format: date-time
+        worker_pals:
+          type: array
+          description: On a guild's page, the Pals working at the base as the world save lists them, while nobody is near too; absent elsewhere, and empty without the save reader or with the pals feature off.
+          items:
+            $ref: '#/components/schemas/BasePal'
       required:
         - id
         - name
@@ -2249,6 +2334,28 @@ components:
         - first_seen
         - last_seen
         - gone_at
+      additionalProperties: false
+    BasePal:
+      type: object
+      properties:
+        species:
+          type: string
+          description: The species id, for example SheepBall.
+        alpha:
+          type: boolean
+        name:
+          type:
+            - string
+            - 'null'
+          description: The nickname its trainer gave it.
+        level:
+          type: integer
+          minimum: 0
+      required:
+        - species
+        - alpha
+        - name
+        - level
       additionalProperties: false
     GuildSummary:
       type: object
@@ -2313,12 +2420,59 @@ components:
         last_seen:
           type: string
           format: date-time
+        role:
+          description: The member's guild role from the world save; null without the save reader.
+          anyOf:
+            - $ref: '#/components/schemas/GuildRole'
+            - type: 'null'
       required:
         - player
         - level
         - online
         - since
         - last_seen
+        - role
+      additionalProperties: false
+    GuildRole:
+      type: string
+      description: Guild roles as the game defines them (EPalGuildRole).
+      enum:
+        - guild_master
+        - sub_master
+        - member
+        - guest
+        - none
+    GuildRosterEntry:
+      type: object
+      description: A member as the world save lists them.
+      properties:
+        player:
+          description: Their player page, when they have played while the collector watched.
+          anyOf:
+            - $ref: '#/components/schemas/PlayerRef'
+            - type: 'null'
+        name:
+          type: string
+        role:
+          $ref: '#/components/schemas/GuildRole'
+        level:
+          type:
+            - integer
+            - 'null'
+        online:
+          type: boolean
+        last_online_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+      required:
+        - player
+        - name
+        - role
+        - level
+        - online
+        - last_online_at
       additionalProperties: false
     Guild:
       type: object
@@ -2342,6 +2496,21 @@ components:
         last_seen:
           type: string
           format: date-time
+        base_camp_level:
+          type:
+            - integer
+            - 'null'
+          description: The guild's base camp level from the world save; null without the save reader.
+        roster:
+          type: array
+          description: Everyone the world save lists in the guild with their role, including members who have not played while the collector watched; empty without the save reader.
+          items:
+            $ref: '#/components/schemas/GuildRosterEntry'
+        roster_saved_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
       required:
         - id
         - name
@@ -2349,6 +2518,9 @@ components:
         - bases
         - first_seen
         - last_seen
+        - base_camp_level
+        - roster
+        - roster_saved_at
       additionalProperties: false
     MapPlayer:
       type: object
@@ -3437,6 +3609,10 @@ components:
         - $ref: '#/components/schemas/PlayerUnbannedEvent'
         - $ref: '#/components/schemas/ActionCompletedEvent'
         - $ref: '#/components/schemas/ActionFailedEvent'
+        - $ref: '#/components/schemas/SavePlayerEvent'
+        - $ref: '#/components/schemas/SaveGuildEvent'
+        - $ref: '#/components/schemas/SaveBaseEvent'
+        - $ref: '#/components/schemas/SaveReadEvent'
         - $ref: '#/components/schemas/OtherEvent'
     IngestBatch:
       type: object
@@ -3642,6 +3818,14 @@ components:
             - ok
             - off
             - idle
+            - error
+        saves:
+          type: string
+          description: The save reader, from collectors that know it. ok after a successful read, waiting until the first one, off when no save reader is set up, error when the last read failed.
+          enum:
+            - ok
+            - waiting
+            - off
             - error
       required:
         - uptime_s
@@ -4151,6 +4335,212 @@ components:
         - kind
         - error
       additionalProperties: true
+    SaveProgress:
+      type: object
+      description: A player's records from their Players/<uid>.sav.
+      properties:
+        palpedia:
+          type: integer
+          minimum: 0
+          description: Palpedia entries unlocked.
+        species_captured:
+          type: integer
+          minimum: 0
+        captures:
+          type: integer
+          minimum: 0
+          description: Pals captured in all, across species.
+        tower_bosses:
+          type: array
+          description: Tower bosses defeated at least once, by the game's id, for example GrassBoss.
+          items:
+            type: string
+        field_bosses:
+          type: integer
+          minimum: 0
+          description: Field bosses (alpha Pals and bounty targets) defeated at least once.
+        dungeon_clears:
+          type: integer
+          minimum: 0
+        fixed_dungeon_clears:
+          type: integer
+          minimum: 0
+        technologies:
+          type: integer
+          minimum: 0
+          description: Technologies unlocked.
+        fast_travel_points:
+          type: integer
+          minimum: 0
+      required:
+        - palpedia
+        - species_captured
+        - captures
+        - tower_bosses
+        - field_bosses
+        - dungeon_clears
+        - fixed_dungeon_clears
+        - technologies
+        - fast_travel_points
+      additionalProperties: true
+    SavePlayerData:
+      type: object
+      description: A player as the world save records them, from the optional save reader. Sent when it changes and once after the collector starts.
+      properties:
+        saved_at:
+          type: string
+          format: date-time
+          description: When the server wrote the save.
+        player_id:
+          type: string
+          pattern: ^[0-9A-F]{32}$
+        name:
+          type:
+            - string
+            - 'null'
+        level:
+          type:
+            - integer
+            - 'null'
+          minimum: 0
+        guild_id:
+          type:
+            - string
+            - 'null'
+        last_online_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        progress:
+          anyOf:
+            - $ref: '#/components/schemas/SaveProgress'
+            - type: 'null'
+      required:
+        - saved_at
+        - player_id
+      additionalProperties: true
+    SaveGuildMember:
+      type: object
+      properties:
+        player_id:
+          type: string
+          pattern: ^[0-9A-F]{32}$
+        name:
+          type: string
+        role:
+          type: string
+          description: guild_master, sub_master, member, guest or none, from EPalGuildRole; an unknown role arrives as role_<number>.
+      required:
+        - player_id
+        - name
+        - role
+      additionalProperties: true
+    SaveGuildData:
+      type: object
+      description: A guild as the world save records it, with every member and their role. Sent when it changes and once after the collector starts.
+      properties:
+        saved_at:
+          type: string
+          format: date-time
+        guild_id:
+          type: string
+        name:
+          type: string
+        base_camp_level:
+          type: integer
+          minimum: 0
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaveGuildMember'
+      required:
+        - saved_at
+        - guild_id
+        - name
+        - members
+      additionalProperties: true
+    SaveWorker:
+      type: object
+      properties:
+        instance_id:
+          type: string
+        character_id:
+          type: string
+          description: The game's character id, for example SheepBall, or BOSS_FoxMage for an alpha.
+        level:
+          type: integer
+          minimum: 0
+        name:
+          type:
+            - string
+            - 'null'
+      required:
+        - instance_id
+        - character_id
+        - level
+      additionalProperties: true
+    SaveBaseData:
+      type: object
+      description: A base as the world save records it, with the Pals working there, including while nobody is near. Sent when it changes and once after the collector starts.
+      properties:
+        saved_at:
+          type: string
+          format: date-time
+        base_id:
+          type: string
+        guild_id:
+          type:
+            - string
+            - 'null'
+        name:
+          type:
+            - string
+            - 'null'
+        x:
+          type: number
+        y:
+          type: number
+        z:
+          type:
+            - number
+            - 'null'
+        workers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaveWorker'
+      required:
+        - saved_at
+        - base_id
+        - x
+        - y
+        - workers
+      additionalProperties: true
+    SaveReadData:
+      type: object
+      description: Sent after a read of the world save that changed anything, listing every player, guild and base the save holds, so the site can tell what is gone.
+      properties:
+        saved_at:
+          type: string
+          format: date-time
+        player_ids:
+          type: array
+          items:
+            type: string
+        guild_ids:
+          type: array
+          items:
+            type: string
+        base_ids:
+          type: array
+          items:
+            type: string
+      required:
+        - saved_at
+        - player_ids
+        - guild_ids
+        - base_ids
+      additionalProperties: true
     EventEnvelope:
       type: object
       description: The fields every event carries.
@@ -4416,6 +4806,58 @@ components:
           required:
             - type
             - data
+    SavePlayerEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: save.player
+            data:
+              $ref: '#/components/schemas/SavePlayerData'
+          required:
+            - type
+            - data
+    SaveGuildEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: save.guild
+            data:
+              $ref: '#/components/schemas/SaveGuildData'
+          required:
+            - type
+            - data
+    SaveBaseEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: save.base
+            data:
+              $ref: '#/components/schemas/SaveBaseData'
+          required:
+            - type
+            - data
+    SaveReadEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: save.read
+            data:
+              $ref: '#/components/schemas/SaveReadData'
+          required:
+            - type
+            - data
     OtherEvent:
       description: An event of a type this contract does not document. The site stores it without processing it.
       allOf:
@@ -4444,5 +4886,9 @@ components:
                   - player.unbanned
                   - action.completed
                   - action.failed
+                  - save.player
+                  - save.guild
+                  - save.base
+                  - save.read
           required:
             - type

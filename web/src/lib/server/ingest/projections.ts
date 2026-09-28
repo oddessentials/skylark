@@ -29,6 +29,7 @@ import {
   relabelAbsentSession,
   type SessionSource
 } from './sessions';
+import { applySaveBase, applySaveGuild, applySavePlayer, applySaveRead } from './saves';
 
 type Schemas = components['schemas'];
 
@@ -397,6 +398,14 @@ export async function applyEvent(
       return collectorLost(ctx, event, ts);
     case 'player.guild_joined':
       return guildJoined(ctx, event);
+    case 'save.player':
+      return applySavePlayer(ctx, event);
+    case 'save.guild':
+      return applySaveGuild(ctx, event);
+    case 'save.base':
+      return applySaveBase(ctx, event);
+    case 'save.read':
+      return applySaveRead(ctx, event);
     default:
       return plain;
   }

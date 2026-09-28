@@ -173,3 +173,47 @@ func TestSplitArgs(t *testing.T) {
 		t.Fatal("expected an error")
 	}
 }
+
+func TestSavesSettings(t *testing.T) {
+	dir := t.TempDir()
+	base := map[string]string{"SKYLARK_SITE_URL": "http://localhost:5173", "SKYLARK_SITE_SECRET": "s", "SKYLARK_PALWORLD_ADMIN_PASSWORD": "p"}
+	cfg, err := Load(Options{Platform: "windows", ExeDir: dir, Getenv: env(base)})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if cfg.Saves.Reader != "" || cfg.Saves.Interval != 5*time.Minute || len(cfg.SaveRoots) != 0 {
+		t.Fatalf("without a reader the layer is off: %+v %v", cfg.Saves, cfg.SaveRoots)
+	}
+	reader := filepath.Join(dir, "skylark-savereader.exe")
+	os.WriteFile(reader, []byte("binary"), 0o755)
+	values := map[string]string{"SKYLARK_PALWORLD_SERVER_DIR": `D:\server`, "SKYLARK_SAVES_INTERVAL": "2m"}
+	for key, value := range base {
+		values[key] = value
+	}
+	cfg, err = Load(Options{Platform: "windows", ExeDir: dir, Getenv: env(values)})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if cfg.Saves.Reader != reader || cfg.Saves.Interval != 2*time.Minute {
+		t.Fatalf("saves %+v", cfg.Saves)
+	}
+	if len(cfg.SaveRoots) != 1 || cfg.SaveRoots[0] != filepath.Join(`D:\server`, "Pal", "Saved") {
+		t.Fatalf("roots %v", cfg.SaveRoots)
+	}
+	values["SKYLARK_SAVES_DIR"] = `E:\saves\world`
+	values["SKYLARK_SAVES_READER"] = filepath.Join(dir, "missing.exe")
+	cfg, err = Load(Options{Platform: "windows", ExeDir: dir, Getenv: env(values)})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if cfg.Saves.Reader != "" || len(cfg.SaveRoots) != 1 || cfg.SaveRoots[0] != `E:\saves\world` {
+		t.Fatalf("a missing reader turns the layer off: %+v %v", cfg.Saves, cfg.SaveRoots)
+	}
+	if len(cfg.Warnings) == 0 || !strings.Contains(strings.Join(cfg.Warnings, " "), "saves.reader") {
+		t.Fatalf("warnings %v", cfg.Warnings)
+	}
+	values["SKYLARK_SAVES_INTERVAL"] = "10s"
+	if _, err := Load(Options{Platform: "windows", ExeDir: dir, Getenv: env(values)}); err == nil || !strings.Contains(err.Error(), "saves.interval") {
+		t.Fatalf("a short interval is refused: %v", err)
+	}
+}

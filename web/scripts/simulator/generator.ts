@@ -482,7 +482,7 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
         gamedata: true,
         logs: true,
         logs_source: 'docker',
-        saves: false,
+        saves: true,
         mod: false
       },
       server: serverInfo,
@@ -846,6 +846,94 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
       });
     }
   }
+
+  const saveMs = endMs - 60_000;
+  const savedAt = new Date(saveMs).toISOString();
+  const towerOrder = ['GrassBoss', 'ForestBoss', 'ElectricBoss', 'DesertBoss', 'SnowBoss'];
+  const draw = (text: string, span: number) => parseInt(hex(text, 8), 16) % span;
+  const speciesOfClass = (className: string) =>
+    classes[className]?.species ?? className.replace(/^BP_/, '').replace(/_C$/, '');
+  const progressAt = (key: string, level: number) => {
+    const palpedia = Math.min(288, level * 4 + draw(`palpedia-${key}`, 9));
+    return {
+      palpedia,
+      species_captured: Math.max(0, palpedia - 1),
+      captures: palpedia * 3 + draw(`captures-${key}`, 20),
+      tower_bosses: towerOrder.slice(0, Math.min(towerOrder.length, Math.floor(level / 12))),
+      field_bosses: Math.floor(level / 3),
+      dungeon_clears: Math.floor(level / 5),
+      fixed_dungeon_clears: Math.floor(level / 8),
+      technologies: 12 + level * 2,
+      fast_travel_points: Math.min(40, 3 + Math.floor(level / 2))
+    };
+  };
+  const guest = { playerUid: playerUidOf('steam_76561190000000099'), name: 'Hollis', level: 11 };
+  const rosters = new Map<string, { player_id: string; name: string; role: string }[]>();
+  for (const state of states) {
+    const { player } = state;
+    const past = state.sessions.filter((session) => session.to <= saveMs);
+    const lastOnline = past[past.length - 1];
+    push(saveMs, 'save.player', {
+      saved_at: savedAt,
+      player_id: player.playerUid,
+      name: player.name,
+      level: state.level,
+      guild_id: state.guildId,
+      last_online_at: lastOnline ? new Date(lastOnline.to).toISOString() : null,
+      progress: progressAt(player.userId, state.level)
+    });
+    const roster = rosters.get(state.guildId) ?? [];
+    const role =
+      roster.length === 0 ? 'guild_master' : roster.length === 1 ? 'sub_master' : 'member';
+    roster.push({ player_id: player.playerUid, name: player.name, role });
+    rosters.set(state.guildId, roster);
+  }
+  push(saveMs, 'save.player', {
+    saved_at: savedAt,
+    player_id: guest.playerUid,
+    name: guest.name,
+    level: guest.level,
+    guild_id: guilds[0]!.id,
+    last_online_at: new Date(startMs - 2 * 86_400_000).toISOString(),
+    progress: progressAt('guest', guest.level)
+  });
+  guilds.forEach((guild, index) => {
+    const roster = rosters.get(guild.id) ?? [];
+    if (index === 0) roster.push({ player_id: guest.playerUid, name: guest.name, role: 'guest' });
+    push(saveMs, 'save.guild', {
+      saved_at: savedAt,
+      guild_id: guild.id,
+      name: saveMs < renameAt ? guild.firstName : guild.name,
+      base_camp_level: 3 + index * 2,
+      members: roster
+    });
+  });
+  const savedBases = bases.filter(
+    (base) => base.createdAt <= saveMs && (base.removedAt === null || saveMs < base.removedAt)
+  );
+  for (const base of savedBases) {
+    push(saveMs, 'save.base', {
+      saved_at: savedAt,
+      base_id: hex(`save-base-${base.key}`, 32),
+      guild_id: guilds[base.guild]!.id,
+      name: base.name,
+      x: base.x,
+      y: base.y,
+      z: base.z,
+      workers: base.workers.map((worker, slot) => ({
+        instance_id: hex(`save-worker-${base.key}-${slot}`, 32),
+        character_id: `${slot === 2 ? 'BOSS_' : ''}${speciesOfClass(worker.className)}`,
+        level: worker.level,
+        name: slot === 1 ? 'Pip' : null
+      }))
+    });
+  }
+  push(saveMs, 'save.read', {
+    saved_at: savedAt,
+    player_ids: [...states.map((state) => state.player.playerUid), guest.playerUid].sort(),
+    guild_ids: guilds.map((guild) => guild.id).sort(),
+    base_ids: savedBases.map((base) => hex(`save-base-${base.key}`, 32)).sort()
+  });
 
   const ordered = events
     .map((event, index) => ({ event, index }))
