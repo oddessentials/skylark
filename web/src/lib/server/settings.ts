@@ -7,9 +7,26 @@ export const featureNames = ['chat', 'guild_chat', 'positions', 'bases', 'pals']
 export type FeatureName = (typeof featureNames)[number];
 export type Features = Record<FeatureName, boolean>;
 
+export interface Retention {
+  positions_days: number | null;
+  snapshots_hours: number;
+  metrics_days: number;
+  status_samples_days: number;
+}
+
+export type RetentionName = keyof Retention;
+
+export const retentionLimits: Record<RetentionName, { min: number; max: number }> = {
+  positions_days: { min: 1, max: 3650 },
+  snapshots_hours: { min: 1, max: 168 },
+  metrics_days: { min: 1, max: 3650 },
+  status_samples_days: { min: 1, max: 3650 }
+};
+
 export interface SiteSettings {
   site_name: string;
   features: Features;
+  retention: Retention;
 }
 
 export const lockableFields = ['site_name'] as const;
@@ -22,6 +39,7 @@ export interface ResolvedSettings extends SiteSettings {
 export interface SettingsUpdate {
   site_name?: string;
   features?: Partial<Features>;
+  retention?: Partial<Retention>;
 }
 
 export interface SettingsEnvironment {
@@ -34,12 +52,18 @@ export const environmentVariables: Record<LockableField, string> = {
 
 export const defaultSettings: SiteSettings = {
   site_name: 'Palworld server',
-  features: { chat: true, guild_chat: false, positions: true, bases: true, pals: true }
+  features: { chat: true, guild_chat: false, positions: true, bases: true, pals: true },
+  retention: { positions_days: null, snapshots_hours: 1, metrics_days: 30, status_samples_days: 90 }
 };
 
 export const siteNameMaxLength = 60;
 
-const updatableKeys = new Set(['site_name', 'features']);
+const updatableKeys = new Set(['site_name', 'features', 'retention']);
+
+function inRange(name: RetentionName, value: unknown): value is number {
+  const { min, max } = retentionLimits[name];
+  return typeof value === 'number' && Number.isInteger(value) && value >= min && value <= max;
+}
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -71,6 +95,25 @@ export function parseSettingsUpdate(body: unknown): SettingsUpdate {
     }
     update.features = features;
   }
+  if ('retention' in body) {
+    if (!isObject(body.retention)) throw badRequest('retention must be an object');
+    const retention: Partial<Retention> = {};
+    for (const [name, value] of Object.entries(body.retention)) {
+      if (!(name in retentionLimits)) throw badRequest(`${name} is not a retention setting`);
+      const key = name as RetentionName;
+      if (key === 'positions_days' && value === null) {
+        retention.positions_days = null;
+        continue;
+      }
+      if (!inRange(key, value)) {
+        const { min, max } = retentionLimits[key];
+        const forever = key === 'positions_days' ? ', or null to keep them forever' : '';
+        throw badRequest(`retention.${key} must be a whole number from ${min} to ${max}${forever}`);
+      }
+      retention[key] = value;
+    }
+    update.retention = retention;
+  }
   return update;
 }
 
@@ -89,9 +132,17 @@ export function resolveSettings(
     const value = storedFeatures[name];
     if (typeof value === 'boolean') features[name] = value;
   }
+  const storedRetention = isObject(stored.retention) ? stored.retention : {};
+  const retention: Retention = { ...defaultSettings.retention };
+  for (const name of Object.keys(retentionLimits) as RetentionName[]) {
+    const value = storedRetention[name];
+    if (name === 'positions_days' && value === null) retention.positions_days = null;
+    else if (inRange(name, value)) retention[name] = value;
+  }
   return {
     site_name: environment.publicSiteName || storedName || defaultSettings.site_name,
     features,
+    retention,
     locked: lockedFields(environment)
   };
 }
@@ -122,6 +173,9 @@ export function createSettingsStore(
     if (update.site_name !== undefined) rows.push({ key: 'site_name', value: update.site_name });
     if (update.features !== undefined) {
       rows.push({ key: 'features', value: { ...current.features, ...update.features } });
+    }
+    if (update.retention !== undefined) {
+      rows.push({ key: 'retention', value: { ...current.retention, ...update.retention } });
     }
     const now = new Date();
     for (const row of rows) {
