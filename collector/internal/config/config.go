@@ -8,6 +8,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strconv"
 	"strings"
 	"time"
@@ -245,6 +246,13 @@ func derive(cfg *Config, restURLSet bool, platform string) error {
 		if cfg.Logs.Source != SourceNone && cfg.Logs.Source != SourceLaunch && format != "" && format != "json" {
 			cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("%s has LogFormatType=%s; set LogFormatType=Json so the collector can read joins, leaves and chat from the log", cfg.ServerIni.Path, cfg.ServerIni.LogFormatType))
 		}
+	}
+	goos := platform
+	if goos == "" {
+		goos = runtime.GOOS
+	}
+	if goos == "windows" && (cfg.Logs.Source == SourceFile || cfg.Logs.Source == SourceStdin) {
+		cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("logs.source is %s: on Windows the server writes its console output to a file or pipe in blocks, which holds joins, leaves and chat back for a minute or more; logs.source = \"launch\" runs the server under a pseudo console and reads every line as it is written", cfg.Logs.Source))
 	}
 	return nil
 }

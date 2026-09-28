@@ -96,9 +96,11 @@ What it needs from the server:
 | --- | --- |
 | `launch` | Starts the server itself. On Windows it runs the server under a pseudo console, which hands over every line at once, where a plain pipe holds lines back for a minute or more. Ctrl+C or a service stop asks the server to save and shut down through REST and waits for it. `-logformat=json` and `-enable-gamedata-api` are added when missing. `launch.command` can be `PalServer.exe`, `PalServer-Win64-Shipping-Cmd.exe` or `PalServer.sh`. |
 | `docker` | Follows a container's log through the Docker Engine API (`/var/run/docker.sock`, the Windows named pipe or `docker.host`). It remembers where it stopped, so a restart neither repeats nor loses lines. |
-| `file` | Follows a file the server's output is written to, through rotation and truncation. |
-| `stdin` | Reads the server's output from a pipe, for example `./PalServer.sh -logformat=json \| SKYLARK_LOGS_SOURCE=stdin ./skylark-collector-linux-amd64`. The collector stops when the server does. |
+| `file` | Follows a file the server's output is written to, through rotation and truncation. On Windows the server writes redirected output in blocks, which holds lines back for a minute or more, so the collector warns about it and `launch` is the better choice there. |
+| `stdin` | Reads the server's output from a pipe, for example `./PalServer.sh -logformat=json \| SKYLARK_LOGS_SOURCE=stdin ./skylark-collector-linux-amd64`. The collector stops when the server does. On Windows a pipe holds lines back the same way. |
 | `none` | REST only. |
+
+On Windows the collector can run as a service. From a terminal opened with Run as administrator, `skylark-collector service install --config C:\skylark\skylark-collector.toml` registers `SkylarkCollector`, which starts with Windows and restarts after a failure. `service start`, `service stop` and `service remove` manage it, and `--name` lets one machine run several. A service stop or a Windows shutdown saves the world and shuts the server down, with up to three minutes for it. As a service the collector writes `skylark-collector.log` and `palworld-server.log` beside its configuration and reads only that file, not the environment variables of the account that installed it. Closing a console window leaves a program about five seconds, so every stop saves the world first and then asks the server to shut down.
 
 The collector reads `skylark-collector.toml` beside the binary, or the file given with `--config`. Every key can also be set with an environment variable named `SKYLARK_` plus the section and key in capitals, such as `SKYLARK_SITE_SECRET`, `SKYLARK_PALWORLD_ADMIN_PASSWORD` or `SKYLARK_INTERVALS_PLAYERS`; `SKYLARK_LAUNCH_ARGS` takes a JSON array or space-separated arguments.
 
