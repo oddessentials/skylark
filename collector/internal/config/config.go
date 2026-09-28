@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io/fs"
+	"net"
 	"net/url"
 	"os"
 	"path/filepath"
@@ -259,6 +260,27 @@ func derive(cfg *Config, restURLSet bool, platform string) error {
 	return nil
 }
 
+var localSuffixes = []string{".local", ".lan", ".internal", ".home.arpa", ".localhost"}
+
+func localHost(host string) bool {
+	host = strings.ToLower(strings.TrimSuffix(host, "."))
+	if host == "" || host == "localhost" {
+		return true
+	}
+	if ip := net.ParseIP(host); ip != nil {
+		return ip.IsLoopback() || ip.IsPrivate() || ip.IsLinkLocalUnicast()
+	}
+	if !strings.Contains(host, ".") {
+		return true
+	}
+	for _, suffix := range localSuffixes {
+		if strings.HasSuffix(host, suffix) {
+			return true
+		}
+	}
+	return false
+}
+
 func validate(cfg *Config, dryRun bool) error {
 	var problems []string
 	if !dryRun {
@@ -273,6 +295,8 @@ func validate(cfg *Config, dryRun bool) error {
 	}
 	if parsed, err := url.Parse(cfg.Palworld.RestURL); err != nil || (parsed.Scheme != "http" && parsed.Scheme != "https") || parsed.Host == "" {
 		problems = append(problems, fmt.Sprintf("palworld.rest_url %q must be an http or https URL", cfg.Palworld.RestURL))
+	} else if parsed.Scheme == "http" && !localHost(parsed.Hostname()) {
+		cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("palworld.rest_url %s is plain HTTP to a public address, so the admin password crosses the internet unencrypted; use https if the host offers it, or reach the server through a VPN or tunnel", cfg.Palworld.RestURL))
 	}
 	if cfg.Palworld.AdminPassword == "" {
 		problems = append(problems, "palworld.admin_password is required; set it, or set palworld.server_dir so it is read from PalWorldSettings.ini")

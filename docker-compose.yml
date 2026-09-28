@@ -40,5 +40,24 @@ services:
       db:
         condition: service_healthy
 
+  collector:
+    profiles: [remote]
+    build:
+      context: .
+      dockerfile: collector/Dockerfile
+    environment:
+      SKYLARK_SITE_URL: http://web:3000
+      SKYLARK_SITE_SECRET: ${COLLECTOR_SECRET}
+      SKYLARK_PALWORLD_REST_URL: ${PALWORLD_REST_URL:-}
+      SKYLARK_PALWORLD_ADMIN_PASSWORD: ${PALWORLD_ADMIN_PASSWORD:-}
+      SKYLARK_LOGS_SOURCE: none
+    volumes:
+      - collector-journal:/data
+    depends_on:
+      web:
+        condition: service_healthy
+    restart: unless-stopped
+
 volumes:
   db-data:
+  collector-journal:
