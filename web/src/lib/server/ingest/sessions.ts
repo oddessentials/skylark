@@ -71,6 +71,36 @@ export async function openSession(
   return { opened: true, tookOver: false };
 }
 
+export async function fillLevelStart(
+  ctx: ProjectionContext,
+  player: PlayerRow,
+  level: number
+): Promise<void> {
+  if (player.currentSessionId === null || level <= 0) return;
+  await ctx.tx
+    .update(sessions)
+    .set({ levelStart: level })
+    .where(and(eq(sessions.id, player.currentSessionId), isNull(sessions.levelStart)));
+}
+
+export async function leftWithin(
+  ctx: ProjectionContext,
+  player: PlayerRow,
+  at: Date,
+  withinMs: number
+): Promise<boolean> {
+  const rows = await ctx.tx
+    .select({ leftAt: sessions.leftAt, endReason: sessions.endReason })
+    .from(sessions)
+    .where(and(eq(sessions.playerId, player.id), isNotNull(sessions.leftAt)))
+    .orderBy(desc(sessions.leftAt))
+    .limit(1);
+  const last = rows[0];
+  if (!last?.leftAt || last.endReason !== 'left') return false;
+  const gap = at.getTime() - last.leftAt.getTime();
+  return gap >= 0 && gap < withinMs;
+}
+
 export async function closeSession(
   ctx: ProjectionContext,
   player: PlayerRow,
