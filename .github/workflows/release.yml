@@ -10,6 +10,8 @@ on:
       - web/Dockerfile.dockerignore
       - collector/Dockerfile
       - collector/Dockerfile.dockerignore
+      - mod/**
+      - scripts/mod-package.mjs
   workflow_dispatch:
 
 permissions:
@@ -57,10 +59,12 @@ jobs:
           cache-dependency-path: |
             collector/go.sum
             savereader/go.sum
-      - run: npm run collector:build && npm run savereader:build
+      - run: npm run collector:build && npm run savereader:build && npm run mod:package
       - run: |
           mkdir -p dist
           cp collector/dist/skylark-collector-* savereader/dist/skylark-savereader-* dist/
+          (cd dist/mod && zip -qr ../skylark-mod.zip SkylarkEvents)
+          rm -rf dist/mod
           cd dist && sha256sum skylark-* > SHA256SUMS
       - uses: actions/upload-artifact@v7
         with:

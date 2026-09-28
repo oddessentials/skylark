@@ -16,4 +16,5 @@ Thumbs.db
 .vscode/
 .idea/
 savereader/dist/
+/dist/
 __pycache__/

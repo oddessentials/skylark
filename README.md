@@ -47,6 +47,7 @@ Playtime, sessions, level history, knockouts and distance travelled for everyone
 - An admin area for the collector, server actions (announce, save, shut down with a countdown, kick, ban), backups and a history rebuild
 - Switches to hide positions, bases, Pals, chat or guild chat
 - A stream overlay with the sun dial and who is on
+- With the optional [server mod](mod/README.md) on a Windows server: catches, hatches, boss clears and technology unlocks in the feed, who or what knocked each player out, and each player's tally of them
 
 ## Install
 
@@ -145,8 +146,11 @@ args = ["-port=8211", "-publiclobby"]
 | `saves.reader` | `skylark-savereader` beside the collector | The save reader. Without one the world save is not read. |
 | `saves.dir` | the `-UserDir` world's `Saved` folder, or `Pal/Saved` in `palworld.server_dir` | Where the world save is. |
 | `saves.interval` | `5m` | How often the collector looks for a newer save; at least `30s`. |
+| `mod.events` | `skylark-events.jsonl` in the UE4SS `Mods` folder of `palworld.server_dir` or the launched server | The [server mod](mod/README.md)'s events file. |
 
 The world save adds what the live interfaces never show: each player's Palpedia, capture counts and tower and field boss records, guild roles and when members were last online, and the Pals working at every base even with nobody near. `skylark-savereader` reads `Level.sav` and the `Players` folder read-only whenever the save is newer, and the collector sends only what changed. It ships beside the collector in releases and in the collector image; in Docker, mount the server's `Pal/Saved` folder read-only and point `SKYLARK_SAVES_DIR` at it. The save reader (`savereader/`) is licensed GPL-3.0 with its own `LICENSE`, because it decodes the saves with [ooz](https://github.com/powzix/ooz), built for WebAssembly by [ooz-wasm](https://github.com/SnosMe/ooz-wasm) 2.0.0; `npm run savereader:wasm` extracts that build from the npm package again, and a test checks its SHA-256.
+
+The optional server mod (`mod/`, for Windows servers with UE4SS) adds what no interface reports at all: each capture and hatch, tower and raid boss clears, technology unlocks, finished buildings, and the cause and the killer of every knockout. It writes them to a file the collector follows; see [its README](mod/README.md) for the install and the file's format.
 
 `skylark-collector check` tests the REST API, the game data, the log source and the site, and `--dry-run` prints the batches instead of sending them.
 

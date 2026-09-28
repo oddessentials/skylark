@@ -11,6 +11,7 @@ const roots = [
   'web/openapi.yaml',
   'collector',
   'savereader',
+  'mod',
   'scripts',
   'tools',
   'art',
@@ -33,7 +34,8 @@ const extensions = new Set([
   '.sh',
   '.yaml',
   '.yml',
-  '.toml'
+  '.toml',
+  '.lua'
 ]);
 const generatedExemptions = [];
 
@@ -575,6 +577,45 @@ function scanToml(text) {
   return findings;
 }
 
+function skipLongBracket(text, start) {
+  const open = /^\[(=*)\[/.exec(text.slice(start, start + 64));
+  if (!open) return -1;
+  const closer = `]${open[1]}]`;
+  const end = text.indexOf(closer, start + open[0].length);
+  return end === -1 ? text.length : end + closer.length;
+}
+
+function scanLua(text) {
+  const findings = [];
+  let i = 0;
+  while (i < text.length) {
+    const c = text[i];
+    if (c === '-' && text[i + 1] === '-') {
+      const after = skipLongBracket(text, i + 2);
+      findings.push({ index: i, message: after === -1 ? 'line comment' : 'block comment' });
+      if (after !== -1) {
+        i = after;
+        continue;
+      }
+      while (i < text.length && text[i] !== '\n') i++;
+      continue;
+    }
+    if (c === '"' || c === "'") {
+      i = skipQuoted(text, i, c, true);
+      continue;
+    }
+    if (c === '[') {
+      const after = skipLongBracket(text, i);
+      if (after !== -1) {
+        i = after;
+        continue;
+      }
+    }
+    i++;
+  }
+  return findings;
+}
+
 const scanners = {
   '.ts': (text) => scanCLike(text, 'js'),
   '.js': (text) => scanCLike(text, 'js'),
@@ -589,7 +630,8 @@ const scanners = {
   '.sh': scanShell,
   '.yaml': scanYaml,
   '.yml': scanYaml,
-  '.toml': scanToml
+  '.toml': scanToml,
+  '.lua': scanLua
 };
 
 function scanMarkers(text) {
