@@ -70,6 +70,12 @@ export async function applySaveGuild(
       name: member.name,
       role: member.role
     })),
+    lab: data.lab
+      ? {
+          current: text(data.lab.current),
+          research: data.lab.research.map((entry) => ({ id: entry.id, work: entry.work }))
+        }
+      : null,
     goneAt: null
   };
   await ctx.tx

@@ -2,9 +2,23 @@ package palworld
 
 import (
 	"fmt"
+	"math"
+	"sort"
 
 	"github.com/oddessentials/skylark/savereader/internal/gvas"
 )
+
+type Lab struct {
+	Current  *string    `json:"current"`
+	Research []Research `json:"research"`
+}
+
+type Research struct {
+	ID   string  `json:"id"`
+	Work float64 `json:"work"`
+}
+
+const noResearch = "None"
 
 const (
 	transformSize        = 80
@@ -157,4 +171,56 @@ func readBase(fields gvas.Properties) (Base, gvas.GUID, error) {
 		return base, "", nil
 	}
 	return base, guidAt(director, workerContainerStart), nil
+}
+
+func readLab(raw []byte) (*Lab, error) {
+	b := &blob{data: raw}
+	n, err := b.count(1 << 16)
+	if err != nil {
+		return nil, err
+	}
+	lab := &Lab{Research: []Research{}}
+	for range n {
+		id, err := b.fstring()
+		if err != nil {
+			return nil, err
+		}
+		work, err := b.f32()
+		if err != nil {
+			return nil, err
+		}
+		if work > 0 && id != "" {
+			lab.Research = append(lab.Research, Research{ID: id, Work: math.Round(float64(work)*10) / 10})
+		}
+	}
+	current, err := b.fstring()
+	if err != nil {
+		return nil, err
+	}
+	if current != "" && current != noResearch {
+		lab.Current = &current
+	}
+	sort.Slice(lab.Research, func(i, j int) bool { return lab.Research[i].ID < lab.Research[j].ID })
+	return lab, nil
+}
+
+func readLabs(entries []gvas.MapEntry) (map[gvas.GUID]*Lab, error) {
+	labs := map[gvas.GUID]*Lab{}
+	for _, entry := range entries {
+		id, ok := entry.Key.(gvas.GUID)
+		if !ok {
+			continue
+		}
+		fields, _ := entry.Value.(gvas.Properties)
+		raw := fields.Fields("Lab").Bytes("RawData")
+		if len(raw) < 4 {
+			continue
+		}
+		lab, err := readLab(raw)
+		if err != nil {
+			return nil, fmt.Errorf("guild %s lab: %w", id, err)
+		}
+		labs[id] = lab
+	}
+	return labs, nil
 }

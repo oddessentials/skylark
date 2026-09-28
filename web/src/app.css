@@ -1388,4 +1388,65 @@ html[data-watch] body {
   .chip[data-rank^='-'] {
     color: var(--color-ink-faint);
   }
+  .map-boss {
+    stroke: var(--color-surface-raised);
+    fill-opacity: 0.95;
+  }
+
+  .map-boss:not([data-beaten]) {
+    fill-opacity: 0.55;
+  }
+
+  .tower-grid th.tower-head {
+    height: 13rem;
+    padding: 0.4rem 0.2rem;
+    vertical-align: bottom;
+    white-space: nowrap;
+  }
+
+  .tower-grid th.tower-head span {
+    display: inline-block;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    max-height: 12.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  .tower-cell {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--color-ink-faint);
+  }
+
+  .tower-cell[data-normal] {
+    color: var(--color-online);
+    font-weight: 600;
+  }
+
+  .tower-cell[data-hard] {
+    color: var(--color-ember);
+    font-weight: 700;
+  }
+
+  .progress-bar {
+    height: 0.4rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--color-line);
+  }
+
+  .progress-bar > span {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--color-accent);
+  }
+
+  .progress-bar[data-tone='ember'] > span {
+    background: var(--color-ember);
+  }
 }

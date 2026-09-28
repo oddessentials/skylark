@@ -35,17 +35,33 @@ type Player struct {
 }
 
 type Progress struct {
-	Palpedia           int            `json:"palpedia"`
-	PalpediaEntries    []string       `json:"palpedia_entries"`
-	SpeciesCaptured    int            `json:"species_captured"`
-	Captures           int            `json:"captures"`
-	SpeciesCaptures    map[string]int `json:"species_captures"`
-	TowerBosses        []string       `json:"tower_bosses"`
-	FieldBosses        int            `json:"field_bosses"`
-	DungeonClears      int            `json:"dungeon_clears"`
-	FixedDungeonClears int            `json:"fixed_dungeon_clears"`
-	Technologies       int            `json:"technologies"`
-	FastTravelPoints   int            `json:"fast_travel_points"`
+	Palpedia             int            `json:"palpedia"`
+	PalpediaEntries      []string       `json:"palpedia_entries"`
+	SpeciesCaptured      int            `json:"species_captured"`
+	Captures             int            `json:"captures"`
+	SpeciesCaptures      map[string]int `json:"species_captures"`
+	TowerBosses          []string       `json:"tower_bosses"`
+	FieldBosses          int            `json:"field_bosses"`
+	DungeonClears        int            `json:"dungeon_clears"`
+	FixedDungeonClears   int            `json:"fixed_dungeon_clears"`
+	Technologies         int            `json:"technologies"`
+	FastTravelPoints     int            `json:"fast_travel_points"`
+	TechnologyIDs        []string       `json:"technology_ids"`
+	TechnologyPoints     int            `json:"technology_points"`
+	BossTechnologyPoints int            `json:"boss_technology_points"`
+	TowerDefeats         map[string]int `json:"tower_defeats"`
+	RaidDefeats          map[string]int `json:"raid_defeats"`
+	FieldBossKeys        []string       `json:"field_boss_keys"`
+	FastTravelKeys       []string       `json:"fast_travel_keys"`
+	AreaKeys             []string       `json:"area_keys"`
+	WorldMaps            []string       `json:"world_maps"`
+	CompletedQuests      []string       `json:"completed_quests"`
+	OrderedQuests        []OrderedQuest `json:"ordered_quests"`
+}
+
+type OrderedQuest struct {
+	ID    string `json:"id"`
+	Block int    `json:"block"`
 }
 
 type Guild struct {
@@ -53,6 +69,7 @@ type Guild struct {
 	Name          string   `json:"name"`
 	BaseCampLevel int      `json:"base_camp_level"`
 	Members       []Member `json:"members"`
+	Lab           *Lab     `json:"lab"`
 }
 
 type Member struct {
@@ -87,6 +104,7 @@ var levelParts = map[string]bool{
 	"worldSaveData.CharacterSaveParameterMap": true,
 	"worldSaveData.BaseCampSaveData":          true,
 	"worldSaveData.GroupSaveDataMap":          true,
+	"worldSaveData.GuildExtraSaveDataMap":     true,
 }
 
 var levelPaths = map[string]bool{
@@ -121,7 +139,8 @@ func levelOptions() gvas.Options {
 		},
 		Struct: func(path string) gvas.StructKind {
 			switch path {
-			case "worldSaveData.GroupSaveDataMap.Key", "worldSaveData.BaseCampSaveData.Key":
+			case "worldSaveData.GroupSaveDataMap.Key", "worldSaveData.BaseCampSaveData.Key",
+				"worldSaveData.GuildExtraSaveDataMap.Key":
 				return gvas.GUIDStruct
 			case "worldSaveData.CharacterSaveParameterMap.Key",
 				"worldSaveData.CharacterSaveParameterMap.Value",
@@ -129,7 +148,11 @@ func levelOptions() gvas.Options {
 				"worldSaveData.BaseCampSaveData.Value",
 				"worldSaveData.MapObjectSaveData.ConcreteModel.ModuleMap.Value",
 				"worldSaveData.ItemContainerSaveData.Key",
-				"worldSaveData.ItemContainerSaveData.Value":
+				"worldSaveData.ItemContainerSaveData.Value",
+				"worldSaveData.GuildExtraSaveDataMap.Value",
+				"worldSaveData.GuildExtraSaveDataMap.Value.GuildItemStorage",
+				"worldSaveData.GuildExtraSaveDataMap.Value.Lab",
+				"worldSaveData.GuildExtraSaveDataMap.Value.Expedition":
 				return gvas.PropertyStruct
 			}
 			return gvas.GuessStruct
@@ -167,6 +190,10 @@ func Extract(level []byte, players map[string][]byte, savedAt time.Time) (*World
 		eggs:       readDynamicEggs(world.Array("DynamicItemSaveData")),
 	}
 	objects := readMapObjects(world.Array("MapObjectSaveData"))
+	labs, err := readLabs(world.Map("GuildExtraSaveDataMap"))
+	if err != nil {
+		return nil, err
+	}
 	out := &World{SavedAt: savedAt.UTC(), Players: []Player{}, Guilds: []Guild{}, Bases: []Base{}}
 	for _, entry := range world.Map("GroupSaveDataMap") {
 		fields, _ := entry.Value.(gvas.Properties)
@@ -178,6 +205,7 @@ func Extract(level []byte, players map[string][]byte, savedAt time.Time) (*World
 		if err != nil {
 			return nil, fmt.Errorf("guild %v: %w", entry.Key, err)
 		}
+		guild.Lab = labs[gvas.GUID(guild.GuildID)]
 		out.Guilds = append(out.Guilds, guild)
 	}
 	for _, entry := range world.Map("BaseCampSaveData") {
@@ -331,26 +359,74 @@ func readPlayer(data []byte) (*time.Time, *Progress, playerContainers, error) {
 		}
 	}
 	sort.Strings(progress.TowerBosses)
-	progress.FieldBosses = countTrue(record.Map("NormalBossDefeatFlag"))
+	progress.FieldBossKeys = trueKeys(record.Map("NormalBossDefeatFlag"))
+	progress.FieldBosses = len(progress.FieldBossKeys)
 	if n, ok := record.Int("NormalDungeonClearCount"); ok {
 		progress.DungeonClears = int(n)
 	}
 	if n, ok := record.Int("FixedDungeonClearCount"); ok {
 		progress.FixedDungeonClears = int(n)
 	}
-	progress.FastTravelPoints = countTrue(record.Map("FastTravelPointUnlockFlag"))
-	progress.Technologies = len(save.Array("UnlockedRecipeTechnologyNames"))
+	progress.FastTravelKeys = trueKeys(record.Map("FastTravelPointUnlockFlag"))
+	progress.FastTravelPoints = len(progress.FastTravelKeys)
+	progress.TechnologyIDs = names(save.Array("UnlockedRecipeTechnologyNames"))
+	sort.Strings(progress.TechnologyIDs)
+	progress.Technologies = len(progress.TechnologyIDs)
+	if n, ok := save.Int("TechnologyPoint"); ok {
+		progress.TechnologyPoints = int(n)
+	}
+	if n, ok := save.Int("bossTechnologyPoint"); ok {
+		progress.BossTechnologyPoints = int(n)
+	}
+	progress.TowerDefeats = counts(record.Map("TowerBossDefeatCount"))
+	progress.RaidDefeats = counts(record.Map("RaidBossDefeatCount"))
+	progress.AreaKeys = trueKeys(record.Map("FindAreaFlagMap"))
+	progress.WorldMaps = trueKeys(record.Map("UnlockedWorldMapFlags"))
+	progress.CompletedQuests = names(save.Array("CompletedQuestArray_FullRelease"))
+	progress.OrderedQuests = []OrderedQuest{}
+	for _, entry := range save.Array("OrderedQuestArray_FullRelease") {
+		quest, _ := entry.(gvas.Struct)
+		id, _ := quest.Fields.String("QuestName")
+		if id == "" || id == "None" {
+			continue
+		}
+		block, _ := quest.Fields.Int("BlockIndex")
+		progress.OrderedQuests = append(progress.OrderedQuests, OrderedQuest{ID: id, Block: int(block)})
+	}
 	return lastOnline, progress, readPlayerContainers(save), nil
 }
 
-func countTrue(entries []gvas.MapEntry) int {
-	n := 0
+func trueKeys(entries []gvas.MapEntry) []string {
+	keys := []string{}
 	for _, entry := range entries {
-		if done, _ := entry.Value.(bool); done {
-			n++
+		name, _ := entry.Key.(string)
+		if done, _ := entry.Value.(bool); done && name != "" {
+			keys = append(keys, name)
 		}
 	}
-	return n
+	sort.Strings(keys)
+	return keys
+}
+
+func counts(entries []gvas.MapEntry) map[string]int {
+	out := map[string]int{}
+	for _, entry := range entries {
+		name, _ := entry.Key.(string)
+		if count, ok := entry.Value.(int64); ok && count > 0 && name != "" {
+			out[name] = int(count)
+		}
+	}
+	return out
+}
+
+func names(items []any) []string {
+	out := []string{}
+	for _, item := range items {
+		if name, ok := item.(string); ok && name != "" && name != "None" {
+			out = append(out, name)
+		}
+	}
+	return out
 }
 
 const ticksPerSecond = 10_000_000

@@ -41,6 +41,7 @@ import {
 import { statusHistory } from '../../src/lib/server/read/history';
 import { getGuildPalpedia, getPlayerPalpedia } from '../../src/lib/server/read/palpedia';
 import { getGuildPals } from '../../src/lib/server/read/pals';
+import { getProgression } from '../../src/lib/server/read/progression';
 import { getPlayer, getTrail, listPlayers, listSessions } from '../../src/lib/server/read/players';
 import { computeOnline, computeStatus } from '../../src/lib/server/read/status';
 import { defaultSettings } from '../../src/lib/server/settings';
@@ -205,6 +206,7 @@ describe('API fixtures', () => {
       await write(`guilds/${guild.id}/pals`, await getGuildPals(db, guild.id));
     }
     await write('map', map);
+    await write('progression', await getProgression(db, now));
     await write('leaderboards', await getLeaderboards(db, features, now));
     await write('world', await getWorld(db, features));
     await write('site', {

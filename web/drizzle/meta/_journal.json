@@ -29,6 +29,13 @@
       "when": 1790624627758,
       "tag": "0003_pal_saves",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1790627828708,
+      "tag": "0004_progression",
+      "breakpoints": true
     }
   ]
 }

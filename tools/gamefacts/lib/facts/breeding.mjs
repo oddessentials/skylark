@@ -33,7 +33,7 @@ function gender(value) {
   return name.toLowerCase();
 }
 
-function classDefaults(game) {
+export function classDefaults(game) {
   const pkg = game.asset(BLUEPRINTS.gameSetting);
   const index = pkg.findExport('Default__BP_PalGameSetting_C');
   if (!index) throw new Error(`${BLUEPRINTS.gameSetting} has no class default object`);

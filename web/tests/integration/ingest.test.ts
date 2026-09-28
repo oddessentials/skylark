@@ -25,6 +25,7 @@ import { computeOnline, computeStatus } from '../../src/lib/server/read/status';
 import { getGuild, getMap } from '../../src/lib/server/read/community';
 import { getGuildPalpedia, getPlayerPalpedia } from '../../src/lib/server/read/palpedia';
 import { getGuildPals } from '../../src/lib/server/read/pals';
+import { getProgression } from '../../src/lib/server/read/progression';
 import { getPlayer } from '../../src/lib/server/read/players';
 import { defaultSettings } from '../../src/lib/server/settings';
 import { POST as ingest } from '../../src/routes/api/ingest/+server';
@@ -245,7 +246,31 @@ describe('POST /api/ingest', () => {
           dungeon_clears: 5,
           fixed_dungeon_clears: 11,
           technologies: 112,
-          fast_travel_points: 32
+          fast_travel_points: 32,
+          technology_ids: ['Workbench', 'BreedFarm', 'WingGlider', 'NotATech'],
+          technology_points: 7,
+          boss_technology_points: 2,
+          tower_defeats: {
+            GrassBoss_Normal: 2,
+            GrassBoss_Hard: 1,
+            WorldTreeMiddleBoss1_Normal: 1,
+            Bogus_Normal: 1
+          },
+          raid_defeats: { RAID_NightLady_Normal: 3 },
+          field_boss_keys: ['81_1_grass_FBOSS_9', 'BOSS_Hunter_Rifle', 'nope'],
+          fast_travel_keys: ['6E03F8464BAD9E458B843AA30BE1CC8F'],
+          area_keys: ['Grass_001', 'BOSS_KingWhale'],
+          world_maps: ['MainMap', 'Tree'],
+          completed_quests: [
+            'Main_UnlockFastTravel',
+            'Main_TutorialStart',
+            'Hidden_X',
+            'Main_DefeatForestBoss'
+          ],
+          ordered_quests: [
+            { id: 'Main_DefeatVolcanoBoss', block: 2 },
+            { id: 'Sub_Farmer04', block: 0 }
+          ]
         }
       },
       910_001
@@ -259,7 +284,14 @@ describe('POST /api/ingest', () => {
         members: [
           { player_id: 'ABCDEF01000000000000000000000000', name: 'Offline Friend', role: 'member' },
           { player_id: player!.playerUid, name: player!.name, role: 'guild_master' }
-        ]
+        ],
+        lab: {
+          current: 'Seeding2',
+          research: [
+            { id: 'Handcraft1', work: 50014 },
+            { id: 'Seeding2', work: 20000 }
+          ]
+        }
       },
       910_002
     );
@@ -476,6 +508,57 @@ describe('POST /api/ingest', () => {
       { species: 'FoxMage', alpha: true, name: 'Ember', level: 28 },
       { species: 'SheepBall', alpha: false, name: null, level: 9 }
     ]);
+    const board = await getProgression(db);
+    expect(board.saved_at).toBe(at);
+    expect(board.towers).toHaveLength(13);
+    expect(board.totals).toMatchObject({ story: 31, technology: 588, research: 168 });
+    const boardIndex = board.players.findIndex((entry) => entry.player?.id === player!.id);
+    const boardPlayer = board.players[boardIndex]!;
+    expect(boardPlayer.name).toBe(player!.nameOverride ?? player!.name);
+    expect(boardPlayer.guild?.id).toBe(player!.guildId ?? guildId);
+    expect(boardPlayer.towers.map((clear) => [clear.tower, clear.difficulty, clear.count])).toEqual(
+      [
+        ['GrassBoss', 'normal', 2],
+        ['GrassBoss', 'hard', 1],
+        ['WorldTreeMiddleBoss1', 'normal', 1]
+      ]
+    );
+    expect(boardPlayer.story).toEqual({
+      completed: 3,
+      total: 31,
+      stage: { id: 'Main_DefeatForestBoss', title: 'Thou Shalt Not Harm Pals', stage: 16 },
+      current: [{ id: 'Main_DefeatVolcanoBoss', title: 'Flawless Victory Fixation', stage: 17 }]
+    });
+    expect(boardPlayer.technology).toMatchObject({
+      unlocked: 4,
+      total: 588,
+      tier: 80,
+      boss_unlocked: 2,
+      boss_total: 51,
+      points: 7,
+      boss_points: 2
+    });
+    expect(boardPlayer).toMatchObject({
+      field_bosses: 3,
+      raids: 3,
+      fast_travel: 1,
+      areas: 2,
+      world_tree: true
+    });
+    expect(boardPlayer.playtime_s).toBeGreaterThan(0);
+    const chillet = board.field_bosses.find((entry) => entry.spawner === '81_1_grass_FBOSS_9')!;
+    expect(chillet.kind).toBe('field_boss');
+    expect(chillet.beaten_by).toContain(boardIndex);
+    const hunter = board.field_bosses.find((entry) => entry.spawner === 'BOSS_Hunter_Rifle')!;
+    expect(hunter.kind).toBe('wanted');
+    expect(hunter.beaten_by).toEqual([boardIndex]);
+    const research = board.guilds.find((entry) => entry.guild.id === guildId)!;
+    expect(research.done).toBe(1);
+    expect(research.total).toBe(168);
+    expect(research.completed).toEqual([{ id: 'Handcraft1', name: 'Handiwork Speed 1' }]);
+    expect(research.current).toMatchObject({ id: 'Seeding2', work: 20000 });
+    expect(research.current!.share).toBeGreaterThan(0);
+    expect(research.current!.share).toBeLessThan(1);
     const map = await getMap(db, features);
     const mapBase = map.bases.find((entry) => entry.id === base!.id)!;
     expect(mapBase.workers).toBe(2);

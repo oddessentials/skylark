@@ -4,6 +4,7 @@
   import ErrorNote from '$lib/ui/ErrorNote.svelte';
   import { useLive } from '$lib/ui/live.svelte';
   import { guildColor } from '$lib/ui/map';
+  import { beatenCount, bossLegend, bossMarkersOf } from '$lib/ui/progression';
   import PageHeader from '$lib/ui/PageHeader.svelte';
   import Time from '$lib/ui/Time.svelte';
   import WorldMap from '$lib/ui/WorldMap.svelte';
@@ -19,6 +20,10 @@
   let showWild = $state(true);
   let showDeaths = $state(true);
   let showLandmarks = $state(true);
+  let showBosses = $state(false);
+  const board = $derived(data.progression.ok ? data.progression.data : null);
+  const bossMarkers = $derived(board && showBosses ? bossMarkersOf(board) : null);
+  const bossKey = $derived(board ? bossLegend(board) : []);
   let focus = $state<{ x: number; y: number } | null>(null);
   let focused = $state<number | null>(null);
 
@@ -60,6 +65,7 @@
         {focus}
         highlight={focused}
         {habitat}
+        bosses={bossMarkers}
         initialMap={startMap}
       />
       <div class="flex flex-col gap-4">
@@ -74,6 +80,26 @@
             <label class="flex items-center gap-2"
               ><input type="checkbox" bind:checked={showDeaths} /> Knockouts, last 24 hours</label
             >
+            {#if board}
+              <label class="flex items-center gap-2"
+                ><input type="checkbox" bind:checked={showBosses} /> Field bosses, by who beat them</label
+              >
+              {#if showBosses}
+                <p class="text-[0.72rem] text-ink-muted">
+                  {beatenCount(board)} of {board.field_bosses.length} beaten
+                  {#each bossKey as entry (entry.index)}
+                    <span class="ml-2 inline-flex items-center gap-1"
+                      ><span
+                        class="inline-block size-2.5 rounded-sm"
+                        style="background: {entry.color}"
+                        aria-hidden="true"
+                      ></span>{entry.name}
+                      {entry.beaten}</span
+                    >
+                  {/each}
+                </p>
+              {/if}
+            {/if}
             <form method="get" class="flex flex-col gap-1.5 border-t border-line pt-2">
               <label class="flex flex-col gap-1">
                 <span>Where a Pal lives, from the game's habitat data</span>

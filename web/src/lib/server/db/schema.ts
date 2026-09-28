@@ -365,6 +365,32 @@ export interface SavedProgress {
   fixed_dungeon_clears: number;
   technologies: number;
   fast_travel_points: number;
+  technology_ids?: string[];
+  technology_points?: number;
+  boss_technology_points?: number;
+  tower_defeats?: Record<string, number>;
+  raid_defeats?: Record<string, number>;
+  field_boss_keys?: string[];
+  fast_travel_keys?: string[];
+  area_keys?: string[];
+  world_maps?: string[];
+  completed_quests?: string[];
+  ordered_quests?: SavedOrderedQuest[];
+}
+
+export interface SavedOrderedQuest {
+  id: string;
+  block: number;
+}
+
+export interface SavedGuildResearch {
+  id: string;
+  work: number;
+}
+
+export interface SavedGuildLab {
+  current: string | null;
+  research: SavedGuildResearch[];
 }
 
 export interface SavedGuildMember {
@@ -397,6 +423,7 @@ export const guildSaves = pgTable('guild_saves', {
   name: text('name').notNull(),
   baseCampLevel: integer('base_camp_level'),
   members: jsonb('members').$type<SavedGuildMember[]>().notNull(),
+  lab: jsonb('lab').$type<SavedGuildLab | null>(),
   goneAt: utc('gone_at')
 });
 

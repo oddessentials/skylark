@@ -14,6 +14,7 @@
     onMap,
     project,
     rectOf,
+    type BossMarker,
     type HabitatLayer
   } from './map';
 
@@ -26,6 +27,7 @@
     initialMap = 'MainMap',
     focus = null,
     habitat = null,
+    bosses = null,
     label = 'World map'
   }: {
     world: MapState | null;
@@ -36,6 +38,7 @@
     initialMap?: MapId;
     focus?: { x: number; y: number } | null;
     habitat?: HabitatLayer | null;
+    bosses?: BossMarker[] | null;
     label?: string;
   } = $props();
 
@@ -120,6 +123,11 @@
     (world?.wild ?? [])
       .filter((pal) => onMap(pal.x, pal.y, mapId))
       .map((pal) => ({ ...pal, at: project(pal.x, pal.y, rect) }))
+  );
+  const bossMarks = $derived(
+    (bosses ?? [])
+      .filter((boss) => onMap(boss.x, boss.y, mapId))
+      .map((boss) => ({ ...boss, at: project(boss.x, boss.y, rect) }))
   );
   const deaths = $derived(
     (world?.deaths ?? [])
@@ -383,6 +391,21 @@
           (hovered = `${speciesInfo(pal.species)?.name ?? pal.name ?? pal.species}, level ${pal.level}`)}
         onpointerleave={() => (hovered = null)}
       />
+    {/each}
+    {#each bossMarks as boss (boss.id)}
+      <path
+        d="M {boss.at.x} {boss.at.y - 4.2 * k} l {4.2 * k} {4.2 * k} l {-4.2 * k} {4.2 *
+          k} l {-4.2 * k} {-4.2 * k} Z"
+        fill={boss.color}
+        class="map-boss"
+        data-beaten={boss.beaten ? 'true' : undefined}
+        stroke-width={1.1 * k}
+        role="presentation"
+        onpointerenter={() => (hovered = boss.label)}
+        onpointerleave={() => (hovered = null)}
+      >
+        <title>{boss.label}</title>
+      </path>
     {/each}
     {#each deaths as death, index (index)}
       <g

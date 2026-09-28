@@ -2,6 +2,7 @@
   "game_version": "1.0.5.102999",
   "sources": [
     "/Game/Pal/Maps/MainWorld_5/PL_MainWorld5 and its World Partition cells",
+    "guid: the actor LevelObjectInstanceId with each 4-byte group byte-swapped, the key of RecordData.FastTravelPointUnlockFlag",
     "/Game/Pal/DataTable/UI/DT_BossSpawnerLoactionData",
     "/Game/Pal/DataTable/Dungeon/DT_DungeonSpawnAreaDataTable",
     "/Game/Pal/DataTable/Text/DT_MapRespawnPointInfoText",
@@ -19,6 +20,7 @@
     {
       "id": "Boss_Forest",
       "name": "Free Pal Alliance Tower Entrance",
+      "guid": "A51FC0C147435750046C48B254793A8B",
       "position": [-265220, 173530, 5810],
       "map": "MainMap",
       "display": [34, -308]
@@ -26,6 +28,7 @@
     {
       "id": "Boss_KingWhale",
       "name": "Deserted Islet",
+      "guid": "77699B11460416B57ADEDFB989B78E68",
       "position": [-108666.7, 79119.9, 395.5],
       "map": "MainMap",
       "display": [-172, 33]
@@ -33,6 +36,7 @@
     {
       "id": "FTPoint1",
       "name": "Mount Obsidian - Midpoint",
+      "guid": "AECFED0D41AFEE11F30B4F9687BC3243",
       "position": [-327531.8, -70410.5, 18970],
       "map": "MainMap",
       "display": [-498, -444]
@@ -40,6 +44,7 @@
     {
       "id": "FTPoint100",
       "name": "Verdant Stream",
+      "guid": "EC4896F44C4C9BD993DAE2B2C1F31BBA",
       "position": [-74928.6, 212787.1, 9490.9],
       "map": "MainMap",
       "display": [119, 107]
@@ -47,6 +52,7 @@
     {
       "id": "FTPoint101",
       "name": "Desiccated Coast",
+      "guid": "BD9306974C7C85C4B76B318D2A397F4C",
       "position": [14388.2, 476545.6, -1918.3],
       "map": "MainMap",
       "display": [694, 301]
@@ -54,6 +60,7 @@
     {
       "id": "FTPoint102",
       "name": "Thirst's End",
+      "guid": "E8A85FF544C205E1B04F7E93109B8197",
       "position": [-71914.8, 472172.2, -2019.3],
       "map": "MainMap",
       "display": [684, 113]
@@ -61,6 +68,7 @@
     {
       "id": "FTPoint103",
       "name": "Desert Backbone",
+      "guid": "825ED1AD422E5E0C94332C835B74D3B4",
       "position": [-38212, 406147.1, 10096.2],
       "map": "MainMap",
       "display": [541, 187]
@@ -68,6 +76,7 @@
     {
       "id": "FTPoint104",
       "name": "Sandbar of Solitude",
+      "guid": "4DA12CD449AA1A3DB7C6CABF9D6EA90D",
       "position": [-105662.5, 400797, 5159.2],
       "map": "MainMap",
       "display": [529, 40]
@@ -75,6 +84,7 @@
     {
       "id": "FTPoint105",
       "name": "The Furthest Flats",
+      "guid": "C94EC2744732C721BA6144802FD11EC2",
       "position": [191211.2, 375334.7, 964.8],
       "map": "MainMap",
       "display": [473, 686]
@@ -82,6 +92,7 @@
     {
       "id": "FTPoint106",
       "name": "Seaward Passage",
+      "guid": "2913E38E4924F762AF9B129303898A31",
       "position": [178736.6, 305772.4, -1604.7],
       "map": "MainMap",
       "display": [322, 659]
@@ -89,6 +100,7 @@
     {
       "id": "FTPoint107",
       "name": "Frozen Dune Cape",
+      "guid": "C2A21FB148CA559F4814029637CEF75F",
       "position": [125988.7, 274597.8, 752.7],
       "map": "MainMap",
       "display": [254, 544]
@@ -96,6 +108,7 @@
     {
       "id": "FTPoint108",
       "name": "Windwatch Outlook",
+      "guid": "2F3A56DA4022EB1E43D3439ECEE2AA2C",
       "position": [12156.8, 249201.4, 2949.1],
       "map": "MainMap",
       "display": [199, 296]
@@ -103,6 +116,7 @@
     {
       "id": "FTPoint109",
       "name": "Mount Obsidian - Second Ascent",
+      "guid": "4DB2FF944B1E545F41FBC6AF86BEBEB5",
       "position": [-259198.7, -59353.4, 10128.6],
       "map": "MainMap",
       "display": [-474, -295]
@@ -110,6 +124,7 @@
     {
       "id": "FTPoint11",
       "name": "Sand Dunes Entrance",
+      "guid": "2BC5E46049E69D3549CFB58948BE3288",
       "position": [-50301, 287392.4, 264.8],
       "map": "MainMap",
       "display": [282, 160]
@@ -117,6 +132,7 @@
     {
       "id": "FTPoint110",
       "name": "Mount Obsidian Trail",
+      "guid": "837C6214424040FCEF9D48BA20E248BA",
       "position": [-287201.4, -217569, 2651.4],
       "map": "MainMap",
       "display": [-818, -356]
@@ -124,6 +140,7 @@
     {
       "id": "FTPoint111",
       "name": "Dry Dunes",
+      "guid": "20B16780488A8F23A80502BC608A0192",
       "position": [-415272.2, -162408.6, 14643.4],
       "map": "MainMap",
       "display": [-698, -635]
@@ -131,6 +148,7 @@
     {
       "id": "FTPoint112",
       "name": "Heatwave Gate",
+      "guid": "618F02C546F191912D42398685A2BBA2",
       "position": [-301681.9, -5184.1, 524.7],
       "map": "MainMap",
       "display": [-356, -387]
@@ -138,6 +156,7 @@
     {
       "id": "FTPoint113",
       "name": "Thawtide Cape",
+      "guid": "04CB216B487AD789C47E2DBA08B0B49F",
       "position": [69604.1, 196989.3, 20218.3],
       "map": "MainMap",
       "display": [85, 422]
@@ -145,6 +164,7 @@
     {
       "id": "FTPoint114",
       "name": "Garden Beneath the Astral Mountains",
+      "guid": "211BCB174B47C566C6F92E9CEB999F98",
       "position": [107940.7, -28036.3, 24447.9],
       "map": "MainMap",
       "display": [-405, 505]
@@ -152,6 +172,7 @@
     {
       "id": "FTPoint115",
       "name": "Garden Beneath the Cliffs",
+      "guid": "DD7137634D024A8FCFE6CB9F08887F86",
       "position": [-38097.3, 53412.5, 278.4],
       "map": "MainMap",
       "display": [-228, 187]
@@ -159,6 +180,7 @@
     {
       "id": "FTPoint116",
       "name": "Sakurajima: West Coast",
+      "guid": "341551F747D44FA84DB87F8C8D2DCB48",
       "position": [-43926.7, -173601, 934.5],
       "map": "MainMap",
       "display": [-722, 174]
@@ -166,6 +188,7 @@
     {
       "id": "FTPoint117",
       "name": "Crimson Cliffs",
+      "guid": "FC8F024D40741A133EB9DA88201AE7F0",
       "position": [-578061, -158216.1, 7648.5],
       "map": "MainMap",
       "display": [-689, -989]
@@ -173,6 +196,7 @@
     {
       "id": "FTPoint118",
       "name": "Hill Entrance",
+      "guid": "59AABD184966FE16E9BA8EA0BD0EFDED",
       "position": [-509887.2, -299269, 718.6],
       "map": "MainMap",
       "display": [-996, -841]
@@ -180,6 +204,7 @@
     {
       "id": "FTPoint119",
       "name": "Curved Redrock",
+      "guid": "CAC914F54EE678E09CF8ECA4D81E60A0",
       "position": [-506737.8, -396063.4, 2103.6],
       "map": "MainMap",
       "display": [-1207, -834]
@@ -187,6 +212,7 @@
     {
       "id": "FTPoint12",
       "name": "Duneshelter",
+      "guid": "3697999C458BF8A3C7973382969FBDF9",
       "position": [35588.7, 321331.2, 623],
       "map": "MainMap",
       "display": [356, 347]
@@ -194,6 +220,7 @@
     {
       "id": "FTPoint120",
       "name": "Scarlet Outlook",
+      "guid": "A166CA6F4C1D191AA59951AD1CA49A92",
       "position": [-603491.1, -338965.3, 16585],
       "map": "MainMap",
       "display": [-1083, -1045]
@@ -201,6 +228,7 @@
     {
       "id": "FTPoint121",
       "name": "Crimson Labyrinth",
+      "guid": "4C1930B54689C3825400F6B3954FC07B",
       "position": [-651722.9, -373365.2, 30373.2],
       "map": "MainMap",
       "display": [-1158, -1150]
@@ -208,6 +236,7 @@
     {
       "id": "FTPoint122",
       "name": "Crystallized Great Tree",
+      "guid": "8C1EE640439F980EA6BA3D9B256D4FAD",
       "position": [-644486, -276536.5, 11481.6],
       "map": "MainMap",
       "display": [-947, -1134]
@@ -215,6 +244,7 @@
     {
       "id": "FTPoint123",
       "name": "Wildlands Floodgate",
+      "guid": "82C086DB44672C9D828F19B3A383BE70",
       "position": [-725188.8, -238441.9, 7291.7],
       "map": "MainMap",
       "display": [-864, -1310]
@@ -222,6 +252,7 @@
     {
       "id": "FTPoint124",
       "name": "Oilfield Overlook",
+      "guid": "69A3B9E64018BA4C158BDDA7CD713463",
       "position": [-714540.9, -458346.6, -2080.6],
       "map": "MainMap",
       "display": [-1343, -1287]
@@ -229,6 +260,7 @@
     {
       "id": "FTPoint125",
       "name": "Shady Mushroom Cliffs",
+      "guid": "80729706432E53B2A3D07C82D14C8749",
       "position": [-771223.4, -441798.3, -337.4],
       "map": "MainMap",
       "display": [-1307, -1410]
@@ -236,6 +268,7 @@
     {
       "id": "FTPoint126",
       "name": "Silent Lake",
+      "guid": "4618840B4FE6381FC6982AA5282F9614",
       "position": [-810648.4, -393963.7, 5908.8],
       "map": "MainMap",
       "display": [-1203, -1496]
@@ -243,6 +276,7 @@
     {
       "id": "FTPoint127",
       "name": "Azure Cliffs",
+      "guid": "DC7376744AEDB97BBEB044AA3AACAB26",
       "position": [-865524.3, -352355, -123.6],
       "map": "MainMap",
       "display": [-1112, -1616]
@@ -250,6 +284,7 @@
     {
       "id": "FTPoint128",
       "name": "Amethyst Outcrop",
+      "guid": "F88417694DF90381B2B21D9E039B2CCD",
       "position": [-923275.1, -385109.1, -258.8],
       "map": "MainMap",
       "display": [-1183, -1742]
@@ -257,6 +292,7 @@
     {
       "id": "FTPoint129",
       "name": "Exile's Cape",
+      "guid": "B795E2B14189A7D1EEAD6E97E89C91B7",
       "position": [-886234.2, -483745.9, -1122.7],
       "map": "MainMap",
       "display": [-1398, -1661]
@@ -264,6 +300,7 @@
     {
       "id": "FTPoint13",
       "name": "Deep Sand Dunes",
+      "guid": "4669582D4081BF550AFB66A05D043A3D",
       "position": [117624.2, 400134.8, -1949.7],
       "map": "MainMap",
       "display": [528, 526]
@@ -271,6 +308,7 @@
     {
       "id": "FTPoint14",
       "name": "Cold Shore",
+      "guid": "DC0ECF9241B4410C59EE619F56D1106A",
       "position": [-119037.3, 138340.4, -1220.3],
       "map": "MainMap",
       "display": [-43, 11]
@@ -278,6 +316,7 @@
     {
       "id": "FTPoint15",
       "name": "No Man's Trail",
+      "guid": "71C4B2B2407F2BBBD77572A20C7FF0F5",
       "position": [-80506.2, 141464.8, 8131.1],
       "map": "MainMap",
       "display": [-36, 95]
@@ -285,6 +324,7 @@
     {
       "id": "FTPoint16",
       "name": "Icy Weasel Hill",
+      "guid": "EC94023A4CA571FF0FD19E90944F4231",
       "position": [-39402.4, 159611.9, 16996.2],
       "map": "MainMap",
       "display": [4, 184]
@@ -292,6 +332,7 @@
     {
       "id": "FTPoint17",
       "name": "Unthawable Lake",
+      "guid": "2A2B744B41AC79964DAE6B89CAC51FC3",
       "position": [8000.5, 111770.5, 2554.4],
       "map": "MainMap",
       "display": [-101, 287]
@@ -299,6 +340,7 @@
     {
       "id": "FTPoint18",
       "name": "Land of Absolute Zero",
+      "guid": "22095BFA48A46172F8D154B2EBEB7493",
       "position": [102159.8, 48527, 28394.3],
       "map": "MainMap",
       "display": [-239, 492]
@@ -306,6 +348,7 @@
     {
       "id": "FTPoint20",
       "name": "PAL Genetic Research Unit Tower Entrance",
+      "guid": "E0819EFB41581AEAC3A029B0EE2FE195",
       "position": [89625, 94363.3, 67279.1],
       "map": "MainMap",
       "display": [-139, 465]
@@ -313,6 +356,7 @@
     {
       "id": "FTPoint21",
       "name": "Grassy Behemoth Hills",
+      "guid": "DDBBFFAF43D9219AE68DF98744DF0831",
       "position": [-342035, 236885, -1751.6],
       "map": "MainMap",
       "display": [172, -475]
@@ -320,6 +364,7 @@
     {
       "id": "FTPoint22",
       "name": "Desolate Church",
+      "guid": "6282FE1E4029EDCDB14135AA4C171E4C",
       "position": [-314840, 186850, 3270],
       "map": "MainMap",
       "display": [63, -416]
@@ -327,6 +372,7 @@
     {
       "id": "FTPoint23",
       "name": "Hill of Beginnings",
+      "guid": "6E03F8464BAD9E458B843AA30BE1CC8F",
       "position": [-358785, 267940, 7910],
       "map": "MainMap",
       "display": [240, -512]
@@ -334,6 +380,7 @@
     {
       "id": "FTPoint24",
       "name": "Small Settlement",
+      "guid": "979BF2044C8E8FE559B598A95A83EDE3",
       "position": [-346617.6, 191706.6, -308.7],
       "map": "MainMap",
       "display": [73, -485]
@@ -341,6 +388,7 @@
     {
       "id": "FTPoint25",
       "name": "Ascetic Falls",
+      "guid": "23B9E99C4A454B99220AF7B4A58FD8DE",
       "position": [-326403.9, 55136.7, 6872],
       "map": "MainMap",
       "display": [-224, -441]
@@ -348,6 +396,7 @@
     {
       "id": "FTPoint26",
       "name": "Foot of the Volcano",
+      "guid": "A1BC65AA445619EF338E0388BC010648",
       "position": [-349535.5, -4035.1, 859.4],
       "map": "MainMap",
       "display": [-353, -492]
@@ -355,6 +404,7 @@
     {
       "id": "FTPoint27",
       "name": "Sealed Realm of the Frozen Wings",
+      "guid": "9FBB93D84811BE424A37C391DBFBB476",
       "position": [-278468, 212679.4, -910.3],
       "map": "MainMap",
       "display": [119, -337]
@@ -362,6 +412,7 @@
     {
       "id": "FTPoint28",
       "name": "Fort Ruins",
+      "guid": "41727100495D21DC905D309C53989914",
       "position": [-302825, 241060, -1089.7],
       "map": "MainMap",
       "display": [181, -390]
@@ -369,6 +420,7 @@
     {
       "id": "FTPoint29",
       "name": "Sealed Realm of the Swordmaster",
+      "guid": "79C561B747335A7A0A8FBF9FAE280E62",
       "position": [-283781, 59352.7, 5226.4],
       "map": "MainMap",
       "display": [-215, -348]
@@ -376,6 +428,7 @@
     {
       "id": "FTPoint3",
       "name": "Brothers of the Eternal Pyre Tower Entrance",
+      "guid": "5970E8E648D2A83AFDFF7C9151D9BEF5",
       "position": [-367707.8, -114950.9, 61372.7],
       "map": "MainMap",
       "display": [-595, -531]
@@ -383,6 +436,7 @@
     {
       "id": "FTPoint30",
       "name": "Investigator's Fork",
+      "guid": "B001852C491FF5E70C4747BFF9972924",
       "position": [-218636.8, 58528.1, 3716.2],
       "map": "MainMap",
       "display": [-217, -206]
@@ -390,6 +444,7 @@
     {
       "id": "FTPoint31",
       "name": "Ancient Ritual Site",
+      "guid": "16C7164C43E2B96BEDCC6696E2E592F7",
       "position": [-257951.4, 151247.8, -8.3],
       "map": "MainMap",
       "display": [-15, -292]
@@ -397,6 +452,7 @@
     {
       "id": "FTPoint32",
       "name": "Mount Flopie Summit",
+      "guid": "28D514E74B51FD9EB078A891DB0787C2",
       "position": [-167684.9, 167519.2, 9175.6],
       "map": "MainMap",
       "display": [21, -95]
@@ -404,6 +460,7 @@
     {
       "id": "FTPoint33",
       "name": "Lake Center",
+      "guid": "F8DF603B4C750B37D943C9AF6A911946",
       "position": [-221230, 165130, -54],
       "map": "MainMap",
       "display": [16, -212]
@@ -411,6 +468,7 @@
     {
       "id": "FTPoint34",
       "name": "Hypocrite Hill",
+      "guid": "923B781345D2AB7ECED6BABD6E97ECE8",
       "position": [-237610, 190610, 3987.8],
       "map": "MainMap",
       "display": [71, -248]
@@ -418,6 +476,7 @@
     {
       "id": "FTPoint35",
       "name": "Sealed Realm of the Mystic",
+      "guid": "ACAE5FB04D48DE4197443E9C0993086B",
       "position": [-151842, 213101.5, 3279.4],
       "map": "MainMap",
       "display": [120, -61]
@@ -425,6 +484,7 @@
     {
       "id": "FTPoint36",
       "name": "Snowy Mountain Crossroads",
+      "guid": "4D2F204549AB656CA1EA4B8E39C484F3",
       "position": [-125476, 201720, 6886],
       "map": "MainMap",
       "display": [95, -3]
@@ -432,6 +492,7 @@
     {
       "id": "FTPoint37",
       "name": "Frostbound Mountains Summit",
+      "guid": "1BDEABA240B1699541C17F83E59E61DF",
       "position": [-103435, 234761.2, 19438.5],
       "map": "MainMap",
       "display": [167, 45]
@@ -439,6 +500,7 @@
     {
       "id": "FTPoint38",
       "name": "Sealed Realm of the Swift",
+      "guid": "A277AE6341EF40D84D711EA52303353F",
       "position": [-115430, 289090, 3045.2],
       "map": "MainMap",
       "display": [286, 18]
@@ -446,6 +508,7 @@
     {
       "id": "FTPoint39",
       "name": "Mossanda Forest",
+      "guid": "2DE1702048A1D4A82126168C49BE51A9",
       "position": [-177770, 265010, 873.2],
       "map": "MainMap",
       "display": [233, -117]
@@ -453,6 +516,7 @@
     {
       "id": "FTPoint4",
       "name": "Ancient Civilization Ruins",
+      "guid": "2EC07ACC4505CB726DE38A84246CA999",
       "position": [-414446.7, -24603.3, 3560.1],
       "map": "MainMap",
       "display": [-398, -633]
@@ -460,6 +524,7 @@
     {
       "id": "FTPoint40",
       "name": "Gobfin's Turf",
+      "guid": "BF8B123244ADB794A06EA8A10503FBDD",
       "position": [-219172.9, 226394.8, -1970.4],
       "map": "MainMap",
       "display": [149, -208]
@@ -467,6 +532,7 @@
     {
       "id": "FTPoint41",
       "name": "Cinnamoth Forest",
+      "guid": "15314BE94E2FB8D018D5749BE9A318F0",
       "position": [-248770.1, 126205.8, 5847.4],
       "map": "MainMap",
       "display": [-69, -272]
@@ -474,6 +540,7 @@
     {
       "id": "FTPoint42",
       "name": "Sealed Realm of the Ardent",
+      "guid": "DF9FB9CB41B43052A9C74FA79A826A50",
       "position": [-338560, 107660, -1390],
       "map": "MainMap",
       "display": [-110, -468]
@@ -481,6 +548,7 @@
     {
       "id": "FTPoint43",
       "name": "Deep Bamboo Thicket",
+      "guid": "B44AA24445864494E7569597ACCAEFC6",
       "position": [-215388.5, 8854.2, 13150.7],
       "map": "MainMap",
       "display": [-325, -199]
@@ -488,6 +556,7 @@
     {
       "id": "FTPoint44",
       "name": "Sealed Realm of the Myriad Flames",
+      "guid": "3A0F123947BE045BC415C6B061A5285A",
       "position": [-195236.2, 36718.5, 8293.6],
       "map": "MainMap",
       "display": [-264, -155]
@@ -495,6 +564,7 @@
     {
       "id": "FTPoint45",
       "name": "Rayne Syndicate Tower Entrance",
+      "guid": "603ED0CD4CFB9AFDC9E11F805594CCE5",
       "position": [-317777.2, 212103.3, -762.6],
       "map": "MainMap",
       "display": [118, -422]
@@ -502,6 +572,7 @@
     {
       "id": "FTPoint48",
       "name": "Pristine Snow Field",
+      "guid": "75BD9923489E2A4EBCED5A81175D5928",
       "position": [6, 0, 6589],
       "map": "MainMap",
       "display": [-344, 270]
@@ -509,6 +580,7 @@
     {
       "id": "FTPoint49",
       "name": "Isle of Silence",
+      "guid": "41E36D9A4B2BA79A3AD1B7B83B16F77D",
       "position": [-137210, -91340, -2090],
       "map": "MainMap",
       "display": [-543, -29]
@@ -516,6 +588,7 @@
     {
       "id": "FTPoint5",
       "name": "Fisherman's Point",
+      "guid": "5F426B49469368B0C131D3A6DB8F7831",
       "position": [-465895, -62137.8, -1834.4],
       "map": "MainMap",
       "display": [-480, -745]
@@ -523,6 +596,7 @@
     {
       "id": "FTPoint50",
       "name": "Isle of Murmurs",
+      "guid": "F382ADAE4259150BF994FF873ECF242B",
       "position": [-88645.8, -3922.9, -876.5],
       "map": "MainMap",
       "display": [-353, 77]
@@ -530,6 +604,7 @@
     {
       "id": "FTPoint51",
       "name": "Kelpsea Hill",
+      "guid": "91DAC6F34D2A9FD7F01471B5166C6C02",
       "position": [-170400, -29240, -1930],
       "map": "MainMap",
       "display": [-408, -101]
@@ -537,6 +612,7 @@
     {
       "id": "FTPoint52",
       "name": "Sea Breeze Archipelago - Castaway Beach",
+      "guid": "596996B948716D3FD2283C8B5C6E829C",
       "position": [-450320, 112630, -2090],
       "map": "MainMap",
       "display": [-99, -711]
@@ -544,6 +620,7 @@
     {
       "id": "FTPoint53",
       "name": "Sea Breeze Archipelago Church",
+      "guid": "3E8E504B4A3975FD3862E1BC85A5D4F6",
       "position": [-376750, 124630, 2270],
       "map": "MainMap",
       "display": [-73, -551]
@@ -551,6 +628,7 @@
     {
       "id": "FTPoint54",
       "name": "Small Cove",
+      "guid": "8CA5E9774FF1BBC1156ABCA09E616480",
       "position": [-374180, 63960, -1933],
       "map": "MainMap",
       "display": [-205, -545]
@@ -558,6 +636,7 @@
     {
       "id": "FTPoint55",
       "name": "Islandhopper Coast",
+      "guid": "7170881D44249E90902F728E240493AF",
       "position": [-265980, 268690, -1979],
       "map": "MainMap",
       "display": [241, -310]
@@ -565,6 +644,7 @@
     {
       "id": "FTPoint56",
       "name": "Marsh Island",
+      "guid": "513E166044565A0BD3360F94142577E8",
       "position": [-282110, 355570, -1940],
       "map": "MainMap",
       "display": [430, -345]
@@ -572,6 +652,7 @@
     {
       "id": "FTPoint57",
       "name": "Eastern Wild Island",
+      "guid": "6231802D40C81C00445379AE238D9F90",
       "position": [-170718.7, 409753.2, 4049.2],
       "map": "MainMap",
       "display": [548, -102]
@@ -579,6 +660,7 @@
     {
       "id": "FTPoint58",
       "name": "Natural Bridge",
+      "guid": "F6C005A14B38FE0B57F1C7869FD899CB",
       "position": [-221399.3, 330684.5, -1744.8],
       "map": "MainMap",
       "display": [376, -212]
@@ -586,6 +668,7 @@
     {
       "id": "FTPoint59",
       "name": "Isle of Silence Church Ruins",
+      "guid": "76B000914943BADDC56BCFBAE2BF051E",
       "position": [-130060.4, -53406.7, 1715.6],
       "map": "MainMap",
       "display": [-461, -13]
@@ -593,6 +676,7 @@
     {
       "id": "FTPoint6",
       "name": "Mount Obsidian - Anubis Statue",
+      "guid": "F8E5CB8143F4FA2F6213E6B454569F87",
       "position": [-416557.5, -90012.2, 23301.9],
       "map": "MainMap",
       "display": [-540, -638]
@@ -600,6 +684,7 @@
     {
       "id": "FTPoint60",
       "name": "Marsh Island Church Ruins",
+      "guid": "866881DB443444AA7F4E7C8E5DCDAA29",
       "position": [-250506.5, 341109.6, 2293.3],
       "map": "MainMap",
       "display": [399, -276]
@@ -607,6 +692,7 @@
     {
       "id": "FTPoint61",
       "name": "Bridge of the Twin Knights",
+      "guid": "6DB6B7B2431CA2EFFFC88EB45805BA6A",
       "position": [-294830, 152240, 190],
       "map": "MainMap",
       "display": [-13, -372]
@@ -614,6 +700,7 @@
     {
       "id": "FTPoint62",
       "name": "Ravine Entrance",
+      "guid": "74270C2F45B8DCA66B6A1FAAA911D024",
       "position": [-319000, 127170, -2049.4],
       "map": "MainMap",
       "display": [-67, -425]
@@ -621,6 +708,7 @@
     {
       "id": "FTPoint63",
       "name": "Arena Entrance",
+      "guid": "4CCF456A440C6CD5F2347AAA3E163F21",
       "position": [-117215, 446690, -1887.3],
       "map": "MainMap",
       "display": [629, 15]
@@ -628,6 +716,7 @@
     {
       "id": "FTPoint64",
       "name": "Sakurajima - Mushroom Wetlands",
+      "guid": "A136990F4E2C1C96C0384BA260CD0BC3",
       "position": [-63520.7, -55005.9, -1731.8],
       "map": "MainMap",
       "display": [-464, 132]
@@ -635,6 +724,7 @@
     {
       "id": "FTPoint65",
       "name": "Sakurajima - Southern Sandbar",
+      "guid": "F1A1AB834E138B2A938D0AA90E9A65E3",
       "position": [-86709.6, -140441.8, -2031],
       "map": "MainMap",
       "display": [-650, 81]
@@ -642,6 +732,7 @@
     {
       "id": "FTPoint67",
       "name": "Moonflower Tower Entrance",
+      "guid": "49C3516D459F15C70ABEE88CD7F4D331",
       "position": [-25522.2, -118365.3, 6257.7],
       "map": "MainMap",
       "display": [-602, 214]
@@ -649,6 +740,7 @@
     {
       "id": "FTPoint68",
       "name": "Cherry Blossom Crossroads",
+      "guid": "1749FBB34126AB7711670481717C9FEC",
       "position": [-25915.4, -78926.2, 3126.6],
       "map": "MainMap",
       "display": [-516, 213]
@@ -656,6 +748,7 @@
     {
       "id": "FTPoint69",
       "name": "Sakurajima - Northern Rock Field",
+      "guid": "C4D494924DAB97D9E30AFB92B6029307",
       "position": [32787.1, -81420.3, -2019.8],
       "map": "MainMap",
       "display": [-522, 341]
@@ -663,6 +756,7 @@
     {
       "id": "FTPoint7",
       "name": "Beach of Everlasting Summer",
+      "guid": "01ACCA6E4BDAA68220821FB05AB54E4D",
       "position": [-383183.2, -210790.9, 819.8],
       "map": "MainMap",
       "display": [-803, -565]
@@ -670,6 +764,7 @@
     {
       "id": "FTPoint70",
       "name": "Secluded Cemetery",
+      "guid": "C808C5844EB34E9EDA773AA209CEBA01",
       "position": [-2188.8, -148545.9, 2988.5],
       "map": "MainMap",
       "display": [-668, 265]
@@ -677,6 +772,7 @@
     {
       "id": "FTPoint71",
       "name": "Scorched Ashland",
+      "guid": "10F777FB4B9BFA0CAD790887D87DDBC2",
       "position": [-503990, -214380, -1845],
       "map": "MainMap",
       "display": [-811, -828]
@@ -684,6 +780,7 @@
     {
       "id": "FTPoint72",
       "name": "Stone Pillar Cave Entrance",
+      "guid": "916CC96142D38225BD3C9290D6321073",
       "position": [-588140, -253780, 695],
       "map": "MainMap",
       "display": [-897, -1011]
@@ -691,6 +788,7 @@
     {
       "id": "FTPoint73",
       "name": "Loess Plains",
+      "guid": "DEAA0D38438D8CF02BC7CC82621B33B0",
       "position": [-792350, -251110, -558],
       "map": "MainMap",
       "display": [-891, -1456]
@@ -698,6 +796,7 @@
     {
       "id": "FTPoint74",
       "name": "Hidden Passage to the Oculus Gate",
+      "guid": "F31B78014AD3954185416DA155E50CCD",
       "position": [-698514.9, -322880.4, 15540],
       "map": "MainMap",
       "display": [-1048, -1252]
@@ -705,6 +804,7 @@
     {
       "id": "FTPoint75",
       "name": "The Oculus Gate, Tower in Sight",
+      "guid": "6D227CD3475783FB16D797B206DD8C13",
       "position": [-760285.5, -354966.2, 4290.5],
       "map": "MainMap",
       "display": [-1118, -1386]
@@ -712,6 +812,7 @@
     {
       "id": "FTPoint76",
       "name": "Feybreak Tower Entrance",
+      "guid": "9521FEBF4A6D0D02AE9F80AE9513B99C",
       "position": [-888080, -433080, 19030],
       "map": "MainMap",
       "display": [-1288, -1665]
@@ -719,6 +820,7 @@
     {
       "id": "FTPoint78",
       "name": "Scorched Hill",
+      "guid": "72626BD0492AD65E59BDB499C9BED99A",
       "position": [-699510, -389030, 32620],
       "map": "MainMap",
       "display": [-1192, -1254]
@@ -726,6 +828,7 @@
     {
       "id": "FTPoint79",
       "name": "Deserted Ash Plateau",
+      "guid": "6B05B93C445473B5A9597A90CEBFF27B",
       "position": [-591120, -484260, 6808.8],
       "map": "MainMap",
       "display": [-1399, -1018]
@@ -733,6 +836,7 @@
     {
       "id": "FTPoint8",
       "name": "Ruined Fortress City",
+      "guid": "CD9FE0D4490874187ED9919D0E4D2A09",
       "position": [-237086.6, -100489.9, 515.7],
       "map": "MainMap",
       "display": [-563, -247]
@@ -740,6 +844,7 @@
     {
       "id": "FTPoint80",
       "name": "Emberstone Plateau",
+      "guid": "3A84A3DD43C34B936CE6F18842A6FE1D",
       "position": [-671901.2, -172407.6, -444],
       "map": "MainMap",
       "display": [-720, -1194]
@@ -747,6 +852,7 @@
     {
       "id": "FTPoint81",
       "name": "Shield Dragon Tunnel",
+      "guid": "23F4D1CB454D1E23F252C29447F5A384",
       "position": [-572461.6, -287224.1, 26.3],
       "map": "MainMap",
       "display": [-970, -977]
@@ -754,6 +860,7 @@
     {
       "id": "FTPoint83",
       "name": "Feybreak Shipwreck",
+      "guid": "902C96F44BC84002E39B52ACBFC61452",
       "position": [-798776.8, -479574.8, -2050.3],
       "map": "MainMap",
       "display": [-1389, -1470]
@@ -761,6 +868,7 @@
     {
       "id": "FTPoint84",
       "name": "Sunlit Isle",
+      "guid": "E74D687D4CAAF5EA085E0B8A76F8B652",
       "position": [-335853.8, 335361.3, -2090.1],
       "map": "MainMap",
       "display": [386, -462]
@@ -768,6 +876,7 @@
     {
       "id": "FTPoint85",
       "name": "Oasis Isle",
+      "guid": "CF5FAE4A487231DDD8487C9B19453128",
       "position": [-33882.1, 564292.5, -2106.6],
       "map": "MainMap",
       "display": [885, 196]
@@ -775,6 +884,7 @@
     {
       "id": "FTPoint86",
       "name": "Isle of the Glacial Core",
+      "guid": "2EE8ACF447C0CFC2C3C11E948E691448",
       "position": [168489, 221797.6, -2020.1],
       "map": "MainMap",
       "display": [139, 637]
@@ -782,6 +892,7 @@
     {
       "id": "FTPoint87",
       "name": "Frostbitten Isle",
+      "guid": "5669E36645C97EE9F38D308738ED30A7",
       "position": [-558410.5, 121112.1, -1607.2],
       "map": "MainMap",
       "display": [-80, -947]
@@ -789,6 +900,7 @@
     {
       "id": "FTPoint88",
       "name": "Phantom Isle",
+      "guid": "27508F284B175C5C2B9BFC85AD773E4F",
       "position": [-209326, -249227.6, -2090],
       "map": "MainMap",
       "display": [-887, -186]
@@ -796,6 +908,7 @@
     {
       "id": "FTPoint89",
       "name": "Isle of Decayed Treasures",
+      "guid": "52E1E065410F78AF13B18CB1136EC8D6",
       "position": [-197915.2, 438001.5, -2071.7],
       "map": "MainMap",
       "display": [610, -161]
@@ -803,6 +916,7 @@
     {
       "id": "FTPoint9",
       "name": "PIDF Tower Entrance",
+      "guid": "65B10BB14ABDA9C2109167B21901D195",
       "position": [29780.5, 406913.2, 15662.8],
       "map": "MainMap",
       "display": [542, 335]
@@ -810,6 +924,7 @@
     {
       "id": "FTPoint90",
       "name": "Sealed Realm of Terraria",
+      "guid": "F6AFBCDA4D7AF6C373407DBC8556FBAE",
       "position": [-488718.2, -35724.9, -2096.7],
       "map": "MainMap",
       "display": [-422, -795]
@@ -817,6 +932,7 @@
     {
       "id": "FTPoint91",
       "name": "Isle of Murmurs Beach",
+      "guid": "15BD61D9481EE7F63CB32BB4E10A05CA",
       "position": [-131353.9, 54481.7, -2063.9],
       "map": "MainMap",
       "display": [-226, -16]
@@ -824,6 +940,7 @@
     {
       "id": "FTPoint92",
       "name": "Anubis Dunes",
+      "guid": "C5C2695D4EA3C55C419D7A8C8D184631",
       "position": [-160345.2, 98540.8, 2792.8],
       "map": "MainMap",
       "display": [-130, -79]
@@ -831,6 +948,7 @@
     {
       "id": "FTPoint93",
       "name": "Whisperwind Cliffs",
+      "guid": "B03880F34C398AEE56A024B8E510649D",
       "position": [-266957.5, 93228.6, 5259.8],
       "map": "MainMap",
       "display": [-141, -312]
@@ -838,6 +956,7 @@
     {
       "id": "FTPoint94",
       "name": "Whisperwind Hill",
+      "guid": "F3C0FFDE41C2BF4EFD8A068986C6B02E",
       "position": [-236840.5, 34772.6, 13438.9],
       "map": "MainMap",
       "display": [-268, -246]
@@ -845,6 +964,7 @@
     {
       "id": "FTPoint95",
       "name": "Windscream Valley",
+      "guid": "37878F614B4EB008307DBBBDC7B79505",
       "position": [-311508.9, 76832.3, 7803.8],
       "map": "MainMap",
       "display": [-177, -409]
@@ -852,6 +972,7 @@
     {
       "id": "FTPoint96",
       "name": "Sea Breeze Coast",
+      "guid": "B0609E19416F6731E997F89CF9B66A14",
       "position": [-421434.3, 29307.7, 1858.4],
       "map": "MainMap",
       "display": [-280, -648]
@@ -859,6 +980,7 @@
     {
       "id": "FTPoint97",
       "name": "Dustview Coast",
+      "guid": "4667D69047622BF7A9FFD788D24B6131",
       "position": [-119900.9, 351109.2, -789.1],
       "map": "MainMap",
       "display": [421, 9]
@@ -866,6 +988,7 @@
     {
       "id": "FTPoint98",
       "name": "Altar of the Windcaller",
+      "guid": "C6A854194E8AF1B5CEF381A1A276CB92",
       "position": [-156482.2, 317415.3, -2033.8],
       "map": "MainMap",
       "display": [347, -71]
@@ -873,6 +996,7 @@
     {
       "id": "FTPoint99",
       "name": "Mossanda Inner Coast",
+      "guid": "F34810714796CFCEB04D7C8F7B41493D",
       "position": [-224958.1, 285919.2, -1124.7],
       "map": "MainMap",
       "display": [279, -220]
@@ -880,6 +1004,7 @@
     {
       "id": "FootOfWorldTree",
       "name": "Foot of the World Tree",
+      "guid": "0994C20A46B5522FE17090973C3C5452",
       "position": [192505.8, -227006.5, 6371.9],
       "map": "MainMap",
       "display": [-839, 689]
@@ -887,6 +1012,7 @@
     {
       "id": "New_SmallIsland01",
       "name": "Islet of Circular Ruins",
+      "guid": "31078A16494A996F94DC13828638EAD4",
       "position": [-153135.8, 589409.5, -2038.8],
       "map": "MainMap",
       "display": [940, -64]
@@ -894,6 +1020,7 @@
     {
       "id": "New_SmallIsland02",
       "name": "Flamepulse Islet",
+      "guid": "C1D34C6C424DD841005934936F590865",
       "position": [63442.5, 507395.4, -1871.4],
       "map": "MainMap",
       "display": [761, 408]
@@ -901,6 +1028,7 @@
     {
       "id": "New_SmallIsland03",
       "name": "Scouring Islet",
+      "guid": "4CE584574E74956A7F94D68D846F931D",
       "position": [-451245, 363338.1, 12413.9],
       "map": "MainMap",
       "display": [447, -713]
@@ -908,6 +1036,7 @@
     {
       "id": "New_SmallIsland04",
       "name": "Bicornis Islet",
+      "guid": "CE7CDCFA48F15174B4FCF49C03F240ED",
       "position": [-984033.7, -371189.8, -2048.9],
       "map": "MainMap",
       "display": [-1153, -1874]
@@ -915,6 +1044,7 @@
     {
       "id": "New_SmallIsland05",
       "name": "Glacial Memento Islet",
+      "guid": "33A82FD24431633F5738F8AE02FFAC42",
       "position": [-568698.6, -603451.9, -2010.9],
       "map": "MainMap",
       "display": [-1659, -969]
@@ -922,6 +1052,7 @@
     {
       "id": "New_SmallIsland06",
       "name": "Sandstone Gate Islet",
+      "guid": "7A803ABD4C208C8D5C7EE197C9D2AD65",
       "position": [-426910.2, -436850.9, -134.5],
       "map": "MainMap",
       "display": [-1296, -660]
@@ -929,6 +1060,7 @@
     {
       "id": "New_SmallIsland07",
       "name": "Suncrest Islet",
+      "guid": "B5A9156C4C3911FD3A4FFA8F807DD5A4",
       "position": [-61819, -246053.5, -1979.9],
       "map": "MainMap",
       "display": [-880, 135]
@@ -936,6 +1068,7 @@
     {
       "id": "SkyIsland_A",
       "name": "Enchanted Firmament",
+      "guid": "C2EC8AFD4C5D84F814ED2E9E54E498FC",
       "position": [-818013, 59827.7, 46837.6],
       "map": "MainMap",
       "display": [-214, -1512]
@@ -943,6 +1076,7 @@
     {
       "id": "SkyIsland_B",
       "name": "Crystalline Archipelago",
+      "guid": "714B5DDC402A89D7FC703C9B0B2BF274",
       "position": [-829095.7, -19262.8, 37892.6],
       "map": "MainMap",
       "display": [-386, -1536]
@@ -950,6 +1084,7 @@
     {
       "id": "SkyIsland_BOSS",
       "name": "Azure Covenant Tower Entrance",
+      "guid": "AEBCC3FF41ACF9252B3499A89E0BAD55",
       "position": [-777490, -40589, 60158],
       "map": "MainMap",
       "display": [-433, -1424]
@@ -957,6 +1092,7 @@
     {
       "id": "SkyIsland_C",
       "name": "Waterlily Gorge",
+      "guid": "B34E33AD445D619D70AD6BBDBF7CDE4D",
       "position": [-811466.5, -85874.3, 46247.6],
       "map": "MainMap",
       "display": [-531, -1498]
@@ -964,6 +1100,7 @@
     {
       "id": "SkyIsland_D",
       "name": "The Azure Tapestry",
+      "guid": "26F321B44481BC01C5174D9D38409597",
       "position": [-758105, -61810, 28905],
       "map": "MainMap",
       "display": [-479, -1382]
@@ -971,6 +1108,7 @@
     {
       "id": "SkyIsland_E",
       "name": "Farcry Marsh",
+      "guid": "0EBF6F3D441ACA707517B9B7BAA6590D",
       "position": [-771310, 8647.2, 43073.6],
       "map": "MainMap",
       "display": [-325, -1411]
@@ -978,6 +1116,7 @@
     {
       "id": "WorldTree_A",
       "name": "The Verdant Rootpath",
+      "guid": "16B14E084BBB4C71E9D07A9DC84B80BD",
       "position": [512111.7, -510662.7, 43480],
       "map": "Tree",
       "display": [-1457, 1386]
@@ -985,6 +1124,7 @@
     {
       "id": "WorldTree_B",
       "name": "Whimsical Wisteria Grove",
+      "guid": "321E111B4B7AA9D901864F87404A70F2",
       "position": [524166.1, -567334.4, 25453.1],
       "map": "Tree",
       "display": [-1580, 1412]
@@ -992,6 +1132,7 @@
     {
       "id": "WorldTree_C_1",
       "name": "Dusty Ravine",
+      "guid": "D758455B40BC4D1A8ABB3EB62DD009D3",
       "position": [570652.3, -558439.5, 22368.9],
       "map": "Tree",
       "display": [-1561, 1513]
@@ -999,6 +1140,7 @@
     {
       "id": "WorldTree_C_2",
       "name": "Remnant Riverside",
+      "guid": "4B2462954566096EB1EB74A0B48E5C5D",
       "position": [592964, -625779.6, 17596.2],
       "map": "Tree",
       "display": [-1708, 1562]
@@ -1006,6 +1148,7 @@
     {
       "id": "WorldTree_D",
       "name": "Corroded Hollow",
+      "guid": "9FDF4C7C4CEB40E103E989A1C34A245D",
       "position": [600577.5, -599143, 29241.4],
       "map": "Tree",
       "display": [-1650, 1578]
@@ -1013,6 +1156,7 @@
     {
       "id": "WorldTree_E",
       "name": "Alluvion Lakefront",
+      "guid": "D786C6324A293AB1560774B15B998290",
       "position": [491660, -593705, 17375],
       "map": "Tree",
       "display": [-1638, 1341]
@@ -1020,6 +1164,7 @@
     {
       "id": "WorldTree_I",
       "name": "Boreal Summit",
+      "guid": "6FBBBA0F4CDDB97C81C58C917E8927BD",
       "position": [602911.1, -680562.4, 21863.1],
       "map": "Tree",
       "display": [-1827, 1583]
@@ -1027,6 +1172,7 @@
     {
       "id": "WorldTree_L",
       "name": "Spore Cloister",
+      "guid": "C5F1A3CA46EAE25B999783B3ECC569ED",
       "position": [483205, -672790, 18210],
       "map": "Tree",
       "display": [-1810, 1323]
@@ -1034,6 +1180,7 @@
     {
       "id": "WorldTree_LastBoss",
       "name": "Sealed Sanctum",
+      "guid": "A5664AB74E0D030D03BF2DAF87C67A0F",
       "position": [501010, -748555, 41485],
       "map": "Tree",
       "display": [-1975, 1361]
@@ -1041,6 +1188,7 @@
     {
       "id": "WorldTree_M",
       "name": "Lacrymal Shoal",
+      "guid": "630C0726466D28CDB94B368AD12BFE63",
       "position": [477460, -724635, 19817.9],
       "map": "Tree",
       "display": [-1923, 1310]
@@ -1048,6 +1196,7 @@
     {
       "id": "WorldTree_MiddleBoss_1",
       "name": "Rotmist Root",
+      "guid": "F94B3D32448028F24CE513B1302ACC94",
       "position": [628791.6, -610720.4, 28290.3],
       "map": "Tree",
       "display": [-1675, 1640]
@@ -1055,6 +1204,7 @@
     {
       "id": "WorldTree_MiddleBoss_2",
       "name": "Shinespore Root",
+      "guid": "EA56C74B459DAB2F5F596EA17049167A",
       "position": [405904.9, -729214.1, 22741.1],
       "map": "Tree",
       "display": [-1933, 1154]
@@ -1062,6 +1212,7 @@
     {
       "id": "WorldTree_MiddleBoss_3",
       "name": "Forbidden Laboratory",
+      "guid": "5543641F4C980A9863F64685A91FE619",
       "position": [621794.3, -757914.5, 21127.6],
       "map": "Tree",
       "display": [-1995, 1625]
@@ -1069,6 +1220,7 @@
     {
       "id": "WorldTree_N",
       "name": "Gilded City Ruins",
+      "guid": "839048604D716A58A64781A9A342B717",
       "position": [518900.3, -671976.2, 27418],
       "map": "Tree",
       "display": [-1808, 1400]
@@ -1076,6 +1228,7 @@
     {
       "id": "WorldTree_lab",
       "name": "Abandoned Laboratory",
+      "guid": "59D857664636366A726EB39EF372B315",
       "position": [621850, -742575, 23205],
       "map": "Tree",
       "display": [-1962, 1625]
@@ -1085,6 +1238,7 @@
     {
       "id": "WatchTower_1",
       "name": "Windswept Island Watchtower",
+      "guid": "11E3E3C44F040B34E3809CB69CD87435",
       "position": [-348065.1, 151661, 11552.7],
       "map": "MainMap",
       "display": [-14, -488]
@@ -1092,6 +1246,7 @@
     {
       "id": "WatchTower_10",
       "name": "Sea Breeze Archipelago Watchtower",
+      "guid": "4C204C3842EAB210A7A9DA9D2CF9CBBE",
       "position": [-428372, 81105, 2593.4],
       "map": "MainMap",
       "display": [-168, -663]
@@ -1099,6 +1254,7 @@
     {
       "id": "WatchTower_11",
       "name": "Deep Bamboo Thicket Watchtower",
+      "guid": "0C0AF9F34C0491BCAD80B1BF355B9A98",
       "position": [-194570.6, 14375.1, 17213],
       "map": "MainMap",
       "display": [-313, -154]
@@ -1106,6 +1262,7 @@
     {
       "id": "WatchTower_12",
       "name": "Sakurajima Watchtower",
+      "guid": "F46296FF4274FEDBF32DC5957835A18A",
       "position": [-49811.7, -104909.2, 6064.4],
       "map": "MainMap",
       "display": [-573, 161]
@@ -1113,6 +1270,7 @@
     {
       "id": "WatchTower_13",
       "name": "Scorched Obsidian Watchtower",
+      "guid": "E8351DF348B268672F0A219840C6BE47",
       "position": [-364381.7, -55619.3, 21182.7],
       "map": "MainMap",
       "display": [-465, -524]
@@ -1120,6 +1278,7 @@
     {
       "id": "WatchTower_15",
       "name": "Dry Sandy Beach Watchtower",
+      "guid": "3BF1495E406AD5F437DA5AA2134954A2",
       "position": [-440660.5, -159426.8, 15264.5],
       "map": "MainMap",
       "display": [-692, -690]
@@ -1127,6 +1286,7 @@
     {
       "id": "WatchTower_17",
       "name": "Loess Plains Watchtower",
+      "guid": "328BCAC94E01988D944C4F85D49E457C",
       "position": [-741294.8, -283378.1, 31715.2],
       "map": "MainMap",
       "display": [-962, -1345]
@@ -1134,6 +1294,7 @@
     {
       "id": "WatchTower_18",
       "name": "Burning Fault Watchtower",
+      "guid": "6948B7914C8D1701DB7F4081E4D970E5",
       "position": [-627561.2, -208731, 20437],
       "map": "MainMap",
       "display": [-799, -1097]
@@ -1141,6 +1302,7 @@
     {
       "id": "WatchTower_19",
       "name": "Scorched Plateau Watchtower",
+      "guid": "C5E2ABA14A8F6D35EF4A81AD47EC19C9",
       "position": [-629186.6, -425621.6, 29177.3],
       "map": "MainMap",
       "display": [-1272, -1101]
@@ -1148,6 +1310,7 @@
     {
       "id": "WatchTower_2",
       "name": "Eastern Wild Island Watchtower",
+      "guid": "58A29B814E069D61EC75B1A6E9658FC1",
       "position": [-192413.9, 393187.3, 11260.5],
       "map": "MainMap",
       "display": [512, -149]
@@ -1155,6 +1318,7 @@
     {
       "id": "WatchTower_20",
       "name": "Frozen Coral Hill Watchtower",
+      "guid": "5FA6EB494384E4134BAA589F02A580DC",
       "position": [-784793.9, -354726.7, 19680.8],
       "map": "MainMap",
       "display": [-1117, -1440]
@@ -1162,6 +1326,7 @@
     {
       "id": "WatchTower_21",
       "name": "Arid Wasteland Watchtower",
+      "guid": "479A228C4032AAF144B3808E753E1690",
       "position": [-634614.8, -310380.9, 34943.3],
       "map": "MainMap",
       "display": [-1020, -1113]
@@ -1169,6 +1334,7 @@
     {
       "id": "WatchTower_22",
       "name": "Sunreach Watchtower",
+      "guid": "FD235A5B4F02CD76312A459D77398CA6",
       "position": [-809414.2, 23955.2, 48140.3],
       "map": "MainMap",
       "display": [-292, -1494]
@@ -1176,6 +1342,7 @@
     {
       "id": "WatchTower_3",
       "name": "Crescent Moon Shore Watchtower",
+      "guid": "D8C1A86541DACA78B1250AB9B85B7E67",
       "position": [-197247, 140509.8, 9964],
       "map": "MainMap",
       "display": [-38, -160]
@@ -1183,6 +1350,7 @@
     {
       "id": "WatchTower_4",
       "name": "Searing Dunes Watchtower",
+      "guid": "CCCD29E444CEB548D5B5E589DAF086F2",
       "position": [-30426.7, 364547.2, 9125.2],
       "map": "MainMap",
       "display": [450, 204]
@@ -1190,6 +1358,7 @@
     {
       "id": "WatchTower_5",
       "name": "Sandstone Plateau Watchtower",
+      "guid": "8A9AE3B44AD758EDD7FE44BA9B75000B",
       "position": [85483, 306597.1, 17835.3],
       "map": "MainMap",
       "display": [324, 456]
@@ -1197,6 +1366,7 @@
     {
       "id": "WatchTower_6",
       "name": "Verdant Stream Watchtower",
+      "guid": "DEE0F8BB4609C83285CE6CA80B84B679",
       "position": [-169159, 251231.9, 18801.8],
       "map": "MainMap",
       "display": [203, -99]
@@ -1204,6 +1374,7 @@
     {
       "id": "WatchTower_7",
       "name": "Icy Weasel Hill Watchtower",
+      "guid": "E9FC08444BFE7E3EE6E06F84AC8688EC",
       "position": [-26445.2, 140098.2, 24138.2],
       "map": "MainMap",
       "display": [-39, 212]
@@ -1211,6 +1382,7 @@
     {
       "id": "WatchTower_8",
       "name": "Astral Mountains Garden Watchtower",
+      "guid": "84D48EA34666191781868E809ACBCBCE",
       "position": [80120.2, 21277.3, 33829],
       "map": "MainMap",
       "display": [-298, 444]
@@ -1218,6 +1390,7 @@
     {
       "id": "WatchTower_9",
       "name": "Bamboo Groves Watchtower",
+      "guid": "EDE1AB2C44B1846879BB789C3951B2F7",
       "position": [-291317.7, 50195.6, 14675.5],
       "map": "MainMap",
       "display": [-235, -365]
@@ -1225,6 +1398,7 @@
     {
       "id": "WatchTower_WorldTree_1",
       "name": "Dusty Ravine Watchtower",
+      "guid": "47E04FF245A4FB6F4E1E9C864ED8F2B0",
       "position": [564135, -574054.3, 37021.6],
       "map": "Tree",
       "display": [-1595, 1499]
@@ -1232,6 +1406,7 @@
     {
       "id": "WatchTower_WorldTree_2",
       "name": "Gilded City Ruins Watchtower",
+      "guid": "A9213E6E425F2F696D8B3EB19AA547FE",
       "position": [508240.5, -696869.5, 39688.4],
       "map": "Tree",
       "display": [-1862, 1377]

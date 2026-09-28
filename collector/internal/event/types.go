@@ -298,17 +298,43 @@ type ActionFailedData struct {
 }
 
 type SaveProgress struct {
-	Palpedia           int             `json:"palpedia"`
-	PalpediaEntries    *[]string       `json:"palpedia_entries,omitempty"`
-	SpeciesCaptured    int             `json:"species_captured"`
-	Captures           int             `json:"captures"`
-	SpeciesCaptures    *map[string]int `json:"species_captures,omitempty"`
-	TowerBosses        []string        `json:"tower_bosses"`
-	FieldBosses        int             `json:"field_bosses"`
-	DungeonClears      int             `json:"dungeon_clears"`
-	FixedDungeonClears int             `json:"fixed_dungeon_clears"`
-	Technologies       int             `json:"technologies"`
-	FastTravelPoints   int             `json:"fast_travel_points"`
+	Palpedia             int                 `json:"palpedia"`
+	PalpediaEntries      *[]string           `json:"palpedia_entries,omitempty"`
+	SpeciesCaptured      int                 `json:"species_captured"`
+	Captures             int                 `json:"captures"`
+	SpeciesCaptures      *map[string]int     `json:"species_captures,omitempty"`
+	TowerBosses          []string            `json:"tower_bosses"`
+	FieldBosses          int                 `json:"field_bosses"`
+	DungeonClears        int                 `json:"dungeon_clears"`
+	FixedDungeonClears   int                 `json:"fixed_dungeon_clears"`
+	Technologies         int                 `json:"technologies"`
+	FastTravelPoints     int                 `json:"fast_travel_points"`
+	TechnologyIDs        *[]string           `json:"technology_ids,omitempty"`
+	TechnologyPoints     *int                `json:"technology_points,omitempty"`
+	BossTechnologyPoints *int                `json:"boss_technology_points,omitempty"`
+	TowerDefeats         *map[string]int     `json:"tower_defeats,omitempty"`
+	RaidDefeats          *map[string]int     `json:"raid_defeats,omitempty"`
+	FieldBossKeys        *[]string           `json:"field_boss_keys,omitempty"`
+	FastTravelKeys       *[]string           `json:"fast_travel_keys,omitempty"`
+	AreaKeys             *[]string           `json:"area_keys,omitempty"`
+	WorldMaps            *[]string           `json:"world_maps,omitempty"`
+	CompletedQuests      *[]string           `json:"completed_quests,omitempty"`
+	OrderedQuests        *[]SaveOrderedQuest `json:"ordered_quests,omitempty"`
+}
+
+type SaveOrderedQuest struct {
+	ID    string `json:"id"`
+	Block int    `json:"block"`
+}
+
+type SaveGuildResearch struct {
+	ID   string  `json:"id"`
+	Work float64 `json:"work"`
+}
+
+type SaveGuildLab struct {
+	Current  *string             `json:"current"`
+	Research []SaveGuildResearch `json:"research"`
 }
 
 type SavePlayerData struct {
@@ -333,6 +359,7 @@ type SaveGuildData struct {
 	Name          string            `json:"name"`
 	BaseCampLevel int               `json:"base_camp_level"`
 	Members       []SaveGuildMember `json:"members"`
+	Lab           *SaveGuildLab     `json:"lab,omitempty"`
 }
 
 type SaveWorker struct {

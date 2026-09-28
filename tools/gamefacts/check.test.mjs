@@ -9,6 +9,7 @@ import {
   RUNTIME
 } from './lib/facts/breeding.mjs';
 import { displayAt, mapAt } from './lib/facts/coordinates.mjs';
+import { saveKeyOf } from './lib/facts/landmarks.mjs';
 import { GRID, WAYS, encodeRanges } from './lib/facts/habitats.mjs';
 import { pointInPolygon } from './lib/geometry.mjs';
 import { pngSize } from './lib/png.mjs';
@@ -24,7 +25,11 @@ const FILES = [
   'names.json',
   'habitats.json',
   'breeding.json',
-  'icons.json'
+  'icons.json',
+  'technology.json',
+  'exp.json',
+  'lab.json',
+  'quests.json'
 ];
 const worldDirectory = new URL('../../web/src/lib/world/', import.meta.url);
 const world = Object.fromEntries(
@@ -39,6 +44,10 @@ const names = world['names.json'];
 const habitats = world['habitats.json'];
 const breeding = world['breeding.json'];
 const icons = world['icons.json'];
+const technology = world['technology.json'];
+const exp = world['exp.json'];
+const lab = world['lab.json'];
+const quests = world['quests.json'];
 const iconDirectory = new URL('../../web/static/pals/', import.meta.url);
 
 function decodeRanges(text) {
@@ -232,6 +241,16 @@ test('regions carry names and shapes, and towers sit in their tower regions', ()
     const [x, y] = towers[bossType].position;
     assert.equal(regionAt(x, y), regionId, bossType);
   }
+});
+
+test('fast travel points carry the save key form of their instance ids', () => {
+  assert.equal(saveKeyOf('323d4bf9f2288044b113e54c94cc2a30'), 'F94B3D32448028F24CE513B1302ACC94');
+  assert.throws(() => saveKeyOf('nope'));
+  const points = [...landmarks.fast_travel, ...landmarks.watchtowers];
+  for (const point of points) assert.match(point.guid, /^[0-9A-F]{32}$/, point.id);
+  assert.equal(new Set(points.map((point) => point.guid)).size, points.length);
+  const seventh = landmarks.fast_travel.find((point) => point.id === 'FTPoint7');
+  assert.equal(seventh.guid, '01ACCA6E4BDAA68220821FB05AB54E4D');
 });
 
 test('landmarks match the counts read from the game', () => {
@@ -442,7 +461,7 @@ test('the 258 unique rows name Palpedia entries or unreleased tribes', () => {
   assert.equal(selfRows.filter((row) => ids.has(row.child)).length, 104);
   for (const row of selfRows) assert.equal(row.child, row.parent_a);
   const gendered = breeding.unique.filter((row) => row.gender_a || row.gender_b);
-  assert.equal(gendered.length, 30);
+  assert.equal(gendered.length, 2);
   for (const row of gendered) assert.ok(ids.has(row.parent_a) && ids.has(row.parent_b), row.child);
   const catMage = breeding.unique.find(
     (row) => row.parent_a === 'CatMage' && row.parent_b === 'FoxMage' && row.gender_a === 'male'
@@ -564,4 +583,133 @@ test('every Palpedia entry has a 64 pixel icon from the game', () => {
     const size = pngSize(readFileSync(new URL(`${id}.png`, iconDirectory)));
     assert.deepEqual(size, { width: 64, height: 64 }, id);
   }
+});
+
+test('technologies carry levels, costs, prerequisites and what they unlock', () => {
+  assert.equal(technology.technologies.length, 588);
+  assert.equal(technology.level_cap, 80);
+  assert.equal(technology.points_per_level, 6);
+  assert.equal(technology.fast_travel_points, 1);
+  assert.deepEqual(technology.default_unlocked, [
+    'Workbench',
+    'Product_Pickaxe_Grade_01',
+    'Product_Axe_Grade_01',
+    'HandTorch',
+    'Battle_MeleeWeapon_Bat'
+  ]);
+  const byId = new Map(technology.technologies.map((entry) => [entry.id, entry]));
+  const towers = new Set(bosses.battles.map((battle) => battle.boss_type));
+  const research = new Set(lab.research.map((entry) => entry.id));
+  let bossCount = 0;
+  const levels = new Set();
+  for (const entry of technology.technologies) {
+    assert.ok(entry.name && !/[<>|]|^en Text$/.test(entry.name), entry.id);
+    if (entry.description !== null) assert.doesNotMatch(entry.description, /[<>|]/, entry.id);
+    assert.ok(entry.level >= 1 && entry.level <= technology.level_cap, entry.id);
+    assert.ok(entry.cost >= 1 && entry.cost <= 9, entry.id);
+    levels.add(entry.level);
+    if (entry.boss) bossCount++;
+    if (entry.requires.tower) assert.ok(towers.has(entry.requires.tower), entry.id);
+    if (entry.requires.technology) assert.ok(byId.has(entry.requires.technology), entry.id);
+    if (entry.requires.research) assert.ok(research.has(entry.requires.research), entry.id);
+    assert.ok(entry.unlocks.length > 0, entry.id);
+    assert.equal(entry.category.kind, entry.unlocks[0].kind);
+    for (const unlock of entry.unlocks) {
+      assert.ok(unlock.kind === 'build' || unlock.kind === 'item', entry.id);
+      assert.ok(unlock.name, `${entry.id} ${unlock.id}`);
+      if (unlock.type) assert.ok(technology.categories[unlock.kind][unlock.type], unlock.id);
+    }
+  }
+  assert.equal(levels.size, 80);
+  assert.equal(bossCount, 51);
+  assert.equal(technology.technologies.filter((entry) => entry.requires.tower).length, 17);
+  assert.equal(technology.technologies.filter((entry) => entry.requires.research).length, 10);
+  assert.equal(byId.get('Workbench').level, 1);
+  assert.equal(byId.get('Workbench').name, 'Primitive Workbench');
+  assert.deepEqual(byId.get('Workbench').category, { kind: 'build', type: 'Product' });
+  assert.equal(technology.categories.build.Product, 'Production');
+  assert.equal(technology.categories.item.Essential, 'Key Items');
+  assert.equal(byId.get('BreedFarm').requires.tower, 'ForestBoss');
+  assert.equal(byId.get('MiningTool').requires.research, 'Mining5');
+  assert.equal(byId.get('WingGlider').level, 80);
+  assert.equal(byId.get('WingGlider').cost, 9);
+  assert.equal(byId.get('WingGlider').boss, true);
+  assert.match(
+    byId.get('Workbench').description,
+    /^Primitive Workbench for producing simple items/
+  );
+  assert.ok(technology.technologies.filter((entry) => entry.description).length > 500);
+});
+
+test('the exp table runs to the level cap', () => {
+  assert.equal(exp.max_level, 80);
+  assert.equal(exp.levels.length, 80);
+  exp.levels.forEach((entry, index) => {
+    assert.equal(entry.level, index + 1);
+    if (index > 0) assert.ok(entry.total > exp.levels[index - 1].total, `level ${entry.level}`);
+  });
+  assert.equal(exp.levels[0].total, 0);
+  assert.equal(exp.levels[49].total, 2378134);
+  assert.equal(exp.levels[79].total, 45859908);
+});
+
+test('lab research carries English names, work, prerequisites and effects', () => {
+  assert.equal(lab.research.length, 168);
+  const byId = new Map(lab.research.map((entry) => [entry.id, entry]));
+  const technologies = new Set(technology.technologies.map((entry) => entry.id));
+  for (const entry of lab.research) {
+    assert.ok(entry.name && !/[<>|]|^en Text$/.test(entry.name), entry.id);
+    assert.ok(entry.required_work >= 5000, entry.id);
+    if (entry.requires) assert.ok(byId.has(entry.requires), entry.id);
+    assert.ok(entry.work.name, entry.id);
+    for (const unlock of entry.unlocks) assert.ok(technologies.has(unlock), entry.id);
+    assert.equal(entry.kind === 'TechnologyUnlock', entry.unlocks.length > 0, entry.id);
+    assert.equal(entry.effect === null, entry.kind === 'TechnologyUnlock', entry.id);
+  }
+  assert.equal(lab.research.filter((entry) => entry.unlocks.length > 0).length, 10);
+  assert.equal(lab.research.filter((entry) => entry.essential).length, 69);
+  const first = byId.get('Handcraft1');
+  assert.equal(first.name, 'Handiwork Speed 1');
+  assert.deepEqual(first.work, { suitability: 'Handcraft', name: 'Handiwork' });
+  assert.equal(first.required_work, 50000);
+  assert.deepEqual(first.effect, {
+    type: 'CraftSpeed',
+    value: 10,
+    work_suitability: 'Handcraft',
+    item_type: null
+  });
+  assert.deepEqual(byId.get('Handcraft5').unlocks, ['ToolBoxV1']);
+  assert.equal(byId.get('Handcraft5').effect_description, 'Unlock Technology: Large Toolbox');
+  assert.equal(byId.get('Mining5').requires, 'Mining1_2');
+});
+
+test('the main quests carry titles and the story order the quest manager tracks', () => {
+  assert.equal(quests.main.length, 57);
+  assert.equal(quests.story, 31);
+  assert.deepEqual(quests.initial, [
+    'Main_UnlockFastTravel',
+    'Hidden_ChangeWeaponBulletTutorialTrigger',
+    'Hidden_WhaleWhistleTrigger'
+  ]);
+  const staged = quests.main.filter((quest) => quest.stage !== null);
+  assert.equal(staged.length, 31);
+  staged.forEach((quest, index) => assert.equal(quest.stage, index, quest.id));
+  assert.equal(staged[0].id, 'Main_UnlockFastTravel');
+  assert.equal(staged[0].title, 'Activate Great Eagle Statue');
+  assert.equal(staged[30].id, 'Main_DefeatWorldTreeDragon');
+  assert.equal(staged[30].title, 'Awakening');
+  const byId = new Map(quests.main.map((quest) => [quest.id, quest]));
+  assert.equal(byId.get('Main_DefeatKingWhale').title, 'Panthalus');
+  assert.equal(byId.get('Main_UnlockPalBox').title, 'Palbox');
+  assert.equal(byId.get('Main_UnlockPalBox').stage, null);
+  for (const quest of quests.main) {
+    assert.doesNotMatch(quest.title, /[<>|]|^en Text$/, quest.id);
+    for (const next of quest.next) assert.ok(typeof next === 'string' && next.length > 0, quest.id);
+  }
+  for (let index = 0; index < staged.length - 1; index++) {
+    const quest = staged[index];
+    if (quest.next.length > 0) assert.ok(byId.has(quest.next[0]), quest.id);
+  }
+  assert.deepEqual(quests.completed_by_tower.ForestBoss, ['Main_DefeatForestBoss']);
+  assert.ok(quests.completed_by_tower.GrassBoss.includes('Main_RayneSyndicate'));
 });

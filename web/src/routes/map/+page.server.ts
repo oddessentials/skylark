@@ -30,5 +30,9 @@ export const load: PageServerLoad = async ({ fetch, url, parent }) => {
     error(404, 'The map is switched off on this site');
   }
   const { api } = serverApi(fetch, url);
-  return { map: await attempt(api.getMap()), habitat };
+  const [map, progression] = await Promise.all([
+    attempt(api.getMap()),
+    attempt(api.getProgression())
+  ]);
+  return { map, progression, habitat };
 };

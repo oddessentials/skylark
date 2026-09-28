@@ -52,6 +52,21 @@ test('the map lists the players out and the bases', async ({ page }) => {
     'aria-pressed',
     'true'
   );
+  await page.getByRole('button', { name: 'Palpagos' }).click();
+  await page.getByText('Field bosses, by who beat them').click();
+  await expect(page.locator('.map-frame path.map-boss').first()).toBeVisible();
+  expect(problems).toEqual([]);
+});
+
+test('the progression board shows towers, story, bosses and research', async ({ page }) => {
+  const problems = await open(page, '/progression', 'Progression');
+  await expect(page.locator('table.tower-grid tbody tr')).not.toHaveCount(0);
+  await expect(page.locator('td.tower-cell[data-normal]').first()).toBeVisible();
+  await expect(page.getByRole('list', { name: 'Story stages' })).toBeVisible();
+  await expect(page.locator('.map-frame path.map-boss').first()).toBeVisible();
+  await expect(page.getByRole('list', { name: 'Guild research' })).toBeVisible();
+  await expect(page.locator('svg[aria-label^="Level against hours"]')).toBeVisible();
+  await expect(page.getByRole('list', { name: 'How this is known' })).toBeVisible();
   expect(problems).toEqual([]);
 });
 
@@ -106,7 +121,7 @@ test('guilds, activity, chat and the world page render', async ({ page }) => {
   await expect(breeding.getByRole('list', { name: 'Wanted species' })).toBeVisible();
   expect(problems).toEqual([]);
   problems = await open(page, '/activity', 'Activity');
-  await page.getByRole('link', { name: 'Progress' }).click();
+  await page.getByRole('link', { name: 'Progress', exact: true }).click();
   await expect(page).toHaveURL(/types=player\.level_up/);
   await expect(page.locator('main li[data-type="player.level_up"]').first()).toBeVisible();
   expect(problems).toEqual([]);

@@ -472,6 +472,29 @@ paths:
           $ref: '#/components/responses/RateLimited'
         '503':
           $ref: '#/components/responses/Unavailable'
+  /api/v1/progression:
+    get:
+      operationId: getProgression
+      tags:
+        - public
+      summary: Server progression board
+      description: Who has beaten which tower and on which difficulty, the field bosses beaten and by whom, each player's story stage and technology tier, each guild's lab research and every player's level against playtime, from the world save, with first-seen dates from the server mod where it recorded the event. Players appear by name only.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Progression'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
   /api/v1/leaderboards:
     get:
       operationId: getLeaderboards
@@ -3244,6 +3267,407 @@ components:
         - wild
         - deaths
       additionalProperties: false
+    ProgressionTower:
+      type: object
+      description: A boss tower from the game's boss battle manager.
+      properties:
+        id:
+          type: string
+          description: The game's boss type, for example GrassBoss.
+        name:
+          type: string
+          description: The tower's English name, or the boss's species where the game hides the name.
+        category:
+          type: string
+          enum:
+            - faction_tower
+            - world_tree_middle
+            - world_tree_final
+            - king_whale
+        level:
+          type: integer
+          description: The boss level on normal difficulty.
+        hard:
+          type: boolean
+          description: Whether the game lists a hard difficulty for it.
+      required:
+        - id
+        - name
+        - category
+        - level
+        - hard
+      additionalProperties: false
+    ProgressionTowerClear:
+      type: object
+      properties:
+        tower:
+          type: string
+        difficulty:
+          type: string
+          enum:
+            - normal
+            - hard
+        count:
+          type: integer
+          minimum: 1
+        first_seen_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+          description: When the server mod first saw this player beat it, or null when only the save records it.
+      required:
+        - tower
+        - difficulty
+        - count
+        - first_seen_at
+      additionalProperties: false
+    ProgressionQuest:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        stage:
+          type: integer
+          minimum: 0
+          description: The quest's place in the story the game's quest manager tracks, 0 first.
+      required:
+        - id
+        - title
+        - stage
+      additionalProperties: false
+    ProgressionStory:
+      type: object
+      properties:
+        completed:
+          type: integer
+          minimum: 0
+          description: Story quests completed.
+        total:
+          type: integer
+          minimum: 0
+        stage:
+          description: The furthest story quest completed, or null before the first.
+          anyOf:
+            - $ref: '#/components/schemas/ProgressionQuest'
+            - type: 'null'
+        current:
+          type: array
+          description: The open story quests.
+          items:
+            $ref: '#/components/schemas/ProgressionQuest'
+      required:
+        - completed
+        - total
+        - stage
+        - current
+      additionalProperties: false
+    ProgressionLastTechnology:
+      type: object
+      description: The last technology the server mod saw this player unlock.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - at
+      additionalProperties: false
+    ProgressionTechnology:
+      type: object
+      properties:
+        unlocked:
+          type: integer
+          minimum: 0
+        total:
+          type: integer
+          minimum: 0
+        tier:
+          type: integer
+          minimum: 0
+          description: The highest level any unlocked technology needs, 0 with none.
+        boss_unlocked:
+          type: integer
+          minimum: 0
+          description: Ancient technologies unlocked.
+        boss_total:
+          type: integer
+          minimum: 0
+        points:
+          type: integer
+          minimum: 0
+          description: Unspent technology points.
+        boss_points:
+          type: integer
+          minimum: 0
+          description: Unspent ancient technology points.
+        last_unlocked:
+          anyOf:
+            - $ref: '#/components/schemas/ProgressionLastTechnology'
+            - type: 'null'
+      required:
+        - unlocked
+        - total
+        - tier
+        - boss_unlocked
+        - boss_total
+        - points
+        - boss_points
+        - last_unlocked
+      additionalProperties: false
+    ProgressionPlayer:
+      type: object
+      properties:
+        player:
+          description: Null for a player the world save lists but the site has never seen online.
+          anyOf:
+            - $ref: '#/components/schemas/PlayerRef'
+            - type: 'null'
+        name:
+          type: string
+        guild:
+          anyOf:
+            - $ref: '#/components/schemas/GuildRef'
+            - type: 'null'
+        level:
+          type:
+            - integer
+            - 'null'
+        playtime_s:
+          type:
+            - integer
+            - 'null'
+          description: Seconds played as the site counted them, null for a player it has never seen online.
+        saved_at:
+          type: string
+          format: date-time
+        towers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgressionTowerClear'
+        story:
+          $ref: '#/components/schemas/ProgressionStory'
+        technology:
+          $ref: '#/components/schemas/ProgressionTechnology'
+        field_bosses:
+          type: integer
+          minimum: 0
+        raids:
+          type: integer
+          minimum: 0
+          description: Raid clears the save counts; no key form has been seen live.
+        fast_travel:
+          type: integer
+          minimum: 0
+        areas:
+          type: integer
+          minimum: 0
+          description: Map areas found.
+        world_tree:
+          type: boolean
+          description: Whether the World Tree map is unlocked.
+      required:
+        - player
+        - name
+        - guild
+        - level
+        - playtime_s
+        - saved_at
+        - towers
+        - story
+        - technology
+        - field_bosses
+        - raids
+        - fast_travel
+        - areas
+        - world_tree
+      additionalProperties: false
+    ProgressionFieldBoss:
+      type: object
+      description: A field boss or wanted fugitive marker from the game's map data, with who has beaten it.
+      properties:
+        spawner:
+          type: string
+          description: The spawner id, the key of RecordData.NormalBossDefeatFlag.
+        name:
+          type: string
+        title:
+          type:
+            - string
+            - 'null'
+        species:
+          type:
+            - string
+            - 'null'
+        kind:
+          type: string
+          enum:
+            - field_boss
+            - wanted
+        level:
+          type: integer
+        x:
+          type: number
+        y:
+          type: number
+        map:
+          type: string
+          enum:
+            - MainMap
+            - Tree
+        beaten_by:
+          type: array
+          description: Indexes into players.
+          items:
+            type: integer
+            minimum: 0
+      required:
+        - spawner
+        - name
+        - title
+        - species
+        - kind
+        - level
+        - x
+        - y
+        - map
+        - beaten_by
+      additionalProperties: false
+    ProgressionResearchRef:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+        - id
+        - name
+      additionalProperties: false
+    ProgressionCurrentResearch:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        work:
+          type: number
+          minimum: 0
+        required_work:
+          type: number
+          minimum: 0
+        share:
+          type: number
+          minimum: 0
+          maximum: 1
+      required:
+        - id
+        - name
+        - work
+        - required_work
+        - share
+      additionalProperties: false
+    ProgressionGuild:
+      type: object
+      properties:
+        guild:
+          $ref: '#/components/schemas/GuildRef'
+        saved_at:
+          type: string
+          format: date-time
+        done:
+          type: integer
+          minimum: 0
+        total:
+          type: integer
+          minimum: 0
+        current:
+          anyOf:
+            - $ref: '#/components/schemas/ProgressionCurrentResearch'
+            - type: 'null'
+        completed:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgressionResearchRef'
+      required:
+        - guild
+        - saved_at
+        - done
+        - total
+        - current
+        - completed
+      additionalProperties: false
+    ProgressionTotals:
+      type: object
+      properties:
+        story:
+          type: integer
+        technology:
+          type: integer
+        boss_technology:
+          type: integer
+        fast_travel:
+          type: integer
+        areas:
+          type: integer
+        field_bosses:
+          type: integer
+        research:
+          type: integer
+      required:
+        - story
+        - technology
+        - boss_technology
+        - fast_travel
+        - areas
+        - field_bosses
+        - research
+      additionalProperties: false
+    Progression:
+      type: object
+      properties:
+        saved_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+          description: The newest world save behind these records, or null before the first.
+        towers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgressionTower'
+        players:
+          type: array
+          description: Sorted by story stage, then level.
+          items:
+            $ref: '#/components/schemas/ProgressionPlayer'
+        field_bosses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgressionFieldBoss'
+        guilds:
+          type: array
+          description: Guilds whose lab the save records, sorted by research done.
+          items:
+            $ref: '#/components/schemas/ProgressionGuild'
+        totals:
+          $ref: '#/components/schemas/ProgressionTotals'
+      required:
+        - saved_at
+        - towers
+        - players
+        - field_bosses
+        - guilds
+        - totals
+      additionalProperties: false
     LeaderboardEntry:
       type: object
       properties:
@@ -5212,6 +5636,61 @@ components:
         fast_travel_points:
           type: integer
           minimum: 0
+        technology_ids:
+          type: array
+          description: Every unlocked technology by its DT_TechnologyRecipeUnlock row id, sorted; absent from a save reader that only counts them.
+          items:
+            type: string
+        technology_points:
+          type: integer
+          minimum: 0
+          description: Unspent technology points.
+        boss_technology_points:
+          type: integer
+          minimum: 0
+          description: Unspent ancient technology points.
+        tower_defeats:
+          type: object
+          description: RecordData.TowerBossDefeatCount as the save keys it, {EPalBossType}_{EPalBossBattleDifficulty} such as GrassBoss_Normal, with the count of clears; the _Hard form is read from the server binary and not seen live.
+          additionalProperties:
+            type: integer
+            minimum: 1
+        raid_defeats:
+          type: object
+          description: RecordData.RaidBossDefeatCount as the save keys it; no key form has been seen live.
+          additionalProperties:
+            type: integer
+            minimum: 1
+        field_boss_keys:
+          type: array
+          description: RecordData.NormalBossDefeatFlag keys set true, the spawner ids of landmarks.json boss markers, sorted.
+          items:
+            type: string
+        fast_travel_keys:
+          type: array
+          description: RecordData.FastTravelPointUnlockFlag keys set true, the guid of landmarks.json fast travel points and watchtowers, sorted.
+          items:
+            type: string
+        area_keys:
+          type: array
+          description: RecordData.FindAreaFlagMap keys set true, DT_WorldMapAreaData row ids matched without regard to case, sorted.
+          items:
+            type: string
+        world_maps:
+          type: array
+          description: RecordData.UnlockedWorldMapFlags keys set true, DT_WorldMapUIData row ids (MainMap, Tree), sorted.
+          items:
+            type: string
+        completed_quests:
+          type: array
+          description: CompletedQuestArray_FullRelease in the save's order, DT_PalQuestData row ids.
+          items:
+            type: string
+        ordered_quests:
+          type: array
+          description: OrderedQuestArray_FullRelease, the open quests with their block index.
+          items:
+            $ref: '#/components/schemas/SaveOrderedQuest'
       required:
         - palpedia
         - species_captured
@@ -5222,6 +5701,47 @@ components:
         - fixed_dungeon_clears
         - technologies
         - fast_travel_points
+      additionalProperties: true
+    SaveOrderedQuest:
+      type: object
+      properties:
+        id:
+          type: string
+        block:
+          type: integer
+      required:
+        - id
+        - block
+      additionalProperties: true
+    SaveGuildResearch:
+      type: object
+      properties:
+        id:
+          type: string
+          description: A DT_LabResearchDataTable row id.
+        work:
+          type: number
+          minimum: 0
+          description: Work done on it, complete at the row's RequiredWorkAmount.
+      required:
+        - id
+        - work
+      additionalProperties: true
+    SaveGuildLab:
+      type: object
+      description: The guild's lab from GuildExtraSaveDataMap, the research with work done on it and the one under way.
+      properties:
+        current:
+          type:
+            - string
+            - 'null'
+        research:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaveGuildResearch'
+      required:
+        - current
+        - research
       additionalProperties: true
     SavePlayerData:
       type: object
@@ -5294,6 +5814,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SaveGuildMember'
+        lab:
+          anyOf:
+            - $ref: '#/components/schemas/SaveGuildLab'
+            - type: 'null'
       required:
         - saved_at
         - guild_id

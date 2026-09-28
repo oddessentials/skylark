@@ -202,9 +202,24 @@ func level() []byte {
 			g.Map("GroupSaveDataMap", "StructProperty", "StructProperty",
 				g.Entry{Key: g.GUIDElem(orgID), Value: g.FieldsElem(g.Enum("GroupType", "EPalGroupType", "EPalGroupType::Organization"), g.Bytes("RawData", org.Bytes()))},
 				g.Entry{Key: g.GUIDElem(guildID), Value: g.FieldsElem(g.Enum("GroupType", "EPalGroupType", "EPalGroupType::Guild"), g.Bytes("RawData", guildRaw()))}),
+			g.Map("GuildExtraSaveDataMap", "StructProperty", "StructProperty",
+				g.Entry{Key: g.GUIDElem(guildID), Value: g.FieldsElem(
+					g.Struct("GuildItemStorage", "PalGuildItemStorageSaveData", g.Bytes("RawData", []byte{})),
+					g.Struct("Lab", "PalGuildLabSaveData", g.Bytes("RawData", labRaw())),
+					g.Struct("Expedition", "PalGuildExpeditionSaveData", g.Bytes("RawData", make([]byte, 8))))}),
 			g.Struct("GameTimeSaveData", "PalGameTimeSaveData", g.Int64("RealDateTimeTicks", 5000)),
 		),
 	)
+}
+
+func labRaw() []byte {
+	var b g.Buffer
+	b.I32(3)
+	b.String("Handcraft1").F32(50014)
+	b.String("Mining1").F32(0)
+	b.String("Seeding2").F32(15827.75)
+	b.String("Seeding2").I32(0)
+	return b.Bytes()
 }
 
 func playerSave() []byte {
@@ -218,10 +233,23 @@ func playerSave() []byte {
 				g.Struct("CommonContainerId", "PalContainerId", g.GUID("ID", inventory)),
 				g.Struct("EssentialContainerId", "PalContainerId", g.GUID("ID", ""))),
 			g.Names("UnlockedRecipeTechnologyNames", "Workbench", "PalBox", "Product_Axe_Grade_01"),
+			g.Int("TechnologyPoint", 12),
+			g.Int("bossTechnologyPoint", 3),
+			g.Names("CompletedQuestArray_FullRelease", "Main_UnlockFastTravel", "Main_TutorialStart"),
+			g.StructArray("OrderedQuestArray_FullRelease", "PalOrderedQuestSaveData",
+				[]g.Prop{g.Name("QuestName", "Main_OpenSurvivalGuide"), g.Int("BlockIndex", 1)},
+				[]g.Prop{g.Name("QuestName", "Sub_Farmer04"), g.Int("BlockIndex", 0)}),
 			g.Struct("RecordData", "PalLoggedinPlayerSaveDataRecordData",
 				g.Map("TowerBossDefeatFlag", "NameProperty", "BoolProperty",
 					g.Entry{Key: g.NameElem("BOSS_BATTLE_NAME_GrassBoss"), Value: g.BoolElem(true)},
 					g.Entry{Key: g.NameElem("BOSS_BATTLE_NAME_ForestBoss"), Value: g.BoolElem(false)}),
+				g.Map("TowerBossDefeatCount", "NameProperty", "IntProperty",
+					g.Entry{Key: g.NameElem("GrassBoss_Normal"), Value: g.IntElem(2)},
+					g.Entry{Key: g.NameElem("GrassBoss_Hard"), Value: g.IntElem(0)}),
+				g.Map("FindAreaFlagMap", "NameProperty", "BoolProperty",
+					g.Entry{Key: g.NameElem("Grass_001"), Value: g.BoolElem(true)}),
+				g.Map("UnlockedWorldMapFlags", "NameProperty", "BoolProperty",
+					g.Entry{Key: g.NameElem("MainMap"), Value: g.BoolElem(true)}),
 				g.Map("NormalBossDefeatFlag", "NameProperty", "BoolProperty",
 					g.Entry{Key: g.NameElem("81_1_grass_FBOSS_9"), Value: g.BoolElem(true)},
 					g.Entry{Key: g.NameElem("81_1_grass_FBOSS_20"), Value: g.BoolElem(true)}),
@@ -263,6 +291,12 @@ func TestExtractReadsPlayersGuildsAndBases(t *testing.T) {
 			Palpedia: 3, PalpediaEntries: []string{"ChickenPal", "PinkCat", "SheepBall"}, SpeciesCaptured: 2, Captures: 4,
 			SpeciesCaptures: map[string]int{"PinkCat": 1, "SheepBall": 3}, TowerBosses: []string{"GrassBoss"}, FieldBosses: 2,
 			DungeonClears: 5, FixedDungeonClears: 2, Technologies: 3, FastTravelPoints: 1,
+			TechnologyIDs: []string{"PalBox", "Product_Axe_Grade_01", "Workbench"}, TechnologyPoints: 12, BossTechnologyPoints: 3,
+			TowerDefeats: map[string]int{"GrassBoss_Normal": 2}, RaidDefeats: map[string]int{},
+			FieldBossKeys: []string{"81_1_grass_FBOSS_20", "81_1_grass_FBOSS_9"}, FastTravelKeys: []string{"6E03F846"},
+			AreaKeys: []string{"Grass_001"}, WorldMaps: []string{"MainMap"},
+			CompletedQuests: []string{"Main_UnlockFastTravel", "Main_TutorialStart"},
+			OrderedQuests:   []OrderedQuest{{ID: "Main_OpenSurvivalGuide", Block: 1}, {ID: "Sub_Farmer04", Block: 0}},
 		}, Pals: []Pal{
 			{InstanceID: "23000000000000000000000000000000", Species: "PinkCat", Where: "party", Gender: &male, Level: 4, Rank: 1, Talents: Talents{HP: 30, Shot: 40, Defense: 50}, Passives: []string{"Noukin"}},
 			{InstanceID: "24000000000000000000000000000000", Species: "Kitsunebi", Alpha: true, Where: "box", Gender: &female, Level: 12, Rank: 2, Talents: Talents{HP: 90, Shot: 95, Defense: 100}, Passives: []string{"Rare", "Noukin"}, Lucky: true, Name: name("Blaze")},
@@ -276,7 +310,7 @@ func TestExtractReadsPlayersGuildsAndBases(t *testing.T) {
 	wantGuilds := []Guild{{GuildID: guildID, Name: "Lark Riders", BaseCampLevel: 3, Members: []Member{
 		{PlayerID: wanderer, Name: "Wanderer", Role: "guild_master"},
 		{PlayerID: fisher, Name: "Fisher", Role: "member"},
-	}}}
+	}, Lab: &Lab{Current: name("Seeding2"), Research: []Research{{ID: "Handcraft1", Work: 50014}, {ID: "Seeding2", Work: 15827.8}}}}}
 	if !reflect.DeepEqual(world.Guilds, wantGuilds) {
 		t.Fatalf("guilds %+v", world.Guilds)
 	}
@@ -323,5 +357,16 @@ func TestATruncatedGuildIsAnError(t *testing.T) {
 	raw := guildRaw()
 	if _, err := readGuild(raw[:len(raw)-40]); err == nil {
 		t.Fatal("expected an error")
+	}
+}
+
+func TestATruncatedLabIsAnError(t *testing.T) {
+	raw := labRaw()
+	if _, err := readLab(raw[:len(raw)-6]); err == nil {
+		t.Fatal("expected an error")
+	}
+	lab, err := readLab(raw)
+	if err != nil || lab.Current == nil || *lab.Current != "Seeding2" || len(lab.Research) != 2 {
+		t.Fatalf("lab %+v %v", lab, err)
 	}
 }
