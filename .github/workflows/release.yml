@@ -3,6 +3,9 @@ name: release
 on:
   push:
     tags: ['v*']
+    branches: [main]
+    paths:
+      - package.json
   pull_request:
     paths:
       - .github/workflows/release.yml
@@ -40,6 +43,12 @@ jobs:
               exit 1
             fi
             publish=true
+          elif [ "$GITHUB_EVENT_NAME" = push ] && [ "$GITHUB_REF_NAME" = main ]; then
+            if git ls-remote --exit-code --tags origin "refs/tags/v$version" > /dev/null; then
+              echo "v$version is already released."
+            else
+              publish=true
+            fi
           fi
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "publish=$publish" >> "$GITHUB_OUTPUT"
@@ -129,11 +138,12 @@ jobs:
         with:
           name: binaries
           path: dist
-      - run: >
-          gh release create "$GITHUB_REF_NAME" dist/*
-          --repo "$GITHUB_REPOSITORY"
-          --verify-tag
-          --title "Skylark ${{ needs.version.outputs.version }}"
-          --generate-notes
+      - run: |
+          tag="v${{ needs.version.outputs.version }}"
+          if [ "$GITHUB_REF_TYPE" = tag ]; then
+            gh release create "$tag" dist/* --repo "$GITHUB_REPOSITORY" --verify-tag --title "Skylark ${{ needs.version.outputs.version }}" --generate-notes
+          else
+            gh release create "$tag" dist/* --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Skylark ${{ needs.version.outputs.version }}" --generate-notes
+          fi
         env:
           GH_TOKEN: ${{ github.token }}
