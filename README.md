@@ -45,6 +45,7 @@ Playtime, sessions, level history, knockouts and distance travelled for everyone
 - The world's settings, the server's history and this week's leaders
 - An admin area for the collector, server actions (announce, save, shut down with a countdown, kick, ban), backups and a history rebuild
 - Switches to hide positions, bases, Pals, chat or guild chat
+- A stream overlay with the sun dial and who is on
 
 ## Install
 
@@ -76,6 +77,8 @@ The site is a SvelteKit app on Node 24 with PostgreSQL 18. It migrates the datab
 | `ORIGIN` | | The address people use, for example `https://skylark.example.com`. Admin changes must come from it. |
 | `BACKUP_DIR`, `BACKUPS_KEPT` | `/backups`, `14` | Nightly `pg_dump` backups. |
 | `API_MOCK` | `0` | `1` serves the recorded fixtures instead of a database, for trying the pages. |
+
+`/watch` is a stream overlay for OBS or any browser source: the sun dial and who is on, over a transparent background. `?show=clock` or `?show=players` shows one of them, `?size=` sets the dial from 120 to 480 px (the countdown shows above 250), `?limit=` caps the list, `?layout=row` puts them side by side and `?solid` makes the list opaque.
 
 The API is described in `web/openapi.yaml` and served at `/api/v1/openapi.json`. `/api/v1/stream` sends live updates as server-sent events.
 
