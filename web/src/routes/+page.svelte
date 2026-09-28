@@ -29,6 +29,10 @@
   const players = $derived(online?.players ?? []);
 
   const headline = $derived.by(() => {
+    const layers = status?.collector.layers;
+    if (status?.state === 'unknown' && status.collector.state === 'active' && layers) {
+      if (!layers.rest && layers.saves) return 'Following the world save';
+    }
     if (!status || status.state === 'unknown') return 'Out of contact';
     if (status.state === 'offline') return 'The server is resting';
     if (players.length === 0) return 'The islands are quiet';

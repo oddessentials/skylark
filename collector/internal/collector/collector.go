@@ -19,6 +19,7 @@ import (
 	"github.com/oddessentials/skylark/collector/internal/event"
 	"github.com/oddessentials/skylark/collector/internal/ingest"
 	"github.com/oddessentials/skylark/collector/internal/palrest"
+	"github.com/oddessentials/skylark/collector/internal/remote"
 	"github.com/oddessentials/skylark/collector/internal/saves"
 	"github.com/oddessentials/skylark/collector/internal/serverlog"
 	"github.com/oddessentials/skylark/collector/internal/world"
@@ -145,6 +146,7 @@ type Collector struct {
 	clockWarned bool
 
 	saveResults   chan saveOutcome
+	remote        *remote.Fetcher
 	modLines      chan serverlog.Line
 	modStates     chan sourceState
 	modState      serverlog.State
@@ -219,6 +221,14 @@ func New(options Options) (*Collector, error) {
 	}
 	if cfg.Saves.Reader != "" {
 		c.saveState = saveWaiting
+		if cfg.Saves.Remote != "" {
+			fetcher, err := remoteFetcher(cfg, func(text string) { c.log.Info(text, "remote", remote.Redact(cfg.Saves.Remote)) })
+			if err != nil {
+				journal.Close()
+				return nil, err
+			}
+			c.remote = fetcher
+		}
 	}
 	c.mapper = &logMapper{tracker: c.tracker, sendIPs: cfg.SendIPs}
 	c.pipe = ingest.NewPipeline(ingest.Options{
@@ -320,7 +330,7 @@ func (c *Collector) Run(ctx context.Context, force <-chan struct{}) error {
 	workers.Add(1)
 	go func() {
 		defer workers.Done()
-		runActions(actionCtx, c.rest, c.actionLog, c.pipe.Actions(), c.actionResults, func() { c.expectShutdown.Store(true) })
+		runActions(actionCtx, c.actionRunner(), c.actionLog, c.pipe.Actions(), c.actionResults, func() { c.expectShutdown.Store(true) })
 	}()
 	sourceCtx, sourceCancel := context.WithCancel(context.Background())
 	sourceDone := make(chan struct{})
@@ -345,16 +355,23 @@ func (c *Collector) Run(ctx context.Context, force <-chan struct{}) error {
 	if c.options.DryRun != nil {
 		site = "dry run, batches go to stdout"
 	}
+	rest := c.cfg.Palworld.RestURL
+	if !c.restOn() {
+		rest = config.RestOff
+	}
 	c.log.Info("collector running",
 		"version", buildinfo.Version,
 		"run_id", c.factory.RunID(),
-		"rest", c.cfg.Palworld.RestURL,
+		"rest", rest,
 		"logs", c.cfg.Logs.Source,
 		"site", site,
 		"journal", c.cfg.JournalDir)
 	c.startupDeadline = time.Now().Add(c.options.StartupWait)
 	c.fetchInfo()
 	c.fetchGameData()
+	if !c.restOn() {
+		c.checkSaves()
+	}
 	c.loop(ctx, force)
 	modCancel()
 	sourceCancel()
@@ -500,14 +517,14 @@ func (c *Collector) forceStop() {
 func (c *Collector) housekeeping() bool {
 	now := time.Now()
 	if !c.startedEmitted {
-		ready := c.serverUp && c.gameDataProbed
+		ready := (c.serverUp && c.gameDataProbed) || !c.restOn()
 		launch := c.cfg.Logs.Source == config.SourceLaunch
 		if !launch && c.startupInfoTried && !c.serverUp && c.gameDataProbed {
 			ready = true
 		}
 		if ready || now.After(c.startupDeadline) {
 			c.ensureStarted()
-		} else if !c.serverUp {
+		} else if !c.serverUp && c.restOn() {
 			c.fetchInfo()
 		}
 	}
@@ -615,6 +632,9 @@ func (c *Collector) fetch(kind string, call func(ctx context.Context) restResult
 }
 
 func (c *Collector) fetchInfo() {
+	if !c.restOn() {
+		return
+	}
 	c.fetch("info", func(ctx context.Context) restResult {
 		info, err := c.rest.Info(ctx)
 		if err != nil {
@@ -629,6 +649,9 @@ func (c *Collector) fetchInfo() {
 }
 
 func (c *Collector) fetchPlayers() {
+	if !c.restOn() {
+		return
+	}
 	c.fetch("players", func(ctx context.Context) restResult {
 		players, err := c.rest.Players(ctx)
 		return restResult{players: players, err: err}
@@ -636,6 +659,9 @@ func (c *Collector) fetchPlayers() {
 }
 
 func (c *Collector) fetchMetrics() {
+	if !c.restOn() {
+		return
+	}
 	c.fetch("metrics", func(ctx context.Context) restResult {
 		metrics, err := c.rest.Metrics(ctx)
 		return restResult{metrics: metrics, err: err}
@@ -643,6 +669,9 @@ func (c *Collector) fetchMetrics() {
 }
 
 func (c *Collector) fetchGameData() {
+	if !c.restOn() {
+		return
+	}
 	c.fetch("gamedata", func(ctx context.Context) restResult {
 		data, err := c.rest.GameData(ctx)
 		return restResult{gameData: data, err: err}
@@ -650,6 +679,9 @@ func (c *Collector) fetchGameData() {
 }
 
 func (c *Collector) onSnapshotTick() {
+	if !c.restOn() {
+		return
+	}
 	switch c.gameDataState {
 	case gameDataOff:
 		if time.Now().After(c.gameDataNextProbe) {
@@ -949,11 +981,15 @@ func (c *Collector) onActionResult(result actionResult) {
 func (c *Collector) emitHeartbeat() {
 	stats := c.pipe.Stats()
 	restState := "down"
-	if !c.restLastOK.IsZero() && time.Since(c.restLastOK) < 3*c.cfg.Intervals.Players {
+	if !c.restOn() {
+		restState = config.RestOff
+	} else if !c.restLastOK.IsZero() && time.Since(c.restLastOK) < 3*c.cfg.Intervals.Players {
 		restState = "ok"
 	}
 	gameData := "unavailable"
-	if restState == "ok" {
+	if !c.restOn() {
+		gameData = "off"
+	} else if restState == "ok" {
 		switch c.gameDataState {
 		case gameDataOK:
 			gameData = "ok"

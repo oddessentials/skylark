@@ -276,3 +276,43 @@ func TestPlainRestToAPublicAddressWarns(t *testing.T) {
 		}
 	}
 }
+
+func TestRestOffWithRemoteSaves(t *testing.T) {
+	values := map[string]string{
+		"SKYLARK_PALWORLD_REST_URL": "OFF",
+		"SKYLARK_SAVES_REMOTE":      "sftp://palworld@saves.example.net:2022/Pal/Saved",
+		"SKYLARK_SAVES_PASSWORD":    "sftp-secret",
+		"SKYLARK_SAVES_HOST_KEY":    "SHA256:abc",
+	}
+	cfg, err := Load(Options{DryRun: true, Platform: "linux", Getenv: env(values)})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !cfg.Palworld.RestOff || cfg.Palworld.RestURL != "" {
+		t.Fatalf("rest off: %+v", cfg.Palworld)
+	}
+	if cfg.Saves.Remote == "" || cfg.Saves.Password != "sftp-secret" || cfg.Saves.HostKey != "SHA256:abc" {
+		t.Fatalf("saves: %+v", cfg.Saves)
+	}
+	values["SKYLARK_SAVES_REMOTE"] = "ftp://palworld:secret@203.0.113.9/Pal/Saved"
+	cfg, err = Load(Options{DryRun: true, Platform: "linux", Getenv: env(values)})
+	if err != nil {
+		t.Fatal(err)
+	}
+	warned := strings.Join(cfg.Warnings, "\n")
+	if !strings.Contains(warned, "plain FTP to a public address") || strings.Contains(warned, "secret@") {
+		t.Fatalf("plain FTP to a public host warns without printing the password: %s", warned)
+	}
+	values["SKYLARK_SAVES_REMOTE"] = "http://saves.example.net/"
+	if _, err := Load(Options{DryRun: true, Platform: "linux", Getenv: env(values)}); err == nil || !strings.Contains(err.Error(), "ftp://, ftps:// or sftp://") {
+		t.Fatalf("an http remote is refused, got %v", err)
+	}
+	delete(values, "SKYLARK_SAVES_REMOTE")
+	if _, err := Load(Options{DryRun: true, Platform: "linux", Getenv: env(values)}); err == nil || !strings.Contains(err.Error(), "nothing to read") {
+		t.Fatalf("rest off with nothing to read is refused, got %v", err)
+	}
+	launch := map[string]string{"SKYLARK_PALWORLD_REST_URL": "off", "SKYLARK_LAUNCH_COMMAND": "/srv/palworld/PalServer.sh"}
+	if _, err := Load(Options{DryRun: true, Platform: "linux", Getenv: env(launch)}); err == nil || !strings.Contains(err.Error(), "launch needs the REST API") {
+		t.Fatalf("launch mode needs REST, got %v", err)
+	}
+}
