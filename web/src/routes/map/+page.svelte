@@ -53,7 +53,7 @@
   {#if !world && !data.map.ok}
     <ErrorNote error={data.map.error} what="the map" />
   {:else}
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_17rem]">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
       <WorldMap
         world={shown}
         landmarks={showLandmarks}
