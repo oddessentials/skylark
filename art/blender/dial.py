@@ -16,6 +16,23 @@ RIVET_OUTER = 466.0 / UNIT
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "raster", "dial-plate-render.png")
 
 
+def use_gpu(scene):
+    prefs = bpy.context.preferences.addons["cycles"].preferences
+    for backend in ("OPTIX", "CUDA", "HIP", "METAL", "ONEAPI"):
+        try:
+            prefs.compute_device_type = backend
+        except TypeError:
+            continue
+        prefs.get_devices()
+        if any(d.type == backend for d in prefs.devices):
+            for d in prefs.devices:
+                d.use = d.type == backend
+            scene.cycles.device = "GPU"
+            return backend
+    scene.cycles.device = "CPU"
+    return "CPU"
+
+
 def wipe():
     bpy.ops.wm.read_factory_settings(use_empty=True)
 
@@ -110,12 +127,7 @@ def disc(name, radius, z, mat, segments=256):
 wipe()
 scene = bpy.context.scene
 scene.render.engine = "CYCLES"
-scene.cycles.device = "GPU"
-prefs = bpy.context.preferences.addons["cycles"].preferences
-prefs.compute_device_type = "METAL"
-prefs.get_devices()
-for device in prefs.devices:
-    device.use = True
+print("DEVICE", use_gpu(scene))
 scene.cycles.samples = int(os.environ.get("SAMPLES", "256"))
 scene.cycles.use_denoising = True
 scene.render.resolution_x = 1024

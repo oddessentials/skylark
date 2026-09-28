@@ -183,6 +183,8 @@ Pushing a tag `v<version>` that matches the `package.json` version publishes `gh
 
 Facts about the game come from the free dedicated server's own files: `npm run facts:extract -- --pak <path to Pal-WindowsServer.pak>` rebuilds `web/src/lib/world` and records the game version each file was read from, and the Steam build in `build.json`. A daily workflow compares that build with the server's public build and opens an issue with the checks to repeat when a patch is out; `npm run facts:build` runs the same comparison. The extractor in `tools/gamefacts` is licensed GPL-3.0-or-later (its own `LICENSE`), because it decodes the pak with ooz-wasm; the rest of Skylark stays MIT.
 
+The scenery is Skylark's own, rendered with Blender 5.2: `blender -b -P art/blender/field.py` renders the backdrop, `perch.py` the error pages and `dial.py` the sun dial plate, into `art/raster`. `python art/export.py` (Pillow) writes the WebP and AVIF sizes the site serves. The backdrop places the sun, pond, waterfall and lights where the scenery animation expects them.
+
 </details>
 
 <sub>Skylark is an unofficial fan project, not affiliated with or endorsed by Pocketpair, Inc. Palworld is a trademark of Pocketpair, Inc.</sub>
