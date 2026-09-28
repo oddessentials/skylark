@@ -111,3 +111,20 @@ test('an unknown address says nothing is on the perch', async ({ page }) => {
   expect(response?.status()).toBe(404);
   await expect(page.locator('main h1')).toHaveText('Nothing on the perch');
 });
+
+test('the watch page shows the clock and who is on, and nothing else', async ({ page }) => {
+  const problems = watchConsole(page);
+  const response = await page.goto('/watch');
+  expect(response?.status()).toBe(200);
+  await expect(page.locator('html')).toHaveAttribute('data-watch', '');
+  await expect(page.locator('header')).toHaveCount(0);
+  await expect(page.locator('.sun-dial')).toBeVisible();
+  const card = page.getByRole('region', { name: 'Who is on' });
+  await expect(card).toContainText('4 tamers out');
+  for (const name of ['Juniper', 'Orrin', 'Tamsin', 'Wren']) await expect(card).toContainText(name);
+  await page.goto('/watch?show=players&limit=2');
+  await expect(page.locator('.sun-dial')).toHaveCount(0);
+  await expect(page.locator('.watch-players li')).toHaveCount(2);
+  await expect(page.getByText('and 2 more')).toBeVisible();
+  expect(problems).toEqual([]);
+});
