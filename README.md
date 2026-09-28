@@ -39,10 +39,25 @@ Skylark gives your Palworld dedicated server its own website. A small collector 
 
 Playtime, sessions, level history, knockouts and distance travelled for everyone who plays, with the Pals out with them right now, the trail of each session on the map, and from the world save their Palpedia, captures and boss records.
 
+<table>
+  <tr>
+    <td width="34%" valign="top">
+      <img src="site/assets/palpedia.jpg" alt="A player's Palpedia: every entry as a tile, caught ones in colour, and the list of what is still missing with how each is obtained">
+      <h3>The Palpedia, on your server</h3>
+      Every entry each player has caught, from the world save, and what is still missing, with how each species is obtained from the game's own tables: in the wild by day or night, from eggs, by fishing, from cages, raids or breeding. Guild pages show the same across the members, and who has what.
+    </td>
+    <td width="66%" valign="top">
+      <img src="site/assets/habitat.jpg" alt="The live map showing where Helzephyr lives, by day and at night, from the game's habitat data">
+      <h3>Where the missing ones live</h3>
+      Pick a Pal on the map and see where it lives, by day and at night, with its wild levels, drawn from the game's own habitat data onto Skylark's map. A missing entry on a player's page takes you straight there.
+    </td>
+  </tr>
+</table>
+
 ## Also on the site
 
 - Who is online, with their level, health, guild and Pals, and everything that happened today
-- Guilds with their members, roles and bases and the Pals working there, chat, and a live activity feed
+- Guilds with their members, roles and bases and the Pals working there, their Palpedia, chat, and a live activity feed
 - The world's settings, the server's history and this week's leaders
 - An admin area for the collector, server actions (announce, save, shut down with a countdown, kick, ban), backups and a history rebuild
 - Switches to hide positions, bases, Pals, chat or guild chat
