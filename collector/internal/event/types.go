@@ -1,5 +1,7 @@
 package event
 
+import "time"
+
 const (
 	TypeCollectorStarted   = "collector.started"
 	TypeCollectorHeartbeat = "collector.heartbeat"
@@ -19,6 +21,10 @@ const (
 	TypePlayerUnbanned     = "player.unbanned"
 	TypeActionCompleted    = "action.completed"
 	TypeActionFailed       = "action.failed"
+	TypeSavePlayer         = "save.player"
+	TypeSaveGuild          = "save.guild"
+	TypeSaveBase           = "save.base"
+	TypeSaveRead           = "save.read"
 )
 
 const (
@@ -79,6 +85,7 @@ type CollectorHeartbeatData struct {
 	Rest          string  `json:"rest"`
 	GameData      string  `json:"gamedata"`
 	Logs          string  `json:"logs"`
+	Saves         string  `json:"saves,omitempty"`
 }
 
 type ServerOnlineData struct {
@@ -238,6 +245,67 @@ type ActionFailedData struct {
 	ActionID int64  `json:"action_id"`
 	Kind     string `json:"kind"`
 	Error    string `json:"error"`
+}
+
+type SaveProgress struct {
+	Palpedia           int      `json:"palpedia"`
+	SpeciesCaptured    int      `json:"species_captured"`
+	Captures           int      `json:"captures"`
+	TowerBosses        []string `json:"tower_bosses"`
+	FieldBosses        int      `json:"field_bosses"`
+	DungeonClears      int      `json:"dungeon_clears"`
+	FixedDungeonClears int      `json:"fixed_dungeon_clears"`
+	Technologies       int      `json:"technologies"`
+	FastTravelPoints   int      `json:"fast_travel_points"`
+}
+
+type SavePlayerData struct {
+	SavedAt      time.Time     `json:"saved_at"`
+	PlayerID     string        `json:"player_id"`
+	Name         *string       `json:"name"`
+	Level        *int          `json:"level"`
+	GuildID      *string       `json:"guild_id"`
+	LastOnlineAt *time.Time    `json:"last_online_at"`
+	Progress     *SaveProgress `json:"progress"`
+}
+
+type SaveGuildMember struct {
+	PlayerID string `json:"player_id"`
+	Name     string `json:"name"`
+	Role     string `json:"role"`
+}
+
+type SaveGuildData struct {
+	SavedAt       time.Time         `json:"saved_at"`
+	GuildID       string            `json:"guild_id"`
+	Name          string            `json:"name"`
+	BaseCampLevel int               `json:"base_camp_level"`
+	Members       []SaveGuildMember `json:"members"`
+}
+
+type SaveWorker struct {
+	InstanceID  string  `json:"instance_id"`
+	CharacterID string  `json:"character_id"`
+	Level       int     `json:"level"`
+	Name        *string `json:"name"`
+}
+
+type SaveBaseData struct {
+	SavedAt time.Time    `json:"saved_at"`
+	BaseID  string       `json:"base_id"`
+	GuildID *string      `json:"guild_id"`
+	Name    *string      `json:"name"`
+	X       float64      `json:"x"`
+	Y       float64      `json:"y"`
+	Z       *float64     `json:"z"`
+	Workers []SaveWorker `json:"workers"`
+}
+
+type SaveReadData struct {
+	SavedAt   time.Time `json:"saved_at"`
+	PlayerIDs []string  `json:"player_ids"`
+	GuildIDs  []string  `json:"guild_ids"`
+	BaseIDs   []string  `json:"base_ids"`
 }
 
 func String(value string) *string {

@@ -10,6 +10,7 @@
   import Meta from '$lib/ui/Meta.svelte';
   import PalChip from '$lib/ui/PalChip.svelte';
   import PlatformTag from '$lib/ui/PlatformTag.svelte';
+  import ProgressCard from '$lib/ui/ProgressCard.svelte';
   import { withParams } from '$lib/ui/query';
   import Time from '$lib/ui/Time.svelte';
   import WorldMap from '$lib/ui/WorldMap.svelte';
@@ -118,6 +119,10 @@
               {/each}
             </div>
           </Card>
+        {/if}
+
+        {#if player.progress}
+          <ProgressCard progress={player.progress} />
         {/if}
 
         <Card title="Level over time">

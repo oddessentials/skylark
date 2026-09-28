@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"sync"
 
 	"github.com/santhosh-tekuri/jsonschema/v6"
@@ -152,6 +153,10 @@ var eventSchemas = map[string]string{
 	"player.unbanned":     "PlayerUnbannedEvent",
 	"action.completed":    "ActionCompletedEvent",
 	"action.failed":       "ActionFailedEvent",
+	"save.player":         "SavePlayerEvent",
+	"save.guild":          "SaveGuildEvent",
+	"save.base":           "SaveBaseEvent",
+	"save.read":           "SaveReadEvent",
 }
 
 func EventSchema(eventType string) string {
@@ -159,6 +164,26 @@ func EventSchema(eventType string) string {
 		return name
 	}
 	return "OtherEvent"
+}
+
+func (v *Validator) ContractTypes() []string {
+	schemas, _ := v.document["components"].(map[string]any)["schemas"].(map[string]any)
+	event, _ := schemas["CollectorEvent"].(map[string]any)
+	options, _ := event["anyOf"].([]any)
+	var types []string
+	for _, option := range options {
+		ref, _ := option.(map[string]any)["$ref"].(string)
+		schema, _ := schemas[ref[strings.LastIndex(ref, "/")+1:]].(map[string]any)
+		parts, _ := schema["allOf"].([]any)
+		for _, part := range parts {
+			properties, _ := part.(map[string]any)["properties"].(map[string]any)
+			typeSchema, _ := properties["type"].(map[string]any)
+			if value, ok := typeSchema["const"].(string); ok {
+				types = append(types, value)
+			}
+		}
+	}
+	return types
 }
 
 func DocumentedTypes() []string {

@@ -7,21 +7,24 @@
       "level": 31,
       "online": false,
       "since": "2026-09-21T18:33:01.000Z",
-      "last_seen": "2026-09-27T19:17:15.000Z"
+      "last_seen": "2026-09-27T19:17:15.000Z",
+      "role": "sub_master"
     },
     {
       "player": { "id": 6, "name": "Bramble" },
       "level": 19,
       "online": false,
       "since": "2026-09-27T13:55:01.000Z",
-      "last_seen": "2026-09-27T15:35:11.000Z"
+      "last_seen": "2026-09-27T15:35:11.000Z",
+      "role": "guild_master"
     },
     {
       "player": { "id": 5, "name": "Mossbrook" },
       "level": 16,
       "online": false,
       "since": "2026-09-22T11:16:01.000Z",
-      "last_seen": "2026-09-26T13:13:02.000Z"
+      "last_seen": "2026-09-26T13:13:02.000Z",
+      "role": "member"
     }
   ],
   "bases": [
@@ -33,12 +36,45 @@
       "x": -316500,
       "y": 125370,
       "workers": 3,
-      "workers_seen_at": "2026-09-27T19:16:01.000Z",
+      "workers_seen_at": "2026-09-27T20:29:00.000Z",
       "first_seen": "2026-09-20T20:30:01.000Z",
       "last_seen": "2026-09-27T20:29:51.000Z",
-      "gone_at": null
+      "gone_at": null,
+      "worker_pals": [
+        { "species": "LizardMan", "alpha": false, "name": null, "level": 5 },
+        { "species": "GhostAnglerfish", "alpha": false, "name": "Pip", "level": 8 },
+        { "species": "SnowPeafowl", "alpha": true, "name": null, "level": 11 }
+      ]
     }
   ],
   "first_seen": "2026-09-20T20:30:01.000Z",
-  "last_seen": "2026-09-27T20:29:51.000Z"
+  "last_seen": "2026-09-27T20:29:51.000Z",
+  "base_camp_level": 7,
+  "roster": [
+    {
+      "player": { "id": 6, "name": "Bramble" },
+      "name": "Bramble",
+      "role": "guild_master",
+      "level": 19,
+      "online": false,
+      "last_online_at": "2026-09-27T15:35:11.000Z"
+    },
+    {
+      "player": { "id": 4, "name": "Sable" },
+      "name": "Sable",
+      "role": "sub_master",
+      "level": 31,
+      "online": false,
+      "last_online_at": "2026-09-27T19:17:15.000Z"
+    },
+    {
+      "player": { "id": 5, "name": "Mossbrook" },
+      "name": "Mossbrook",
+      "role": "member",
+      "level": 16,
+      "online": false,
+      "last_online_at": "2026-09-26T13:13:02.000Z"
+    }
+  ],
+  "roster_saved_at": "2026-09-27T20:29:00.000Z"
 }

@@ -7,21 +7,24 @@
       "level": 30,
       "online": true,
       "since": "2026-09-21T14:00:01.000Z",
-      "last_seen": "2026-09-27T20:30:05.000Z"
+      "last_seen": "2026-09-27T20:30:05.000Z",
+      "role": "guild_master"
     },
     {
       "player": { "id": 3, "name": "Tamsin" },
       "level": 27,
       "online": true,
       "since": "2026-09-21T14:06:01.000Z",
-      "last_seen": "2026-09-27T20:30:05.000Z"
+      "last_seen": "2026-09-27T20:30:05.000Z",
+      "role": "sub_master"
     },
     {
       "player": { "id": 7, "name": "Orrin" },
       "level": 24,
       "online": true,
       "since": "2026-09-22T15:13:01.000Z",
-      "last_seen": "2026-09-27T20:30:05.000Z"
+      "last_seen": "2026-09-27T20:30:05.000Z",
+      "role": "member"
     }
   ],
   "bases": [
@@ -33,10 +36,15 @@
       "x": 14656.8,
       "y": 247401.4,
       "workers": 3,
-      "workers_seen_at": "2026-09-27T20:00:01.000Z",
+      "workers_seen_at": "2026-09-27T20:29:00.000Z",
       "first_seen": "2026-09-20T20:30:01.000Z",
       "last_seen": "2026-09-27T20:29:51.000Z",
-      "gone_at": null
+      "gone_at": null,
+      "worker_pals": [
+        { "species": "WorldTreeDragon", "alpha": false, "name": null, "level": 5 },
+        { "species": "GhostAnglerfish", "alpha": false, "name": "Pip", "level": 8 },
+        { "species": "WingGolem", "alpha": true, "name": null, "level": 11 }
+      ]
     },
     {
       "id": 5,
@@ -46,12 +54,53 @@
       "x": 15556.8,
       "y": 248101.4,
       "workers": 3,
-      "workers_seen_at": "2026-09-27T20:00:01.000Z",
+      "workers_seen_at": "2026-09-27T20:29:00.000Z",
       "first_seen": "2026-09-25T15:31:01.000Z",
       "last_seen": "2026-09-27T20:29:51.000Z",
-      "gone_at": null
+      "gone_at": null,
+      "worker_pals": [
+        { "species": "MopKing", "alpha": false, "name": null, "level": 5 },
+        { "species": "SleeveRabbit", "alpha": false, "name": "Pip", "level": 8 },
+        { "species": "CandleGhost", "alpha": true, "name": null, "level": 11 }
+      ]
     }
   ],
   "first_seen": "2026-09-20T20:30:01.000Z",
-  "last_seen": "2026-09-27T20:29:51.000Z"
+  "last_seen": "2026-09-27T20:29:51.000Z",
+  "base_camp_level": 3,
+  "roster": [
+    {
+      "player": { "id": 2, "name": "Wren" },
+      "name": "Wren",
+      "role": "guild_master",
+      "level": 30,
+      "online": true,
+      "last_online_at": "2026-09-27T20:30:05.000Z"
+    },
+    {
+      "player": { "id": 3, "name": "Tamsin" },
+      "name": "Tamsin",
+      "role": "sub_master",
+      "level": 27,
+      "online": true,
+      "last_online_at": "2026-09-27T20:30:05.000Z"
+    },
+    {
+      "player": { "id": 7, "name": "Orrin" },
+      "name": "Orrin",
+      "role": "member",
+      "level": 24,
+      "online": true,
+      "last_online_at": "2026-09-27T20:30:05.000Z"
+    },
+    {
+      "player": null,
+      "name": "Hollis",
+      "role": "guest",
+      "level": 11,
+      "online": false,
+      "last_online_at": "2026-09-18T20:30:00.000Z"
+    }
+  ],
+  "roster_saved_at": "2026-09-27T20:29:00.000Z"
 }

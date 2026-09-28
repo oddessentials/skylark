@@ -15,4 +15,5 @@ local/
 Thumbs.db
 .vscode/
 .idea/
+savereader/dist/
 __pycache__/

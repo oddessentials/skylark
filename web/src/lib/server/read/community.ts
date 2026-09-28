@@ -5,6 +5,7 @@ import {
   chatMessages,
   deaths,
   guildMembers,
+  guildSaves,
   guilds,
   levelUps,
   players,
@@ -12,6 +13,7 @@ import {
   worldLive,
   collectorRuns,
   type BaseRow,
+  type BaseSaveRow,
   events
 } from '../db/schema';
 import { baseNameOf, regionAt } from '$lib/world/regions';
@@ -28,6 +30,7 @@ import {
   speciesOf,
   type Schemas
 } from './common';
+import { basePalOf, guildSaveOf, savedBaseFor, savedBases } from './saves';
 
 export type ChatItem = Schemas['ChatItem'];
 export type Base = Schemas['Base'];
@@ -74,20 +77,34 @@ export async function listChat(
   }));
 }
 
-export function baseOf(row: BaseRow, names: Map<string, string>): Base {
-  return {
+export function baseOf(
+  row: BaseRow,
+  names: Map<string, string>,
+  saved: BaseSaveRow | null = null,
+  workerPals: boolean | null = null
+): Base {
+  const fromSave = saved !== null && (!row.workersSeenAt || saved.savedAt > row.workersSeenAt);
+  const base: Base = {
     id: row.id,
     name: baseNameOf(row.name),
     region: regionAt(row.x, row.y),
     guild: guildRef(row.guildId, names),
     x: row.x,
     y: row.y,
-    workers: row.workers,
-    workers_seen_at: row.workersSeenAt ? row.workersSeenAt.toISOString() : null,
+    workers: fromSave ? saved.workers.length : row.workers,
+    workers_seen_at: fromSave
+      ? saved.savedAt.toISOString()
+      : row.workersSeenAt
+        ? row.workersSeenAt.toISOString()
+        : null,
     first_seen: row.firstSeen.toISOString(),
     last_seen: row.lastSeen.toISOString(),
     gone_at: row.goneAt ? row.goneAt.toISOString() : null
   };
+  if (workerPals !== null) {
+    base.worker_pals = workerPals && saved ? saved.workers.map(basePalOf) : [];
+  }
+  return base;
 }
 
 async function standingBases(db: Database, guildId: string | null = null): Promise<BaseRow[]> {
@@ -116,6 +133,12 @@ export async function listGuilds(db: Database, features: Features): Promise<Guil
     .innerJoin(players, and(eq(players.id, guildMembers.playerId), eq(players.hidden, false)))
     .groupBy(guilds.id);
   const counts = new Map(memberRows.map((row) => [row.id, row]));
+  const rosters = new Map(
+    (await db.select().from(guildSaves).where(isNull(guildSaves.goneAt))).map((row) => [
+      row.guildId,
+      row.members.length
+    ])
+  );
   const baseCounts = new Map<string, number>();
   if (features.bases) {
     for (const base of await standingBases(db)) {
@@ -124,13 +147,13 @@ export async function listGuilds(db: Database, features: Features): Promise<Guil
   }
   const all = await db.select().from(guilds);
   return all
-    .filter((guild) => counts.has(guild.id) || baseCounts.has(guild.id))
+    .filter((guild) => counts.has(guild.id) || baseCounts.has(guild.id) || rosters.has(guild.id))
     .map((guild) => {
       const members = counts.get(guild.id);
       return {
         id: guild.id,
         name: guild.name,
-        members: members?.members ?? 0,
+        members: Math.max(members?.members ?? 0, rosters.get(guild.id) ?? 0),
         online: members?.online ?? 0,
         top_level: members?.topLevel ?? null,
         bases: features.bases ? (baseCounts.get(guild.id) ?? 0) : null,
@@ -165,6 +188,8 @@ export async function getGuild(
     )
     .orderBy(desc(players.level), asc(guildMembers.firstSeen), asc(players.id));
   const guildBases = features.bases ? await standingBases(db, id) : [];
+  const saved = guildBases.length > 0 ? await savedBases(db) : [];
+  const save = await guildSaveOf(db, id, now);
   const names = new Map([[guild.id, guild.name]]);
   return {
     id: guild.id,
@@ -174,11 +199,15 @@ export async function getGuild(
       level: player.level,
       online: player.online,
       since: member.firstSeen.toISOString(),
-      last_seen: (player.online ? now : player.lastSeen).toISOString()
+      last_seen: (player.online ? now : player.lastSeen).toISOString(),
+      role: player.playerUid ? (save.roles.get(player.playerUid) ?? null) : null
     })),
-    bases: guildBases.map((row) => baseOf(row, names)),
+    bases: guildBases.map((row) => baseOf(row, names, savedBaseFor(row, saved), features.pals)),
     first_seen: guild.firstSeen.toISOString(),
-    last_seen: guild.lastSeen.toISOString()
+    last_seen: guild.lastSeen.toISOString(),
+    base_camp_level: save.level,
+    roster: save.roster,
+    roster_saved_at: save.savedAt ? save.savedAt.toISOString() : null
   };
 }
 
@@ -204,6 +233,7 @@ export async function getMap(
         .orderBy(asc(players.id))
     : [];
   const standing = features.bases ? await standingBases(db) : [];
+  const saved = standing.length > 0 ? await savedBases(db) : [];
   const names = await guildNames(
     db,
     standing.map((row) => row.guildId)
@@ -262,7 +292,7 @@ export async function getMap(
           ]
         : []
     ),
-    bases: standing.map((row) => baseOf(row, names)),
+    bases: standing.map((row) => baseOf(row, names, savedBaseFor(row, saved))),
     wild,
     deaths: recentDeaths.map(({ death, player }) => ({
       player: playerRef(player),

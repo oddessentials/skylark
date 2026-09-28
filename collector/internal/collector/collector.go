@@ -19,6 +19,7 @@ import (
 	"github.com/oddessentials/skylark/collector/internal/event"
 	"github.com/oddessentials/skylark/collector/internal/ingest"
 	"github.com/oddessentials/skylark/collector/internal/palrest"
+	"github.com/oddessentials/skylark/collector/internal/saves"
 	"github.com/oddessentials/skylark/collector/internal/serverlog"
 	"github.com/oddessentials/skylark/collector/internal/world"
 )
@@ -143,6 +144,16 @@ type Collector struct {
 	textWarned  bool
 	clockWarned bool
 
+	saveResults   chan saveOutcome
+	saveTracker   *saves.Tracker
+	saveRunning   bool
+	saveState     string
+	saveProblem   string
+	saveDir       string
+	saveModified  time.Time
+	saveReadAt    time.Time
+	saveDirWarned bool
+
 	stopping       bool
 	stopDeadline   time.Time
 	killed         bool
@@ -196,6 +207,12 @@ func New(options Options) (*Collector, error) {
 		gameDataState: gameDataUnknown,
 		logFormat:     serverlog.KindOther,
 		logState:      serverlog.StateConnecting,
+		saveResults:   make(chan saveOutcome, 1),
+		saveTracker:   saves.NewTracker(),
+		saveState:     saveOff,
+	}
+	if cfg.Saves.Reader != "" {
+		c.saveState = saveWaiting
 	}
 	c.mapper = &logMapper{tracker: c.tracker, sendIPs: cfg.SendIPs}
 	c.pipe = ingest.NewPipeline(ingest.Options{
@@ -353,6 +370,8 @@ func (c *Collector) loop(ctx context.Context, force <-chan struct{}) {
 	metrics := time.NewTicker(intervals.Metrics)
 	heartbeat := time.NewTicker(intervals.Heartbeat)
 	housekeeping := time.NewTicker(500 * time.Millisecond)
+	saveTicker := time.NewTicker(saveCheckEvery)
+	defer saveTicker.Stop()
 	defer players.Stop()
 	defer snapshot.Stop()
 	defer metrics.Stop()
@@ -393,6 +412,10 @@ func (c *Collector) loop(ctx context.Context, force <-chan struct{}) {
 			}
 		case result := <-c.actionResults:
 			c.onActionResult(result)
+		case <-saveTicker.C:
+			c.checkSaves()
+		case outcome := <-c.saveResults:
+			c.onSaveResult(outcome)
 		}
 	}
 }
@@ -508,6 +531,7 @@ func (c *Collector) ensureStarted() {
 		GameData:   c.gameDataState == gameDataOK,
 		Logs:       c.cfg.Logs.Source != config.SourceNone,
 		LogsSource: source,
+		Saves:      c.savesEnabled(),
 	}, c.server.Load(), c.settings))
 	pending := c.preStart
 	c.preStart = nil
@@ -773,6 +797,7 @@ func (c *Collector) markOnline(info event.ServerInfo, settings *event.ServerSett
 		c.fetchGameData()
 	}
 	c.fetchPlayers()
+	c.checkSaves()
 }
 
 func (c *Collector) markOffline(reason string) {
@@ -938,5 +963,6 @@ func (c *Collector) emitHeartbeat() {
 		Rest:          restState,
 		GameData:      gameData,
 		Logs:          logs,
+		Saves:         c.saveState,
 	})
 }

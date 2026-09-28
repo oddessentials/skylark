@@ -33,16 +33,16 @@ Skylark gives your Palworld dedicated server its own website. A small collector 
   </tr>
 </table>
 
-<img src="site/assets/player.jpg" alt="A player page with the Pals out with them, their level over time and the trail of their session" width="100%">
+<img src="site/assets/player.jpg" alt="A player page with the Pals out with them, their progress from the world save and the trail of their session" width="100%">
 
 ### Player pages
 
-Playtime, sessions, level history, knockouts and distance travelled for everyone who plays, with the Pals out with them right now and the trail of each session on the map.
+Playtime, sessions, level history, knockouts and distance travelled for everyone who plays, with the Pals out with them right now, the trail of each session on the map, and from the world save their Palpedia, captures and boss records.
 
 ## Also on the site
 
 - Who is online, with their level, health, guild and Pals, and everything that happened today
-- Guilds with their members and bases, chat, and a live activity feed
+- Guilds with their members, roles and bases and the Pals working there, chat, and a live activity feed
 - The world's settings, the server's history and this week's leaders
 - An admin area for the collector, server actions (announce, save, shut down with a countdown, kick, ban), backups and a history rebuild
 - Switches to hide positions, bases, Pals, chat or guild chat
@@ -142,6 +142,11 @@ args = ["-port=8211", "-publiclobby"]
 | `intervals.players`, `snapshot`, `snapshot_idle`, `metrics`, `heartbeat`, `flush`, `actions` | `5s`, `10s`, `60s`, `30s`, `60s`, `2s`, `5s` | Polling and sending periods. With nobody online a world snapshot goes out every `snapshot_idle`, and with nothing else to send the collector asks the site for admin actions every `actions`. |
 | `send_ips` | `false` | Send players' IP addresses with `player.connected`. |
 | `journal_dir` | `skylark-journal` beside the config file | Where events wait until the site confirms them. |
+| `saves.reader` | `skylark-savereader` beside the collector | The save reader. Without one the world save is not read. |
+| `saves.dir` | the `-UserDir` world's `Saved` folder, or `Pal/Saved` in `palworld.server_dir` | Where the world save is. |
+| `saves.interval` | `5m` | How often the collector looks for a newer save; at least `30s`. |
+
+The world save adds what the live interfaces never show: each player's Palpedia, capture counts and tower and field boss records, guild roles and when members were last online, and the Pals working at every base even with nobody near. `skylark-savereader` reads `Level.sav` and the `Players` folder read-only whenever the save is newer, and the collector sends only what changed. It ships beside the collector in releases and in the collector image; in Docker, mount the server's `Pal/Saved` folder read-only and point `SKYLARK_SAVES_DIR` at it. The save reader (`savereader/`) is licensed GPL-3.0 with its own `LICENSE`, because it decodes the saves with [ooz](https://github.com/powzix/ooz), built for WebAssembly by [ooz-wasm](https://github.com/SnosMe/ooz-wasm) 2.0.0; `npm run savereader:wasm` extracts that build from the npm package again, and a test checks its SHA-256.
 
 `skylark-collector check` tests the REST API, the game data, the log source and the site, and `--dry-run` prints the batches instead of sending them.
 

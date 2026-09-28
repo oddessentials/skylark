@@ -92,5 +92,22 @@
       "cause": null,
       "killer": null
     }
-  ]
+  ],
+  "progress": {
+    "saved_at": "2026-09-27T20:29:00.000Z",
+    "last_online_at": "2026-09-25T18:48:47.000Z",
+    "palpedia": 102,
+    "palpedia_total": 288,
+    "species_captured": 101,
+    "captures": 318,
+    "tower_bosses": [
+      { "id": "GrassBoss", "name": "Rayne Syndicate Tower" },
+      { "id": "ForestBoss", "name": "Free Pal Alliance Tower" }
+    ],
+    "tower_bosses_total": 8,
+    "field_bosses": 8,
+    "dungeon_clears": 7,
+    "technologies": 60,
+    "fast_travel_points": 15
+  }
 }

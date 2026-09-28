@@ -1,6 +1,579 @@
 {
   "items": [
     {
+      "id": "f810368f-a4e4-4783-bc76-b67d61cd84bc",
+      "type": "save.player",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2075,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "level": 31,
+        "guild_id": "1077E95B45C893698D10D137B8FF9D0A",
+        "progress": {
+          "captures": 400,
+          "palpedia": 130,
+          "field_bosses": 10,
+          "technologies": 74,
+          "tower_bosses": ["GrassBoss", "ForestBoss"],
+          "dungeon_clears": 6,
+          "species_captured": 129,
+          "fast_travel_points": 18,
+          "fixed_dungeon_clears": 3
+        },
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "player_id": "B91F528D000000000000000000000000",
+        "last_online_at": "2026-09-27T19:17:15.000Z"
+      }
+    },
+    {
+      "id": "ed9b5153-ce3b-4399-95ad-b875fe60dffe",
+      "type": "save.read",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2085,
+      "invalid": null,
+      "quiet": true,
+      "player": null,
+      "data": {
+        "base_ids": [
+          "7387002AEF13808950A4E7137EA27C93",
+          "84FA0E634827A71F43E2212086BD686E",
+          "A5548311064C898A71A64D5676873639",
+          "E6BA7D9130B358B3F7333B50ADE4B66D"
+        ],
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "guild_ids": [
+          "1077E95B45C893698D10D137B8FF9D0A",
+          "5E3C9395AAD2C6C4002A16291A9A24DE",
+          "C7FDE24B1575F6DC520D3114D76FD075"
+        ],
+        "player_ids": [
+          "1D003CEC000000000000000000000000",
+          "1E065500000000000000000000000000",
+          "41210481000000000000000000000000",
+          "5B5B90C0000000000000000000000000",
+          "9B27253C000000000000000000000000",
+          "9EBE27A2000000000000000000000000",
+          "A5D680EE000000000000000000000000",
+          "B91F528D000000000000000000000000",
+          "FD381C4C000000000000000000000000"
+        ]
+      }
+    },
+    {
+      "id": "d59550fd-ad6b-4195-80ab-de0f04195f08",
+      "type": "save.base",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2081,
+      "invalid": null,
+      "quiet": true,
+      "player": null,
+      "data": {
+        "x": 14656.8,
+        "y": 247401.4,
+        "z": 3099.1,
+        "name": "Sunreach Camp 1",
+        "base_id": "E6BA7D9130B358B3F7333B50ADE4B66D",
+        "workers": [
+          {
+            "name": null,
+            "level": 5,
+            "instance_id": "5FD886E0F8C546F9BB57A4ECFAB3D6BB",
+            "character_id": "WorldTreeDragon"
+          },
+          {
+            "name": "Pip",
+            "level": 8,
+            "instance_id": "22498AB93B914E7C23D7D07F08F848F1",
+            "character_id": "GhostAnglerfish"
+          },
+          {
+            "name": null,
+            "level": 11,
+            "instance_id": "CD4EA3E9FC9D134F8BB5848DE752E586",
+            "character_id": "BOSS_WingGolem"
+          }
+        ],
+        "guild_id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+        "saved_at": "2026-09-27T20:29:00.000Z"
+      }
+    },
+    {
+      "id": "c5204ccf-71b5-4cfa-af19-cff84ae52ff1",
+      "type": "save.guild",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2079,
+      "invalid": null,
+      "quiet": true,
+      "player": null,
+      "data": {
+        "name": "Moss and Ember",
+        "members": [
+          {
+            "name": "Juniper",
+            "role": "guild_master",
+            "player_id": "9EBE27A2000000000000000000000000"
+          },
+          {
+            "name": "Kestrel",
+            "role": "sub_master",
+            "player_id": "5B5B90C0000000000000000000000000"
+          }
+        ],
+        "guild_id": "C7FDE24B1575F6DC520D3114D76FD075",
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "base_camp_level": 5
+      }
+    },
+    {
+      "id": "b4e64f79-6e87-4954-a151-c746d250251e",
+      "type": "save.guild",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2078,
+      "invalid": null,
+      "quiet": true,
+      "player": null,
+      "data": {
+        "name": "Sunreach Wayfarers",
+        "members": [
+          {
+            "name": "Wren",
+            "role": "guild_master",
+            "player_id": "1E065500000000000000000000000000"
+          },
+          {
+            "name": "Tamsin",
+            "role": "sub_master",
+            "player_id": "41210481000000000000000000000000"
+          },
+          { "name": "Orrin", "role": "member", "player_id": "1D003CEC000000000000000000000000" },
+          { "name": "Hollis", "role": "guest", "player_id": "9B27253C000000000000000000000000" }
+        ],
+        "guild_id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "base_camp_level": 3
+      }
+    },
+    {
+      "id": "a5219067-9963-4920-907b-56d1d4c8ce24",
+      "type": "save.player",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2072,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 1, "name": "Juniper" },
+      "data": {
+        "name": "Juniper",
+        "level": 27,
+        "guild_id": "C7FDE24B1575F6DC520D3114D76FD075",
+        "progress": {
+          "captures": 360,
+          "palpedia": 114,
+          "field_bosses": 9,
+          "technologies": 66,
+          "tower_bosses": ["GrassBoss", "ForestBoss"],
+          "dungeon_clears": 5,
+          "species_captured": 113,
+          "fast_travel_points": 16,
+          "fixed_dungeon_clears": 3
+        },
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "player_id": "9EBE27A2000000000000000000000000",
+        "last_online_at": "2026-09-25T15:14:24.000Z"
+      }
+    },
+    {
+      "id": "a319f766-3b2c-411c-bf33-c28f5a6ceaf0",
+      "type": "save.player",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2076,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 5, "name": "Mossbrook" },
+      "data": {
+        "name": "Mossbrook",
+        "level": 16,
+        "guild_id": "1077E95B45C893698D10D137B8FF9D0A",
+        "progress": {
+          "captures": 196,
+          "palpedia": 65,
+          "field_bosses": 5,
+          "technologies": 44,
+          "tower_bosses": ["GrassBoss"],
+          "dungeon_clears": 3,
+          "species_captured": 64,
+          "fast_travel_points": 11,
+          "fixed_dungeon_clears": 2
+        },
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "player_id": "A5D680EE000000000000000000000000",
+        "last_online_at": "2026-09-26T13:13:02.000Z"
+      }
+    },
+    {
+      "id": "84807183-2ec3-4c2b-a797-6e241d6101c0",
+      "type": "save.player",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2077,
+      "invalid": null,
+      "quiet": true,
+      "player": null,
+      "data": {
+        "name": "Hollis",
+        "level": 11,
+        "guild_id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+        "progress": {
+          "captures": 153,
+          "palpedia": 50,
+          "field_bosses": 3,
+          "technologies": 34,
+          "tower_bosses": [],
+          "dungeon_clears": 2,
+          "species_captured": 49,
+          "fast_travel_points": 8,
+          "fixed_dungeon_clears": 1
+        },
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "player_id": "9B27253C000000000000000000000000",
+        "last_online_at": "2026-09-18T20:30:00.000Z"
+      }
+    },
+    {
+      "id": "80d2a733-0a8c-4fe1-ad86-2c5855ad597a",
+      "type": "save.player",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2070,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "name": "Tamsin",
+        "level": 27,
+        "guild_id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+        "progress": {
+          "captures": 348,
+          "palpedia": 116,
+          "field_bosses": 9,
+          "technologies": 66,
+          "tower_bosses": ["GrassBoss", "ForestBoss"],
+          "dungeon_clears": 5,
+          "species_captured": 115,
+          "fast_travel_points": 16,
+          "fixed_dungeon_clears": 3
+        },
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "player_id": "41210481000000000000000000000000",
+        "last_online_at": "2026-09-26T15:55:40.000Z"
+      }
+    },
+    {
+      "id": "7f2f1177-5eb9-4b6f-aadf-baea523fb113",
+      "type": "save.guild",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2080,
+      "invalid": null,
+      "quiet": true,
+      "player": null,
+      "data": {
+        "name": "Night Market",
+        "members": [
+          {
+            "name": "Bramble",
+            "role": "guild_master",
+            "player_id": "FD381C4C000000000000000000000000"
+          },
+          {
+            "name": "Sable",
+            "role": "sub_master",
+            "player_id": "B91F528D000000000000000000000000"
+          },
+          { "name": "Mossbrook", "role": "member", "player_id": "A5D680EE000000000000000000000000" }
+        ],
+        "guild_id": "1077E95B45C893698D10D137B8FF9D0A",
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "base_camp_level": 7
+      }
+    },
+    {
+      "id": "59bb0a56-4f70-4715-a2d2-936f224db9ba",
+      "type": "save.player",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2071,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "name": "Orrin",
+        "level": 24,
+        "guild_id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+        "progress": {
+          "captures": 318,
+          "palpedia": 102,
+          "field_bosses": 8,
+          "technologies": 60,
+          "tower_bosses": ["GrassBoss", "ForestBoss"],
+          "dungeon_clears": 4,
+          "species_captured": 101,
+          "fast_travel_points": 15,
+          "fixed_dungeon_clears": 3
+        },
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "player_id": "1D003CEC000000000000000000000000",
+        "last_online_at": "2026-09-25T18:48:47.000Z"
+      }
+    },
+    {
+      "id": "534038c7-aafe-424c-8d06-59c04daa1102",
+      "type": "save.base",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2083,
+      "invalid": null,
+      "quiet": true,
+      "player": null,
+      "data": {
+        "x": -316500,
+        "y": 125370,
+        "z": -1899.4,
+        "name": "Night Camp 1",
+        "base_id": "7387002AEF13808950A4E7137EA27C93",
+        "workers": [
+          {
+            "name": null,
+            "level": 5,
+            "instance_id": "18056053E99F927690A7595B0BE83013",
+            "character_id": "LizardMan"
+          },
+          {
+            "name": "Pip",
+            "level": 8,
+            "instance_id": "4C90BD886B5C18080F163D466CAA86EC",
+            "character_id": "GhostAnglerfish"
+          },
+          {
+            "name": null,
+            "level": 11,
+            "instance_id": "D700B732F767C09EEF492608E2C4550B",
+            "character_id": "BOSS_SnowPeafowl"
+          }
+        ],
+        "guild_id": "1077E95B45C893698D10D137B8FF9D0A",
+        "saved_at": "2026-09-27T20:29:00.000Z"
+      }
+    },
+    {
+      "id": "4f3fdfb8-e1a9-4d20-ae76-4f3c178346c1",
+      "type": "save.player",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2074,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "name": "Bramble",
+        "level": 19,
+        "guild_id": "1077E95B45C893698D10D137B8FF9D0A",
+        "progress": {
+          "captures": 235,
+          "palpedia": 78,
+          "field_bosses": 6,
+          "technologies": 50,
+          "tower_bosses": ["GrassBoss"],
+          "dungeon_clears": 3,
+          "species_captured": 77,
+          "fast_travel_points": 12,
+          "fixed_dungeon_clears": 2
+        },
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "player_id": "FD381C4C000000000000000000000000",
+        "last_online_at": "2026-09-27T15:35:11.000Z"
+      }
+    },
+    {
+      "id": "4da92429-a0fc-4cab-b152-8bc2b461b2a6",
+      "type": "save.base",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2084,
+      "invalid": null,
+      "quiet": true,
+      "player": null,
+      "data": {
+        "x": 15556.8,
+        "y": 248101.4,
+        "z": 3099.1,
+        "name": "Sunreach Camp 2",
+        "base_id": "84FA0E634827A71F43E2212086BD686E",
+        "workers": [
+          {
+            "name": null,
+            "level": 5,
+            "instance_id": "4F45CCF95AD725280D8B9ACD725E6580",
+            "character_id": "MopKing"
+          },
+          {
+            "name": "Pip",
+            "level": 8,
+            "instance_id": "58C32AC9B49CFCC10834EB1580216A87",
+            "character_id": "SleeveRabbit"
+          },
+          {
+            "name": null,
+            "level": 11,
+            "instance_id": "5347D6B9B7181EFACBBC6E4137138257",
+            "character_id": "BOSS_CandleGhost"
+          }
+        ],
+        "guild_id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+        "saved_at": "2026-09-27T20:29:00.000Z"
+      }
+    },
+    {
+      "id": "2e3c39d6-444d-4bc1-8c36-e7fa8d625771",
+      "type": "save.player",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2069,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 2, "name": "Wren" },
+      "data": {
+        "name": "Wren",
+        "level": 30,
+        "guild_id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+        "progress": {
+          "captures": 372,
+          "palpedia": 124,
+          "field_bosses": 10,
+          "technologies": 72,
+          "tower_bosses": ["GrassBoss", "ForestBoss"],
+          "dungeon_clears": 6,
+          "species_captured": 123,
+          "fast_travel_points": 18,
+          "fixed_dungeon_clears": 3
+        },
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "player_id": "1E065500000000000000000000000000",
+        "last_online_at": "2026-09-26T16:04:05.000Z"
+      }
+    },
+    {
+      "id": "2857280d-96aa-48ef-a20b-5b67bf965fae",
+      "type": "save.player",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2073,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 8, "name": "Kestrel" },
+      "data": {
+        "name": "Kestrel",
+        "level": 18,
+        "guild_id": "C7FDE24B1575F6DC520D3114D76FD075",
+        "progress": {
+          "captures": 236,
+          "palpedia": 73,
+          "field_bosses": 6,
+          "technologies": 48,
+          "tower_bosses": ["GrassBoss"],
+          "dungeon_clears": 3,
+          "species_captured": 72,
+          "fast_travel_points": 12,
+          "fixed_dungeon_clears": 2
+        },
+        "saved_at": "2026-09-27T20:29:00.000Z",
+        "player_id": "5B5B90C0000000000000000000000000",
+        "last_online_at": "2026-09-25T18:20:08.000Z"
+      }
+    },
+    {
+      "id": "188d3888-e55b-49dd-b129-c46103595206",
+      "type": "save.base",
+      "ts": "2026-09-27T20:29:00.000Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2082,
+      "invalid": null,
+      "quiet": true,
+      "player": null,
+      "data": {
+        "x": -275968,
+        "y": 210879.4,
+        "z": -760.3,
+        "name": "Moss Camp 1",
+        "base_id": "A5548311064C898A71A64D5676873639",
+        "workers": [
+          {
+            "name": null,
+            "level": 5,
+            "instance_id": "D4D2999DD396E82662D5311500B55F0D",
+            "character_id": "Monkey"
+          },
+          {
+            "name": "Pip",
+            "level": 8,
+            "instance_id": "A12D7A075B412059C21A1D87C8967E13",
+            "character_id": "BlackCentaur"
+          },
+          {
+            "name": null,
+            "level": 11,
+            "instance_id": "54B7B76BBD4C077509D321361DBA78CA",
+            "character_id": "BOSS_NegativeKoala"
+          }
+        ],
+        "guild_id": "C7FDE24B1575F6DC520D3114D76FD075",
+        "saved_at": "2026-09-27T20:29:00.000Z"
+      }
+    },
+    {
       "id": "fd58fea9-68fb-463a-9380-0c6c3ebf03de",
       "type": "player.level_up",
       "ts": "2026-09-27T20:25:50.999Z",
@@ -1525,313 +2098,6 @@
         "source": "log",
         "user_id": "ps5_9000000000000005",
         "player_id": "5B5B90C0000000000000000000000000"
-      }
-    },
-    {
-      "id": "881cfeae-5aec-48e2-8874-213289f6024a",
-      "type": "player.level_up",
-      "ts": "2026-09-25T18:15:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 826,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 8, "name": "Kestrel" },
-      "data": {
-        "to": 18,
-        "from": 17,
-        "name": "Kestrel",
-        "user_id": "ps5_9000000000000005",
-        "player_id": "5B5B90C0000000000000000000000000"
-      }
-    },
-    {
-      "id": "5b428083-c893-4929-8694-6b2c240c56d1",
-      "type": "player.level_up",
-      "ts": "2026-09-25T18:05:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 816,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 7, "name": "Orrin" },
-      "data": {
-        "to": 22,
-        "from": 21,
-        "name": "Orrin",
-        "user_id": "gdk_9000000000000003",
-        "player_id": "1D003CEC000000000000000000000000"
-      }
-    },
-    {
-      "id": "52232f5c-095e-4791-b43b-a91a0d609a86",
-      "type": "player.level_up",
-      "ts": "2026-09-25T17:51:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 804,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 8, "name": "Kestrel" },
-      "data": {
-        "to": 17,
-        "from": 16,
-        "name": "Kestrel",
-        "user_id": "ps5_9000000000000005",
-        "player_id": "5B5B90C0000000000000000000000000"
-      }
-    },
-    {
-      "id": "5980a344-2dcc-4e06-87c1-634f790f3a4f",
-      "type": "chat.message",
-      "ts": "2026-09-25T17:41:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 794,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 7, "name": "Orrin" },
-      "data": {
-        "name": "Orrin",
-        "text": "lol",
-        "channel": "Global",
-        "user_id": "gdk_9000000000000003",
-        "guild_name": null
-      }
-    },
-    {
-      "id": "762c5c43-6458-433e-9d11-f2c20b42d310",
-      "type": "player.level_up",
-      "ts": "2026-09-25T17:35:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 788,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 7, "name": "Orrin" },
-      "data": {
-        "to": 21,
-        "from": 20,
-        "name": "Orrin",
-        "user_id": "gdk_9000000000000003",
-        "player_id": "1D003CEC000000000000000000000000"
-      }
-    },
-    {
-      "id": "bc92dfc7-5580-4f78-a07d-7666abeb5ba7",
-      "type": "player.left",
-      "ts": "2026-09-25T17:27:32.000Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 782,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 3, "name": "Tamsin" },
-      "data": {
-        "name": "Tamsin",
-        "source": "log",
-        "user_id": "steam_76561190000000002",
-        "player_id": "41210481000000000000000000000000"
-      }
-    },
-    {
-      "id": "884cbbcb-5e10-4711-889a-60969a5c56f8",
-      "type": "player.level_up",
-      "ts": "2026-09-25T17:19:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 772,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 8, "name": "Kestrel" },
-      "data": {
-        "to": 16,
-        "from": 15,
-        "name": "Kestrel",
-        "user_id": "ps5_9000000000000005",
-        "player_id": "5B5B90C0000000000000000000000000"
-      }
-    },
-    {
-      "id": "e8603e04-c828-4990-876c-24cf960ca5a1",
-      "type": "chat.message",
-      "ts": "2026-09-25T17:15:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 768,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 7, "name": "Orrin" },
-      "data": {
-        "name": "Orrin",
-        "text": "just hatched something cute",
-        "channel": "Say",
-        "user_id": "gdk_9000000000000003",
-        "guild_name": null
-      }
-    },
-    {
-      "id": "5e943781-9b19-4270-ae16-893948e9f23c",
-      "type": "chat.message",
-      "ts": "2026-09-25T17:15:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 769,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 8, "name": "Kestrel" },
-      "data": {
-        "name": "Kestrel",
-        "text": "meet at the statue",
-        "channel": "Global",
-        "user_id": "ps5_9000000000000005",
-        "guild_name": null
-      }
-    },
-    {
-      "id": "b6e49667-4b81-4316-8ea0-89526a24b30c",
-      "type": "player.joined",
-      "ts": "2026-09-25T17:09:19.000Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 763,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 8, "name": "Kestrel" },
-      "data": {
-        "name": "Kestrel",
-        "source": "log",
-        "user_id": "ps5_9000000000000005",
-        "player_id": "5B5B90C0000000000000000000000000"
-      }
-    },
-    {
-      "id": "2a3b597c-7e5c-46bb-a32f-54d11d277e2b",
-      "type": "player.connected",
-      "ts": "2026-09-25T17:09:07.000Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 762,
-      "invalid": null,
-      "quiet": true,
-      "player": { "id": 8, "name": "Kestrel" },
-      "data": { "name": "Kestrel", "user_id": "ps5_9000000000000005" }
-    },
-    {
-      "id": "c3405ee9-439b-4538-83b9-e069c50e65c9",
-      "type": "player.level_up",
-      "ts": "2026-09-25T17:07:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 757,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 3, "name": "Tamsin" },
-      "data": {
-        "to": 25,
-        "from": 24,
-        "name": "Tamsin",
-        "user_id": "steam_76561190000000002",
-        "player_id": "41210481000000000000000000000000"
-      }
-    },
-    {
-      "id": "d679f96b-6713-47a7-ad16-9feca4046bcd",
-      "type": "chat.message",
-      "ts": "2026-09-25T17:01:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 751,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 7, "name": "Orrin" },
-      "data": {
-        "name": "Orrin",
-        "text": "anyone up for the tower tonight?",
-        "channel": "Global",
-        "user_id": "gdk_9000000000000003",
-        "guild_name": null
-      }
-    },
-    {
-      "id": "7a0a6b2a-8987-4ac3-89fd-f6b387868bcb",
-      "type": "player.joined",
-      "ts": "2026-09-25T16:55:47.000Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 748,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 7, "name": "Orrin" },
-      "data": {
-        "name": "Orrin",
-        "source": "log",
-        "user_id": "gdk_9000000000000003",
-        "player_id": "1D003CEC000000000000000000000000"
-      }
-    },
-    {
-      "id": "016fcdea-aa52-4af2-b241-f0b68a6b19e4",
-      "type": "player.connected",
-      "ts": "2026-09-25T16:55:35.000Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 747,
-      "invalid": null,
-      "quiet": true,
-      "player": { "id": 7, "name": "Orrin" },
-      "data": { "name": "Orrin", "user_id": "gdk_9000000000000003" }
-    },
-    {
-      "id": "4fe08c8f-ca17-4ade-b9c2-d7ad88e2dafb",
-      "type": "player.left",
-      "ts": "2026-09-25T16:47:38.000Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 738,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 2, "name": "Wren" },
-      "data": {
-        "name": "Wren",
-        "source": "log",
-        "user_id": "steam_76561190000000001",
-        "player_id": "1E065500000000000000000000000000"
-      }
-    },
-    {
-      "id": "f3193256-4e91-4718-9744-2530e31c4a45",
-      "type": "chat.message",
-      "ts": "2026-09-25T16:43:00.999Z",
-      "received_at": "2026-09-25T20:05:02.500Z",
-      "source": "collector",
-      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
-      "seq": 732,
-      "invalid": null,
-      "quiet": false,
-      "player": { "id": 3, "name": "Tamsin" },
-      "data": {
-        "name": "Tamsin",
-        "text": "gg",
-        "channel": "Global",
-        "user_id": "steam_76561190000000002",
-        "guild_name": null
       }
     }
   ],

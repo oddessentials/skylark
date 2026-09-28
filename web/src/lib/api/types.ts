@@ -796,10 +796,17 @@ export interface components {
       last_seen: string;
       name: string | null;
       region: string | null;
+      worker_pals?: components['schemas']['BasePal'][];
       workers: number;
       workers_seen_at: string | null;
       x: number;
       y: number;
+    };
+    BasePal: {
+      alpha: boolean;
+      level: number;
+      name: string | null;
+      species: string;
     };
     ChatChannel: 'global' | 'guild' | 'say' | 'other';
     ChatItem: {
@@ -859,6 +866,10 @@ export interface components {
       | components['schemas']['PlayerUnbannedEvent']
       | components['schemas']['ActionCompletedEvent']
       | components['schemas']['ActionFailedEvent']
+      | components['schemas']['SavePlayerEvent']
+      | components['schemas']['SaveGuildEvent']
+      | components['schemas']['SaveBaseEvent']
+      | components['schemas']['SaveReadEvent']
       | components['schemas']['OtherEvent'];
     CollectorHeartbeatData: {
       dropped_events: number;
@@ -866,6 +877,7 @@ export interface components {
       logs: 'ok' | 'off' | 'idle' | 'error';
       queue_depth: number;
       rest: 'ok' | 'down' | 'off';
+      saves?: 'ok' | 'waiting' | 'off' | 'error';
       uptime_s: number;
     } & {
       [key: string]: unknown;
@@ -980,12 +992,15 @@ export interface components {
       next_cursor: string | null;
     };
     Guild: {
+      base_camp_level: number | null;
       bases: components['schemas']['Base'][];
       first_seen: string;
       id: string;
       last_seen: string;
       members: components['schemas']['GuildMember'][];
       name: string;
+      roster: components['schemas']['GuildRosterEntry'][];
+      roster_saved_at: string | null;
     };
     GuildList: {
       items: components['schemas']['GuildSummary'][];
@@ -995,11 +1010,21 @@ export interface components {
       level: number;
       online: boolean;
       player: components['schemas']['PlayerRef'];
+      role: components['schemas']['GuildRole'] | null;
       since: string;
     };
     GuildRef: {
       id: string;
       name: string;
+    };
+    GuildRole: 'guild_master' | 'sub_master' | 'member' | 'guest' | 'none';
+    GuildRosterEntry: {
+      last_online_at: string | null;
+      level: number | null;
+      name: string;
+      online: boolean;
+      player: components['schemas']['PlayerRef'] | null;
+      role: components['schemas']['GuildRole'];
     };
     GuildSummary: {
       bases: number | null;
@@ -1152,6 +1177,7 @@ export interface components {
       platform: components['schemas']['Platform'];
       playtime_s: number;
       position: components['schemas']['PlayerPosition'] | null;
+      progress: components['schemas']['PlayerProgress'] | null;
       recent_deaths: components['schemas']['Death'][];
       recent_sessions: components['schemas']['Session'][];
       sessions: number;
@@ -1244,6 +1270,20 @@ export interface components {
       x: number;
       y: number;
     };
+    PlayerProgress: {
+      captures: number;
+      dungeon_clears: number;
+      fast_travel_points: number;
+      field_bosses: number;
+      last_online_at: string | null;
+      palpedia: number;
+      palpedia_total: number;
+      saved_at: string;
+      species_captured: number;
+      technologies: number;
+      tower_bosses: components['schemas']['TowerBossRef'][];
+      tower_bosses_total: number;
+    };
     PlayerRef: {
       id: number;
       name: string;
@@ -1276,6 +1316,90 @@ export interface components {
       positions_days: number | null;
       snapshots_hours: number;
       status_samples_days: number;
+    };
+    SaveBaseData: {
+      base_id: string;
+      guild_id?: string | null;
+      name?: string | null;
+      saved_at: string;
+      workers: components['schemas']['SaveWorker'][];
+      x: number;
+      y: number;
+      z?: number | null;
+    } & {
+      [key: string]: unknown;
+    };
+    SaveBaseEvent: components['schemas']['EventEnvelope'] & {
+      data: components['schemas']['SaveBaseData'];
+      type: 'save.base';
+    };
+    SaveGuildData: {
+      base_camp_level?: number;
+      guild_id: string;
+      members: components['schemas']['SaveGuildMember'][];
+      name: string;
+      saved_at: string;
+    } & {
+      [key: string]: unknown;
+    };
+    SaveGuildEvent: components['schemas']['EventEnvelope'] & {
+      data: components['schemas']['SaveGuildData'];
+      type: 'save.guild';
+    };
+    SaveGuildMember: {
+      name: string;
+      player_id: string;
+      role: string;
+    } & {
+      [key: string]: unknown;
+    };
+    SavePlayerData: {
+      guild_id?: string | null;
+      last_online_at?: string | null;
+      level?: number | null;
+      name?: string | null;
+      player_id: string;
+      progress?: components['schemas']['SaveProgress'] | null;
+      saved_at: string;
+    } & {
+      [key: string]: unknown;
+    };
+    SavePlayerEvent: components['schemas']['EventEnvelope'] & {
+      data: components['schemas']['SavePlayerData'];
+      type: 'save.player';
+    };
+    SaveProgress: {
+      captures: number;
+      dungeon_clears: number;
+      fast_travel_points: number;
+      field_bosses: number;
+      fixed_dungeon_clears: number;
+      palpedia: number;
+      species_captured: number;
+      technologies: number;
+      tower_bosses: string[];
+    } & {
+      [key: string]: unknown;
+    };
+    SaveReadData: {
+      base_ids: string[];
+      guild_ids: string[];
+      player_ids: string[];
+      saved_at: string;
+    } & {
+      [key: string]: unknown;
+    };
+    SaveReadEvent: components['schemas']['EventEnvelope'] & {
+      data: components['schemas']['SaveReadData'];
+      type: 'save.read';
+    };
+    SaveWorker: {
+      character_id: string;
+      instance_id: string;
+      level: number;
+      name?: string | null;
+    } & {
+      [key: string]: unknown;
     };
     ServerInfo: {
       description?: string;
@@ -1475,6 +1599,10 @@ export interface components {
       event: 'status' | 'online' | 'map' | 'activity';
       id: string | null;
     };
+    TowerBossRef: {
+      id: string;
+      name: string;
+    };
     Trail: {
       points: components['schemas']['TrailPoint'][];
       session_id: number | null;
@@ -1648,6 +1776,7 @@ export type AdminSettingsUpdate = components['schemas']['AdminSettingsUpdate'];
 export type Backup = components['schemas']['Backup'];
 export type BackupList = components['schemas']['BackupList'];
 export type Base = components['schemas']['Base'];
+export type BasePal = components['schemas']['BasePal'];
 export type ChatChannel = components['schemas']['ChatChannel'];
 export type ChatItem = components['schemas']['ChatItem'];
 export type ChatMessageData = components['schemas']['ChatMessageData'];
@@ -1674,6 +1803,8 @@ export type Guild = components['schemas']['Guild'];
 export type GuildList = components['schemas']['GuildList'];
 export type GuildMember = components['schemas']['GuildMember'];
 export type GuildRef = components['schemas']['GuildRef'];
+export type GuildRole = components['schemas']['GuildRole'];
+export type GuildRosterEntry = components['schemas']['GuildRosterEntry'];
 export type GuildSummary = components['schemas']['GuildSummary'];
 export type Health = components['schemas']['Health'];
 export type IngestBatch = components['schemas']['IngestBatch'];
@@ -1713,6 +1844,7 @@ export type PlayerLevelUpEvent = components['schemas']['PlayerLevelUpEvent'];
 export type PlayerPage = components['schemas']['PlayerPage'];
 export type PlayerPatch = components['schemas']['PlayerPatch'];
 export type PlayerPosition = components['schemas']['PlayerPosition'];
+export type PlayerProgress = components['schemas']['PlayerProgress'];
 export type PlayerRef = components['schemas']['PlayerRef'];
 export type PlayerSummary = components['schemas']['PlayerSummary'];
 export type PlayerUid = components['schemas']['PlayerUid'];
@@ -1720,6 +1852,17 @@ export type PlayerUnbannedData = components['schemas']['PlayerUnbannedData'];
 export type PlayerUnbannedEvent = components['schemas']['PlayerUnbannedEvent'];
 export type Point = components['schemas']['Point'];
 export type Retention = components['schemas']['Retention'];
+export type SaveBaseData = components['schemas']['SaveBaseData'];
+export type SaveBaseEvent = components['schemas']['SaveBaseEvent'];
+export type SaveGuildData = components['schemas']['SaveGuildData'];
+export type SaveGuildEvent = components['schemas']['SaveGuildEvent'];
+export type SaveGuildMember = components['schemas']['SaveGuildMember'];
+export type SavePlayerData = components['schemas']['SavePlayerData'];
+export type SavePlayerEvent = components['schemas']['SavePlayerEvent'];
+export type SaveProgress = components['schemas']['SaveProgress'];
+export type SaveReadData = components['schemas']['SaveReadData'];
+export type SaveReadEvent = components['schemas']['SaveReadEvent'];
+export type SaveWorker = components['schemas']['SaveWorker'];
 export type ServerInfo = components['schemas']['ServerInfo'];
 export type ServerMetricsData = components['schemas']['ServerMetricsData'];
 export type ServerMetricsEvent = components['schemas']['ServerMetricsEvent'];
@@ -1747,6 +1890,7 @@ export type StatusPlayers = components['schemas']['StatusPlayers'];
 export type StatusServer = components['schemas']['StatusServer'];
 export type StatusState = components['schemas']['StatusState'];
 export type StreamFrame = components['schemas']['StreamFrame'];
+export type TowerBossRef = components['schemas']['TowerBossRef'];
 export type Trail = components['schemas']['Trail'];
 export type TrailPoint = components['schemas']['TrailPoint'];
 export type UserId = components['schemas']['UserId'];

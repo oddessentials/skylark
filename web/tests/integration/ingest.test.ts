@@ -21,6 +21,8 @@ import {
 import { runWatchdog } from '../../src/lib/server/jobs/watchdog';
 import { rebuildProjections } from '../../src/lib/server/jobs/rebuild';
 import { computeOnline, computeStatus } from '../../src/lib/server/read/status';
+import { getGuild, getMap } from '../../src/lib/server/read/community';
+import { getPlayer } from '../../src/lib/server/read/players';
 import { defaultSettings } from '../../src/lib/server/settings';
 import { POST as ingest } from '../../src/routes/api/ingest/+server';
 import { resetDatabase, routeEvent, seededHistory, signedRequest, useTestDatabase } from './setup';
@@ -185,6 +187,149 @@ describe('POST /api/ingest', () => {
       .then((rows) => rows.filter((row) => row.invalid !== null));
     expect(flagged).toHaveLength(1);
     expect(flagged[0]!.invalid).toMatch(/user_id/);
+  });
+
+  it('keeps what the world save says: progress, guild roles and base workers', async () => {
+    const db = getDb();
+    const features = defaultSettings.features;
+    const [player] = await db
+      .select()
+      .from(players)
+      .where(sql`${players.playerUid} is not null`)
+      .orderBy(asc(players.id))
+      .limit(1);
+    const [base] = await db
+      .select()
+      .from(bases)
+      .where(and(isNull(bases.goneAt), sql`${bases.guildId} is not null`))
+      .orderBy(asc(bases.id))
+      .limit(1);
+    const guildId = base!.guildId!;
+    const savedAt = new Date();
+    const at = savedAt.toISOString();
+    const saved = (type: string, data: Record<string, unknown>, seq: number) =>
+      send(envelope(history, type, { saved_at: at, ...data }, savedAt, seq));
+    await saved(
+      'save.player',
+      {
+        player_id: player!.playerUid,
+        name: player!.name,
+        level: 31,
+        guild_id: guildId,
+        last_online_at: new Date(savedAt.getTime() - 3_600_000).toISOString(),
+        progress: {
+          palpedia: 62,
+          species_captured: 61,
+          captures: 180,
+          tower_bosses: ['GrassBoss', 'WorldTreeMiddleBoss1', 'FutureBoss'],
+          field_bosses: 18,
+          dungeon_clears: 5,
+          fixed_dungeon_clears: 11,
+          technologies: 112,
+          fast_travel_points: 32
+        }
+      },
+      910_001
+    );
+    await saved(
+      'save.guild',
+      {
+        guild_id: guildId,
+        name: 'Saved name',
+        base_camp_level: 4,
+        members: [
+          { player_id: 'ABCDEF01000000000000000000000000', name: 'Offline Friend', role: 'member' },
+          { player_id: player!.playerUid, name: player!.name, role: 'guild_master' }
+        ]
+      },
+      910_002
+    );
+    await saved(
+      'save.base',
+      {
+        base_id: 'BA5E0000000000000000000000000003',
+        guild_id: guildId,
+        name: null,
+        x: base!.x + 0.1,
+        y: base!.y - 0.1,
+        z: base!.z,
+        workers: [
+          { instance_id: '21', character_id: 'BOSS_FoxMage', level: 28, name: 'Ember' },
+          { instance_id: '22', character_id: 'Sheepball', level: 9, name: null }
+        ]
+      },
+      910_003
+    );
+    await saved(
+      'save.read',
+      {
+        player_ids: [player!.playerUid],
+        guild_ids: [guildId],
+        base_ids: ['BA5E0000000000000000000000000003']
+      },
+      910_004
+    );
+    const detail = await getPlayer(db, player!.id, features);
+    expect(detail.progress).toMatchObject({
+      saved_at: at,
+      palpedia: 62,
+      palpedia_total: 288,
+      captures: 180,
+      field_bosses: 18,
+      dungeon_clears: 16,
+      technologies: 112,
+      tower_bosses_total: 8
+    });
+    expect(detail.progress!.tower_bosses).toEqual([
+      { id: 'GrassBoss', name: 'Rayne Syndicate Tower' },
+      { id: 'FutureBoss', name: 'FutureBoss' }
+    ]);
+    const guild = await getGuild(db, guildId, features);
+    expect(guild.base_camp_level).toBe(4);
+    expect(guild.roster_saved_at).toBe(at);
+    expect(guild.roster.map((entry) => [entry.name, entry.role, entry.player?.id ?? null])).toEqual(
+      [
+        [player!.nameOverride ?? player!.name, 'guild_master', player!.id],
+        ['Offline Friend', 'member', null]
+      ]
+    );
+    const member = guild.members.find((entry) => entry.player.id === player!.id);
+    if (member) expect(member.role).toBe('guild_master');
+    const savedBase = guild.bases.find((entry) => entry.id === base!.id)!;
+    expect(savedBase.workers).toBe(2);
+    expect(savedBase.workers_seen_at).toBe(at);
+    expect(savedBase.worker_pals).toEqual([
+      { species: 'FoxMage', alpha: true, name: 'Ember', level: 28 },
+      { species: 'SheepBall', alpha: false, name: null, level: 9 }
+    ]);
+    const map = await getMap(db, features);
+    const mapBase = map.bases.find((entry) => entry.id === base!.id)!;
+    expect(mapBase.workers).toBe(2);
+    expect('worker_pals' in mapBase).toBe(false);
+    const quiet = await db
+      .select()
+      .from(events)
+      .where(sql`${events.type} like 'save.%'`);
+    expect(quiet.length).toBeGreaterThanOrEqual(4);
+    expect(quiet.every((row) => row.quiet)).toBe(true);
+    const later = new Date(savedAt.getTime() + 300_000);
+    await send(
+      envelope(
+        history,
+        'save.read',
+        {
+          saved_at: later.toISOString(),
+          player_ids: [player!.playerUid],
+          guild_ids: [guildId],
+          base_ids: []
+        },
+        later,
+        910_005
+      )
+    );
+    const after = await getGuild(db, guildId, features);
+    expect(after.bases.find((entry) => entry.id === base!.id)!.worker_pals).toEqual([]);
+    expect(after.roster).toHaveLength(2);
   });
 
   it('delivers queued actions until the collector reports them', async () => {
