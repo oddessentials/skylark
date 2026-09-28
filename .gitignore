@@ -1,0 +1,17 @@
+node_modules/
+.svelte-kit/
+build/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+collector/bin/
+collector/dist/
+*.exe
+local/
+*.zip
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

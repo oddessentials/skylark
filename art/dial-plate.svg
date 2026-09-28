@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <radialGradient id="face" cx="0.5" cy="0.32" r="0.8">
+      <stop offset="0" stop-color="#fdfbf4"/>
+      <stop offset="0.52" stop-color="#f6f0e0"/>
+      <stop offset="1" stop-color="#e2d7be"/>
+    </radialGradient>
+    <linearGradient id="skywash" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5fbfe8" stop-opacity="0.3"/>
+      <stop offset="0.46" stop-color="#5fbfe8" stop-opacity="0.04"/>
+      <stop offset="0.54" stop-color="#7a5a2e" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#6d4f28" stop-opacity="0.16"/>
+    </linearGradient>
+    <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#557f95"/>
+      <stop offset="0.5" stop-color="#334b5c"/>
+      <stop offset="1" stop-color="#22323f"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a5d9ea"/>
+      <stop offset="0.3" stop-color="#6598b0"/>
+      <stop offset="0.62" stop-color="#3f5d70"/>
+      <stop offset="1" stop-color="#2b3e4d"/>
+    </linearGradient>
+    <linearGradient id="plateEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6f8fe" stop-opacity="0.8"/>
+      <stop offset="0.55" stop-color="#9dc3d4" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#16232d" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="bevel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dcf4fb" stop-opacity="0.95"/>
+      <stop offset="0.5" stop-color="#8fb3c4" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#18262f" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="rimlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5feff" stop-opacity="0.95"/>
+      <stop offset="0.4" stop-color="#f5feff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#101b23" stop-opacity="0.6"/>
+    </linearGradient>
+    <radialGradient id="rivet" cx="0.35" cy="0.3" r="0.8">
+      <stop offset="0" stop-color="#f6feff"/>
+      <stop offset="0.42" stop-color="#a7c3d1"/>
+      <stop offset="1" stop-color="#24333f"/>
+    </radialGradient>
+    <linearGradient id="crest" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#29b3c6"/>
+      <stop offset="0.6" stop-color="#0f8494"/>
+      <stop offset="1" stop-color="#095a6a"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.56" stop-color="#453a26" stop-opacity="0"/>
+      <stop offset="1" stop-color="#453a26" stop-opacity="0.28"/>
+    </radialGradient>
+  </defs>
+  <circle cx="512" cy="512" r="508" fill="url(#hull)"/>
+    <path d="M 640.2 849.5 L 688.8 977.5 A 498.0 498.0 0 0 1 335.2 977.5 L 383.8 849.5 A 361.0 361.0 0 0 0 640.2 849.5 Z" fill="url(#plate)"/>
+  <path d="M 640.2 849.5 L 688.8 977.5 A 498.0 498.0 0 0 1 335.2 977.5 L 383.8 849.5 A 361.0 361.0 0 0 0 640.2 849.5 Z" fill="none" stroke="url(#plateEdge)" stroke-width="3.5"/>
+  <path d="M 364.0 841.3 L 307.9 966.2 A 498.0 498.0 0 0 1 57.8 716.1 L 182.7 660.0 A 361.0 361.0 0 0 0 364.0 841.3 Z" fill="url(#plate)"/>
+  <path d="M 364.0 841.3 L 307.9 966.2 A 498.0 498.0 0 0 1 57.8 716.1 L 182.7 660.0 A 361.0 361.0 0 0 0 364.0 841.3 Z" fill="none" stroke="url(#plateEdge)" stroke-width="3.5"/>
+  <path d="M 174.5 640.2 L 46.5 688.8 A 498.0 498.0 0 0 1 46.5 335.2 L 174.5 383.8 A 361.0 361.0 0 0 0 174.5 640.2 Z" fill="url(#plate)"/>
+  <path d="M 174.5 640.2 L 46.5 688.8 A 498.0 498.0 0 0 1 46.5 335.2 L 174.5 383.8 A 361.0 361.0 0 0 0 174.5 640.2 Z" fill="none" stroke="url(#plateEdge)" stroke-width="3.5"/>
+  <path d="M 182.7 364.0 L 57.8 307.9 A 498.0 498.0 0 0 1 307.9 57.8 L 364.0 182.7 A 361.0 361.0 0 0 0 182.7 364.0 Z" fill="url(#plate)"/>
+  <path d="M 182.7 364.0 L 57.8 307.9 A 498.0 498.0 0 0 1 307.9 57.8 L 364.0 182.7 A 361.0 361.0 0 0 0 182.7 364.0 Z" fill="none" stroke="url(#plateEdge)" stroke-width="3.5"/>
+  <path d="M 383.8 174.5 L 335.2 46.5 A 498.0 498.0 0 0 1 688.8 46.5 L 640.2 174.5 A 361.0 361.0 0 0 0 383.8 174.5 Z" fill="url(#plate)"/>
+  <path d="M 383.8 174.5 L 335.2 46.5 A 498.0 498.0 0 0 1 688.8 46.5 L 640.2 174.5 A 361.0 361.0 0 0 0 383.8 174.5 Z" fill="none" stroke="url(#plateEdge)" stroke-width="3.5"/>
+  <path d="M 660.0 182.7 L 716.1 57.8 A 498.0 498.0 0 0 1 966.2 307.9 L 841.3 364.0 A 361.0 361.0 0 0 0 660.0 182.7 Z" fill="url(#plate)"/>
+  <path d="M 660.0 182.7 L 716.1 57.8 A 498.0 498.0 0 0 1 966.2 307.9 L 841.3 364.0 A 361.0 361.0 0 0 0 660.0 182.7 Z" fill="none" stroke="url(#plateEdge)" stroke-width="3.5"/>
+  <path d="M 849.5 383.8 L 977.5 335.2 A 498.0 498.0 0 0 1 977.5 688.8 L 849.5 640.2 A 361.0 361.0 0 0 0 849.5 383.8 Z" fill="url(#plate)"/>
+  <path d="M 849.5 383.8 L 977.5 335.2 A 498.0 498.0 0 0 1 977.5 688.8 L 849.5 640.2 A 361.0 361.0 0 0 0 849.5 383.8 Z" fill="none" stroke="url(#plateEdge)" stroke-width="3.5"/>
+  <path d="M 841.3 660.0 L 966.2 716.1 A 498.0 498.0 0 0 1 716.1 966.2 L 660.0 841.3 A 361.0 361.0 0 0 0 841.3 660.0 Z" fill="url(#plate)"/>
+  <path d="M 841.3 660.0 L 966.2 716.1 A 498.0 498.0 0 0 1 716.1 966.2 L 660.0 841.3 A 361.0 361.0 0 0 0 841.3 660.0 Z" fill="none" stroke="url(#plateEdge)" stroke-width="3.5"/>
+  <circle cx="512" cy="512" r="470" fill="none" stroke="#2fc3d4" stroke-opacity="0.6" stroke-width="11"/>
+  <circle cx="512" cy="512" r="470" fill="none" stroke="#0a4a58" stroke-opacity="0.35" stroke-width="1.5"/>
+    <circle cx="512.0" cy="905.0" r="9.5" fill="url(#rivet)"/>
+  <circle cx="512.0" cy="978.0" r="9.5" fill="url(#rivet)"/>
+  <circle cx="234.1" cy="789.9" r="9.5" fill="url(#rivet)"/>
+  <circle cx="182.5" cy="841.5" r="9.5" fill="url(#rivet)"/>
+  <circle cx="119.0" cy="512.0" r="9.5" fill="url(#rivet)"/>
+  <circle cx="46.0" cy="512.0" r="9.5" fill="url(#rivet)"/>
+  <circle cx="234.1" cy="234.1" r="9.5" fill="url(#rivet)"/>
+  <circle cx="182.5" cy="182.5" r="9.5" fill="url(#rivet)"/>
+  <circle cx="512.0" cy="119.0" r="9.5" fill="url(#rivet)"/>
+  <circle cx="512.0" cy="46.0" r="9.5" fill="url(#rivet)"/>
+  <circle cx="789.9" cy="234.1" r="9.5" fill="url(#rivet)"/>
+  <circle cx="841.5" cy="182.5" r="9.5" fill="url(#rivet)"/>
+  <circle cx="905.0" cy="512.0" r="9.5" fill="url(#rivet)"/>
+  <circle cx="978.0" cy="512.0" r="9.5" fill="url(#rivet)"/>
+  <circle cx="789.9" cy="789.9" r="9.5" fill="url(#rivet)"/>
+  <circle cx="841.5" cy="841.5" r="9.5" fill="url(#rivet)"/>
+  <circle cx="512" cy="512" r="508" fill="none" stroke="url(#rimlight)" stroke-width="10"/>
+  <path d="M 228.6 218.5 L 162.6 150.2 A 503.0 503.0 0 0 1 861.4 150.2 L 795.4 218.5 A 408.0 408.0 0 0 0 228.6 218.5 Z" fill="url(#crest)"/>
+  <path d="M 228.6 218.5 L 162.6 150.2 A 503.0 503.0 0 0 1 861.4 150.2 L 795.4 218.5 A 408.0 408.0 0 0 0 228.6 218.5 Z" fill="none" stroke="url(#plateEdge)" stroke-width="4"/>
+  <path d="M 189.7 178.2 L 180.6 168.9 A 477.0 477.0 0 0 1 843.4 168.9 L 834.3 178.2 A 464.0 464.0 0 0 0 189.7 178.2 Z" fill="#8aeaf4" fill-opacity="0.4"/>
+  <g fill="#f4fdff" transform="translate(512 56.5) scale(1.5) translate(-32 -33.5)">
+    <path d="M45.5 15.5 C40 8 34 5 25.5 5 C30.5 10 33 15 35 20.5 Z"/>
+    <ellipse cx="31" cy="37" rx="15" ry="11.5" transform="rotate(-28 31 37)"/>
+    <circle cx="44" cy="24" r="10.5"/>
+    <path d="M53.5 21 L61 24.2 L53.5 27.6 Z" stroke="#f4fdff" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M36.5 31 C29 20 19 10 7.5 7 C10.5 17 15 24 21 29 C26 33 31.5 35.5 35.5 36.5 Z"/>
+    <path d="M22 44 C15 49 8 55 3 61 C10 59 16 55 21 51 C20 55 19 58 18.5 62 C25 55 29 48 30 44 Z"/>
+  </g>
+  <circle cx="512" cy="512" r="353" fill="url(#face)"/>
+  <circle cx="512" cy="512" r="353" fill="url(#skywash)"/>
+  <circle cx="512" cy="512" r="110" fill="none" stroke="#b9a988" stroke-opacity="0.16" stroke-width="1.2"/><circle cx="512" cy="512" r="180" fill="none" stroke="#b9a988" stroke-opacity="0.16" stroke-width="1.2"/><circle cx="512" cy="512" r="250" fill="none" stroke="#b9a988" stroke-opacity="0.16" stroke-width="1.2"/>
+  <circle cx="512" cy="512" r="353" fill="url(#vignette)"/>
+  <circle cx="512" cy="512" r="365" fill="none" stroke="url(#bevel)" stroke-width="24"/>
+  <circle cx="512" cy="512" r="348" fill="none" stroke="#bfae8d" stroke-opacity="0.5" stroke-width="2"/>
+  <circle cx="512" cy="512" r="326" fill="none" stroke="#bfae8d" stroke-opacity="0.26" stroke-width="1.5"/>
+  <line x1="190" y1="512" x2="834" y2="512" stroke="#ab9b7c" stroke-opacity="0.3" stroke-width="2"/>
+</svg>

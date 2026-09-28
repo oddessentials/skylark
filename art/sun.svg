@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.42" stop-color="#ffd166" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffb020" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ray" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd777"/>
+      <stop offset="1" stop-color="#ff9a26"/>
+    </linearGradient>
+    <radialGradient id="core" cx="0.38" cy="0.32" r="0.78">
+      <stop offset="0" stop-color="#fffbe8"/>
+      <stop offset="0.45" stop-color="#ffd25e"/>
+      <stop offset="1" stop-color="#f28f1c"/>
+    </radialGradient>
+  </defs>
+  <circle cx="96" cy="96" r="94" fill="url(#halo)"/>
+    <path d="M 89.0 42.5 Q 90.8 22.2 96.0 7.0 Q 101.2 22.2 103.0 42.5 Z" fill="url(#ray)"/>
+  <path d="M 116.7 46.1 Q 128.4 29.5 140.5 18.9 Q 137.4 34.7 128.9 53.2 Z" fill="url(#ray)"/>
+  <path d="M 138.8 63.1 Q 157.3 54.6 173.1 51.5 Q 162.5 63.6 145.9 75.3 Z" fill="url(#ray)"/>
+  <path d="M 149.5 89.0 Q 169.8 90.8 185.0 96.0 Q 169.8 101.2 149.5 103.0 Z" fill="url(#ray)"/>
+  <path d="M 145.9 116.7 Q 162.5 128.4 173.1 140.5 Q 157.3 137.4 138.8 128.9 Z" fill="url(#ray)"/>
+  <path d="M 128.9 138.8 Q 137.4 157.3 140.5 173.1 Q 128.4 162.5 116.7 145.9 Z" fill="url(#ray)"/>
+  <path d="M 103.0 149.5 Q 101.2 169.8 96.0 185.0 Q 90.8 169.8 89.0 149.5 Z" fill="url(#ray)"/>
+  <path d="M 75.3 145.9 Q 63.6 162.5 51.5 173.1 Q 54.6 157.3 63.1 138.8 Z" fill="url(#ray)"/>
+  <path d="M 53.2 128.9 Q 34.7 137.4 18.9 140.5 Q 29.5 128.4 46.1 116.7 Z" fill="url(#ray)"/>
+  <path d="M 42.5 103.0 Q 22.2 101.2 7.0 96.0 Q 22.2 90.8 42.5 89.0 Z" fill="url(#ray)"/>
+  <path d="M 46.1 75.3 Q 29.5 63.6 18.9 51.5 Q 34.7 54.6 53.2 63.1 Z" fill="url(#ray)"/>
+  <path d="M 63.1 53.2 Q 54.6 34.7 51.5 18.9 Q 63.6 29.5 75.3 46.1 Z" fill="url(#ray)"/>
+  <circle cx="96" cy="96" r="52" fill="#e8820f"/>
+  <circle cx="96" cy="96" r="49" fill="url(#core)"/>
+  <circle cx="96" cy="96" r="49" fill="none" stroke="#fff4cf" stroke-opacity="0.65" stroke-width="3"/>
+</svg>
