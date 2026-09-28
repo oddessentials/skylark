@@ -1,4 +1,4 @@
-FROM golang:1.27.1-alpine3.24 AS build
+FROM --platform=$BUILDPLATFORM golang:1.27.1-alpine3.24 AS build
 RUN apk add --no-cache ca-certificates
 WORKDIR /src/collector
 COPY collector/go.mod collector/go.sum ./
@@ -6,8 +6,10 @@ RUN go mod download
 COPY package.json /src/package.json
 COPY collector/ ./
 ARG VERSION
+ARG TARGETOS
+ARG TARGETARCH
 RUN version="${VERSION:-$(sed -n 's/^  "version": "\(.*\)",$/\1/p' /src/package.json)}" \
- && CGO_ENABLED=0 go build -trimpath -ldflags "-s -w -X github.com/oddessentials/skylark/collector/internal/buildinfo.Version=${version}" -o /out/skylark-collector ./cmd/skylark-collector \
+ && CGO_ENABLED=0 GOOS="$TARGETOS" GOARCH="$TARGETARCH" go build -trimpath -ldflags "-s -w -X github.com/oddessentials/skylark/collector/internal/buildinfo.Version=${version}" -o /out/skylark-collector ./cmd/skylark-collector \
  && mkdir -p /out/data
 
 FROM scratch

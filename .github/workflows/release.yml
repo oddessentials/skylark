@@ -1,0 +1,131 @@
+name: release
+
+on:
+  push:
+    tags: ['v*']
+  pull_request:
+    paths:
+      - .github/workflows/release.yml
+      - web/Dockerfile
+      - web/Dockerfile.dockerignore
+      - collector/Dockerfile
+      - collector/Dockerfile.dockerignore
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      publish: ${{ steps.version.outputs.publish }}
+    steps:
+      - uses: actions/checkout@v7
+      - id: version
+        run: |
+          version=$(node -p "require('./package.json').version")
+          publish=false
+          if [ "$GITHUB_REF_TYPE" = tag ]; then
+            if [ "$GITHUB_REF_NAME" != "v$version" ]; then
+              echo "::error::The tag $GITHUB_REF_NAME does not match the package.json version $version."
+              exit 1
+            fi
+            publish=true
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "publish=$publish" >> "$GITHUB_OUTPUT"
+
+  binaries:
+    needs: version
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: collector/go.mod
+          cache-dependency-path: collector/go.sum
+      - run: npm run collector:build
+      - run: sha256sum skylark-collector-* > SHA256SUMS
+        working-directory: collector/dist
+      - uses: actions/upload-artifact@v7
+        with:
+          name: collector-binaries
+          path: collector/dist
+          retention-days: 7
+
+  images:
+    needs: version
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image: skylark
+            file: web/Dockerfile
+            description: A live website for your Palworld dedicated server
+          - image: skylark-collector
+            file: collector/Dockerfile
+            description: Reports a Palworld dedicated server to its Skylark site
+    env:
+      VERSION: ${{ needs.version.outputs.version }}
+      PUBLISH: ${{ needs.version.outputs.publish }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: docker/setup-qemu-action@v4
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
+        if: env.PUBLISH == 'true'
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+      - uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: ${{ matrix.file }}
+          platforms: linux/amd64,linux/arm64
+          push: ${{ env.PUBLISH == 'true' }}
+          tags: |
+            ghcr.io/oddessentials/${{ matrix.image }}:${{ env.VERSION }}
+            ghcr.io/oddessentials/${{ matrix.image }}:latest
+          labels: |
+            org.opencontainers.image.source=https://github.com/oddessentials/skylark
+            org.opencontainers.image.description=${{ matrix.description }}
+            org.opencontainers.image.licenses=MIT
+            org.opencontainers.image.version=${{ env.VERSION }}
+
+  release:
+    needs: [version, binaries, images]
+    if: needs.version.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: collector-binaries
+          path: dist
+      - run: >
+          gh release create "$GITHUB_REF_NAME" dist/*
+          --repo "$GITHUB_REPOSITORY"
+          --verify-tag
+          --title "Skylark ${{ needs.version.outputs.version }}"
+          --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
