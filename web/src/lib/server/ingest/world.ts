@@ -14,6 +14,7 @@ import {
   type PlayerRow
 } from '../db/schema';
 import {
+  findPlayer,
   findPlayerByUid,
   later,
   loadServerState,
@@ -25,7 +26,7 @@ import {
   type StoredEvent
 } from './context';
 import { emitSiteEvent } from './projections';
-import { openSessionOf, playersWithOpenSessions } from './sessions';
+import { fillLevelStart, leftWithin, openSessionOf, playersWithOpenSessions } from './sessions';
 import { segmentMeters } from '$lib/world/movement';
 
 type Schemas = components['schemas'];
@@ -37,6 +38,7 @@ export const positionSampleMs = 10_000;
 export const stationarySampleMs = 60_000;
 export const stationaryMeters = 1;
 export const absentAfterMs = 90_000;
+export const rejoinGraceMs = 30_000;
 export const baseGoneAfterMs = 60_000;
 export const baselineKey = 'world.baseline_at';
 export const settleMs = 5 * 60_000;
@@ -49,6 +51,10 @@ function text(value: string | null | undefined): string | null {
   if (typeof value !== 'string') return null;
   const trimmed = value.trim();
   return trimmed === '' ? null : trimmed;
+}
+
+function inWorld(data: SnapshotData, entry: SnapshotPlayer): boolean {
+  return data.source !== 'gamedata' || text(entry.instance_id) !== null;
 }
 
 interface SnapshotScope {
@@ -185,6 +191,11 @@ async function applyPlayers(
   const seen = new Map<string, PlayerRow>();
   for (const entry of data.players) {
     if (seen.has(entry.user_id)) continue;
+    if (!inWorld(data, entry)) {
+      const known = await findPlayer(ctx, entry.user_id);
+      if (known) seen.set(entry.user_id, known);
+      continue;
+    }
     const player = await resolvePlayer(ctx, entry.user_id, ts, {
       name: entry.name,
       playerUid: entry.player_id,
@@ -201,7 +212,9 @@ async function applyPlayers(
       lastZ: entry.z ?? null,
       positionAt: ts
     });
-    if (player.currentSessionId === null) {
+    if (player.currentSessionId !== null) {
+      await fillLevelStart(ctx, player, entry.level);
+    } else if (!(await leftWithin(ctx, player, ts, rejoinGraceMs))) {
       await emitSiteEvent(ctx, 'player.joined', ts, event.run_id, event.seq, {
         user_id: entry.user_id,
         player_id: entry.player_id,
