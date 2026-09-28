@@ -1,8 +1,43 @@
+import { runsOf, type HabitatCells } from '$lib/world/cells';
 import { fast_travel, towers } from '$lib/world/landmarks.json';
 import { mainMap, mapOf, toImage, treeMap, type MapId, type MapRect } from '$lib/world/map';
 import { regions } from '$lib/world/regions.json';
 
 export const mapSize = 1000;
+
+export interface HabitatLayer {
+  species: string;
+  name: string;
+  note: string;
+  grid: number;
+  maps: Partial<Record<MapId, HabitatCells>>;
+}
+
+export interface HabitatRun {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  period: 'both' | 'day' | 'night';
+}
+
+export function habitatRuns(cells: HabitatCells | undefined, grid: number): HabitatRun[] {
+  if (!cells || grid <= 0) return [];
+  const size = mapSize / grid;
+  const runs: HabitatRun[] = [];
+  for (const period of ['both', 'day', 'night'] as const) {
+    for (const run of runsOf(cells[period], grid)) {
+      runs.push({
+        x: run.from * size,
+        y: run.row * size,
+        w: (run.to - run.from + 1) * size,
+        h: size,
+        period
+      });
+    }
+  }
+  return runs;
+}
 
 export interface Projected {
   x: number;

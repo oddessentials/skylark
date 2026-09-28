@@ -5,7 +5,17 @@
   import { formatDisplay, type MapId } from '$lib/world/map';
   import { primaryColor, speciesInfo } from '$lib/world/species';
   import { isContinuous } from '$lib/world/movement';
-  import { chartOf, guildColor, initialOf, mapSize, onMap, project, rectOf } from './map';
+  import {
+    chartOf,
+    guildColor,
+    habitatRuns,
+    initialOf,
+    mapSize,
+    onMap,
+    project,
+    rectOf,
+    type HabitatLayer
+  } from './map';
 
   let {
     world,
@@ -15,6 +25,7 @@
     landmarks = true,
     initialMap = 'MainMap',
     focus = null,
+    habitat = null,
     label = 'World map'
   }: {
     world: MapState | null;
@@ -24,6 +35,7 @@
     landmarks?: boolean;
     initialMap?: MapId;
     focus?: { x: number; y: number } | null;
+    habitat?: HabitatLayer | null;
     label?: string;
   } = $props();
 
@@ -87,6 +99,10 @@
   const k = $derived((shown.w / mapSize) * (compact ? 1.6 : 1));
   const zoomed = $derived(shown.w < 520);
 
+  const habitatCells = $derived(habitat ? habitatRuns(habitat.maps[mapId], habitat.grid) : []);
+  const habitatElsewhere = $derived(
+    habitat !== null && habitatCells.length === 0 && Object.keys(habitat.maps).length > 0
+  );
   const players = $derived(
     (world?.players ?? [])
       .filter((player) => onMap(player.x, player.y, mapId))
@@ -322,6 +338,16 @@
         {/if}
       {/each}
     {/if}
+    {#each habitatCells as run, index (index)}
+      <rect
+        x={run.x}
+        y={run.y}
+        width={run.w}
+        height={run.h}
+        class="map-habitat"
+        data-period={run.period}
+      />
+    {/each}
     {#if landmarks}
       {#each chart.landmarks as landmark (landmark.id)}
         {#if landmark.kind === 'statue'}
@@ -473,6 +499,10 @@
     <p class="map-caption">
       {#if hovered}
         {hovered}
+      {:else if habitat && habitatElsewhere}
+        {habitat.name} lives on the {mapId === 'MainMap' ? 'World Tree map' : 'Palpagos map'}
+      {:else if habitat}
+        {habitat.note}
       {:else if elsewhere.length > 0}
         {elsewhere.length} on the {mapId === 'MainMap' ? 'World Tree map' : 'Palpagos map'}
       {:else}

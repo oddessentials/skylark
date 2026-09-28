@@ -39,6 +39,10 @@ const speciesById = new Map<string, Species>(
   ])
 );
 
+export const speciesList: Species[] = [...speciesById.values()].sort(
+  (a, b) => a.number - b.number || a.suffix.localeCompare(b.suffix)
+);
+
 export function speciesInfo(id: string | null | undefined): Species | null {
   if (!id) return null;
   return speciesById.get(id.toLowerCase()) ?? null;

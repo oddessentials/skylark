@@ -1050,6 +1050,58 @@
     color: var(--color-ink-muted);
   }
 
+  .map-habitat {
+    fill: var(--color-sun-hot);
+    fill-opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .map-habitat[data-period='day'] {
+    fill: var(--color-sun);
+  }
+
+  .map-habitat[data-period='night'] {
+    fill: var(--color-sphere-band);
+    fill-opacity: 0.55;
+  }
+
+  .habitat-swatch {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 0.15rem;
+    background: color-mix(in srgb, var(--color-sun-hot) 45%, var(--color-grass));
+  }
+
+  .habitat-swatch[data-period='night'] {
+    background: color-mix(in srgb, var(--color-sphere-band) 55%, var(--color-grass));
+  }
+
+  .palpedia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(1.15rem, 1fr));
+    gap: 0.2rem;
+  }
+
+  .palpedia-tile {
+    display: block;
+    aspect-ratio: 1;
+    border-radius: 0.25rem;
+    background: var(--tile);
+    box-shadow: inset 0 0 0 1px rgba(36, 31, 24, 0.2);
+  }
+
+  .palpedia-tile[data-caught='false'] {
+    background: color-mix(in srgb, var(--tile) 16%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tile) 60%, transparent);
+  }
+
+  a.palpedia-tile:hover,
+  a.palpedia-tile:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 1px;
+  }
+
   .spine {
     position: relative;
   }

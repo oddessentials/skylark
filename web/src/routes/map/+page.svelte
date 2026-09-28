@@ -7,12 +7,15 @@
   import PageHeader from '$lib/ui/PageHeader.svelte';
   import Time from '$lib/ui/Time.svelte';
   import WorldMap from '$lib/ui/WorldMap.svelte';
-  import { formatDisplay } from '$lib/world/map';
+  import { formatDisplay, type MapId } from '$lib/world/map';
+  import { palpediaNumber, speciesList } from '$lib/world/species';
 
   let { data } = $props();
 
   const live = useLive();
   const world = $derived(live.map ?? (data.map.ok ? data.map.data : null));
+  const habitat = $derived(data.habitat);
+  const startMap = $derived<MapId>(habitat && !habitat.maps.MainMap ? 'Tree' : 'MainMap');
   let showWild = $state(true);
   let showDeaths = $state(true);
   let showLandmarks = $state(true);
@@ -51,7 +54,14 @@
     <ErrorNote error={data.map.error} what="the map" />
   {:else}
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_17rem]">
-      <WorldMap world={shown} landmarks={showLandmarks} {focus} highlight={focused} />
+      <WorldMap
+        world={shown}
+        landmarks={showLandmarks}
+        {focus}
+        highlight={focused}
+        {habitat}
+        initialMap={startMap}
+      />
       <div class="flex flex-col gap-4">
         <Card title="Layers">
           <div class="flex flex-col gap-2 text-[0.8125rem]">
@@ -64,6 +74,38 @@
             <label class="flex items-center gap-2"
               ><input type="checkbox" bind:checked={showDeaths} /> Knockouts, last 24 hours</label
             >
+            <form method="get" class="flex flex-col gap-1.5 border-t border-line pt-2">
+              <label class="flex flex-col gap-1">
+                <span>Where a Pal lives, from the game's habitat data</span>
+                <select
+                  name="species"
+                  class="field"
+                  onchange={(event) => event.currentTarget.form?.requestSubmit()}
+                >
+                  <option value="" selected={!habitat}>Pick a Pal</option>
+                  {#each speciesList as species (species.id)}
+                    <option value={species.id} selected={habitat?.species === species.id}
+                      >{palpediaNumber(species)} {species.name}</option
+                    >
+                  {/each}
+                </select>
+              </label>
+              <noscript><button type="submit" class="map-ui px-2.5">Show</button></noscript>
+              {#if habitat}
+                <p class="note">{habitat.note}</p>
+                <p
+                  class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.72rem] text-ink-muted"
+                >
+                  <span class="flex items-center gap-1"
+                    ><span class="habitat-swatch" aria-hidden="true"></span> by day</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><span class="habitat-swatch" data-period="night" aria-hidden="true"></span> at night</span
+                  >
+                  <a href="/map" class="text-accent hover:underline">clear</a>
+                </p>
+              {/if}
+            </form>
           </div>
         </Card>
         <Card title="On the map">

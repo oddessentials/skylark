@@ -5,6 +5,7 @@
   import { guildColor } from '$lib/ui/map';
   import Meta from '$lib/ui/Meta.svelte';
   import PalChip from '$lib/ui/PalChip.svelte';
+  import PalpediaCard from '$lib/ui/PalpediaCard.svelte';
   import PlayerLink from '$lib/ui/PlayerLink.svelte';
   import Time from '$lib/ui/Time.svelte';
   import WorldMap from '$lib/ui/WorldMap.svelte';
@@ -49,80 +50,96 @@
     </header>
 
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-      <Card title="Members" flush>
-        {#snippet actions()}
-          {#if guild.roster_saved_at}<span class="ticker"
-              >roles from the world save, <Time at={guild.roster_saved_at} mode="relative" /></span
-            >{/if}
-        {/snippet}
-        <div class="overflow-x-auto">
-          {#if roster.length > 0}
-            <table class="data-table">
-              <thead>
-                <tr><th>Player</th><th>Role</th><th class="num">Level</th><th>Last seen</th></tr>
-              </thead>
-              <tbody>
-                {#each roster as entry, index (index)}
-                  <tr>
-                    <td>
-                      <span class="flex items-center gap-2">
-                        <span
-                          class="lamp {entry.online ? 'text-online' : 'text-line-strong'}"
-                          aria-hidden="true"
-                        ></span>
-                        {#if entry.player}<PlayerLink player={entry.player} />{:else}<span
-                            >{entry.name}</span
-                          >{/if}
-                      </span>
-                    </td>
-                    <td>{roleLabels[entry.role] ?? ''}</td>
-                    <td class="num">{entry.level ?? '—'}</td>
-                    <td>
-                      {#if entry.online}<span class="text-online">online now</span
-                        >{:else if entry.last_online_at}<Time
-                          at={entry.last_online_at}
-                          mode="relative"
-                        />{:else}—{/if}
-                    </td>
-                  </tr>
-                {/each}
-              </tbody>
-            </table>
-          {:else}
-            <table class="data-table">
-              <thead>
-                <tr
-                  ><th>Player</th><th class="num">Level</th><th>Member since</th><th>Last seen</th
-                  ></tr
-                >
-              </thead>
-              <tbody>
-                {#each guild.members as member (member.player.id)}
-                  <tr>
-                    <td>
-                      <span class="flex items-center gap-2">
-                        <span
-                          class="lamp {member.online ? 'text-online' : 'text-line-strong'}"
-                          aria-hidden="true"
-                        ></span>
-                        <PlayerLink player={member.player} />
-                      </span>
-                    </td>
-                    <td class="num">{member.level}</td>
-                    <td><Time at={member.since} mode="date" /></td>
-                    <td>
-                      {#if member.online}<span class="text-online">online now</span>{:else}<Time
-                          at={member.last_seen}
-                          mode="relative"
-                        />{/if}
-                    </td>
-                  </tr>
-                {/each}
-              </tbody>
-            </table>
-          {/if}
-        </div>
-      </Card>
+      <div class="flex flex-col gap-6">
+        <Card title="Members" flush>
+          {#snippet actions()}
+            {#if guild.roster_saved_at}<span class="ticker"
+                >roles from the world save, <Time
+                  at={guild.roster_saved_at}
+                  mode="relative"
+                /></span
+              >{/if}
+          {/snippet}
+          <div class="overflow-x-auto">
+            {#if roster.length > 0}
+              <table class="data-table">
+                <thead>
+                  <tr><th>Player</th><th>Role</th><th class="num">Level</th><th>Last seen</th></tr>
+                </thead>
+                <tbody>
+                  {#each roster as entry, index (index)}
+                    <tr>
+                      <td>
+                        <span class="flex items-center gap-2">
+                          <span
+                            class="lamp {entry.online ? 'text-online' : 'text-line-strong'}"
+                            aria-hidden="true"
+                          ></span>
+                          {#if entry.player}<PlayerLink player={entry.player} />{:else}<span
+                              >{entry.name}</span
+                            >{/if}
+                        </span>
+                      </td>
+                      <td>{roleLabels[entry.role] ?? ''}</td>
+                      <td class="num">{entry.level ?? '—'}</td>
+                      <td>
+                        {#if entry.online}<span class="text-online">online now</span
+                          >{:else if entry.last_online_at}<Time
+                            at={entry.last_online_at}
+                            mode="relative"
+                          />{:else}—{/if}
+                      </td>
+                    </tr>
+                  {/each}
+                </tbody>
+              </table>
+            {:else}
+              <table class="data-table">
+                <thead>
+                  <tr
+                    ><th>Player</th><th class="num">Level</th><th>Member since</th><th>Last seen</th
+                    ></tr
+                  >
+                </thead>
+                <tbody>
+                  {#each guild.members as member (member.player.id)}
+                    <tr>
+                      <td>
+                        <span class="flex items-center gap-2">
+                          <span
+                            class="lamp {member.online ? 'text-online' : 'text-line-strong'}"
+                            aria-hidden="true"
+                          ></span>
+                          <PlayerLink player={member.player} />
+                        </span>
+                      </td>
+                      <td class="num">{member.level}</td>
+                      <td><Time at={member.since} mode="date" /></td>
+                      <td>
+                        {#if member.online}<span class="text-online">online now</span>{:else}<Time
+                            at={member.last_seen}
+                            mode="relative"
+                          />{/if}
+                      </td>
+                    </tr>
+                  {/each}
+                </tbody>
+              </table>
+            {/if}
+          </div>
+        </Card>
+
+        {#if data.palpedia.ok}
+          <PalpediaCard
+            entries={data.palpedia.data.entries}
+            unlocked={data.palpedia.data.unlocked}
+            total={data.palpedia.data.total}
+            savedAt={data.palpedia.data.saved_at}
+            members={data.palpedia.data.members}
+            owner={guild.name}
+          />
+        {/if}
+      </div>
 
       {#if guild.bases.length > 0}
         <Card title="Bases" flush>

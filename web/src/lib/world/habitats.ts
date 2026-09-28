@@ -1,13 +1,10 @@
+import { decodeRanges, runsOf, type CellRun, type HabitatCells } from './cells';
 import { grid, species, ways } from './habitats.json';
 import type { MapId } from './map';
 
-export type HabitatWay = 'wild' | 'alpha' | 'boss' | 'egg' | 'fished' | 'caged' | 'raid' | 'bred';
+export { decodeRanges, runsOf, type CellRun, type HabitatCells };
 
-export interface HabitatCells {
-  both: number[];
-  day: number[];
-  night: number[];
-}
+export type HabitatWay = 'wild' | 'alpha' | 'boss' | 'egg' | 'fished' | 'caged' | 'raid' | 'bred';
 
 export interface Habitat {
   id: string;
@@ -15,12 +12,6 @@ export interface Habitat {
   levels: [number, number] | null;
   maps: Partial<Record<MapId, HabitatCells>>;
   nightOnly: boolean;
-}
-
-export interface CellRun {
-  row: number;
-  from: number;
-  to: number;
 }
 
 export const habitatGrid: number = grid;
@@ -36,39 +27,6 @@ export const wayLabels: Record<HabitatWay, string> = {
   raid: 'from raid eggs',
   bred: 'by breeding'
 };
-
-export function decodeRanges(text: string): number[] {
-  if (text === '') return [];
-  const cells: number[] = [];
-  for (const part of text.split(',')) {
-    const bounds = part.split('-').map(Number);
-    const from = bounds[0];
-    const end = bounds[1] ?? from;
-    if (
-      from === undefined ||
-      end === undefined ||
-      !Number.isInteger(from) ||
-      !Number.isInteger(end) ||
-      end < from
-    ) {
-      throw new Error(`bad habitat range ${part}`);
-    }
-    for (let cell = from; cell <= end; cell++) cells.push(cell);
-  }
-  return cells;
-}
-
-export function runsOf(cells: number[], size = habitatGrid): CellRun[] {
-  const runs: CellRun[] = [];
-  for (const cell of [...cells].sort((a, b) => a - b)) {
-    const row = Math.floor(cell / size);
-    const column = cell % size;
-    const last = runs[runs.length - 1];
-    if (last && last.row === row && column === last.to + 1) last.to = column;
-    else runs.push({ row, from: column, to: column });
-  }
-  return runs;
-}
 
 function decodeMaps(entry: (typeof species)[number]): Partial<Record<MapId, HabitatCells>> {
   const maps: Partial<Record<MapId, HabitatCells>> = {};
