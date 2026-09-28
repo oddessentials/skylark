@@ -180,11 +180,22 @@ describe('API fixtures', () => {
       paged(await listSessions(db, featured.id, { limit: 200, offset: 0 }, features), 200, 'MjAw')
     );
     await write('players/{id}/trail', await getTrail(db, featured.id, null, now));
+    for (const player of playerList) {
+      await write(`players/${player.id}`, await getPlayer(db, player.id, features, now));
+      await write(
+        `players/${player.id}/sessions`,
+        paged(await listSessions(db, player.id, { limit: 200, offset: 0 }, features), 200, 'MjAw')
+      );
+      await write(`players/${player.id}/trail`, await getTrail(db, player.id, null, now));
+    }
     const chat = await listChat(db, features, { limit: 200, after: null });
     await write('chat', paged(chat, 200, 'bW9yZQ'));
     const guildList = await listGuilds(db, features);
     await write('guilds', { items: guildList });
     await write('guilds/{id}', await getGuild(db, guildList[0]!.id, features, now));
+    for (const guild of guildList) {
+      await write(`guilds/${guild.id}`, await getGuild(db, guild.id, features, now));
+    }
     await write('map', map);
     await write('leaderboards', await getLeaderboards(db, features, now));
     await write('world', await getWorld(db, features));

@@ -1,0 +1,55 @@
+{
+  "id": 8,
+  "name": "Kestrel",
+  "level": 18,
+  "platform": "ps5",
+  "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
+  "online": false,
+  "first_seen": "2026-09-22T18:40:30.000Z",
+  "last_seen": "2026-09-25T18:20:08.000Z",
+  "playtime_s": 9122,
+  "sessions": 2,
+  "deaths": 0,
+  "current_session": null,
+  "distance_m": 39074,
+  "chat_messages": 2,
+  "position": { "x": -552694.48, "y": -271771.63, "at": "2026-09-25T18:19:01.000Z" },
+  "party": [],
+  "level_history": [
+    { "at": "2026-09-22T18:51:00.999Z", "level": 9 },
+    { "at": "2026-09-22T18:55:00.999Z", "level": 10 },
+    { "at": "2026-09-22T19:03:00.999Z", "level": 11 },
+    { "at": "2026-09-22T19:13:00.999Z", "level": 12 },
+    { "at": "2026-09-22T19:21:00.999Z", "level": 13 },
+    { "at": "2026-09-22T19:39:00.999Z", "level": 14 },
+    { "at": "2026-09-22T19:53:00.999Z", "level": 15 },
+    { "at": "2026-09-25T17:19:00.999Z", "level": 16 },
+    { "at": "2026-09-25T17:51:00.999Z", "level": 17 },
+    { "at": "2026-09-25T18:15:00.999Z", "level": 18 }
+  ],
+  "recent_sessions": [
+    {
+      "id": 26,
+      "joined_at": "2026-09-25T17:09:19.000Z",
+      "left_at": "2026-09-25T18:20:08.000Z",
+      "duration_s": 4249,
+      "end_reason": "left",
+      "level_start": 15,
+      "level_end": 18,
+      "distance_m": 18054,
+      "deaths": 0
+    },
+    {
+      "id": 12,
+      "joined_at": "2026-09-22T18:40:42.000Z",
+      "left_at": "2026-09-22T20:01:55.000Z",
+      "duration_s": 4873,
+      "end_reason": "left",
+      "level_start": null,
+      "level_end": 15,
+      "distance_m": 21020,
+      "deaths": 0
+    }
+  ],
+  "recent_deaths": []
+}
