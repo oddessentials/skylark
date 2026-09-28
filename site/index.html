@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skylark: a live website for your Palworld server</title>
+    <meta
+      name="description"
+      content="Skylark gives your Palworld dedicated server its own website: who is online, where they roam, the in-game clock and everything that happened. Players install nothing."
+    />
+    <meta property="og:title" content="Skylark" />
+    <meta
+      property="og:description"
+      content="A live website for your Palworld dedicated server. Players install nothing."
+    />
+    <meta property="og:image" content="https://oddessentials.github.io/skylark/assets/banner.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0d6e86" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <style>
+      @font-face {
+        font-family: 'Baloo 2';
+        font-weight: 400 800;
+        font-display: swap;
+        src: url('assets/fonts/baloo2-variable.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'IBM Plex Mono';
+        font-weight: 400;
+        font-display: swap;
+        src: url('assets/fonts/ibm-plex-mono-400.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'IBM Plex Mono';
+        font-weight: 600;
+        font-display: swap;
+        src: url('assets/fonts/ibm-plex-mono-600.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Patrick Hand';
+        font-weight: 400;
+        font-display: swap;
+        src: url('assets/fonts/patrick-hand-400.woff2') format('woff2');
+      }
+      :root {
+        color-scheme: light;
+        --surface: #f7f2e6;
+        --raised: #fffdf6;
+        --sunken: #ebe3d1;
+        --ink: #241f18;
+        --ink-muted: #5c5244;
+        --line: #ddd3bd;
+        --accent: #0d6e86;
+        --accent-deep: #084453;
+        --sky: #4fb3e8;
+        --sun: #ffb020;
+        --grass: #7cc242;
+        --display: 'Baloo 2', 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+        --mono: 'IBM Plex Mono', 'Cascadia Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+        --note: 'Patrick Hand', 'Segoe Print', 'Bradley Hand', cursive;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--surface);
+        color: var(--ink);
+        font: 400 0.95rem/1.65 var(--mono);
+      }
+      a {
+        color: var(--accent);
+      }
+      a:hover {
+        color: var(--accent-deep);
+      }
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      .wrap {
+        max-width: 72rem;
+        margin: 0 auto;
+        padding-inline: 16px;
+      }
+      .skip {
+        position: absolute;
+        left: -9999px;
+      }
+      .skip:focus {
+        left: 12px;
+        top: 12px;
+        z-index: 10;
+        background: var(--raised);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+      }
+      header.hero {
+        background:
+          radial-gradient(circle at 82% 18%, rgba(255, 176, 32, 0.35), transparent 18rem),
+          linear-gradient(180deg, #bfe6fa 0%, #e6f5fc 55%, var(--surface) 100%);
+        border-bottom: 1px solid var(--line);
+      }
+      .hero .wrap {
+        display: grid;
+        gap: 2.5rem;
+        align-items: center;
+        padding-block: 3.5rem 3rem;
+      }
+      @media (min-width: 900px) {
+        .hero .wrap {
+          grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+        }
+      }
+      .eyebrow {
+        margin: 0;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 0.75rem 0 0.25rem;
+      }
+      .brand svg {
+        width: clamp(3.5rem, 8vw, 5rem);
+        height: auto;
+        flex: none;
+        color: var(--accent);
+      }
+      h1 {
+        margin: 0;
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: clamp(3rem, 2rem + 5vw, 5.4rem);
+        line-height: 1;
+        letter-spacing: -0.01em;
+      }
+      h1 span {
+        color: #1a8ea8;
+      }
+      .tagline {
+        margin: 0.5rem 0 0;
+        font-family: var(--note);
+        font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
+        line-height: 1.2;
+      }
+      .lead {
+        margin: 1rem 0 0;
+        max-width: 40rem;
+        color: var(--ink-muted);
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.75rem;
+        padding: 0.55rem 1.1rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--raised);
+        color: var(--ink);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      .button:hover {
+        border-color: var(--accent);
+        color: var(--accent-deep);
+      }
+      .button.primary {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: var(--raised);
+      }
+      .button.primary:hover {
+        background: var(--accent-deep);
+        color: var(--raised);
+      }
+      .dial {
+        justify-self: center;
+        width: min(100%, 26rem);
+        border-radius: 18px;
+        box-shadow: 0 24px 48px -28px rgba(36, 31, 24, 0.55);
+      }
+      main section {
+        padding-block: 2.75rem;
+      }
+      main section + section {
+        border-top: 1px solid var(--line);
+      }
+      h2 {
+        margin: 0 0 1.25rem;
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem);
+        line-height: 1.1;
+      }
+      h3 {
+        margin: 1rem 0 0.35rem;
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 1.3rem;
+      }
+      .shot {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--raised);
+        box-shadow: 0 18px 40px -30px rgba(36, 31, 24, 0.6);
+      }
+      .features {
+        display: grid;
+        gap: 2rem;
+      }
+      @media (min-width: 900px) {
+        .features {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      .feature p {
+        margin: 0;
+        color: var(--ink-muted);
+      }
+      .plain {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+      .plain li + li {
+        margin-top: 0.35rem;
+      }
+      .steps {
+        margin: 0;
+        padding-left: 1.4rem;
+      }
+      .steps > li + li {
+        margin-top: 1.5rem;
+      }
+      .steps p {
+        margin: 0.35rem 0;
+        color: var(--ink-muted);
+      }
+      .code {
+        position: relative;
+        margin: 0.75rem 0;
+      }
+      .code pre {
+        margin: 0;
+        overflow-x: auto;
+        padding: 1rem 5.5rem 1rem 1rem;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--sunken);
+        font: 400 0.85rem/1.6 var(--mono);
+      }
+      .copy {
+        position: absolute;
+        top: 0.6rem;
+        right: 0.6rem;
+        min-height: 2rem;
+        padding: 0.25rem 0.75rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--raised);
+        color: var(--ink);
+        font: 600 0.7rem/1 var(--mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      code {
+        font-family: var(--mono);
+        background: var(--sunken);
+        padding: 0.05rem 0.3rem;
+        border-radius: 4px;
+      }
+      .two {
+        display: grid;
+        gap: 2rem;
+      }
+      @media (min-width: 900px) {
+        .two {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      .two p {
+        margin: 0;
+        color: var(--ink-muted);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        background: var(--raised);
+      }
+      footer .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.5rem 2rem;
+        padding-block: 1.5rem;
+        font-size: 0.8rem;
+        color: var(--ink-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the page</a>
+    <header class="hero">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow">A live website for your Palworld server</p>
+          <div class="brand">
+            <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+              <circle cx="32" cy="32" r="31" fill="currentColor" />
+              <g fill="#fffdf6" transform="translate(32 32) scale(0.74) translate(-32 -33.5)">
+                <path d="M45.5 15.5 C40 8 34 5 25.5 5 C30.5 10 33 15 35 20.5 Z" />
+                <ellipse cx="31" cy="37" rx="15" ry="11.5" transform="rotate(-28 31 37)" />
+                <circle cx="44" cy="24" r="10.5" />
+                <path d="M53.5 21 L61 24.2 L53.5 27.6 Z" stroke="#fffdf6" stroke-width="1.6" stroke-linejoin="round" />
+                <path d="M36.5 31 C29 20 19 10 7.5 7 C10.5 17 15 24 21 29 C26 33 31.5 35.5 35.5 36.5 Z" />
+                <path d="M22 44 C15 49 8 55 3 61 C10 59 16 55 21 51 C20 55 19 58 18.5 62 C25 55 29 48 30 44 Z" />
+              </g>
+              <circle cx="47" cy="22" r="2.5" fill="currentColor" transform="translate(32 32) scale(0.74) translate(-32 -33.5)" />
+            </svg>
+            <h1>Sky<span>lark</span></h1>
+          </div>
+          <p class="tagline">who is out, where they roam, and everything that happened.</p>
+          <p class="lead">
+            A small collector runs beside your Palworld dedicated server and reports who is online, where they roam and what happens in the world. Your own site shows it live and keeps the history. Players install nothing, and the server needs no mods.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#install">Install</a>
+            <a class="button" href="https://github.com/oddessentials/skylark">Source on GitHub</a>
+            <a class="button" href="https://github.com/oddessentials/skylark/releases">Releases</a>
+          </div>
+        </div>
+        <img
+          class="dial"
+          src="assets/sun-dial.jpg"
+          width="480"
+          height="420"
+          alt="The sun dial: day 450 at 05:04 in the morning, with the sun rising over the six o'clock mark"
+        />
+      </div>
+    </header>
+
+    <main id="main" class="wrap" tabindex="-1">
+      <section aria-label="The front page">
+        <img
+          class="shot"
+          src="assets/today.jpg"
+          width="1440"
+          height="960"
+          alt="The Skylark front page: who is out in the world, the sun dial, the live map and the day's lines"
+        />
+      </section>
+
+      <section aria-labelledby="unique">
+        <h2 id="unique">Only in Skylark</h2>
+        <div class="features">
+          <div class="feature">
+            <img class="shot" src="assets/map.jpg" width="1210" height="880" alt="The live map of the islands with players, bases and wild Pals" loading="lazy" />
+            <h3>The islands, live</h3>
+            <p>An original map drawn from the game's own region data, with the Great Eagle Statues and towers. Players move on it as they play, next to the bases, the wild Pals around them and the day's knockouts.</p>
+          </div>
+          <div class="feature">
+            <img class="shot" src="assets/player.jpg" width="1210" height="880" alt="A player page with the Pals out with them, their level over time and the trail of a session" loading="lazy" />
+            <h3>Player pages</h3>
+            <p>Playtime, sessions, level history, knockouts and distance travelled for everyone who plays, with the Pals out with them right now and the trail of each session on the map.</p>
+          </div>
+          <div class="feature">
+            <h3>Sun dial</h3>
+            <p>The in-game day and hour on a capture-sphere dial, live from the server's own clock. It counts down to nightfall and dawn at the hours the game really uses, and runs at your server's day and night speeds.</p>
+          </div>
+          <div class="feature">
+            <h3>Nothing to install for players</h3>
+            <p>Everything comes from the server's own REST API, its world snapshot and its console. Friends open a link; the collector does the rest.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="also">
+        <h2 id="also">Also on the site</h2>
+        <ul class="plain">
+          <li>Who is online, with their level, health, guild and Pals, and everything that happened today</li>
+          <li>Guilds with their members and bases, chat, and a live activity feed</li>
+          <li>The world's settings, the server's history and this week's leaders</li>
+          <li>An admin area for the collector, server actions (announce, save, shut down with a countdown, kick, ban), backups and a history rebuild</li>
+          <li>Switches to hide positions, bases, Pals, chat or guild chat, and settings for how long raw data is kept</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="install">
+        <h2 id="install">Install</h2>
+        <ol class="steps">
+          <li>
+            <strong>Run the site.</strong>
+            <p>With Docker Compose, on a machine the collector can reach:</p>
+            <div class="code">
+              <pre id="site">git clone https://github.com/oddessentials/skylark.git &amp;&amp; cd skylark
+cp .env.example .env
+docker compose --profile site up -d --build</pre>
+              <button class="copy" type="button" data-copy="site">Copy</button>
+            </div>
+          </li>
+          <li>
+            <strong>Set the admin password.</strong>
+            <p>Open <code>/admin</code> on port 3000; the first visit sets it. Copy the collector secret from the Collector page.</p>
+          </li>
+          <li>
+            <strong>Run the collector beside the server.</strong>
+            <p>
+              Download it for Windows x64, Linux x64 or Linux arm64 from a <a href="https://github.com/oddessentials/skylark/releases">release</a>, or build it with Go 1.27. Give it the site's address and secret and the server's admin password. On Windows it can start the server itself; on Linux it follows the server's Docker container or console output.
+            </p>
+            <p>
+              The server needs its REST API on, the launch argument <code>-enable-gamedata-api</code> for positions, Pals and bases, and <code>LogFormatType=Json</code> for joins and chat as they happen. The <a href="https://github.com/oddessentials/skylark#collector-reference">collector reference</a> has every setting.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="two" aria-label="Privacy and licence">
+        <div>
+          <h2>What stays private</h2>
+          <p>
+            The collector sends only to your own site, signed with its secret. IP addresses stay on the server unless you ask for them, and platform ids go only to your site, which never shows them or IP addresses on a public page.
+          </p>
+        </div>
+        <div>
+          <h2>Free and open</h2>
+          <p>
+            MIT licensed. The <a href="https://github.com/oddessentials/skylark">source</a>, the API contract and the collector are all public. Game facts come from the free dedicated server's own files.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>Skylark &middot; MIT</span>
+        <span>An unofficial fan project, not affiliated with or endorsed by Pocketpair, Inc. Palworld is a trademark of Pocketpair, Inc.</span>
+      </div>
+    </footer>
+
+    <script>
+      for (const button of document.querySelectorAll('button.copy')) {
+        button.addEventListener('click', async () => {
+          const target = document.getElementById(button.dataset.copy);
+          try {
+            await navigator.clipboard.writeText(target.textContent);
+            button.textContent = 'Copied';
+          } catch {
+            const range = document.createRange();
+            range.selectNodeContents(target);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            button.textContent = 'Selected';
+          }
+          setTimeout(() => {
+            button.textContent = 'Copy';
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>
