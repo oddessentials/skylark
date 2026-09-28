@@ -10,7 +10,15 @@ export const TABLES = {
   raidBosses: '/Game/Pal/Blueprint/RaidBoss/DT_PalRaidBoss',
   technologies: '/Game/Pal/DataTable/Technology/DT_TechnologyRecipeUnlock',
   mapObjects: '/Game/Pal/DataTable/MapObject/DT_MapObjectMasterDataTable',
-  items: '/Game/Pal/DataTable/Item/DT_ItemDataTable'
+  items: '/Game/Pal/DataTable/Item/DT_ItemDataTable',
+  paldexDistribution: '/Game/Pal/DataTable/UI/DT_PaldexDistributionData',
+  wildSpawners: '/Game/Pal/DataTable/Spawner/DT_PalWildSpawner',
+  spawnerPlacements: '/Game/Pal/DataTable/Spawner/DT_PalSpawnerPlacement',
+  fishPonds: '/Game/Pal/DataTable/Fishing/DT_PalFishPondLotteryDataTable',
+  fishShadows: '/Game/Pal/DataTable/Fishing/DT_PalFishShadowDataTable',
+  fishingSpots: '/Game/Pal/DataTable/Fishing/DT_PalFishingSpotLotteryDataTable',
+  cagedPals: '/Game/Pal/DataTable/Character/DT_CapturedCagePal',
+  uniqueCombinations: '/Game/Pal/DataTable/Character/DT_PalCombiUnique'
 };
 
 export const TEXTS = {
