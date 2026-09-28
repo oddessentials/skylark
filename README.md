@@ -79,7 +79,9 @@ One page for the whole server's progress, from the world save: who has beaten wh
 
 ## Install
 
-1. Run the site with Docker Compose on a machine the collector can reach:
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/skylark)
+
+1. Run the site on Railway with the button above (it sets up the site, its database and a backup volume in your own Railway account), or with Docker Compose on a machine the collector can reach:
 
    ```sh
    git clone https://github.com/oddessentials/skylark.git && cd skylark
@@ -87,7 +89,7 @@ One page for the whole server's progress, from the world save: who has beaten wh
    docker compose --profile site up -d --build
    ```
 
-2. Open `/admin` on port 3000, set the password, and copy the collector secret from the Collector page.
+2. Open `/admin` on the site (port 3000 with Docker Compose), set the password, and copy the collector secret from the Collector page.
 3. Download the collector for your platform from a [release](https://github.com/oddessentials/skylark/releases) or pull `ghcr.io/oddessentials/skylark-collector`, or build it with `npm run collector:build` (Go 1.27). Run it beside the Palworld server with that secret and the server's admin password. On Windows it starts the server itself; on Linux it follows the server's Docker container or console output.
 
 The server needs its REST API on (`RESTAPIEnabled=True` and an `AdminPassword`), the launch argument `-enable-gamedata-api` for Pals, bases and knockouts, and `LogFormatType=Json` for joins and chat as they happen. The collector sends only to your site, and the site never shows IP addresses or platform ids publicly.

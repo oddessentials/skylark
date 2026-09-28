@@ -259,6 +259,12 @@
         margin: 0.35rem 0;
         color: var(--ink-muted);
       }
+      .railway {
+        display: inline-block;
+      }
+      .railway img {
+        width: 183px;
+      }
       .code {
         position: relative;
         margin: 0.75rem 0;
@@ -434,7 +440,13 @@
         <ol class="steps">
           <li>
             <strong>Run the site.</strong>
-            <p>With Docker Compose, on a machine the collector can reach:</p>
+            <p>On Railway, in one click. It sets up the site, its database and a backup volume in your own Railway account:</p>
+            <p>
+              <a class="railway" href="https://railway.com/deploy/skylark"
+                ><img src="https://railway.com/button.svg" alt="Deploy on Railway" width="183" height="40"
+              /></a>
+            </p>
+            <p>Or with Docker Compose, on a machine the collector can reach:</p>
             <div class="code">
               <pre id="site">git clone https://github.com/oddessentials/skylark.git &amp;&amp; cd skylark
 cp .env.example .env
