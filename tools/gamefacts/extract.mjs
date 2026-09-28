@@ -1,4 +1,5 @@
-import { resolve } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { buildBosses } from './lib/facts/bosses.mjs';
 import { buildElements } from './lib/facts/elements.mjs';
@@ -27,6 +28,16 @@ function usage(message) {
     'usage: node tools/gamefacts/extract.mjs --pak <Pal-WindowsServer.pak> --out <dir>'
   );
   process.exit(2);
+}
+
+const serverApp = 2394010;
+
+function steamBuild(pakPath) {
+  const root = resolve(dirname(pakPath), '..', '..', '..');
+  const manifest = join(root, 'steamapps', `appmanifest_${serverApp}.acf`);
+  if (!existsSync(manifest)) return null;
+  const match = /"buildid"s+"(d+)"/.exec(readFileSync(manifest, 'utf8'));
+  return match ? Number(match[1]) : null;
 }
 
 function partition(found) {
@@ -72,6 +83,15 @@ async function main() {
     for (const [name, data] of Object.entries(files)) {
       const size = await writeJson(out, name, data);
       console.log(`wrote ${name} (${size} bytes)`);
+    }
+    const build = steamBuild(resolve(values.pak));
+    if (build) {
+      await writeJson(out, 'build.json', { app: serverApp, build, version: gameVersion });
+      console.log(`wrote build.json (Steam build ${build})`);
+    } else {
+      console.log(
+        `no Steam app manifest beside the pak; set the build in ${join(out, 'build.json')} by hand`
+      );
     }
     const pals = files['pals.json'];
     console.log(

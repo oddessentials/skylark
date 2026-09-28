@@ -1,0 +1,82 @@
+{
+  "items": [
+    {
+      "id": 33,
+      "joined_at": "2026-09-27T18:10:44.000Z",
+      "left_at": "2026-09-27T19:17:15.000Z",
+      "duration_s": 3991,
+      "end_reason": "left",
+      "level_start": 30,
+      "level_end": 31,
+      "distance_m": 21503,
+      "deaths": 3
+    },
+    {
+      "id": 31,
+      "joined_at": "2026-09-26T17:24:20.000Z",
+      "left_at": "2026-09-26T19:23:08.000Z",
+      "duration_s": 7128,
+      "end_reason": "left",
+      "level_start": 28,
+      "level_end": 30,
+      "distance_m": 33164,
+      "deaths": 1
+    },
+    {
+      "id": 27,
+      "joined_at": "2026-09-25T19:44:27.000Z",
+      "left_at": "2026-09-25T21:55:24.000Z",
+      "duration_s": 7857,
+      "end_reason": "left",
+      "level_start": 27,
+      "level_end": 28,
+      "distance_m": 27292,
+      "deaths": 1
+    },
+    {
+      "id": 21,
+      "joined_at": "2026-09-24T17:10:36.000Z",
+      "left_at": "2026-09-24T19:47:38.000Z",
+      "duration_s": 9422,
+      "end_reason": "left",
+      "level_start": 23,
+      "level_end": 27,
+      "distance_m": 72801,
+      "deaths": 1
+    },
+    {
+      "id": 16,
+      "joined_at": "2026-09-23T18:41:03.000Z",
+      "left_at": "2026-09-23T21:10:40.000Z",
+      "duration_s": 8977,
+      "end_reason": "left",
+      "level_start": 20,
+      "level_end": 23,
+      "distance_m": 51225,
+      "deaths": 2
+    },
+    {
+      "id": 11,
+      "joined_at": "2026-09-22T17:14:47.000Z",
+      "left_at": "2026-09-22T19:13:46.000Z",
+      "duration_s": 7139,
+      "end_reason": "left",
+      "level_start": 16,
+      "level_end": 20,
+      "distance_m": 19986,
+      "deaths": 0
+    },
+    {
+      "id": 4,
+      "joined_at": "2026-09-21T18:25:26.000Z",
+      "left_at": "2026-09-21T20:30:30.000Z",
+      "duration_s": 7504,
+      "end_reason": "left",
+      "level_start": 4,
+      "level_end": 16,
+      "distance_m": 49105,
+      "deaths": 1
+    }
+  ],
+  "next_cursor": null
+}

@@ -68,6 +68,25 @@ for (const [path, item] of Object.entries(contract.paths)) {
 const files = listFixtures(fixturesDir).map((file) =>
   relative(fixturesDir, file).split('\\').join('/')
 );
+const templates = [...expected.keys()]
+  .filter((name) => name.includes('{'))
+  .map((name) => ({
+    name,
+    pattern: new RegExp(
+      `^${name.replace(/[.*+?^$()|[\]\\]/g, '\\$&').replace(/\\?\{\w+\\?\}/g, '([^/{}]+)')}$`
+    )
+  }));
+const concrete = new Map();
+for (const name of files) {
+  if (expected.has(name)) continue;
+  for (const template of templates) {
+    const match = template.pattern.exec(name);
+    if (match) {
+      concrete.set(name, { template: template.name, id: match[1] });
+      break;
+    }
+  }
+}
 const fileSet = new Set(files);
 for (const name of expected.keys()) {
   if (!fileSet.has(name)) fail(name, 'fixture missing for a documented GET endpoint');
@@ -90,7 +109,7 @@ function validate(name, schema, document) {
 const documents = new Map();
 for (const name of files) {
   if (name === 'stream.json') continue;
-  const operation = expected.get(name);
+  const operation = expected.get(name) ?? expected.get(concrete.get(name)?.template);
   if (!operation) {
     fail(name, 'no documented GET endpoint matches this fixture');
     continue;
@@ -163,11 +182,26 @@ if (players) {
   if (detail && !names.has(detail.id)) {
     fail('players/{id}.json', `player ${detail.id} is not in players.json`);
   }
+  for (const [name, { template, id }] of concrete) {
+    if (!template.startsWith('players/')) continue;
+    if (!names.has(Number(id))) fail(name, `player ${id} is not in players.json`);
+    const document = documents.get(name);
+    if (template === 'players/{id}.json' && document && String(document.id) !== id) {
+      fail(name, `holds player ${document.id}, not ${id}`);
+    }
+  }
 }
 const guilds = documents.get('guilds.json');
 const guild = documents.get('guilds/{id}.json');
 if (guilds && guild && !guilds.items.some((item) => item.id === guild.id)) {
   fail('guilds/{id}.json', `guild ${guild.id} is not in guilds.json`);
+}
+for (const [name, { template, id }] of concrete) {
+  if (template !== 'guilds/{id}.json') continue;
+  if (guilds && !guilds.items.some((item) => item.id === id)) {
+    fail(name, `guild ${id} is not in guilds.json`);
+  }
+  if (documents.get(name)?.id !== id) fail(name, `holds another guild than ${id}`);
 }
 
 const privatePatterns = [

@@ -760,6 +760,7 @@ export interface components {
     AdminSettings: {
       features: components['schemas']['SiteFeatures'];
       locked: 'site_name'[];
+      retention: components['schemas']['Retention'];
       site_name: string;
     };
     AdminSettingsUpdate: {
@@ -769,6 +770,12 @@ export interface components {
         guild_chat?: boolean;
         pals?: boolean;
         positions?: boolean;
+      };
+      retention?: {
+        metrics_days?: number;
+        positions_days?: number | null;
+        snapshots_hours?: number;
+        status_samples_days?: number;
       };
       site_name?: string;
     };
@@ -1264,6 +1271,12 @@ export interface components {
       x: number;
       y: number;
     };
+    Retention: {
+      metrics_days: number;
+      positions_days: number | null;
+      snapshots_hours: number;
+      status_samples_days: number;
+    };
     ServerInfo: {
       description?: string;
       name: string;
@@ -1706,6 +1719,7 @@ export type PlayerUid = components['schemas']['PlayerUid'];
 export type PlayerUnbannedData = components['schemas']['PlayerUnbannedData'];
 export type PlayerUnbannedEvent = components['schemas']['PlayerUnbannedEvent'];
 export type Point = components['schemas']['Point'];
+export type Retention = components['schemas']['Retention'];
 export type ServerInfo = components['schemas']['ServerInfo'];
 export type ServerMetricsData = components['schemas']['ServerMetricsData'];
 export type ServerMetricsEvent = components['schemas']['ServerMetricsEvent'];

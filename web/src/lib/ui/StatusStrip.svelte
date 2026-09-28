@@ -58,7 +58,7 @@
     class="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-x-5 gap-y-1 px-(--gutter) py-1.5"
   >
     {#if status}
-      <a href="/" class="flex items-center gap-2 text-ink hover:text-accent">
+      <a href="/" class="flex min-h-6 items-center gap-2 text-ink hover:text-accent">
         <span class="lamp {lampClass}" aria-hidden="true"></span>
         {stateLabel}
       </a>
@@ -66,7 +66,11 @@
         <span>{status.players.online} of {status.players.max ?? '?'} players</span>
       {/if}
       {#if reading}
-        <a href="/#clock" class="text-ink hover:text-accent" data-clock>{stripClock(reading)}</a>
+        <a
+          href="/#clock"
+          class="inline-flex min-h-6 items-center text-ink hover:text-accent"
+          data-clock>{stripClock(reading)}</a
+        >
       {/if}
       {#if collectorNote}
         <span class="text-warning">

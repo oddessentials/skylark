@@ -68,6 +68,7 @@ type Intervals struct {
 	Metrics      time.Duration `toml:"metrics"`
 	Heartbeat    time.Duration `toml:"heartbeat"`
 	Flush        time.Duration `toml:"flush"`
+	Actions      time.Duration `toml:"actions"`
 }
 
 type Config struct {
@@ -171,6 +172,7 @@ func applyDefaults(cfg *Config, options Options) {
 		{&cfg.Intervals.Metrics, 30 * time.Second},
 		{&cfg.Intervals.Heartbeat, 60 * time.Second},
 		{&cfg.Intervals.Flush, 2 * time.Second},
+		{&cfg.Intervals.Actions, 5 * time.Second},
 		{&cfg.Launch.ShutdownWait, 5 * time.Second},
 	}
 	for _, entry := range defaults {
@@ -302,6 +304,7 @@ func validate(cfg *Config, dryRun bool) error {
 		{"intervals.metrics", cfg.Intervals.Metrics},
 		{"intervals.heartbeat", cfg.Intervals.Heartbeat},
 		{"intervals.flush", cfg.Intervals.Flush},
+		{"intervals.actions", cfg.Intervals.Actions},
 		{"launch.shutdown_wait", cfg.Launch.ShutdownWait},
 	}
 	for _, interval := range intervals {
@@ -400,6 +403,7 @@ var envSetters = []envSetter{
 	durationSetter("SKYLARK_INTERVALS_METRICS", func(c *Config) *time.Duration { return &c.Intervals.Metrics }),
 	durationSetter("SKYLARK_INTERVALS_HEARTBEAT", func(c *Config) *time.Duration { return &c.Intervals.Heartbeat }),
 	durationSetter("SKYLARK_INTERVALS_FLUSH", func(c *Config) *time.Duration { return &c.Intervals.Flush }),
+	durationSetter("SKYLARK_INTERVALS_ACTIONS", func(c *Config) *time.Duration { return &c.Intervals.Actions }),
 	boolSetter("SKYLARK_SEND_IPS", func(c *Config) *bool { return &c.SendIPs }),
 	stringSetter("SKYLARK_JOURNAL_DIR", func(c *Config) *string { return &c.JournalDir }),
 }

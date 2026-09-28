@@ -65,7 +65,9 @@
             >
             <span class="chip text-ink-muted">{channelNames[line.channel]}</span>
             {#if line.player}<PlayerLink player={line.player} />{:else}<span>Someone</span>{/if}
-            <span class="note min-w-0 flex-1 text-[1.1rem] text-ink">{line.text}</span>
+            <span class="note min-w-[10rem] flex-1 text-[1.1rem] [overflow-wrap:anywhere] text-ink"
+              >{line.text}</span
+            >
           </li>
         {/each}
       </ul>
