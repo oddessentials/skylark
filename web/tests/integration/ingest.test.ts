@@ -11,6 +11,7 @@ import {
   collectorRuns,
   deaths,
   events,
+  feats,
   guilds,
   levelUps,
   pals,
@@ -126,7 +127,21 @@ describe('POST /api/ingest', () => {
     );
     expect(await count(players)).toBe(seen.size);
     expect(await count(levelUps)).toBe(typed('player.level_up').length);
-    expect(await count(deaths)).toBe(typed('player.died').length);
+    const knockouts = typed('player.died');
+    const fromSnapshots = knockouts.filter(
+      (event) => (event.data as { source: string }).source === 'snapshot'
+    );
+    expect(knockouts.length).toBeGreaterThan(fromSnapshots.length);
+    expect(await count(deaths)).toBe(fromSnapshots.length);
+    const featTypes = [
+      'pal.captured',
+      'pal.hatched',
+      'boss.defeated',
+      'technology.unlocked',
+      'structure.built'
+    ];
+    for (const type of featTypes) expect(typed(type).length).toBeGreaterThan(0);
+    expect(await count(feats)).toBe(featTypes.reduce((sum, type) => sum + typed(type).length, 0));
     expect(await count(chatMessages)).toBe(typed('chat.message').length);
     expect(await count(guilds)).toBe(history.guilds.length);
     expect(await count(positions)).toBeGreaterThan(100);

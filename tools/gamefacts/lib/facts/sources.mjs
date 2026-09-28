@@ -7,7 +7,10 @@ export const TABLES = {
   worldMapAreas: '/Game/Pal/DataTable/WorldMapAreaData/DT_WorldMapAreaData',
   bossMarkers: '/Game/Pal/DataTable/UI/DT_BossSpawnerLoactionData',
   dungeonSpawnAreas: '/Game/Pal/DataTable/Dungeon/DT_DungeonSpawnAreaDataTable',
-  raidBosses: '/Game/Pal/Blueprint/RaidBoss/DT_PalRaidBoss'
+  raidBosses: '/Game/Pal/Blueprint/RaidBoss/DT_PalRaidBoss',
+  technologies: '/Game/Pal/DataTable/Technology/DT_TechnologyRecipeUnlock',
+  mapObjects: '/Game/Pal/DataTable/MapObject/DT_MapObjectMasterDataTable',
+  items: '/Game/Pal/DataTable/Item/DT_ItemDataTable'
 };
 
 export const TEXTS = {
@@ -19,7 +22,9 @@ export const TEXTS = {
   worldMap: '/Game/Pal/DataTable/Text/DT_WorldMap_Common_Text_Common',
   respawnPoints: '/Game/Pal/DataTable/Text/DT_MapRespawnPointInfoText',
   dungeonNames: '/Game/Pal/DataTable/Text/DT_DungeonNameText',
-  mapObjectNames: '/Game/Pal/DataTable/Text/DT_MapObjectNameText_Common'
+  mapObjectNames: '/Game/Pal/DataTable/Text/DT_MapObjectNameText_Common',
+  technologyNames: '/Game/Pal/DataTable/Text/DT_TechnologyNameText_Common',
+  itemNames: '/Game/Pal/DataTable/Text/DT_ItemNameText_Common'
 };
 
 export const BLUEPRINTS = {

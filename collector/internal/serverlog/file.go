@@ -71,6 +71,7 @@ func (s *FileSource) Run(ctx context.Context, sink Sink) error {
 	}
 	sink.State(StateConnecting, nil)
 	offset, resumed := s.loadCursor()
+	created := false
 	var file *os.File
 	var info os.FileInfo
 	var pending []byte
@@ -91,6 +92,9 @@ func (s *FileSource) Run(ctx context.Context, sink Sink) error {
 		if file == nil {
 			opened, err := os.Open(s.Path)
 			if err != nil {
+				if !resumed && errors.Is(err, os.ErrNotExist) {
+					created = true
+				}
 				if connected || !errors.Is(err, os.ErrNotExist) {
 					sink.State(StateDown, err)
 				} else {
@@ -112,7 +116,7 @@ func (s *FileSource) Run(ctx context.Context, sink Sink) error {
 				continue
 			}
 			if !resumed || offset > stat.Size() {
-				if resumed {
+				if resumed || created {
 					offset = 0
 				} else {
 					offset = stat.Size()

@@ -8,6 +8,25 @@
       "details": { "from": 29, "to": 30 }
     },
     {
+      "id": "412f2d4f-f6c9-4023-b7ee-93b281984bb7",
+      "type": "boss.defeated",
+      "ts": "2026-09-27T20:25:50.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": {
+        "boss": "ElectricBoss",
+        "boss_kind": "tower",
+        "boss_name": "Axel & Orserk",
+        "difficulty": "normal"
+      }
+    },
+    {
+      "id": "3340fb12-dab5-4a03-944e-db8c63dc5a4e",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T20:25:50.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "technology": "Special_PalRankUp", "technology_name": "Pal Essence Condenser" }
+    },
+    {
       "id": "be6512b7-74ea-454c-93ff-17b21f9c0312",
       "type": "player.level_up",
       "ts": "2026-09-27T20:06:00.999Z",
@@ -22,6 +41,27 @@
       "details": { "from": 23, "to": 24 }
     },
     {
+      "id": "534ff4bf-323b-4542-b864-dd711617e070",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "technology": "MedicalPalBed_04", "technology_name": "Large Pal Bed" }
+    },
+    {
+      "id": "448e381a-fe04-4014-90a5-d687e16991e4",
+      "type": "pal.captured",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "species": "JellyfishGhost", "species_name": "Jellroy", "level": 21 }
+    },
+    {
+      "id": "1888c837-8d02-48c9-8635-6b8af8ae19a2",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "technology": "Lantern", "technology_name": "Hip Lantern" }
+    },
+    {
       "id": "0d493e5f-9832-4a59-98aa-9856de330edf",
       "type": "chat.message",
       "ts": "2026-09-27T20:06:00.999Z",
@@ -29,11 +69,32 @@
       "details": { "channel": "global", "text": "night is falling, stay close" }
     },
     {
+      "id": "8b75bf21-12da-4dc8-af45-39d06ee32dd6",
+      "type": "pal.hatched",
+      "ts": "2026-09-27T20:04:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "species": "VolcanoDragon", "species_name": "Moldron", "level": 1 }
+    },
+    {
       "id": "6a122efb-b8c8-48cc-9c54-34363fabf827",
       "type": "player.level_up",
       "ts": "2026-09-27T20:04:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
       "details": { "from": 26, "to": 27 }
+    },
+    {
+      "id": "3253f6b8-a5ac-41b4-8c1d-639305975970",
+      "type": "pal.captured",
+      "ts": "2026-09-27T20:04:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "species": "SoldierBee", "species_name": "Beegarde", "level": 24 }
+    },
+    {
+      "id": "2e2971d7-0405-4db7-9f8c-5f51a47a0b42",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T20:04:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "technology": "FurnitureSet_9", "technology_name": "Houseplant Set" }
     },
     {
       "id": "d96ae4d3-16a2-4388-ae6d-b88a9ba0de44",
@@ -48,8 +109,10 @@
       "ts": "2026-09-27T19:50:00.999Z",
       "player": { "id": 7, "name": "Orrin" },
       "details": {
-        "cause": null,
-        "killer": null,
+        "cause": "attack",
+        "killer": "Rayhound",
+        "killer_kind": "pal",
+        "killer_level": 25,
         "x": -562545.0543181442,
         "y": 121391.15593724685,
         "region": "Frostbitten Isle"
@@ -77,6 +140,16 @@
       "details": { "from": 25, "to": 26 }
     },
     {
+      "id": "194576f7-02ab-4eaf-af8d-92dd66300d95",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T19:20:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": {
+        "technology": "Infra_ElectricGenerator_Grade_01",
+        "technology_name": "Power Generator"
+      }
+    },
+    {
       "id": "30c157c7-21cd-444a-bae5-7a4ca1c2d580",
       "type": "player.left",
       "ts": "2026-09-27T19:17:15.000Z",
@@ -96,8 +169,10 @@
       "ts": "2026-09-27T19:12:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": {
-        "cause": null,
+        "cause": "drown",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -316727.90378875245,
         "y": 222222.97536642052,
         "region": "Windswept Island"
@@ -109,8 +184,10 @@
       "ts": "2026-09-27T19:10:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
       "details": {
-        "cause": null,
+        "cause": "falling",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -28774.98780931857,
         "y": 146935.85787619717,
         "region": "Foot of the Astral Mountains"
@@ -122,8 +199,10 @@
       "ts": "2026-09-27T19:08:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": {
-        "cause": null,
+        "cause": "drown",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -379316.49519706797,
         "y": 181908.98856584157,
         "region": "Windswept Island"
@@ -135,6 +214,20 @@
       "ts": "2026-09-27T19:06:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": { "from": 30, "to": 31 }
+    },
+    {
+      "id": "dd05043a-dd8f-472a-ada3-bb720daae809",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T19:06:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "technology": "FragGrenade_Fire", "technology_name": "Incendiary Grenade" }
+    },
+    {
+      "id": "80da0e4f-80b8-465a-b341-1c070c7d23aa",
+      "type": "pal.captured",
+      "ts": "2026-09-27T19:06:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "species": "LazyCatfish", "species_name": "Dumud", "level": 28 }
     },
     {
       "id": "488f606d-6262-4a1f-af5d-b005eeeff678",
@@ -170,8 +263,10 @@
       "ts": "2026-09-27T18:26:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": {
-        "cause": null,
+        "cause": "burn",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -236286.6,
         "y": -99689.9,
         "region": "Ruined Fortress City"
@@ -199,6 +294,37 @@
       "details": { "from": 18, "to": 19 }
     },
     {
+      "id": "50ad2270-53b3-4ed5-b9ad-34b19abd8d5c",
+      "type": "pal.captured",
+      "ts": "2026-09-27T15:35:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "species": "ClownRabbit", "species_name": "Dupin", "level": 16 }
+    },
+    {
+      "id": "1fc12e78-bdc0-4512-999d-18aaec63c965",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T15:35:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "technology": "SphereModule_Sniper2", "technology_name": "Sniper Module II" }
+    },
+    {
+      "id": "f345f837-fd8a-4cd3-9d8a-39671c207322",
+      "type": "pal.hatched",
+      "ts": "2026-09-27T15:13:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "species": "BrownRabbit", "species_name": "Lapiron", "level": 1 }
+    },
+    {
+      "id": "e6c03d0a-bd39-4dc1-abd4-ea86b62012f6",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T15:13:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": {
+        "technology": "SkillUnlock_GrassGolem_Dark",
+        "technology_name": "Dualith Noct Saddle"
+      }
+    },
+    {
       "id": "357e95af-693a-4302-bd16-f0e95c2ae51b",
       "type": "player.level_up",
       "ts": "2026-09-27T15:13:00.999Z",
@@ -213,6 +339,27 @@
       "details": { "from": 16, "to": 17 }
     },
     {
+      "id": "53b73b19-50b3-4477-92a9-300878facec9",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T14:53:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "technology": "Product_Axe_Grade_03", "technology_name": "Refined Metal Axe" }
+    },
+    {
+      "id": "cd71a8b7-bc47-418d-845d-94e05f191e50",
+      "type": "pal.hatched",
+      "ts": "2026-09-27T14:35:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "species": "GoldenHorse", "species_name": "Gildane", "level": 1 }
+    },
+    {
+      "id": "c5f8fe11-84bd-4247-aeb3-69e5a11ea3b2",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T14:35:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "technology": "Thermal_Core", "technology_name": "Thermal Core" }
+    },
+    {
       "id": "c39af110-4fc5-4f20-85c0-601b778d6360",
       "type": "player.level_up",
       "ts": "2026-09-27T14:35:00.999Z",
@@ -225,6 +372,16 @@
       "ts": "2026-09-27T14:15:00.999Z",
       "player": { "id": 6, "name": "Bramble" },
       "details": { "channel": "global", "text": "got a new saddle finally" }
+    },
+    {
+      "id": "9e086084-c85e-417c-ae85-9af0d6d7a492",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T14:15:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": {
+        "technology": "Product_Ingot_Grade_02_Iron",
+        "technology_name": "Improved Furnace"
+      }
     },
     {
       "id": "311c134e-91be-46f3-870b-94e729f2356d",
@@ -246,15 +403,17 @@
       "ts": "2026-09-27T14:09:00.999Z",
       "player": { "id": 6, "name": "Bramble" },
       "details": {
-        "cause": null,
+        "cause": "drown",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -815943.6365383795,
         "y": -403438.80221904325,
         "region": "Frozen Coral Hill"
       }
     },
     {
-      "id": "aae85553-3aec-5da8-9825-3cec7bd931e6",
+      "id": "abaffdf7-02a9-5191-b925-0fd527f62c63",
       "type": "player.guild_joined",
       "ts": "2026-09-27T13:55:01.000Z",
       "player": { "id": 6, "name": "Bramble" },
@@ -299,6 +458,18 @@
       "details": { "channel": "global", "text": "anyone up for the tower tonight?" }
     },
     {
+      "id": "c52b3e15-2acd-4067-a9f1-2c22e8424e01",
+      "type": "boss.defeated",
+      "ts": "2026-09-26T18:53:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {
+        "boss": "ElectricBoss",
+        "boss_kind": "tower",
+        "boss_name": "Axel & Orserk",
+        "difficulty": "normal"
+      }
+    },
+    {
       "id": "c1ed3074-14b0-4162-9092-d9047d547aa3",
       "type": "player.level_up",
       "ts": "2026-09-26T18:53:00.999Z",
@@ -306,11 +477,32 @@
       "details": { "from": 29, "to": 30 }
     },
     {
+      "id": "61885f86-e202-44cf-a146-9e0031cafb6c",
+      "type": "pal.captured",
+      "ts": "2026-09-26T18:53:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "species": "SnowTigerBeastman", "species_name": "Bastigor", "level": 27 }
+    },
+    {
+      "id": "513206c3-aabb-48f9-b16e-f1d19e6fb787",
+      "type": "technology.unlocked",
+      "ts": "2026-09-26T18:53:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "technology": "SFArmor", "technology_name": "Hexolite Armor" }
+    },
+    {
       "id": "e27f3010-6239-4b6c-b1bf-a35d748fa789",
       "type": "chat.message",
       "ts": "2026-09-26T18:51:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": { "channel": "say", "text": "got a new saddle finally" }
+    },
+    {
+      "id": "e9f04c25-93f7-4f26-914c-23462a71989a",
+      "type": "technology.unlocked",
+      "ts": "2026-09-26T17:51:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "technology": "FurnitureSet_27", "technology_name": "Street Lamp Set" }
     },
     {
       "id": "024c9faf-5c88-4075-ac51-14dc86e38488",
@@ -325,15 +517,17 @@
       "ts": "2026-09-26T17:39:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": {
-        "cause": null,
-        "killer": null,
+        "cause": "attack",
+        "killer": "Loupmoon",
+        "killer_kind": "pal",
+        "killer_level": 26,
         "x": -158490.81595252588,
         "y": -33398.17911123649,
         "region": "Isle of Silence"
       }
     },
     {
-      "id": "379007ca-6a7a-5049-bd1f-af28ebb8fdb8",
+      "id": "20f978c5-37bb-523c-830f-0598e813670e",
       "type": "base.removed",
       "ts": "2026-09-26T17:35:01.000Z",
       "player": null,
@@ -375,11 +569,39 @@
       "details": { "from": 25, "to": 26 }
     },
     {
+      "id": "3e598ef1-adc0-4e7a-b399-f07dd2b7dcbe",
+      "type": "pal.hatched",
+      "ts": "2026-09-26T15:39:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "species": "MopKing", "species_name": "Sweepa", "level": 1 }
+    },
+    {
+      "id": "2302c483-6b45-4680-97e5-8ea9620791aa",
+      "type": "technology.unlocked",
+      "ts": "2026-09-26T15:39:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "technology": "Refrigerator", "technology_name": "Refrigerator" }
+    },
+    {
+      "id": "d4b11d5b-7273-425b-a998-6406c80ae113",
+      "type": "technology.unlocked",
+      "ts": "2026-09-26T15:25:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "technology": "Corrosive_Solvent", "technology_name": "Corrosive Solvent" }
+    },
+    {
       "id": "8e1299ab-eff2-4ba3-a9e2-adfb3fc051bc",
       "type": "player.level_up",
       "ts": "2026-09-26T15:25:00.999Z",
       "player": { "id": 2, "name": "Wren" },
       "details": { "from": 28, "to": 29 }
+    },
+    {
+      "id": "76d3b647-a148-4f8a-8349-7788f6f8a529",
+      "type": "pal.captured",
+      "ts": "2026-09-26T15:25:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "species": "MoonChild", "species_name": "Wistella", "level": 26 }
     },
     {
       "id": "61bd1a0c-96e3-4439-8b0a-234affa01a9f",
@@ -394,8 +616,10 @@
       "ts": "2026-09-26T14:25:00.999Z",
       "player": { "id": 2, "name": "Wren" },
       "details": {
-        "cause": null,
-        "killer": null,
+        "cause": "attack",
+        "killer": "Pengullet",
+        "killer_kind": "pal",
+        "killer_level": 30,
         "x": -293687.095221578,
         "y": 314448.37820014096,
         "region": "Marsh Island"
@@ -407,6 +631,23 @@
       "ts": "2026-09-26T14:23:00.999Z",
       "player": { "id": 2, "name": "Wren" },
       "details": { "from": 27, "to": 28 }
+    },
+    {
+      "id": "c189fb5b-d90d-43c4-95bb-3c0fb1448fe9",
+      "type": "technology.unlocked",
+      "ts": "2026-09-26T14:23:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": {
+        "technology": "SkillUnlock_WhiteAlienDragon",
+        "technology_name": "Xenogard Saddle"
+      }
+    },
+    {
+      "id": "6c4c0cb2-34ce-44c9-b146-e0e1819d1b24",
+      "type": "pal.captured",
+      "ts": "2026-09-26T14:23:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "species": "MoonChild", "species_name": "Wistella", "level": 25 }
     },
     {
       "id": "40c2c1b3-484f-4b20-81eb-0638f124e078",
@@ -430,6 +671,13 @@
       "details": { "session_s": 5111 }
     },
     {
+      "id": "9717a5d2-d349-434d-a581-64c4b90edf44",
+      "type": "pal.captured",
+      "ts": "2026-09-26T13:11:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": { "species": "GhostAnglerfish", "species_name": "Ghangler", "level": 13 }
+    },
+    {
       "id": "30d3c5e7-00c9-49fd-ab65-0872e965c73f",
       "type": "player.level_up",
       "ts": "2026-09-26T13:11:00.999Z",
@@ -437,16 +685,35 @@
       "details": { "from": 15, "to": 16 }
     },
     {
+      "id": "171f64d4-9e92-4002-acf4-a0af05623a9c",
+      "type": "technology.unlocked",
+      "ts": "2026-09-26T13:11:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": { "technology": "Trap_LegHold_Big", "technology_name": "Bear Trap (Large)" }
+    },
+    {
       "id": "12b6cbae-4341-4be3-8f9e-8c339b8d0d10",
       "type": "player.died",
       "ts": "2026-09-26T12:45:00.999Z",
       "player": { "id": 5, "name": "Mossbrook" },
       "details": {
-        "cause": null,
+        "cause": "drown",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -509806.4831120554,
         "y": -333590.92039320467,
         "region": null
+      }
+    },
+    {
+      "id": "f5e6e939-c73d-406c-a231-e6df2aa78e53",
+      "type": "technology.unlocked",
+      "ts": "2026-09-26T12:37:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": {
+        "technology": "FurnitureTree_Yellow",
+        "technology_name": "Faux Golden Foliage Set"
       }
     },
     {
@@ -457,11 +724,32 @@
       "details": { "from": 14, "to": 15 }
     },
     {
+      "id": "87761c2b-dd9f-42ca-8f6a-da3b9ccf8078",
+      "type": "pal.captured",
+      "ts": "2026-09-26T12:37:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": { "species": "LotusDragon", "species_name": "Ophydia", "level": 12 }
+    },
+    {
       "id": "cfcd75e2-f692-4566-9333-d0fa76a8447b",
       "type": "player.level_up",
       "ts": "2026-09-26T12:21:00.999Z",
       "player": { "id": 5, "name": "Mossbrook" },
       "details": { "from": 13, "to": 14 }
+    },
+    {
+      "id": "59c75313-d7ab-48bf-bd43-d79c0d0c451c",
+      "type": "technology.unlocked",
+      "ts": "2026-09-26T12:21:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": { "technology": "Product_StationDeforest", "technology_name": "Logging Site" }
+    },
+    {
+      "id": "c8394a3c-47cc-4c43-b02b-2bef40618482",
+      "type": "technology.unlocked",
+      "ts": "2026-09-26T12:09:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": { "technology": "Refrigerator", "technology_name": "Refrigerator" }
     },
     {
       "id": "0267e3c4-0cf0-4a6a-8244-971cad25c9b7",
@@ -485,6 +773,20 @@
       "details": { "session_s": 7857 }
     },
     {
+      "id": "dd8f8f2f-b804-4fec-91dd-95bf37b4c7f0",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T21:03:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "technology": "FurnitureSet_5", "technology_name": "Metal Barrel Set" }
+    },
+    {
+      "id": "bf20dfee-df43-4426-95ed-67c88e9296d6",
+      "type": "pal.captured",
+      "ts": "2026-09-25T21:03:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "species": "KingWhale", "species_name": "Panthalus", "level": 25 }
+    },
+    {
       "id": "0a3cc2a7-a626-49cd-a3df-1b475ba226ce",
       "type": "player.level_up",
       "ts": "2026-09-25T21:03:00.999Z",
@@ -504,8 +806,10 @@
       "ts": "2026-09-25T20:31:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": {
-        "cause": null,
+        "cause": "drown",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -196434.95157660227,
         "y": -63723.84992059379,
         "region": "Sealed Realm of the Frost Flower"
@@ -540,6 +844,20 @@
       "details": { "session_s": 6780 }
     },
     {
+      "id": "fba8e4ed-ef5d-4d67-8925-b4b339662ca0",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T18:41:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "technology": "Metal_houseset", "technology_name": "Metal Structure Set" }
+    },
+    {
+      "id": "888c5921-836a-4c54-ab3b-3df2db4df4f4",
+      "type": "pal.hatched",
+      "ts": "2026-09-25T18:41:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "species": "Kelpie", "species_name": "Kelpsea", "level": 1 }
+    },
+    {
       "id": "6b314b97-5ded-4741-8cdf-3c9a75fb317f",
       "type": "player.level_up",
       "ts": "2026-09-25T18:41:00.999Z",
@@ -561,6 +879,37 @@
       "details": { "from": 17, "to": 18 }
     },
     {
+      "id": "7e2e28f8-3dc8-4b4b-9f47-ebf6fae25623",
+      "type": "pal.captured",
+      "ts": "2026-09-25T18:15:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "species": "FlowerPrince", "species_name": "Dandilord", "level": 15 }
+    },
+    {
+      "id": "54295361-5d09-49e1-8bc3-cc7fd50c0b36",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T18:15:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "technology": "Product_Farm_Berries", "technology_name": "Berry Plantation" }
+    },
+    {
+      "id": "248743c0-8820-4334-a56a-0a7450f7f8d1",
+      "type": "pal.hatched",
+      "ts": "2026-09-25T18:15:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "species": "BrownRabbit", "species_name": "Lapiron", "level": 1 }
+    },
+    {
+      "id": "ee71d2b5-6bf7-47b7-bae4-e22e9c1917a0",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T18:05:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": {
+        "technology": "ManualElectricGenerator",
+        "technology_name": "Human-Powered Generator"
+      }
+    },
+    {
       "id": "5b428083-c893-4929-8694-6b2c240c56d1",
       "type": "player.level_up",
       "ts": "2026-09-25T18:05:00.999Z",
@@ -575,11 +924,28 @@
       "details": { "from": 16, "to": 17 }
     },
     {
+      "id": "23c208e3-ab08-4f3c-b031-db814ed6ce18",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T17:51:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": {
+        "technology": "Battle_RangeWeapon_Rifle",
+        "technology_name": "Single-Shot Rifle"
+      }
+    },
+    {
       "id": "5980a344-2dcc-4e06-87c1-634f790f3a4f",
       "type": "chat.message",
       "ts": "2026-09-25T17:41:00.999Z",
       "player": { "id": 7, "name": "Orrin" },
       "details": { "channel": "global", "text": "lol" }
+    },
+    {
+      "id": "9600c767-424a-4f2f-82c5-26969f6a8cb7",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T17:35:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "technology": "FurnitureSet_16", "technology_name": "Antique Mirror Set" }
     },
     {
       "id": "762c5c43-6458-433e-9d11-f2c20b42d310",
@@ -601,6 +967,13 @@
       "ts": "2026-09-25T17:19:00.999Z",
       "player": { "id": 8, "name": "Kestrel" },
       "details": { "from": 15, "to": 16 }
+    },
+    {
+      "id": "4da8be6f-fbbb-45f1-8f37-9a6f23ec1990",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T17:19:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "technology": "SFArmor", "technology_name": "Hexolite Armor" }
     },
     {
       "id": "e8603e04-c828-4990-876c-24cf960ca5a1",
@@ -631,6 +1004,13 @@
       "details": { "from": 24, "to": 25 }
     },
     {
+      "id": "75bba799-62e2-425f-a778-41800b8b227d",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T17:07:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "technology": "Spear_ForestBoss2", "technology_name": "Enhanced Lily's Spear" }
+    },
+    {
       "id": "d679f96b-6713-47a7-ad16-9feca4046bcd",
       "type": "chat.message",
       "ts": "2026-09-25T17:01:00.999Z",
@@ -659,6 +1039,16 @@
       "details": { "channel": "global", "text": "gg" }
     },
     {
+      "id": "a0dfd293-4d5e-422f-9eb5-938e82f3ffd1",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T16:31:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": {
+        "technology": "SkyAssaultRifleBullet",
+        "technology_name": "Heavy Assault Rifle Ammo"
+      }
+    },
+    {
       "id": "841832b5-ce5a-4295-a1b4-ad1294b6440f",
       "type": "player.level_up",
       "ts": "2026-09-25T16:31:00.999Z",
@@ -671,6 +1061,20 @@
       "ts": "2026-09-25T16:31:00.999Z",
       "player": { "id": 3, "name": "Tamsin" },
       "details": { "from": 23, "to": 24 }
+    },
+    {
+      "id": "71a73163-92e0-4873-b14f-7cbfa9410c17",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T16:31:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "technology": "Battle_Helm_Grade_03_Copper", "technology_name": "Metal Helm" }
+    },
+    {
+      "id": "438c89e4-9bf8-43a4-98a6-325969a3047f",
+      "type": "pal.captured",
+      "ts": "2026-09-25T16:31:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "species": "PurpleSpider", "species_name": "Tarantriss", "level": 24 }
     },
     {
       "id": "1801d0c2-a8dc-4ceb-9b4c-fe3552b48ffd",
@@ -687,7 +1091,7 @@
       "details": { "channel": "global", "text": "anyone up for the tower tonight?" }
     },
     {
-      "id": "99ffb8fa-c7a9-553d-a39f-8cce3205353a",
+      "id": "d04b0fb1-110c-57c3-842c-97e5cea8a9a0",
       "type": "base.established",
       "ts": "2026-09-25T15:33:01.000Z",
       "player": null,
@@ -715,6 +1119,16 @@
       "details": { "session_s": 6328 }
     },
     {
+      "id": "62e0491e-68eb-4f2a-a116-729614e58b1c",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T14:44:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": {
+        "technology": "AncientRelicRecycler",
+        "technology_name": "Ancient Relic Recycler"
+      }
+    },
+    {
       "id": "25d11ff5-30db-472e-9e5b-09d3d9c38fef",
       "type": "player.level_up",
       "ts": "2026-09-25T14:44:00.999Z",
@@ -736,11 +1150,25 @@
       "details": { "channel": "global", "text": "got a new saddle finally" }
     },
     {
+      "id": "754aaadc-5358-49f3-93c1-b9a986703f84",
+      "type": "pal.captured",
+      "ts": "2026-09-25T14:02:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "species": "GhostAnglerfish", "species_name": "Ghangler", "level": 21 }
+    },
+    {
       "id": "571c6841-8217-408c-b5e4-77063df72aff",
       "type": "player.level_up",
       "ts": "2026-09-25T14:02:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
       "details": { "from": 23, "to": 24 }
+    },
+    {
+      "id": "04345dfe-63a2-4391-b76e-035cebf8b228",
+      "type": "technology.unlocked",
+      "ts": "2026-09-25T14:02:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "technology": "Shield_01", "technology_name": "Common Shield" }
     },
     {
       "id": "34f1f212-7f86-4390-9862-972a98bdea2b",
@@ -771,11 +1199,25 @@
       "details": { "session_s": 9422 }
     },
     {
+      "id": "e5379e2b-0bd2-4442-9c7a-c15ad35e8263",
+      "type": "pal.captured",
+      "ts": "2026-09-24T19:47:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "species": "SoldierBee", "species_name": "Beegarde", "level": 24 }
+    },
+    {
       "id": "e124a9e7-6c6c-4b6c-8de6-63a3485a9831",
       "type": "player.level_up",
       "ts": "2026-09-24T19:47:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": { "from": 26, "to": 27 }
+    },
+    {
+      "id": "c65d2ee2-fd28-453c-9268-181b5ea82ad4",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T19:47:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "technology": "AncientWorkBench", "technology_name": "Ancient Workbench" }
     },
     {
       "id": "bf674604-9b62-4024-8971-0f9a01ecb63b",
@@ -785,13 +1227,29 @@
       "details": { "from": 25, "to": 26 }
     },
     {
+      "id": "86b1e481-d3f5-4c09-bdf6-4b6532745641",
+      "type": "pal.hatched",
+      "ts": "2026-09-24T18:51:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "species": "ElecLizard", "species_name": "Slowatt", "level": 1 }
+    },
+    {
+      "id": "70af8220-fd72-42bc-adef-f51c23bba1fe",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T18:51:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "technology": "OperatingTable", "technology_name": "Pal Surgery Table" }
+    },
+    {
       "id": "2457d4e9-0ea5-4a9c-9cf5-04697f5d6523",
       "type": "player.died",
       "ts": "2026-09-24T18:45:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": {
-        "cause": null,
-        "killer": null,
+        "cause": "attack",
+        "killer": "Moldron",
+        "killer_kind": "pal",
+        "killer_level": 25,
         "x": -691653.9658831968,
         "y": -316238.5209778878,
         "region": "Scorched Hill"
@@ -803,6 +1261,32 @@
       "ts": "2026-09-24T18:36:43.000Z",
       "player": { "id": 7, "name": "Orrin" },
       "details": { "session_s": 6259 }
+    },
+    {
+      "id": "8f9205f3-40c9-4bee-bc76-d7280d1adfd1",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T18:25:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "technology": "SF_houseset", "technology_name": "Futuristic Structure Set" }
+    },
+    {
+      "id": "50500709-f36a-4b0e-a3a9-23d59904aa70",
+      "type": "pal.captured",
+      "ts": "2026-09-24T18:25:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "species": "WingGolem", "species_name": "Knocklem", "level": 17 }
+    },
+    {
+      "id": "22274fa3-77de-4911-aff2-6ada3a7cdb76",
+      "type": "boss.defeated",
+      "ts": "2026-09-24T18:25:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": {
+        "boss": "ForestBoss",
+        "boss_kind": "tower",
+        "boss_name": "Lily & Lyleen",
+        "difficulty": "normal"
+      }
     },
     {
       "id": "1cd23203-f561-4877-ad88-9a126166dd09",
@@ -826,11 +1310,49 @@
       "details": { "from": 24, "to": 25 }
     },
     {
+      "id": "7bd68091-f4b3-4211-a797-4e2f908520ff",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T18:05:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "technology": "FragGrenade_Dragon", "technology_name": "Dragon Grenade" }
+    },
+    {
+      "id": "7979b6d3-c4f1-43de-bab1-a84673b0cb8f",
+      "type": "pal.captured",
+      "ts": "2026-09-24T18:05:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "species": "DreamDemon", "species_name": "Daedream", "level": 22 }
+    },
+    {
+      "id": "bdee9c8b-1ba5-4cc4-a631-7504ae395f7a",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T18:01:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": {
+        "technology": "SkillUnlock_NightBlueHorse_Neutral",
+        "technology_name": "Starryon Primo Saddle"
+      }
+    },
+    {
+      "id": "1e2585b8-a069-44ad-8035-a43e09b5c789",
+      "type": "pal.hatched",
+      "ts": "2026-09-24T18:01:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "species": "KendoFrog", "species_name": "Croajiro", "level": 1 }
+    },
+    {
       "id": "1a49dad9-b928-4b92-a6b5-f8f41a61cec1",
       "type": "player.level_up",
       "ts": "2026-09-24T18:01:00.999Z",
       "player": { "id": 7, "name": "Orrin" },
       "details": { "from": 18, "to": 19 }
+    },
+    {
+      "id": "0e4c143e-d602-4d2e-b1e5-e7071aa9c448",
+      "type": "pal.captured",
+      "ts": "2026-09-24T18:01:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "species": "WhiteMoth", "species_name": "Sibelyx", "level": 16 }
     },
     {
       "id": "56456ecc-4f7b-409a-8bdd-699d346fb9e3",
@@ -840,11 +1362,25 @@
       "details": { "session_s": 5920 }
     },
     {
+      "id": "dff9cbfd-9104-476a-a0cc-8b2e07622180",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T17:41:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "technology": "Product_CopperPit_2", "technology_name": "Ore Mining Site II" }
+    },
+    {
       "id": "0717aeb7-a3e1-4b0e-bc72-6b07945c4777",
       "type": "player.level_up",
       "ts": "2026-09-24T17:41:00.999Z",
       "player": { "id": 7, "name": "Orrin" },
       "details": { "from": 17, "to": 18 }
+    },
+    {
+      "id": "e59b0b5d-2e0d-4710-b947-f1a86f88dc86",
+      "type": "pal.captured",
+      "ts": "2026-09-24T17:29:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "species": "TropicalOstrich", "species_name": "Palumba", "level": 20 }
     },
     {
       "id": "631a9875-f445-40a5-8c34-d15ce83ac982",
@@ -854,11 +1390,45 @@
       "details": { "from": 22, "to": 23 }
     },
     {
+      "id": "028120d3-2143-460d-b35d-87d4e2f4fd2a",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T17:29:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": {
+        "technology": "Special_SphereFactory_Black_Grade_01",
+        "technology_name": "Sphere Workbench"
+      }
+    },
+    {
+      "id": "a7c5762d-b0ed-4177-b9b7-2560729a945e",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T17:21:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": {
+        "technology": "SkillUnlock_FlowerDinosaur_Electric",
+        "technology_name": "Dinossom Lux Saddle"
+      }
+    },
+    {
       "id": "7cbfac6c-7fc2-41f4-b348-6617b52d0ce5",
       "type": "player.level_up",
       "ts": "2026-09-24T17:21:00.999Z",
       "player": { "id": 7, "name": "Orrin" },
       "details": { "from": 16, "to": 17 }
+    },
+    {
+      "id": "b62cfa7c-1c6c-4ade-9e9e-baf7d3a083d4",
+      "type": "pal.hatched",
+      "ts": "2026-09-24T17:17:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "species": "WhiteAlienDragon", "species_name": "Xenogard", "level": 1 }
+    },
+    {
+      "id": "53bc0715-e311-43e5-97e3-097e9e1d4c9f",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T17:17:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "technology": "Bio_Battery", "technology_name": "Bio Battery" }
     },
     {
       "id": "46639141-922b-4eac-a2b9-1d0e0b6eac8f",
@@ -882,6 +1452,13 @@
       "details": { "from": 15, "to": 16 }
     },
     {
+      "id": "5fd504ee-5442-4c00-97ae-5641d9915536",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T17:01:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "technology": "Spear_3", "technology_name": "Refined Metal Spear" }
+    },
+    {
       "id": "5fc4b29d-fc99-4932-9e5d-27ae47be6005",
       "type": "player.joined",
       "ts": "2026-09-24T16:52:24.000Z",
@@ -894,6 +1471,13 @@
       "ts": "2026-09-24T16:47:00.999Z",
       "player": { "id": 3, "name": "Tamsin" },
       "details": { "from": 21, "to": 22 }
+    },
+    {
+      "id": "1e6be148-205b-4e84-854b-db1c606e86ed",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T16:47:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "technology": "Factory_Hard_04", "technology_name": "Advanced Workshop" }
     },
     {
       "id": "7fadf948-7e44-4a38-896e-e5fc2ed3e5eb",
@@ -924,6 +1508,23 @@
       "details": { "from": 25, "to": 26 }
     },
     {
+      "id": "b362abd2-c534-4563-b140-8afecab5ebf2",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T15:02:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": {
+        "technology": "Product_WeaponFactory_Dirty_Grade_03",
+        "technology_name": "Weapon Assembly Line II"
+      }
+    },
+    {
+      "id": "623c2939-cd91-40b8-b1ca-a777816709a2",
+      "type": "pal.captured",
+      "ts": "2026-09-24T15:02:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "species": "Baphomet", "species_name": "Incineram", "level": 23 }
+    },
+    {
       "id": "0e21f69b-1793-4d88-9266-1772b755b569",
       "type": "player.left",
       "ts": "2026-09-24T14:42:07.000Z",
@@ -936,8 +1537,10 @@
       "ts": "2026-09-24T14:34:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
       "details": {
-        "cause": null,
-        "killer": null,
+        "cause": "attack",
+        "killer": "Fenglope",
+        "killer_kind": "pal",
+        "killer_level": 21,
         "x": -278286.1264798476,
         "y": 219247.21042643982,
         "region": "Autumn Rocks"
@@ -949,12 +1552,21 @@
       "ts": "2026-09-24T14:30:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
       "details": {
-        "cause": null,
+        "cause": "drown",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -631179.0348109547,
         "y": -271765.0842319913,
         "region": "Scorched Hill"
       }
+    },
+    {
+      "id": "f2014014-b5d0-47b7-88bd-e8be5491b269",
+      "type": "technology.unlocked",
+      "ts": "2026-09-24T14:20:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "technology": "Product_Farm_Lettuce", "technology_name": "Lettuce Plantation" }
     },
     {
       "id": "246faa48-f42f-4410-ab9c-4fe2019bd472",
@@ -962,585 +1574,6 @@
       "ts": "2026-09-24T14:20:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
       "details": { "from": 22, "to": 23 }
-    },
-    {
-      "id": "bbf0bfc4-801e-4204-86b8-3761ca36f35e",
-      "type": "player.level_up",
-      "ts": "2026-09-24T14:14:00.999Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": { "from": 24, "to": 25 }
-    },
-    {
-      "id": "a3d32fbc-89a0-4e9d-9b08-148d1e8337e8",
-      "type": "player.died",
-      "ts": "2026-09-24T13:44:00.999Z",
-      "player": { "id": 1, "name": "Juniper" },
-      "details": {
-        "cause": null,
-        "killer": null,
-        "x": -313884.81074639753,
-        "y": 233624.43033072533,
-        "region": "Windswept Island"
-      }
-    },
-    {
-      "id": "d43abfab-67a6-4ba2-8421-b71daaf5f325",
-      "type": "chat.message",
-      "ts": "2026-09-24T13:38:00.999Z",
-      "player": { "id": 1, "name": "Juniper" },
-      "details": { "channel": "global", "text": "brb" }
-    },
-    {
-      "id": "b7cd5ba0-9ecb-4390-99e0-09378bb6bffb",
-      "type": "player.level_up",
-      "ts": "2026-09-24T13:38:00.999Z",
-      "player": { "id": 1, "name": "Juniper" },
-      "details": { "from": 21, "to": 22 }
-    },
-    {
-      "id": "43720072-9eba-47cc-9d47-5b845ad600ad",
-      "type": "player.level_up",
-      "ts": "2026-09-24T13:36:00.999Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": { "from": 23, "to": 24 }
-    },
-    {
-      "id": "feb8b4eb-b1ca-4651-9ba9-0a88a0020e2d",
-      "type": "player.died",
-      "ts": "2026-09-24T13:30:00.999Z",
-      "player": { "id": 1, "name": "Juniper" },
-      "details": {
-        "cause": null,
-        "killer": null,
-        "x": -312425.7100247271,
-        "y": 47421.429056291745,
-        "region": "Bamboo Groves"
-      }
-    },
-    {
-      "id": "0e69bdb4-9379-4208-9740-5ca80689b0d2",
-      "type": "chat.message",
-      "ts": "2026-09-24T13:28:00.999Z",
-      "player": { "id": 1, "name": "Juniper" },
-      "details": { "channel": "global", "text": "got a new saddle finally" }
-    },
-    {
-      "id": "c2b0b764-44c1-4082-84b5-cf59d5b86402",
-      "type": "chat.message",
-      "ts": "2026-09-24T13:22:00.999Z",
-      "player": { "id": 1, "name": "Juniper" },
-      "details": { "channel": "global", "text": "gg" }
-    },
-    {
-      "id": "7ee09741-bbf1-4c1f-8c79-7810ae50bde2",
-      "type": "player.joined",
-      "ts": "2026-09-24T13:21:31.000Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": {}
-    },
-    {
-      "id": "07df1409-ba3b-4aae-8889-8071b8f6fcdb",
-      "type": "player.joined",
-      "ts": "2026-09-24T13:07:59.000Z",
-      "player": { "id": 1, "name": "Juniper" },
-      "details": {}
-    },
-    {
-      "id": "dd2e4890-2f30-490f-9be2-a438f4915412",
-      "type": "server.online",
-      "ts": "2026-09-24T01:33:00.000Z",
-      "player": null,
-      "details": { "version": "v1.0.5.102999" }
-    },
-    {
-      "id": "a9628de5-f87d-4c74-aec0-19d763f83e43",
-      "type": "server.offline",
-      "ts": "2026-09-24T01:30:00.000Z",
-      "player": null,
-      "details": { "reason": "shutdown" }
-    },
-    {
-      "id": "a75aa5ff-8997-4e61-9b74-3ed15e97104b",
-      "type": "player.left",
-      "ts": "2026-09-23T21:10:40.000Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "session_s": 8977 }
-    },
-    {
-      "id": "24b2b652-1359-4e95-a362-60a864b4dabf",
-      "type": "player.died",
-      "ts": "2026-09-23T21:06:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": {
-        "cause": null,
-        "killer": null,
-        "x": -344408.2837671854,
-        "y": -16449.591088789646,
-        "region": "Foot of the Volcano"
-      }
-    },
-    {
-      "id": "7a65bf7d-43bf-43f7-90e6-7d15993a1e37",
-      "type": "player.level_up",
-      "ts": "2026-09-23T20:42:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "from": 22, "to": 23 }
-    },
-    {
-      "id": "ea747043-091c-4f1c-a5d7-5ab5c52914a0",
-      "type": "player.died",
-      "ts": "2026-09-23T20:00:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": {
-        "cause": null,
-        "killer": null,
-        "x": -187511.3507834371,
-        "y": -38029.1955551356,
-        "region": "Sealed Realm of the Frost Flower"
-      }
-    },
-    {
-      "id": "19eb7f58-d0e8-4a33-87bd-19e5f3df3d1b",
-      "type": "player.level_up",
-      "ts": "2026-09-23T19:54:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "from": 21, "to": 22 }
-    },
-    {
-      "id": "6c485618-953a-42c7-9f76-24bd533c039c",
-      "type": "chat.message",
-      "ts": "2026-09-23T19:46:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "channel": "global", "text": "got a new saddle finally" }
-    },
-    {
-      "id": "aac23096-0d63-415b-a777-1f33aeb64546",
-      "type": "chat.message",
-      "ts": "2026-09-23T19:26:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "channel": "global", "text": "just hatched something cute" }
-    },
-    {
-      "id": "520fa4d5-7a31-401e-9780-afbd3d9b7014",
-      "type": "player.level_up",
-      "ts": "2026-09-23T19:16:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "from": 20, "to": 21 }
-    },
-    {
-      "id": "5948fc5e-480f-421c-967d-5d74b2bd34b6",
-      "type": "chat.message",
-      "ts": "2026-09-23T18:58:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "channel": "say", "text": "need more paldium, trade?" }
-    },
-    {
-      "id": "5623f7bb-b9af-433b-978b-710438ba1ab6",
-      "type": "player.joined",
-      "ts": "2026-09-23T18:41:03.000Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": {}
-    },
-    {
-      "id": "8505fc74-9d64-584a-853e-762b17003930",
-      "type": "guild.renamed",
-      "ts": "2026-09-23T18:31:01.000Z",
-      "player": null,
-      "details": {
-        "guild": { "id": "1077E95B45C893698D10D137B8FF9D0A", "name": "Night Market" },
-        "old_name": "Unnamed Guild",
-        "new_name": "Night Market"
-      }
-    },
-    {
-      "id": "50f91312-6850-4c73-bc42-dda781dc18d4",
-      "type": "player.left",
-      "ts": "2026-09-23T17:30:04.000Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": { "session_s": 5926 }
-    },
-    {
-      "id": "8f99a844-eb31-4c94-8ab1-a7d285f3995b",
-      "type": "player.level_up",
-      "ts": "2026-09-23T17:07:00.999Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": { "from": 22, "to": 23 }
-    },
-    {
-      "id": "74b592e9-2252-51c6-810f-dc900b174ac4",
-      "type": "base.established",
-      "ts": "2026-09-23T16:33:01.000Z",
-      "player": null,
-      "details": {
-        "base_id": 4,
-        "base_name": "Moss Camp 2",
-        "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
-        "x": -314377.2,
-        "y": 211003.3,
-        "region": "Windswept Island"
-      }
-    },
-    {
-      "id": "8776ef43-d9cf-4b5f-8fe1-9e3eace56daf",
-      "type": "player.level_up",
-      "ts": "2026-09-23T16:33:00.999Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": { "from": 21, "to": 22 }
-    },
-    {
-      "id": "d0b3a3dc-6937-403c-ae39-602eba51a475",
-      "type": "player.joined",
-      "ts": "2026-09-23T15:51:18.000Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": {}
-    },
-    {
-      "id": "106a4435-b97b-462e-975c-1213ac74f320",
-      "type": "player.left",
-      "ts": "2026-09-23T15:23:27.000Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": { "session_s": 3607 }
-    },
-    {
-      "id": "0c38a62c-4c72-4bf4-9e9c-91f2419d3ba8",
-      "type": "player.level_up",
-      "ts": "2026-09-23T15:15:00.999Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": { "from": 20, "to": 21 }
-    },
-    {
-      "id": "6f4812ca-e41e-4a15-ab4b-49705d449e64",
-      "type": "player.died",
-      "ts": "2026-09-23T15:07:00.999Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": {
-        "cause": null,
-        "killer": null,
-        "x": -19770.709944594408,
-        "y": 238545.11379813886,
-        "region": null
-      }
-    },
-    {
-      "id": "2ff33246-8e42-4ca6-b85c-bee2e6a3f52f",
-      "type": "chat.message",
-      "ts": "2026-09-23T14:53:00.999Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": { "channel": "global", "text": "brb" }
-    },
-    {
-      "id": "4d3cc55a-5a7d-4bfe-801b-75c2c20e4587",
-      "type": "chat.message",
-      "ts": "2026-09-23T14:49:00.999Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": { "channel": "global", "text": "gg" }
-    },
-    {
-      "id": "1a1a3bb8-e3e3-49a0-95ad-60351c848226",
-      "type": "player.level_up",
-      "ts": "2026-09-23T14:43:00.999Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": { "from": 19, "to": 20 }
-    },
-    {
-      "id": "dcb2bd19-8c34-46b1-85da-b5707eb53895",
-      "type": "player.joined",
-      "ts": "2026-09-23T14:23:20.000Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": {}
-    },
-    {
-      "id": "925fa15b-bb08-45f6-a6a1-8ffaaad2de0d",
-      "type": "player.left",
-      "ts": "2026-09-23T12:46:54.000Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "session_s": 4183 }
-    },
-    {
-      "id": "e4062c3a-3e72-4b58-b392-482b0ecafd13",
-      "type": "player.level_up",
-      "ts": "2026-09-23T12:38:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "from": 13, "to": 14 }
-    },
-    {
-      "id": "9c32188d-a714-45ff-8b06-32a77da12eb9",
-      "type": "chat.message",
-      "ts": "2026-09-23T12:34:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "channel": "global", "text": "gg" }
-    },
-    {
-      "id": "bd4fa498-23b6-45f5-97c8-f0170d99aed6",
-      "type": "player.level_up",
-      "ts": "2026-09-23T12:26:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "from": 12, "to": 13 }
-    },
-    {
-      "id": "20da056c-fdcc-4391-bd42-7330d81f4a69",
-      "type": "player.level_up",
-      "ts": "2026-09-23T12:18:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "from": 11, "to": 12 }
-    },
-    {
-      "id": "6842f175-c35e-408f-a005-f8deb01b74fd",
-      "type": "player.level_up",
-      "ts": "2026-09-23T12:00:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "from": 10, "to": 11 }
-    },
-    {
-      "id": "3a483267-928d-48ed-824e-8674e25f257e",
-      "type": "player.joined",
-      "ts": "2026-09-23T11:37:11.000Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": {}
-    },
-    {
-      "id": "ad4b2b58-099d-4823-be67-e5300623aac5",
-      "type": "player.left",
-      "ts": "2026-09-22T20:01:55.000Z",
-      "player": { "id": 8, "name": "Kestrel" },
-      "details": { "session_s": 4873 }
-    },
-    {
-      "id": "2b35a0a3-4aa3-42da-b14a-bb71198ba3c9",
-      "type": "player.level_up",
-      "ts": "2026-09-22T19:53:00.999Z",
-      "player": { "id": 8, "name": "Kestrel" },
-      "details": { "from": 14, "to": 15 }
-    },
-    {
-      "id": "da2ba274-5c9e-4f6f-bac1-d879573e8892",
-      "type": "player.level_up",
-      "ts": "2026-09-22T19:39:00.999Z",
-      "player": { "id": 8, "name": "Kestrel" },
-      "details": { "from": 13, "to": 14 }
-    },
-    {
-      "id": "7e78c21a-8960-41e0-91c0-05a9db852d60",
-      "type": "player.level_up",
-      "ts": "2026-09-22T19:21:00.999Z",
-      "player": { "id": 8, "name": "Kestrel" },
-      "details": { "from": 12, "to": 13 }
-    },
-    {
-      "id": "81e13b6b-07a5-4849-8973-61fd9b5d836e",
-      "type": "player.left",
-      "ts": "2026-09-22T19:13:46.000Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "session_s": 7139 }
-    },
-    {
-      "id": "3784989f-8555-4b79-b4f7-8abe2d1f3e07",
-      "type": "player.level_up",
-      "ts": "2026-09-22T19:13:00.999Z",
-      "player": { "id": 8, "name": "Kestrel" },
-      "details": { "from": 11, "to": 12 }
-    },
-    {
-      "id": "468f5086-104f-429e-a96f-77dc2fa5ffc4",
-      "type": "player.level_up",
-      "ts": "2026-09-22T19:03:00.999Z",
-      "player": { "id": 8, "name": "Kestrel" },
-      "details": { "from": 10, "to": 11 }
-    },
-    {
-      "id": "004ae31c-f4ab-4856-bd85-594b08b2bb5a",
-      "type": "player.level_up",
-      "ts": "2026-09-22T19:03:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "from": 19, "to": 20 }
-    },
-    {
-      "id": "35c17745-adf4-433a-84f6-905e7c84b5e0",
-      "type": "player.level_up",
-      "ts": "2026-09-22T18:55:00.999Z",
-      "player": { "id": 8, "name": "Kestrel" },
-      "details": { "from": 9, "to": 10 }
-    },
-    {
-      "id": "e7f3a628-ad43-4a00-8f6d-5c169b256442",
-      "type": "player.level_up",
-      "ts": "2026-09-22T18:51:00.999Z",
-      "player": { "id": 8, "name": "Kestrel" },
-      "details": { "from": 8, "to": 9 }
-    },
-    {
-      "id": "cfe55d98-2250-4585-956d-b51f4b0e8a68",
-      "type": "player.joined",
-      "ts": "2026-09-22T18:40:42.000Z",
-      "player": { "id": 8, "name": "Kestrel" },
-      "details": {}
-    },
-    {
-      "id": "4f73b070-bfda-41e1-a93c-3823938578e2",
-      "type": "player.level_up",
-      "ts": "2026-09-22T18:33:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "from": 18, "to": 19 }
-    },
-    {
-      "id": "9185a7f3-a700-4962-bc35-08eb0edfaa85",
-      "type": "player.level_up",
-      "ts": "2026-09-22T18:05:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "from": 17, "to": 18 }
-    },
-    {
-      "id": "f21146df-cfa8-485e-9304-98a3eb6944db",
-      "type": "player.left",
-      "ts": "2026-09-22T17:37:08.000Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": { "session_s": 3439 }
-    },
-    {
-      "id": "c551e271-c752-4340-85e3-86d1fc1068a9",
-      "type": "player.level_up",
-      "ts": "2026-09-22T17:21:00.999Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": { "from": 18, "to": 19 }
-    },
-    {
-      "id": "b8bdd6bb-9916-4e70-b4e0-3e1dc1cddd23",
-      "type": "player.level_up",
-      "ts": "2026-09-22T17:21:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "from": 16, "to": 17 }
-    },
-    {
-      "id": "cf287086-52a9-4fa8-a23a-b7188166c42e",
-      "type": "player.joined",
-      "ts": "2026-09-22T17:14:47.000Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": {}
-    },
-    {
-      "id": "7ae961f2-cc4f-4406-8cdf-a8872624f069",
-      "type": "chat.message",
-      "ts": "2026-09-22T17:01:00.999Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": { "channel": "say", "text": "lol" }
-    },
-    {
-      "id": "860823e0-239a-44c6-b437-be1e3ed82874",
-      "type": "player.died",
-      "ts": "2026-09-22T16:57:00.999Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": {
-        "cause": null,
-        "killer": null,
-        "x": -234590.94709845723,
-        "y": 47581.78012566597,
-        "region": "Deep Bamboo Thicket"
-      }
-    },
-    {
-      "id": "7e8e8891-e1e8-4fdd-bf75-07d3428e595c",
-      "type": "player.left",
-      "ts": "2026-09-22T16:46:38.000Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": { "session_s": 8882 }
-    },
-    {
-      "id": "3621d7e9-4752-4130-9cf2-1f0bcff49801",
-      "type": "player.left",
-      "ts": "2026-09-22T16:42:13.000Z",
-      "player": { "id": 7, "name": "Orrin" },
-      "details": { "session_s": 5381 }
-    },
-    {
-      "id": "d0a9342a-ad9f-4d37-bcbb-e3d5611f4b2b",
-      "type": "chat.message",
-      "ts": "2026-09-22T16:41:00.999Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": { "channel": "global", "text": "lol" }
-    },
-    {
-      "id": "9719f412-fb5c-4333-9d58-d4cb0011cbe8",
-      "type": "player.level_up",
-      "ts": "2026-09-22T16:41:00.999Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": { "from": 20, "to": 21 }
-    },
-    {
-      "id": "7452af23-1870-46e3-9cef-fe122a17581f",
-      "type": "player.joined",
-      "ts": "2026-09-22T16:39:49.000Z",
-      "player": { "id": 3, "name": "Tamsin" },
-      "details": {}
-    },
-    {
-      "id": "056d7fb1-fd71-4d87-a491-469f10a7eb23",
-      "type": "player.level_up",
-      "ts": "2026-09-22T16:37:00.999Z",
-      "player": { "id": 7, "name": "Orrin" },
-      "details": { "from": 14, "to": 15 }
-    },
-    {
-      "id": "f66f0a26-ad8e-4c71-b739-af16e694d321",
-      "type": "player.level_up",
-      "ts": "2026-09-22T16:25:00.999Z",
-      "player": { "id": 7, "name": "Orrin" },
-      "details": { "from": 13, "to": 14 }
-    },
-    {
-      "id": "eb54ed95-9855-4892-8ed4-7ada8a4fa86b",
-      "type": "player.level_up",
-      "ts": "2026-09-22T16:13:00.999Z",
-      "player": { "id": 7, "name": "Orrin" },
-      "details": { "from": 12, "to": 13 }
-    },
-    {
-      "id": "9ecd6c9e-e56a-433c-81da-8d71465ac0e8",
-      "type": "player.level_up",
-      "ts": "2026-09-22T16:09:00.999Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": { "from": 19, "to": 20 }
-    },
-    {
-      "id": "a4f2a4ec-92f2-4ce1-a504-95d364671ffa",
-      "type": "chat.message",
-      "ts": "2026-09-22T16:03:00.999Z",
-      "player": { "id": 7, "name": "Orrin" },
-      "details": { "channel": "global", "text": "gg" }
-    },
-    {
-      "id": "a7521640-6e43-47bd-a1c3-445e9d7531bc",
-      "type": "player.level_up",
-      "ts": "2026-09-22T15:59:00.999Z",
-      "player": { "id": 7, "name": "Orrin" },
-      "details": { "from": 11, "to": 12 }
-    },
-    {
-      "id": "0c6703bc-17af-40d7-8e7c-aa396a1351be",
-      "type": "player.level_up",
-      "ts": "2026-09-22T15:51:00.999Z",
-      "player": { "id": 7, "name": "Orrin" },
-      "details": { "from": 10, "to": 11 }
-    },
-    {
-      "id": "ebcc80c4-cf69-4459-b908-22d296ff394b",
-      "type": "player.level_up",
-      "ts": "2026-09-22T15:47:00.999Z",
-      "player": { "id": 2, "name": "Wren" },
-      "details": { "from": 18, "to": 19 }
-    },
-    {
-      "id": "306b9b72-cd4f-4107-abb1-d03887a4f12b",
-      "type": "player.level_up",
-      "ts": "2026-09-22T15:43:00.999Z",
-      "player": { "id": 7, "name": "Orrin" },
-      "details": { "from": 9, "to": 10 }
-    },
-    {
-      "id": "e46157d7-ebff-4aca-b62f-a4fd19d5c854",
-      "type": "player.level_up",
-      "ts": "2026-09-22T15:35:00.999Z",
-      "player": { "id": 7, "name": "Orrin" },
-      "details": { "from": 8, "to": 9 }
     }
   ],
   "next_cursor": "bW9yZQ"

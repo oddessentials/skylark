@@ -145,6 +145,10 @@ type Collector struct {
 	clockWarned bool
 
 	saveResults   chan saveOutcome
+	modLines      chan serverlog.Line
+	modStates     chan sourceState
+	modState      serverlog.State
+	modWarned     bool
 	saveTracker   *saves.Tracker
 	saveRunning   bool
 	saveState     string
@@ -208,6 +212,8 @@ func New(options Options) (*Collector, error) {
 		logFormat:     serverlog.KindOther,
 		logState:      serverlog.StateConnecting,
 		saveResults:   make(chan saveOutcome, 1),
+		modLines:      make(chan serverlog.Line, 1024),
+		modStates:     make(chan sourceState, 16),
 		saveTracker:   saves.NewTracker(),
 		saveState:     saveOff,
 	}
@@ -327,6 +333,14 @@ func (c *Collector) Run(ctx context.Context, force <-chan struct{}) error {
 		close(sourceDone)
 		c.logState = serverlog.StateDown
 	}
+	modCtx, modCancel := context.WithCancel(context.Background())
+	if c.modEnabled() {
+		workers.Add(1)
+		go func() {
+			defer workers.Done()
+			c.runMod(modCtx, loopCtx.Done())
+		}()
+	}
 	site := c.cfg.IngestURL()
 	if c.options.DryRun != nil {
 		site = "dry run, batches go to stdout"
@@ -342,6 +356,7 @@ func (c *Collector) Run(ctx context.Context, force <-chan struct{}) error {
 	c.fetchInfo()
 	c.fetchGameData()
 	c.loop(ctx, force)
+	modCancel()
 	sourceCancel()
 	actionCancel()
 	flushCtx, flushCancel := context.WithTimeout(context.Background(), c.options.StopFlush)
@@ -416,6 +431,10 @@ func (c *Collector) loop(ctx context.Context, force <-chan struct{}) {
 			c.checkSaves()
 		case outcome := <-c.saveResults:
 			c.onSaveResult(outcome)
+		case line := <-c.modLines:
+			c.onModLine(line)
+		case state := <-c.modStates:
+			c.onModState(state)
 		}
 	}
 }
@@ -532,6 +551,7 @@ func (c *Collector) ensureStarted() {
 		Logs:       c.cfg.Logs.Source != config.SourceNone,
 		LogsSource: source,
 		Saves:      c.savesEnabled(),
+		Mod:        c.modEnabled(),
 	}, c.server.Load(), c.settings))
 	pending := c.preStart
 	c.preStart = nil
@@ -964,5 +984,6 @@ func (c *Collector) emitHeartbeat() {
 		GameData:      gameData,
 		Logs:          logs,
 		Saves:         c.saveState,
+		Mod:           c.modStateName(),
 	})
 }

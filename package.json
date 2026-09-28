@@ -38,13 +38,16 @@
     "savereader:test": "node scripts/go.mjs savereader test",
     "savereader:vet": "node scripts/go.mjs savereader vet",
     "savereader:wasm": "node scripts/ooz-wasm.mjs",
-    "verify:quick": "npm run format:check && npm run lint && npm run comments:check && npm run check && npm run collector:vet && npm run savereader:vet",
-    "verify": "npm run verify:quick && npm run api:lint && npm run api:types:check && npm run fixtures:check && npm run test && npm run build && npm run test:e2e && npm run collector:test && npm run collector:build && npm run savereader:test && npm run savereader:build"
+    "verify:quick": "npm run format:check && npm run lint && npm run comments:check && npm run mod:check && npm run check && npm run collector:vet && npm run savereader:vet",
+    "verify": "npm run verify:quick && npm run api:lint && npm run api:types:check && npm run fixtures:check && npm run test && npm run build && npm run test:e2e && npm run collector:test && npm run collector:build && npm run savereader:test && npm run savereader:build",
+    "mod:check": "node scripts/mod-package.mjs",
+    "mod:package": "node scripts/mod-package.mjs --out dist/mod"
   },
   "devDependencies": {
     "@redocly/cli": "2.54.3",
     "ajv": "8.20.0",
     "ajv-formats": "3.0.1",
+    "luaparse": "0.3.1",
     "openapi-typescript": "7.13.0",
     "prettier": "3.9.9",
     "typescript": "5.9.3",

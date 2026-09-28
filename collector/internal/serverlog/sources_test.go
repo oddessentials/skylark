@@ -221,6 +221,28 @@ func TestFileSourceTailsResumesAndHandlesTruncation(t *testing.T) {
 	}
 }
 
+func TestFileSourceReadsAFileCreatedAfterItStarted(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, "skylark-events.jsonl")
+	sink := &recordingSink{}
+	ctx, cancel := context.WithCancel(context.Background())
+	done := make(chan struct{})
+	go func() {
+		(&FileSource{Path: path, CursorPath: filepath.Join(dir, "events.cursor"), Poll: 10 * time.Millisecond}).Run(ctx, sink)
+		close(done)
+	}()
+	waitFor(t, "the source to wait for the file", func() bool { return sink.hasState(StateDown) })
+	if err := os.WriteFile(path, []byte("first\nsecond\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	waitFor(t, "both lines", func() bool { return len(sink.texts()) == 2 })
+	cancel()
+	<-done
+	if got := strings.Join(sink.texts(), "|"); got != "first|second" {
+		t.Fatalf("got %s", got)
+	}
+}
+
 func TestStdinSourceEndsAndMirrorsWithoutRestNoise(t *testing.T) {
 	input := strings.NewReader("Running Palworld dedicated server on :8211\n{ \"event\": \"command\", \"playername\": \"REST\", \"details\": [] }\n{ \"event\": \"join\", \"playername\": \"Wanderer\" }\n")
 	var mirror bytes.Buffer

@@ -1,0 +1,17 @@
+{
+  "ModName": "Skylark Events",
+  "PackageName": "SkylarkEvents",
+  "Author": "oddessentials",
+  "Description": "Writes knockouts with their causes and killers, captures, hatches, tower and raid boss clears, technology unlocks and builds to a JSON lines file for the Skylark collector. Server only.",
+  "DebugMode": false,
+  "MinRevision": 102999,
+  "Dependencies": ["UE4SS"],
+  "Tags": ["UE4SS", "Utilities"],
+  "InstallRule": [
+    {
+      "Type": "Lua",
+      "IsServer": true,
+      "Targets": ["./Scripts"]
+    }
+  ]
+}

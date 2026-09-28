@@ -157,6 +157,11 @@ var eventSchemas = map[string]string{
 	"save.guild":          "SaveGuildEvent",
 	"save.base":           "SaveBaseEvent",
 	"save.read":           "SaveReadEvent",
+	"pal.captured":        "PalCapturedEvent",
+	"pal.hatched":         "PalHatchedEvent",
+	"boss.defeated":       "BossDefeatedEvent",
+	"technology.unlocked": "TechnologyUnlockedEvent",
+	"structure.built":     "StructureBuiltEvent",
 }
 
 func EventSchema(eventType string) string {

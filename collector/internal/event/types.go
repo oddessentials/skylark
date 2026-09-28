@@ -25,12 +25,18 @@ const (
 	TypeSaveGuild          = "save.guild"
 	TypeSaveBase           = "save.base"
 	TypeSaveRead           = "save.read"
+	TypePalCaptured        = "pal.captured"
+	TypePalHatched         = "pal.hatched"
+	TypeBossDefeated       = "boss.defeated"
+	TypeTechnologyUnlocked = "technology.unlocked"
+	TypeStructureBuilt     = "structure.built"
 )
 
 const (
 	SourceLog      = "log"
 	SourceRest     = "rest"
 	SourceSnapshot = "snapshot"
+	SourceMod      = "mod"
 	SourceGameData = "gamedata"
 )
 
@@ -86,6 +92,7 @@ type CollectorHeartbeatData struct {
 	GameData      string  `json:"gamedata"`
 	Logs          string  `json:"logs"`
 	Saves         string  `json:"saves,omitempty"`
+	Mod           string  `json:"mod,omitempty"`
 }
 
 type ServerOnlineData struct {
@@ -204,15 +211,57 @@ type PlayerLevelUpData struct {
 }
 
 type PlayerDiedData struct {
-	UserID   string   `json:"user_id"`
-	PlayerID *string  `json:"player_id"`
-	Name     string   `json:"name"`
-	X        float64  `json:"x"`
-	Y        float64  `json:"y"`
-	Z        *float64 `json:"z"`
-	Source   string   `json:"source"`
-	Cause    *string  `json:"cause"`
-	Killer   *string  `json:"killer"`
+	UserID      string   `json:"user_id"`
+	PlayerID    *string  `json:"player_id"`
+	Name        string   `json:"name"`
+	X           float64  `json:"x"`
+	Y           float64  `json:"y"`
+	Z           *float64 `json:"z"`
+	Source      string   `json:"source"`
+	Cause       *string  `json:"cause"`
+	Killer      *string  `json:"killer"`
+	KillerKind  *string  `json:"killer_kind,omitempty"`
+	KillerLevel *int     `json:"killer_level,omitempty"`
+}
+
+type PalCapturedData struct {
+	UserID   string  `json:"user_id"`
+	PlayerID *string `json:"player_id"`
+	Name     string  `json:"name"`
+	Species  string  `json:"species"`
+	Level    *int    `json:"level"`
+}
+
+type PalHatchedData struct {
+	UserID   string  `json:"user_id"`
+	PlayerID *string `json:"player_id"`
+	Name     string  `json:"name"`
+	Species  string  `json:"species"`
+	Level    *int    `json:"level"`
+}
+
+type BossDefeatedData struct {
+	UserID     string  `json:"user_id"`
+	PlayerID   *string `json:"player_id"`
+	Name       string  `json:"name"`
+	Kind       string  `json:"kind"`
+	Boss       string  `json:"boss"`
+	Difficulty *string `json:"difficulty,omitempty"`
+	Species    *string `json:"species,omitempty"`
+}
+
+type TechnologyUnlockedData struct {
+	UserID     string  `json:"user_id"`
+	PlayerID   *string `json:"player_id"`
+	Name       string  `json:"name"`
+	Technology string  `json:"technology"`
+}
+
+type StructureBuiltData struct {
+	UserID    string  `json:"user_id"`
+	PlayerID  *string `json:"player_id"`
+	Name      string  `json:"name"`
+	Structure string  `json:"structure"`
 }
 
 type ChatMessageData struct {

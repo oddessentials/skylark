@@ -310,6 +310,7 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
   const tailMinutes = options.tailMinutes ?? 15;
   const tailStepS = options.tailStepS ?? 10;
   const random = mulberry32(seed);
+  const modRandom = mulberry32(seed ^ 0x5eed);
   const endMs = Math.floor((options.endAt ?? new Date()).getTime() / 1000) * 1000;
   const startMs = endMs - days * 86_400_000;
   const worldStartMs = startMs - 3 * 86_400_000;
@@ -331,6 +332,15 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
     (entry) => entry.map === 'MainMap'
   );
   const pick = <T>(items: T[]): T => items[Math.floor(random() * items.length)]!;
+  const pickMod = <T>(items: T[]): T => items[Math.floor(modRandom() * items.length)]!;
+  const speciesOf = (className: string) =>
+    classes[className]?.species ?? className.replace(/^BP_/, '').replace(/_C$/, '');
+  const names = readWorld<{ technologies: { id: string }[]; structures: { id: string }[] }>(
+    'names'
+  );
+  const raids = readWorld<{ raids: { id: string; character: string }[] }>('bosses').raids;
+  const towers = ['GrassBoss', 'ForestBoss', 'ElectricBoss', 'DesertBoss', 'SnowBoss'];
+  const knockoutCauses = ['attack', 'attack', 'attack', 'falling', 'drown', 'burn'];
 
   const guilds: SimulatedGuild[] = guildNames.map((names, index) => ({
     id: hex(`guild-${seed}-${index}`, 32),
@@ -469,6 +479,16 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
       data
     } as CollectorEvent);
   };
+  const pushMod = (ms: number, type: string, data: Record<string, unknown>) => {
+    events.push({
+      id: uuidFrom(modRandom),
+      seq: seq++,
+      run_id: runId,
+      ts: new Date(ms).toISOString(),
+      type,
+      data
+    } as CollectorEvent);
+  };
   const startRun = (ms: number) => {
     runId = uuidFrom(random);
     seq = 0;
@@ -483,7 +503,7 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
         logs: true,
         logs_source: 'docker',
         saves: true,
-        mod: false
+        mod: true
       },
       server: serverInfo,
       settings: serverSettings
@@ -664,6 +684,38 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
             from: before,
             to: state.level
           });
+          const who = { user_id: player.userId, player_id: player.playerUid, name: player.name };
+          pushMod(ms - 1, 'technology.unlocked', {
+            ...who,
+            technology: pickMod(names.technologies).id
+          });
+          if (modRandom() < 0.6) {
+            pushMod(ms - 1, 'structure.built', { ...who, structure: pickMod(names.structures).id });
+          }
+          if (modRandom() < 0.2) {
+            pushMod(ms - 1, 'pal.hatched', {
+              ...who,
+              species: speciesOf(pickMod(pool).className),
+              level: 1
+            });
+          }
+          if (state.level % 10 === 0) {
+            pushMod(ms - 1, 'boss.defeated', {
+              ...who,
+              kind: 'tower',
+              boss: towers[(state.level / 10 - 1) % towers.length],
+              difficulty: 'normal'
+            });
+          }
+          if (state.level === 36) {
+            const raid = pickMod(raids);
+            pushMod(ms - 1, 'boss.defeated', {
+              ...who,
+              kind: 'raid',
+              boss: raid.id,
+              species: raid.character
+            });
+          }
           if (random() < 0.5) {
             const entry = pick(pool);
             state.party[random() < 0.5 ? 0 : 1] = {
@@ -672,6 +724,11 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
               name: entry.name,
               level: Math.max(1, state.level - 3)
             };
+            pushMod(ms - 1, 'pal.captured', {
+              ...who,
+              species: speciesOf(entry.className),
+              level: Math.max(1, state.level - 3)
+            });
           }
         }
         const deathChance = (dtS / 3600) * 0.25;
@@ -688,6 +745,22 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
             source: 'snapshot',
             cause: null,
             killer: null
+          });
+          const cause = pickMod(knockoutCauses);
+          const attacker = cause === 'attack' ? pickMod(pool) : null;
+          pushMod(ms, 'player.died', {
+            user_id: player.userId,
+            player_id: player.playerUid,
+            name: player.name,
+            x: state.x,
+            y: state.y,
+            source: 'mod',
+            cause,
+            killer: attacker ? speciesOf(attacker.className) : null,
+            killer_kind: attacker ? 'character' : null,
+            killer_level: attacker
+              ? Math.max(1, state.level + Math.floor(modRandom() * 6) - 2)
+              : null
           });
         } else {
           state.hp = clamp(state.hp + (random() - 0.45) * 120, 40, maxHpOf(state.level));
@@ -842,7 +915,8 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
         dropped_events: 0,
         rest: 'ok',
         gamedata: 'ok',
-        logs: 'ok'
+        logs: 'ok',
+        mod: 'ok'
       });
     }
   }
@@ -851,8 +925,6 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
   const savedAt = new Date(saveMs).toISOString();
   const towerOrder = ['GrassBoss', 'ForestBoss', 'ElectricBoss', 'DesertBoss', 'SnowBoss'];
   const draw = (text: string, span: number) => parseInt(hex(text, 8), 16) % span;
-  const speciesOfClass = (className: string) =>
-    classes[className]?.species ?? className.replace(/^BP_/, '').replace(/_C$/, '');
   const progressAt = (key: string, level: number) => {
     const palpedia = Math.min(288, level * 4 + draw(`palpedia-${key}`, 9));
     return {
@@ -922,7 +994,7 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
       z: base.z,
       workers: base.workers.map((worker, slot) => ({
         instance_id: hex(`save-worker-${base.key}-${slot}`, 32),
-        character_id: `${slot === 2 ? 'BOSS_' : ''}${speciesOfClass(worker.className)}`,
+        character_id: `${slot === 2 ? 'BOSS_' : ''}${speciesOf(worker.className)}`,
         level: worker.level,
         name: slot === 1 ? 'Pip' : null
       }))

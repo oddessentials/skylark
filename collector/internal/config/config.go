@@ -16,6 +16,7 @@ import (
 	_ "time/tzdata"
 
 	"github.com/BurntSushi/toml"
+	"github.com/oddessentials/skylark/collector/internal/modevents"
 )
 
 const DefaultFileName = "skylark-collector.toml"
@@ -68,6 +69,10 @@ type Saves struct {
 	Interval time.Duration `toml:"interval"`
 }
 
+type Mod struct {
+	Events string `toml:"events"`
+}
+
 type Intervals struct {
 	Players      time.Duration `toml:"players"`
 	Snapshot     time.Duration `toml:"snapshot"`
@@ -87,6 +92,7 @@ type Config struct {
 	File       File      `toml:"file"`
 	Intervals  Intervals `toml:"intervals"`
 	Saves      Saves     `toml:"saves"`
+	Mod        Mod       `toml:"mod"`
 	SendIPs    bool      `toml:"send_ips"`
 	JournalDir string    `toml:"journal_dir"`
 
@@ -264,6 +270,13 @@ func derive(cfg *Config, restURLSet bool, platform string) error {
 		if cfg.Palworld.ServerDir != "" {
 			cfg.SaveRoots = append(cfg.SaveRoots, filepath.Join(cfg.Palworld.ServerDir, "Pal", "Saved"))
 		}
+	}
+	if cfg.Mod.Events == "" {
+		root := cfg.Palworld.ServerDir
+		if root == "" && cfg.Launch.Command != "" {
+			root = modevents.ServerRoot(cfg.Launch.Command)
+		}
+		cfg.Mod.Events = modevents.Locate(root)
 	}
 	if cfg.Saves.Reader != "" {
 		if _, err := os.Stat(cfg.Saves.Reader); err != nil {
@@ -484,6 +497,7 @@ var envSetters = []envSetter{
 	stringSetter("SKYLARK_SAVES_READER", func(c *Config) *string { return &c.Saves.Reader }),
 	stringSetter("SKYLARK_SAVES_DIR", func(c *Config) *string { return &c.Saves.Dir }),
 	durationSetter("SKYLARK_SAVES_INTERVAL", func(c *Config) *time.Duration { return &c.Saves.Interval }),
+	stringSetter("SKYLARK_MOD_EVENTS", func(c *Config) *string { return &c.Mod.Events }),
 	boolSetter("SKYLARK_SEND_IPS", func(c *Config) *bool { return &c.SendIPs }),
 	stringSetter("SKYLARK_JOURNAL_DIR", func(c *Config) *string { return &c.JournalDir }),
 }

@@ -13,6 +13,7 @@ import (
 	"github.com/oddessentials/skylark/collector/internal/contract"
 	"github.com/oddessentials/skylark/collector/internal/event"
 	"github.com/oddessentials/skylark/collector/internal/ingest"
+	"github.com/oddessentials/skylark/collector/internal/modevents"
 	"github.com/oddessentials/skylark/collector/internal/palrest"
 	"github.com/oddessentials/skylark/collector/internal/saves"
 	"github.com/oddessentials/skylark/collector/internal/serverlog"
@@ -101,6 +102,18 @@ func TestEveryEmittedTypeMatchesTheContract(t *testing.T) {
 	for _, item := range saves.NewTracker().Changes(saved) {
 		items = append(items, emission{item.Type, at, item.Data})
 	}
+
+	modded := &Collector{lastPlayers: []palrest.Player{{Name: "Wanderer", PlayerID: playerID, UserID: userID, LocationX: -346912, LocationY: 261690}}}
+	for _, line := range strings.Split(strings.TrimSpace(modLines), "\n") {
+		record, err := modevents.Parse(line, at)
+		if err != nil {
+			continue
+		}
+		if item, ok := modded.modEmission(record); ok {
+			items = append(items, item)
+		}
+	}
+	items = append(items, emission{event.TypeCollectorHeartbeat, at, event.CollectorHeartbeatData{UptimeS: 30, Rest: "ok", GameData: "ok", Logs: "ok", Mod: "waiting"}})
 
 	factory := event.NewFactory(event.NewUUID())
 	seen := map[string]bool{}

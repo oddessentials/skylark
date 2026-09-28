@@ -234,12 +234,34 @@ export const deaths = pgTable(
     z: doublePrecision('z'),
     source: text('source').notNull(),
     cause: text('cause'),
-    killer: text('killer')
+    killer: text('killer'),
+    killerKind: text('killer_kind'),
+    killerLevel: integer('killer_level'),
+    mergedEventId: uuid('merged_event_id')
   },
   (table) => [
     uniqueIndex('deaths_event_idx').on(table.eventId),
     index('deaths_player_at_idx').on(table.playerId, table.at),
     index('deaths_at_idx').on(table.at)
+  ]
+);
+
+export const feats = pgTable(
+  'feats',
+  {
+    id: serial('id').primaryKey(),
+    eventId: uuid('event_id').notNull(),
+    playerId: integer('player_id').notNull(),
+    at: utc('at').notNull(),
+    kind: text('kind').notNull(),
+    subject: text('subject').notNull(),
+    level: integer('level'),
+    detail: text('detail')
+  },
+  (table) => [
+    uniqueIndex('feats_event_idx').on(table.eventId),
+    index('feats_player_kind_idx').on(table.playerId, table.kind),
+    index('feats_at_idx').on(table.at)
   ]
 );
 
@@ -481,6 +503,7 @@ export const projectionTables = [
   sessions,
   levelUps,
   deaths,
+  feats,
   chatMessages,
   playerSaves,
   guildSaves,

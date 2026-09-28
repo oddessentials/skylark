@@ -1,7 +1,7 @@
 import { and, asc, desc, eq, gt, inArray, isNull, lt, not, or, sql, type SQL } from 'drizzle-orm';
 import { baseNameOf, regionAt } from '$lib/world/regions';
 import type { Database } from '../db/client';
-import { events, players, sessions, type EventRow } from '../db/schema';
+import { deaths, events, players, sessions, type EventRow } from '../db/schema';
 import { badRequest, type KeysetPage } from '../http/respond';
 import type { Features } from '../settings';
 import {
@@ -12,6 +12,7 @@ import {
   type GuildRef,
   type Schemas
 } from './common';
+import { bossName, killerOf, speciesOfCharacter, technologyName } from './names';
 
 export type ActivityItem = Schemas['ActivityItem'];
 export type ActivityType = Schemas['ActivityType'];
@@ -29,13 +30,18 @@ export const activityTypes: readonly ActivityType[] = [
   'base.established',
   'base.removed',
   'guild.renamed',
-  'player.guild_joined'
+  'player.guild_joined',
+  'pal.captured',
+  'pal.hatched',
+  'boss.defeated',
+  'technology.unlocked'
 ];
 
 export function visibleTypes(features: Features, requested: readonly ActivityType[] | null) {
   return (requested ?? activityTypes).filter((type) => {
     if (type === 'chat.message') return features.chat;
     if (type === 'base.established' || type === 'base.removed') return features.bases;
+    if (type === 'pal.captured' || type === 'pal.hatched') return features.pals;
     return true;
   });
 }
@@ -98,6 +104,12 @@ export async function buildActivityItems(
     }
   }
   const names = await guildNames(db, guildIds);
+  const diedIds = rows.filter((row) => row.type === 'player.died').map((row) => row.id);
+  const knockouts = new Map<string, typeof deaths.$inferSelect>();
+  if (diedIds.length > 0) {
+    const found = await db.select().from(deaths).where(inArray(deaths.eventId, diedIds));
+    for (const death of found) knockouts.set(death.eventId, death);
+  }
   const leftIds = rows.filter((row) => row.type === 'player.left').map((row) => row.id);
   const durations = new Map<string, number | null>();
   if (leftIds.length > 0) {
@@ -119,10 +131,17 @@ export async function buildActivityItems(
         details.to = numberOf(data.to) ?? 0;
         break;
       case 'player.died': {
-        details.cause = stringOf(data.cause);
-        details.killer = stringOf(data.killer);
-        const x = numberOf(data.x);
-        const y = numberOf(data.y);
+        const death = knockouts.get(row.id);
+        const killer = killerOf(
+          death ? death.killer : stringOf(data.killer),
+          death ? death.killerKind : stringOf(data.killer_kind)
+        );
+        details.cause = death ? death.cause : stringOf(data.cause);
+        details.killer = killer.killer;
+        details.killer_kind = killer.killer_kind;
+        details.killer_level = death ? death.killerLevel : numberOf(data.killer_level);
+        const x = death ? death.x : numberOf(data.x);
+        const y = death ? death.y : numberOf(data.y);
         if (features.positions && x !== null && y !== null) {
           details.x = x;
           details.y = y;
@@ -163,6 +182,28 @@ export async function buildActivityItems(
         break;
       case 'collector.lost':
         details.last_seen_at = stringOf(data.last_seen_at) ?? row.ts.toISOString();
+        break;
+      case 'pal.captured':
+      case 'pal.hatched': {
+        const character = stringOf(data.species) ?? '';
+        const species = speciesOfCharacter(character);
+        details.species = species?.id ?? character;
+        details.species_name = species?.name ?? null;
+        details.level = numberOf(data.level);
+        break;
+      }
+      case 'boss.defeated': {
+        const kind = data.kind === 'raid' ? 'raid' : 'tower';
+        details.boss = stringOf(data.boss) ?? '';
+        details.boss_kind = kind;
+        details.boss_name = bossName(kind, details.boss, stringOf(data.species));
+        details.difficulty =
+          data.difficulty === 'normal' || data.difficulty === 'hard' ? data.difficulty : null;
+        break;
+      }
+      case 'technology.unlocked':
+        details.technology = stringOf(data.technology) ?? '';
+        details.technology_name = technologyName(details.technology);
         break;
     }
     return {

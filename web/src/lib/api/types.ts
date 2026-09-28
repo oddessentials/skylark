@@ -630,18 +630,29 @@ export interface components {
     ActivityDetails: {
       base_id?: number;
       base_name?: string | null;
+      boss?: string;
+      boss_kind?: 'tower' | 'raid';
+      boss_name?: string | null;
       cause?: string | null;
       channel?: components['schemas']['ChatChannel'];
+      difficulty?: 'normal' | 'hard' | null;
       from?: number;
       guild?: components['schemas']['GuildRef'] | null;
       killer?: string | null;
+      killer_kind?: components['schemas']['KillerKind'];
+      killer_level?: number | null;
       last_seen_at?: string;
+      level?: number | null;
       new_name?: string;
       old_name?: string;
       previous_guild?: components['schemas']['GuildRef'] | null;
       reason?: string;
       region?: string | null;
       session_s?: number | null;
+      species?: string;
+      species_name?: string | null;
+      technology?: string;
+      technology_name?: string | null;
       text?: string;
       to?: number;
       version?: string | null;
@@ -671,7 +682,11 @@ export interface components {
       | 'base.established'
       | 'base.removed'
       | 'guild.renamed'
-      | 'player.guild_joined';
+      | 'player.guild_joined'
+      | 'pal.captured'
+      | 'pal.hatched'
+      | 'boss.defeated'
+      | 'technology.unlocked';
     AdminCommandData: {
       actor: string;
       details: string[];
@@ -808,6 +823,21 @@ export interface components {
       name: string | null;
       species: string;
     };
+    BossDefeatedData: {
+      boss: string;
+      difficulty?: 'normal' | 'hard' | null;
+      kind: 'tower' | 'raid';
+      name: string;
+      player_id: components['schemas']['PlayerUid'];
+      species?: string | null;
+      user_id: components['schemas']['UserId'];
+    } & {
+      [key: string]: unknown;
+    };
+    BossDefeatedEvent: components['schemas']['EventEnvelope'] & {
+      data: components['schemas']['BossDefeatedData'];
+      type: 'boss.defeated';
+    };
     ChatChannel: 'global' | 'guild' | 'say' | 'other';
     ChatItem: {
       channel: components['schemas']['ChatChannel'];
@@ -870,11 +900,17 @@ export interface components {
       | components['schemas']['SaveGuildEvent']
       | components['schemas']['SaveBaseEvent']
       | components['schemas']['SaveReadEvent']
+      | components['schemas']['PalCapturedEvent']
+      | components['schemas']['PalHatchedEvent']
+      | components['schemas']['BossDefeatedEvent']
+      | components['schemas']['TechnologyUnlockedEvent']
+      | components['schemas']['StructureBuiltEvent']
       | components['schemas']['OtherEvent'];
     CollectorHeartbeatData: {
       dropped_events: number;
       gamedata: 'ok' | 'off' | 'unavailable';
       logs: 'ok' | 'off' | 'idle' | 'error';
+      mod?: 'ok' | 'waiting' | 'off';
       queue_depth: number;
       rest: 'ok' | 'down' | 'off';
       saves?: 'ok' | 'waiting' | 'off' | 'error';
@@ -958,6 +994,8 @@ export interface components {
       at: string;
       cause: string | null;
       killer: string | null;
+      killer_kind: components['schemas']['KillerKind'];
+      killer_level: number | null;
       x: number | null;
       y: number | null;
     };
@@ -1078,6 +1116,7 @@ export interface components {
     JobAccepted: {
       job_id: number;
     };
+    KillerKind: 'player' | 'pal' | 'human' | null;
     LeaderboardEntry: {
       player: components['schemas']['PlayerRef'];
       value: number;
@@ -1154,6 +1193,32 @@ export interface components {
     OtherEvent: components['schemas']['EventEnvelope'] & {
       type: string;
     };
+    PalCapturedData: {
+      level?: number | null;
+      name: string;
+      player_id: components['schemas']['PlayerUid'];
+      species: string;
+      user_id: components['schemas']['UserId'];
+    } & {
+      [key: string]: unknown;
+    };
+    PalCapturedEvent: components['schemas']['EventEnvelope'] & {
+      data: components['schemas']['PalCapturedData'];
+      type: 'pal.captured';
+    };
+    PalHatchedData: {
+      level?: number | null;
+      name: string;
+      player_id: components['schemas']['PlayerUid'];
+      species: string;
+      user_id: components['schemas']['UserId'];
+    } & {
+      [key: string]: unknown;
+    };
+    PalHatchedEvent: components['schemas']['EventEnvelope'] & {
+      data: components['schemas']['PalHatchedData'];
+      type: 'pal.hatched';
+    };
     PartyPal: {
       level: number;
       name: string | null;
@@ -1165,6 +1230,7 @@ export interface components {
       current_session: components['schemas']['CurrentSession'] | null;
       deaths: number;
       distance_m: number | null;
+      feats: components['schemas']['PlayerFeats'] | null;
       first_seen: string;
       guild: components['schemas']['GuildRef'] | null;
       id: number;
@@ -1201,6 +1267,8 @@ export interface components {
     PlayerDiedData: {
       cause?: string | null;
       killer?: string | null;
+      killer_kind?: 'player' | 'character' | null;
+      killer_level?: number | null;
       name: string;
       player_id: components['schemas']['PlayerUid'];
       source: 'snapshot' | 'mod';
@@ -1214,6 +1282,13 @@ export interface components {
     PlayerDiedEvent: components['schemas']['EventEnvelope'] & {
       data: components['schemas']['PlayerDiedData'];
       type: 'player.died';
+    };
+    PlayerFeats: {
+      bosses: number;
+      builds: number;
+      captures: number;
+      hatches: number;
+      technologies: number;
     };
     PlayerJoinedData: {
       name: string;
@@ -1599,6 +1674,30 @@ export interface components {
       event: 'status' | 'online' | 'map' | 'activity';
       id: string | null;
     };
+    StructureBuiltData: {
+      name: string;
+      player_id: components['schemas']['PlayerUid'];
+      structure: string;
+      user_id: components['schemas']['UserId'];
+    } & {
+      [key: string]: unknown;
+    };
+    StructureBuiltEvent: components['schemas']['EventEnvelope'] & {
+      data: components['schemas']['StructureBuiltData'];
+      type: 'structure.built';
+    };
+    TechnologyUnlockedData: {
+      name: string;
+      player_id: components['schemas']['PlayerUid'];
+      technology: string;
+      user_id: components['schemas']['UserId'];
+    } & {
+      [key: string]: unknown;
+    };
+    TechnologyUnlockedEvent: components['schemas']['EventEnvelope'] & {
+      data: components['schemas']['TechnologyUnlockedData'];
+      type: 'technology.unlocked';
+    };
     TowerBossRef: {
       id: string;
       name: string;
@@ -1777,6 +1876,8 @@ export type Backup = components['schemas']['Backup'];
 export type BackupList = components['schemas']['BackupList'];
 export type Base = components['schemas']['Base'];
 export type BasePal = components['schemas']['BasePal'];
+export type BossDefeatedData = components['schemas']['BossDefeatedData'];
+export type BossDefeatedEvent = components['schemas']['BossDefeatedEvent'];
 export type ChatChannel = components['schemas']['ChatChannel'];
 export type ChatItem = components['schemas']['ChatItem'];
 export type ChatMessageData = components['schemas']['ChatMessageData'];
@@ -1812,6 +1913,7 @@ export type IngestCounters = components['schemas']['IngestCounters'];
 export type IngestResult = components['schemas']['IngestResult'];
 export type Job = components['schemas']['Job'];
 export type JobAccepted = components['schemas']['JobAccepted'];
+export type KillerKind = components['schemas']['KillerKind'];
 export type LeaderboardEntry = components['schemas']['LeaderboardEntry'];
 export type Leaderboards = components['schemas']['Leaderboards'];
 export type LevelPoint = components['schemas']['LevelPoint'];
@@ -1824,6 +1926,10 @@ export type ModerationData = components['schemas']['ModerationData'];
 export type OnlineList = components['schemas']['OnlineList'];
 export type OnlinePlayer = components['schemas']['OnlinePlayer'];
 export type OtherEvent = components['schemas']['OtherEvent'];
+export type PalCapturedData = components['schemas']['PalCapturedData'];
+export type PalCapturedEvent = components['schemas']['PalCapturedEvent'];
+export type PalHatchedData = components['schemas']['PalHatchedData'];
+export type PalHatchedEvent = components['schemas']['PalHatchedEvent'];
 export type PartyPal = components['schemas']['PartyPal'];
 export type Platform = components['schemas']['Platform'];
 export type Player = components['schemas']['Player'];
@@ -1833,6 +1939,7 @@ export type PlayerConnectedData = components['schemas']['PlayerConnectedData'];
 export type PlayerConnectedEvent = components['schemas']['PlayerConnectedEvent'];
 export type PlayerDiedData = components['schemas']['PlayerDiedData'];
 export type PlayerDiedEvent = components['schemas']['PlayerDiedEvent'];
+export type PlayerFeats = components['schemas']['PlayerFeats'];
 export type PlayerJoinedData = components['schemas']['PlayerJoinedData'];
 export type PlayerJoinedEvent = components['schemas']['PlayerJoinedEvent'];
 export type PlayerKickedData = components['schemas']['PlayerKickedData'];
@@ -1890,6 +1997,10 @@ export type StatusPlayers = components['schemas']['StatusPlayers'];
 export type StatusServer = components['schemas']['StatusServer'];
 export type StatusState = components['schemas']['StatusState'];
 export type StreamFrame = components['schemas']['StreamFrame'];
+export type StructureBuiltData = components['schemas']['StructureBuiltData'];
+export type StructureBuiltEvent = components['schemas']['StructureBuiltEvent'];
+export type TechnologyUnlockedData = components['schemas']['TechnologyUnlockedData'];
+export type TechnologyUnlockedEvent = components['schemas']['TechnologyUnlockedEvent'];
 export type TowerBossRef = components['schemas']['TowerBossRef'];
 export type Trail = components['schemas']['Trail'];
 export type TrailPoint = components['schemas']['TrailPoint'];
