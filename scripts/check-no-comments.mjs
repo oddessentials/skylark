@@ -10,6 +10,7 @@ const roots = [
   'web/fixtures',
   'web/openapi.yaml',
   'collector',
+  'savereader',
   'scripts',
   'tools',
   'art',

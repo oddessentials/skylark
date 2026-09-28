@@ -30,11 +30,14 @@
     "db:migrate": "npm run db:migrate -w web",
     "db:generate": "npm run db:generate -w web",
     "db:studio": "npm run db:studio -w web",
-    "collector:build": "node scripts/collector.mjs build",
-    "collector:test": "node scripts/collector.mjs test",
-    "collector:vet": "node scripts/collector.mjs vet",
-    "verify:quick": "npm run format:check && npm run lint && npm run comments:check && npm run check && npm run collector:vet",
-    "verify": "npm run verify:quick && npm run api:lint && npm run api:types:check && npm run fixtures:check && npm run test && npm run build && npm run test:e2e && npm run collector:test && npm run collector:build"
+    "collector:build": "node scripts/go.mjs collector build",
+    "collector:test": "node scripts/go.mjs collector test",
+    "collector:vet": "node scripts/go.mjs collector vet",
+    "savereader:build": "node scripts/go.mjs savereader build",
+    "savereader:test": "node scripts/go.mjs savereader test",
+    "savereader:vet": "node scripts/go.mjs savereader vet",
+    "verify:quick": "npm run format:check && npm run lint && npm run comments:check && npm run check && npm run collector:vet && npm run savereader:vet",
+    "verify": "npm run verify:quick && npm run api:lint && npm run api:types:check && npm run fixtures:check && npm run test && npm run build && npm run test:e2e && npm run collector:test && npm run collector:build && npm run savereader:test && npm run savereader:build"
   },
   "devDependencies": {
     "@redocly/cli": "2.54.3",
