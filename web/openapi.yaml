@@ -1720,6 +1720,20 @@ components:
         - base.removed
         - guild.renamed
         - player.guild_joined
+        - pal.captured
+        - pal.hatched
+        - boss.defeated
+        - technology.unlocked
+    KillerKind:
+      type:
+        - string
+        - 'null'
+      description: Whether the killer is another player, a Pal or a human character. Null when the knockout had no attacker or the server mod is not installed.
+      enum:
+        - player
+        - pal
+        - human
+        - null
     ChatChannel:
       type: string
       enum:
@@ -1729,7 +1743,7 @@ components:
         - other
     ActivityDetails:
       type: object
-      description: 'Type-specific details. player.level_up: from, to. player.died: cause, killer, and x, y, region with the positions feature. player.left: session_s. chat.message: channel, text. base.established and base.removed: base_id, base_name, region, guild, x, y. guild.renamed: guild, old_name, new_name. player.guild_joined: guild, previous_guild. server.online: version. server.offline: reason. collector.lost: last_seen_at.'
+      description: 'Type-specific details. player.level_up: from, to. player.died: cause, killer, killer_kind, killer_level, and x, y, region with the positions feature. pal.captured and pal.hatched: species, species_name, level. boss.defeated: boss, boss_name, boss_kind, difficulty. technology.unlocked: technology, technology_name. player.left: session_s. chat.message: channel, text. base.established and base.removed: base_id, base_name, region, guild, x, y. guild.renamed: guild, old_name, new_name. player.guild_joined: guild, previous_guild. server.online: version. server.offline: reason. collector.lost: last_seen_at.'
       properties:
         from:
           type: integer
@@ -1740,6 +1754,50 @@ components:
             - string
             - 'null'
         killer:
+          type:
+            - string
+            - 'null'
+        killer_kind:
+          $ref: '#/components/schemas/KillerKind'
+        killer_level:
+          type:
+            - integer
+            - 'null'
+        species:
+          type: string
+          description: The Pal's species id, for example SheepBall.
+        species_name:
+          type:
+            - string
+            - 'null'
+        level:
+          type:
+            - integer
+            - 'null'
+        boss:
+          type: string
+          description: The game's boss type for a tower, for example GrassBoss, or the summon id for a raid, for example PalSummon_NightLady.
+        boss_name:
+          type:
+            - string
+            - 'null'
+        boss_kind:
+          type: string
+          enum:
+            - tower
+            - raid
+        difficulty:
+          type:
+            - string
+            - 'null'
+          enum:
+            - normal
+            - hard
+            - null
+        technology:
+          type: string
+          description: The game's technology id, for example RepairBench.
+        technology_name:
           type:
             - string
             - 'null'
@@ -2012,12 +2070,20 @@ components:
           type:
             - string
             - 'null'
+        killer_kind:
+          $ref: '#/components/schemas/KillerKind'
+        killer_level:
+          type:
+            - integer
+            - 'null'
       required:
         - at
         - x
         - y
         - cause
         - killer
+        - killer_kind
+        - killer_level
       additionalProperties: false
     CurrentSession:
       type: object
@@ -2108,6 +2174,11 @@ components:
           anyOf:
             - $ref: '#/components/schemas/PlayerProgress'
             - type: 'null'
+        feats:
+          description: What the optional server mod has seen the player do; null until it reports something for the player.
+          anyOf:
+            - $ref: '#/components/schemas/PlayerFeats'
+            - type: 'null'
       required:
         - id
         - name
@@ -2129,6 +2200,34 @@ components:
         - recent_sessions
         - recent_deaths
         - progress
+        - feats
+      additionalProperties: false
+    PlayerFeats:
+      type: object
+      description: Counted from the server mod's events since it was installed.
+      properties:
+        captures:
+          type: integer
+          minimum: 0
+        hatches:
+          type: integer
+          minimum: 0
+        bosses:
+          type: integer
+          minimum: 0
+          description: Tower bosses beaten and raids won.
+        technologies:
+          type: integer
+          minimum: 0
+        builds:
+          type: integer
+          minimum: 0
+      required:
+        - captures
+        - hatches
+        - bosses
+        - technologies
+        - builds
       additionalProperties: false
     TowerBossRef:
       type: object
@@ -3670,6 +3769,11 @@ components:
         - $ref: '#/components/schemas/SaveGuildEvent'
         - $ref: '#/components/schemas/SaveBaseEvent'
         - $ref: '#/components/schemas/SaveReadEvent'
+        - $ref: '#/components/schemas/PalCapturedEvent'
+        - $ref: '#/components/schemas/PalHatchedEvent'
+        - $ref: '#/components/schemas/BossDefeatedEvent'
+        - $ref: '#/components/schemas/TechnologyUnlockedEvent'
+        - $ref: '#/components/schemas/StructureBuiltEvent'
         - $ref: '#/components/schemas/OtherEvent'
     IngestBatch:
       type: object
@@ -3884,6 +3988,13 @@ components:
             - waiting
             - off
             - error
+        mod:
+          type: string
+          description: The Skylark server mod's events file, from collectors that know it. ok while the collector reads it, waiting until the file appears, off when no mod is set up.
+          enum:
+            - ok
+            - waiting
+            - off
       required:
         - uptime_s
         - queue_depth
@@ -4291,10 +4402,26 @@ components:
           type:
             - string
             - 'null'
+          description: From the mod, the game's reason in snake case, for example attack, falling, drown or burn.
         killer:
           type:
             - string
             - 'null'
+          description: From the mod, the other player's name, or the game character id of the Pal or human that did it, for example SheepBall or Hunter_Rifle.
+        killer_kind:
+          type:
+            - string
+            - 'null'
+          enum:
+            - player
+            - character
+            - null
+        killer_level:
+          type:
+            - integer
+            - 'null'
+          minimum: 1
+          description: The character's level when killer_kind is character.
       required:
         - user_id
         - player_id
@@ -4302,6 +4429,131 @@ components:
         - x
         - y
         - source
+      additionalProperties: true
+    PalCapturedData:
+      type: object
+      description: From the optional mod, a Pal the player caught.
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        name:
+          type: string
+        species:
+          type: string
+          description: The Pal's character id, for example SheepBall.
+        level:
+          type:
+            - integer
+            - 'null'
+          minimum: 1
+      required:
+        - user_id
+        - player_id
+        - name
+        - species
+      additionalProperties: true
+    PalHatchedData:
+      type: object
+      description: From the optional mod, a Pal the player took from an incubator.
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        name:
+          type: string
+        species:
+          type: string
+          description: The Pal's character id, for example ChickenPal.
+        level:
+          type:
+            - integer
+            - 'null'
+          minimum: 1
+      required:
+        - user_id
+        - player_id
+        - name
+        - species
+      additionalProperties: true
+    BossDefeatedData:
+      type: object
+      description: From the optional mod, a tower boss the player beat, or a raid the player summoned and won.
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        name:
+          type: string
+        kind:
+          type: string
+          enum:
+            - tower
+            - raid
+        boss:
+          type: string
+          description: For a tower, the game's boss type, for example GrassBoss. For a raid, the summon id, for example PalSummon_NightLady, or the boss's character id when the summon is unknown.
+        difficulty:
+          type:
+            - string
+            - 'null'
+          enum:
+            - normal
+            - hard
+            - null
+          description: For a tower.
+        species:
+          type:
+            - string
+            - 'null'
+          description: For a raid, the boss's character id, for example RAID_NightLady.
+      required:
+        - user_id
+        - player_id
+        - name
+        - kind
+        - boss
+      additionalProperties: true
+    TechnologyUnlockedData:
+      type: object
+      description: From the optional mod, a technology the player unlocked.
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        name:
+          type: string
+        technology:
+          type: string
+          description: The game's technology id, for example RepairBench.
+      required:
+        - user_id
+        - player_id
+        - name
+        - technology
+      additionalProperties: true
+    StructureBuiltData:
+      type: object
+      description: From the optional mod, a structure the player finished building.
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        name:
+          type: string
+        structure:
+          type: string
+          description: The game's map object id, for example RepairBench.
+      required:
+        - user_id
+        - player_id
+        - name
+        - structure
       additionalProperties: true
     ChatMessageData:
       type: object
@@ -4915,6 +5167,71 @@ components:
           required:
             - type
             - data
+    PalCapturedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: pal.captured
+            data:
+              $ref: '#/components/schemas/PalCapturedData'
+          required:
+            - type
+            - data
+    PalHatchedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: pal.hatched
+            data:
+              $ref: '#/components/schemas/PalHatchedData'
+          required:
+            - type
+            - data
+    BossDefeatedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: boss.defeated
+            data:
+              $ref: '#/components/schemas/BossDefeatedData'
+          required:
+            - type
+            - data
+    TechnologyUnlockedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: technology.unlocked
+            data:
+              $ref: '#/components/schemas/TechnologyUnlockedData'
+          required:
+            - type
+            - data
+    StructureBuiltEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: structure.built
+            data:
+              $ref: '#/components/schemas/StructureBuiltData'
+          required:
+            - type
+            - data
     OtherEvent:
       description: An event of a type this contract does not document. The site stores it without processing it.
       allOf:
@@ -4947,5 +5264,10 @@ components:
                   - save.guild
                   - save.base
                   - save.read
+                  - pal.captured
+                  - pal.hatched
+                  - boss.defeated
+                  - technology.unlocked
+                  - structure.built
           required:
             - type
