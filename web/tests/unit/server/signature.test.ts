@@ -11,6 +11,14 @@ describe('collector signatures', () => {
     );
   });
 
+  it('agrees with the collector on a full batch body', () => {
+    const body =
+      '{"collector":{"name":"skylark-collector","version":"0.1.0","run_id":"00000000-0000-4000-8000-000000000000","os":"linux","arch":"amd64"},"server":null,"events":[]}';
+    expect(signBatch('skylark-test-secret', 1_790_000_000, body)).toBe(
+      'sha256=6fcb705dacb5af3277d5b6d3a5e0a606f549c6ca663483ac381943146aa84028'
+    );
+  });
+
   it('accepts a correctly signed batch inside the window', () => {
     const now = 1_790_000_000;
     const signature = signBatch(secret, now - 100, body);

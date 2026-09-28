@@ -1295,7 +1295,9 @@ export interface components {
       data: components['schemas']['ServerOfflineData'];
       type: 'server.offline';
     };
-    ServerOnlineData: components['schemas']['ServerInfo'];
+    ServerOnlineData: components['schemas']['ServerInfo'] & {
+      settings?: components['schemas']['ServerSettings'] | null;
+    };
     ServerOnlineEvent: components['schemas']['EventEnvelope'] & {
       data: components['schemas']['ServerOnlineData'];
       type: 'server.online';
@@ -1347,6 +1349,7 @@ export interface components {
     };
     SnapshotPal: {
       action?: string | null;
+      ai_action?: string | null;
       class: string;
       guild_id?: string | null;
       hp?: number | null;
@@ -1501,9 +1504,11 @@ export interface components {
       in_game_time: string | null;
       palboxes: components['schemas']['SnapshotPalBox'][];
       pals: components['schemas']['SnapshotPal'][];
+      pals_omitted?: number;
       players: components['schemas']['SnapshotPlayer'][];
       source: 'gamedata' | 'rest';
       wild: components['schemas']['SnapshotWild'][];
+      wild_omitted?: number;
     } & {
       [key: string]: unknown;
     };

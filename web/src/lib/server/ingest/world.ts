@@ -26,6 +26,7 @@ import {
 } from './context';
 import { emitSiteEvent } from './projections';
 import { openSessionOf, playersWithOpenSessions } from './sessions';
+import { segmentMeters } from '$lib/world/movement';
 
 type Schemas = components['schemas'];
 type SnapshotData = Schemas['WorldSnapshotData'];
@@ -37,23 +38,10 @@ export const stationarySampleMs = 60_000;
 export const stationaryMeters = 1;
 export const absentAfterMs = 90_000;
 export const baseGoneAfterMs = 60_000;
-export const maxSegmentMs = 300_000;
-export const maxSpeedMps = 80;
 export const baselineKey = 'world.baseline_at';
 
 export function baseKey(x: number, y: number): string {
   return `${Math.round(x / 10)}:${Math.round(y / 10)}`;
-}
-
-export function segmentMeters(
-  from: { x: number; y: number; ts: Date },
-  to: { x: number; y: number; ts: Date }
-): number {
-  const elapsedMs = to.ts.getTime() - from.ts.getTime();
-  if (elapsedMs <= 0 || elapsedMs > maxSegmentMs) return 0;
-  const meters = Math.hypot(to.x - from.x, to.y - from.y) / 100;
-  if (meters / (elapsedMs / 1000) > maxSpeedMps) return 0;
-  return meters;
 }
 
 function text(value: string | null | undefined): string | null {
@@ -94,7 +82,10 @@ async function samplePosition(
   if (!last) return;
   const session = await openSessionOf(ctx, player);
   if (!session || last.ts < session.joinedAt) return;
-  const meters = segmentMeters(last, { x: entry.x, y: entry.y, ts });
+  const meters = segmentMeters(
+    { x: last.x, y: last.y, seconds: last.ts.getTime() / 1000 },
+    { x: entry.x, y: entry.y, seconds: ts.getTime() / 1000 }
+  );
   if (meters <= 0) return;
   await updatePlayer(ctx, player, { distanceM: sql`${players.distanceM} + ${meters}` });
   await ctx.tx
@@ -413,7 +404,7 @@ async function applyPals(
       ownerPlayerId: ownerId,
       guildId: text(pal.guild_id),
       baseId: base?.id ?? null,
-      action: text(pal.action),
+      action: text(pal.action) ?? text(pal.ai_action),
       x: pal.x,
       y: pal.y,
       z: pal.z ?? null,

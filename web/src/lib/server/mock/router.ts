@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { getContract } from '../openapi';
 import { cloneFixture, getFixture, hasFixture } from './fixtures';
 import { cookieName, hasAdminSession } from './session';
+import { rebaseTimes } from './clock';
 import { mockStream } from './sse';
 
 interface MockRoute {
@@ -68,7 +69,7 @@ function errorResponse(status: number, code: string, message: string): Response 
 }
 
 function jsonResponse(document: unknown, isPublic: boolean): Response {
-  const body = JSON.stringify(document);
+  const body = JSON.stringify(rebaseTimes(document));
   const etag = `"${createHash('sha1').update(body).digest('hex').slice(0, 16)}"`;
   return new Response(body, {
     status: 200,

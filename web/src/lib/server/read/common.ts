@@ -3,6 +3,7 @@ import type { components } from '$lib/api/types';
 import type { Database } from '../db/client';
 import { guilds, players, serverState, type PlayerRow, type ServerStateRow } from '../db/schema';
 import { serverStateId } from '../ingest/context';
+import { classes as palClasses } from '$lib/world/pals.json';
 
 export type Schemas = components['schemas'];
 export type PlayerRef = Schemas['PlayerRef'];
@@ -26,7 +27,15 @@ export function platformName(value: string): Platform {
     : 'other';
 }
 
+const classSpecies = new Map(
+  Object.entries(palClasses as unknown as Record<string, { species: string | null }>).map(
+    ([name, entry]) => [name.toLowerCase(), entry.species]
+  )
+);
+
 export function speciesOf(className: string): string {
+  const known = classSpecies.get(className.toLowerCase());
+  if (known) return known;
   let species = className;
   if (species.startsWith('BP_')) species = species.slice(3);
   if (species.endsWith('_C')) species = species.slice(0, -2);

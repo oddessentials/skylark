@@ -1,4 +1,5 @@
 import type { StreamFrame } from '$lib/api/types';
+import { rebaseTimes } from './clock';
 import { getFixture } from './fixtures';
 
 export const replayIntervalMs = 10_000;
@@ -22,7 +23,7 @@ export function framesAfter(frames: StreamFrame[], lastEventId: string | null): 
 }
 
 export function mockStream(request: Request): Response {
-  const frames = (getFixture('stream') as StreamFrame[] | undefined) ?? [];
+  const frames = rebaseTimes((getFixture('stream') as StreamFrame[] | undefined) ?? []);
   const lastEventId =
     request.headers.get('last-event-id') ?? new URL(request.url).searchParams.get('last_event_id');
   const encoder = new TextEncoder();

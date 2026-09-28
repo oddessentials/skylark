@@ -117,9 +117,10 @@ async function serverOnline(
   event: StoredEvent,
   ts: Date
 ): Promise<EventOutcome> {
-  const data = event.data as unknown as Schemas['ServerInfo'];
+  const data = event.data as unknown as Schemas['ServerOnlineData'];
   const state = await loadServerState(ctx);
   const transition = !state.online;
+  const settings = data.settings ?? null;
   await updateServerState(ctx, {
     online: true,
     onlineSince: transition ? ts : state.onlineSince,
@@ -127,8 +128,21 @@ async function serverOnline(
     serverVersion: data.version,
     serverName: data.name,
     serverDescription: data.description ?? null,
-    worldGuid: data.world_guid
+    worldGuid: data.world_guid,
+    ...(settings
+      ? {
+          dayTimeSpeedRate: settings.day_time_speed_rate,
+          nightTimeSpeedRate: settings.night_time_speed_rate,
+          maxPlayers: settings.server_player_max_num
+        }
+      : {})
   });
+  if (settings && !ctx.rebuild) {
+    await ctx.tx
+      .update(collectorRuns)
+      .set({ settings: settings as unknown as Record<string, unknown> })
+      .where(eq(collectorRuns.runId, event.run_id));
+  }
   ctx.effects.statusChanged = true;
   return { playerId: null, quiet: !transition };
 }

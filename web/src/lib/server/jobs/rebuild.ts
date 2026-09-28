@@ -4,7 +4,7 @@ import { events, players, projectionTables, serverState } from '../db/schema';
 import { createContext, type StoredEvent, type Tx } from '../ingest/context';
 import { lockProjections } from '../ingest/ingest';
 import { applyEvent, markEvent } from '../ingest/projections';
-import { maxSegmentMs, maxSpeedMps } from '../ingest/world';
+import { maxGapSeconds, maxSpeedMps } from '$lib/world/movement';
 
 interface Cursor {
   ts: Date;
@@ -29,7 +29,6 @@ async function nextChunk(tx: Tx, cursor: Cursor | null, size: number) {
 }
 
 export async function recomputeDistances(tx: Tx): Promise<void> {
-  const maxSegmentS = maxSegmentMs / 1000;
   await tx.execute(sql`
     with segments as (
       select player_id, ts, x, y,
@@ -48,7 +47,7 @@ export async function recomputeDistances(tx: Tx): Promise<void> {
       join valid v on v.player_id = s.player_id
         and v.prev_ts >= s.joined_at
         and v.ts <= coalesce(s.left_at, now())
-      where v.secs > 0 and v.secs <= ${maxSegmentS} and v.meters / v.secs <= ${maxSpeedMps}
+      where v.secs > 0 and v.secs <= ${maxGapSeconds} and v.meters / v.secs <= ${maxSpeedMps}
       group by s.id
     )
     update sessions set distance_m = totals.meters from totals where totals.id = sessions.id

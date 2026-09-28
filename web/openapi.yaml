@@ -3640,7 +3640,15 @@ components:
         - logs
       additionalProperties: true
     ServerOnlineData:
-      $ref: '#/components/schemas/ServerInfo'
+      allOf:
+        - $ref: '#/components/schemas/ServerInfo'
+        - type: object
+          properties:
+            settings:
+              description: The world settings at this start, so a change made while the server was down reaches the site.
+              anyOf:
+                - $ref: '#/components/schemas/ServerSettings'
+                - type: 'null'
     ServerOfflineData:
       type: object
       properties:
@@ -3796,6 +3804,11 @@ components:
           type:
             - string
             - 'null'
+        ai_action:
+          type:
+            - string
+            - 'null'
+          description: What the Pal's AI is doing, for example BP_AIAction_Worker_Working; Pals usually leave action empty.
         x:
           type: number
         y:
@@ -3903,6 +3916,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SnapshotWild'
+        wild_omitted:
+          type: integer
+          minimum: 0
+          description: Wild Pals left out to keep the snapshot under 400 KB, the lowest levels first; absent when none were.
+        pals_omitted:
+          type: integer
+          minimum: 0
+          description: Pals left out to keep the snapshot under 400 KB; absent when none were.
       required:
         - source
         - in_game_time
