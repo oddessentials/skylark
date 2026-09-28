@@ -16,10 +16,12 @@ const (
 )
 
 type saveOutcome struct {
-	result   *saves.Result
-	err      error
-	modified time.Time
-	dir      string
+	result    *saves.Result
+	err       error
+	modified  time.Time
+	dir       string
+	unchanged bool
+	retry     bool
 }
 
 func (c *Collector) savesEnabled() bool {
@@ -27,7 +29,11 @@ func (c *Collector) savesEnabled() bool {
 }
 
 func (c *Collector) checkSaves() {
-	if !c.savesEnabled() || c.saveRunning || !c.serverUp {
+	if !c.savesEnabled() || c.saveRunning || (c.restOn() && !c.serverUp) {
+		return
+	}
+	if c.remote != nil {
+		c.checkRemoteSaves()
 		return
 	}
 	worldGUID := ""
@@ -66,7 +72,14 @@ func (c *Collector) checkSaves() {
 
 func (c *Collector) onSaveResult(outcome saveOutcome) {
 	c.saveRunning = false
+	if outcome.retry {
+		c.log.Debug("the world save changed while it was copied; trying again at the next check", "dir", outcome.dir)
+		return
+	}
 	c.saveReadAt = time.Now()
+	if outcome.unchanged {
+		return
+	}
 	if outcome.err != nil {
 		c.saveState = saveError
 		if message := outcome.err.Error(); message != c.saveProblem {

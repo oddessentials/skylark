@@ -17,6 +17,7 @@ import (
 
 	"github.com/BurntSushi/toml"
 	"github.com/oddessentials/skylark/collector/internal/modevents"
+	"github.com/oddessentials/skylark/collector/internal/remote"
 )
 
 const DefaultFileName = "skylark-collector.toml"
@@ -38,7 +39,10 @@ type Palworld struct {
 	RestURL       string `toml:"rest_url"`
 	AdminPassword string `toml:"admin_password"`
 	ServerDir     string `toml:"server_dir"`
+	RestOff       bool   `toml:"-"`
 }
+
+const RestOff = "off"
 
 type Logs struct {
 	Source   string `toml:"source"`
@@ -67,6 +71,10 @@ type Saves struct {
 	Reader   string        `toml:"reader"`
 	Dir      string        `toml:"dir"`
 	Interval time.Duration `toml:"interval"`
+	Remote   string        `toml:"remote"`
+	Password string        `toml:"password"`
+	Key      string        `toml:"key"`
+	HostKey  string        `toml:"host_key"`
 }
 
 type Mod struct {
@@ -238,6 +246,10 @@ func findSaveReader(dir, platform string) string {
 }
 
 func derive(cfg *Config, restURLSet bool, platform string) error {
+	if strings.EqualFold(strings.TrimSpace(cfg.Palworld.RestURL), RestOff) {
+		cfg.Palworld.RestOff = true
+		cfg.Palworld.RestURL = ""
+	}
 	location, err := time.LoadLocation(cfg.Logs.Timezone)
 	if err != nil {
 		return fmt.Errorf("logs.timezone %q: %w", cfg.Logs.Timezone, err)
@@ -282,11 +294,13 @@ func derive(cfg *Config, restURLSet bool, platform string) error {
 		if _, err := os.Stat(cfg.Saves.Reader); err != nil {
 			cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("saves.reader %s: %v; the world save is not read", cfg.Saves.Reader, err))
 			cfg.Saves.Reader = ""
-		} else if len(cfg.SaveRoots) == 0 {
+		} else if len(cfg.SaveRoots) == 0 && cfg.Saves.Remote == "" {
 			cfg.Warnings = append(cfg.Warnings, "the save reader is here but the world save folder is unknown; set saves.dir (or palworld.server_dir) so the collector can read it")
 		}
+	} else if cfg.Saves.Remote != "" {
+		cfg.Warnings = append(cfg.Warnings, "saves.remote is set but there is no save reader beside the collector; put skylark-savereader next to it or set saves.reader")
 	}
-	if !restURLSet {
+	if !restURLSet && !cfg.Palworld.RestOff {
 		port := 8212
 		if cfg.ServerIni != nil && cfg.ServerIni.RESTAPIPort > 0 {
 			port = cfg.ServerIni.RESTAPIPort
@@ -296,7 +310,7 @@ func derive(cfg *Config, restURLSet bool, platform string) error {
 		}
 		cfg.Palworld.RestURL = "http://127.0.0.1:" + strconv.Itoa(port)
 	}
-	if cfg.ServerIni != nil {
+	if cfg.ServerIni != nil && !cfg.Palworld.RestOff {
 		restOn := cfg.ServerIni.RESTAPIEnabled
 		if cfg.Logs.Source == SourceLaunch && launch.RESTAPI {
 			restOn = true
@@ -355,13 +369,34 @@ func validate(cfg *Config, dryRun bool) error {
 			problems = append(problems, "site.secret is required")
 		}
 	}
-	if parsed, err := url.Parse(cfg.Palworld.RestURL); err != nil || (parsed.Scheme != "http" && parsed.Scheme != "https") || parsed.Host == "" {
-		problems = append(problems, fmt.Sprintf("palworld.rest_url %q must be an http or https URL", cfg.Palworld.RestURL))
-	} else if parsed.Scheme == "http" && !localHost(parsed.Hostname()) {
-		cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("palworld.rest_url %s is plain HTTP to a public address, so the admin password crosses the internet unencrypted; use https if the host offers it, or reach the server through a VPN or tunnel", cfg.Palworld.RestURL))
+	if cfg.Palworld.RestOff {
+		if cfg.Logs.Source == SourceLaunch {
+			problems = append(problems, "logs.source launch needs the REST API to shut the server down, so palworld.rest_url cannot be off")
+		}
+		if cfg.Saves.Remote == "" && len(cfg.SaveRoots) == 0 && cfg.Logs.Source == SourceNone {
+			problems = append(problems, "with palworld.rest_url = off the collector has nothing to read; set saves.remote, saves.dir or a log source")
+		}
+	} else {
+		if parsed, err := url.Parse(cfg.Palworld.RestURL); err != nil || (parsed.Scheme != "http" && parsed.Scheme != "https") || parsed.Host == "" {
+			problems = append(problems, fmt.Sprintf("palworld.rest_url %q must be an http or https URL, or off", cfg.Palworld.RestURL))
+		} else if parsed.Scheme == "http" && !localHost(parsed.Hostname()) {
+			cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("palworld.rest_url %s is plain HTTP to a public address, so the admin password crosses the internet unencrypted; use https if the host offers it, or reach the server through a VPN or tunnel", cfg.Palworld.RestURL))
+		}
+		if cfg.Palworld.AdminPassword == "" {
+			problems = append(problems, "palworld.admin_password is required; set it, or set palworld.server_dir so it is read from PalWorldSettings.ini")
+		}
 	}
-	if cfg.Palworld.AdminPassword == "" {
-		problems = append(problems, "palworld.admin_password is required; set it, or set palworld.server_dir so it is read from PalWorldSettings.ini")
+	if cfg.Saves.Remote != "" {
+		if target, err := remote.Parse(cfg.Saves.Remote); err != nil {
+			problems = append(problems, err.Error())
+		} else if target.Scheme == "ftp" && !localHost(target.Hostname()) {
+			cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("saves.remote %s is plain FTP to a public address, so its password crosses the internet unencrypted; use ftps:// or sftp:// if the host offers it", remote.Redact(cfg.Saves.Remote)))
+		}
+		if cfg.Saves.Key != "" {
+			if _, err := os.Stat(cfg.Saves.Key); err != nil {
+				problems = append(problems, fmt.Sprintf("saves.key %s: %v", cfg.Saves.Key, err))
+			}
+		}
 	}
 	switch cfg.Logs.Source {
 	case SourceLaunch:
@@ -497,6 +532,10 @@ var envSetters = []envSetter{
 	stringSetter("SKYLARK_SAVES_READER", func(c *Config) *string { return &c.Saves.Reader }),
 	stringSetter("SKYLARK_SAVES_DIR", func(c *Config) *string { return &c.Saves.Dir }),
 	durationSetter("SKYLARK_SAVES_INTERVAL", func(c *Config) *time.Duration { return &c.Saves.Interval }),
+	stringSetter("SKYLARK_SAVES_REMOTE", func(c *Config) *string { return &c.Saves.Remote }),
+	stringSetter("SKYLARK_SAVES_PASSWORD", func(c *Config) *string { return &c.Saves.Password }),
+	stringSetter("SKYLARK_SAVES_KEY", func(c *Config) *string { return &c.Saves.Key }),
+	stringSetter("SKYLARK_SAVES_HOST_KEY", func(c *Config) *string { return &c.Saves.HostKey }),
 	stringSetter("SKYLARK_MOD_EVENTS", func(c *Config) *string { return &c.Mod.Events }),
 	boolSetter("SKYLARK_SEND_IPS", func(c *Config) *bool { return &c.SendIPs }),
 	stringSetter("SKYLARK_JOURNAL_DIR", func(c *Config) *string { return &c.JournalDir }),
