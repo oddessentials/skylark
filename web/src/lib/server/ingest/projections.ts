@@ -299,6 +299,7 @@ async function mergeKnockout(
         : { mergedEventId: event.id, x: data.x, y: data.y, z: data.z ?? partner.z }
     )
     .where(eq(deaths.id, partner.id));
+  ctx.effects.changedEvents.push(partner.eventId);
   return true;
 }
 

@@ -1,9 +1,10 @@
 import { randomUUID } from 'node:crypto';
 import { asc, eq } from 'drizzle-orm';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import type { IngestBatch, IngestResult } from '../../src/lib/api/types';
+import type { ActivityItem, IngestBatch, IngestResult } from '../../src/lib/api/types';
 import { getDb } from '../../src/lib/server/db/client';
 import { deaths, events, feats, players } from '../../src/lib/server/db/schema';
+import { bus } from '../../src/lib/server/events/bus';
 import { rebuildProjections } from '../../src/lib/server/jobs/rebuild';
 import { buildActivityItems, listActivity } from '../../src/lib/server/read/activity';
 import { getPlayer } from '../../src/lib/server/read/players';
@@ -73,6 +74,12 @@ beforeAll(async () => {
 
 describe('events from the server mod', () => {
   it('merges a mod knockout with the snapshot knockout of the same moment, in either order', async () => {
+    const published: { frameId: string | null; item: ActivityItem }[] = [];
+    const unsubscribe = bus.subscribe((event) => {
+      if (event.channel === 'activity') published.push({ frameId: event.id, item: event.data });
+    });
+    const publishedFor = (eventId: string) =>
+      published.filter((entry) => entry.item.id === eventId);
     const snapshotFirst = await send(
       'player.died',
       { ...moss, x: -346912, y: 261690, z: 5000, source: 'snapshot' },
@@ -114,6 +121,13 @@ describe('events from the server mod', () => {
       killer_kind: 'pal',
       killer_level: 12
     });
+    expect(
+      publishedFor(snapshotFirst).map((entry) => [entry.frameId, entry.item.details.killer])
+    ).toEqual([
+      [snapshotFirst, null],
+      [null, 'Lamball']
+    ]);
+    expect(publishedFor(modSecond)).toEqual([]);
 
     const modFirst = await send(
       'player.died',
@@ -136,6 +150,12 @@ describe('events from the server mod', () => {
       cause: 'drown',
       killer: null
     });
+    expect(publishedFor(modFirst).map((entry) => [entry.frameId, entry.item.details.x])).toEqual([
+      [modFirst, -300000],
+      [null, -300100]
+    ]);
+    expect(publishedFor(snapshotSecond)).toEqual([]);
+    unsubscribe();
 
     await send(
       'player.died',

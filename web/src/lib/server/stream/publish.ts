@@ -45,26 +45,24 @@ export function publishMap(): void {
   }, wait);
 }
 
-export async function publishEvents(stored: StoredEvent[]): Promise<void> {
-  if (stored.length === 0 || bus.listenerCount() === 0) return;
+export async function publishEvents(stored: StoredEvent[], changed: string[] = []): Promise<void> {
+  if ((stored.length === 0 && changed.length === 0) || bus.listenerCount() === 0) return;
   const db = getDb();
   const features = await siteFeatures(db);
-  const rows = await feedRowsByIds(
-    db,
-    features,
-    stored.map((event) => event.id)
-  );
+  const fresh = new Set(stored.map((event) => event.id));
+  const rows = await feedRowsByIds(db, features, [...new Set([...fresh, ...changed])]);
   for (const item of await buildActivityItems(db, rows, features)) {
-    bus.publish({ channel: 'activity', id: item.id, data: item });
+    bus.publish({ channel: 'activity', id: fresh.has(item.id) ? item.id : null, data: item });
   }
 }
 
 export async function publishAfterIngest(
   stored: StoredEvent[],
-  effects: Pick<ProjectionEffects, 'statusChanged' | 'onlineChanged' | 'mapChanged'>
+  effects: Pick<ProjectionEffects, 'statusChanged' | 'onlineChanged' | 'mapChanged'> &
+    Partial<Pick<ProjectionEffects, 'changedEvents'>>
 ): Promise<void> {
   try {
-    await publishEvents(stored);
+    await publishEvents(stored, effects.changedEvents ?? []);
     if (effects.statusChanged || effects.onlineChanged) await publishStatus();
     if (effects.mapChanged) publishMap();
   } catch (error) {

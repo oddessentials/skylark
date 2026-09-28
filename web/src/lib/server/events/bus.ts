@@ -6,7 +6,7 @@ export type BusEvent =
   | { channel: 'status'; data: Schemas['Status'] }
   | { channel: 'online'; data: Schemas['OnlineList'] }
   | { channel: 'map'; data: Schemas['MapState'] }
-  | { channel: 'activity'; id: string; data: Schemas['ActivityItem'] };
+  | { channel: 'activity'; id: string | null; data: Schemas['ActivityItem'] };
 
 export type BusListener = (event: BusEvent) => void;
 
