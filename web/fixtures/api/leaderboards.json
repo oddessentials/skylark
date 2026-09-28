@@ -1,0 +1,60 @@
+{
+  "playtime": [
+    { "player": { "id": 4, "name": "Sable" }, "value": 52018 },
+    { "player": { "id": 2, "name": "Wren" }, "value": 42996 },
+    { "player": { "id": 1, "name": "Juniper" }, "value": 33694 },
+    { "player": { "id": 3, "name": "Tamsin" }, "value": 32535 },
+    { "player": { "id": 7, "name": "Orrin" }, "value": 22865 },
+    { "player": { "id": 6, "name": "Bramble" }, "value": 13504 },
+    { "player": { "id": 8, "name": "Kestrel" }, "value": 9122 },
+    { "player": { "id": 5, "name": "Mossbrook" }, "value": 8534 }
+  ],
+  "playtime_week": [
+    { "player": { "id": 4, "name": "Sable" }, "value": 52018 },
+    { "player": { "id": 2, "name": "Wren" }, "value": 42996 },
+    { "player": { "id": 1, "name": "Juniper" }, "value": 33694 },
+    { "player": { "id": 3, "name": "Tamsin" }, "value": 32535 },
+    { "player": { "id": 7, "name": "Orrin" }, "value": 22865 },
+    { "player": { "id": 6, "name": "Bramble" }, "value": 13504 },
+    { "player": { "id": 8, "name": "Kestrel" }, "value": 9122 },
+    { "player": { "id": 5, "name": "Mossbrook" }, "value": 8534 }
+  ],
+  "level": [
+    { "player": { "id": 4, "name": "Sable" }, "value": 31 },
+    { "player": { "id": 2, "name": "Wren" }, "value": 30 },
+    { "player": { "id": 1, "name": "Juniper" }, "value": 27 },
+    { "player": { "id": 3, "name": "Tamsin" }, "value": 27 },
+    { "player": { "id": 7, "name": "Orrin" }, "value": 24 },
+    { "player": { "id": 6, "name": "Bramble" }, "value": 19 },
+    { "player": { "id": 8, "name": "Kestrel" }, "value": 18 },
+    { "player": { "id": 5, "name": "Mossbrook" }, "value": 16 }
+  ],
+  "distance": [
+    { "player": { "id": 4, "name": "Sable" }, "value": 275076 },
+    { "player": { "id": 2, "name": "Wren" }, "value": 243885 },
+    { "player": { "id": 1, "name": "Juniper" }, "value": 182463 },
+    { "player": { "id": 3, "name": "Tamsin" }, "value": 182265 },
+    { "player": { "id": 7, "name": "Orrin" }, "value": 127301 },
+    { "player": { "id": 6, "name": "Bramble" }, "value": 54781 },
+    { "player": { "id": 8, "name": "Kestrel" }, "value": 39074 },
+    { "player": { "id": 5, "name": "Mossbrook" }, "value": 37844 }
+  ],
+  "deaths": [
+    { "player": { "id": 4, "name": "Sable" }, "value": 9 },
+    { "player": { "id": 1, "name": "Juniper" }, "value": 6 },
+    { "player": { "id": 3, "name": "Tamsin" }, "value": 3 },
+    { "player": { "id": 5, "name": "Mossbrook" }, "value": 2 },
+    { "player": { "id": 2, "name": "Wren" }, "value": 1 },
+    { "player": { "id": 6, "name": "Bramble" }, "value": 1 },
+    { "player": { "id": 7, "name": "Orrin" }, "value": 1 }
+  ],
+  "chat": [
+    { "player": { "id": 4, "name": "Sable" }, "value": 15 },
+    { "player": { "id": 3, "name": "Tamsin" }, "value": 14 },
+    { "player": { "id": 1, "name": "Juniper" }, "value": 12 },
+    { "player": { "id": 7, "name": "Orrin" }, "value": 7 },
+    { "player": { "id": 6, "name": "Bramble" }, "value": 4 },
+    { "player": { "id": 2, "name": "Wren" }, "value": 3 },
+    { "player": { "id": 8, "name": "Kestrel" }, "value": 2 }
+  ]
+}

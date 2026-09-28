@@ -1,0 +1,5 @@
+{
+  "name": "Palworld server",
+  "version": "0.1.0",
+  "features": { "chat": true, "guild_chat": false, "positions": true, "bases": true, "pals": true }
+}

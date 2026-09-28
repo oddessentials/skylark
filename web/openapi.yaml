@@ -14,11 +14,454 @@ servers:
     description: Local production image.
 security: []
 tags:
+  - name: public
+    description: What anyone can read about the server and its players.
+  - name: stream
+    description: Live updates as server-sent events.
+  - name: admin
+    description: Settings, collector connection, players, server actions, events, backups and jobs. Needs the admin session cookie; changes also need a same-origin Origin header.
   - name: system
     description: Health, site information and this contract.
   - name: ingest
     description: Signed batches from the collector.
 paths:
+  /api/v1/status:
+    get:
+      operationId: getStatus
+      tags:
+        - public
+      summary: Server status
+      description: Online, offline or unknown (the site has lost contact with its collector), the player count, server performance, the in-game clock and what the collector can see.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/status/history:
+    get:
+      operationId: getStatusHistory
+      tags:
+        - public
+      summary: Status history
+      description: Server state, player counts and frame rate in time buckets (5 minutes for 24h, 1 hour for 7d, 6 hours for 30d), oldest first.
+      parameters:
+        - name: range
+          in: query
+          required: false
+          description: How far back.
+          schema:
+            type: string
+            enum:
+              - 24h
+              - 7d
+              - 30d
+            default: 24h
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusHistory'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/online:
+    get:
+      operationId: getOnline
+      tags:
+        - public
+      summary: Players online
+      description: The players in the world now, longest online first. Positions need the positions feature and party Pals the pals feature.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnlineList'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/activity:
+    get:
+      operationId: listActivity
+      tags:
+        - public
+      summary: Activity feed
+      description: What happened on the server, newest first. Chat items need the chat feature (guild chat also guild_chat); base items need the bases feature.
+      parameters:
+        - name: types
+          in: query
+          required: false
+          description: Comma-separated activity types to include.
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PlayerFilter'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/players:
+    get:
+      operationId: listPlayers
+      tags:
+        - public
+      summary: Players
+      description: Every player the site has seen, except hidden ones.
+      parameters:
+        - name: sort
+          in: query
+          required: false
+          description: Order of the list. playtime, level and last_seen sort highest first, name alphabetically.
+          schema:
+            type: string
+            enum:
+              - last_seen
+              - playtime
+              - level
+              - name
+            default: last_seen
+        - name: q
+          in: query
+          required: false
+          description: Only players whose name contains this text, ignoring case.
+          schema:
+            type: string
+            maxLength: 64
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/players/{id}:
+    get:
+      operationId: getPlayer
+      tags:
+        - public
+      summary: Player
+      description: A player with their totals, current session, level history, recent sessions and deaths. A hidden player answers 404.
+      parameters:
+        - $ref: '#/components/parameters/PlayerId'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/players/{id}/sessions:
+    get:
+      operationId: listPlayerSessions
+      tags:
+        - public
+      summary: A player's sessions
+      description: Newest first.
+      parameters:
+        - $ref: '#/components/parameters/PlayerId'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/players/{id}/trail:
+    get:
+      operationId: getPlayerTrail
+      tags:
+        - public
+      summary: A player's trail
+      description: Where the player went during one session, oldest first, at most 2000 points. Needs the positions feature.
+      parameters:
+        - $ref: '#/components/parameters/PlayerId'
+        - name: session
+          in: query
+          required: false
+          description: Session id; the current or latest session when absent.
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trail'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/chat:
+    get:
+      operationId: listChat
+      tags:
+        - public
+      summary: Chat
+      description: Chat messages newest first. Needs the chat feature; guild messages also need guild_chat.
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/guilds:
+    get:
+      operationId: listGuilds
+      tags:
+        - public
+      summary: Guilds
+      description: Guilds with at least one current member, most members first.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GuildList'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/guilds/{id}:
+    get:
+      operationId: getGuild
+      tags:
+        - public
+      summary: Guild
+      description: A guild with its current members and, with the bases feature, its bases.
+      parameters:
+        - $ref: '#/components/parameters/GuildId'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Guild'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/map:
+    get:
+      operationId: getMap
+      tags:
+        - public
+      summary: Live map
+      description: Players, bases, wild Pals near players and the deaths of the last 24 hours, each only when its feature is on.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapState'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/leaderboards:
+    get:
+      operationId: getLeaderboards
+      tags:
+        - public
+      summary: Leaderboards
+      description: The top ten players in each category, hidden players left out. A category whose feature is off is empty.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leaderboards'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/world:
+    get:
+      operationId: getWorld
+      tags:
+        - public
+      summary: World
+      description: The server's world settings, its in-game clock and totals since the site began tracking.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/World'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/stream:
+    get:
+      operationId: streamEvents
+      tags:
+        - stream
+      summary: Live stream
+      description: 'Server-sent events. Event names: status (the Status object, on connect and whenever it changes), online (the OnlineList, on connect and on change), map (the MapState, on connect and after each world snapshot, at most every 5 s) and activity (one ActivityItem per new feed item, with the frame id set to the event id). A comment frame every 15 s keeps the connection alive. A reconnect with Last-Event-ID first replays up to 100 newer activity items.'
+      parameters:
+        - $ref: '#/components/parameters/LastEventId'
+        - name: last_event_id
+          in: query
+          required: false
+          description: Same as the Last-Event-ID header, for clients that reconnect manually.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: An event stream that stays open.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/StreamFrame'
+        '503':
+          $ref: '#/components/responses/Unavailable'
   /api/v1/health:
     get:
       operationId: getHealth
@@ -71,6 +514,541 @@ paths:
             application/json:
               schema:
                 type: object
+  /api/v1/admin/login:
+    post:
+      operationId: adminLogin
+      tags:
+        - admin
+      summary: Log in
+      description: Sets an HttpOnly, SameSite=Lax (Secure on https) session cookie. Limited to 5 attempts per minute per address.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '204':
+          description: Logged in; the cookie is set.
+          headers:
+            Set-Cookie:
+              description: The admin session cookie.
+              schema:
+                type: string
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/logout:
+    post:
+      operationId: adminLogout
+      tags:
+        - admin
+      summary: Log out
+      description: Ends the admin session and clears the cookie.
+      security:
+        - adminCookie: []
+      responses:
+        '204':
+          description: Logged out; the cookie is cleared.
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /api/v1/admin/session:
+    get:
+      operationId: getAdminSession
+      tags:
+        - admin
+      summary: Session state
+      description: Whether the cookie holds a valid admin session.
+      responses:
+        '200':
+          description: Whether the cookie holds a valid session, and whether the first password still has to be set.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminSession'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/setup:
+    post:
+      operationId: adminSetup
+      tags:
+        - admin
+      summary: Set the first admin password
+      description: Stores the admin password as a scrypt hash and logs in. Only while no password is stored and ADMIN_PASSWORD is not set. Limited to 5 attempts per minute per address.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetupRequest'
+      responses:
+        '204':
+          description: Password stored and logged in; the cookie is set.
+          headers:
+            Set-Cookie:
+              description: The admin session cookie.
+              schema:
+                type: string
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/settings:
+    get:
+      operationId: getAdminSettings
+      tags:
+        - admin
+      summary: Site settings
+      description: The site name and the feature switches, with the settings fixed by environment variables.
+      security:
+        - adminCookie: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminSettings'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+    put:
+      operationId: updateAdminSettings
+      tags:
+        - admin
+      summary: Change site settings
+      description: Changes the given settings and keeps the others. A setting whose environment variable is set cannot be changed here.
+      security:
+        - adminCookie: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminSettingsUpdate'
+      responses:
+        '200':
+          description: The settings after the change.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminSettings'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/collector:
+    get:
+      operationId: getAdminCollector
+      tags:
+        - admin
+      summary: Collector connection
+      description: The secret the collector signs with, the recent collector runs and the ingest counters of the last 24 hours.
+      security:
+        - adminCookie: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectorAdmin'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/collector/secret:
+    post:
+      operationId: regenerateCollectorSecret
+      tags:
+        - admin
+      summary: Replace the collector secret
+      description: The running collector is rejected until it is given the new secret.
+      security:
+        - adminCookie: []
+      responses:
+        '200':
+          description: The new secret.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectorSecret'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/players:
+    get:
+      operationId: listAdminPlayers
+      tags:
+        - admin
+      summary: Players with their platform ids
+      description: Every player with the platform ids that public responses leave out.
+      parameters:
+        - name: q
+          in: query
+          required: false
+          description: Only players whose name, account name or user id contains this text, ignoring case.
+          schema:
+            type: string
+            maxLength: 128
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Cursor'
+      security:
+        - adminCookie: []
+      responses:
+        '200':
+          description: Most recently seen first, hidden players included.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminPlayerPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/players/{id}:
+    patch:
+      operationId: updateAdminPlayer
+      tags:
+        - admin
+      summary: Rename or hide a player
+      description: Sets or removes a name override and hides or shows the player.
+      parameters:
+        - $ref: '#/components/parameters/PlayerId'
+      security:
+        - adminCookie: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerPatch'
+      responses:
+        '200':
+          description: The player after the change.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminPlayer'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/actions:
+    get:
+      operationId: listActions
+      tags:
+        - admin
+      summary: Server actions
+      description: The 50 most recent actions, newest first, with their delivery state.
+      security:
+        - adminCookie: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+    post:
+      operationId: createAction
+      tags:
+        - admin
+      summary: Queue a server action
+      description: The collector picks the action up with its next batch, carries it out through the server's REST API and reports the outcome. announce needs a message; kick and ban need a player or user id; unban needs one too; shutdown needs waittime_s and shows the message in game while it counts down.
+      security:
+        - adminCookie: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionCreate'
+      responses:
+        '201':
+          description: Queued.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/actions/{id}:
+    delete:
+      operationId: cancelAction
+      tags:
+        - admin
+      summary: Cancel a server action
+      description: Only an action the collector has not picked up yet can be cancelled.
+      parameters:
+        - $ref: '#/components/parameters/ActionId'
+      security:
+        - adminCookie: []
+      responses:
+        '200':
+          description: The cancelled action.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/events:
+    get:
+      operationId: listAdminEvents
+      tags:
+        - admin
+      summary: Raw events
+      description: Stored events newest first, with their data exactly as received.
+      parameters:
+        - name: type
+          in: query
+          required: false
+          description: Only this event type.
+          schema:
+            type: string
+            maxLength: 64
+        - name: invalid
+          in: query
+          required: false
+          description: Only events flagged as invalid.
+          schema:
+            type: boolean
+        - $ref: '#/components/parameters/PlayerFilter'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Cursor'
+      security:
+        - adminCookie: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/projections/rebuild:
+    post:
+      operationId: rebuildProjections
+      tags:
+        - admin
+      summary: Rebuild sessions and history
+      description: Replays every stored event in time order to rebuild sessions, level-ups, deaths, chat and the player totals. Ingest answers 503 while it runs.
+      security:
+        - adminCookie: []
+      responses:
+        '202':
+          description: Queued.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobAccepted'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/backups:
+    get:
+      operationId: listBackups
+      tags:
+        - admin
+      summary: Backups
+      description: Database backups on the backup volume, newest first.
+      security:
+        - adminCookie: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BackupList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/backups/run:
+    post:
+      operationId: runBackup
+      tags:
+        - admin
+      summary: Back up now
+      description: Dumps the database to the backup volume and keeps the 14 newest backups.
+      security:
+        - adminCookie: []
+      responses:
+        '202':
+          description: Queued.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobAccepted'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/jobs/{id}:
+    get:
+      operationId: getJob
+      tags:
+        - admin
+      summary: Job state
+      description: Progress of a rebuild or backup job.
+      parameters:
+        - $ref: '#/components/parameters/JobId'
+      security:
+        - adminCookie: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/admin/health:
+    get:
+      operationId: getAdminHealth
+      tags:
+        - admin
+      summary: Site health
+      description: The collector connection, ingest counters, database size, backups and background jobs.
+      security:
+        - adminCookie: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminHealth'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '503':
+          $ref: '#/components/responses/Unavailable'
   /api/ingest:
     post:
       operationId: ingestBatch
@@ -138,6 +1116,71 @@ components:
       schema:
         type: string
   parameters:
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Page size.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 200
+        default: 50
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor from a previous next_cursor.
+      schema:
+        type: string
+    PlayerFilter:
+      name: player
+      in: query
+      required: false
+      description: Only items involving this player id.
+      schema:
+        type: integer
+        minimum: 1
+    PlayerId:
+      name: id
+      in: path
+      required: true
+      description: Player id.
+      schema:
+        type: integer
+        minimum: 1
+    GuildId:
+      name: id
+      in: path
+      required: true
+      description: Guild id as the server reports it.
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 64
+    ActionId:
+      name: id
+      in: path
+      required: true
+      description: Action id.
+      schema:
+        type: integer
+        minimum: 1
+    JobId:
+      name: id
+      in: path
+      required: true
+      description: Job id.
+      schema:
+        type: integer
+        minimum: 1
+    LastEventId:
+      name: Last-Event-ID
+      in: header
+      required: false
+      description: Sent by EventSource on reconnect; newer activity items are replayed first (at most 100).
+      schema:
+        type: string
     SkylarkTimestamp:
       name: X-Skylark-Timestamp
       in: header
@@ -161,7 +1204,48 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: 'bad_request: a parameter or body field is invalid.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: 'unauthorized: no valid admin session, or a wrong password.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: 'forbidden: the Origin header does not match the site.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: 'not_found: no such resource, or its feature is switched off.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: 'conflict: the request clashes with the current state, for example a setting fixed by an environment variable or a job that is already running.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unavailable:
+      description: 'unavailable: the database cannot be reached.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
+    adminCookie:
+      type: apiKey
+      in: cookie
+      name: admin_session
+      description: The session cookie set by /api/v1/admin/login or /api/v1/admin/setup.
     collectorSignature:
       type: apiKey
       in: header
@@ -226,14 +1310,18 @@ components:
           description: Guild chat as well. Off by default.
         positions:
           type: boolean
-          description: Player positions, trails and the live map.
+          description: Player positions, trails, death spots and the live map.
+        bases:
+          type: boolean
+          description: Base locations on the map and on guild pages. Servers with PvP raiding may want it off.
         pals:
           type: boolean
-          description: Party Pals and base workers.
+          description: Party Pals, base workers and wild Pals near players.
       required:
         - chat
         - guild_chat
         - positions
+        - bases
         - pals
       additionalProperties: false
     Site:
@@ -250,6 +1338,2022 @@ components:
         - name
         - version
         - features
+      additionalProperties: false
+    PlayerRef:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - id
+        - name
+      additionalProperties: false
+    GuildRef:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+        - id
+        - name
+      additionalProperties: false
+    Platform:
+      type: string
+      description: steam is Steam, gdk Xbox or the Microsoft Store, ps5 PlayStation 5, mac the Mac App Store, other an unknown prefix.
+      enum:
+        - steam
+        - gdk
+        - ps5
+        - mac
+        - other
+    Point:
+      type: object
+      description: A world position in Unreal units, as the server reports it.
+      properties:
+        x:
+          type: number
+        y:
+          type: number
+      required:
+        - x
+        - y
+      additionalProperties: false
+    PartyPal:
+      type: object
+      description: A Pal out of its sphere beside its owner.
+      properties:
+        species:
+          type: string
+          description: The species key from the Blueprint class, for example SheepBall.
+        name:
+          type:
+            - string
+            - 'null'
+        level:
+          type: integer
+      required:
+        - species
+        - name
+        - level
+      additionalProperties: false
+    StatusState:
+      type: string
+      description: unknown when the site has lost contact with its collector or has never heard from one.
+      enum:
+        - online
+        - offline
+        - unknown
+    WorldClock:
+      type: object
+      description: The in-game clock as last observed. It advances 45 in-game minutes per real minute, times day_speed by day and night_speed by night.
+      properties:
+        time:
+          type:
+            - string
+            - 'null'
+          pattern: ^[0-9]{2}:[0-9]{2}$
+        day:
+          type:
+            - integer
+            - 'null'
+          minimum: 0
+        observed_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        day_speed:
+          type:
+            - number
+            - 'null'
+        night_speed:
+          type:
+            - number
+            - 'null'
+      required:
+        - time
+        - day
+        - observed_at
+        - day_speed
+        - night_speed
+      additionalProperties: false
+    CollectorLayersSummary:
+      type: object
+      description: What the collector reads, and so what this site can show.
+      properties:
+        rest:
+          type: boolean
+        gamedata:
+          type: boolean
+        logs:
+          type: boolean
+        saves:
+          type: boolean
+        mod:
+          type: boolean
+      required:
+        - rest
+        - gamedata
+        - logs
+        - saves
+        - mod
+      additionalProperties: false
+    StatusServer:
+      type: object
+      properties:
+        name:
+          type:
+            - string
+            - 'null'
+        description:
+          type:
+            - string
+            - 'null'
+        version:
+          type:
+            - string
+            - 'null'
+      required:
+        - name
+        - description
+        - version
+      additionalProperties: false
+    StatusPlayers:
+      type: object
+      properties:
+        online:
+          type: integer
+          minimum: 0
+        max:
+          type:
+            - integer
+            - 'null'
+          minimum: 0
+      required:
+        - online
+        - max
+      additionalProperties: false
+    StatusPerformance:
+      type: object
+      properties:
+        fps:
+          type:
+            - number
+            - 'null'
+        fps_avg:
+          type:
+            - number
+            - 'null'
+        frame_time_ms:
+          type:
+            - number
+            - 'null'
+        uptime_s:
+          type:
+            - number
+            - 'null'
+        measured_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+      required:
+        - fps
+        - fps_avg
+        - frame_time_ms
+        - uptime_s
+        - measured_at
+      additionalProperties: false
+    StatusCollector:
+      type: object
+      properties:
+        state:
+          type: string
+          description: active while batches arrive, stopped after a clean stop, lost when batches stopped for 3 minutes, none before the first batch.
+          enum:
+            - active
+            - stopped
+            - lost
+            - none
+        version:
+          type:
+            - string
+            - 'null'
+        last_seen_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        layers:
+          anyOf:
+            - $ref: '#/components/schemas/CollectorLayersSummary'
+            - type: 'null'
+      required:
+        - state
+        - version
+        - last_seen_at
+        - layers
+      additionalProperties: false
+    Status:
+      type: object
+      properties:
+        state:
+          $ref: '#/components/schemas/StatusState'
+        since:
+          type:
+            - string
+            - 'null'
+          format: date-time
+          description: When the current state began.
+        server:
+          $ref: '#/components/schemas/StatusServer'
+        players:
+          $ref: '#/components/schemas/StatusPlayers'
+        performance:
+          $ref: '#/components/schemas/StatusPerformance'
+        clock:
+          $ref: '#/components/schemas/WorldClock'
+        collector:
+          $ref: '#/components/schemas/StatusCollector'
+        updated_at:
+          type: string
+          format: date-time
+      required:
+        - state
+        - since
+        - server
+        - players
+        - performance
+        - clock
+        - collector
+        - updated_at
+      additionalProperties: false
+    StatusHistoryPoint:
+      type: object
+      properties:
+        ts:
+          type: string
+          format: date-time
+          description: Start of the bucket.
+        state:
+          $ref: '#/components/schemas/StatusState'
+        players_max:
+          type: integer
+          minimum: 0
+        players_avg:
+          type: number
+          minimum: 0
+        fps_avg:
+          type:
+            - number
+            - 'null'
+      required:
+        - ts
+        - state
+        - players_max
+        - players_avg
+        - fps_avg
+      additionalProperties: false
+    StatusHistory:
+      type: object
+      properties:
+        range:
+          type: string
+          enum:
+            - 24h
+            - 7d
+            - 30d
+        bucket_s:
+          type: integer
+        points:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusHistoryPoint'
+      required:
+        - range
+        - bucket_s
+        - points
+      additionalProperties: false
+    OnlinePlayer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        level:
+          type: integer
+          minimum: 0
+        platform:
+          $ref: '#/components/schemas/Platform'
+        guild:
+          anyOf:
+            - $ref: '#/components/schemas/GuildRef'
+            - type: 'null'
+        joined_at:
+          type: string
+          format: date-time
+        down:
+          type: boolean
+          description: True while the player lies defeated, before they respawn.
+        hp:
+          type:
+            - number
+            - 'null'
+        max_hp:
+          type:
+            - number
+            - 'null'
+        position:
+          description: Null unless the positions feature is on.
+          anyOf:
+            - $ref: '#/components/schemas/Point'
+            - type: 'null'
+        party:
+          type: array
+          description: Empty unless the pals feature is on.
+          items:
+            $ref: '#/components/schemas/PartyPal'
+      required:
+        - id
+        - name
+        - level
+        - platform
+        - guild
+        - joined_at
+        - down
+        - hp
+        - max_hp
+        - position
+        - party
+      additionalProperties: false
+    OnlineList:
+      type: object
+      properties:
+        players:
+          type: array
+          items:
+            $ref: '#/components/schemas/OnlinePlayer'
+        updated_at:
+          type: string
+          format: date-time
+      required:
+        - players
+        - updated_at
+      additionalProperties: false
+    ActivityType:
+      type: string
+      enum:
+        - server.online
+        - server.offline
+        - collector.lost
+        - player.joined
+        - player.left
+        - player.level_up
+        - player.died
+        - chat.message
+        - base.established
+        - base.removed
+        - guild.renamed
+        - player.guild_joined
+    ChatChannel:
+      type: string
+      enum:
+        - global
+        - guild
+        - say
+        - other
+    ActivityDetails:
+      type: object
+      description: 'Type-specific details. player.level_up: from, to. player.died: cause, killer, and x, y with the positions feature. player.left: session_s. chat.message: channel, text. base.established and base.removed: base_id, base_name, guild, x, y. guild.renamed: guild, old_name, new_name. player.guild_joined: guild, previous_guild. server.online: version. server.offline: reason. collector.lost: last_seen_at.'
+      properties:
+        from:
+          type: integer
+        to:
+          type: integer
+        cause:
+          type:
+            - string
+            - 'null'
+        killer:
+          type:
+            - string
+            - 'null'
+        x:
+          type: number
+        y:
+          type: number
+        session_s:
+          type:
+            - number
+            - 'null'
+        channel:
+          $ref: '#/components/schemas/ChatChannel'
+        text:
+          type: string
+        base_id:
+          type: integer
+        base_name:
+          type:
+            - string
+            - 'null'
+        guild:
+          anyOf:
+            - $ref: '#/components/schemas/GuildRef'
+            - type: 'null'
+        previous_guild:
+          anyOf:
+            - $ref: '#/components/schemas/GuildRef'
+            - type: 'null'
+        old_name:
+          type: string
+        new_name:
+          type: string
+        version:
+          type:
+            - string
+            - 'null'
+        reason:
+          type: string
+        last_seen_at:
+          type: string
+          format: date-time
+      additionalProperties: false
+    ActivityItem:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Uuid'
+        type:
+          $ref: '#/components/schemas/ActivityType'
+        ts:
+          type: string
+          format: date-time
+        player:
+          anyOf:
+            - $ref: '#/components/schemas/PlayerRef'
+            - type: 'null'
+        details:
+          $ref: '#/components/schemas/ActivityDetails'
+      required:
+        - id
+        - type
+        - ts
+        - player
+        - details
+      additionalProperties: false
+    ActivityPage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActivityItem'
+        next_cursor:
+          type:
+            - string
+            - 'null'
+      required:
+        - items
+        - next_cursor
+      additionalProperties: false
+    PlayerSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        level:
+          type: integer
+          minimum: 0
+        platform:
+          $ref: '#/components/schemas/Platform'
+        guild:
+          anyOf:
+            - $ref: '#/components/schemas/GuildRef'
+            - type: 'null'
+        online:
+          type: boolean
+        first_seen:
+          type: string
+          format: date-time
+        last_seen:
+          type: string
+          format: date-time
+        playtime_s:
+          type: number
+          minimum: 0
+          description: Includes the current session.
+        sessions:
+          type: integer
+          minimum: 0
+        deaths:
+          type: integer
+          minimum: 0
+      required:
+        - id
+        - name
+        - level
+        - platform
+        - guild
+        - online
+        - first_seen
+        - last_seen
+        - playtime_s
+        - sessions
+        - deaths
+      additionalProperties: false
+    PlayerPage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlayerSummary'
+        next_cursor:
+          type:
+            - string
+            - 'null'
+      required:
+        - items
+        - next_cursor
+      additionalProperties: false
+    SessionEndReason:
+      type: string
+      description: left when the player left, server_offline when the server stopped, collector_stopped or collector_lost when the site stopped hearing from the collector, absent when the player vanished from the world without a leave message.
+      enum:
+        - left
+        - server_offline
+        - collector_stopped
+        - collector_lost
+        - absent
+    Session:
+      type: object
+      properties:
+        id:
+          type: integer
+        joined_at:
+          type: string
+          format: date-time
+        left_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        duration_s:
+          type:
+            - number
+            - 'null'
+          minimum: 0
+          description: Null while the session is open.
+        end_reason:
+          anyOf:
+            - $ref: '#/components/schemas/SessionEndReason'
+            - type: 'null'
+        level_start:
+          type:
+            - integer
+            - 'null'
+        level_end:
+          type:
+            - integer
+            - 'null'
+        distance_m:
+          type:
+            - number
+            - 'null'
+          description: Null unless the positions feature is on.
+        deaths:
+          type: integer
+          minimum: 0
+      required:
+        - id
+        - joined_at
+        - left_at
+        - duration_s
+        - end_reason
+        - level_start
+        - level_end
+        - distance_m
+        - deaths
+      additionalProperties: false
+    SessionPage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Session'
+        next_cursor:
+          type:
+            - string
+            - 'null'
+      required:
+        - items
+        - next_cursor
+      additionalProperties: false
+    LevelPoint:
+      type: object
+      properties:
+        at:
+          type: string
+          format: date-time
+        level:
+          type: integer
+      required:
+        - at
+        - level
+      additionalProperties: false
+    PlayerPosition:
+      type: object
+      properties:
+        x:
+          type: number
+        y:
+          type: number
+        at:
+          type: string
+          format: date-time
+      required:
+        - x
+        - y
+        - at
+      additionalProperties: false
+    Death:
+      type: object
+      properties:
+        at:
+          type: string
+          format: date-time
+        x:
+          type:
+            - number
+            - 'null'
+          description: Null unless the positions feature is on.
+        y:
+          type:
+            - number
+            - 'null'
+        cause:
+          type:
+            - string
+            - 'null'
+        killer:
+          type:
+            - string
+            - 'null'
+      required:
+        - at
+        - x
+        - y
+        - cause
+        - killer
+      additionalProperties: false
+    CurrentSession:
+      type: object
+      properties:
+        id:
+          type: integer
+        joined_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - joined_at
+      additionalProperties: false
+    Player:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        level:
+          type: integer
+          minimum: 0
+        platform:
+          $ref: '#/components/schemas/Platform'
+        guild:
+          anyOf:
+            - $ref: '#/components/schemas/GuildRef'
+            - type: 'null'
+        online:
+          type: boolean
+        first_seen:
+          type: string
+          format: date-time
+        last_seen:
+          type: string
+          format: date-time
+        playtime_s:
+          type: number
+          minimum: 0
+        sessions:
+          type: integer
+          minimum: 0
+        deaths:
+          type: integer
+          minimum: 0
+        current_session:
+          anyOf:
+            - $ref: '#/components/schemas/CurrentSession'
+            - type: 'null'
+        distance_m:
+          type:
+            - number
+            - 'null'
+          description: Null unless the positions feature is on.
+        chat_messages:
+          type:
+            - integer
+            - 'null'
+          description: Null unless the chat feature is on.
+        position:
+          description: The last known position; null unless the positions feature is on.
+          anyOf:
+            - $ref: '#/components/schemas/PlayerPosition'
+            - type: 'null'
+        party:
+          type: array
+          description: Pals out with the player now; empty unless the pals feature is on.
+          items:
+            $ref: '#/components/schemas/PartyPal'
+        level_history:
+          type: array
+          description: Each level reached, oldest first.
+          items:
+            $ref: '#/components/schemas/LevelPoint'
+        recent_sessions:
+          type: array
+          maxItems: 5
+          items:
+            $ref: '#/components/schemas/Session'
+        recent_deaths:
+          type: array
+          maxItems: 5
+          items:
+            $ref: '#/components/schemas/Death'
+      required:
+        - id
+        - name
+        - level
+        - platform
+        - guild
+        - online
+        - first_seen
+        - last_seen
+        - playtime_s
+        - sessions
+        - deaths
+        - current_session
+        - distance_m
+        - chat_messages
+        - position
+        - party
+        - level_history
+        - recent_sessions
+        - recent_deaths
+      additionalProperties: false
+    TrailPoint:
+      type: object
+      properties:
+        at:
+          type: string
+          format: date-time
+        x:
+          type: number
+        y:
+          type: number
+      required:
+        - at
+        - x
+        - y
+      additionalProperties: false
+    Trail:
+      type: object
+      properties:
+        session_id:
+          type:
+            - integer
+            - 'null'
+        points:
+          type: array
+          maxItems: 2000
+          items:
+            $ref: '#/components/schemas/TrailPoint'
+      required:
+        - session_id
+        - points
+      additionalProperties: false
+    ChatItem:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Uuid'
+        ts:
+          type: string
+          format: date-time
+        player:
+          anyOf:
+            - $ref: '#/components/schemas/PlayerRef'
+            - type: 'null'
+        channel:
+          $ref: '#/components/schemas/ChatChannel'
+        text:
+          type: string
+      required:
+        - id
+        - ts
+        - player
+        - channel
+        - text
+      additionalProperties: false
+    ChatPage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatItem'
+        next_cursor:
+          type:
+            - string
+            - 'null'
+      required:
+        - items
+        - next_cursor
+      additionalProperties: false
+    Base:
+      type: object
+      description: A base, found by its Palbox.
+      properties:
+        id:
+          type: integer
+        name:
+          type:
+            - string
+            - 'null'
+        guild:
+          anyOf:
+            - $ref: '#/components/schemas/GuildRef'
+            - type: 'null'
+        x:
+          type: number
+        y:
+          type: number
+        workers:
+          type: integer
+          minimum: 0
+          description: Pals seen working there; the server only reports them while a player is nearby.
+        workers_seen_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        first_seen:
+          type: string
+          format: date-time
+        last_seen:
+          type: string
+          format: date-time
+        gone_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+      required:
+        - id
+        - name
+        - guild
+        - x
+        - y
+        - workers
+        - workers_seen_at
+        - first_seen
+        - last_seen
+        - gone_at
+      additionalProperties: false
+    GuildSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        members:
+          type: integer
+          minimum: 0
+        online:
+          type: integer
+          minimum: 0
+        top_level:
+          type:
+            - integer
+            - 'null'
+        bases:
+          type:
+            - integer
+            - 'null'
+          description: Null unless the bases feature is on.
+        first_seen:
+          type: string
+          format: date-time
+        last_seen:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - members
+        - online
+        - top_level
+        - bases
+        - first_seen
+        - last_seen
+      additionalProperties: false
+    GuildList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GuildSummary'
+      required:
+        - items
+      additionalProperties: false
+    GuildMember:
+      type: object
+      properties:
+        player:
+          $ref: '#/components/schemas/PlayerRef'
+        level:
+          type: integer
+        online:
+          type: boolean
+        since:
+          type: string
+          format: date-time
+        last_seen:
+          type: string
+          format: date-time
+      required:
+        - player
+        - level
+        - online
+        - since
+        - last_seen
+      additionalProperties: false
+    Guild:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/GuildMember'
+        bases:
+          type: array
+          description: Empty unless the bases feature is on.
+          items:
+            $ref: '#/components/schemas/Base'
+        first_seen:
+          type: string
+          format: date-time
+        last_seen:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - members
+        - bases
+        - first_seen
+        - last_seen
+      additionalProperties: false
+    MapPlayer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        level:
+          type: integer
+        guild_id:
+          type:
+            - string
+            - 'null'
+        x:
+          type: number
+        y:
+          type: number
+        down:
+          type: boolean
+      required:
+        - id
+        - name
+        - level
+        - guild_id
+        - x
+        - y
+        - down
+      additionalProperties: false
+    MapWild:
+      type: object
+      properties:
+        species:
+          type: string
+        name:
+          type:
+            - string
+            - 'null'
+        level:
+          type: integer
+        x:
+          type: number
+        y:
+          type: number
+      required:
+        - species
+        - name
+        - level
+        - x
+        - y
+      additionalProperties: false
+    MapDeath:
+      type: object
+      properties:
+        player:
+          $ref: '#/components/schemas/PlayerRef'
+        at:
+          type: string
+          format: date-time
+        x:
+          type: number
+        y:
+          type: number
+      required:
+        - player
+        - at
+        - x
+        - y
+      additionalProperties: false
+    MapState:
+      type: object
+      properties:
+        updated_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+          description: When the world was last observed.
+        players:
+          type: array
+          description: Empty unless the positions feature is on.
+          items:
+            $ref: '#/components/schemas/MapPlayer'
+        bases:
+          type: array
+          description: Standing bases; empty unless the bases feature is on.
+          items:
+            $ref: '#/components/schemas/Base'
+        wild:
+          type: array
+          description: Wild Pals loaded near players; empty unless the pals feature is on.
+          items:
+            $ref: '#/components/schemas/MapWild'
+        deaths:
+          type: array
+          description: Deaths of the last 24 hours; empty unless the positions feature is on.
+          items:
+            $ref: '#/components/schemas/MapDeath'
+      required:
+        - updated_at
+        - players
+        - bases
+        - wild
+        - deaths
+      additionalProperties: false
+    LeaderboardEntry:
+      type: object
+      properties:
+        player:
+          $ref: '#/components/schemas/PlayerRef'
+        value:
+          type: number
+      required:
+        - player
+        - value
+      additionalProperties: false
+    Leaderboards:
+      type: object
+      properties:
+        playtime:
+          type: array
+          description: Seconds played, all time.
+          items:
+            $ref: '#/components/schemas/LeaderboardEntry'
+        playtime_week:
+          type: array
+          description: Seconds played in the last 7 days.
+          items:
+            $ref: '#/components/schemas/LeaderboardEntry'
+        level:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeaderboardEntry'
+        distance:
+          type: array
+          description: Metres travelled; empty unless the positions feature is on.
+          items:
+            $ref: '#/components/schemas/LeaderboardEntry'
+        deaths:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeaderboardEntry'
+        chat:
+          type: array
+          description: Chat messages sent; empty unless the chat feature is on.
+          items:
+            $ref: '#/components/schemas/LeaderboardEntry'
+      required:
+        - playtime
+        - playtime_week
+        - level
+        - distance
+        - deaths
+        - chat
+      additionalProperties: false
+    WorldSettings:
+      type: object
+      description: World settings as the server reports them; a value the server did not report is null.
+      properties:
+        exp_rate:
+          type:
+            - number
+            - 'null'
+        pal_capture_rate:
+          type:
+            - number
+            - 'null'
+        death_penalty:
+          type:
+            - string
+            - 'null'
+        is_pvp:
+          type:
+            - boolean
+            - 'null'
+        is_hardcore:
+          type:
+            - boolean
+            - 'null'
+        max_players:
+          type:
+            - integer
+            - 'null'
+        guild_player_max_num:
+          type:
+            - integer
+            - 'null'
+        base_camp_max_num_in_guild:
+          type:
+            - integer
+            - 'null'
+        day_time_speed_rate:
+          type:
+            - number
+            - 'null'
+        night_time_speed_rate:
+          type:
+            - number
+            - 'null'
+      required:
+        - exp_rate
+        - pal_capture_rate
+        - death_penalty
+        - is_pvp
+        - is_hardcore
+        - max_players
+        - guild_player_max_num
+        - base_camp_max_num_in_guild
+        - day_time_speed_rate
+        - night_time_speed_rate
+      additionalProperties: false
+    WorldTotals:
+      type: object
+      properties:
+        players:
+          type: integer
+          minimum: 0
+        guilds:
+          type: integer
+          minimum: 0
+        bases:
+          type:
+            - integer
+            - 'null'
+          description: Standing bases; null unless the bases feature is on.
+        sessions:
+          type: integer
+          minimum: 0
+        playtime_s:
+          type: number
+          minimum: 0
+        deaths:
+          type: integer
+          minimum: 0
+        level_ups:
+          type: integer
+          minimum: 0
+      required:
+        - players
+        - guilds
+        - bases
+        - sessions
+        - playtime_s
+        - deaths
+        - level_ups
+      additionalProperties: false
+    World:
+      type: object
+      properties:
+        name:
+          type:
+            - string
+            - 'null'
+        description:
+          type:
+            - string
+            - 'null'
+        version:
+          type:
+            - string
+            - 'null'
+        settings:
+          $ref: '#/components/schemas/WorldSettings'
+        clock:
+          $ref: '#/components/schemas/WorldClock'
+        totals:
+          $ref: '#/components/schemas/WorldTotals'
+        tracking_since:
+          type:
+            - string
+            - 'null'
+          format: date-time
+      required:
+        - name
+        - description
+        - version
+        - settings
+        - clock
+        - totals
+        - tracking_since
+      additionalProperties: false
+    StreamFrame:
+      type: object
+      description: One server-sent event frame, shown as JSON for documentation.
+      properties:
+        event:
+          type: string
+          enum:
+            - status
+            - online
+            - map
+            - activity
+        id:
+          type:
+            - string
+            - 'null'
+        data:
+          anyOf:
+            - $ref: '#/components/schemas/Status'
+            - $ref: '#/components/schemas/OnlineList'
+            - $ref: '#/components/schemas/MapState'
+            - $ref: '#/components/schemas/ActivityItem'
+      required:
+        - event
+        - id
+        - data
+      additionalProperties: false
+    LoginRequest:
+      type: object
+      properties:
+        password:
+          type: string
+          maxLength: 200
+      required:
+        - password
+      additionalProperties: false
+    SetupRequest:
+      type: object
+      properties:
+        password:
+          type: string
+          minLength: 8
+          maxLength: 200
+      required:
+        - password
+      additionalProperties: false
+    AdminSession:
+      type: object
+      properties:
+        authenticated:
+          type: boolean
+        expires_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        setup_required:
+          type: boolean
+          description: True until the first admin password is set.
+      required:
+        - authenticated
+        - expires_at
+        - setup_required
+      additionalProperties: false
+    AdminSettings:
+      type: object
+      properties:
+        site_name:
+          type: string
+          maxLength: 60
+        features:
+          $ref: '#/components/schemas/SiteFeatures'
+        locked:
+          type: array
+          description: Settings fixed by an environment variable.
+          items:
+            type: string
+            enum:
+              - site_name
+      required:
+        - site_name
+        - features
+        - locked
+      additionalProperties: false
+    AdminSettingsUpdate:
+      type: object
+      properties:
+        site_name:
+          type: string
+          minLength: 1
+          maxLength: 60
+        features:
+          type: object
+          properties:
+            chat:
+              type: boolean
+            guild_chat:
+              type: boolean
+            positions:
+              type: boolean
+            bases:
+              type: boolean
+            pals:
+              type: boolean
+          additionalProperties: false
+      additionalProperties: false
+    CollectorRun:
+      type: object
+      properties:
+        run_id:
+          $ref: '#/components/schemas/Uuid'
+        name:
+          type:
+            - string
+            - 'null'
+        version:
+          type:
+            - string
+            - 'null'
+        os:
+          type:
+            - string
+            - 'null'
+        arch:
+          type:
+            - string
+            - 'null'
+        started_at:
+          type: string
+          format: date-time
+        last_seen_at:
+          type: string
+          format: date-time
+        stopped_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        lost_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        last_seq:
+          type: integer
+          minimum: 0
+        layers:
+          type:
+            - object
+            - 'null'
+          additionalProperties: true
+        server_version:
+          type:
+            - string
+            - 'null'
+        world_guid:
+          type:
+            - string
+            - 'null'
+        heartbeat:
+          type:
+            - object
+            - 'null'
+          additionalProperties: true
+        heartbeat_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+      required:
+        - run_id
+        - name
+        - version
+        - os
+        - arch
+        - started_at
+        - last_seen_at
+        - stopped_at
+        - lost_at
+        - last_seq
+        - layers
+        - server_version
+        - world_guid
+        - heartbeat
+        - heartbeat_at
+      additionalProperties: false
+    IngestCounters:
+      type: object
+      properties:
+        last_batch_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        batches_24h:
+          type: integer
+          minimum: 0
+        events_24h:
+          type: integer
+          minimum: 0
+        duplicates_24h:
+          type: integer
+          minimum: 0
+        invalid_24h:
+          type: integer
+          minimum: 0
+        rejected_24h:
+          type: integer
+          minimum: 0
+      required:
+        - last_batch_at
+        - batches_24h
+        - events_24h
+        - duplicates_24h
+        - invalid_24h
+        - rejected_24h
+      additionalProperties: false
+    CollectorAdmin:
+      type: object
+      properties:
+        site_version:
+          type: string
+          description: The project version this site runs; collectors of the same version match it exactly.
+        secret:
+          type: string
+        secret_from_environment:
+          type: boolean
+          description: True when COLLECTOR_SECRET sets the secret, which then cannot be replaced here.
+        runs:
+          type: array
+          description: The 10 most recent collector runs, newest first.
+          items:
+            $ref: '#/components/schemas/CollectorRun'
+        ingest:
+          $ref: '#/components/schemas/IngestCounters'
+      required:
+        - site_version
+        - secret
+        - secret_from_environment
+        - runs
+        - ingest
+      additionalProperties: false
+    CollectorSecret:
+      type: object
+      properties:
+        secret:
+          type: string
+      required:
+        - secret
+      additionalProperties: false
+    AdminPlayer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          description: The name shown on the site, the override when there is one.
+        game_name:
+          type: string
+          description: The character name the server last reported.
+        name_override:
+          type:
+            - string
+            - 'null'
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_uid:
+          type:
+            - string
+            - 'null'
+        account_name:
+          type:
+            - string
+            - 'null'
+        platform:
+          $ref: '#/components/schemas/Platform'
+        level:
+          type: integer
+        hidden:
+          type: boolean
+        online:
+          type: boolean
+        first_seen:
+          type: string
+          format: date-time
+        last_seen:
+          type: string
+          format: date-time
+        playtime_s:
+          type: number
+        sessions:
+          type: integer
+      required:
+        - id
+        - name
+        - game_name
+        - name_override
+        - user_id
+        - player_uid
+        - account_name
+        - platform
+        - level
+        - hidden
+        - online
+        - first_seen
+        - last_seen
+        - playtime_s
+        - sessions
+      additionalProperties: false
+    AdminPlayerPage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdminPlayer'
+        next_cursor:
+          type:
+            - string
+            - 'null'
+      required:
+        - items
+        - next_cursor
+      additionalProperties: false
+    PlayerPatch:
+      type: object
+      properties:
+        name_override:
+          type:
+            - string
+            - 'null'
+          minLength: 1
+          maxLength: 64
+          description: The name to show instead of the character name; null removes it.
+        hidden:
+          type: boolean
+          description: A hidden player is left out of every public page, list and feed.
+      additionalProperties: false
+    ActionKind:
+      type: string
+      enum:
+        - announce
+        - kick
+        - ban
+        - unban
+        - save
+        - shutdown
+    ActionState:
+      type: string
+      description: queued until the collector picks it up (or its delay runs out), sent while it is being carried out, done or failed when the collector reported back, expired when it was sent over 5 minutes ago without a report, cancelled when an admin cancelled it first.
+      enum:
+        - queued
+        - sent
+        - done
+        - failed
+        - expired
+        - cancelled
+    Action:
+      type: object
+      properties:
+        id:
+          type: integer
+        kind:
+          $ref: '#/components/schemas/ActionKind'
+        state:
+          $ref: '#/components/schemas/ActionState'
+        message:
+          type:
+            - string
+            - 'null'
+        player:
+          anyOf:
+            - $ref: '#/components/schemas/PlayerRef'
+            - type: 'null'
+        user_id:
+          anyOf:
+            - $ref: '#/components/schemas/UserId'
+            - type: 'null'
+        waittime_s:
+          type:
+            - integer
+            - 'null'
+        not_before:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        delivered_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        finished_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        error:
+          type:
+            - string
+            - 'null'
+      required:
+        - id
+        - kind
+        - state
+        - message
+        - player
+        - user_id
+        - waittime_s
+        - not_before
+        - created_at
+        - delivered_at
+        - finished_at
+        - error
+      additionalProperties: false
+    ActionList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Action'
+      required:
+        - items
+      additionalProperties: false
+    ActionCreate:
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/ActionKind'
+        message:
+          type: string
+          minLength: 1
+          maxLength: 200
+        player_id:
+          type: integer
+          minimum: 1
+          description: The player to kick, ban or unban.
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        waittime_s:
+          type: integer
+          minimum: 1
+          maximum: 3600
+          description: For shutdown, the seconds the server counts down before it saves and stops.
+        delay_s:
+          type: integer
+          minimum: 0
+          maximum: 604800
+          description: Hold the action back this many seconds.
+      required:
+        - kind
+      additionalProperties: false
+    AdminEvent:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Uuid'
+        type:
+          type: string
+        ts:
+          type: string
+          format: date-time
+        received_at:
+          type: string
+          format: date-time
+        source:
+          type: string
+          enum:
+            - collector
+            - site
+        run_id:
+          $ref: '#/components/schemas/Uuid'
+        seq:
+          type: integer
+        invalid:
+          type:
+            - string
+            - 'null'
+          description: Why the data did not match the schema of its type.
+        quiet:
+          type: boolean
+          description: True when the event changed nothing the public feed shows, for example a join of a player already online.
+        player:
+          anyOf:
+            - $ref: '#/components/schemas/PlayerRef'
+            - type: 'null'
+        data:
+          type: object
+          additionalProperties: true
+      required:
+        - id
+        - type
+        - ts
+        - received_at
+        - source
+        - run_id
+        - seq
+        - invalid
+        - quiet
+        - player
+        - data
+      additionalProperties: false
+    EventPage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdminEvent'
+        next_cursor:
+          type:
+            - string
+            - 'null'
+      required:
+        - items
+        - next_cursor
+      additionalProperties: false
+    JobAccepted:
+      type: object
+      properties:
+        job_id:
+          type: integer
+      required:
+        - job_id
+      additionalProperties: false
+    Job:
+      type: object
+      properties:
+        id:
+          type: integer
+        kind:
+          type: string
+          enum:
+            - projections_rebuild
+            - backup
+        state:
+          type: string
+          enum:
+            - queued
+            - running
+            - done
+            - failed
+        started_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        finished_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        progress:
+          type:
+            - number
+            - 'null'
+          minimum: 0
+          maximum: 1
+        error:
+          type:
+            - string
+            - 'null'
+      required:
+        - id
+        - kind
+        - state
+        - started_at
+        - finished_at
+        - progress
+        - error
+      additionalProperties: false
+    Backup:
+      type: object
+      properties:
+        at:
+          type: string
+          format: date-time
+        file:
+          type: string
+        size_bytes:
+          type: integer
+          minimum: 0
+        ok:
+          type: boolean
+      required:
+        - at
+        - file
+        - size_bytes
+        - ok
+      additionalProperties: false
+    BackupList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+      required:
+        - items
+      additionalProperties: false
+    AdminHealthCollector:
+      type: object
+      properties:
+        state:
+          type: string
+          enum:
+            - active
+            - stopped
+            - lost
+            - none
+        run:
+          anyOf:
+            - $ref: '#/components/schemas/CollectorRun'
+            - type: 'null'
+        heartbeat_age_s:
+          type:
+            - number
+            - 'null'
+          minimum: 0
+        queue_depth:
+          type:
+            - integer
+            - 'null'
+        dropped_events:
+          type:
+            - integer
+            - 'null'
+        rest:
+          type:
+            - string
+            - 'null'
+        gamedata:
+          type:
+            - string
+            - 'null'
+        logs:
+          type:
+            - string
+            - 'null'
+      required:
+        - state
+        - run
+        - heartbeat_age_s
+        - queue_depth
+        - dropped_events
+        - rest
+        - gamedata
+        - logs
+      additionalProperties: false
+    AdminHealthDb:
+      type: object
+      properties:
+        events_total:
+          type: integer
+          minimum: 0
+        positions_total:
+          type: integer
+          minimum: 0
+        size_mb:
+          type: number
+          minimum: 0
+      required:
+        - events_total
+        - positions_total
+        - size_mb
+      additionalProperties: false
+    AdminHealthBackup:
+      type: object
+      properties:
+        last_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        size_mb:
+          type:
+            - number
+            - 'null'
+          minimum: 0
+        kept:
+          type: integer
+          minimum: 0
+      required:
+        - last_at
+        - size_mb
+        - kept
+      additionalProperties: false
+    AdminHealthJob:
+      type: object
+      properties:
+        name:
+          type: string
+        last_run_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        last_ok:
+          type:
+            - boolean
+            - 'null'
+        last_error:
+          type:
+            - string
+            - 'null'
+      required:
+        - name
+        - last_run_at
+        - last_ok
+        - last_error
+      additionalProperties: false
+    AdminHealth:
+      type: object
+      properties:
+        collector:
+          $ref: '#/components/schemas/AdminHealthCollector'
+        ingest:
+          $ref: '#/components/schemas/IngestCounters'
+        db:
+          $ref: '#/components/schemas/AdminHealthDb'
+        backup:
+          $ref: '#/components/schemas/AdminHealthBackup'
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdminHealthJob'
+      required:
+        - collector
+        - ingest
+        - db
+        - backup
+        - jobs
       additionalProperties: false
     Uuid:
       type: string
@@ -767,6 +3871,12 @@ components:
       type: object
       description: The world as the server's game-data snapshot shows it, sent every few seconds. Players come from REST /v1/api/players when the snapshot is switched off.
       properties:
+        source:
+          type: string
+          enum:
+            - gamedata
+            - rest
+          description: gamedata when the snapshot comes from the server's game-data API, so pals, palboxes and wild are complete; rest when game-data is off and only the players from REST /v1/api/players are known, with pals, palboxes and wild empty.
         in_game_time:
           type:
             - string
@@ -794,6 +3904,7 @@ components:
           items:
             $ref: '#/components/schemas/SnapshotWild'
       required:
+        - source
         - in_game_time
         - in_game_day
         - players

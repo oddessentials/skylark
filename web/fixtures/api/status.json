@@ -1,0 +1,31 @@
+{
+  "state": "online",
+  "since": "2026-09-27T01:33:00.000Z",
+  "server": {
+    "name": "Skylark Test Server",
+    "description": "A simulated Palworld world for Skylark development.",
+    "version": "v1.0.5.102999"
+  },
+  "players": { "online": 4, "max": 32 },
+  "performance": {
+    "fps": 56.34,
+    "fps_avg": 57.14,
+    "frame_time_ms": 17.75,
+    "uptime_s": 68191,
+    "measured_at": "2026-09-27T20:29:31.001Z"
+  },
+  "clock": {
+    "time": "05:53",
+    "day": 450,
+    "observed_at": "2026-09-27T20:29:51.000Z",
+    "day_speed": 1,
+    "night_speed": 1
+  },
+  "collector": {
+    "state": "active",
+    "version": "0.1.0",
+    "last_seen_at": "2026-09-27T20:29:52.500Z",
+    "layers": { "rest": true, "gamedata": true, "logs": true, "saves": false, "mod": false }
+  },
+  "updated_at": "2026-09-27T20:30:05.000Z"
+}

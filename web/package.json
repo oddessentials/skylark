@@ -13,11 +13,12 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "test": "vitest run",
+    "test": "vitest run --project unit --project integration",
     "test:e2e": "playwright install chromium && playwright test",
     "db:migrate": "node --env-file-if-exists=../.env src/lib/server/db/migrate.ts",
     "db:generate": "drizzle-kit generate",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "fixtures": "vitest run --project fixtures"
   },
   "dependencies": {
     "ajv": "8.20.0",

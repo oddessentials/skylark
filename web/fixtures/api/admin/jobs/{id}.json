@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "kind": "backup",
+  "state": "done",
+  "started_at": "2026-09-27T18:30:05.000Z",
+  "finished_at": "2026-09-27T18:30:10.000Z",
+  "progress": 1,
+  "error": null
+}

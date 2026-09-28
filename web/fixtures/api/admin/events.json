@@ -1,0 +1,1839 @@
+{
+  "items": [
+    {
+      "id": "fd58fea9-68fb-463a-9380-0c6c3ebf03de",
+      "type": "player.level_up",
+      "ts": "2026-09-27T20:25:50.999Z",
+      "received_at": "2026-09-27T20:29:52.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 2040,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 2, "name": "Wren" },
+      "data": {
+        "to": 30,
+        "from": 29,
+        "name": "Wren",
+        "user_id": "steam_76561190000000001",
+        "player_id": "1E065500000000000000000000000000"
+      }
+    },
+    {
+      "id": "be6512b7-74ea-454c-93ff-17b21f9c0312",
+      "type": "player.level_up",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1941,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "to": 27,
+        "from": 26,
+        "name": "Tamsin",
+        "user_id": "steam_76561190000000002",
+        "player_id": "41210481000000000000000000000000"
+      }
+    },
+    {
+      "id": "9b0d120d-0dc0-4a6e-b94f-80f2f2127bf3",
+      "type": "player.level_up",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1942,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "to": 24,
+        "from": 23,
+        "name": "Orrin",
+        "user_id": "gdk_9000000000000003",
+        "player_id": "1D003CEC000000000000000000000000"
+      }
+    },
+    {
+      "id": "0d493e5f-9832-4a59-98aa-9856de330edf",
+      "type": "chat.message",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1943,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 1, "name": "Juniper" },
+      "data": {
+        "name": "Juniper",
+        "text": "night is falling, stay close",
+        "channel": "Global",
+        "user_id": "steam_76561190000000004",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "6a122efb-b8c8-48cc-9c54-34363fabf827",
+      "type": "player.level_up",
+      "ts": "2026-09-27T20:04:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1937,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 1, "name": "Juniper" },
+      "data": {
+        "to": 27,
+        "from": 26,
+        "name": "Juniper",
+        "user_id": "steam_76561190000000004",
+        "player_id": "9EBE27A2000000000000000000000000"
+      }
+    },
+    {
+      "id": "d96ae4d3-16a2-4388-ae6d-b88a9ba0de44",
+      "type": "chat.message",
+      "ts": "2026-09-27T19:50:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1924,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "name": "Tamsin",
+        "text": "anyone up for the tower tonight?",
+        "channel": "Global",
+        "user_id": "steam_76561190000000002",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "867bcf0f-8f60-49d2-a3cc-865a7320531d",
+      "type": "player.died",
+      "ts": "2026-09-27T19:50:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1925,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "x": -562545.0543181442,
+        "y": 121391.15593724685,
+        "z": 7987.178035244719,
+        "name": "Orrin",
+        "cause": null,
+        "killer": null,
+        "source": "snapshot",
+        "user_id": "gdk_9000000000000003",
+        "player_id": "1D003CEC000000000000000000000000"
+      }
+    },
+    {
+      "id": "5d84f0c1-e235-4b11-a9cc-67cf1b0077e4",
+      "type": "player.joined",
+      "ts": "2026-09-27T19:50:00.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1923,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 2, "name": "Wren" },
+      "data": {
+        "name": "Wren",
+        "source": "log",
+        "user_id": "steam_76561190000000001",
+        "player_id": "1E065500000000000000000000000000"
+      }
+    },
+    {
+      "id": "17b99f6b-7edd-409c-972d-02d162712456",
+      "type": "player.connected",
+      "ts": "2026-09-27T19:49:48.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1922,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 2, "name": "Wren" },
+      "data": { "name": "Wren", "user_id": "steam_76561190000000001" }
+    },
+    {
+      "id": "57df5646-bff0-4814-8ef6-21badfac43ae",
+      "type": "chat.message",
+      "ts": "2026-09-27T19:46:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1917,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "name": "Tamsin",
+        "text": "night is falling, stay close",
+        "channel": "Guild",
+        "user_id": "steam_76561190000000002",
+        "guild_name": "Sunreach Wayfarers"
+      }
+    },
+    {
+      "id": "24e67eda-b0ca-44b9-bb40-7a4c5567e189",
+      "type": "player.joined",
+      "ts": "2026-09-27T19:33:00.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1906,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "name": "Tamsin",
+        "source": "log",
+        "user_id": "steam_76561190000000002",
+        "player_id": "41210481000000000000000000000000"
+      }
+    },
+    {
+      "id": "71a8c0bd-5b6f-484a-bf77-b6edfa3c205e",
+      "type": "player.connected",
+      "ts": "2026-09-27T19:32:48.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1905,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": { "name": "Tamsin", "user_id": "steam_76561190000000002" }
+    },
+    {
+      "id": "a3383522-5eee-4928-b93d-159f1a8f599d",
+      "type": "player.level_up",
+      "ts": "2026-09-27T19:20:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1893,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 1, "name": "Juniper" },
+      "data": {
+        "to": 26,
+        "from": 25,
+        "name": "Juniper",
+        "user_id": "steam_76561190000000004",
+        "player_id": "9EBE27A2000000000000000000000000"
+      }
+    },
+    {
+      "id": "30c157c7-21cd-444a-bae5-7a4ca1c2d580",
+      "type": "player.left",
+      "ts": "2026-09-27T19:17:15.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1891,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "source": "log",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "6bd5adaf-715f-4a97-b568-210fe7e89690",
+      "type": "player.joined",
+      "ts": "2026-09-27T19:16:00.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1887,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "name": "Orrin",
+        "source": "log",
+        "user_id": "gdk_9000000000000003",
+        "player_id": "1D003CEC000000000000000000000000"
+      }
+    },
+    {
+      "id": "8af013ed-7598-4484-8dcf-8f29240c0a67",
+      "type": "player.connected",
+      "ts": "2026-09-27T19:15:48.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1886,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": { "name": "Orrin", "user_id": "gdk_9000000000000003" }
+    },
+    {
+      "id": "6b2811e8-66c5-4372-bfed-6a089e52de75",
+      "type": "player.died",
+      "ts": "2026-09-27T19:12:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1883,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "x": -316727.90378875245,
+        "y": 222222.97536642052,
+        "z": -1960.8538436289878,
+        "name": "Sable",
+        "cause": null,
+        "killer": null,
+        "source": "snapshot",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "28ea5b9a-5e98-40d0-b211-0ae95c1df41d",
+      "type": "player.died",
+      "ts": "2026-09-27T19:10:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1879,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 1, "name": "Juniper" },
+      "data": {
+        "x": -28774.98780931857,
+        "y": 146935.85787619717,
+        "z": 7178.697648738697,
+        "name": "Juniper",
+        "cause": null,
+        "killer": null,
+        "source": "snapshot",
+        "user_id": "steam_76561190000000004",
+        "player_id": "9EBE27A2000000000000000000000000"
+      }
+    },
+    {
+      "id": "07061bc3-865c-4241-82ba-1425a674b408",
+      "type": "player.died",
+      "ts": "2026-09-27T19:08:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1877,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "x": -379316.49519706797,
+        "y": 181908.98856584157,
+        "z": 3600.896252156794,
+        "name": "Sable",
+        "cause": null,
+        "killer": null,
+        "source": "snapshot",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "febbdfef-e94f-4619-8d20-f05a21d14d4f",
+      "type": "player.level_up",
+      "ts": "2026-09-27T19:06:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1875,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "to": 31,
+        "from": 30,
+        "name": "Sable",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "488f606d-6262-4a1f-af5d-b005eeeff678",
+      "type": "chat.message",
+      "ts": "2026-09-27T19:04:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1871,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 1, "name": "Juniper" },
+      "data": {
+        "name": "Juniper",
+        "text": "lol",
+        "channel": "Global",
+        "user_id": "steam_76561190000000004",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "c5b2e9ac-3cbd-4354-9424-07201f9fcbbc",
+      "type": "chat.message",
+      "ts": "2026-09-27T19:00:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1868,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 1, "name": "Juniper" },
+      "data": {
+        "name": "Juniper",
+        "text": "anyone up for the tower tonight?",
+        "channel": "Global",
+        "user_id": "steam_76561190000000004",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "fcc540ac-9367-4257-9ffb-58c393d9e0af",
+      "type": "player.joined",
+      "ts": "2026-09-27T18:59:00.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1867,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 1, "name": "Juniper" },
+      "data": {
+        "name": "Juniper",
+        "source": "log",
+        "user_id": "steam_76561190000000004",
+        "player_id": "9EBE27A2000000000000000000000000"
+      }
+    },
+    {
+      "id": "999d7901-5327-4ef7-b953-2ca70139ca88",
+      "type": "player.connected",
+      "ts": "2026-09-27T18:58:48.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1866,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 1, "name": "Juniper" },
+      "data": { "name": "Juniper", "user_id": "steam_76561190000000004" }
+    },
+    {
+      "id": "abd25ef5-26b5-4187-8a3a-74eb635c8a12",
+      "type": "chat.message",
+      "ts": "2026-09-27T18:48:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1855,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "text": "need more paldium, trade?",
+        "channel": "Global",
+        "user_id": "steam_76561190000000007",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "c7404c8d-ff7b-4492-8517-4c6c8dc62261",
+      "type": "player.died",
+      "ts": "2026-09-27T18:26:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1835,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "x": -236286.6,
+        "y": -99689.9,
+        "z": 515.7,
+        "name": "Sable",
+        "cause": null,
+        "killer": null,
+        "source": "snapshot",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "da88bce6-e0bf-49ab-bcfa-f2f29d082bbf",
+      "type": "player.joined",
+      "ts": "2026-09-27T18:10:44.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1830,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "source": "log",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "764ce628-4b99-42bc-bef8-83f6365ee143",
+      "type": "player.connected",
+      "ts": "2026-09-27T18:10:32.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1829,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 4, "name": "Sable" },
+      "data": { "name": "Sable", "user_id": "steam_76561190000000007" }
+    },
+    {
+      "id": "33c52c7a-3542-4384-be29-bb5979d83bb0",
+      "type": "player.left",
+      "ts": "2026-09-27T15:35:11.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1795,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "name": "Bramble",
+        "source": "log",
+        "user_id": "steam_76561190000000006",
+        "player_id": "FD381C4C000000000000000000000000"
+      }
+    },
+    {
+      "id": "9306ea7f-7f7e-44ef-8fda-41f1c98bf745",
+      "type": "player.level_up",
+      "ts": "2026-09-27T15:35:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1793,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "to": 19,
+        "from": 18,
+        "name": "Bramble",
+        "user_id": "steam_76561190000000006",
+        "player_id": "FD381C4C000000000000000000000000"
+      }
+    },
+    {
+      "id": "357e95af-693a-4302-bd16-f0e95c2ae51b",
+      "type": "player.level_up",
+      "ts": "2026-09-27T15:13:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1773,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "to": 18,
+        "from": 17,
+        "name": "Bramble",
+        "user_id": "steam_76561190000000006",
+        "player_id": "FD381C4C000000000000000000000000"
+      }
+    },
+    {
+      "id": "5985c54e-4bff-476c-818b-041076b31395",
+      "type": "player.level_up",
+      "ts": "2026-09-27T14:53:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1756,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "to": 17,
+        "from": 16,
+        "name": "Bramble",
+        "user_id": "steam_76561190000000006",
+        "player_id": "FD381C4C000000000000000000000000"
+      }
+    },
+    {
+      "id": "c39af110-4fc5-4f20-85c0-601b778d6360",
+      "type": "player.level_up",
+      "ts": "2026-09-27T14:35:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1740,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "to": 16,
+        "from": 15,
+        "name": "Bramble",
+        "user_id": "steam_76561190000000006",
+        "player_id": "FD381C4C000000000000000000000000"
+      }
+    },
+    {
+      "id": "aa7fb9a7-7cae-43e5-b5e9-ff7faaa63ecc",
+      "type": "chat.message",
+      "ts": "2026-09-27T14:15:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1723,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "name": "Bramble",
+        "text": "got a new saddle finally",
+        "channel": "Global",
+        "user_id": "steam_76561190000000006",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "311c134e-91be-46f3-870b-94e729f2356d",
+      "type": "player.level_up",
+      "ts": "2026-09-27T14:15:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1722,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "to": 15,
+        "from": 14,
+        "name": "Bramble",
+        "user_id": "steam_76561190000000006",
+        "player_id": "FD381C4C000000000000000000000000"
+      }
+    },
+    {
+      "id": "b2f44eba-058f-4d1a-ae86-e45577fabcb6",
+      "type": "chat.message",
+      "ts": "2026-09-27T14:13:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1718,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "name": "Bramble",
+        "text": "who left the furnace running",
+        "channel": "Say",
+        "user_id": "steam_76561190000000006",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "1d186fc4-486b-4a4a-82a0-4a1b73ebc753",
+      "type": "player.died",
+      "ts": "2026-09-27T14:09:00.999Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1715,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "x": -815943.6365383795,
+        "y": -403438.80221904325,
+        "z": -1612.4325981710106,
+        "name": "Bramble",
+        "cause": null,
+        "killer": null,
+        "source": "snapshot",
+        "user_id": "steam_76561190000000006",
+        "player_id": "FD381C4C000000000000000000000000"
+      }
+    },
+    {
+      "id": "c628fb1f-8315-488c-907e-6d5713f5b64c",
+      "type": "player.guild_joined",
+      "ts": "2026-09-27T13:55:01.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "site",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1702,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "name": "Bramble",
+        "user_id": "steam_76561190000000006",
+        "guild_id": "1077E95B45C893698D10D137B8FF9D0A",
+        "guild_name": "Night Market",
+        "previous_guild_id": "C7FDE24B1575F6DC520D3114D76FD075",
+        "previous_guild_name": "Moss and Ember"
+      }
+    },
+    {
+      "id": "52e325ed-18b7-4734-ba5e-22896db621d0",
+      "type": "player.joined",
+      "ts": "2026-09-27T13:43:19.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1701,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": {
+        "name": "Bramble",
+        "source": "log",
+        "user_id": "steam_76561190000000006",
+        "player_id": "FD381C4C000000000000000000000000"
+      }
+    },
+    {
+      "id": "1a49820c-c3bf-405a-9054-40129ce6acfe",
+      "type": "player.connected",
+      "ts": "2026-09-27T13:43:07.000Z",
+      "received_at": "2026-09-27T20:12:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1700,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 6, "name": "Bramble" },
+      "data": { "name": "Bramble", "user_id": "steam_76561190000000006" }
+    },
+    {
+      "id": "b7eb5e92-c2f5-4a01-8509-e0715a31e263",
+      "type": "server.online",
+      "ts": "2026-09-27T01:33:00.000Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1552,
+      "invalid": null,
+      "quiet": false,
+      "player": null,
+      "data": {
+        "name": "Skylark Test Server",
+        "version": "v1.0.5.102999",
+        "world_guid": "5EA2B1C94F0A4E3D8C7B6A5F4E3D2C1B",
+        "description": "A simulated Palworld world for Skylark development."
+      }
+    },
+    {
+      "id": "ca234b12-4e8f-4a3f-96a1-65761e097fb3",
+      "type": "server.offline",
+      "ts": "2026-09-27T01:30:00.000Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1551,
+      "invalid": null,
+      "quiet": false,
+      "player": null,
+      "data": { "reason": "shutdown" }
+    },
+    {
+      "id": "8b63a837-e091-4529-9e67-7b6a7ccaa1c7",
+      "type": "player.left",
+      "ts": "2026-09-26T19:23:08.000Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1477,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "source": "log",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "478725d3-6925-4fef-9220-e31e05e2a189",
+      "type": "chat.message",
+      "ts": "2026-09-26T19:09:00.999Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1462,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "text": "anyone up for the tower tonight?",
+        "channel": "Global",
+        "user_id": "steam_76561190000000007",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "c1ed3074-14b0-4162-9092-d9047d547aa3",
+      "type": "player.level_up",
+      "ts": "2026-09-26T18:53:00.999Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1447,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "to": 30,
+        "from": 29,
+        "name": "Sable",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "e27f3010-6239-4b6c-b1bf-a35d748fa789",
+      "type": "chat.message",
+      "ts": "2026-09-26T18:51:00.999Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1445,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "text": "got a new saddle finally",
+        "channel": "Say",
+        "user_id": "steam_76561190000000007",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "6a8cf0e7-91d0-4b7f-a737-b9137caf484c",
+      "type": "chat.message",
+      "ts": "2026-09-26T17:57:00.999Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1399,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "text": "lol",
+        "channel": "Guild",
+        "user_id": "steam_76561190000000007",
+        "guild_name": "Night Market"
+      }
+    },
+    {
+      "id": "024c9faf-5c88-4075-ac51-14dc86e38488",
+      "type": "player.level_up",
+      "ts": "2026-09-26T17:51:00.999Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1393,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "to": 29,
+        "from": 28,
+        "name": "Sable",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "2380893b-bc78-40be-8c38-8b5eb3aaff85",
+      "type": "player.died",
+      "ts": "2026-09-26T17:39:00.999Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1382,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "x": -158490.81595252588,
+        "y": -33398.17911123649,
+        "z": -1928.4359084442258,
+        "name": "Sable",
+        "cause": null,
+        "killer": null,
+        "source": "snapshot",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "ea2dc4e7-b22c-4f80-aa90-2f8d49d03d9e",
+      "type": "base.removed",
+      "ts": "2026-09-26T17:35:01.000Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "site",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1378,
+      "invalid": null,
+      "quiet": false,
+      "player": null,
+      "data": {
+        "x": -314377.2,
+        "y": 211003.3,
+        "z": -612.6,
+        "name": "Moss Camp 2",
+        "base_id": 4,
+        "guild_id": "C7FDE24B1575F6DC520D3114D76FD075",
+        "guild_name": "Moss and Ember"
+      }
+    },
+    {
+      "id": "2e8b1241-efaa-4315-843e-763d218b2dc8",
+      "type": "player.joined",
+      "ts": "2026-09-26T17:24:20.000Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1377,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "source": "log",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "68a9ec60-962f-4d3d-9aa9-b4f1b003ec18",
+      "type": "player.connected",
+      "ts": "2026-09-26T17:24:08.000Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1376,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 4, "name": "Sable" },
+      "data": { "name": "Sable", "user_id": "steam_76561190000000007" }
+    },
+    {
+      "id": "a53a9f84-cb0b-492e-bb70-15f38f1d5aaf",
+      "type": "player.left",
+      "ts": "2026-09-26T16:04:05.000Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1359,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 2, "name": "Wren" },
+      "data": {
+        "name": "Wren",
+        "source": "log",
+        "user_id": "steam_76561190000000001",
+        "player_id": "1E065500000000000000000000000000"
+      }
+    },
+    {
+      "id": "2d6ec881-5c92-48e2-825b-728927182a28",
+      "type": "player.left",
+      "ts": "2026-09-26T15:55:40.000Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1350,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "name": "Tamsin",
+        "source": "log",
+        "user_id": "steam_76561190000000002",
+        "player_id": "41210481000000000000000000000000"
+      }
+    },
+    {
+      "id": "94a492c1-89c5-423e-8289-b7d23146ee8c",
+      "type": "player.level_up",
+      "ts": "2026-09-26T15:39:00.999Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1334,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "to": 26,
+        "from": 25,
+        "name": "Tamsin",
+        "user_id": "steam_76561190000000002",
+        "player_id": "41210481000000000000000000000000"
+      }
+    },
+    {
+      "id": "8e1299ab-eff2-4ba3-a9e2-adfb3fc051bc",
+      "type": "player.level_up",
+      "ts": "2026-09-26T15:25:00.999Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1322,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 2, "name": "Wren" },
+      "data": {
+        "to": 29,
+        "from": 28,
+        "name": "Wren",
+        "user_id": "steam_76561190000000001",
+        "player_id": "1E065500000000000000000000000000"
+      }
+    },
+    {
+      "id": "61bd1a0c-96e3-4439-8b0a-234affa01a9f",
+      "type": "player.joined",
+      "ts": "2026-09-26T15:02:08.000Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1302,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "name": "Tamsin",
+        "source": "log",
+        "user_id": "steam_76561190000000002",
+        "player_id": "41210481000000000000000000000000"
+      }
+    },
+    {
+      "id": "d9432ca2-8559-40ef-81e9-0df8723e2a0d",
+      "type": "player.connected",
+      "ts": "2026-09-26T15:01:56.000Z",
+      "received_at": "2026-09-27T13:25:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1301,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": { "name": "Tamsin", "user_id": "steam_76561190000000002" }
+    },
+    {
+      "id": "77dbda01-15d7-4157-aa5d-1df35342b1a8",
+      "type": "player.died",
+      "ts": "2026-09-26T14:25:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1269,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 2, "name": "Wren" },
+      "data": {
+        "x": -293687.095221578,
+        "y": 314448.37820014096,
+        "z": -1316.5301211785525,
+        "name": "Wren",
+        "cause": null,
+        "killer": null,
+        "source": "snapshot",
+        "user_id": "steam_76561190000000001",
+        "player_id": "1E065500000000000000000000000000"
+      }
+    },
+    {
+      "id": "d11740dd-7dae-46e0-96f1-58738152ed90",
+      "type": "player.level_up",
+      "ts": "2026-09-26T14:23:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1267,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 2, "name": "Wren" },
+      "data": {
+        "to": 28,
+        "from": 27,
+        "name": "Wren",
+        "user_id": "steam_76561190000000001",
+        "player_id": "1E065500000000000000000000000000"
+      }
+    },
+    {
+      "id": "40c2c1b3-484f-4b20-81eb-0638f124e078",
+      "type": "chat.message",
+      "ts": "2026-09-26T13:53:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1241,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 2, "name": "Wren" },
+      "data": {
+        "name": "Wren",
+        "text": "who left the furnace running",
+        "channel": "Global",
+        "user_id": "steam_76561190000000001",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "9c21cc63-d379-40ac-97e8-25f09295125e",
+      "type": "player.joined",
+      "ts": "2026-09-26T13:41:11.000Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1232,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 2, "name": "Wren" },
+      "data": {
+        "name": "Wren",
+        "source": "log",
+        "user_id": "steam_76561190000000001",
+        "player_id": "1E065500000000000000000000000000"
+      }
+    },
+    {
+      "id": "aee118fb-3dbe-42e0-b6d2-01fed0d07c57",
+      "type": "player.connected",
+      "ts": "2026-09-26T13:40:59.000Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1231,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 2, "name": "Wren" },
+      "data": { "name": "Wren", "user_id": "steam_76561190000000001" }
+    },
+    {
+      "id": "6128d117-50f5-4ad0-a1b0-ad405d5c73fb",
+      "type": "player.left",
+      "ts": "2026-09-26T13:13:02.000Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1224,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 5, "name": "Mossbrook" },
+      "data": {
+        "name": "Mossbrook",
+        "source": "log",
+        "user_id": "gdk_9000000000000008",
+        "player_id": "A5D680EE000000000000000000000000"
+      }
+    },
+    {
+      "id": "30d3c5e7-00c9-49fd-ab65-0872e965c73f",
+      "type": "player.level_up",
+      "ts": "2026-09-26T13:11:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1221,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 5, "name": "Mossbrook" },
+      "data": {
+        "to": 16,
+        "from": 15,
+        "name": "Mossbrook",
+        "user_id": "gdk_9000000000000008",
+        "player_id": "A5D680EE000000000000000000000000"
+      }
+    },
+    {
+      "id": "12b6cbae-4341-4be3-8f9e-8c339b8d0d10",
+      "type": "player.died",
+      "ts": "2026-09-26T12:45:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1197,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 5, "name": "Mossbrook" },
+      "data": {
+        "x": -509806.4831120554,
+        "y": -333590.92039320467,
+        "z": 8017.9930205702785,
+        "name": "Mossbrook",
+        "cause": null,
+        "killer": null,
+        "source": "snapshot",
+        "user_id": "gdk_9000000000000008",
+        "player_id": "A5D680EE000000000000000000000000"
+      }
+    },
+    {
+      "id": "dab563c7-f4ce-4613-9a36-f96883faed85",
+      "type": "player.level_up",
+      "ts": "2026-09-26T12:37:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1190,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 5, "name": "Mossbrook" },
+      "data": {
+        "to": 15,
+        "from": 14,
+        "name": "Mossbrook",
+        "user_id": "gdk_9000000000000008",
+        "player_id": "A5D680EE000000000000000000000000"
+      }
+    },
+    {
+      "id": "cfcd75e2-f692-4566-9333-d0fa76a8447b",
+      "type": "player.level_up",
+      "ts": "2026-09-26T12:21:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1175,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 5, "name": "Mossbrook" },
+      "data": {
+        "to": 14,
+        "from": 13,
+        "name": "Mossbrook",
+        "user_id": "gdk_9000000000000008",
+        "player_id": "A5D680EE000000000000000000000000"
+      }
+    },
+    {
+      "id": "0267e3c4-0cf0-4a6a-8244-971cad25c9b7",
+      "type": "player.level_up",
+      "ts": "2026-09-26T12:09:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1164,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 5, "name": "Mossbrook" },
+      "data": {
+        "to": 13,
+        "from": 12,
+        "name": "Mossbrook",
+        "user_id": "gdk_9000000000000008",
+        "player_id": "A5D680EE000000000000000000000000"
+      }
+    },
+    {
+      "id": "811e7959-f74b-408b-a648-a8e4ca9c9a37",
+      "type": "player.joined",
+      "ts": "2026-09-26T11:47:51.000Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1153,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 5, "name": "Mossbrook" },
+      "data": {
+        "name": "Mossbrook",
+        "source": "log",
+        "user_id": "gdk_9000000000000008",
+        "player_id": "A5D680EE000000000000000000000000"
+      }
+    },
+    {
+      "id": "c8e08401-4952-47d0-bc47-e5c44f1a97e5",
+      "type": "player.connected",
+      "ts": "2026-09-26T11:47:39.000Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 1152,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 5, "name": "Mossbrook" },
+      "data": { "name": "Mossbrook", "user_id": "gdk_9000000000000008" }
+    },
+    {
+      "id": "2af8a120-7b85-400d-98d8-0c86c489bd03",
+      "type": "player.left",
+      "ts": "2026-09-25T21:55:24.000Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 985,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "source": "log",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "0a3cc2a7-a626-49cd-a3df-1b475ba226ce",
+      "type": "player.level_up",
+      "ts": "2026-09-25T21:03:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 939,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "to": 28,
+        "from": 27,
+        "name": "Sable",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "5e763f82-4726-4ba5-aea6-33acb5a0bc73",
+      "type": "chat.message",
+      "ts": "2026-09-25T20:59:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 934,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "text": "anyone up for the tower tonight?",
+        "channel": "Global",
+        "user_id": "steam_76561190000000007",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "7d48e524-1f11-41c2-b9f3-a07c279ca982",
+      "type": "player.died",
+      "ts": "2026-09-25T20:31:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 909,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "x": -196434.95157660227,
+        "y": -63723.84992059379,
+        "z": -1850.06089550443,
+        "name": "Sable",
+        "cause": null,
+        "killer": null,
+        "source": "snapshot",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "e1677bd0-daa4-4291-b6da-914601456585",
+      "type": "chat.message",
+      "ts": "2026-09-25T20:27:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 906,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "text": "lol",
+        "channel": "Global",
+        "user_id": "steam_76561190000000007",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "a666addc-8f0e-4f01-9178-82409823d6c5",
+      "type": "chat.message",
+      "ts": "2026-09-25T20:23:00.999Z",
+      "received_at": "2026-09-26T14:29:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 901,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "text": "anyone up for the tower tonight?",
+        "channel": "Guild",
+        "user_id": "steam_76561190000000007",
+        "guild_name": "Night Market"
+      }
+    },
+    {
+      "id": "3da5e117-bfcf-40c6-9408-b2a401c4dec6",
+      "type": "chat.message",
+      "ts": "2026-09-25T19:59:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 880,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "text": "found a great ore spot past the eagle statue",
+        "channel": "Global",
+        "user_id": "steam_76561190000000007",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "6dd81658-bf04-4323-9d2a-729114a0749e",
+      "type": "player.joined",
+      "ts": "2026-09-25T19:44:27.000Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 870,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 4, "name": "Sable" },
+      "data": {
+        "name": "Sable",
+        "source": "log",
+        "user_id": "steam_76561190000000007",
+        "player_id": "B91F528D000000000000000000000000"
+      }
+    },
+    {
+      "id": "d3d198eb-ab6f-4048-a05a-9c66150d3f12",
+      "type": "player.connected",
+      "ts": "2026-09-25T19:44:15.000Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 869,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 4, "name": "Sable" },
+      "data": { "name": "Sable", "user_id": "steam_76561190000000007" }
+    },
+    {
+      "id": "a356afad-6b40-493a-8d98-19470032dd99",
+      "type": "player.left",
+      "ts": "2026-09-25T18:48:47.000Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 856,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "name": "Orrin",
+        "source": "log",
+        "user_id": "gdk_9000000000000003",
+        "player_id": "1D003CEC000000000000000000000000"
+      }
+    },
+    {
+      "id": "6b314b97-5ded-4741-8cdf-3c9a75fb317f",
+      "type": "player.level_up",
+      "ts": "2026-09-25T18:41:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 849,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "to": 23,
+        "from": 22,
+        "name": "Orrin",
+        "user_id": "gdk_9000000000000003",
+        "player_id": "1D003CEC000000000000000000000000"
+      }
+    },
+    {
+      "id": "ec8a26c7-561b-4f52-8478-102c4cf6c9db",
+      "type": "player.left",
+      "ts": "2026-09-25T18:20:08.000Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 832,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 8, "name": "Kestrel" },
+      "data": {
+        "name": "Kestrel",
+        "source": "log",
+        "user_id": "ps5_9000000000000005",
+        "player_id": "5B5B90C0000000000000000000000000"
+      }
+    },
+    {
+      "id": "881cfeae-5aec-48e2-8874-213289f6024a",
+      "type": "player.level_up",
+      "ts": "2026-09-25T18:15:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 826,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 8, "name": "Kestrel" },
+      "data": {
+        "to": 18,
+        "from": 17,
+        "name": "Kestrel",
+        "user_id": "ps5_9000000000000005",
+        "player_id": "5B5B90C0000000000000000000000000"
+      }
+    },
+    {
+      "id": "5b428083-c893-4929-8694-6b2c240c56d1",
+      "type": "player.level_up",
+      "ts": "2026-09-25T18:05:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 816,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "to": 22,
+        "from": 21,
+        "name": "Orrin",
+        "user_id": "gdk_9000000000000003",
+        "player_id": "1D003CEC000000000000000000000000"
+      }
+    },
+    {
+      "id": "52232f5c-095e-4791-b43b-a91a0d609a86",
+      "type": "player.level_up",
+      "ts": "2026-09-25T17:51:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 804,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 8, "name": "Kestrel" },
+      "data": {
+        "to": 17,
+        "from": 16,
+        "name": "Kestrel",
+        "user_id": "ps5_9000000000000005",
+        "player_id": "5B5B90C0000000000000000000000000"
+      }
+    },
+    {
+      "id": "5980a344-2dcc-4e06-87c1-634f790f3a4f",
+      "type": "chat.message",
+      "ts": "2026-09-25T17:41:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 794,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "name": "Orrin",
+        "text": "lol",
+        "channel": "Global",
+        "user_id": "gdk_9000000000000003",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "762c5c43-6458-433e-9d11-f2c20b42d310",
+      "type": "player.level_up",
+      "ts": "2026-09-25T17:35:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 788,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "to": 21,
+        "from": 20,
+        "name": "Orrin",
+        "user_id": "gdk_9000000000000003",
+        "player_id": "1D003CEC000000000000000000000000"
+      }
+    },
+    {
+      "id": "bc92dfc7-5580-4f78-a07d-7666abeb5ba7",
+      "type": "player.left",
+      "ts": "2026-09-25T17:27:32.000Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 782,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "name": "Tamsin",
+        "source": "log",
+        "user_id": "steam_76561190000000002",
+        "player_id": "41210481000000000000000000000000"
+      }
+    },
+    {
+      "id": "884cbbcb-5e10-4711-889a-60969a5c56f8",
+      "type": "player.level_up",
+      "ts": "2026-09-25T17:19:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 772,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 8, "name": "Kestrel" },
+      "data": {
+        "to": 16,
+        "from": 15,
+        "name": "Kestrel",
+        "user_id": "ps5_9000000000000005",
+        "player_id": "5B5B90C0000000000000000000000000"
+      }
+    },
+    {
+      "id": "e8603e04-c828-4990-876c-24cf960ca5a1",
+      "type": "chat.message",
+      "ts": "2026-09-25T17:15:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 768,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "name": "Orrin",
+        "text": "just hatched something cute",
+        "channel": "Say",
+        "user_id": "gdk_9000000000000003",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "5e943781-9b19-4270-ae16-893948e9f23c",
+      "type": "chat.message",
+      "ts": "2026-09-25T17:15:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 769,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 8, "name": "Kestrel" },
+      "data": {
+        "name": "Kestrel",
+        "text": "meet at the statue",
+        "channel": "Global",
+        "user_id": "ps5_9000000000000005",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "b6e49667-4b81-4316-8ea0-89526a24b30c",
+      "type": "player.joined",
+      "ts": "2026-09-25T17:09:19.000Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 763,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 8, "name": "Kestrel" },
+      "data": {
+        "name": "Kestrel",
+        "source": "log",
+        "user_id": "ps5_9000000000000005",
+        "player_id": "5B5B90C0000000000000000000000000"
+      }
+    },
+    {
+      "id": "2a3b597c-7e5c-46bb-a32f-54d11d277e2b",
+      "type": "player.connected",
+      "ts": "2026-09-25T17:09:07.000Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 762,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 8, "name": "Kestrel" },
+      "data": { "name": "Kestrel", "user_id": "ps5_9000000000000005" }
+    },
+    {
+      "id": "c3405ee9-439b-4538-83b9-e069c50e65c9",
+      "type": "player.level_up",
+      "ts": "2026-09-25T17:07:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 757,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "to": 25,
+        "from": 24,
+        "name": "Tamsin",
+        "user_id": "steam_76561190000000002",
+        "player_id": "41210481000000000000000000000000"
+      }
+    },
+    {
+      "id": "d679f96b-6713-47a7-ad16-9feca4046bcd",
+      "type": "chat.message",
+      "ts": "2026-09-25T17:01:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 751,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "name": "Orrin",
+        "text": "anyone up for the tower tonight?",
+        "channel": "Global",
+        "user_id": "gdk_9000000000000003",
+        "guild_name": null
+      }
+    },
+    {
+      "id": "7a0a6b2a-8987-4ac3-89fd-f6b387868bcb",
+      "type": "player.joined",
+      "ts": "2026-09-25T16:55:47.000Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 748,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": {
+        "name": "Orrin",
+        "source": "log",
+        "user_id": "gdk_9000000000000003",
+        "player_id": "1D003CEC000000000000000000000000"
+      }
+    },
+    {
+      "id": "016fcdea-aa52-4af2-b241-f0b68a6b19e4",
+      "type": "player.connected",
+      "ts": "2026-09-25T16:55:35.000Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 747,
+      "invalid": null,
+      "quiet": true,
+      "player": { "id": 7, "name": "Orrin" },
+      "data": { "name": "Orrin", "user_id": "gdk_9000000000000003" }
+    },
+    {
+      "id": "4fe08c8f-ca17-4ade-b9c2-d7ad88e2dafb",
+      "type": "player.left",
+      "ts": "2026-09-25T16:47:38.000Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 738,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 2, "name": "Wren" },
+      "data": {
+        "name": "Wren",
+        "source": "log",
+        "user_id": "steam_76561190000000001",
+        "player_id": "1E065500000000000000000000000000"
+      }
+    },
+    {
+      "id": "f3193256-4e91-4718-9744-2530e31c4a45",
+      "type": "chat.message",
+      "ts": "2026-09-25T16:43:00.999Z",
+      "received_at": "2026-09-25T20:05:02.500Z",
+      "source": "collector",
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "seq": 732,
+      "invalid": null,
+      "quiet": false,
+      "player": { "id": 3, "name": "Tamsin" },
+      "data": {
+        "name": "Tamsin",
+        "text": "gg",
+        "channel": "Global",
+        "user_id": "steam_76561190000000002",
+        "guild_name": null
+      }
+    }
+  ],
+  "next_cursor": "bW9yZQ"
+}

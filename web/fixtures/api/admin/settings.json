@@ -1,0 +1,5 @@
+{
+  "site_name": "Palworld server",
+  "features": { "chat": true, "guild_chat": false, "positions": true, "bases": true, "pals": true },
+  "locked": []
+}

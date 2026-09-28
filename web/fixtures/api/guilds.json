@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": "1077E95B45C893698D10D137B8FF9D0A",
+      "name": "Night Market",
+      "members": 3,
+      "online": 0,
+      "top_level": 31,
+      "bases": 1,
+      "first_seen": "2026-09-20T20:30:01.000Z",
+      "last_seen": "2026-09-27T20:29:51.000Z"
+    },
+    {
+      "id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+      "name": "Sunreach Wayfarers",
+      "members": 3,
+      "online": 3,
+      "top_level": 30,
+      "bases": 2,
+      "first_seen": "2026-09-20T20:30:01.000Z",
+      "last_seen": "2026-09-27T20:29:51.000Z"
+    },
+    {
+      "id": "C7FDE24B1575F6DC520D3114D76FD075",
+      "name": "Moss and Ember",
+      "members": 2,
+      "online": 1,
+      "top_level": 27,
+      "bases": 1,
+      "first_seen": "2026-09-20T20:30:01.000Z",
+      "last_seen": "2026-09-27T20:29:51.000Z"
+    }
+  ]
+}

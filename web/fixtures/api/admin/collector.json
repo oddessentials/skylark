@@ -1,0 +1,77 @@
+{
+  "site_version": "0.1.0",
+  "secret": "mock-collector-secret-0123456789",
+  "secret_from_environment": true,
+  "runs": [
+    {
+      "run_id": "41b87b45-6406-4250-9b6e-30564f112730",
+      "name": "skylark-collector",
+      "version": "0.1.0",
+      "os": "linux",
+      "arch": "amd64",
+      "started_at": "2026-09-24T10:47:20.000Z",
+      "last_seen_at": "2026-09-27T20:29:52.500Z",
+      "stopped_at": null,
+      "lost_at": null,
+      "last_seq": 2077,
+      "layers": {
+        "mod": false,
+        "logs": true,
+        "rest": true,
+        "saves": false,
+        "gamedata": true,
+        "logs_source": "docker"
+      },
+      "server_version": "v1.0.5.102999",
+      "world_guid": "5EA2B1C94F0A4E3D8C7B6A5F4E3D2C1B",
+      "heartbeat": {
+        "logs": "ok",
+        "rest": "ok",
+        "gamedata": "ok",
+        "uptime_s": 294101,
+        "queue_depth": 0,
+        "dropped_events": 0
+      },
+      "heartbeat_at": "2026-09-27T20:29:01.002Z"
+    },
+    {
+      "run_id": "f1ffa310-f8b1-4882-8029-f0d436851417",
+      "name": "skylark-collector",
+      "version": "0.1.0",
+      "os": "linux",
+      "arch": "amd64",
+      "started_at": "2026-09-20T20:30:00.000Z",
+      "last_seen_at": "2026-09-24T10:47:01.500Z",
+      "stopped_at": "2026-09-24T10:47:00.000Z",
+      "lost_at": null,
+      "last_seq": 1949,
+      "layers": {
+        "mod": false,
+        "logs": true,
+        "rest": true,
+        "saves": false,
+        "gamedata": true,
+        "logs_source": "docker"
+      },
+      "server_version": "v1.0.5.102999",
+      "world_guid": "5EA2B1C94F0A4E3D8C7B6A5F4E3D2C1B",
+      "heartbeat": {
+        "logs": "ok",
+        "rest": "ok",
+        "gamedata": "ok",
+        "uptime_s": 310321,
+        "queue_depth": 0,
+        "dropped_events": 0
+      },
+      "heartbeat_at": "2026-09-24T10:42:01.002Z"
+    }
+  ],
+  "ingest": {
+    "last_batch_at": "2026-09-27T20:29:52.500Z",
+    "batches_24h": 4,
+    "events_24h": 803,
+    "duplicates_24h": 0,
+    "invalid_24h": 0,
+    "rejected_24h": 0
+  }
+}

@@ -1,0 +1,362 @@
+{
+  "updated_at": "2026-09-27T20:29:51.000Z",
+  "players": [
+    {
+      "id": 1,
+      "name": "Juniper",
+      "level": 27,
+      "guild_id": "C7FDE24B1575F6DC520D3114D76FD075",
+      "x": -209234.67,
+      "y": 407032.07,
+      "down": false
+    },
+    {
+      "id": 2,
+      "name": "Wren",
+      "level": 30,
+      "guild_id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+      "x": -413842.43,
+      "y": -315699.87,
+      "down": false
+    },
+    {
+      "id": 3,
+      "name": "Tamsin",
+      "level": 27,
+      "guild_id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+      "x": -755224.21,
+      "y": -421166.88,
+      "down": false
+    },
+    {
+      "id": 7,
+      "name": "Orrin",
+      "level": 24,
+      "guild_id": "5E3C9395AAD2C6C4002A16291A9A24DE",
+      "x": -305276.08,
+      "y": -133529.89,
+      "down": false
+    }
+  ],
+  "bases": [
+    {
+      "id": 1,
+      "name": "Sunreach Camp 1",
+      "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+      "x": 14656.8,
+      "y": 247401.4,
+      "workers": 3,
+      "workers_seen_at": "2026-09-27T20:00:01.000Z",
+      "first_seen": "2026-09-20T20:30:01.000Z",
+      "last_seen": "2026-09-27T20:29:51.000Z",
+      "gone_at": null
+    },
+    {
+      "id": 2,
+      "name": "Moss Camp 1",
+      "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
+      "x": -275968,
+      "y": 210879.4,
+      "workers": 3,
+      "workers_seen_at": "2026-09-27T19:14:01.000Z",
+      "first_seen": "2026-09-20T20:30:01.000Z",
+      "last_seen": "2026-09-27T20:29:51.000Z",
+      "gone_at": null
+    },
+    {
+      "id": 3,
+      "name": "Night Camp 1",
+      "guild": { "id": "1077E95B45C893698D10D137B8FF9D0A", "name": "Night Market" },
+      "x": -316500,
+      "y": 125370,
+      "workers": 3,
+      "workers_seen_at": "2026-09-27T19:16:01.000Z",
+      "first_seen": "2026-09-20T20:30:01.000Z",
+      "last_seen": "2026-09-27T20:29:51.000Z",
+      "gone_at": null
+    },
+    {
+      "id": 5,
+      "name": "Sunreach Camp 2",
+      "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+      "x": 15556.8,
+      "y": 248101.4,
+      "workers": 3,
+      "workers_seen_at": "2026-09-27T20:00:01.000Z",
+      "first_seen": "2026-09-25T15:31:01.000Z",
+      "last_seen": "2026-09-27T20:29:51.000Z",
+      "gone_at": null
+    }
+  ],
+  "wild": [
+    {
+      "species": "PlantSlime",
+      "name": "Gumoss",
+      "level": 29,
+      "x": -415702.88026919484,
+      "y": -321558.5139318948
+    },
+    {
+      "species": "CowPal",
+      "name": "Mozzarina",
+      "level": 28,
+      "x": -407891.8973368582,
+      "y": -321362.5857997333
+    },
+    {
+      "species": "WeaselDragon",
+      "name": "Chillet",
+      "level": 28,
+      "x": -410471.084586623,
+      "y": -316428.618809173
+    },
+    {
+      "species": "KendoFrog",
+      "name": "Croajiro",
+      "level": 33,
+      "x": -415887.6170826134,
+      "y": -315962.42809198995
+    },
+    {
+      "species": "BlueThunderHorse",
+      "name": "Azurmane",
+      "level": 32,
+      "x": -416112.25014859706,
+      "y": -318435.5818163251
+    },
+    {
+      "species": "IceNarwhal",
+      "name": "Whalaska",
+      "level": 31,
+      "x": -418327.5045140636,
+      "y": -311191.269685479
+    },
+    {
+      "species": "FlowerDoll",
+      "name": "Petallia",
+      "level": 33,
+      "x": -408338.85013619333,
+      "y": -321568.1781936084
+    },
+    {
+      "species": "GrassMammoth",
+      "name": "Mammorest",
+      "level": 27,
+      "x": -407955.8915666294,
+      "y": -312418.536243925
+    },
+    {
+      "species": "SmallArmadillo",
+      "name": "Kikit",
+      "level": 32,
+      "x": -416987.2196338129,
+      "y": -312808.8705837374
+    },
+    {
+      "species": "VolcanicMonster",
+      "name": "Reptyro",
+      "level": 32,
+      "x": -413384.56294992834,
+      "y": -310762.82313090016
+    },
+    {
+      "species": "SoldierBee",
+      "name": "Beegarde",
+      "level": 27,
+      "x": -409917.6208258596,
+      "y": -310172.6099745949
+    },
+    {
+      "species": "VenusFlytrap",
+      "name": "Carnibora",
+      "level": 24,
+      "x": -749386.489904071,
+      "y": -416777.2808168408
+    },
+    {
+      "species": "GhostRabbit",
+      "name": "Nitemary",
+      "level": 27,
+      "x": -758604.1604276325,
+      "y": -426602.02073029696
+    },
+    {
+      "species": "FairyDragon",
+      "name": "Elphidran",
+      "level": 28,
+      "x": -750479.9740403469,
+      "y": -419125.1182547164
+    },
+    {
+      "species": "SharkKid",
+      "name": "Gobfin",
+      "level": 28,
+      "x": -756143.9538407649,
+      "y": -426002.7337000099
+    },
+    {
+      "species": "RedArmorBird",
+      "name": "Ragnahawk",
+      "level": 26,
+      "x": -750079.7811686571,
+      "y": -422751.5389640209
+    },
+    {
+      "species": "NightBlueHorse",
+      "name": "Starryon",
+      "level": 28,
+      "x": -755246.7872822236,
+      "y": -423340.703231315
+    },
+    {
+      "species": "WhiteTiger",
+      "name": "Cryolinx",
+      "level": 25,
+      "x": -760294.6472517725,
+      "y": -424013.8887353566
+    },
+    {
+      "species": "DomeArmorDragon",
+      "name": "Aegidron",
+      "level": 22,
+      "x": -302038.6784271089,
+      "y": -134606.5813561279
+    },
+    {
+      "species": "FlowerDinosaur",
+      "name": "Dinossom",
+      "level": 27,
+      "x": -305628.80200880894,
+      "y": -131372.5357928622
+    },
+    {
+      "species": "GrassPanda",
+      "name": "Mossanda",
+      "level": 27,
+      "x": -310714.1685615046,
+      "y": -136567.23196500275
+    },
+    {
+      "species": "GrassGolem",
+      "name": "Dualith",
+      "level": 21,
+      "x": -305448.33115383366,
+      "y": -131913.79984722767
+    },
+    {
+      "species": "OctopusGirl",
+      "name": "Gloopie",
+      "level": 22,
+      "x": -305970.8467683507,
+      "y": -130681.99908708516
+    },
+    {
+      "species": "LilyQueen",
+      "name": "Lyleen",
+      "level": 26,
+      "x": -305620.2169394804,
+      "y": -128604.11387750242
+    },
+    {
+      "species": "BadCatgirl",
+      "name": "Nyafia",
+      "level": 26,
+      "x": -299901.86680096516,
+      "y": -131362.9560347024
+    },
+    {
+      "species": "SweetsSheep",
+      "name": "Woolipop",
+      "level": 23,
+      "x": -303229.80309917906,
+      "y": -136100.76300495598
+    },
+    {
+      "species": "Gorilla",
+      "name": "Gorirat",
+      "level": 22,
+      "x": -310168.8809309838,
+      "y": -139284.01748997453
+    },
+    {
+      "species": "LilyQueen",
+      "name": "Lyleen",
+      "level": 24,
+      "x": -310833.02914805093,
+      "y": -136583.8448998827
+    },
+    {
+      "species": "FengyunDeeper",
+      "name": "Fenglope",
+      "level": 23,
+      "x": -300604.51073839644,
+      "y": -132047.44039730463
+    },
+    {
+      "species": "HawkBird",
+      "name": "Nitewing",
+      "level": 24,
+      "x": -206457.85866158755,
+      "y": 409128.65052177926
+    },
+    {
+      "species": "BerryGoat",
+      "name": "Caprity",
+      "level": 28,
+      "x": -212467.00260269197,
+      "y": 412531.8808303343
+    },
+    {
+      "species": "CuteMole",
+      "name": "Fuddler",
+      "level": 24,
+      "x": -213510.81482919605,
+      "y": 404962.3738507869
+    },
+    {
+      "species": "Hedgehog",
+      "name": "Jolthog",
+      "level": 25,
+      "x": -206656.91425784232,
+      "y": 407177.61257841607
+    }
+  ],
+  "deaths": [
+    {
+      "player": { "id": 7, "name": "Orrin" },
+      "at": "2026-09-27T19:50:00.999Z",
+      "x": -562545.0543181442,
+      "y": 121391.15593724685
+    },
+    {
+      "player": { "id": 4, "name": "Sable" },
+      "at": "2026-09-27T19:12:00.999Z",
+      "x": -316727.90378875245,
+      "y": 222222.97536642052
+    },
+    {
+      "player": { "id": 1, "name": "Juniper" },
+      "at": "2026-09-27T19:10:00.999Z",
+      "x": -28774.98780931857,
+      "y": 146935.85787619717
+    },
+    {
+      "player": { "id": 4, "name": "Sable" },
+      "at": "2026-09-27T19:08:00.999Z",
+      "x": -379316.49519706797,
+      "y": 181908.98856584157
+    },
+    {
+      "player": { "id": 4, "name": "Sable" },
+      "at": "2026-09-27T18:26:00.999Z",
+      "x": -236286.6,
+      "y": -99689.9
+    },
+    {
+      "player": { "id": 6, "name": "Bramble" },
+      "at": "2026-09-27T14:09:00.999Z",
+      "x": -815943.6365383795,
+      "y": -403438.80221904325
+    }
+  ]
+}

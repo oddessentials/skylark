@@ -1,0 +1,69 @@
+{
+  "players": [
+    {
+      "id": 1,
+      "name": "Juniper",
+      "level": 27,
+      "platform": "steam",
+      "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
+      "joined_at": "2026-09-27T18:59:00.000Z",
+      "down": false,
+      "hp": 1159,
+      "max_hp": 1175,
+      "position": { "x": -209234.67, "y": 407032.07 },
+      "party": [
+        { "species": "SoldierBee", "name": "Beegarde", "level": 24 },
+        { "species": "GhostAnglerfish", "name": "Ghangler", "level": 21 }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Orrin",
+      "level": 24,
+      "platform": "gdk",
+      "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+      "joined_at": "2026-09-27T19:16:00.000Z",
+      "down": false,
+      "hp": 1100,
+      "max_hp": 1100,
+      "position": { "x": -305276.08, "y": -133529.89 },
+      "party": [
+        { "species": "JellyfishGhost", "name": "Jellroy", "level": 21 },
+        { "species": "Mutant", "name": "Lunaris", "level": 10 }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Tamsin",
+      "level": 27,
+      "platform": "steam",
+      "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+      "joined_at": "2026-09-27T19:33:00.000Z",
+      "down": false,
+      "hp": 925,
+      "max_hp": 1175,
+      "position": { "x": -755224.21, "y": -421166.88 },
+      "party": [
+        { "species": "TropicalOstrich", "name": "Palumba", "level": 20 },
+        { "species": "LotusDragon", "name": "Ophydia", "level": 18 }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Wren",
+      "level": 30,
+      "platform": "steam",
+      "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+      "joined_at": "2026-09-27T19:50:00.000Z",
+      "down": false,
+      "hp": 1223,
+      "max_hp": 1250,
+      "position": { "x": -413842.43, "y": -315699.87 },
+      "party": [
+        { "species": "MoonChild", "name": "Wistella", "level": 26 },
+        { "species": "MoonChild", "name": "Wistella", "level": 25 }
+      ]
+    }
+  ],
+  "updated_at": "2026-09-27T20:30:05.000Z"
+}
