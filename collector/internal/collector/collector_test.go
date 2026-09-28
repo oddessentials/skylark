@@ -593,14 +593,9 @@ func TestCollectorLaunchModeShutsTheServerDownThroughRest(t *testing.T) {
 	eventually(t, "the connect line through the launched process", func() bool { return site.has("player.connected", nil) })
 	eventually(t, "server.online", func() bool { return site.has("server.online", nil) })
 	stop(t, cancel, done)
-	shutdown := false
-	for _, call := range server.postCalls() {
-		if strings.HasPrefix(call, "/v1/api/shutdown") && strings.Contains(call, `"waittime":1`) && strings.Contains(call, `"message":"bye"`) {
-			shutdown = true
-		}
-	}
-	if !shutdown {
-		t.Fatalf("stopping asks the server to save and shut down: %v", server.postCalls())
+	calls := server.postCalls()
+	if len(calls) != 2 || !strings.HasPrefix(calls[0], "/v1/api/save") || !strings.HasPrefix(calls[1], "/v1/api/shutdown") || !strings.Contains(calls[1], `"waittime":1`) || !strings.Contains(calls[1], `"message":"bye"`) {
+		t.Fatalf("stopping saves the world at once, then asks the server to shut down: %v", calls)
 	}
 	if !site.has("server.offline", func(data string) bool { return strings.Contains(data, `"reason":"shutdown"`) }) {
 		t.Fatal("the offline reason is shutdown")

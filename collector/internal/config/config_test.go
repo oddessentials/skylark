@@ -217,3 +217,62 @@ func TestSavesSettings(t *testing.T) {
 		t.Fatalf("a short interval is refused: %v", err)
 	}
 }
+
+func TestWindowsFileAndStdinSourcesWarnAboutBufferedOutput(t *testing.T) {
+	base := map[string]string{"SKYLARK_SITE_URL": "http://localhost:5173", "SKYLARK_SITE_SECRET": "s", "SKYLARK_PALWORLD_ADMIN_PASSWORD": "p"}
+	for _, source := range []string{SourceFile, SourceStdin} {
+		values := map[string]string{"SKYLARK_LOGS_SOURCE": source, "SKYLARK_FILE_PATH": `D:\server\console.log`}
+		for key, value := range base {
+			values[key] = value
+		}
+		for platform, want := range map[string]bool{"windows": true, "linux": false} {
+			cfg, err := Load(Options{Platform: platform, Getenv: env(values)})
+			if err != nil {
+				t.Fatal(err)
+			}
+			warned := false
+			for _, warning := range cfg.Warnings {
+				if strings.Contains(warning, "pseudo console") && strings.Contains(warning, "logs.source is "+source) {
+					warned = true
+				}
+			}
+			if warned != want {
+				t.Fatalf("%s on %s: warnings %v", source, platform, cfg.Warnings)
+			}
+		}
+	}
+}
+
+func TestPlainRestToAPublicAddressWarns(t *testing.T) {
+	cases := map[string]bool{
+		"http://127.0.0.1:8212":            false,
+		"http://localhost:8212":            false,
+		"http://palworld:8212":             false,
+		"http://192.168.1.20:8212":         false,
+		"http://10.0.0.5:8212":             false,
+		"http://[::1]:8212":                false,
+		"http://web.railway.internal:8212": false,
+		"http://server.home.arpa:8212":     false,
+		"https://203.0.113.10:8212":        false,
+		"http://203.0.113.10:8212":         true,
+		"http://palworld.example.com:8212": true,
+	}
+	for restURL, warns := range cases {
+		cfg, err := Load(Options{DryRun: true, Platform: "linux", Getenv: env(map[string]string{
+			"SKYLARK_PALWORLD_ADMIN_PASSWORD": "p",
+			"SKYLARK_PALWORLD_REST_URL":       restURL,
+		})})
+		if err != nil {
+			t.Fatal(restURL, err)
+		}
+		found := false
+		for _, warning := range cfg.Warnings {
+			if strings.Contains(warning, "plain HTTP to a public address") {
+				found = true
+			}
+		}
+		if found != warns {
+			t.Errorf("%s: warned %v, want %v (%v)", restURL, found, warns, cfg.Warnings)
+		}
+	}
+}

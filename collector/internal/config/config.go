@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io/fs"
+	"net"
 	"net/url"
 	"os"
 	"path/filepath"
@@ -298,7 +299,35 @@ func derive(cfg *Config, restURLSet bool, platform string) error {
 			cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("%s has LogFormatType=%s; set LogFormatType=Json so the collector can read joins, leaves and chat from the log", cfg.ServerIni.Path, cfg.ServerIni.LogFormatType))
 		}
 	}
+	goos := platform
+	if goos == "" {
+		goos = runtime.GOOS
+	}
+	if goos == "windows" && (cfg.Logs.Source == SourceFile || cfg.Logs.Source == SourceStdin) {
+		cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("logs.source is %s: on Windows the server writes its console output to a file or pipe in blocks, which holds joins, leaves and chat back for a minute or more; logs.source = \"launch\" runs the server under a pseudo console and reads every line as it is written", cfg.Logs.Source))
+	}
 	return nil
+}
+
+var localSuffixes = []string{".local", ".lan", ".internal", ".home.arpa", ".localhost"}
+
+func localHost(host string) bool {
+	host = strings.ToLower(strings.TrimSuffix(host, "."))
+	if host == "" || host == "localhost" {
+		return true
+	}
+	if ip := net.ParseIP(host); ip != nil {
+		return ip.IsLoopback() || ip.IsPrivate() || ip.IsLinkLocalUnicast()
+	}
+	if !strings.Contains(host, ".") {
+		return true
+	}
+	for _, suffix := range localSuffixes {
+		if strings.HasSuffix(host, suffix) {
+			return true
+		}
+	}
+	return false
 }
 
 func validate(cfg *Config, dryRun bool) error {
@@ -315,6 +344,8 @@ func validate(cfg *Config, dryRun bool) error {
 	}
 	if parsed, err := url.Parse(cfg.Palworld.RestURL); err != nil || (parsed.Scheme != "http" && parsed.Scheme != "https") || parsed.Host == "" {
 		problems = append(problems, fmt.Sprintf("palworld.rest_url %q must be an http or https URL", cfg.Palworld.RestURL))
+	} else if parsed.Scheme == "http" && !localHost(parsed.Hostname()) {
+		cfg.Warnings = append(cfg.Warnings, fmt.Sprintf("palworld.rest_url %s is plain HTTP to a public address, so the admin password crosses the internet unencrypted; use https if the host offers it, or reach the server through a VPN or tunnel", cfg.Palworld.RestURL))
 	}
 	if cfg.Palworld.AdminPassword == "" {
 		problems = append(problems, "palworld.admin_password is required; set it, or set palworld.server_dir so it is read from PalWorldSettings.ini")

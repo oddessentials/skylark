@@ -61,7 +61,9 @@ Playtime, sessions, level history, knockouts and distance travelled for everyone
 2. Open `/admin` on port 3000, set the password, and copy the collector secret from the Collector page.
 3. Download the collector for your platform from a [release](https://github.com/oddessentials/skylark/releases) or pull `ghcr.io/oddessentials/skylark-collector`, or build it with `npm run collector:build` (Go 1.27). Run it beside the Palworld server with that secret and the server's admin password. On Windows it starts the server itself; on Linux it follows the server's Docker container or console output.
 
-The server needs its REST API on (`RESTAPIEnabled=True` and an `AdminPassword`), the launch argument `-enable-gamedata-api` for positions, Pals and bases, and `LogFormatType=Json` for joins and chat as they happen. The collector sends only to your site, and the site never shows IP addresses or platform ids publicly.
+The server needs its REST API on (`RESTAPIEnabled=True` and an `AdminPassword`), the launch argument `-enable-gamedata-api` for Pals, bases and knockouts, and `LogFormatType=Json` for joins and chat as they happen. The collector sends only to your site, and the site never shows IP addresses or platform ids publicly.
+
+**Rented servers.** Most hosts let you run nothing beside the server. If yours exposes the server's REST API, run the collector next to the site instead: set `COLLECTOR_SECRET`, `PALWORLD_REST_URL` and `PALWORLD_ADMIN_PASSWORD` in `.env` and start both with `docker compose --profile site --profile remote up -d --build`. Over the network the collector sees who is online, joins and leaves within about 5 s, levels, positions and trails, the server's settings and metrics, and it carries out admin actions. Pals, bases, knockouts and the in-game clock also need the host to accept the launch argument `-enable-gamedata-api`, and chat needs the server's log, which a remote collector cannot read. The REST API is plain HTTP, so prefer a host that serves it over https or through a VPN; the collector warns when the admin password would cross the internet unencrypted.
 
 <details>
 <summary><b>Site settings</b></summary>
@@ -100,9 +102,11 @@ What it needs from the server:
 | --- | --- |
 | `launch` | Starts the server itself. On Windows it runs the server under a pseudo console, which hands over every line at once, where a plain pipe holds lines back for a minute or more. Ctrl+C or a service stop asks the server to save and shut down through REST and waits for it. `-logformat=json` and `-enable-gamedata-api` are added when missing. `launch.command` can be `PalServer.exe`, `PalServer-Win64-Shipping-Cmd.exe` or `PalServer.sh`. |
 | `docker` | Follows a container's log through the Docker Engine API (`/var/run/docker.sock`, the Windows named pipe or `docker.host`). It remembers where it stopped, so a restart neither repeats nor loses lines. |
-| `file` | Follows a file the server's output is written to, through rotation and truncation. |
-| `stdin` | Reads the server's output from a pipe, for example `./PalServer.sh -logformat=json \| SKYLARK_LOGS_SOURCE=stdin ./skylark-collector-linux-amd64`. The collector stops when the server does. |
+| `file` | Follows a file the server's output is written to, through rotation and truncation. On Windows the server writes redirected output in blocks, which holds lines back for a minute or more, so the collector warns about it and `launch` is the better choice there. |
+| `stdin` | Reads the server's output from a pipe, for example `./PalServer.sh -logformat=json \| SKYLARK_LOGS_SOURCE=stdin ./skylark-collector-linux-amd64`. The collector stops when the server does. On Windows a pipe holds lines back the same way. |
 | `none` | REST only. |
+
+On Windows the collector can run as a service. From a terminal opened with Run as administrator, `skylark-collector service install --config C:\skylark\skylark-collector.toml` registers `SkylarkCollector`, which starts with Windows and restarts after a failure. `service start`, `service stop` and `service remove` manage it, and `--name` lets one machine run several. A service stop or a Windows shutdown saves the world and shuts the server down, with up to three minutes for it. As a service the collector writes `skylark-collector.log` and `palworld-server.log` beside its configuration and reads only that file, not the environment variables of the account that installed it. Closing a console window leaves a program about five seconds, so every stop saves the world first and then asks the server to shut down.
 
 The collector reads `skylark-collector.toml` beside the binary, or the file given with `--config`. Every key can also be set with an environment variable named `SKYLARK_` plus the section and key in capitals, such as `SKYLARK_SITE_SECRET`, `SKYLARK_PALWORLD_ADMIN_PASSWORD` or `SKYLARK_INTERVALS_PLAYERS`; `SKYLARK_LAUNCH_ARGS` takes a JSON array or space-separated arguments.
 
@@ -151,6 +155,15 @@ docker run -d --name skylark-collector --network palworld \
   -e SKYLARK_DOCKER_CONTAINER=palworld ghcr.io/oddessentials/skylark-collector
 ```
 
+To run it away from the server, for a host that exposes the REST API:
+
+```sh
+docker run -d --name skylark-collector -v skylark-journal:/data \
+  -e SKYLARK_SITE_URL=https://skylark.example.com -e SKYLARK_SITE_SECRET=... \
+  -e SKYLARK_PALWORLD_REST_URL=https://palworld.example.net:8212 -e SKYLARK_PALWORLD_ADMIN_PASSWORD=... \
+  -e SKYLARK_LOGS_SOURCE=none ghcr.io/oddessentials/skylark-collector
+```
+
 IP addresses stay on the server unless `send_ips` is on. Platform user ids go only to your own site, which never shows them publicly. Every event is written to the journal before it is sent and stays there until the site confirms it, so a crash, a restart or a site outage loses nothing. Actions from the site run through the REST API once each, even across restarts.
 
 </details>
@@ -169,6 +182,8 @@ npm run dev
 Pushing a tag `v<version>` that matches the `package.json` version publishes `ghcr.io/oddessentials/skylark` and `ghcr.io/oddessentials/skylark-collector` for amd64 and arm64, and a GitHub release with the collector binaries and their checksums. Pull requests that change the Dockerfiles or the release workflow build all of it without publishing.
 
 Facts about the game come from the free dedicated server's own files: `npm run facts:extract -- --pak <path to Pal-WindowsServer.pak>` rebuilds `web/src/lib/world` and records the game version each file was read from, and the Steam build in `build.json`. A daily workflow compares that build with the server's public build and opens an issue with the checks to repeat when a patch is out; `npm run facts:build` runs the same comparison. The extractor in `tools/gamefacts` is licensed GPL-3.0-or-later (its own `LICENSE`), because it decodes the pak with ooz-wasm; the rest of Skylark stays MIT.
+
+The scenery is Skylark's own, rendered with Blender 5.2: `blender -b -P art/blender/field.py` renders the backdrop, `perch.py` the error pages and `dial.py` the sun dial plate, into `art/raster`. `python art/export.py` (Pillow) writes the WebP and AVIF sizes the site serves. The backdrop places the sun, pond, waterfall and lights where the scenery animation expects them.
 
 </details>
 
