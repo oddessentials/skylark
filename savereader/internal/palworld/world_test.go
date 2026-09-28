@@ -6,6 +6,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/oddessentials/skylark/savereader/internal/gvas"
 	g "github.com/oddessentials/skylark/savereader/internal/gvas/gvastest"
 )
 
@@ -364,6 +365,16 @@ func TestATruncatedLabIsAnError(t *testing.T) {
 	raw := labRaw()
 	if _, err := readLab(raw[:len(raw)-6]); err == nil {
 		t.Fatal("expected an error")
+	}
+	broken := g.Entry{Key: g.GUIDElem(guildID), Value: g.FieldsElem(g.Struct("Lab", "PalGuildLabSaveData", g.Bytes("RawData", raw[:len(raw)-6])))}
+	fine := g.Entry{Key: g.GUIDElem(orgID), Value: g.FieldsElem(g.Struct("Lab", "PalGuildLabSaveData", g.Bytes("RawData", raw)))}
+	doc, err := gvas.Parse(g.Document("/Script/Pal.PalWorldSaveGame", g.Struct("worldSaveData", "PalWorldSaveData", g.Map("GuildExtraSaveDataMap", "StructProperty", "StructProperty", broken, fine))), levelOptions())
+	if err != nil {
+		t.Fatal(err)
+	}
+	labs := readLabs(doc.Properties.Fields("worldSaveData").Map("GuildExtraSaveDataMap"))
+	if _, kept := labs[guildID]; kept || labs[orgID] == nil || len(labs[orgID].Research) != 2 {
+		t.Fatalf("a broken lab blob must be skipped and the others kept: %+v", labs)
 	}
 	lab, err := readLab(raw)
 	if err != nil || lab.Current == nil || *lab.Current != "Seeding2" || len(lab.Research) != 2 {

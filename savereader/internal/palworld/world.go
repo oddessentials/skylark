@@ -190,10 +190,7 @@ func Extract(level []byte, players map[string][]byte, savedAt time.Time) (*World
 		eggs:       readDynamicEggs(world.Array("DynamicItemSaveData")),
 	}
 	objects := readMapObjects(world.Array("MapObjectSaveData"))
-	labs, err := readLabs(world.Map("GuildExtraSaveDataMap"))
-	if err != nil {
-		return nil, err
-	}
+	labs := readLabs(world.Map("GuildExtraSaveDataMap"))
 	out := &World{SavedAt: savedAt.UTC(), Players: []Player{}, Guilds: []Guild{}, Bases: []Base{}}
 	for _, entry := range world.Map("GroupSaveDataMap") {
 		fields, _ := entry.Value.(gvas.Properties)
