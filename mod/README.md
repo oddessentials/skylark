@@ -5,7 +5,7 @@ An optional [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) Lua mod for Palworld d
 | `type` | When | Fields |
 | --- | --- | --- |
 | `knockout` | A player is knocked out | `cause` (`attack`, `falling`, `drown`, `burn`, `poison`, `body_temperature`, `tower_boss_battle` and a few rarer ones), and for an attack the killer: `killer_player_id` and `killer_name` for another player, or `killer_species` and `killer_level` for a Pal or a human |
-| `capture` | A player catches a Pal | `species`, `level` |
+| `capture` | A player catches a Pal, with a sphere or by fishing | `species`, `level` |
 | `hatch` | A player takes a Pal from an incubator | `species`, `level` |
 | `boss` | A player beats a tower boss, or wins a raid they summoned | `kind` (`tower` or `raid`), `boss` (the tower's boss type or the raid's summon id), `difficulty` (`normal` or `hard`) for towers, `species` for raids |
 | `technology` | A player unlocks a technology | `technology` |
@@ -17,7 +17,7 @@ Nothing changes for players, who need no mods. The file stays on the server and 
 
 ## Install
 
-The mod needs UE4SS on the server. It was built against RE-UE4SS `experimental` 3.0.1-1150 on Palworld 1.0.5.102999, where a player on a test server saw technology unlocks, builds, captures and knockouts (by drowning, an alpha Pal and a wild Pal) arrive with the right player and details. Hatching and tower and raid clears use the same lookups but have not been seen live yet.
+The mod needs UE4SS on the server. It was built against RE-UE4SS `experimental` 3.0.1-1150 on Palworld 1.0.5.102999, where a player on a test server saw technology unlocks, builds, captures and knockouts (by drowning, an alpha Pal and a wild Pal) arrive with the right player and details. Hatching, tower and raid clears and fished Pals use the same lookups but have not been seen live yet.
 
 **UE4SS installed by hand.** Copy the `SkylarkEvents` folder into the server's `Pal/Binaries/Win64/ue4ss/Mods` folder and restart the server. The folder carries `enabled.txt`, which switches it on.
 
@@ -47,6 +47,7 @@ The mod hooks functions the game runs on the server, found in the dedicated serv
 | --- | --- |
 | knockout | `PalBattleManager:EventOnPlayerDeadCompletely`, and `PalEventNotify_Character:OnCharacterDead_ServerInternal` |
 | capture | `PalCharacterParameterComponent:SetIsCapturedProcessing` marks the throw, and `PalNetworkIndividualComponent:BroadcastChangeOwnerCharacter_ToAll` for the same Pal within 30 s makes it a catch |
+| fished Pal | `PalFishingComponent:NotifyObtainedCharacter_ToALL` names the player and the Pal; `PalFishingSpotArea:OnCreatedIndividualHandle_ServerInternal`, read after the call, backs it up with the created Pal's owner. A Pal reported by both is written once |
 | hatch | `PalMapObjectHatchingEggModel:ObtainHatchedCharacter_ServerInternal` |
 | tower boss | `PalBossTower:WriteBossDefeatRecord_ServerInternal` |
 | raid | `PalRaidBossComponent:OnSpawnBossPal` and `CallOnEnd_ToAll` |

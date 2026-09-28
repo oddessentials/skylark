@@ -2,6 +2,7 @@ local VERSION = 1
 local MAX_BYTES = 8 * 1024 * 1024
 local KNOCKOUT_WINDOW = 60
 local CAPTURE_WINDOW = 30
+local FISHING_WINDOW = 30
 local DEBUG = (os.getenv("SKYLARK_EVENTS_DEBUG") or "") ~= ""
 
 local DEAD_TYPES = {
@@ -371,18 +372,9 @@ local function copy_guid(value)
     return { A = value.A, B = value.B, C = value.C, D = value.D }
 end
 
-local function attacker_by_instance(context, instance)
-    if instance == nil then
-        return nil
-    end
-    local player_id = guid(try(function()
-        return instance.PlayerUId
-    end))
-    if player_id then
-        return player_by_uid(player_id)
-    end
+local function parameter_by_instance(context, instance)
     local utility = object_at(UTILITY)
-    if not utility then
+    if not utility or instance == nil then
         return nil
     end
     local parameter = try(function()
@@ -397,7 +389,20 @@ local function attacker_by_instance(context, instance)
             })
         end)
     end
-    return killer_pal(pal_from(parameter))
+    return parameter
+end
+
+local function attacker_by_instance(context, instance)
+    if instance == nil then
+        return nil
+    end
+    local player_id = guid(try(function()
+        return instance.PlayerUId
+    end))
+    if player_id then
+        return player_by_uid(player_id)
+    end
+    return killer_pal(pal_from(parameter_by_instance(context, instance)))
 end
 
 local warned = {}
@@ -534,6 +539,51 @@ hook("/Script/Pal.PalNetworkIndividualComponent:BroadcastChangeOwnerCharacter_To
         return
     end
     emit("capture", merge({ species = attempt.species, level = attempt.level }, player))
+end)
+
+local fished = {}
+
+local function fished_capture(player, pal, source)
+    if not player or not pal then
+        note(source .. " without a player or a Pal")
+        return
+    end
+    local now = os.time()
+    local key = player.player_id .. " " .. pal.species .. " " .. tostring(pal.level)
+    local last = fished[key]
+    if last and now - last < FISHING_WINDOW then
+        note(source .. " repeated a fished Pal already written")
+        return
+    end
+    fished[key] = now
+    note(source .. ": " .. pal.species)
+    emit("capture", merge({ species = pal.species, level = pal.level }, player))
+end
+
+hook("/Script/Pal.PalFishingComponent:NotifyObtainedCharacter_ToALL", function(_, player_uid, info)
+    local character = info:get()
+    local species = text(try(function()
+        return character.CharacterID
+    end))
+    if not species then
+        note("fishing obtained a character without a species")
+        return
+    end
+    fished_capture(player_by_uid(guid(player_uid:get())), {
+        species = species,
+        level = try(function()
+            return math.tointeger(character.Level)
+        end),
+    }, "fishing obtained")
+end)
+
+hook("/Script/Pal.PalFishingSpotArea:OnCreatedIndividualHandle_ServerInternal", function() end, function(area, id)
+    local pal = pal_from(parameter_by_instance(area:get(), id:get()))
+    if not pal or not pal.owner_id then
+        note("fishing created an individual without a Pal or an owner")
+        return
+    end
+    fished_capture(player_by_uid(pal.owner_id), pal, "fishing created")
 end)
 
 hook("/Script/Pal.PalMapObjectHatchingEggModel:ObtainHatchedCharacter_ServerInternal", function(model, requester)
