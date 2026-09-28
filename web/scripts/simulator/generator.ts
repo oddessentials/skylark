@@ -925,12 +925,26 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
   const savedAt = new Date(saveMs).toISOString();
   const towerOrder = ['GrassBoss', 'ForestBoss', 'ElectricBoss', 'DesertBoss', 'SnowBoss'];
   const draw = (text: string, span: number) => parseInt(hex(text, 8), 16) % span;
+  const palpediaIds = readWorld<{ pals: { id: string }[] }>('pals').pals.map((entry) => entry.id);
   const progressAt = (key: string, level: number) => {
     const palpedia = Math.min(288, level * 4 + draw(`palpedia-${key}`, 9));
+    const entries = palpediaIds
+      .map((id, index) => ({ id, rank: index + draw(`entry-${key}-${id}`, 40) }))
+      .sort((a, b) => a.rank - b.rank || a.id.localeCompare(b.id))
+      .slice(0, palpedia)
+      .map((entry) => entry.id)
+      .sort();
+    const speciesCaptures = Object.fromEntries(
+      entries
+        .filter((id) => draw(`caught-${key}-${id}`, 9) > 0)
+        .map((id) => [id, 1 + draw(`count-${key}-${id}`, 6)])
+    );
     return {
       palpedia,
-      species_captured: Math.max(0, palpedia - 1),
-      captures: palpedia * 3 + draw(`captures-${key}`, 20),
+      palpedia_entries: entries,
+      species_captured: Object.keys(speciesCaptures).length,
+      captures: Object.values(speciesCaptures).reduce((sum, count) => sum + count, 0),
+      species_captures: speciesCaptures,
       tower_bosses: towerOrder.slice(0, Math.min(towerOrder.length, Math.floor(level / 12))),
       field_bosses: Math.floor(level / 3),
       dungeon_clears: Math.floor(level / 5),

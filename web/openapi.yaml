@@ -286,6 +286,35 @@ paths:
           $ref: '#/components/responses/RateLimited'
         '503':
           $ref: '#/components/responses/Unavailable'
+  /api/v1/players/{id}/palpedia:
+    get:
+      operationId: getPlayerPalpedia
+      tags:
+        - public
+      summary: A player's Palpedia
+      description: Every Palpedia entry in the game's order, whether the player has unlocked it in the world save and how many of the species they have caught, with how each species is obtained. A hidden player answers 404.
+      parameters:
+        - $ref: '#/components/parameters/PlayerId'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerPalpedia'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
   /api/v1/chat:
     get:
       operationId: listChat
@@ -360,6 +389,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Guild'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /api/v1/guilds/{id}/palpedia:
+    get:
+      operationId: getGuildPalpedia
+      tags:
+        - public
+      summary: A guild's Palpedia
+      description: Every Palpedia entry in the game's order, which members the world save lists as having unlocked it and how many of the species they have caught between them, with how each species is obtained.
+      parameters:
+        - $ref: '#/components/parameters/GuildId'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GuildPalpedia'
         '404':
           $ref: '#/components/responses/NotFound'
         '429':
@@ -2302,6 +2358,183 @@ components:
         - dungeon_clears
         - technologies
         - fast_travel_points
+      additionalProperties: false
+    HabitatWay:
+      type: string
+      description: How a species is obtained, from the game's tables. wild and alpha describe its habitat (alpha means the only wild form is a field boss), boss a field boss marker, egg the wild eggs, fished the fishing lotteries, caged the camps' cages, raid the raid boss eggs and bred a unique breeding combination.
+      enum:
+        - wild
+        - alpha
+        - boss
+        - egg
+        - fished
+        - caged
+        - raid
+        - bred
+    PalpediaEntry:
+      type: object
+      description: One Palpedia entry, in the game's order.
+      properties:
+        species:
+          type: string
+          description: The species id, for example SheepBall.
+        caught:
+          type: boolean
+          description: Whether the world save lists the entry as unlocked.
+        captures:
+          type: integer
+          minimum: 0
+          description: Pals of the species captured, from the world save.
+        ways:
+          type: array
+          description: Empty when the game's tables name no source for the species.
+          items:
+            $ref: '#/components/schemas/HabitatWay'
+        night_only:
+          type: boolean
+          description: Found in the wild at night only.
+        levels:
+          description: The wild level range, or null when the species has no placed spawner.
+          anyOf:
+            - type: array
+              minItems: 2
+              maxItems: 2
+              items:
+                type: integer
+                minimum: 1
+            - type: 'null'
+      required:
+        - species
+        - caught
+        - captures
+        - ways
+        - night_only
+        - levels
+      additionalProperties: false
+    PlayerPalpedia:
+      type: object
+      properties:
+        player:
+          $ref: '#/components/schemas/PlayerRef'
+        saved_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+          description: When the server wrote the save the entries come from; null until the collector's save reader has listed the player's entries, and then no entry is caught.
+        unlocked:
+          type: integer
+          minimum: 0
+        total:
+          type: integer
+          minimum: 0
+          description: Palpedia entries in this version of the game.
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PalpediaEntry'
+      required:
+        - player
+        - saved_at
+        - unlocked
+        - total
+        - entries
+      additionalProperties: false
+    GuildPalpediaMember:
+      type: object
+      description: A member the world save lists in the guild.
+      properties:
+        player:
+          description: Their player page, when they have played while the collector watched.
+          anyOf:
+            - $ref: '#/components/schemas/PlayerRef'
+            - type: 'null'
+        name:
+          type: string
+        unlocked:
+          type: integer
+          minimum: 0
+      required:
+        - player
+        - name
+        - unlocked
+      additionalProperties: false
+    GuildPalpediaEntry:
+      type: object
+      description: One Palpedia entry, in the game's order, across a guild's members.
+      properties:
+        species:
+          type: string
+        caught:
+          type: boolean
+          description: Whether any member has unlocked the entry.
+        captures:
+          type: integer
+          minimum: 0
+          description: Pals of the species the members have captured between them.
+        holders:
+          type: array
+          description: The positions in members of those who have unlocked the entry.
+          items:
+            type: integer
+            minimum: 0
+        ways:
+          type: array
+          items:
+            $ref: '#/components/schemas/HabitatWay'
+        night_only:
+          type: boolean
+        levels:
+          anyOf:
+            - type: array
+              minItems: 2
+              maxItems: 2
+              items:
+                type: integer
+                minimum: 1
+            - type: 'null'
+      required:
+        - species
+        - caught
+        - captures
+        - holders
+        - ways
+        - night_only
+        - levels
+      additionalProperties: false
+    GuildPalpedia:
+      type: object
+      properties:
+        guild:
+          $ref: '#/components/schemas/GuildRef'
+        saved_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+          description: When the server wrote the save the entries come from; null without the save reader.
+        unlocked:
+          type: integer
+          minimum: 0
+          description: Entries unlocked by at least one member.
+        total:
+          type: integer
+          minimum: 0
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/GuildPalpediaMember'
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/GuildPalpediaEntry'
+      required:
+        - guild
+        - saved_at
+        - unlocked
+        - total
+        - members
+        - entries
       additionalProperties: false
     TrailPoint:
       type: object

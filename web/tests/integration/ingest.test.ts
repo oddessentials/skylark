@@ -23,6 +23,7 @@ import { runWatchdog } from '../../src/lib/server/jobs/watchdog';
 import { rebuildProjections } from '../../src/lib/server/jobs/rebuild';
 import { computeOnline, computeStatus } from '../../src/lib/server/read/status';
 import { getGuild, getMap } from '../../src/lib/server/read/community';
+import { getGuildPalpedia, getPlayerPalpedia } from '../../src/lib/server/read/palpedia';
 import { getPlayer } from '../../src/lib/server/read/players';
 import { defaultSettings } from '../../src/lib/server/settings';
 import { POST as ingest } from '../../src/routes/api/ingest/+server';
@@ -234,8 +235,10 @@ describe('POST /api/ingest', () => {
         last_online_at: new Date(savedAt.getTime() - 3_600_000).toISOString(),
         progress: {
           palpedia: 62,
+          palpedia_entries: ['PinkCat', 'Sheepball', 'Human'],
           species_captured: 61,
           captures: 180,
+          species_captures: { Sheepball: 12, PinkCat: 3, Human: 2 },
           tower_bosses: ['GrassBoss', 'WorldTreeMiddleBoss1', 'FutureBoss'],
           field_bosses: 18,
           dungeon_clears: 5,
@@ -299,6 +302,38 @@ describe('POST /api/ingest', () => {
       { id: 'GrassBoss', name: 'Rayne Syndicate Tower' },
       { id: 'FutureBoss', name: 'FutureBoss' }
     ]);
+    expect(detail.progress!.species_captured).toBe(2);
+    const palpedia = await getPlayerPalpedia(db, player!.id);
+    expect(palpedia.player).toEqual({ id: player!.id, name: player!.nameOverride ?? player!.name });
+    expect(palpedia.saved_at).toBe(at);
+    expect(palpedia.unlocked).toBe(2);
+    expect(palpedia.total).toBe(288);
+    expect(palpedia.entries).toHaveLength(288);
+    expect(palpedia.entries.filter((entry) => entry.caught).map((entry) => entry.species)).toEqual([
+      'SheepBall',
+      'PinkCat'
+    ]);
+    const lamball = palpedia.entries.find((entry) => entry.species === 'SheepBall')!;
+    expect(lamball).toMatchObject({ caught: true, captures: 12, night_only: false });
+    expect(lamball.ways).toContain('wild');
+    expect(lamball.levels![0]).toBeLessThanOrEqual(lamball.levels![1]!);
+    const astralym = palpedia.entries.find((entry) => entry.species === 'WorldTreeDragon')!;
+    expect(astralym).toMatchObject({ caught: false, captures: 0, ways: [], levels: null });
+    const guildPalpedia = await getGuildPalpedia(db, guildId);
+    expect(guildPalpedia.guild.id).toBe(guildId);
+    expect(guildPalpedia.saved_at).toBe(at);
+    expect(guildPalpedia.unlocked).toBe(2);
+    expect(guildPalpedia.members).toEqual([
+      {
+        player: { id: player!.id, name: player!.nameOverride ?? player!.name },
+        name: player!.nameOverride ?? player!.name,
+        unlocked: 2
+      },
+      { player: null, name: 'Offline Friend', unlocked: 0 }
+    ]);
+    const guildLamball = guildPalpedia.entries.find((entry) => entry.species === 'SheepBall')!;
+    expect(guildLamball).toMatchObject({ caught: true, captures: 12, holders: [0] });
+    expect(guildPalpedia.entries.filter((entry) => entry.caught)).toHaveLength(2);
     const guild = await getGuild(db, guildId, features);
     expect(guild.base_camp_level).toBe(4);
     expect(guild.roster_saved_at).toBe(at);

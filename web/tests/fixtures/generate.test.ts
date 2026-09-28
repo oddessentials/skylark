@@ -39,6 +39,7 @@ import {
   listGuilds
 } from '../../src/lib/server/read/community';
 import { statusHistory } from '../../src/lib/server/read/history';
+import { getGuildPalpedia, getPlayerPalpedia } from '../../src/lib/server/read/palpedia';
 import { getPlayer, getTrail, listPlayers, listSessions } from '../../src/lib/server/read/players';
 import { computeOnline, computeStatus } from '../../src/lib/server/read/status';
 import { defaultSettings } from '../../src/lib/server/settings';
@@ -180,6 +181,7 @@ describe('API fixtures', () => {
       paged(await listSessions(db, featured.id, { limit: 200, offset: 0 }, features), 200, 'MjAw')
     );
     await write('players/{id}/trail', await getTrail(db, featured.id, null, now));
+    await write('players/{id}/palpedia', await getPlayerPalpedia(db, featured.id));
     for (const player of playerList) {
       await write(`players/${player.id}`, await getPlayer(db, player.id, features, now));
       await write(
@@ -187,14 +189,17 @@ describe('API fixtures', () => {
         paged(await listSessions(db, player.id, { limit: 200, offset: 0 }, features), 200, 'MjAw')
       );
       await write(`players/${player.id}/trail`, await getTrail(db, player.id, null, now));
+      await write(`players/${player.id}/palpedia`, await getPlayerPalpedia(db, player.id));
     }
     const chat = await listChat(db, features, { limit: 200, after: null });
     await write('chat', paged(chat, 200, 'bW9yZQ'));
     const guildList = await listGuilds(db, features);
     await write('guilds', { items: guildList });
     await write('guilds/{id}', await getGuild(db, guildList[0]!.id, features, now));
+    await write('guilds/{id}/palpedia', await getGuildPalpedia(db, guildList[0]!.id));
     for (const guild of guildList) {
       await write(`guilds/${guild.id}`, await getGuild(db, guild.id, features, now));
+      await write(`guilds/${guild.id}/palpedia`, await getGuildPalpedia(db, guild.id));
     }
     await write('map', map);
     await write('leaderboards', await getLeaderboards(db, features, now));

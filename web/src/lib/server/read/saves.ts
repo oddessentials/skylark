@@ -38,12 +38,15 @@ export function progressOf(row: PlayerSaveRow | null | undefined): PlayerProgres
   if (!row || !row.progress || row.goneAt) return null;
   const progress = row.progress;
   const towers = progress.tower_bosses.filter((id) => towerIds.has(id) || !bossNames.has(id));
+  const speciesCaptured = progress.species_captures
+    ? Object.keys(progress.species_captures).filter((id) => speciesInfo(id) !== null).length
+    : progress.species_captured;
   return {
     saved_at: row.savedAt.toISOString(),
     last_online_at: row.lastOnlineAt ? row.lastOnlineAt.toISOString() : null,
     palpedia: progress.palpedia,
     palpedia_total: palpediaTotal,
-    species_captured: progress.species_captured,
+    species_captured: speciesCaptured,
     captures: progress.captures,
     tower_bosses: towers.map((id) => ({ id, name: bossNames.get(id) ?? id })),
     tower_bosses_total: towerIds.size,

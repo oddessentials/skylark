@@ -351,6 +351,22 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/api/v1/guilds/{id}/palpedia': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations['getGuildPalpedia'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/api/v1/health': {
     parameters: {
       query?: never;
@@ -455,6 +471,22 @@ export interface paths {
       cookie?: never;
     };
     get: operations['getPlayer'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/players/{id}/palpedia': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations['getPlayerPalpedia'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1051,6 +1083,28 @@ export interface components {
       role: components['schemas']['GuildRole'] | null;
       since: string;
     };
+    GuildPalpedia: {
+      entries: components['schemas']['GuildPalpediaEntry'][];
+      guild: components['schemas']['GuildRef'];
+      members: components['schemas']['GuildPalpediaMember'][];
+      saved_at: string | null;
+      total: number;
+      unlocked: number;
+    };
+    GuildPalpediaEntry: {
+      captures: number;
+      caught: boolean;
+      holders: number[];
+      levels: number[] | null;
+      night_only: boolean;
+      species: string;
+      ways: components['schemas']['HabitatWay'][];
+    };
+    GuildPalpediaMember: {
+      name: string;
+      player: components['schemas']['PlayerRef'] | null;
+      unlocked: number;
+    };
     GuildRef: {
       id: string;
       name: string;
@@ -1074,6 +1128,7 @@ export interface components {
       online: number;
       top_level: number | null;
     };
+    HabitatWay: 'wild' | 'alpha' | 'boss' | 'egg' | 'fished' | 'caged' | 'raid' | 'bred';
     Health: {
       db: boolean;
       mock: boolean;
@@ -1219,6 +1274,14 @@ export interface components {
       data: components['schemas']['PalHatchedData'];
       type: 'pal.hatched';
     };
+    PalpediaEntry: {
+      captures: number;
+      caught: boolean;
+      levels: number[] | null;
+      night_only: boolean;
+      species: string;
+      ways: components['schemas']['HabitatWay'][];
+    };
     PartyPal: {
       level: number;
       name: string | null;
@@ -1335,6 +1398,13 @@ export interface components {
     PlayerPage: {
       items: components['schemas']['PlayerSummary'][];
       next_cursor: string | null;
+    };
+    PlayerPalpedia: {
+      entries: components['schemas']['PalpediaEntry'][];
+      player: components['schemas']['PlayerRef'];
+      saved_at: string | null;
+      total: number;
+      unlocked: number;
     };
     PlayerPatch: {
       hidden?: boolean;
@@ -1907,10 +1977,14 @@ export type EventPage = components['schemas']['EventPage'];
 export type Guild = components['schemas']['Guild'];
 export type GuildList = components['schemas']['GuildList'];
 export type GuildMember = components['schemas']['GuildMember'];
+export type GuildPalpedia = components['schemas']['GuildPalpedia'];
+export type GuildPalpediaEntry = components['schemas']['GuildPalpediaEntry'];
+export type GuildPalpediaMember = components['schemas']['GuildPalpediaMember'];
 export type GuildRef = components['schemas']['GuildRef'];
 export type GuildRole = components['schemas']['GuildRole'];
 export type GuildRosterEntry = components['schemas']['GuildRosterEntry'];
 export type GuildSummary = components['schemas']['GuildSummary'];
+export type HabitatWay = components['schemas']['HabitatWay'];
 export type Health = components['schemas']['Health'];
 export type IngestBatch = components['schemas']['IngestBatch'];
 export type IngestCounters = components['schemas']['IngestCounters'];
@@ -1934,6 +2008,7 @@ export type PalCapturedData = components['schemas']['PalCapturedData'];
 export type PalCapturedEvent = components['schemas']['PalCapturedEvent'];
 export type PalHatchedData = components['schemas']['PalHatchedData'];
 export type PalHatchedEvent = components['schemas']['PalHatchedEvent'];
+export type PalpediaEntry = components['schemas']['PalpediaEntry'];
 export type PartyPal = components['schemas']['PartyPal'];
 export type Platform = components['schemas']['Platform'];
 export type Player = components['schemas']['Player'];
@@ -1953,6 +2028,7 @@ export type PlayerLeftEvent = components['schemas']['PlayerLeftEvent'];
 export type PlayerLevelUpData = components['schemas']['PlayerLevelUpData'];
 export type PlayerLevelUpEvent = components['schemas']['PlayerLevelUpEvent'];
 export type PlayerPage = components['schemas']['PlayerPage'];
+export type PlayerPalpedia = components['schemas']['PlayerPalpedia'];
 export type PlayerPatch = components['schemas']['PlayerPatch'];
 export type PlayerPosition = components['schemas']['PlayerPosition'];
 export type PlayerProgress = components['schemas']['PlayerProgress'];
@@ -2677,6 +2753,32 @@ export interface operations {
       503: components['responses']['Unavailable'];
     };
   };
+  getGuildPalpedia: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: components['parameters']['GuildId'];
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          'Cache-Control': components['headers']['CacheControl'];
+          ETag: components['headers']['ETag'];
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['GuildPalpedia'];
+        };
+      };
+      404: components['responses']['NotFound'];
+      429: components['responses']['RateLimited'];
+      503: components['responses']['Unavailable'];
+    };
+  };
   getHealth: {
     parameters: {
       query?: never;
@@ -2833,6 +2935,33 @@ export interface operations {
         };
         content: {
           'application/json': components['schemas']['Player'];
+        };
+      };
+      400: components['responses']['BadRequest'];
+      404: components['responses']['NotFound'];
+      429: components['responses']['RateLimited'];
+      503: components['responses']['Unavailable'];
+    };
+  };
+  getPlayerPalpedia: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: components['parameters']['PlayerId'];
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          'Cache-Control': components['headers']['CacheControl'];
+          ETag: components['headers']['ETag'];
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['PlayerPalpedia'];
         };
       };
       400: components['responses']['BadRequest'];

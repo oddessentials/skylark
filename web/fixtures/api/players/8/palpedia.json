@@ -1,0 +1,2312 @@
+{
+  "player": { "id": 8, "name": "Kestrel" },
+  "saved_at": "2026-09-27T20:29:00.000Z",
+  "unlocked": 73,
+  "total": 288,
+  "entries": [
+    {
+      "species": "SheepBall",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [1, 9]
+    },
+    {
+      "species": "PinkCat",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [1, 9]
+    },
+    {
+      "species": "ChickenPal",
+      "caught": true,
+      "captures": 1,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [1, 9]
+    },
+    {
+      "species": "Carbunclo",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [1, 14]
+    },
+    {
+      "species": "BluePlatypus",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [6, 14]
+    },
+    {
+      "species": "BluePlatypus_Fire",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "egg", "fished", "caged", "bred"],
+      "night_only": false,
+      "levels": [32, 36]
+    },
+    {
+      "species": "CuteFox",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [1, 9]
+    },
+    {
+      "species": "FlyingManta",
+      "caught": true,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [2, 14]
+    },
+    {
+      "species": "FlyingManta_Thunder",
+      "caught": true,
+      "captures": 5,
+      "ways": ["wild", "egg", "fished", "caged", "bred"],
+      "night_only": false,
+      "levels": [26, 29]
+    },
+    {
+      "species": "WoolFox",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [1, 9]
+    },
+    {
+      "species": "KendoFrog",
+      "caught": true,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [4, 49]
+    },
+    {
+      "species": "KendoFrog_Dark",
+      "caught": true,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "caged", "bred"],
+      "night_only": false,
+      "levels": [61, 62]
+    },
+    {
+      "species": "LeafMomonga",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [1, 50]
+    },
+    {
+      "species": "Ganesha",
+      "caught": true,
+      "captures": 5,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [2, 9]
+    },
+    {
+      "species": "PlantSlime",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [2, 9]
+    },
+    {
+      "species": "SamuraiDog",
+      "caught": true,
+      "captures": 1,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [2, 4]
+    },
+    {
+      "species": "CloverFairy",
+      "caught": true,
+      "captures": 6,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [3, 9]
+    },
+    {
+      "species": "Hedgehog",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [4, 9]
+    },
+    {
+      "species": "Hedgehog_Ice",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [10, 24]
+    },
+    {
+      "species": "NegativeKoala",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": true,
+      "levels": [4, 24]
+    },
+    {
+      "species": "Penguin",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [2, 41]
+    },
+    {
+      "species": "Penguin_Electric",
+      "caught": true,
+      "captures": 6,
+      "ways": ["wild", "fished", "caged", "bred"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "CaptainPenguin",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "boss", "egg", "fished"],
+      "night_only": false,
+      "levels": [20, 44]
+    },
+    {
+      "species": "CaptainPenguin_Black",
+      "caught": true,
+      "captures": 6,
+      "ways": ["wild", "fished", "bred"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "WizardOwl",
+      "caught": true,
+      "captures": 5,
+      "ways": ["wild", "egg"],
+      "night_only": true,
+      "levels": [4, 22]
+    },
+    {
+      "species": "Alpaca",
+      "caught": true,
+      "captures": 5,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [5, 17]
+    },
+    {
+      "species": "KingAlpaca",
+      "caught": true,
+      "captures": 3,
+      "ways": ["alpha", "boss"],
+      "night_only": false,
+      "levels": [80, 80]
+    },
+    {
+      "species": "KingAlpaca_Ice",
+      "caught": true,
+      "captures": 6,
+      "ways": ["alpha", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "DreamDemon",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg"],
+      "night_only": true,
+      "levels": [4, 16]
+    },
+    {
+      "species": "Monkey",
+      "caught": true,
+      "captures": 1,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [4, 12]
+    },
+    {
+      "species": "Monkey_Fire",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [10, 12]
+    },
+    {
+      "species": "NightFox",
+      "caught": true,
+      "captures": 6,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": true,
+      "levels": [4, 15]
+    },
+    {
+      "species": "LavaGirl",
+      "caught": true,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [4, 35]
+    },
+    {
+      "species": "FlameBambi",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [4, 14]
+    },
+    {
+      "species": "Bastet",
+      "caught": true,
+      "captures": 5,
+      "ways": ["caged"],
+      "night_only": false,
+      "levels": [5, 15]
+    },
+    {
+      "species": "Bastet_Ice",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "caged", "bred"],
+      "night_only": false,
+      "levels": [39, 41]
+    },
+    {
+      "species": "Boar",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [5, 13]
+    },
+    {
+      "species": "Kitsunebi",
+      "caught": true,
+      "captures": 6,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [5, 9]
+    },
+    {
+      "species": "Kitsunebi_Ice",
+      "caught": true,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [30, 55]
+    },
+    {
+      "species": "NegativeOctopus",
+      "caught": true,
+      "captures": 1,
+      "ways": ["wild", "egg", "fished"],
+      "night_only": false,
+      "levels": [5, 62]
+    },
+    {
+      "species": "NegativeOctopus_Neutral",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg", "fished", "caged", "bred"],
+      "night_only": false,
+      "levels": [24, 44]
+    },
+    {
+      "species": "CuteMole",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [5, 38]
+    },
+    {
+      "species": "Deer",
+      "caught": true,
+      "captures": 6,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [6, 80]
+    },
+    {
+      "species": "Deer_Ground",
+      "caught": true,
+      "captures": 6,
+      "ways": ["wild", "bred"],
+      "night_only": false,
+      "levels": [20, 80]
+    },
+    {
+      "species": "Garm",
+      "caught": true,
+      "captures": 5,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [6, 14]
+    },
+    {
+      "species": "BerryGoat",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [6, 28]
+    },
+    {
+      "species": "BerryGoat_Dark",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "boss", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [50, 58]
+    },
+    {
+      "species": "MopBaby",
+      "caught": true,
+      "captures": 1,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [7, 34]
+    },
+    {
+      "species": "MopKing",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [25, 40]
+    },
+    {
+      "species": "TentacleTurtle",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [5, 39]
+    },
+    {
+      "species": "TentacleTurtle_Ground",
+      "caught": true,
+      "captures": 5,
+      "ways": ["wild", "egg", "fished", "caged", "bred"],
+      "night_only": false,
+      "levels": [40, 48]
+    },
+    {
+      "species": "WindChimes",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [9, 36]
+    },
+    {
+      "species": "WindChimes_Ice",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "egg", "caged", "bred"],
+      "night_only": true,
+      "levels": [32, 40]
+    },
+    {
+      "species": "SweetsSheep",
+      "caught": true,
+      "captures": 5,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [9, 17]
+    },
+    {
+      "species": "SweetsSheep_Ground",
+      "caught": true,
+      "captures": 0,
+      "ways": ["wild", "bred"],
+      "night_only": false,
+      "levels": [55, 60]
+    },
+    {
+      "species": "CowPal",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [9, 17]
+    },
+    {
+      "species": "BlueDragon",
+      "caught": true,
+      "captures": 6,
+      "ways": ["wild", "boss", "egg", "fished"],
+      "night_only": false,
+      "levels": [35, 80]
+    },
+    {
+      "species": "BlueDragon_Ice",
+      "caught": true,
+      "captures": 5,
+      "ways": ["wild", "fished", "bred"],
+      "night_only": false,
+      "levels": [50, 80]
+    },
+    {
+      "species": "ElecCat",
+      "caught": true,
+      "captures": 6,
+      "ways": ["wild", "caged"],
+      "night_only": false,
+      "levels": [10, 12]
+    },
+    {
+      "species": "Kelpie",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [9, 17]
+    },
+    {
+      "species": "Kelpie_Fire",
+      "caught": true,
+      "captures": 5,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [20, 35]
+    },
+    {
+      "species": "PinkRabbit",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [1, 24]
+    },
+    {
+      "species": "PinkRabbit_Grass",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [18, 55]
+    },
+    {
+      "species": "JellyfishFairy",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [6, 58]
+    },
+    {
+      "species": "JellyfishGhost",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [14, 63]
+    },
+    {
+      "species": "ClioneTwins",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [9, 65]
+    },
+    {
+      "species": "OctopusGirl",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [10, 62]
+    },
+    {
+      "species": "OctopusGirl_Neutral",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "bred"],
+      "night_only": false,
+      "levels": [65, 66]
+    },
+    {
+      "species": "Eagle",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [11, 25]
+    },
+    {
+      "species": "GhostBlackCat",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [11, 73]
+    },
+    {
+      "species": "HawkBird",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [12, 16]
+    },
+    {
+      "species": "CatBat",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": true,
+      "levels": [12, 42]
+    },
+    {
+      "species": "ColorfulBird",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [14, 47]
+    },
+    {
+      "species": "Kirin",
+      "caught": true,
+      "captures": 2,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [14, 80]
+    },
+    {
+      "species": "Kirin_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [75, 77]
+    },
+    {
+      "species": "SharkKid",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [14, 26]
+    },
+    {
+      "species": "SharkKid_Fire",
+      "caught": true,
+      "captures": 4,
+      "ways": ["wild", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [32, 39]
+    },
+    {
+      "species": "Werewolf",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": true,
+      "levels": [14, 38]
+    },
+    {
+      "species": "Werewolf_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [40, 65]
+    },
+    {
+      "species": "DarkCrow",
+      "caught": true,
+      "captures": 1,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [14, 57]
+    },
+    {
+      "species": "FlameBuffalo",
+      "caught": true,
+      "captures": 3,
+      "ways": ["wild", "boss", "egg", "caged"],
+      "night_only": false,
+      "levels": [14, 27]
+    },
+    {
+      "species": "FluffyBird",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [15, 65]
+    },
+    {
+      "species": "LittleBriarRose",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [16, 25]
+    },
+    {
+      "species": "CuteButterfly",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [16, 25]
+    },
+    {
+      "species": "ElecPomeranian",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [18, 65]
+    },
+    {
+      "species": "FairyDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [20, 80]
+    },
+    {
+      "species": "FairyDragon_Water",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [33, 80]
+    },
+    {
+      "species": "BirdDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [20, 63]
+    },
+    {
+      "species": "BirdDragon_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [23, 67]
+    },
+    {
+      "species": "CatVampire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [20, 66]
+    },
+    {
+      "species": "VioletFairy",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [20, 57]
+    },
+    {
+      "species": "SoldierBee",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [20, 34]
+    },
+    {
+      "species": "QueenBee",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [34, 38]
+    },
+    {
+      "species": "PinkLizard",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": true,
+      "levels": [30, 42]
+    },
+    {
+      "species": "NaughtyCat",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [20, 48]
+    },
+    {
+      "species": "PurpleSpider",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged"],
+      "night_only": false,
+      "levels": [20, 55]
+    },
+    {
+      "species": "IceSeal",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [33, 44]
+    },
+    {
+      "species": "IceSeal_Ground",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "fished", "bred"],
+      "night_only": false,
+      "levels": [55, 60]
+    },
+    {
+      "species": "LizardMan",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [21, 36]
+    },
+    {
+      "species": "LizardMan_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [28, 36]
+    },
+    {
+      "species": "Gorilla",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [22, 80]
+    },
+    {
+      "species": "Gorilla_Ground",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [35, 80]
+    },
+    {
+      "species": "Serpent",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished"],
+      "night_only": false,
+      "levels": [12, 35]
+    },
+    {
+      "species": "Serpent_Ground",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "bred"],
+      "night_only": false,
+      "levels": [31, 63]
+    },
+    {
+      "species": "RobinHood",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [22, 34]
+    },
+    {
+      "species": "RobinHood_Ground",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [32, 38]
+    },
+    {
+      "species": "FlowerRabbit",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "caged"],
+      "night_only": false,
+      "levels": [22, 25]
+    },
+    {
+      "species": "FoxMage",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged"],
+      "night_only": false,
+      "levels": [23, 36]
+    },
+    {
+      "species": "FoxMage_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged", "bred"],
+      "night_only": true,
+      "levels": [46, 55]
+    },
+    {
+      "species": "CatMage",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [20, 46]
+    },
+    {
+      "species": "CatMage_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [40, 45]
+    },
+    {
+      "species": "HadesBird",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [24, 80]
+    },
+    {
+      "species": "HadesBird_Electric",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [47, 80]
+    },
+    {
+      "species": "GrassMinotaur",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [24, 80]
+    },
+    {
+      "species": "GrassMinotaur_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [75, 77]
+    },
+    {
+      "species": "Mutant",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged"],
+      "night_only": false,
+      "levels": [25, 49]
+    },
+    {
+      "species": "FengyunDeeper",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss"],
+      "night_only": false,
+      "levels": [45, 80]
+    },
+    {
+      "species": "FengyunDeeper_Electric",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": [57, 80]
+    },
+    {
+      "species": "FlowerDinosaur",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [25, 34]
+    },
+    {
+      "species": "FlowerDinosaur_Electric",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [34, 39]
+    },
+    {
+      "species": "Ronin",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [25, 59]
+    },
+    {
+      "species": "Ronin_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [46, 67]
+    },
+    {
+      "species": "IceCrocodile",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [10, 41]
+    },
+    {
+      "species": "GrassMammoth",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [26, 80]
+    },
+    {
+      "species": "GrassMammoth_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [36, 80]
+    },
+    {
+      "species": "StuffedShark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "fished"],
+      "night_only": false,
+      "levels": [1, 38]
+    },
+    {
+      "species": "StuffedShark_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "fished", "bred"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "FlowerDoll",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [28, 57]
+    },
+    {
+      "species": "FlowerDoll_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [71, 73]
+    },
+    {
+      "species": "PandaGirl",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [28, 68]
+    },
+    {
+      "species": "Baphomet",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [30, 40]
+    },
+    {
+      "species": "Baphomet_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "bred"],
+      "night_only": false,
+      "levels": [37, 39]
+    },
+    {
+      "species": "RaijinDaughter",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [30, 36]
+    },
+    {
+      "species": "RaijinDaughter_Water",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [50, 66]
+    },
+    {
+      "species": "FireKirin",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [30, 80]
+    },
+    {
+      "species": "FireKirin_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "bred"],
+      "night_only": false,
+      "levels": [32, 80]
+    },
+    {
+      "species": "LazyDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [30, 80]
+    },
+    {
+      "species": "LazyDragon_Electric",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [48, 80]
+    },
+    {
+      "species": "IceFox",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [30, 37]
+    },
+    {
+      "species": "ThunderBird",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [30, 80]
+    },
+    {
+      "species": "ThunderBird_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [75, 77]
+    },
+    {
+      "species": "GhostAnglerfish",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [30, 58]
+    },
+    {
+      "species": "GhostAnglerfish_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "fished", "bred"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "ThunderDog",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [31, 58]
+    },
+    {
+      "species": "ThunderDog_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [35, 77]
+    },
+    {
+      "species": "DarkScorpion",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [31, 43]
+    },
+    {
+      "species": "DarkScorpion_Ground",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": [48, 52]
+    },
+    {
+      "species": "CactusDoll",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss"],
+      "night_only": false,
+      "levels": [31, 36]
+    },
+    {
+      "species": "CactusDoll_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "bred"],
+      "night_only": true,
+      "levels": [33, 36]
+    },
+    {
+      "species": "IceDeer",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [32, 80]
+    },
+    {
+      "species": "GrassPanda",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [32, 80]
+    },
+    {
+      "species": "GrassPanda_Electric",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [35, 80]
+    },
+    {
+      "species": "WeaselDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged"],
+      "night_only": false,
+      "levels": [32, 80]
+    },
+    {
+      "species": "WeaselDragon_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [40, 80]
+    },
+    {
+      "species": "RedArmorBird",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [32, 80]
+    },
+    {
+      "species": "VolcanoDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [32, 80]
+    },
+    {
+      "species": "VolcanoDragon_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "TropicalOstrich",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [32, 50]
+    },
+    {
+      "species": "DrillGame",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [33, 44]
+    },
+    {
+      "species": "SakuraSaurus",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [33, 80]
+    },
+    {
+      "species": "SakuraSaurus_Water",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [51, 80]
+    },
+    {
+      "species": "LazyCatfish",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "fished", "caged"],
+      "night_only": false,
+      "levels": [14, 39]
+    },
+    {
+      "species": "LazyCatfish_Gold",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "caged", "bred"],
+      "night_only": false,
+      "levels": [25, 49]
+    },
+    {
+      "species": "Plesiosaur",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [33, 80]
+    },
+    {
+      "species": "AmaterasuWolf",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [34, 38]
+    },
+    {
+      "species": "AmaterasuWolf_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": [61, 66]
+    },
+    {
+      "species": "Manticore",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [35, 80]
+    },
+    {
+      "species": "Manticore_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [34, 80]
+    },
+    {
+      "species": "HerculesBeetle",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [34, 80]
+    },
+    {
+      "species": "HerculesBeetle_Ground",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged", "bred"],
+      "night_only": false,
+      "levels": [53, 64]
+    },
+    {
+      "species": "SnowPeafowl",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [39, 68]
+    },
+    {
+      "species": "DarkFlameFox",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [35, 77]
+    },
+    {
+      "species": "WhiteMoth",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged"],
+      "night_only": false,
+      "levels": [36, 42]
+    },
+    {
+      "species": "WhiteMoth_Neutral",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [75, 78]
+    },
+    {
+      "species": "GhostBeast",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": true,
+      "levels": [38, 59]
+    },
+    {
+      "species": "MushroomDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [39, 77]
+    },
+    {
+      "species": "MushroomDragon_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [39, 77]
+    },
+    {
+      "species": "IceWitch",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild"],
+      "night_only": false,
+      "levels": [39, 48]
+    },
+    {
+      "species": "MummyPal",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [39, 80]
+    },
+    {
+      "species": "Umihebi",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss", "egg"],
+      "night_only": false,
+      "levels": [80, 80]
+    },
+    {
+      "species": "Umihebi_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [66, 80]
+    },
+    {
+      "species": "Suzaku",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [80, 80]
+    },
+    {
+      "species": "Suzaku_Water",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "bred"],
+      "night_only": false,
+      "levels": [68, 80]
+    },
+    {
+      "species": "FeatherOstrich",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [31, 48]
+    },
+    {
+      "species": "SkyDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [40, 80]
+    },
+    {
+      "species": "SkyDragon_Grass",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [45, 80]
+    },
+    {
+      "species": "LeafPrincess",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [40, 57]
+    },
+    {
+      "species": "SmallArmadillo",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [40, 48]
+    },
+    {
+      "species": "GuardianDog",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [40, 56]
+    },
+    {
+      "species": "SwordCutlassfish",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished"],
+      "night_only": false,
+      "levels": [30, 66]
+    },
+    {
+      "species": "SwordCutlassfish_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "fished", "bred"],
+      "night_only": false,
+      "levels": [40, 44]
+    },
+    {
+      "species": "VolcanicMonster",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [46, 48]
+    },
+    {
+      "species": "VolcanicMonster_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [42, 67]
+    },
+    {
+      "species": "NightBlueHorse",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [42, 80]
+    },
+    {
+      "species": "NightBlueHorse_Neutral",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [74, 76]
+    },
+    {
+      "species": "RockBeast",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss"],
+      "night_only": false,
+      "levels": [42, 46]
+    },
+    {
+      "species": "RockBeast_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [68, 69]
+    },
+    {
+      "species": "WhiteTiger",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [44, 49]
+    },
+    {
+      "species": "WhiteTiger_Ground",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": [62, 64]
+    },
+    {
+      "species": "SmallYeti",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [32, 34]
+    },
+    {
+      "species": "Yeti",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [45, 80]
+    },
+    {
+      "species": "Yeti_Grass",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [53, 80]
+    },
+    {
+      "species": "CandleGhost",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [45, 67]
+    },
+    {
+      "species": "VenusFlytrap",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild"],
+      "night_only": false,
+      "levels": [45, 48]
+    },
+    {
+      "species": "KingBahamut",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [46, 80]
+    },
+    {
+      "species": "KingBahamut_Dragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["raid"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "GrassGolem",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [46, 80]
+    },
+    {
+      "species": "GrassGolem_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": [75, 77]
+    },
+    {
+      "species": "Anubis",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss"],
+      "night_only": false,
+      "levels": [55, 80]
+    },
+    {
+      "species": "Sekhmet",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [37, 80]
+    },
+    {
+      "species": "ScorpionMan",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [48, 49]
+    },
+    {
+      "species": "ScorpionMan_Electric",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "bred"],
+      "night_only": false,
+      "levels": [65, 68]
+    },
+    {
+      "species": "CubeTurtle",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [48, 80]
+    },
+    {
+      "species": "CubeTurtle_Neutral",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": [76, 78]
+    },
+    {
+      "species": "BadCatgirl",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged"],
+      "night_only": false,
+      "levels": [50, 58]
+    },
+    {
+      "species": "MimicDog",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [10, 80]
+    },
+    {
+      "species": "DarkAlien",
+      "caught": false,
+      "captures": 0,
+      "ways": ["caged"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "WhiteAlienDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": [],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "BlueberryFairy",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged"],
+      "night_only": false,
+      "levels": [50, 66]
+    },
+    {
+      "species": "GhostRabbit",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [50, 67]
+    },
+    {
+      "species": "GhostRabbit_Grass",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "bred"],
+      "night_only": false,
+      "levels": [50, 54]
+    },
+    {
+      "species": "BlackPuppy",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged"],
+      "night_only": false,
+      "levels": [50, 66]
+    },
+    {
+      "species": "BlackPuppy_Ice",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "bred"],
+      "night_only": false,
+      "levels": [62, 64]
+    },
+    {
+      "species": "MysteryMask",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [51, 66]
+    },
+    {
+      "species": "IceNarwhal",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "fished"],
+      "night_only": false,
+      "levels": [42, 80]
+    },
+    {
+      "species": "IceNarwhal_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "fished", "bred"],
+      "night_only": false,
+      "levels": [71, 80]
+    },
+    {
+      "species": "GrassRabbitMan",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [52, 53]
+    },
+    {
+      "species": "GrimGirl",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": true,
+      "levels": [52, 80]
+    },
+    {
+      "species": "GoldenHorse",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [53, 66]
+    },
+    {
+      "species": "SifuDog",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [53, 56]
+    },
+    {
+      "species": "SumoDog",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [53, 56]
+    },
+    {
+      "species": "WhiteDeer",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": [54, 80]
+    },
+    {
+      "species": "WhiteDeer_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "BlackMetalDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss"],
+      "night_only": false,
+      "levels": [80, 80]
+    },
+    {
+      "species": "WingGolem",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [55, 80]
+    },
+    {
+      "species": "WingGolem_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [65, 73]
+    },
+    {
+      "species": "WhiteShieldDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss", "egg"],
+      "night_only": false,
+      "levels": [80, 80]
+    },
+    {
+      "species": "BlueThunderHorse",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [63, 80]
+    },
+    {
+      "species": "LongCat",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [63, 65]
+    },
+    {
+      "species": "ElecSnail",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [63, 65]
+    },
+    {
+      "species": "ElecSnail_Ground",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [74, 76]
+    },
+    {
+      "species": "DandelionGirl",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [63, 69]
+    },
+    {
+      "species": "BrownRabbit",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [63, 66]
+    },
+    {
+      "species": "HoodGhost",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [65, 69]
+    },
+    {
+      "species": "ElecLizard",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [65, 66]
+    },
+    {
+      "species": "OniGhostGirl",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [65, 69]
+    },
+    {
+      "species": "KingSunfish",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "fished"],
+      "night_only": false,
+      "levels": [66, 67]
+    },
+    {
+      "species": "KingSunfish_Thunder",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "fished", "bred"],
+      "night_only": false,
+      "levels": [76, 78]
+    },
+    {
+      "species": "SleeveRabbit",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [65, 69]
+    },
+    {
+      "species": "GhostDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss"],
+      "night_only": false,
+      "levels": [65, 80]
+    },
+    {
+      "species": "GhostDragon_Fire",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "bred"],
+      "night_only": false,
+      "levels": [75, 77]
+    },
+    {
+      "species": "ThunderFluffyBird",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [63, 67]
+    },
+    {
+      "species": "RedFlowerBird",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg", "caged"],
+      "night_only": false,
+      "levels": [63, 67]
+    },
+    {
+      "species": "FoxExorcist",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "caged"],
+      "night_only": false,
+      "levels": [75, 80]
+    },
+    {
+      "species": "LotusDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss"],
+      "night_only": false,
+      "levels": [80, 80]
+    },
+    {
+      "species": "ClownRabbit",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [55, 74]
+    },
+    {
+      "species": "ThiefBird",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [74, 78]
+    },
+    {
+      "species": "SnakeGirl",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [75, 77]
+    },
+    {
+      "species": "MushroomLady",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [75, 77]
+    },
+    {
+      "species": "LanternButler",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [75, 77]
+    },
+    {
+      "species": "MoonChild",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [76, 78]
+    },
+    {
+      "species": "MonochromeQueen",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [76, 78]
+    },
+    {
+      "species": "KabukiMan",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss", "egg"],
+      "night_only": false,
+      "levels": [80, 80]
+    },
+    {
+      "species": "DomeArmorDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss", "egg"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "ElecPanda",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [70, 80]
+    },
+    {
+      "species": "LilyQueen",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg"],
+      "night_only": false,
+      "levels": [75, 80]
+    },
+    {
+      "species": "LilyQueen_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": [75, 80]
+    },
+    {
+      "species": "ThunderDragonMan",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [74, 80]
+    },
+    {
+      "species": "Horus",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [76, 80]
+    },
+    {
+      "species": "Horus_Water",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "boss", "egg", "bred"],
+      "night_only": false,
+      "levels": [65, 80]
+    },
+    {
+      "species": "BlackGriffon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild"],
+      "night_only": false,
+      "levels": [50, 80]
+    },
+    {
+      "species": "MoonQueen",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [76, 80]
+    },
+    {
+      "species": "SnowTigerBeastman",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [75, 80]
+    },
+    {
+      "species": "BlueSkyDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["wild", "egg"],
+      "night_only": false,
+      "levels": [76, 78]
+    },
+    {
+      "species": "Mothman",
+      "caught": false,
+      "captures": 0,
+      "ways": [],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "FlowerPrince",
+      "caught": false,
+      "captures": 0,
+      "ways": [],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "NightLady",
+      "caught": false,
+      "captures": 0,
+      "ways": ["raid", "bred"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "NightLady_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["raid"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "DarkMechaDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["raid"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "LegendDeer",
+      "caught": false,
+      "captures": 0,
+      "ways": ["raid"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "SaintCentaur",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "BlackCentaur",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "IceHorse",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "IceHorse_Dark",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss", "bred"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "PoseidonOrca",
+      "caught": false,
+      "captures": 0,
+      "ways": ["boss"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "JetDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": ["alpha", "boss", "fished"],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "KingWhale",
+      "caught": false,
+      "captures": 0,
+      "ways": [],
+      "night_only": false,
+      "levels": null
+    },
+    {
+      "species": "WorldTreeDragon",
+      "caught": false,
+      "captures": 0,
+      "ways": [],
+      "night_only": false,
+      "levels": null
+    }
+  ]
+}

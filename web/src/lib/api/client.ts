@@ -118,6 +118,10 @@ export function createApi(options: ApiOptions = {}) {
           params: { path: { id }, query: session ? { session } : {} }
         })
       ),
+    getPlayerPalpedia: (id: number) =>
+      unwrap(client.GET('/api/v1/players/{id}/palpedia', { params: { path: { id } } })),
+    getGuildPalpedia: (id: string) =>
+      unwrap(client.GET('/api/v1/guilds/{id}/palpedia', { params: { path: { id } } })),
     listChat: (page: Pagination = {}) =>
       unwrap(client.GET('/api/v1/chat', { params: { query: page } })),
     listGuilds: () => unwrap(client.GET('/api/v1/guilds')),
