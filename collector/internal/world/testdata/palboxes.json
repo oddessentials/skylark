@@ -1,0 +1,159 @@
+{
+ "Time": "2026-09-27 22:02:19",
+ "FPS": 60.0601921081543,
+ "AverageFPS": 60.00010299682617,
+ "InGameTime": "14:26",
+ "InGameDays": 61,
+ "ActorData": [
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名2(仮)",
+   "GuildID": "A0000036BBBBBBBBCCCCCCCCD0000036",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -329534.5,
+   "LocationY": 218132.109375,
+   "LocationZ": -1895.5999755859375
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名11(仮)",
+   "GuildID": "A0000037BBBBBBBBCCCCCCCCD0000037",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -274892.90625,
+   "LocationY": 206909.203125,
+   "LocationZ": -1280
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名14(仮)",
+   "GuildID": "A0000038BBBBBBBBCCCCCCCCD0000038",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -349123.40625,
+   "LocationY": 271192.8125,
+   "LocationZ": 5790.30029296875
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名12(仮)",
+   "GuildID": "A0000039BBBBBBBBCCCCCCCCD0000039",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -148784.109375,
+   "LocationY": 240268.109375,
+   "LocationZ": 9423.2001953125
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名13(仮)",
+   "GuildID": "A0000036BBBBBBBBCCCCCCCCD0000036",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -426790.8125,
+   "LocationY": -167406.609375,
+   "LocationZ": 12751.1005859375
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名11(仮)",
+   "GuildID": "A000003ABBBBBBBBCCCCCCCCD000003A",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -141074.296875,
+   "LocationY": 244423.296875,
+   "LocationZ": 14632.5
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名11(仮)",
+   "GuildID": "A000003BBBBBBBBBCCCCCCCCD000003B",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -309178.8125,
+   "LocationY": 104580.8046875,
+   "LocationZ": 871.7000122070312
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名6(仮)",
+   "GuildID": "A000003CBBBBBBBBCCCCCCCCD000003C",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -321708.21875,
+   "LocationY": 197324.5,
+   "LocationZ": 675.5
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名5(仮)",
+   "GuildID": "A000003DBBBBBBBBCCCCCCCCD000003D",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -365333.40625,
+   "LocationY": 159760.296875,
+   "LocationZ": 4099
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名11(仮)",
+   "GuildID": "A0000039BBBBBBBBCCCCCCCCD0000039",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -333280.71875,
+   "LocationY": -235638.609375,
+   "LocationZ": -1231.5999755859375
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名7(仮)",
+   "GuildID": "A000003EBBBBBBBBCCCCCCCCD000003E",
+   "GuildName": "Test Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -352852.90625,
+   "LocationY": 258351.703125,
+   "LocationZ": 3986.5
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名0(仮)",
+   "GuildID": "A0000039BBBBBBBBCCCCCCCCD0000039",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -73080.6015625,
+   "LocationY": -69035.203125,
+   "LocationZ": -948.5
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名1(仮)",
+   "GuildID": "A0000037BBBBBBBBCCCCCCCCD0000037",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -321104.21875,
+   "LocationY": 213567.90625,
+   "LocationZ": -762.6000366210938
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名12(仮)",
+   "GuildID": "A000003DBBBBBBBBCCCCCCCCD000003D",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -412282.5,
+   "LocationY": 76030.3046875,
+   "LocationZ": -2082.10009765625
+  },
+  {
+   "Type": "PalBox",
+   "Name": "新規生成拠点テンプレート名8(仮)",
+   "GuildID": "A000003ABBBBBBBBCCCCCCCCD000003A",
+   "GuildName": "Unnamed Guild",
+   "Class": "BP_BuildObject_PalBoxV2_C",
+   "LocationX": -366068.8125,
+   "LocationY": 73841.703125,
+   "LocationZ": -596
+  }
+ ]
+}

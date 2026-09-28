@@ -1,0 +1,10 @@
+{ 	"timestamp": "2026-09-27 20:02:18", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 20:02:18", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 20:02:32", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/players", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 20:02:50", 	"event": "connect", 	"playername": "Wanderer", 	"userid": "steam_76561190000000101", 	"ip": "192.0.2.10", 	"details": [] }
+{ 	"timestamp": "2026-09-27 20:03:02", 	"event": "join", 	"playername": "Wanderer", 	"userid": "steam_76561190000000101", 	"playerid": "5E7A11C0000000000000000000000000", 	"details": [] }
+{ 	"timestamp": "2026-09-27 20:03:31", 	"event": "chat", 	"playername": "Wanderer", 	"userid": "steam_76561190000000101", 	"details": [ 		"Global", 		"hello", 		"Unnamed Guild" 	] }
+{ 	"timestamp": "2026-09-27 20:03:36", 	"event": "chat", 	"playername": "Wanderer", 	"userid": "steam_76561190000000101", 	"details": [ 		"Guild", 		"guild message", 		"Unnamed Guild" 	] }
+{ 	"timestamp": "2026-09-27 20:03:40", 	"event": "chat", 	"playername": "Wanderer", 	"userid": "steam_76561190000000101", 	"details": [ 		"Say", 		"say message", 		"Unnamed Guild" 	] }
+{ 	"timestamp": "2026-09-27 20:03:49", 	"event": "chat", 	"playername": "Wanderer", 	"userid": "steam_76561190000000101", 	"details": [ 		"Global", 		"hello again", 		"Unnamed Guild" 	] }
+{ 	"timestamp": "2026-09-27 20:11:42", 	"event": "left", 	"playername": "Wanderer", 	"userid": "steam_76561190000000101", 	"details": [] }

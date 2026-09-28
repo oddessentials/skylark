@@ -1,0 +1,16 @@
+Setting breakpad minidump AppID = 1623730
+Game version is v1.0.5.102999
+REST API started on port 18212
+{ "timestamp": "2026-09-27 22:08:31", "event": "command", "playername": "REST", "userid": "", "details": [ "/v1/api/metrics", "OK" ] }
+Running Palworld dedicated server on :18211
+{ "timestamp": "2026-09-27 22:08:41", "event": "command", "playername": "REST", "userid": "", "details": [ "/v1/api/info", "OK" ] }
+{ "timestamp": "2026-09-27 22:08:51", "event": "command", "playername": "REST", "userid": "", "details": [ "/v1/api/info", "OK" ] }
+{ "timestamp": "2026-09-27 22:09:01", "event": "command", "playername": "REST", "userid": "", "details": [ "/v1/api/info", "OK" ] }
+{ "timestamp": "2026-09-27 22:09:11", "event": "command", "playername": "REST", "userid": "", "details": [ "/v1/api/info", "OK" ] }
+{ "timestamp": "2026-09-27 22:09:21", "event": "command", "playername": "REST", "userid": "", "details": [ "/v1/api/info", "OK" ] }
+{ "timestamp": "2026-09-27 22:09:31", "event": "command", "playername": "REST", "userid": "", "details": [ "/v1/api/info", "OK" ] }
+{ "timestamp": "2026-09-27 22:09:41", "event": "command", "playername": "REST", "userid": "", "details": [ "/v1/api/info", "OK" ] }
+{ "timestamp": "2026-09-27 22:09:51", "event": "command", "playername": "REST", "userid": "", "details": [ "/v1/api/info", "OK" ] }
+{ "timestamp": "2026-09-27 22:09:54", "event": "command", "playername": "REST", "userid": "", "details": [ "/v1/api/shutdown", "OK" ] }
+REST API stopped
+REST API stopped

@@ -1,0 +1,23 @@
+2026-09-28T02:02:48.857175248Z The file has been successfully copied: /pal/Package/linux64/steamclient.so -> /pal/Package/Pal/Binaries/Linux/steamclient.so
+2026-09-28T02:02:49.448670090Z sh: 1: xdg-user-dir: not found
+2026-09-28T02:02:50.408605006Z Shutdown handler: initialize.
+2026-09-28T02:02:50.408623655Z 5.1.1-0+++UE5+Release-5.1 1008 0
+2026-09-28T02:02:50.408625275Z Disabling core dumps.
+2026-09-28T02:02:50.408615458Z [S_API] SteamAPI_Init(): Loaded local 'steamclient.so' OK.
+2026-09-28T02:02:50.448675118Z Setting breakpad minidump AppID = 2394010
+2026-09-28T02:02:50.449377513Z [S_API FAIL] Tried to access Steam interface SteamUser021 before SteamAPI_Init succeeded.
+2026-09-28T02:02:50.449385646Z [S_API FAIL] Tried to access Steam interface SteamFriends017 before SteamAPI_Init succeeded.
+2026-09-28T02:02:51.001529123Z [S_API FAIL] Tried to access Steam interface STEAMAPPS_INTERFACE_VERSION008 before SteamAPI_Init succeeded.
+2026-09-28T02:02:51.066881874Z [S_API FAIL] Tried to access Steam interface SteamNetworkingUtils004 before SteamAPI_Init succeeded.
+2026-09-28T02:02:51.791207118Z Game version is v1.0.5.102999
+2026-09-28T02:02:53.054367826Z REST API started on port 8212
+2026-09-28T02:02:53.422371361Z Running Palworld dedicated server on :8211
+2026-09-28T02:02:54.897586188Z { 	"timestamp": "2026-09-28 02:02:54", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+2026-09-28T02:03:05.732880008Z { 	"timestamp": "2026-09-28 02:03:05", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+2026-09-28T02:03:15.485927401Z { 	"timestamp": "2026-09-28 02:03:15", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+2026-09-28T02:03:25.221974583Z { 	"timestamp": "2026-09-28 02:03:25", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+2026-09-28T02:03:36.009616930Z { 	"timestamp": "2026-09-28 02:03:36", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+2026-09-28T02:03:45.746143141Z { 	"timestamp": "2026-09-28 02:03:45", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+2026-09-28T02:03:55.481941437Z { 	"timestamp": "2026-09-28 02:03:55", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+2026-09-28T02:04:06.293620260Z { 	"timestamp": "2026-09-28 02:04:06", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+2026-09-28T02:04:16.030667737Z { 	"timestamp": "2026-09-28 02:04:16", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }

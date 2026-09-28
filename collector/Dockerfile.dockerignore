@@ -1,0 +1,5 @@
+*
+!package.json
+!collector/
+collector/dist/
+collector/bin/

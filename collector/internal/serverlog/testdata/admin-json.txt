@@ -1,0 +1,13 @@
+{ 	"timestamp": "2026-09-27 20:01:50", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 20:01:50", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/game-data", 		"PalGameDataBridge GameData API is not enabled" 	] }
+{ 	"timestamp": "2026-09-27 20:01:50", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/", 		"Unauthorized" 	] }
+{ 	"timestamp": "2026-09-27 20:01:50", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/settings", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 20:01:51", 	"event": "command", 	"playername": "RCON", 	"userid": "127.0.0.1", 	"details": [ 		"Info" 	] }
+{ 	"timestamp": "2026-09-27 20:01:51", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/announce", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 20:02:39", 	"event": "ban", 	"playername": "REST", 	"userid": "", 	"details": [ 		"steam_76561190000000101", 		"A0000003BBBBBBBBCCCCCCCCD0000003", 		"json ban test" 	] }
+{ 	"timestamp": "2026-09-27 20:02:39", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/ban", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 20:02:39", 	"event": "unban", 	"playername": "REST", 	"userid": "", 	"details": [ 		"steam_76561190000000101", 		"A0000003BBBBBBBBCCCCCCCCD0000003" 	] }
+{ 	"timestamp": "2026-09-27 20:02:39", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/unban", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 20:02:39", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/", 		"Unauthorized" 	] }
+{ 	"timestamp": "2026-09-27 20:02:39", 	"event": "command", 	"playername": "RCON", 	"userid": "127.0.0.1", 	"details": [ 		"Broadcast", 		"jsonlogtest" 	] }
+{ 	"timestamp": "2026-09-27 20:02:40", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/shutdown", 		"OK" 	] }

@@ -1,0 +1,19 @@
+[2026.09.28-02.00.47:315][  0]LogMemory: Platform Memory Stats for WindowsServer
+[2026.09.28-02.00.47:315][  0]LogMemory: Process Physical Memory: 180.54 MB used, 218.27 MB peak
+[2026.09.28-02.00.47:315][  0]LogMemory: Process Virtual Memory: 180.82 MB used, 204.46 MB peak
+[2026.09.28-02.00.47:315][  0]LogMemory: Physical Memory: 33608.56 MB used,  31182.84 MB free, 64791.41 MB total
+[2026.09.28-02.00.47:315][  0]LogMemory: Virtual Memory: 47396.85 MB used,  21490.56 MB free, 68887.41 MB total
+慇敭瘠牥楳湯椠⁳ㅶ〮㔮ㄮ㈰㤹ਹ[2026.09.28-02.00.48:281][  0]r.NGX.DLSS.AutoExposure = "0"
+REST API started on port 8212
+[2026.09.28-02.00.49:715][  0]net.ParallelTickNetConnection = "1"
+Running Palworld dedicated server on :8211
+{ 	"timestamp": "2026-09-27 22:00:51", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/info", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 22:00:57", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/players", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 22:01:07", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/players", 		"OK" 	] }
+{ 	"timestamp": "2026-09-27 22:01:17", 	"event": "command", 	"playername": "REST", 	"userid": "", 	"details": [ 		"/v1/api/players", 		"OK" 	] }
+[2026.09.28-02.19.11:591][251]Net.RepGraph.Frequency.Override = "30"
+{ 	"timestamp": "2026-09-27 22:19:11", 	"event": "connect", 	"playername": "Wanderer", 	"userid": "steam_76561190000000101", 	"ip": "192.0.2.10", 	"details": [] }
+{ 	"timestamp": "2026-09-27 22:19:14", 	"event": "join", 	"playername": "Wanderer", 	"userid": "steam_76561190000000101", 	"playerid": "5E7A11C0000000000000000000000000", 	"details": [] }
+{ 	"timestamp": "2026-09-27 22:32:56", 	"event": "left", 	"playername": "Wanderer", 	"userid": "steam_76561190000000101", 	"details": [] }
+REST API stopped
+REST API stopped
