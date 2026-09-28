@@ -29,7 +29,7 @@
         "state": "active",
         "version": "0.1.0",
         "last_seen_at": "2026-09-27T20:29:52.500Z",
-        "layers": { "rest": true, "gamedata": true, "logs": true, "saves": true, "mod": false }
+        "layers": { "rest": true, "gamedata": true, "logs": true, "saves": true, "mod": true }
       },
       "updated_at": "2026-09-27T20:30:05.000Z"
     }
@@ -479,133 +479,6 @@
   },
   {
     "event": "activity",
-    "id": "b2f44eba-058f-4d1a-ae86-e45577fabcb6",
-    "data": {
-      "id": "b2f44eba-058f-4d1a-ae86-e45577fabcb6",
-      "type": "chat.message",
-      "ts": "2026-09-27T14:13:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "channel": "say", "text": "who left the furnace running" }
-    }
-  },
-  {
-    "event": "activity",
-    "id": "311c134e-91be-46f3-870b-94e729f2356d",
-    "data": {
-      "id": "311c134e-91be-46f3-870b-94e729f2356d",
-      "type": "player.level_up",
-      "ts": "2026-09-27T14:15:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "from": 14, "to": 15 }
-    }
-  },
-  {
-    "event": "activity",
-    "id": "aa7fb9a7-7cae-43e5-b5e9-ff7faaa63ecc",
-    "data": {
-      "id": "aa7fb9a7-7cae-43e5-b5e9-ff7faaa63ecc",
-      "type": "chat.message",
-      "ts": "2026-09-27T14:15:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "channel": "global", "text": "got a new saddle finally" }
-    }
-  },
-  {
-    "event": "activity",
-    "id": "c39af110-4fc5-4f20-85c0-601b778d6360",
-    "data": {
-      "id": "c39af110-4fc5-4f20-85c0-601b778d6360",
-      "type": "player.level_up",
-      "ts": "2026-09-27T14:35:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "from": 15, "to": 16 }
-    }
-  },
-  {
-    "event": "activity",
-    "id": "5985c54e-4bff-476c-818b-041076b31395",
-    "data": {
-      "id": "5985c54e-4bff-476c-818b-041076b31395",
-      "type": "player.level_up",
-      "ts": "2026-09-27T14:53:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "from": 16, "to": 17 }
-    }
-  },
-  {
-    "event": "activity",
-    "id": "357e95af-693a-4302-bd16-f0e95c2ae51b",
-    "data": {
-      "id": "357e95af-693a-4302-bd16-f0e95c2ae51b",
-      "type": "player.level_up",
-      "ts": "2026-09-27T15:13:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "from": 17, "to": 18 }
-    }
-  },
-  {
-    "event": "activity",
-    "id": "9306ea7f-7f7e-44ef-8fda-41f1c98bf745",
-    "data": {
-      "id": "9306ea7f-7f7e-44ef-8fda-41f1c98bf745",
-      "type": "player.level_up",
-      "ts": "2026-09-27T15:35:00.999Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "from": 18, "to": 19 }
-    }
-  },
-  {
-    "event": "activity",
-    "id": "33c52c7a-3542-4384-be29-bb5979d83bb0",
-    "data": {
-      "id": "33c52c7a-3542-4384-be29-bb5979d83bb0",
-      "type": "player.left",
-      "ts": "2026-09-27T15:35:11.000Z",
-      "player": { "id": 6, "name": "Bramble" },
-      "details": { "session_s": 6712 }
-    }
-  },
-  {
-    "event": "activity",
-    "id": "da88bce6-e0bf-49ab-bcfa-f2f29d082bbf",
-    "data": {
-      "id": "da88bce6-e0bf-49ab-bcfa-f2f29d082bbf",
-      "type": "player.joined",
-      "ts": "2026-09-27T18:10:44.000Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": {}
-    }
-  },
-  {
-    "event": "activity",
-    "id": "c7404c8d-ff7b-4492-8517-4c6c8dc62261",
-    "data": {
-      "id": "c7404c8d-ff7b-4492-8517-4c6c8dc62261",
-      "type": "player.died",
-      "ts": "2026-09-27T18:26:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": {
-        "cause": null,
-        "killer": null,
-        "x": -236286.6,
-        "y": -99689.9,
-        "region": "Ruined Fortress City"
-      }
-    }
-  },
-  {
-    "event": "activity",
-    "id": "abd25ef5-26b5-4187-8a3a-74eb635c8a12",
-    "data": {
-      "id": "abd25ef5-26b5-4187-8a3a-74eb635c8a12",
-      "type": "chat.message",
-      "ts": "2026-09-27T18:48:00.999Z",
-      "player": { "id": 4, "name": "Sable" },
-      "details": { "channel": "global", "text": "need more paldium, trade?" }
-    }
-  },
-  {
-    "event": "activity",
     "id": "fcc540ac-9367-4257-9ffb-58c393d9e0af",
     "data": {
       "id": "fcc540ac-9367-4257-9ffb-58c393d9e0af",
@@ -639,6 +512,28 @@
   },
   {
     "event": "activity",
+    "id": "80da0e4f-80b8-465a-b341-1c070c7d23aa",
+    "data": {
+      "id": "80da0e4f-80b8-465a-b341-1c070c7d23aa",
+      "type": "pal.captured",
+      "ts": "2026-09-27T19:06:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "species": "LazyCatfish", "species_name": "Dumud", "level": 28 }
+    }
+  },
+  {
+    "event": "activity",
+    "id": "dd05043a-dd8f-472a-ada3-bb720daae809",
+    "data": {
+      "id": "dd05043a-dd8f-472a-ada3-bb720daae809",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T19:06:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "technology": "FragGrenade_Fire", "technology_name": "Incendiary Grenade" }
+    }
+  },
+  {
+    "event": "activity",
     "id": "febbdfef-e94f-4619-8d20-f05a21d14d4f",
     "data": {
       "id": "febbdfef-e94f-4619-8d20-f05a21d14d4f",
@@ -657,8 +552,10 @@
       "ts": "2026-09-27T19:08:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": {
-        "cause": null,
+        "cause": "drown",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -379316.49519706797,
         "y": 181908.98856584157,
         "region": "Windswept Island"
@@ -674,8 +571,10 @@
       "ts": "2026-09-27T19:10:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
       "details": {
-        "cause": null,
+        "cause": "falling",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -28774.98780931857,
         "y": 146935.85787619717,
         "region": "Foot of the Astral Mountains"
@@ -691,8 +590,10 @@
       "ts": "2026-09-27T19:12:00.999Z",
       "player": { "id": 4, "name": "Sable" },
       "details": {
-        "cause": null,
+        "cause": "drown",
         "killer": null,
+        "killer_kind": null,
+        "killer_level": null,
         "x": -316727.90378875245,
         "y": 222222.97536642052,
         "region": "Windswept Island"
@@ -719,6 +620,20 @@
       "ts": "2026-09-27T19:17:15.000Z",
       "player": { "id": 4, "name": "Sable" },
       "details": { "session_s": 3991 }
+    }
+  },
+  {
+    "event": "activity",
+    "id": "194576f7-02ab-4eaf-af8d-92dd66300d95",
+    "data": {
+      "id": "194576f7-02ab-4eaf-af8d-92dd66300d95",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T19:20:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": {
+        "technology": "Infra_ElectricGenerator_Grade_01",
+        "technology_name": "Power Generator"
+      }
     }
   },
   {
@@ -763,8 +678,10 @@
       "ts": "2026-09-27T19:50:00.999Z",
       "player": { "id": 7, "name": "Orrin" },
       "details": {
-        "cause": null,
-        "killer": null,
+        "cause": "attack",
+        "killer": "Rayhound",
+        "killer_kind": "pal",
+        "killer_level": 25,
         "x": -562545.0543181442,
         "y": 121391.15593724685,
         "region": "Frostbitten Isle"
@@ -784,6 +701,28 @@
   },
   {
     "event": "activity",
+    "id": "2e2971d7-0405-4db7-9f8c-5f51a47a0b42",
+    "data": {
+      "id": "2e2971d7-0405-4db7-9f8c-5f51a47a0b42",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T20:04:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "technology": "FurnitureSet_9", "technology_name": "Houseplant Set" }
+    }
+  },
+  {
+    "event": "activity",
+    "id": "3253f6b8-a5ac-41b4-8c1d-639305975970",
+    "data": {
+      "id": "3253f6b8-a5ac-41b4-8c1d-639305975970",
+      "type": "pal.captured",
+      "ts": "2026-09-27T20:04:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "species": "SoldierBee", "species_name": "Beegarde", "level": 24 }
+    }
+  },
+  {
+    "event": "activity",
     "id": "6a122efb-b8c8-48cc-9c54-34363fabf827",
     "data": {
       "id": "6a122efb-b8c8-48cc-9c54-34363fabf827",
@@ -795,6 +734,17 @@
   },
   {
     "event": "activity",
+    "id": "8b75bf21-12da-4dc8-af45-39d06ee32dd6",
+    "data": {
+      "id": "8b75bf21-12da-4dc8-af45-39d06ee32dd6",
+      "type": "pal.hatched",
+      "ts": "2026-09-27T20:04:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "species": "VolcanoDragon", "species_name": "Moldron", "level": 1 }
+    }
+  },
+  {
+    "event": "activity",
     "id": "0d493e5f-9832-4a59-98aa-9856de330edf",
     "data": {
       "id": "0d493e5f-9832-4a59-98aa-9856de330edf",
@@ -802,6 +752,39 @@
       "ts": "2026-09-27T20:06:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
       "details": { "channel": "global", "text": "night is falling, stay close" }
+    }
+  },
+  {
+    "event": "activity",
+    "id": "1888c837-8d02-48c9-8635-6b8af8ae19a2",
+    "data": {
+      "id": "1888c837-8d02-48c9-8635-6b8af8ae19a2",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "technology": "Lantern", "technology_name": "Hip Lantern" }
+    }
+  },
+  {
+    "event": "activity",
+    "id": "448e381a-fe04-4014-90a5-d687e16991e4",
+    "data": {
+      "id": "448e381a-fe04-4014-90a5-d687e16991e4",
+      "type": "pal.captured",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "species": "JellyfishGhost", "species_name": "Jellroy", "level": 21 }
+    }
+  },
+  {
+    "event": "activity",
+    "id": "534ff4bf-323b-4542-b864-dd711617e070",
+    "data": {
+      "id": "534ff4bf-323b-4542-b864-dd711617e070",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "technology": "MedicalPalBed_04", "technology_name": "Large Pal Bed" }
     }
   },
   {
@@ -824,6 +807,33 @@
       "ts": "2026-09-27T20:06:00.999Z",
       "player": { "id": 3, "name": "Tamsin" },
       "details": { "from": 26, "to": 27 }
+    }
+  },
+  {
+    "event": "activity",
+    "id": "3340fb12-dab5-4a03-944e-db8c63dc5a4e",
+    "data": {
+      "id": "3340fb12-dab5-4a03-944e-db8c63dc5a4e",
+      "type": "technology.unlocked",
+      "ts": "2026-09-27T20:25:50.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "technology": "Special_PalRankUp", "technology_name": "Pal Essence Condenser" }
+    }
+  },
+  {
+    "event": "activity",
+    "id": "412f2d4f-f6c9-4023-b7ee-93b281984bb7",
+    "data": {
+      "id": "412f2d4f-f6c9-4023-b7ee-93b281984bb7",
+      "type": "boss.defeated",
+      "ts": "2026-09-27T20:25:50.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": {
+        "boss": "ElectricBoss",
+        "boss_kind": "tower",
+        "boss_name": "Axel & Orserk",
+        "difficulty": "normal"
+      }
     }
   },
   {

@@ -89,8 +89,10 @@
       "at": "2026-09-27T19:50:00.999Z",
       "x": -562545.0543181442,
       "y": 121391.15593724685,
-      "cause": null,
-      "killer": null
+      "cause": "attack",
+      "killer": "Rayhound",
+      "killer_kind": "pal",
+      "killer_level": 25
     }
   ],
   "progress": {
@@ -109,5 +111,6 @@
     "dungeon_clears": 7,
     "technologies": 60,
     "fast_travel_points": 15
-  }
+  },
+  "feats": { "captures": 7, "hatches": 3, "bosses": 2, "technologies": 18, "builds": 11 }
 }

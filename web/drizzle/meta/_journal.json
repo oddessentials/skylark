@@ -15,6 +15,13 @@
       "when": 1790573592665,
       "tag": "0001_world_saves",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790609239855,
+      "tag": "0002_server_mod",
+      "breakpoints": true
     }
   ]
 }

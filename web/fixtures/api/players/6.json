@@ -73,8 +73,10 @@
       "at": "2026-09-27T14:09:00.999Z",
       "x": -815943.6365383795,
       "y": -403438.80221904325,
-      "cause": null,
-      "killer": null
+      "cause": "drown",
+      "killer": null,
+      "killer_kind": null,
+      "killer_level": null
     }
   ],
   "progress": {
@@ -90,5 +92,6 @@
     "dungeon_clears": 5,
     "technologies": 50,
     "fast_travel_points": 12
-  }
+  },
+  "feats": { "captures": 7, "hatches": 3, "bosses": 1, "technologies": 16, "builds": 10 }
 }

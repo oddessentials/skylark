@@ -2,6 +2,7 @@ import { and, asc, desc, eq, gte, ilike, lte, sql, type SQL } from 'drizzle-orm'
 import type { Database } from '../db/client';
 import {
   deaths,
+  feats,
   levelUps,
   players,
   positions,
@@ -20,6 +21,7 @@ import {
   secondsBetween,
   type Schemas
 } from './common';
+import { killerOf } from './names';
 import { partiesOf } from './status';
 import { playerSaveOf, progressOf } from './saves';
 
@@ -32,6 +34,23 @@ export const playerSorts = ['last_seen', 'playtime', 'level', 'name'] as const;
 export type PlayerSort = (typeof playerSorts)[number];
 
 export const trailLimit = 2000;
+
+async function featsOf(db: Database, playerId: number): Promise<Schemas['PlayerFeats'] | null> {
+  const rows = await db
+    .select({ kind: feats.kind, count: sql<number>`count(*)::int` })
+    .from(feats)
+    .where(eq(feats.playerId, playerId))
+    .groupBy(feats.kind);
+  if (rows.length === 0) return null;
+  const count = (kind: string) => rows.find((row) => row.kind === kind)?.count ?? 0;
+  return {
+    captures: count('capture'),
+    hatches: count('hatch'),
+    bosses: count('boss'),
+    technologies: count('technology'),
+    builds: count('build')
+  };
+}
 
 const livePlaytime = sql<number>`(${players.playtimeS} + coalesce(extract(epoch from (now() - ${sessions.joinedAt})), 0))`;
 
@@ -124,7 +143,7 @@ export async function getPlayer(
   now = new Date()
 ): Promise<Player> {
   const row = await visiblePlayer(db, id);
-  const [current, levels, recent, died, state, names, save] = await Promise.all([
+  const [current, levels, recent, died, state, names, save, done] = await Promise.all([
     row.currentSessionId === null
       ? Promise.resolve([] as SessionRow[])
       : db.select().from(sessions).where(eq(sessions.id, row.currentSessionId)).limit(1),
@@ -147,7 +166,8 @@ export async function getPlayer(
       .limit(5),
     readServerState(db),
     guildNames(db, [row.guildId]),
-    playerSaveOf(db, row.playerUid)
+    playerSaveOf(db, row.playerUid),
+    featsOf(db, id)
   ]);
   const open = current[0] ?? null;
   const parties = features.pals
@@ -171,9 +191,11 @@ export async function getPlayer(
       x: features.positions ? death.x : null,
       y: features.positions ? death.y : null,
       cause: death.cause,
-      killer: death.killer
+      ...killerOf(death.killer, death.killerKind),
+      killer_level: death.killerLevel
     })),
-    progress: progressOf(save)
+    progress: progressOf(save),
+    feats: done
   };
 }
 

@@ -102,22 +102,28 @@
       "at": "2026-09-23T15:07:00.999Z",
       "x": -19770.709944594408,
       "y": 238545.11379813886,
-      "cause": null,
-      "killer": null
+      "cause": "burn",
+      "killer": null,
+      "killer_kind": null,
+      "killer_level": null
     },
     {
       "at": "2026-09-22T16:57:00.999Z",
       "x": -234590.94709845723,
       "y": 47581.78012566597,
-      "cause": null,
-      "killer": null
+      "cause": "attack",
+      "killer": "Venusa",
+      "killer_kind": "pal",
+      "killer_level": 19
     },
     {
       "at": "2026-09-21T16:00:00.999Z",
       "x": -646924.9557920479,
       "y": -108409.214137678,
-      "cause": null,
-      "killer": null
+      "cause": "attack",
+      "killer": "Astralym",
+      "killer_kind": "pal",
+      "killer_level": 17
     }
   ],
   "progress": {
@@ -136,5 +142,6 @@
     "dungeon_clears": 8,
     "technologies": 66,
     "fast_travel_points": 16
-  }
+  },
+  "feats": { "captures": 9, "hatches": 3, "bosses": 2, "technologies": 20, "builds": 12 }
 }

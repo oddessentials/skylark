@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { and, eq, isNull, lt, ne, or, sql } from 'drizzle-orm';
+import { and, asc, eq, gte, isNull, lt, lte, ne, or, sql } from 'drizzle-orm';
 import type { components } from '$lib/api/types';
 import {
   actions,
@@ -7,6 +7,7 @@ import {
   collectorRuns,
   deaths,
   events,
+  feats,
   levelUps,
   players,
   serverMetrics
@@ -41,6 +42,8 @@ export interface EventOutcome {
 const plain: EventOutcome = { playerId: null, quiet: false };
 
 export const leftRelabelWindowMs = 180_000;
+
+export const knockoutMergeWindowMs = 60_000;
 
 export const siteEventTypes = [
   'collector.lost',
@@ -254,6 +257,51 @@ async function playerLevelUp(
   return { playerId: player.id, quiet: false };
 }
 
+async function mergeKnockout(
+  ctx: ProjectionContext,
+  event: StoredEvent,
+  data: Schemas['PlayerDiedData'],
+  playerId: number,
+  ts: Date
+): Promise<boolean> {
+  const partners = await ctx.tx
+    .select()
+    .from(deaths)
+    .where(
+      and(
+        eq(deaths.playerId, playerId),
+        ne(deaths.source, data.source),
+        ne(deaths.eventId, event.id),
+        isNull(deaths.mergedEventId),
+        gte(deaths.at, new Date(ts.getTime() - knockoutMergeWindowMs)),
+        lte(deaths.at, new Date(ts.getTime() + knockoutMergeWindowMs))
+      )
+    )
+    .orderBy(
+      sql`abs(extract(epoch from (${deaths.at} - ${ts.toISOString()}::timestamptz)))`,
+      asc(deaths.id)
+    )
+    .limit(1);
+  const partner = partners[0];
+  if (!partner) return false;
+  const fromMod = data.source === 'mod';
+  await ctx.tx
+    .update(deaths)
+    .set(
+      fromMod
+        ? {
+            mergedEventId: event.id,
+            cause: data.cause ?? partner.cause,
+            killer: data.killer ?? partner.killer,
+            killerKind: data.killer_kind ?? partner.killerKind,
+            killerLevel: data.killer_level ?? partner.killerLevel
+          }
+        : { mergedEventId: event.id, x: data.x, y: data.y, z: data.z ?? partner.z }
+    )
+    .where(eq(deaths.id, partner.id));
+  return true;
+}
+
 async function playerDied(
   ctx: ProjectionContext,
   event: StoredEvent,
@@ -264,6 +312,9 @@ async function playerDied(
     name: data.name,
     playerUid: data.player_id
   });
+  if (await mergeKnockout(ctx, event, data, player.id, ts)) {
+    return { playerId: player.id, quiet: true };
+  }
   const inserted = await ctx.tx
     .insert(deaths)
     .values({
@@ -275,7 +326,9 @@ async function playerDied(
       z: data.z ?? null,
       source: data.source,
       cause: data.cause ?? null,
-      killer: data.killer ?? null
+      killer: data.killer ?? null,
+      killerKind: data.killer_kind ?? null,
+      killerLevel: data.killer_level ?? null
     })
     .onConflictDoNothing()
     .returning({ id: deaths.id });
@@ -284,6 +337,59 @@ async function playerDied(
     await bumpSessionCounter(ctx, player, 'deaths');
   }
   return { playerId: player.id, quiet: false };
+}
+
+const featKinds = {
+  'pal.captured': 'capture',
+  'pal.hatched': 'hatch',
+  'boss.defeated': 'boss',
+  'technology.unlocked': 'technology',
+  'structure.built': 'build'
+} as const;
+
+export type FeatKind = (typeof featKinds)[keyof typeof featKinds];
+
+type FeatData = Schemas['PalCapturedData'] &
+  Partial<
+    Schemas['BossDefeatedData'] & Schemas['TechnologyUnlockedData'] & Schemas['StructureBuiltData']
+  >;
+
+function featSubject(kind: FeatKind, data: FeatData): string {
+  switch (kind) {
+    case 'boss':
+      return data.boss ?? '';
+    case 'technology':
+      return data.technology ?? '';
+    case 'build':
+      return data.structure ?? '';
+  }
+  return data.species ?? '';
+}
+
+async function playerFeat(
+  ctx: ProjectionContext,
+  event: StoredEvent,
+  ts: Date,
+  kind: FeatKind
+): Promise<EventOutcome> {
+  const data = event.data as unknown as FeatData;
+  const player = await resolvePlayer(ctx, data.user_id, ts, {
+    name: data.name,
+    playerUid: data.player_id
+  });
+  await ctx.tx
+    .insert(feats)
+    .values({
+      eventId: event.id,
+      playerId: player.id,
+      at: ts,
+      kind,
+      subject: featSubject(kind, data),
+      level: kind === 'capture' || kind === 'hatch' ? (data.level ?? null) : null,
+      detail: kind === 'boss' ? [data.kind, data.difficulty].filter(Boolean).join(' ') : null
+    })
+    .onConflictDoNothing();
+  return { playerId: player.id, quiet: kind === 'build' };
 }
 
 async function chatMessage(
@@ -406,6 +512,12 @@ export async function applyEvent(
       return applySaveBase(ctx, event);
     case 'save.read':
       return applySaveRead(ctx, event);
+    case 'pal.captured':
+    case 'pal.hatched':
+    case 'boss.defeated':
+    case 'technology.unlocked':
+    case 'structure.built':
+      return playerFeat(ctx, event, ts, featKinds[event.type]);
     default:
       return plain;
   }

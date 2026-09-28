@@ -1,4 +1,10 @@
-import type { ActivityItem, ActivityType, GuildRef, PlayerRef } from '$lib/api/types';
+import type {
+  ActivityDetails,
+  ActivityItem,
+  ActivityType,
+  GuildRef,
+  PlayerRef
+} from '$lib/api/types';
 import { formatDuration } from './format';
 
 export type ActivityTone = 'neutral' | 'good' | 'bad' | 'warn' | 'info';
@@ -28,12 +34,17 @@ export const activityLabels: Record<ActivityType, string> = {
   'base.established': 'New base',
   'base.removed': 'Base gone',
   'guild.renamed': 'Guild renamed',
-  'player.guild_joined': 'Guild change'
+  'player.guild_joined': 'Guild change',
+  'pal.captured': 'Caught',
+  'pal.hatched': 'Hatched',
+  'boss.defeated': 'Boss beaten',
+  'technology.unlocked': 'Unlocked'
 };
 
 export const activityFilters: { label: string; types: ActivityType[] }[] = [
   { label: 'Comings and goings', types: ['player.joined', 'player.left'] },
-  { label: 'Progress', types: ['player.level_up'] },
+  { label: 'Progress', types: ['player.level_up', 'technology.unlocked', 'boss.defeated'] },
+  { label: 'Pals', types: ['pal.captured', 'pal.hatched'] },
   { label: 'Knockouts', types: ['player.died'] },
   { label: 'Chat', types: ['chat.message'] },
   {
@@ -51,6 +62,43 @@ function who(player: PlayerRef | null): ActivityPart {
 
 function guildPart(guild: GuildRef | null | undefined, fallback: string): ActivityPart {
   return guild ? { kind: 'guild', guild } : text(fallback);
+}
+
+function withArticle(phrase: string): string {
+  return `${/^[aeiou]/i.test(phrase) ? 'an' : 'a'} ${phrase}`;
+}
+
+function palPhrase(name: string | null | undefined, level: number | null | undefined): string {
+  const pal = name ?? 'Pal';
+  return withArticle(level ? `level ${level} ${pal}` : pal);
+}
+
+const causePhrases: Record<string, string> = {
+  falling: 'fell and was knocked out',
+  drown: 'drowned',
+  burn: 'was knocked out by burns',
+  poison: 'was knocked out by poison',
+  body_temperature: 'was knocked out by the heat or cold',
+  tower_boss_battle: 'was knocked out in a tower battle'
+};
+
+export function knockoutPhrase(
+  details: Pick<ActivityDetails, 'cause' | 'killer' | 'killer_kind' | 'killer_level'>
+): string {
+  if (details.killer) {
+    const killer =
+      details.killer_kind === 'pal'
+        ? palPhrase(details.killer, details.killer_level)
+        : details.killer;
+    return `was knocked out by ${killer}`;
+  }
+  return causePhrases[details.cause ?? ''] ?? 'was knocked out';
+}
+
+function bossPhrase(details: ActivityDetails): string {
+  const boss = details.boss_name ?? (details.boss_kind === 'raid' ? 'a raid boss' : 'a tower boss');
+  if (details.boss_kind === 'raid') return ` won the raid against ${boss}`;
+  return details.difficulty === 'hard' ? ` beat ${boss} on hard` : ` beat ${boss}`;
 }
 
 const channelNames: Record<string, string> = {
@@ -99,7 +147,7 @@ export function describeActivity(item: ActivityItem): ActivityView {
     case 'player.died':
       return view('bad', [
         who(item.player),
-        text(details.killer ? ` was knocked out by ${details.killer}` : ' was knocked out'),
+        text(` ${knockoutPhrase(details)}`),
         ...(details.region ? [text(` in ${details.region}`)] : [])
       ]);
     case 'chat.message':
@@ -143,6 +191,23 @@ export function describeActivity(item: ActivityItem): ActivityView {
         ...(details.previous_guild
           ? [text(', leaving '), guildPart(details.previous_guild, 'their old guild')]
           : [])
+      ]);
+    case 'pal.captured':
+      return view('good', [
+        who(item.player),
+        text(` caught ${palPhrase(details.species_name, details.level)}`)
+      ]);
+    case 'pal.hatched':
+      return view('good', [
+        who(item.player),
+        text(` hatched ${palPhrase(details.species_name, details.level)}`)
+      ]);
+    case 'boss.defeated':
+      return view('good', [who(item.player), text(bossPhrase(details))]);
+    case 'technology.unlocked':
+      return view('info', [
+        who(item.player),
+        text(` unlocked ${details.technology_name ?? 'a new technology'}`)
       ]);
     default:
       return view('neutral', [text(item.type)]);

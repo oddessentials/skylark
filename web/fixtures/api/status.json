@@ -25,7 +25,7 @@
     "state": "active",
     "version": "0.1.0",
     "last_seen_at": "2026-09-27T20:29:52.500Z",
-    "layers": { "rest": true, "gamedata": true, "logs": true, "saves": true, "mod": false }
+    "layers": { "rest": true, "gamedata": true, "logs": true, "saves": true, "mod": true }
   },
   "updated_at": "2026-09-27T20:30:05.000Z"
 }

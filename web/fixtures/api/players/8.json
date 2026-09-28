@@ -65,5 +65,6 @@
     "dungeon_clears": 5,
     "technologies": 48,
     "fast_travel_points": 12
-  }
+  },
+  "feats": { "captures": 4, "hatches": 2, "bosses": 1, "technologies": 10, "builds": 3 }
 }

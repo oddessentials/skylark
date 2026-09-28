@@ -1,7 +1,9 @@
 <script lang="ts">
   import { page } from '$app/state';
   import Card from '$lib/ui/Card.svelte';
+  import { knockoutPhrase } from '$lib/ui/activity';
   import ErrorNote from '$lib/ui/ErrorNote.svelte';
+  import FeatsCard from '$lib/ui/FeatsCard.svelte';
   import { formatDistance, formatDuration, formatHours, formatNumber } from '$lib/ui/format';
   import GuildLink from '$lib/ui/GuildLink.svelte';
   import LevelChart from '$lib/ui/LevelChart.svelte';
@@ -125,6 +127,10 @@
           <ProgressCard progress={player.progress} />
         {/if}
 
+        {#if player.feats}
+          <FeatsCard feats={player.feats} />
+        {/if}
+
         <Card title="Level over time">
           <LevelChart
             history={player.level_history}
@@ -218,7 +224,7 @@
               {#each player.recent_deaths as death, index (index)}
                 <li class="flex flex-wrap gap-x-3">
                   <Time at={death.at} />
-                  {#if death.killer}<span>by {death.killer}</span>{/if}
+                  <span>{knockoutPhrase(death)}</span>
                   {#if death.x !== null}<span class="text-ink-muted"
                       >at {formatDisplay(death.x, death.y)}</span
                     >{/if}
