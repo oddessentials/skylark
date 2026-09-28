@@ -11,7 +11,8 @@ const FILES = [
   'map.json',
   'regions.json',
   'landmarks.json',
-  'bosses.json'
+  'bosses.json',
+  'names.json'
 ];
 const worldDirectory = new URL('../../web/src/lib/world/', import.meta.url);
 const world = Object.fromEntries(
@@ -22,6 +23,7 @@ const map = world['map.json'];
 const regions = world['regions.json'];
 const landmarks = world['landmarks.json'];
 const bosses = world['bosses.json'];
+const names = world['names.json'];
 
 function regionAt(x, y) {
   let best = null;
@@ -264,4 +266,23 @@ test('boss battles expose the save keys for every tower and difficulty', () => {
     'Moon Lord',
     'Xenolord'
   ]);
+});
+
+test('technologies, buildable structures and human characters carry English names', () => {
+  assert.equal(names.technologies.length, 588);
+  assert.equal(names.structures.length, 506);
+  const technology = new Map(names.technologies.map((entry) => [entry.id, entry.name]));
+  assert.equal(technology.get('RepairBench'), 'Repair Bench');
+  assert.equal(technology.get('Workbench'), 'Primitive Workbench');
+  assert.equal(technology.get('Product_Axe_Grade_01'), 'Stone Axe');
+  assert.equal(technology.get('GrapplingGun'), 'Grappling Gun');
+  const structure = new Map(names.structures.map((entry) => [entry.id, entry.name]));
+  assert.equal(structure.get('RepairBench'), 'Repair Bench');
+  assert.equal(structure.get('PalBoxV2'), 'Palbox');
+  const human = new Map(names.humans.map((entry) => [entry.id, entry.name]));
+  assert.ok(names.humans.length > 50);
+  assert.ok(human.get('Hunter_Rifle'));
+  for (const entry of [...names.technologies, ...names.structures, ...names.humans]) {
+    assert.doesNotMatch(entry.name, /[<>|]|^en Text$/, entry.id);
+  }
 });

@@ -5,6 +5,7 @@ import { buildBosses } from './lib/facts/bosses.mjs';
 import { buildElements } from './lib/facts/elements.mjs';
 import { buildLandmarks } from './lib/facts/landmarks.mjs';
 import { buildMap } from './lib/facts/map.mjs';
+import { buildNames } from './lib/facts/names.mjs';
 import { buildPals } from './lib/facts/pals.mjs';
 import { buildRegions } from './lib/facts/regions.mjs';
 import { Species } from './lib/facts/species.mjs';
@@ -78,7 +79,8 @@ async function main() {
       'map.json': map,
       'regions.json': buildRegions(game, world, actors.regionTriggers, gameVersion),
       'landmarks.json': landmarks,
-      'bosses.json': buildBosses(game, species, landmarks.towers, gameVersion)
+      'bosses.json': buildBosses(game, species, landmarks.towers, gameVersion),
+      'names.json': buildNames(game, species, gameVersion)
     };
     for (const [name, data] of Object.entries(files)) {
       const size = await writeJson(out, name, data);
@@ -103,7 +105,10 @@ async function main() {
         `watchtowers ${landmarks.watchtowers.length}`,
         `boss markers ${landmarks.boss_markers.length}`,
         `boss battles ${files['bosses.json'].battles.length}`,
-        `raid summons ${files['bosses.json'].raids.length}`
+        `raid summons ${files['bosses.json'].raids.length}`,
+        `technologies ${files['names.json'].technologies.length}`,
+        `structures ${files['names.json'].structures.length}`,
+        `humans ${files['names.json'].humans.length}`
       ].join(', ')
     );
     console.log(`done in ${((Date.now() - started) / 1000).toFixed(1)} s`);
