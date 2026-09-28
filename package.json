@@ -18,7 +18,7 @@
     "lint": "npm run lint -w web",
     "check": "npm run check -w web",
     "comments:check": "node scripts/check-no-comments.mjs",
-    "api:lint": "redocly lint web/openapi.yaml",
+    "api:lint": "redocly lint --config web/redocly.yaml web/openapi.yaml",
     "api:types": "node scripts/api-types.mjs",
     "api:types:check": "node scripts/api-types.mjs --check",
     "fixtures:check": "node scripts/fixtures-check.mjs",
@@ -39,7 +39,7 @@
     "ajv-formats": "3.0.1",
     "openapi-typescript": "7.13.0",
     "prettier": "3.9.9",
-    "typescript": "6.0.3",
+    "typescript": "5.9.3",
     "yaml": "2.9.1"
   }
 }

@@ -1,0 +1,1304 @@
+openapi: 3.1.0
+info:
+  title: Skylark API
+  version: 1.0.0
+  summary: Public read API, admin API, live stream and collector ingest of a Skylark site.
+  description: 'Conventions: JSON UTF-8; timestamps ISO 8601 UTC with Z; world coordinates x, y and z in Unreal units (centimetres) exactly as the Palworld server reports them; durations in seconds unless the field name ends in _ms. Errors: the HTTP status plus { error: { code, message } }. Public responses never contain IP addresses or platform user ids. The collector posts signed batches to /api/ingest; every event carries an id, a per-run sequence number, the collector run id, a UTC timestamp, a type and a data object. The site validates the data of the event types documented here, stores events of unknown types without processing them, ignores unknown fields, and flags an event whose data does not match its schema instead of rejecting its batch, so collectors and sites of different versions keep working together.'
+  license:
+    name: MIT
+    identifier: MIT
+servers:
+  - url: http://localhost:5173
+    description: Local development server (npm run dev, npm run dev:mock).
+  - url: http://localhost:3000
+    description: Local production image.
+security: []
+tags:
+  - name: system
+    description: Health, site information and this contract.
+  - name: ingest
+    description: Signed batches from the collector.
+paths:
+  /api/v1/health:
+    get:
+      operationId: getHealth
+      tags:
+        - system
+      summary: Health
+      description: Container health check.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+  /api/v1/site:
+    get:
+      operationId: getSite
+      tags:
+        - system
+      summary: Site information
+      description: The site name, the project version and the features the admin has switched on.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /api/v1/openapi.json:
+    get:
+      operationId: getOpenApi
+      tags:
+        - system
+      summary: This contract
+      description: The OpenAPI document the site serves and validates against, as JSON.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/ingest:
+    post:
+      operationId: ingestBatch
+      tags:
+        - ingest
+      summary: Collector batch
+      description: Verifies the timestamp window (5 minutes) and the HMAC with a constant-time comparison, stores every event it has not seen (duplicates by event id are counted and skipped), applies the documented event types to the site's views in the same transaction, and answers with the admin actions the collector should carry out.
+      security:
+        - collectorSignature: []
+      parameters:
+        - $ref: '#/components/parameters/SkylarkTimestamp'
+        - $ref: '#/components/parameters/SkylarkSignature'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestBatch'
+      responses:
+        '200':
+          description: Counts for the batch and the pending actions.
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/NoStore'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestResult'
+        '401':
+          description: 'unauthorized: bad signature or stale timestamp.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: 'payload_too_large: body over 512 KB.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: 'unprocessable: the body is not JSON or the batch envelope is malformed. Events with bad data never cause this; they are flagged.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: 'unavailable: the database cannot be reached; the collector retries.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  headers:
+    CacheControl:
+      description: public, max-age=15 on public GET responses.
+      schema:
+        type: string
+    ETag:
+      description: Entity tag of the response body.
+      schema:
+        type: string
+    NoStore:
+      description: no-store on stream, admin and ingest responses.
+      schema:
+        type: string
+  parameters:
+    SkylarkTimestamp:
+      name: X-Skylark-Timestamp
+      in: header
+      required: true
+      description: Signature timestamp.
+      schema:
+        type: integer
+        description: Unix seconds; must be within 5 minutes of the site clock.
+    SkylarkSignature:
+      name: X-Skylark-Signature
+      in: header
+      required: true
+      description: HMAC-SHA256 of timestamp + "." + body with the collector secret.
+      schema:
+        type: string
+        pattern: ^sha256=[0-9a-f]{64}$
+  responses:
+    RateLimited:
+      description: 'rate_limited: more than 120 requests per minute from this address.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    collectorSignature:
+      type: apiKey
+      in: header
+      name: X-Skylark-Signature
+      description: sha256=<hex HMAC-SHA256> over X-Skylark-Timestamp + "." + body with the collector secret (COLLECTOR_SECRET, or the one on the admin Collector page).
+  schemas:
+    Error:
+      type: object
+      description: Error envelope returned with every non-2xx status.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              enum:
+                - bad_request
+                - unauthorized
+                - forbidden
+                - not_found
+                - conflict
+                - payload_too_large
+                - unprocessable
+                - rate_limited
+                - unavailable
+                - not_implemented
+            message:
+              type: string
+          required:
+            - code
+            - message
+          additionalProperties: false
+      required:
+        - error
+      additionalProperties: false
+    Health:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        db:
+          type: boolean
+        mock:
+          type: boolean
+        version:
+          type: string
+      required:
+        - ok
+        - db
+        - mock
+        - version
+      additionalProperties: false
+    SiteFeatures:
+      type: object
+      description: Switches the admin controls. A switched-off feature leaves the menu, its API routes answer 404, and its data leaves the feed and the stream.
+      properties:
+        chat:
+          type: boolean
+          description: Global and Say chat in the feed, the chat page and the stream.
+        guild_chat:
+          type: boolean
+          description: Guild chat as well. Off by default.
+        positions:
+          type: boolean
+          description: Player positions, trails and the live map.
+        pals:
+          type: boolean
+          description: Party Pals and base workers.
+      required:
+        - chat
+        - guild_chat
+        - positions
+        - pals
+      additionalProperties: false
+    Site:
+      type: object
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+          description: The project version, shared by the site and the collector.
+        features:
+          $ref: '#/components/schemas/SiteFeatures'
+      required:
+        - name
+        - version
+        - features
+      additionalProperties: false
+    Uuid:
+      type: string
+      pattern: ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+    UserId:
+      type: string
+      minLength: 1
+      maxLength: 128
+      description: Platform user id exactly as the server reports it, for example steam_<SteamID64>, gdk_<XUID> or ps5_<id>. Treated as an opaque key. Never shown publicly.
+    PlayerUid:
+      type:
+        - string
+        - 'null'
+      pattern: ^[0-9A-F]{32}$
+      description: The 32-hex player UID the server derives from the user id and uses to name the player's save file; null while the player is still loading.
+    CollectorInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+        run_id:
+          $ref: '#/components/schemas/Uuid'
+        os:
+          type: string
+        arch:
+          type: string
+      required:
+        - name
+        - version
+        - run_id
+      additionalProperties: true
+    ServerInfo:
+      type: object
+      description: What the server reports on REST /v1/api/info.
+      properties:
+        version:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        world_guid:
+          type: string
+      required:
+        - version
+        - name
+        - world_guid
+      additionalProperties: true
+    CollectorEvent:
+      description: One event. A documented type must carry the data of its schema; the site stores an event whose data does not match and flags it instead of rejecting its batch. Other types are stored as they are.
+      anyOf:
+        - $ref: '#/components/schemas/CollectorStartedEvent'
+        - $ref: '#/components/schemas/CollectorHeartbeatEvent'
+        - $ref: '#/components/schemas/ServerOnlineEvent'
+        - $ref: '#/components/schemas/ServerOfflineEvent'
+        - $ref: '#/components/schemas/ServerMetricsEvent'
+        - $ref: '#/components/schemas/WorldSnapshotEvent'
+        - $ref: '#/components/schemas/PlayerConnectedEvent'
+        - $ref: '#/components/schemas/PlayerJoinedEvent'
+        - $ref: '#/components/schemas/PlayerLeftEvent'
+        - $ref: '#/components/schemas/PlayerLevelUpEvent'
+        - $ref: '#/components/schemas/PlayerDiedEvent'
+        - $ref: '#/components/schemas/ChatMessageEvent'
+        - $ref: '#/components/schemas/AdminCommandEvent'
+        - $ref: '#/components/schemas/PlayerKickedEvent'
+        - $ref: '#/components/schemas/PlayerBannedEvent'
+        - $ref: '#/components/schemas/PlayerUnbannedEvent'
+        - $ref: '#/components/schemas/ActionCompletedEvent'
+        - $ref: '#/components/schemas/ActionFailedEvent'
+        - $ref: '#/components/schemas/OtherEvent'
+    IngestBatch:
+      type: object
+      description: Signed batch posted by the collector. At most 500 events and 512 KB per request.
+      properties:
+        collector:
+          $ref: '#/components/schemas/CollectorInfo'
+        server:
+          anyOf:
+            - $ref: '#/components/schemas/ServerInfo'
+            - type: 'null'
+        events:
+          type: array
+          maxItems: 500
+          items:
+            $ref: '#/components/schemas/CollectorEvent'
+      required:
+        - collector
+        - server
+        - events
+      additionalProperties: true
+    CollectorAction:
+      type: object
+      description: An admin action for the collector to carry out through the server's REST API. The collector reports the outcome with action.completed or action.failed.
+      properties:
+        id:
+          type: integer
+        kind:
+          type: string
+          enum:
+            - announce
+            - kick
+            - ban
+            - unban
+            - save
+            - shutdown
+        message:
+          type:
+            - string
+            - 'null'
+          maxLength: 200
+        user_id:
+          anyOf:
+            - $ref: '#/components/schemas/UserId'
+            - type: 'null'
+        waittime_s:
+          type:
+            - integer
+            - 'null'
+          minimum: 1
+          description: For shutdown, the seconds the server waits before it saves and stops.
+      required:
+        - id
+        - kind
+        - message
+        - user_id
+        - waittime_s
+      additionalProperties: false
+    IngestResult:
+      type: object
+      properties:
+        accepted:
+          type: integer
+          minimum: 0
+        duplicates:
+          type: integer
+          minimum: 0
+        invalid:
+          type: integer
+          minimum: 0
+          description: Events stored but flagged because their data did not match the schema of their type.
+        last_seq:
+          type:
+            - integer
+            - 'null'
+          minimum: 0
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectorAction'
+      required:
+        - accepted
+        - duplicates
+        - invalid
+        - last_seq
+        - actions
+      additionalProperties: true
+    CollectorLayers:
+      type: object
+      description: Which data sources this collector run reads.
+      properties:
+        rest:
+          type: boolean
+        gamedata:
+          type: boolean
+        logs:
+          type: boolean
+        logs_source:
+          type:
+            - string
+            - 'null'
+          enum:
+            - launch
+            - docker
+            - file
+            - stdin
+            - null
+        saves:
+          type: boolean
+        mod:
+          type: boolean
+      required:
+        - rest
+        - gamedata
+        - logs
+        - logs_source
+        - saves
+        - mod
+      additionalProperties: true
+    ServerSettings:
+      type: object
+      description: The world settings the site uses, read from REST /v1/api/settings.
+      properties:
+        day_time_speed_rate:
+          type: number
+        night_time_speed_rate:
+          type: number
+        server_player_max_num:
+          type: integer
+        is_pvp:
+          type: boolean
+        is_hardcore:
+          type: boolean
+        exp_rate:
+          type: number
+        pal_capture_rate:
+          type: number
+        death_penalty:
+          type: string
+        guild_player_max_num:
+          type: integer
+        base_camp_max_num_in_guild:
+          type: integer
+      required:
+        - day_time_speed_rate
+        - night_time_speed_rate
+        - server_player_max_num
+      additionalProperties: true
+    CollectorStartedData:
+      type: object
+      properties:
+        collector_version:
+          type: string
+        os:
+          type: string
+        arch:
+          type: string
+        layers:
+          $ref: '#/components/schemas/CollectorLayers'
+        server:
+          anyOf:
+            - $ref: '#/components/schemas/ServerInfo'
+            - type: 'null'
+        settings:
+          anyOf:
+            - $ref: '#/components/schemas/ServerSettings'
+            - type: 'null'
+      required:
+        - collector_version
+        - os
+        - arch
+        - layers
+        - server
+        - settings
+      additionalProperties: true
+    CollectorHeartbeatData:
+      type: object
+      properties:
+        uptime_s:
+          type: number
+          minimum: 0
+        queue_depth:
+          type: integer
+          minimum: 0
+        dropped_events:
+          type: integer
+          minimum: 0
+        rest:
+          type: string
+          enum:
+            - ok
+            - down
+            - off
+        gamedata:
+          type: string
+          enum:
+            - ok
+            - off
+            - unavailable
+        logs:
+          type: string
+          enum:
+            - ok
+            - off
+            - idle
+            - error
+      required:
+        - uptime_s
+        - queue_depth
+        - dropped_events
+        - rest
+        - gamedata
+        - logs
+      additionalProperties: true
+    ServerOnlineData:
+      $ref: '#/components/schemas/ServerInfo'
+    ServerOfflineData:
+      type: object
+      properties:
+        reason:
+          type: string
+          enum:
+            - unreachable
+            - shutdown
+            - collector_stopping
+      required:
+        - reason
+      additionalProperties: true
+    ServerMetricsData:
+      type: object
+      description: REST /v1/api/metrics.
+      properties:
+        fps:
+          type: number
+        fps_avg:
+          type:
+            - number
+            - 'null'
+        frame_time_ms:
+          type: number
+        players:
+          type: integer
+          minimum: 0
+        max_players:
+          type: integer
+          minimum: 0
+        days:
+          type: integer
+          minimum: 0
+        base_camps:
+          type: integer
+          minimum: 0
+        uptime_s:
+          type: number
+          minimum: 0
+      required:
+        - fps
+        - fps_avg
+        - frame_time_ms
+        - players
+        - max_players
+        - days
+        - base_camps
+        - uptime_s
+      additionalProperties: true
+    SnapshotPlayer:
+      type: object
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        name:
+          type: string
+        account_name:
+          type:
+            - string
+            - 'null'
+        level:
+          type: integer
+          minimum: 0
+        ping:
+          type:
+            - number
+            - 'null'
+        x:
+          type: number
+        y:
+          type: number
+        z:
+          type:
+            - number
+            - 'null'
+        hp:
+          type:
+            - number
+            - 'null'
+        max_hp:
+          type:
+            - number
+            - 'null'
+        guild_id:
+          type:
+            - string
+            - 'null'
+        guild_name:
+          type:
+            - string
+            - 'null'
+        action:
+          type:
+            - string
+            - 'null'
+        instance_id:
+          type:
+            - string
+            - 'null'
+      required:
+        - user_id
+        - player_id
+        - name
+        - level
+        - x
+        - y
+      additionalProperties: true
+    SnapshotPal:
+      type: object
+      description: A Pal that belongs to a player, from the world snapshot. party is a Pal out beside its owner (OtomoPal), listed only while it is out of its sphere; base is a worker at a base (BaseCampPal), listed only while a player is near that base. The owner is the player whose UID leads owner_instance_id.
+      properties:
+        instance_id:
+          type: string
+        kind:
+          type: string
+          enum:
+            - party
+            - base
+        class:
+          type: string
+          description: Blueprint class, for example BP_SheepBall_C.
+        name:
+          type:
+            - string
+            - 'null'
+        level:
+          type: integer
+        hp:
+          type:
+            - number
+            - 'null'
+        max_hp:
+          type:
+            - number
+            - 'null'
+        owner_instance_id:
+          type:
+            - string
+            - 'null'
+        owner_player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        owner_name:
+          type:
+            - string
+            - 'null'
+        guild_id:
+          type:
+            - string
+            - 'null'
+        action:
+          type:
+            - string
+            - 'null'
+        x:
+          type: number
+        y:
+          type: number
+        z:
+          type:
+            - number
+            - 'null'
+      required:
+        - instance_id
+        - kind
+        - class
+        - level
+        - x
+        - y
+      additionalProperties: true
+    SnapshotPalBox:
+      type: object
+      description: A base's Palbox. The server lists every Palbox even when nobody is near it.
+      properties:
+        guild_id:
+          type:
+            - string
+            - 'null'
+          description: Null while a newly placed Palbox does not yet belong to a guild.
+        guild_name:
+          type:
+            - string
+            - 'null'
+        name:
+          type:
+            - string
+            - 'null'
+        class:
+          type: string
+        x:
+          type: number
+        y:
+          type: number
+        z:
+          type:
+            - number
+            - 'null'
+      required:
+        - guild_id
+        - class
+        - x
+        - y
+      additionalProperties: true
+    SnapshotWild:
+      type: object
+      description: A wild Pal loaded near a player.
+      properties:
+        class:
+          type: string
+        name:
+          type:
+            - string
+            - 'null'
+        level:
+          type: integer
+        x:
+          type: number
+        y:
+          type: number
+      required:
+        - class
+        - level
+        - x
+        - y
+      additionalProperties: true
+    WorldSnapshotData:
+      type: object
+      description: The world as the server's game-data snapshot shows it, sent every few seconds. Players come from REST /v1/api/players when the snapshot is switched off.
+      properties:
+        in_game_time:
+          type:
+            - string
+            - 'null'
+          pattern: ^[0-9]{2}:[0-9]{2}$
+        in_game_day:
+          type:
+            - integer
+            - 'null'
+          minimum: 0
+        players:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapshotPlayer'
+        pals:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapshotPal'
+        palboxes:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapshotPalBox'
+        wild:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapshotWild'
+      required:
+        - in_game_time
+        - in_game_day
+        - players
+        - pals
+        - palboxes
+        - wild
+      additionalProperties: true
+    PlayerConnectedData:
+      type: object
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        name:
+          type: string
+        ip:
+          type:
+            - string
+            - 'null'
+          description: Sent only when the collector is configured to share IP addresses; stored for admins only.
+      required:
+        - user_id
+        - name
+      additionalProperties: true
+    PlayerJoinedData:
+      type: object
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        name:
+          type: string
+        source:
+          type: string
+          enum:
+            - log
+            - rest
+      required:
+        - user_id
+        - player_id
+        - name
+        - source
+      additionalProperties: true
+    PlayerLeftData:
+      type: object
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        name:
+          type: string
+        source:
+          type: string
+          enum:
+            - log
+            - rest
+      required:
+        - user_id
+        - player_id
+        - name
+        - source
+      additionalProperties: true
+    PlayerLevelUpData:
+      type: object
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        name:
+          type: string
+        from:
+          type: integer
+          minimum: 0
+        to:
+          type: integer
+          minimum: 1
+      required:
+        - user_id
+        - player_id
+        - name
+        - from
+        - to
+      additionalProperties: true
+    PlayerDiedData:
+      type: object
+      description: From the snapshot, a player's HP reaching 0 with the action BP_ActionDeath; from the optional mod, with cause and killer.
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        name:
+          type: string
+        x:
+          type: number
+        y:
+          type: number
+        z:
+          type:
+            - number
+            - 'null'
+        source:
+          type: string
+          enum:
+            - snapshot
+            - mod
+        cause:
+          type:
+            - string
+            - 'null'
+        killer:
+          type:
+            - string
+            - 'null'
+      required:
+        - user_id
+        - player_id
+        - name
+        - x
+        - y
+        - source
+      additionalProperties: true
+    ChatMessageData:
+      type: object
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        name:
+          type: string
+        channel:
+          type: string
+          description: Global, Guild or Say as the server logs it; other values are kept as they are.
+        text:
+          type: string
+          maxLength: 2000
+        guild_name:
+          type:
+            - string
+            - 'null'
+      required:
+        - user_id
+        - name
+        - channel
+        - text
+      additionalProperties: true
+    AdminCommandData:
+      type: object
+      description: A command run on the server by RCON or an in-game admin. The collector leaves out REST calls, including its own polling.
+      properties:
+        actor:
+          type: string
+        user_id:
+          type:
+            - string
+            - 'null'
+        details:
+          type: array
+          items:
+            type: string
+      required:
+        - actor
+        - details
+      additionalProperties: true
+    ModerationData:
+      type: object
+      properties:
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        player_id:
+          $ref: '#/components/schemas/PlayerUid'
+        by:
+          type: string
+        message:
+          type:
+            - string
+            - 'null'
+      required:
+        - user_id
+        - by
+      additionalProperties: true
+    PlayerKickedData:
+      $ref: '#/components/schemas/ModerationData'
+    PlayerBannedData:
+      $ref: '#/components/schemas/ModerationData'
+    PlayerUnbannedData:
+      $ref: '#/components/schemas/ModerationData'
+    ActionCompletedData:
+      type: object
+      properties:
+        action_id:
+          type: integer
+        kind:
+          type: string
+      required:
+        - action_id
+        - kind
+      additionalProperties: true
+    ActionFailedData:
+      type: object
+      properties:
+        action_id:
+          type: integer
+        kind:
+          type: string
+        error:
+          type: string
+      required:
+        - action_id
+        - kind
+        - error
+      additionalProperties: true
+    EventEnvelope:
+      type: object
+      description: The fields every event carries.
+      properties:
+        id:
+          $ref: '#/components/schemas/Uuid'
+        seq:
+          type: integer
+          minimum: 0
+          description: Monotonic per collector run.
+        run_id:
+          $ref: '#/components/schemas/Uuid'
+        ts:
+          type: string
+          format: date-time
+          description: When the collector observed the event, or when the server logged it, in UTC.
+        type:
+          type: string
+          minLength: 1
+          maxLength: 64
+          pattern: ^[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)+$
+        data:
+          type: object
+      required:
+        - id
+        - seq
+        - run_id
+        - ts
+        - type
+        - data
+      additionalProperties: true
+    CollectorStartedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: collector.started
+            data:
+              $ref: '#/components/schemas/CollectorStartedData'
+          required:
+            - type
+            - data
+    CollectorHeartbeatEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: collector.heartbeat
+            data:
+              $ref: '#/components/schemas/CollectorHeartbeatData'
+          required:
+            - type
+            - data
+    ServerOnlineEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: server.online
+            data:
+              $ref: '#/components/schemas/ServerOnlineData'
+          required:
+            - type
+            - data
+    ServerOfflineEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: server.offline
+            data:
+              $ref: '#/components/schemas/ServerOfflineData'
+          required:
+            - type
+            - data
+    ServerMetricsEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: server.metrics
+            data:
+              $ref: '#/components/schemas/ServerMetricsData'
+          required:
+            - type
+            - data
+    WorldSnapshotEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: world.snapshot
+            data:
+              $ref: '#/components/schemas/WorldSnapshotData'
+          required:
+            - type
+            - data
+    PlayerConnectedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: player.connected
+            data:
+              $ref: '#/components/schemas/PlayerConnectedData'
+          required:
+            - type
+            - data
+    PlayerJoinedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: player.joined
+            data:
+              $ref: '#/components/schemas/PlayerJoinedData'
+          required:
+            - type
+            - data
+    PlayerLeftEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: player.left
+            data:
+              $ref: '#/components/schemas/PlayerLeftData'
+          required:
+            - type
+            - data
+    PlayerLevelUpEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: player.level_up
+            data:
+              $ref: '#/components/schemas/PlayerLevelUpData'
+          required:
+            - type
+            - data
+    PlayerDiedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: player.died
+            data:
+              $ref: '#/components/schemas/PlayerDiedData'
+          required:
+            - type
+            - data
+    ChatMessageEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: chat.message
+            data:
+              $ref: '#/components/schemas/ChatMessageData'
+          required:
+            - type
+            - data
+    AdminCommandEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: admin.command
+            data:
+              $ref: '#/components/schemas/AdminCommandData'
+          required:
+            - type
+            - data
+    PlayerKickedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: player.kicked
+            data:
+              $ref: '#/components/schemas/PlayerKickedData'
+          required:
+            - type
+            - data
+    PlayerBannedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: player.banned
+            data:
+              $ref: '#/components/schemas/PlayerBannedData'
+          required:
+            - type
+            - data
+    PlayerUnbannedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: player.unbanned
+            data:
+              $ref: '#/components/schemas/PlayerUnbannedData'
+          required:
+            - type
+            - data
+    ActionCompletedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: action.completed
+            data:
+              $ref: '#/components/schemas/ActionCompletedData'
+          required:
+            - type
+            - data
+    ActionFailedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: action.failed
+            data:
+              $ref: '#/components/schemas/ActionFailedData'
+          required:
+            - type
+            - data
+    OtherEvent:
+      description: An event of a type this contract does not document. The site stores it without processing it.
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              not:
+                enum:
+                  - collector.started
+                  - collector.heartbeat
+                  - server.online
+                  - server.offline
+                  - server.metrics
+                  - world.snapshot
+                  - player.connected
+                  - player.joined
+                  - player.left
+                  - player.level_up
+                  - player.died
+                  - chat.message
+                  - admin.command
+                  - player.kicked
+                  - player.banned
+                  - player.unbanned
+                  - action.completed
+                  - action.failed
+          required:
+            - type
