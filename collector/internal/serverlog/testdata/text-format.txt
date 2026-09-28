@@ -1,0 +1,28 @@
+[2026-09-27 19:54:06] [LOG] REST accessed endpoint /v1/api/info OK
+[2026-09-27 19:54:06] [LOG] REST accessed endpoint /v1/api/players OK
+[2026-09-27 19:54:06] [LOG] REST accessed endpoint /v1/api/metrics OK
+[2026-09-27 19:54:06] [LOG] REST accessed endpoint /v1/api/settings OK
+[2026-09-27 19:54:06] [LOG] REST accessed endpoint /v1/api/game-data OK
+[2026-09-27 19:54:27] [LOG] REST accessed endpoint /v1/api/info OK
+[2026-09-27 19:55:37] [LOG] steam_76561190000000101(A0000001BBBBBBBBCCCCCCCCD0000001) banned by REST. test ban
+[2026-09-27 19:55:37] [LOG] steam_76561190000000101(A0000001BBBBBBBBCCCCCCCCD0000001) unbanned by REST.
+[2026-09-27 19:55:37] [LOG] steam_76561190000000101(A0000001BBBBBBBBCCCCCCCCD0000001) unbanned by REST.
+[2026-09-27 19:56:08] [LOG] RCON executed the command. Info
+[2026-09-27 19:56:08] [LOG] RCON executed the command. ShowPlayers
+[2026-09-27 19:56:08] [LOG] RCON executed the command. Broadcast rcon_broadcast_test
+[2026-09-27 19:56:08] [LOG] RCON executed the command. Save
+[2026-09-27 19:56:08] [LOG] RCON executed the command. KickPlayer steam_76561190000000101
+[2026-09-27 19:56:08] [LOG] RCON executed the command. BanPlayer steam_76561190000000101
+[2026-09-27 19:56:08] [LOG] steam_76561190000000101(A0000002BBBBBBBBCCCCCCCCD0000002) banned by RCON. Baned by Admin
+[2026-09-27 19:56:08] [LOG] RCON executed the command. UnBanPlayer steam_76561190000000101
+[2026-09-27 19:56:08] [LOG] steam_76561190000000101(A0000002BBBBBBBBCCCCCCCCD0000002) unbanned by RCON.
+[2026-09-27 19:56:08] [LOG] RCON executed the command. TeleportToPlayer steam_76561190000000101
+[2026-09-27 19:56:08] [LOG] RCON executed the command. NoSuchCommand
+[2026-09-27 19:56:08] [LOG] RCON executed the command. C:/Program Files/Git/Info
+[2026-09-27 19:56:08] [LOG] RCON executed the command. info
+[2026-09-27 19:56:19] [LOG] RCON executed the command. /Info
+[2026-09-27 19:56:19] [LOG] RCON executed the command. ShowPlayers extra
+[2026-09-27 19:56:19] [LOG] RCON executed the command. Broadcast
+[2026-09-27 19:56:19] [LOG] RCON executed the command. Broadcast multi word message
+[2026-09-27 19:56:19] [LOG] RCON executed the command. UnBanPlayer steam_76561190000000101
+[2026-09-27 19:56:19] [LOG] steam_76561190000000101(A0000001BBBBBBBBCCCCCCCCD0000001) unbanned by RCON.

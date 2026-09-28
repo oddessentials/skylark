@@ -1,0 +1,15 @@
+{
+	"players": [
+		{
+			"name": "Wanderer",
+			"accountName": "Wanderer",
+			"playerId": "None",
+			"userId": "steam_76561190000000101",
+			"iP": "192.0.2.10",
+			"ping": 114,
+			"location_x": -362179.4375,
+			"location_y": 270846.46875,
+			"level": 1
+		}
+	]
+}
