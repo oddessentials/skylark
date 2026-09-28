@@ -1,15 +1,21 @@
-FROM node:24-alpine AS build
+FROM --platform=$BUILDPLATFORM node:24-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY web/package.json ./web/
 RUN npm ci --ignore-scripts
 COPY web ./web
-RUN npm run build -w web && npm ci --omit=dev --ignore-scripts
+RUN npm run build -w web
+
+FROM node:24-alpine AS deps
+WORKDIR /app
+COPY package.json package-lock.json ./
+COPY web/package.json ./web/
+RUN npm ci --omit=dev --ignore-scripts
 
 FROM node:24-alpine AS runtime
 RUN apk add --no-cache postgresql18-client curl su-exec && adduser -D -u 1001 app
 WORKDIR /app
-COPY --from=build --chown=app:app /app/node_modules ./node_modules
+COPY --from=deps --chown=app:app /app/node_modules ./node_modules
 COPY --from=build --chown=app:app /app/web/build ./web/build
 COPY --chown=app:app package.json ./
 COPY --chown=app:app web/package.json web/docker-entrypoint.sh ./web/
