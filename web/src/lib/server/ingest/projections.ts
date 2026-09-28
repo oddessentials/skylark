@@ -1,4 +1,4 @@
-import { randomUUID } from 'node:crypto';
+import { createHash } from 'node:crypto';
 import { and, eq, isNull, lt, ne, or, sql } from 'drizzle-orm';
 import type { components } from '$lib/api/types';
 import {
@@ -414,6 +414,20 @@ export async function markEvent(
     .where(eq(events.id, id));
 }
 
+export function siteEventId(
+  type: string,
+  runId: string,
+  seq: number,
+  ts: Date,
+  data: Record<string, unknown>
+): string {
+  const hex = createHash('sha256')
+    .update(`${type}|${runId}|${seq}|${ts.toISOString()}|${JSON.stringify(data)}`)
+    .digest('hex');
+  const variant = ((parseInt(hex[16]!, 16) & 0x3) | 0x8).toString(16);
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-5${hex.slice(13, 16)}-${variant}${hex.slice(17, 20)}-${hex.slice(20, 32)}`;
+}
+
 export async function emitSiteEvent(
   ctx: ProjectionContext,
   type: SiteEventType,
@@ -424,7 +438,7 @@ export async function emitSiteEvent(
 ): Promise<StoredEvent | null> {
   if (ctx.rebuild) return null;
   const event: StoredEvent = {
-    id: randomUUID(),
+    id: siteEventId(type, runId, seq, ts, data),
     seq,
     run_id: runId,
     ts: ts.toISOString(),
@@ -432,16 +446,21 @@ export async function emitSiteEvent(
     data,
     source: 'site'
   };
-  await ctx.tx.insert(events).values({
-    id: event.id,
-    runId,
-    seq,
-    type,
-    ts,
-    receivedAt: ctx.receivedAt,
-    data,
-    source: 'site'
-  });
+  const inserted = await ctx.tx
+    .insert(events)
+    .values({
+      id: event.id,
+      runId,
+      seq,
+      type,
+      ts,
+      receivedAt: ctx.receivedAt,
+      data,
+      source: 'site'
+    })
+    .onConflictDoNothing()
+    .returning({ id: events.id });
+  if (inserted.length === 0) return null;
   await markEvent(ctx, event.id, await applyEvent(ctx, event));
   ctx.effects.siteEvents.push(event);
   return event;

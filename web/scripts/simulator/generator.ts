@@ -294,7 +294,7 @@ function xpForNext(level: number): number {
 
 function inGameClock(worldStartMs: number, atMs: number): { time: string; day: number } {
   const minutes =
-    Math.floor(((atMs - worldStartMs) / 60_000) * inGameMinutesPerRealMinute) + 6 * 60;
+    Math.floor(((atMs - worldStartMs) / 60_000) * inGameMinutesPerRealMinute) + 5 * 60;
   const day = Math.floor(minutes / 1440);
   const ofDay = minutes % 1440;
   const hh = String(Math.floor(ofDay / 60)).padStart(2, '0');

@@ -1,8 +1,9 @@
 export const clockFactsVersion = '1.0.5.102999';
 export const inGameMinutesPerRealMinute = 45;
 export const minutesPerDay = 1440;
-export const dawnMinute = 6 * 60;
-export const duskMinute = 18 * 60;
+export const dawnMinute = 3 * 60;
+export const duskMinute = 23 * 60;
+export const worldStartMinute = 5 * 60;
 
 export type Phase = 'night' | 'morning' | 'afternoon' | 'evening';
 
@@ -90,7 +91,7 @@ export function nextTurn(minute: number, speeds: Speeds): Turn {
 export function phaseOf(minute: number): Phase {
   if (isNight(minute)) return 'night';
   if (minute < 12 * 60) return 'morning';
-  if (minute < 16 * 60) return 'afternoon';
+  if (minute < 18 * 60) return 'afternoon';
   return 'evening';
 }
 
