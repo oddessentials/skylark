@@ -39,7 +39,7 @@
     "savereader:vet": "node scripts/go.mjs savereader vet",
     "savereader:wasm": "node scripts/ooz-wasm.mjs",
     "verify:quick": "npm run format:check && npm run lint && npm run comments:check && npm run mod:check && npm run check && npm run collector:vet && npm run savereader:vet",
-    "verify": "npm run verify:quick && npm run api:lint && npm run api:types:check && npm run fixtures:check && npm run test && npm run build && npm run test:e2e && npm run collector:test && npm run collector:build && npm run savereader:test && npm run savereader:build",
+    "verify": "npm run verify:quick && npm run facts:check && npm run api:lint && npm run api:types:check && npm run fixtures:check && npm run test && npm run build && npm run test:e2e && npm run collector:test && npm run collector:build && npm run savereader:test && npm run savereader:build",
     "mod:check": "node scripts/mod-package.mjs",
     "mod:package": "node scripts/mod-package.mjs --out dist/mod"
   },

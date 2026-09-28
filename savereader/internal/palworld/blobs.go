@@ -204,7 +204,7 @@ func readLab(raw []byte) (*Lab, error) {
 	return lab, nil
 }
 
-func readLabs(entries []gvas.MapEntry) (map[gvas.GUID]*Lab, error) {
+func readLabs(entries []gvas.MapEntry) map[gvas.GUID]*Lab {
 	labs := map[gvas.GUID]*Lab{}
 	for _, entry := range entries {
 		id, ok := entry.Key.(gvas.GUID)
@@ -216,11 +216,9 @@ func readLabs(entries []gvas.MapEntry) (map[gvas.GUID]*Lab, error) {
 		if len(raw) < 4 {
 			continue
 		}
-		lab, err := readLab(raw)
-		if err != nil {
-			return nil, fmt.Errorf("guild %s lab: %w", id, err)
+		if lab, err := readLab(raw); err == nil {
+			labs[id] = lab
 		}
-		labs[id] = lab
 	}
-	return labs, nil
+	return labs
 }
