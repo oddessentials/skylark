@@ -33,6 +33,16 @@ export default defineConfig({
           globalSetup: ['tests/integration/harness.ts'],
           fileParallelism: false
         }
+      },
+      {
+        extends: true,
+        test: {
+          name: 'fixtures',
+          include: ['tests/fixtures/**/*.test.ts'],
+          environment: 'node',
+          globalSetup: ['tests/integration/harness.ts'],
+          fileParallelism: false
+        }
       }
     ]
   }

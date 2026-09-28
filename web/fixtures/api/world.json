@@ -1,0 +1,34 @@
+{
+  "name": "Skylark Test Server",
+  "description": "A simulated Palworld world for Skylark development.",
+  "version": "v1.0.5.102999",
+  "settings": {
+    "exp_rate": 1.5,
+    "pal_capture_rate": 1.2,
+    "death_penalty": "Item",
+    "is_pvp": false,
+    "is_hardcore": false,
+    "max_players": 32,
+    "guild_player_max_num": 20,
+    "base_camp_max_num_in_guild": 4,
+    "day_time_speed_rate": 1,
+    "night_time_speed_rate": 1
+  },
+  "clock": {
+    "time": "04:53",
+    "day": 450,
+    "observed_at": "2026-09-27T20:29:51.000Z",
+    "day_speed": 1,
+    "night_speed": 1
+  },
+  "totals": {
+    "players": 8,
+    "guilds": 3,
+    "bases": 4,
+    "sessions": 37,
+    "playtime_s": 199528,
+    "deaths": 23,
+    "level_ups": 151
+  },
+  "tracking_since": "2026-09-20T20:30:00.000Z"
+}

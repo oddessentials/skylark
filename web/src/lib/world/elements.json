@@ -1,0 +1,18 @@
+{
+  "game_version": "1.0.5.102999",
+  "sources": [
+    "/Game/Pal/DataTable/Text/DT_UI_Common_Text_Common (en)",
+    "/Game/Pal/DataTable/Text/RchTextData/DT_PalRichTextStyle"
+  ],
+  "elements": [
+    { "id": "Normal", "name": "Neutral", "color": "#e8c0b5", "style": "Elem_Neutral" },
+    { "id": "Fire", "name": "Fire", "color": "#e76b50", "style": "Elem_Fire" },
+    { "id": "Water", "name": "Water", "color": "#3a84ee", "style": "Elem_Water" },
+    { "id": "Leaf", "name": "Grass", "color": "#83cb30", "style": "Elem_Grass" },
+    { "id": "Electricity", "name": "Electric", "color": "#e7c138", "style": "Elem_Electric" },
+    { "id": "Ice", "name": "Ice", "color": "#79eafa", "style": "Elem_Ice" },
+    { "id": "Earth", "name": "Ground", "color": "#d9854a", "style": "Elem_Ground" },
+    { "id": "Dark", "name": "Dark", "color": "#8f69fa", "style": "Elem_Dark" },
+    { "id": "Dragon", "name": "Dragon", "color": "#ca67f3", "style": "Elem_Dragon" }
+  ]
+}

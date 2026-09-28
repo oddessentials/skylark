@@ -1,0 +1,1475 @@
+{
+  "items": [
+    {
+      "id": "fd58fea9-68fb-463a-9380-0c6c3ebf03de",
+      "type": "player.level_up",
+      "ts": "2026-09-27T20:25:50.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 29, "to": 30 }
+    },
+    {
+      "id": "be6512b7-74ea-454c-93ff-17b21f9c0312",
+      "type": "player.level_up",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "from": 26, "to": 27 }
+    },
+    {
+      "id": "9b0d120d-0dc0-4a6e-b94f-80f2f2127bf3",
+      "type": "player.level_up",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 23, "to": 24 }
+    },
+    {
+      "id": "0d493e5f-9832-4a59-98aa-9856de330edf",
+      "type": "chat.message",
+      "ts": "2026-09-27T20:06:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "channel": "global", "text": "night is falling, stay close" }
+    },
+    {
+      "id": "6a122efb-b8c8-48cc-9c54-34363fabf827",
+      "type": "player.level_up",
+      "ts": "2026-09-27T20:04:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "from": 26, "to": 27 }
+    },
+    {
+      "id": "d96ae4d3-16a2-4388-ae6d-b88a9ba0de44",
+      "type": "chat.message",
+      "ts": "2026-09-27T19:50:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "channel": "global", "text": "anyone up for the tower tonight?" }
+    },
+    {
+      "id": "867bcf0f-8f60-49d2-a3cc-865a7320531d",
+      "type": "player.died",
+      "ts": "2026-09-27T19:50:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "cause": null, "killer": null, "x": -562545.0543181442, "y": 121391.15593724685 }
+    },
+    {
+      "id": "5d84f0c1-e235-4b11-a9cc-67cf1b0077e4",
+      "type": "player.joined",
+      "ts": "2026-09-27T19:50:00.000Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": {}
+    },
+    {
+      "id": "24e67eda-b0ca-44b9-bb40-7a4c5567e189",
+      "type": "player.joined",
+      "ts": "2026-09-27T19:33:00.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": {}
+    },
+    {
+      "id": "a3383522-5eee-4928-b93d-159f1a8f599d",
+      "type": "player.level_up",
+      "ts": "2026-09-27T19:20:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "from": 25, "to": 26 }
+    },
+    {
+      "id": "30c157c7-21cd-444a-bae5-7a4ca1c2d580",
+      "type": "player.left",
+      "ts": "2026-09-27T19:17:15.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "session_s": 3991 }
+    },
+    {
+      "id": "6bd5adaf-715f-4a97-b568-210fe7e89690",
+      "type": "player.joined",
+      "ts": "2026-09-27T19:16:00.000Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": {}
+    },
+    {
+      "id": "6b2811e8-66c5-4372-bfed-6a089e52de75",
+      "type": "player.died",
+      "ts": "2026-09-27T19:12:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -316727.90378875245,
+        "y": 222222.97536642052
+      }
+    },
+    {
+      "id": "28ea5b9a-5e98-40d0-b211-0ae95c1df41d",
+      "type": "player.died",
+      "ts": "2026-09-27T19:10:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "cause": null, "killer": null, "x": -28774.98780931857, "y": 146935.85787619717 }
+    },
+    {
+      "id": "07061bc3-865c-4241-82ba-1425a674b408",
+      "type": "player.died",
+      "ts": "2026-09-27T19:08:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -379316.49519706797,
+        "y": 181908.98856584157
+      }
+    },
+    {
+      "id": "febbdfef-e94f-4619-8d20-f05a21d14d4f",
+      "type": "player.level_up",
+      "ts": "2026-09-27T19:06:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 30, "to": 31 }
+    },
+    {
+      "id": "488f606d-6262-4a1f-af5d-b005eeeff678",
+      "type": "chat.message",
+      "ts": "2026-09-27T19:04:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "channel": "global", "text": "lol" }
+    },
+    {
+      "id": "c5b2e9ac-3cbd-4354-9424-07201f9fcbbc",
+      "type": "chat.message",
+      "ts": "2026-09-27T19:00:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "channel": "global", "text": "anyone up for the tower tonight?" }
+    },
+    {
+      "id": "fcc540ac-9367-4257-9ffb-58c393d9e0af",
+      "type": "player.joined",
+      "ts": "2026-09-27T18:59:00.000Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": {}
+    },
+    {
+      "id": "abd25ef5-26b5-4187-8a3a-74eb635c8a12",
+      "type": "chat.message",
+      "ts": "2026-09-27T18:48:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "channel": "global", "text": "need more paldium, trade?" }
+    },
+    {
+      "id": "c7404c8d-ff7b-4492-8517-4c6c8dc62261",
+      "type": "player.died",
+      "ts": "2026-09-27T18:26:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "cause": null, "killer": null, "x": -236286.6, "y": -99689.9 }
+    },
+    {
+      "id": "da88bce6-e0bf-49ab-bcfa-f2f29d082bbf",
+      "type": "player.joined",
+      "ts": "2026-09-27T18:10:44.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {}
+    },
+    {
+      "id": "33c52c7a-3542-4384-be29-bb5979d83bb0",
+      "type": "player.left",
+      "ts": "2026-09-27T15:35:11.000Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "session_s": 6712 }
+    },
+    {
+      "id": "9306ea7f-7f7e-44ef-8fda-41f1c98bf745",
+      "type": "player.level_up",
+      "ts": "2026-09-27T15:35:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "from": 18, "to": 19 }
+    },
+    {
+      "id": "357e95af-693a-4302-bd16-f0e95c2ae51b",
+      "type": "player.level_up",
+      "ts": "2026-09-27T15:13:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "from": 17, "to": 18 }
+    },
+    {
+      "id": "5985c54e-4bff-476c-818b-041076b31395",
+      "type": "player.level_up",
+      "ts": "2026-09-27T14:53:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "from": 16, "to": 17 }
+    },
+    {
+      "id": "c39af110-4fc5-4f20-85c0-601b778d6360",
+      "type": "player.level_up",
+      "ts": "2026-09-27T14:35:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "from": 15, "to": 16 }
+    },
+    {
+      "id": "aa7fb9a7-7cae-43e5-b5e9-ff7faaa63ecc",
+      "type": "chat.message",
+      "ts": "2026-09-27T14:15:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "channel": "global", "text": "got a new saddle finally" }
+    },
+    {
+      "id": "311c134e-91be-46f3-870b-94e729f2356d",
+      "type": "player.level_up",
+      "ts": "2026-09-27T14:15:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "from": 14, "to": 15 }
+    },
+    {
+      "id": "b2f44eba-058f-4d1a-ae86-e45577fabcb6",
+      "type": "chat.message",
+      "ts": "2026-09-27T14:13:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "channel": "say", "text": "who left the furnace running" }
+    },
+    {
+      "id": "1d186fc4-486b-4a4a-82a0-4a1b73ebc753",
+      "type": "player.died",
+      "ts": "2026-09-27T14:09:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -815943.6365383795,
+        "y": -403438.80221904325
+      }
+    },
+    {
+      "id": "aae85553-3aec-5da8-9825-3cec7bd931e6",
+      "type": "player.guild_joined",
+      "ts": "2026-09-27T13:55:01.000Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": {
+        "guild": { "id": "1077E95B45C893698D10D137B8FF9D0A", "name": "Night Market" },
+        "previous_guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" }
+      }
+    },
+    {
+      "id": "52e325ed-18b7-4734-ba5e-22896db621d0",
+      "type": "player.joined",
+      "ts": "2026-09-27T13:43:19.000Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": {}
+    },
+    {
+      "id": "b7eb5e92-c2f5-4a01-8509-e0715a31e263",
+      "type": "server.online",
+      "ts": "2026-09-27T01:33:00.000Z",
+      "player": null,
+      "details": { "version": "v1.0.5.102999" }
+    },
+    {
+      "id": "ca234b12-4e8f-4a3f-96a1-65761e097fb3",
+      "type": "server.offline",
+      "ts": "2026-09-27T01:30:00.000Z",
+      "player": null,
+      "details": { "reason": "shutdown" }
+    },
+    {
+      "id": "8b63a837-e091-4529-9e67-7b6a7ccaa1c7",
+      "type": "player.left",
+      "ts": "2026-09-26T19:23:08.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "session_s": 7128 }
+    },
+    {
+      "id": "478725d3-6925-4fef-9220-e31e05e2a189",
+      "type": "chat.message",
+      "ts": "2026-09-26T19:09:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "channel": "global", "text": "anyone up for the tower tonight?" }
+    },
+    {
+      "id": "c1ed3074-14b0-4162-9092-d9047d547aa3",
+      "type": "player.level_up",
+      "ts": "2026-09-26T18:53:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 29, "to": 30 }
+    },
+    {
+      "id": "e27f3010-6239-4b6c-b1bf-a35d748fa789",
+      "type": "chat.message",
+      "ts": "2026-09-26T18:51:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "channel": "say", "text": "got a new saddle finally" }
+    },
+    {
+      "id": "024c9faf-5c88-4075-ac51-14dc86e38488",
+      "type": "player.level_up",
+      "ts": "2026-09-26T17:51:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 28, "to": 29 }
+    },
+    {
+      "id": "2380893b-bc78-40be-8c38-8b5eb3aaff85",
+      "type": "player.died",
+      "ts": "2026-09-26T17:39:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -158490.81595252588,
+        "y": -33398.17911123649
+      }
+    },
+    {
+      "id": "379007ca-6a7a-5049-bd1f-af28ebb8fdb8",
+      "type": "base.removed",
+      "ts": "2026-09-26T17:35:01.000Z",
+      "player": null,
+      "details": {
+        "base_id": 4,
+        "base_name": "Moss Camp 2",
+        "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
+        "x": -314377.2,
+        "y": 211003.3
+      }
+    },
+    {
+      "id": "2e8b1241-efaa-4315-843e-763d218b2dc8",
+      "type": "player.joined",
+      "ts": "2026-09-26T17:24:20.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {}
+    },
+    {
+      "id": "a53a9f84-cb0b-492e-bb70-15f38f1d5aaf",
+      "type": "player.left",
+      "ts": "2026-09-26T16:04:05.000Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "session_s": 8574 }
+    },
+    {
+      "id": "2d6ec881-5c92-48e2-825b-728927182a28",
+      "type": "player.left",
+      "ts": "2026-09-26T15:55:40.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "session_s": 3212 }
+    },
+    {
+      "id": "94a492c1-89c5-423e-8289-b7d23146ee8c",
+      "type": "player.level_up",
+      "ts": "2026-09-26T15:39:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "from": 25, "to": 26 }
+    },
+    {
+      "id": "8e1299ab-eff2-4ba3-a9e2-adfb3fc051bc",
+      "type": "player.level_up",
+      "ts": "2026-09-26T15:25:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 28, "to": 29 }
+    },
+    {
+      "id": "61bd1a0c-96e3-4439-8b0a-234affa01a9f",
+      "type": "player.joined",
+      "ts": "2026-09-26T15:02:08.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": {}
+    },
+    {
+      "id": "77dbda01-15d7-4157-aa5d-1df35342b1a8",
+      "type": "player.died",
+      "ts": "2026-09-26T14:25:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "cause": null, "killer": null, "x": -293687.095221578, "y": 314448.37820014096 }
+    },
+    {
+      "id": "d11740dd-7dae-46e0-96f1-58738152ed90",
+      "type": "player.level_up",
+      "ts": "2026-09-26T14:23:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 27, "to": 28 }
+    },
+    {
+      "id": "40c2c1b3-484f-4b20-81eb-0638f124e078",
+      "type": "chat.message",
+      "ts": "2026-09-26T13:53:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "channel": "global", "text": "who left the furnace running" }
+    },
+    {
+      "id": "9c21cc63-d379-40ac-97e8-25f09295125e",
+      "type": "player.joined",
+      "ts": "2026-09-26T13:41:11.000Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": {}
+    },
+    {
+      "id": "6128d117-50f5-4ad0-a1b0-ad405d5c73fb",
+      "type": "player.left",
+      "ts": "2026-09-26T13:13:02.000Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": { "session_s": 5111 }
+    },
+    {
+      "id": "30d3c5e7-00c9-49fd-ab65-0872e965c73f",
+      "type": "player.level_up",
+      "ts": "2026-09-26T13:11:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": { "from": 15, "to": 16 }
+    },
+    {
+      "id": "12b6cbae-4341-4be3-8f9e-8c339b8d0d10",
+      "type": "player.died",
+      "ts": "2026-09-26T12:45:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -509806.4831120554,
+        "y": -333590.92039320467
+      }
+    },
+    {
+      "id": "dab563c7-f4ce-4613-9a36-f96883faed85",
+      "type": "player.level_up",
+      "ts": "2026-09-26T12:37:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": { "from": 14, "to": 15 }
+    },
+    {
+      "id": "cfcd75e2-f692-4566-9333-d0fa76a8447b",
+      "type": "player.level_up",
+      "ts": "2026-09-26T12:21:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": { "from": 13, "to": 14 }
+    },
+    {
+      "id": "0267e3c4-0cf0-4a6a-8244-971cad25c9b7",
+      "type": "player.level_up",
+      "ts": "2026-09-26T12:09:00.999Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": { "from": 12, "to": 13 }
+    },
+    {
+      "id": "811e7959-f74b-408b-a648-a8e4ca9c9a37",
+      "type": "player.joined",
+      "ts": "2026-09-26T11:47:51.000Z",
+      "player": { "id": 5, "name": "Mossbrook" },
+      "details": {}
+    },
+    {
+      "id": "2af8a120-7b85-400d-98d8-0c86c489bd03",
+      "type": "player.left",
+      "ts": "2026-09-25T21:55:24.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "session_s": 7857 }
+    },
+    {
+      "id": "0a3cc2a7-a626-49cd-a3df-1b475ba226ce",
+      "type": "player.level_up",
+      "ts": "2026-09-25T21:03:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 27, "to": 28 }
+    },
+    {
+      "id": "5e763f82-4726-4ba5-aea6-33acb5a0bc73",
+      "type": "chat.message",
+      "ts": "2026-09-25T20:59:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "channel": "global", "text": "anyone up for the tower tonight?" }
+    },
+    {
+      "id": "7d48e524-1f11-41c2-b9f3-a07c279ca982",
+      "type": "player.died",
+      "ts": "2026-09-25T20:31:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -196434.95157660227,
+        "y": -63723.84992059379
+      }
+    },
+    {
+      "id": "e1677bd0-daa4-4291-b6da-914601456585",
+      "type": "chat.message",
+      "ts": "2026-09-25T20:27:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "channel": "global", "text": "lol" }
+    },
+    {
+      "id": "3da5e117-bfcf-40c6-9408-b2a401c4dec6",
+      "type": "chat.message",
+      "ts": "2026-09-25T19:59:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "channel": "global", "text": "found a great ore spot past the eagle statue" }
+    },
+    {
+      "id": "6dd81658-bf04-4323-9d2a-729114a0749e",
+      "type": "player.joined",
+      "ts": "2026-09-25T19:44:27.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {}
+    },
+    {
+      "id": "a356afad-6b40-493a-8d98-19470032dd99",
+      "type": "player.left",
+      "ts": "2026-09-25T18:48:47.000Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "session_s": 6780 }
+    },
+    {
+      "id": "6b314b97-5ded-4741-8cdf-3c9a75fb317f",
+      "type": "player.level_up",
+      "ts": "2026-09-25T18:41:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 22, "to": 23 }
+    },
+    {
+      "id": "ec8a26c7-561b-4f52-8478-102c4cf6c9db",
+      "type": "player.left",
+      "ts": "2026-09-25T18:20:08.000Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "session_s": 4249 }
+    },
+    {
+      "id": "881cfeae-5aec-48e2-8874-213289f6024a",
+      "type": "player.level_up",
+      "ts": "2026-09-25T18:15:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "from": 17, "to": 18 }
+    },
+    {
+      "id": "5b428083-c893-4929-8694-6b2c240c56d1",
+      "type": "player.level_up",
+      "ts": "2026-09-25T18:05:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 21, "to": 22 }
+    },
+    {
+      "id": "52232f5c-095e-4791-b43b-a91a0d609a86",
+      "type": "player.level_up",
+      "ts": "2026-09-25T17:51:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "from": 16, "to": 17 }
+    },
+    {
+      "id": "5980a344-2dcc-4e06-87c1-634f790f3a4f",
+      "type": "chat.message",
+      "ts": "2026-09-25T17:41:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "channel": "global", "text": "lol" }
+    },
+    {
+      "id": "762c5c43-6458-433e-9d11-f2c20b42d310",
+      "type": "player.level_up",
+      "ts": "2026-09-25T17:35:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 20, "to": 21 }
+    },
+    {
+      "id": "bc92dfc7-5580-4f78-a07d-7666abeb5ba7",
+      "type": "player.left",
+      "ts": "2026-09-25T17:27:32.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "session_s": 4561 }
+    },
+    {
+      "id": "884cbbcb-5e10-4711-889a-60969a5c56f8",
+      "type": "player.level_up",
+      "ts": "2026-09-25T17:19:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "from": 15, "to": 16 }
+    },
+    {
+      "id": "e8603e04-c828-4990-876c-24cf960ca5a1",
+      "type": "chat.message",
+      "ts": "2026-09-25T17:15:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "channel": "say", "text": "just hatched something cute" }
+    },
+    {
+      "id": "5e943781-9b19-4270-ae16-893948e9f23c",
+      "type": "chat.message",
+      "ts": "2026-09-25T17:15:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "channel": "global", "text": "meet at the statue" }
+    },
+    {
+      "id": "b6e49667-4b81-4316-8ea0-89526a24b30c",
+      "type": "player.joined",
+      "ts": "2026-09-25T17:09:19.000Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": {}
+    },
+    {
+      "id": "c3405ee9-439b-4538-83b9-e069c50e65c9",
+      "type": "player.level_up",
+      "ts": "2026-09-25T17:07:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "from": 24, "to": 25 }
+    },
+    {
+      "id": "d679f96b-6713-47a7-ad16-9feca4046bcd",
+      "type": "chat.message",
+      "ts": "2026-09-25T17:01:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "channel": "global", "text": "anyone up for the tower tonight?" }
+    },
+    {
+      "id": "7a0a6b2a-8987-4ac3-89fd-f6b387868bcb",
+      "type": "player.joined",
+      "ts": "2026-09-25T16:55:47.000Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": {}
+    },
+    {
+      "id": "4fe08c8f-ca17-4ade-b9c2-d7ad88e2dafb",
+      "type": "player.left",
+      "ts": "2026-09-25T16:47:38.000Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "session_s": 5218 }
+    },
+    {
+      "id": "f3193256-4e91-4718-9744-2530e31c4a45",
+      "type": "chat.message",
+      "ts": "2026-09-25T16:43:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "channel": "global", "text": "gg" }
+    },
+    {
+      "id": "841832b5-ce5a-4295-a1b4-ad1294b6440f",
+      "type": "player.level_up",
+      "ts": "2026-09-25T16:31:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 26, "to": 27 }
+    },
+    {
+      "id": "71e4f897-9cd5-400e-81cb-7a086b9e1db7",
+      "type": "player.level_up",
+      "ts": "2026-09-25T16:31:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "from": 23, "to": 24 }
+    },
+    {
+      "id": "1801d0c2-a8dc-4ceb-9b4c-fe3552b48ffd",
+      "type": "player.joined",
+      "ts": "2026-09-25T16:11:31.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": {}
+    },
+    {
+      "id": "47118f5b-4952-49c6-b1ec-38ee45161ac7",
+      "type": "chat.message",
+      "ts": "2026-09-25T15:57:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "channel": "global", "text": "anyone up for the tower tonight?" }
+    },
+    {
+      "id": "99ffb8fa-c7a9-553d-a39f-8cce3205353a",
+      "type": "base.established",
+      "ts": "2026-09-25T15:33:01.000Z",
+      "player": null,
+      "details": {
+        "base_id": 5,
+        "base_name": "Sunreach Camp 2",
+        "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+        "x": 15556.8,
+        "y": 248101.4
+      }
+    },
+    {
+      "id": "01f5741c-bddb-4dd4-8013-0f007bdf98f6",
+      "type": "player.joined",
+      "ts": "2026-09-25T15:20:40.000Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": {}
+    },
+    {
+      "id": "45bdc3fb-e6f4-4566-b1f4-00ef5530f606",
+      "type": "player.left",
+      "ts": "2026-09-25T15:14:24.000Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "session_s": 6328 }
+    },
+    {
+      "id": "25d11ff5-30db-472e-9e5b-09d3d9c38fef",
+      "type": "player.level_up",
+      "ts": "2026-09-25T14:44:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "from": 24, "to": 25 }
+    },
+    {
+      "id": "4ca5c372-4230-4469-9f06-67257e2ac345",
+      "type": "chat.message",
+      "ts": "2026-09-25T14:12:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "channel": "say", "text": "got a new saddle finally" }
+    },
+    {
+      "id": "e4ec0537-a429-4e95-acd2-e076268b9a47",
+      "type": "chat.message",
+      "ts": "2026-09-25T14:06:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "channel": "global", "text": "got a new saddle finally" }
+    },
+    {
+      "id": "571c6841-8217-408c-b5e4-77063df72aff",
+      "type": "player.level_up",
+      "ts": "2026-09-25T14:02:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "from": 23, "to": 24 }
+    },
+    {
+      "id": "34f1f212-7f86-4390-9862-972a98bdea2b",
+      "type": "chat.message",
+      "ts": "2026-09-25T13:46:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "channel": "global", "text": "heading back to base" }
+    },
+    {
+      "id": "63c3ff64-28ac-4863-a245-e5964c6d2633",
+      "type": "chat.message",
+      "ts": "2026-09-25T13:40:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "channel": "global", "text": "need more paldium, trade?" }
+    },
+    {
+      "id": "a54156d8-886f-44a6-a781-067427d1ac38",
+      "type": "player.joined",
+      "ts": "2026-09-25T13:28:56.000Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": {}
+    },
+    {
+      "id": "08606c6f-6f37-44bd-b30e-186c6157f168",
+      "type": "player.left",
+      "ts": "2026-09-24T19:47:38.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "session_s": 9422 }
+    },
+    {
+      "id": "e124a9e7-6c6c-4b6c-8de6-63a3485a9831",
+      "type": "player.level_up",
+      "ts": "2026-09-24T19:47:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 26, "to": 27 }
+    },
+    {
+      "id": "bf674604-9b62-4024-8971-0f9a01ecb63b",
+      "type": "player.level_up",
+      "ts": "2026-09-24T18:51:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 25, "to": 26 }
+    },
+    {
+      "id": "2457d4e9-0ea5-4a9c-9cf5-04697f5d6523",
+      "type": "player.died",
+      "ts": "2026-09-24T18:45:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "cause": null, "killer": null, "x": -691653.9658831968, "y": -316238.5209778878 }
+    },
+    {
+      "id": "e5787056-541a-4fa7-9f4c-4d51958e557b",
+      "type": "player.left",
+      "ts": "2026-09-24T18:36:43.000Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "session_s": 6259 }
+    },
+    {
+      "id": "1cd23203-f561-4877-ad88-9a126166dd09",
+      "type": "player.level_up",
+      "ts": "2026-09-24T18:25:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 19, "to": 20 }
+    },
+    {
+      "id": "2f4f2c79-3904-4af1-8f34-6b0027bb7b22",
+      "type": "chat.message",
+      "ts": "2026-09-24T18:11:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "channel": "global", "text": "gg" }
+    },
+    {
+      "id": "a5a236a7-455b-4ba3-a923-d89019f17eff",
+      "type": "player.level_up",
+      "ts": "2026-09-24T18:05:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 24, "to": 25 }
+    },
+    {
+      "id": "1a49dad9-b928-4b92-a6b5-f8f41a61cec1",
+      "type": "player.level_up",
+      "ts": "2026-09-24T18:01:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 18, "to": 19 }
+    },
+    {
+      "id": "56456ecc-4f7b-409a-8bdd-699d346fb9e3",
+      "type": "player.left",
+      "ts": "2026-09-24T17:53:44.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "session_s": 5920 }
+    },
+    {
+      "id": "0717aeb7-a3e1-4b0e-bc72-6b07945c4777",
+      "type": "player.level_up",
+      "ts": "2026-09-24T17:41:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 17, "to": 18 }
+    },
+    {
+      "id": "631a9875-f445-40a5-8c34-d15ce83ac982",
+      "type": "player.level_up",
+      "ts": "2026-09-24T17:29:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "from": 22, "to": 23 }
+    },
+    {
+      "id": "7cbfac6c-7fc2-41f4-b348-6617b52d0ce5",
+      "type": "player.level_up",
+      "ts": "2026-09-24T17:21:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 16, "to": 17 }
+    },
+    {
+      "id": "46639141-922b-4eac-a2b9-1d0e0b6eac8f",
+      "type": "player.level_up",
+      "ts": "2026-09-24T17:17:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 23, "to": 24 }
+    },
+    {
+      "id": "466fab9d-2836-432b-bef3-2df9c06db2f7",
+      "type": "player.joined",
+      "ts": "2026-09-24T17:10:36.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {}
+    },
+    {
+      "id": "6e93a084-67bf-45c4-bb37-3dcb3869021f",
+      "type": "player.level_up",
+      "ts": "2026-09-24T17:01:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 15, "to": 16 }
+    },
+    {
+      "id": "5fc4b29d-fc99-4932-9e5d-27ae47be6005",
+      "type": "player.joined",
+      "ts": "2026-09-24T16:52:24.000Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": {}
+    },
+    {
+      "id": "8828e44b-e9df-42ff-ba0f-700c701c8946",
+      "type": "player.level_up",
+      "ts": "2026-09-24T16:47:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "from": 21, "to": 22 }
+    },
+    {
+      "id": "7fadf948-7e44-4a38-896e-e5fc2ed3e5eb",
+      "type": "chat.message",
+      "ts": "2026-09-24T16:21:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "channel": "global", "text": "meet at the statue" }
+    },
+    {
+      "id": "102e29bb-189a-431d-9244-cb683c26fac7",
+      "type": "player.joined",
+      "ts": "2026-09-24T16:15:04.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": {}
+    },
+    {
+      "id": "1510ad57-f2fd-4e73-b6a2-6e48a33d0998",
+      "type": "player.left",
+      "ts": "2026-09-24T15:05:15.000Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "session_s": 6224 }
+    },
+    {
+      "id": "ddbae181-02f4-465b-a278-1bb2e553f27e",
+      "type": "player.level_up",
+      "ts": "2026-09-24T15:02:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 25, "to": 26 }
+    },
+    {
+      "id": "0e21f69b-1793-4d88-9266-1772b755b569",
+      "type": "player.left",
+      "ts": "2026-09-24T14:42:07.000Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "session_s": 5648 }
+    },
+    {
+      "id": "65ea9eb6-2c35-4902-a2ab-a4d830503c04",
+      "type": "player.died",
+      "ts": "2026-09-24T14:34:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "cause": null, "killer": null, "x": -278286.1264798476, "y": 219247.21042643982 }
+    },
+    {
+      "id": "b2b4726f-65fd-4157-a798-1a4b5473e75a",
+      "type": "player.died",
+      "ts": "2026-09-24T14:30:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "cause": null, "killer": null, "x": -631179.0348109547, "y": -271765.0842319913 }
+    },
+    {
+      "id": "246faa48-f42f-4410-ab9c-4fe2019bd472",
+      "type": "player.level_up",
+      "ts": "2026-09-24T14:20:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "from": 22, "to": 23 }
+    },
+    {
+      "id": "bbf0bfc4-801e-4204-86b8-3761ca36f35e",
+      "type": "player.level_up",
+      "ts": "2026-09-24T14:14:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 24, "to": 25 }
+    },
+    {
+      "id": "a3d32fbc-89a0-4e9d-9b08-148d1e8337e8",
+      "type": "player.died",
+      "ts": "2026-09-24T13:44:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -313884.81074639753,
+        "y": 233624.43033072533
+      }
+    },
+    {
+      "id": "d43abfab-67a6-4ba2-8421-b71daaf5f325",
+      "type": "chat.message",
+      "ts": "2026-09-24T13:38:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "channel": "global", "text": "brb" }
+    },
+    {
+      "id": "b7cd5ba0-9ecb-4390-99e0-09378bb6bffb",
+      "type": "player.level_up",
+      "ts": "2026-09-24T13:38:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "from": 21, "to": 22 }
+    },
+    {
+      "id": "43720072-9eba-47cc-9d47-5b845ad600ad",
+      "type": "player.level_up",
+      "ts": "2026-09-24T13:36:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 23, "to": 24 }
+    },
+    {
+      "id": "feb8b4eb-b1ca-4651-9ba9-0a88a0020e2d",
+      "type": "player.died",
+      "ts": "2026-09-24T13:30:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "cause": null, "killer": null, "x": -312425.7100247271, "y": 47421.429056291745 }
+    },
+    {
+      "id": "0e69bdb4-9379-4208-9740-5ca80689b0d2",
+      "type": "chat.message",
+      "ts": "2026-09-24T13:28:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "channel": "global", "text": "got a new saddle finally" }
+    },
+    {
+      "id": "c2b0b764-44c1-4082-84b5-cf59d5b86402",
+      "type": "chat.message",
+      "ts": "2026-09-24T13:22:00.999Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": { "channel": "global", "text": "gg" }
+    },
+    {
+      "id": "7ee09741-bbf1-4c1f-8c79-7810ae50bde2",
+      "type": "player.joined",
+      "ts": "2026-09-24T13:21:31.000Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": {}
+    },
+    {
+      "id": "07df1409-ba3b-4aae-8889-8071b8f6fcdb",
+      "type": "player.joined",
+      "ts": "2026-09-24T13:07:59.000Z",
+      "player": { "id": 1, "name": "Juniper" },
+      "details": {}
+    },
+    {
+      "id": "dd2e4890-2f30-490f-9be2-a438f4915412",
+      "type": "server.online",
+      "ts": "2026-09-24T01:33:00.000Z",
+      "player": null,
+      "details": { "version": "v1.0.5.102999" }
+    },
+    {
+      "id": "a9628de5-f87d-4c74-aec0-19d763f83e43",
+      "type": "server.offline",
+      "ts": "2026-09-24T01:30:00.000Z",
+      "player": null,
+      "details": { "reason": "shutdown" }
+    },
+    {
+      "id": "a75aa5ff-8997-4e61-9b74-3ed15e97104b",
+      "type": "player.left",
+      "ts": "2026-09-23T21:10:40.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "session_s": 8977 }
+    },
+    {
+      "id": "24b2b652-1359-4e95-a362-60a864b4dabf",
+      "type": "player.died",
+      "ts": "2026-09-23T21:06:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -344408.2837671854,
+        "y": -16449.591088789646
+      }
+    },
+    {
+      "id": "7a65bf7d-43bf-43f7-90e6-7d15993a1e37",
+      "type": "player.level_up",
+      "ts": "2026-09-23T20:42:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 22, "to": 23 }
+    },
+    {
+      "id": "ea747043-091c-4f1c-a5d7-5ab5c52914a0",
+      "type": "player.died",
+      "ts": "2026-09-23T20:00:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "cause": null, "killer": null, "x": -187511.3507834371, "y": -38029.1955551356 }
+    },
+    {
+      "id": "19eb7f58-d0e8-4a33-87bd-19e5f3df3d1b",
+      "type": "player.level_up",
+      "ts": "2026-09-23T19:54:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 21, "to": 22 }
+    },
+    {
+      "id": "6c485618-953a-42c7-9f76-24bd533c039c",
+      "type": "chat.message",
+      "ts": "2026-09-23T19:46:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "channel": "global", "text": "got a new saddle finally" }
+    },
+    {
+      "id": "aac23096-0d63-415b-a777-1f33aeb64546",
+      "type": "chat.message",
+      "ts": "2026-09-23T19:26:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "channel": "global", "text": "just hatched something cute" }
+    },
+    {
+      "id": "520fa4d5-7a31-401e-9780-afbd3d9b7014",
+      "type": "player.level_up",
+      "ts": "2026-09-23T19:16:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 20, "to": 21 }
+    },
+    {
+      "id": "5948fc5e-480f-421c-967d-5d74b2bd34b6",
+      "type": "chat.message",
+      "ts": "2026-09-23T18:58:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "channel": "say", "text": "need more paldium, trade?" }
+    },
+    {
+      "id": "5623f7bb-b9af-433b-978b-710438ba1ab6",
+      "type": "player.joined",
+      "ts": "2026-09-23T18:41:03.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {}
+    },
+    {
+      "id": "8505fc74-9d64-584a-853e-762b17003930",
+      "type": "guild.renamed",
+      "ts": "2026-09-23T18:31:01.000Z",
+      "player": null,
+      "details": {
+        "guild": { "id": "1077E95B45C893698D10D137B8FF9D0A", "name": "Night Market" },
+        "old_name": "Unnamed Guild",
+        "new_name": "Night Market"
+      }
+    },
+    {
+      "id": "50f91312-6850-4c73-bc42-dda781dc18d4",
+      "type": "player.left",
+      "ts": "2026-09-23T17:30:04.000Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "session_s": 5926 }
+    },
+    {
+      "id": "8f99a844-eb31-4c94-8ab1-a7d285f3995b",
+      "type": "player.level_up",
+      "ts": "2026-09-23T17:07:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 22, "to": 23 }
+    },
+    {
+      "id": "74b592e9-2252-51c6-810f-dc900b174ac4",
+      "type": "base.established",
+      "ts": "2026-09-23T16:33:01.000Z",
+      "player": null,
+      "details": {
+        "base_id": 4,
+        "base_name": "Moss Camp 2",
+        "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
+        "x": -314377.2,
+        "y": 211003.3
+      }
+    },
+    {
+      "id": "8776ef43-d9cf-4b5f-8fe1-9e3eace56daf",
+      "type": "player.level_up",
+      "ts": "2026-09-23T16:33:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 21, "to": 22 }
+    },
+    {
+      "id": "d0b3a3dc-6937-403c-ae39-602eba51a475",
+      "type": "player.joined",
+      "ts": "2026-09-23T15:51:18.000Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": {}
+    },
+    {
+      "id": "106a4435-b97b-462e-975c-1213ac74f320",
+      "type": "player.left",
+      "ts": "2026-09-23T15:23:27.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "session_s": 3607 }
+    },
+    {
+      "id": "0c38a62c-4c72-4bf4-9e9c-91f2419d3ba8",
+      "type": "player.level_up",
+      "ts": "2026-09-23T15:15:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "from": 20, "to": 21 }
+    },
+    {
+      "id": "6f4812ca-e41e-4a15-ab4b-49705d449e64",
+      "type": "player.died",
+      "ts": "2026-09-23T15:07:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -19770.709944594408,
+        "y": 238545.11379813886
+      }
+    },
+    {
+      "id": "2ff33246-8e42-4ca6-b85c-bee2e6a3f52f",
+      "type": "chat.message",
+      "ts": "2026-09-23T14:53:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "channel": "global", "text": "brb" }
+    },
+    {
+      "id": "4d3cc55a-5a7d-4bfe-801b-75c2c20e4587",
+      "type": "chat.message",
+      "ts": "2026-09-23T14:49:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "channel": "global", "text": "gg" }
+    },
+    {
+      "id": "1a1a3bb8-e3e3-49a0-95ad-60351c848226",
+      "type": "player.level_up",
+      "ts": "2026-09-23T14:43:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "from": 19, "to": 20 }
+    },
+    {
+      "id": "dcb2bd19-8c34-46b1-85da-b5707eb53895",
+      "type": "player.joined",
+      "ts": "2026-09-23T14:23:20.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": {}
+    },
+    {
+      "id": "925fa15b-bb08-45f6-a6a1-8ffaaad2de0d",
+      "type": "player.left",
+      "ts": "2026-09-23T12:46:54.000Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "session_s": 4183 }
+    },
+    {
+      "id": "e4062c3a-3e72-4b58-b392-482b0ecafd13",
+      "type": "player.level_up",
+      "ts": "2026-09-23T12:38:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "from": 13, "to": 14 }
+    },
+    {
+      "id": "9c32188d-a714-45ff-8b06-32a77da12eb9",
+      "type": "chat.message",
+      "ts": "2026-09-23T12:34:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "channel": "global", "text": "gg" }
+    },
+    {
+      "id": "bd4fa498-23b6-45f5-97c8-f0170d99aed6",
+      "type": "player.level_up",
+      "ts": "2026-09-23T12:26:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "from": 12, "to": 13 }
+    },
+    {
+      "id": "20da056c-fdcc-4391-bd42-7330d81f4a69",
+      "type": "player.level_up",
+      "ts": "2026-09-23T12:18:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "from": 11, "to": 12 }
+    },
+    {
+      "id": "6842f175-c35e-408f-a005-f8deb01b74fd",
+      "type": "player.level_up",
+      "ts": "2026-09-23T12:00:00.999Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": { "from": 10, "to": 11 }
+    },
+    {
+      "id": "3a483267-928d-48ed-824e-8674e25f257e",
+      "type": "player.joined",
+      "ts": "2026-09-23T11:37:11.000Z",
+      "player": { "id": 6, "name": "Bramble" },
+      "details": {}
+    },
+    {
+      "id": "ad4b2b58-099d-4823-be67-e5300623aac5",
+      "type": "player.left",
+      "ts": "2026-09-22T20:01:55.000Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "session_s": 4873 }
+    },
+    {
+      "id": "2b35a0a3-4aa3-42da-b14a-bb71198ba3c9",
+      "type": "player.level_up",
+      "ts": "2026-09-22T19:53:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "from": 14, "to": 15 }
+    },
+    {
+      "id": "da2ba274-5c9e-4f6f-bac1-d879573e8892",
+      "type": "player.level_up",
+      "ts": "2026-09-22T19:39:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "from": 13, "to": 14 }
+    },
+    {
+      "id": "7e78c21a-8960-41e0-91c0-05a9db852d60",
+      "type": "player.level_up",
+      "ts": "2026-09-22T19:21:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "from": 12, "to": 13 }
+    },
+    {
+      "id": "81e13b6b-07a5-4849-8973-61fd9b5d836e",
+      "type": "player.left",
+      "ts": "2026-09-22T19:13:46.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "session_s": 7139 }
+    },
+    {
+      "id": "3784989f-8555-4b79-b4f7-8abe2d1f3e07",
+      "type": "player.level_up",
+      "ts": "2026-09-22T19:13:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "from": 11, "to": 12 }
+    },
+    {
+      "id": "468f5086-104f-429e-a96f-77dc2fa5ffc4",
+      "type": "player.level_up",
+      "ts": "2026-09-22T19:03:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "from": 10, "to": 11 }
+    },
+    {
+      "id": "004ae31c-f4ab-4856-bd85-594b08b2bb5a",
+      "type": "player.level_up",
+      "ts": "2026-09-22T19:03:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 19, "to": 20 }
+    },
+    {
+      "id": "35c17745-adf4-433a-84f6-905e7c84b5e0",
+      "type": "player.level_up",
+      "ts": "2026-09-22T18:55:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "from": 9, "to": 10 }
+    },
+    {
+      "id": "e7f3a628-ad43-4a00-8f6d-5c169b256442",
+      "type": "player.level_up",
+      "ts": "2026-09-22T18:51:00.999Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": { "from": 8, "to": 9 }
+    },
+    {
+      "id": "cfe55d98-2250-4585-956d-b51f4b0e8a68",
+      "type": "player.joined",
+      "ts": "2026-09-22T18:40:42.000Z",
+      "player": { "id": 8, "name": "Kestrel" },
+      "details": {}
+    },
+    {
+      "id": "4f73b070-bfda-41e1-a93c-3823938578e2",
+      "type": "player.level_up",
+      "ts": "2026-09-22T18:33:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 18, "to": 19 }
+    },
+    {
+      "id": "9185a7f3-a700-4962-bc35-08eb0edfaa85",
+      "type": "player.level_up",
+      "ts": "2026-09-22T18:05:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 17, "to": 18 }
+    },
+    {
+      "id": "f21146df-cfa8-485e-9304-98a3eb6944db",
+      "type": "player.left",
+      "ts": "2026-09-22T17:37:08.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "session_s": 3439 }
+    },
+    {
+      "id": "c551e271-c752-4340-85e3-86d1fc1068a9",
+      "type": "player.level_up",
+      "ts": "2026-09-22T17:21:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "from": 18, "to": 19 }
+    },
+    {
+      "id": "b8bdd6bb-9916-4e70-b4e0-3e1dc1cddd23",
+      "type": "player.level_up",
+      "ts": "2026-09-22T17:21:00.999Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": { "from": 16, "to": 17 }
+    },
+    {
+      "id": "cf287086-52a9-4fa8-a23a-b7188166c42e",
+      "type": "player.joined",
+      "ts": "2026-09-22T17:14:47.000Z",
+      "player": { "id": 4, "name": "Sable" },
+      "details": {}
+    },
+    {
+      "id": "7ae961f2-cc4f-4406-8cdf-a8872624f069",
+      "type": "chat.message",
+      "ts": "2026-09-22T17:01:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "channel": "say", "text": "lol" }
+    },
+    {
+      "id": "860823e0-239a-44c6-b437-be1e3ed82874",
+      "type": "player.died",
+      "ts": "2026-09-22T16:57:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "cause": null, "killer": null, "x": -234590.94709845723, "y": 47581.78012566597 }
+    },
+    {
+      "id": "7e8e8891-e1e8-4fdd-bf75-07d3428e595c",
+      "type": "player.left",
+      "ts": "2026-09-22T16:46:38.000Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "session_s": 8882 }
+    },
+    {
+      "id": "3621d7e9-4752-4130-9cf2-1f0bcff49801",
+      "type": "player.left",
+      "ts": "2026-09-22T16:42:13.000Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "session_s": 5381 }
+    },
+    {
+      "id": "d0a9342a-ad9f-4d37-bcbb-e3d5611f4b2b",
+      "type": "chat.message",
+      "ts": "2026-09-22T16:41:00.999Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": { "channel": "global", "text": "lol" }
+    },
+    {
+      "id": "9719f412-fb5c-4333-9d58-d4cb0011cbe8",
+      "type": "player.level_up",
+      "ts": "2026-09-22T16:41:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 20, "to": 21 }
+    },
+    {
+      "id": "7452af23-1870-46e3-9cef-fe122a17581f",
+      "type": "player.joined",
+      "ts": "2026-09-22T16:39:49.000Z",
+      "player": { "id": 3, "name": "Tamsin" },
+      "details": {}
+    },
+    {
+      "id": "056d7fb1-fd71-4d87-a491-469f10a7eb23",
+      "type": "player.level_up",
+      "ts": "2026-09-22T16:37:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 14, "to": 15 }
+    },
+    {
+      "id": "f66f0a26-ad8e-4c71-b739-af16e694d321",
+      "type": "player.level_up",
+      "ts": "2026-09-22T16:25:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 13, "to": 14 }
+    },
+    {
+      "id": "eb54ed95-9855-4892-8ed4-7ada8a4fa86b",
+      "type": "player.level_up",
+      "ts": "2026-09-22T16:13:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 12, "to": 13 }
+    },
+    {
+      "id": "9ecd6c9e-e56a-433c-81da-8d71465ac0e8",
+      "type": "player.level_up",
+      "ts": "2026-09-22T16:09:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 19, "to": 20 }
+    },
+    {
+      "id": "a4f2a4ec-92f2-4ce1-a504-95d364671ffa",
+      "type": "chat.message",
+      "ts": "2026-09-22T16:03:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "channel": "global", "text": "gg" }
+    },
+    {
+      "id": "a7521640-6e43-47bd-a1c3-445e9d7531bc",
+      "type": "player.level_up",
+      "ts": "2026-09-22T15:59:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 11, "to": 12 }
+    },
+    {
+      "id": "0c6703bc-17af-40d7-8e7c-aa396a1351be",
+      "type": "player.level_up",
+      "ts": "2026-09-22T15:51:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 10, "to": 11 }
+    },
+    {
+      "id": "ebcc80c4-cf69-4459-b908-22d296ff394b",
+      "type": "player.level_up",
+      "ts": "2026-09-22T15:47:00.999Z",
+      "player": { "id": 2, "name": "Wren" },
+      "details": { "from": 18, "to": 19 }
+    },
+    {
+      "id": "306b9b72-cd4f-4107-abb1-d03887a4f12b",
+      "type": "player.level_up",
+      "ts": "2026-09-22T15:43:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 9, "to": 10 }
+    },
+    {
+      "id": "e46157d7-ebff-4aca-b62f-a4fd19d5c854",
+      "type": "player.level_up",
+      "ts": "2026-09-22T15:35:00.999Z",
+      "player": { "id": 7, "name": "Orrin" },
+      "details": { "from": 8, "to": 9 }
+    }
+  ],
+  "next_cursor": "bW9yZQ"
+}

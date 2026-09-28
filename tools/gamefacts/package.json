@@ -1,0 +1,17 @@
+{
+  "name": "skylark-gamefacts",
+  "private": true,
+  "type": "module",
+  "main": "check.test.mjs",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "extract": "node extract.mjs",
+    "check": "node --test ."
+  },
+  "dependencies": {
+    "ooz-wasm": "2.0.0",
+    "prettier": "3.9.9"
+  }
+}

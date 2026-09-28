@@ -1,0 +1,137 @@
+{
+  "id": 1,
+  "name": "Juniper",
+  "level": 27,
+  "platform": "steam",
+  "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
+  "online": true,
+  "first_seen": "2026-09-21T13:51:30.000Z",
+  "last_seen": "2026-09-27T20:30:05.000Z",
+  "playtime_s": 33694,
+  "sessions": 5,
+  "deaths": 6,
+  "current_session": { "id": 34, "joined_at": "2026-09-27T18:59:00.000Z" },
+  "distance_m": 182463,
+  "chat_messages": 12,
+  "position": { "x": -209234.67, "y": 407032.07, "at": "2026-09-27T20:29:51.000Z" },
+  "party": [
+    { "species": "SoldierBee", "name": "Beegarde", "level": 24 },
+    { "species": "GhostAnglerfish", "name": "Ghangler", "level": 21 }
+  ],
+  "level_history": [
+    { "at": "2026-09-21T14:08:00.999Z", "level": 8 },
+    { "at": "2026-09-21T14:14:00.999Z", "level": 9 },
+    { "at": "2026-09-21T14:24:00.999Z", "level": 10 },
+    { "at": "2026-09-21T14:32:00.999Z", "level": 11 },
+    { "at": "2026-09-21T14:48:00.999Z", "level": 12 },
+    { "at": "2026-09-21T15:00:00.999Z", "level": 13 },
+    { "at": "2026-09-21T15:12:00.999Z", "level": 14 },
+    { "at": "2026-09-21T15:26:00.999Z", "level": 15 },
+    { "at": "2026-09-21T15:44:00.999Z", "level": 16 },
+    { "at": "2026-09-21T16:02:00.999Z", "level": 17 },
+    { "at": "2026-09-21T16:20:00.999Z", "level": 18 },
+    { "at": "2026-09-21T16:42:00.999Z", "level": 19 },
+    { "at": "2026-09-22T13:31:00.999Z", "level": 20 },
+    { "at": "2026-09-22T13:59:00.999Z", "level": 21 },
+    { "at": "2026-09-24T13:38:00.999Z", "level": 22 },
+    { "at": "2026-09-24T14:20:00.999Z", "level": 23 },
+    { "at": "2026-09-25T14:02:00.999Z", "level": 24 },
+    { "at": "2026-09-25T14:44:00.999Z", "level": 25 },
+    { "at": "2026-09-27T19:20:00.999Z", "level": 26 },
+    { "at": "2026-09-27T20:04:00.999Z", "level": 27 }
+  ],
+  "recent_sessions": [
+    {
+      "id": 34,
+      "joined_at": "2026-09-27T18:59:00.000Z",
+      "left_at": null,
+      "duration_s": null,
+      "end_reason": null,
+      "level_start": 25,
+      "level_end": null,
+      "distance_m": 36349,
+      "deaths": 1
+    },
+    {
+      "id": 22,
+      "joined_at": "2026-09-25T13:28:56.000Z",
+      "left_at": "2026-09-25T15:14:24.000Z",
+      "duration_s": 6328,
+      "end_reason": "left",
+      "level_start": 23,
+      "level_end": 25,
+      "distance_m": 41793,
+      "deaths": 0
+    },
+    {
+      "id": 17,
+      "joined_at": "2026-09-24T13:07:59.000Z",
+      "left_at": "2026-09-24T14:42:07.000Z",
+      "duration_s": 5648,
+      "end_reason": "left",
+      "level_start": 21,
+      "level_end": 23,
+      "distance_m": 26446,
+      "deaths": 4
+    },
+    {
+      "id": 7,
+      "joined_at": "2026-09-22T12:58:41.000Z",
+      "left_at": "2026-09-22T14:33:42.000Z",
+      "duration_s": 5701,
+      "end_reason": "left",
+      "level_start": 19,
+      "level_end": 21,
+      "distance_m": 17994,
+      "deaths": 0
+    },
+    {
+      "id": 1,
+      "joined_at": "2026-09-21T13:51:42.000Z",
+      "left_at": "2026-09-21T16:47:34.000Z",
+      "duration_s": 10552,
+      "end_reason": "left",
+      "level_start": null,
+      "level_end": 19,
+      "distance_m": 59880,
+      "deaths": 1
+    }
+  ],
+  "recent_deaths": [
+    {
+      "at": "2026-09-27T19:10:00.999Z",
+      "x": -28774.98780931857,
+      "y": 146935.85787619717,
+      "cause": null,
+      "killer": null
+    },
+    {
+      "at": "2026-09-24T14:34:00.999Z",
+      "x": -278286.1264798476,
+      "y": 219247.21042643982,
+      "cause": null,
+      "killer": null
+    },
+    {
+      "at": "2026-09-24T14:30:00.999Z",
+      "x": -631179.0348109547,
+      "y": -271765.0842319913,
+      "cause": null,
+      "killer": null
+    },
+    {
+      "at": "2026-09-24T13:44:00.999Z",
+      "x": -313884.81074639753,
+      "y": 233624.43033072533,
+      "cause": null,
+      "killer": null
+    },
+    {
+      "at": "2026-09-24T13:30:00.999Z",
+      "x": -312425.7100247271,
+      "y": 47421.429056291745,
+      "cause": null,
+      "killer": null
+    }
+  ]
+}

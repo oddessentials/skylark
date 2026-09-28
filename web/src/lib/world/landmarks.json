@@ -1,0 +1,4366 @@
+{
+  "game_version": "1.0.5.102999",
+  "sources": [
+    "/Game/Pal/Maps/MainWorld_5/PL_MainWorld5 and its World Partition cells",
+    "/Game/Pal/DataTable/UI/DT_BossSpawnerLoactionData",
+    "/Game/Pal/DataTable/Dungeon/DT_DungeonSpawnAreaDataTable",
+    "/Game/Pal/DataTable/Text/DT_MapRespawnPointInfoText",
+    "/Game/Pal/DataTable/Text/DT_DungeonNameText",
+    "/Game/Pal/DataTable/Text/DT_UI_Common_Text_Common"
+  ],
+  "kinds": {
+    "fast_travel": "Great Eagle Statue",
+    "tower": "Tower",
+    "field_boss": "Field Boss",
+    "wanted": "Wanted Fugitive",
+    "oil_rig": "Oil Rig"
+  },
+  "fast_travel": [
+    {
+      "id": "Boss_Forest",
+      "name": "Free Pal Alliance Tower Entrance",
+      "position": [-265220, 173530, 5810],
+      "map": "MainMap",
+      "display": [34, -308]
+    },
+    {
+      "id": "Boss_KingWhale",
+      "name": "Deserted Islet",
+      "position": [-108666.7, 79119.9, 395.5],
+      "map": "MainMap",
+      "display": [-172, 33]
+    },
+    {
+      "id": "FTPoint1",
+      "name": "Mount Obsidian - Midpoint",
+      "position": [-327531.8, -70410.5, 18970],
+      "map": "MainMap",
+      "display": [-498, -444]
+    },
+    {
+      "id": "FTPoint100",
+      "name": "Verdant Stream",
+      "position": [-74928.6, 212787.1, 9490.9],
+      "map": "MainMap",
+      "display": [119, 107]
+    },
+    {
+      "id": "FTPoint101",
+      "name": "Desiccated Coast",
+      "position": [14388.2, 476545.6, -1918.3],
+      "map": "MainMap",
+      "display": [694, 301]
+    },
+    {
+      "id": "FTPoint102",
+      "name": "Thirst's End",
+      "position": [-71914.8, 472172.2, -2019.3],
+      "map": "MainMap",
+      "display": [684, 113]
+    },
+    {
+      "id": "FTPoint103",
+      "name": "Desert Backbone",
+      "position": [-38212, 406147.1, 10096.2],
+      "map": "MainMap",
+      "display": [541, 187]
+    },
+    {
+      "id": "FTPoint104",
+      "name": "Sandbar of Solitude",
+      "position": [-105662.5, 400797, 5159.2],
+      "map": "MainMap",
+      "display": [529, 40]
+    },
+    {
+      "id": "FTPoint105",
+      "name": "The Furthest Flats",
+      "position": [191211.2, 375334.7, 964.8],
+      "map": "MainMap",
+      "display": [473, 686]
+    },
+    {
+      "id": "FTPoint106",
+      "name": "Seaward Passage",
+      "position": [178736.6, 305772.4, -1604.7],
+      "map": "MainMap",
+      "display": [322, 659]
+    },
+    {
+      "id": "FTPoint107",
+      "name": "Frozen Dune Cape",
+      "position": [125988.7, 274597.8, 752.7],
+      "map": "MainMap",
+      "display": [254, 544]
+    },
+    {
+      "id": "FTPoint108",
+      "name": "Windwatch Outlook",
+      "position": [12156.8, 249201.4, 2949.1],
+      "map": "MainMap",
+      "display": [199, 296]
+    },
+    {
+      "id": "FTPoint109",
+      "name": "Mount Obsidian - Second Ascent",
+      "position": [-259198.7, -59353.4, 10128.6],
+      "map": "MainMap",
+      "display": [-474, -295]
+    },
+    {
+      "id": "FTPoint11",
+      "name": "Sand Dunes Entrance",
+      "position": [-50301, 287392.4, 264.8],
+      "map": "MainMap",
+      "display": [282, 160]
+    },
+    {
+      "id": "FTPoint110",
+      "name": "Mount Obsidian Trail",
+      "position": [-287201.4, -217569, 2651.4],
+      "map": "MainMap",
+      "display": [-818, -356]
+    },
+    {
+      "id": "FTPoint111",
+      "name": "Dry Dunes",
+      "position": [-415272.2, -162408.6, 14643.4],
+      "map": "MainMap",
+      "display": [-698, -635]
+    },
+    {
+      "id": "FTPoint112",
+      "name": "Heatwave Gate",
+      "position": [-301681.9, -5184.1, 524.7],
+      "map": "MainMap",
+      "display": [-356, -387]
+    },
+    {
+      "id": "FTPoint113",
+      "name": "Thawtide Cape",
+      "position": [69604.1, 196989.3, 20218.3],
+      "map": "MainMap",
+      "display": [85, 422]
+    },
+    {
+      "id": "FTPoint114",
+      "name": "Garden Beneath the Astral Mountains",
+      "position": [107940.7, -28036.3, 24447.9],
+      "map": "MainMap",
+      "display": [-405, 505]
+    },
+    {
+      "id": "FTPoint115",
+      "name": "Garden Beneath the Cliffs",
+      "position": [-38097.3, 53412.5, 278.4],
+      "map": "MainMap",
+      "display": [-228, 187]
+    },
+    {
+      "id": "FTPoint116",
+      "name": "Sakurajima: West Coast",
+      "position": [-43926.7, -173601, 934.5],
+      "map": "MainMap",
+      "display": [-722, 174]
+    },
+    {
+      "id": "FTPoint117",
+      "name": "Crimson Cliffs",
+      "position": [-578061, -158216.1, 7648.5],
+      "map": "MainMap",
+      "display": [-689, -989]
+    },
+    {
+      "id": "FTPoint118",
+      "name": "Hill Entrance",
+      "position": [-509887.2, -299269, 718.6],
+      "map": "MainMap",
+      "display": [-996, -841]
+    },
+    {
+      "id": "FTPoint119",
+      "name": "Curved Redrock",
+      "position": [-506737.8, -396063.4, 2103.6],
+      "map": "MainMap",
+      "display": [-1207, -834]
+    },
+    {
+      "id": "FTPoint12",
+      "name": "Duneshelter",
+      "position": [35588.7, 321331.2, 623],
+      "map": "MainMap",
+      "display": [356, 347]
+    },
+    {
+      "id": "FTPoint120",
+      "name": "Scarlet Outlook",
+      "position": [-603491.1, -338965.3, 16585],
+      "map": "MainMap",
+      "display": [-1083, -1045]
+    },
+    {
+      "id": "FTPoint121",
+      "name": "Crimson Labyrinth",
+      "position": [-651722.9, -373365.2, 30373.2],
+      "map": "MainMap",
+      "display": [-1158, -1150]
+    },
+    {
+      "id": "FTPoint122",
+      "name": "Crystallized Great Tree",
+      "position": [-644486, -276536.5, 11481.6],
+      "map": "MainMap",
+      "display": [-947, -1134]
+    },
+    {
+      "id": "FTPoint123",
+      "name": "Wildlands Floodgate",
+      "position": [-725188.8, -238441.9, 7291.7],
+      "map": "MainMap",
+      "display": [-864, -1310]
+    },
+    {
+      "id": "FTPoint124",
+      "name": "Oilfield Overlook",
+      "position": [-714540.9, -458346.6, -2080.6],
+      "map": "MainMap",
+      "display": [-1343, -1287]
+    },
+    {
+      "id": "FTPoint125",
+      "name": "Shady Mushroom Cliffs",
+      "position": [-771223.4, -441798.3, -337.4],
+      "map": "MainMap",
+      "display": [-1307, -1410]
+    },
+    {
+      "id": "FTPoint126",
+      "name": "Silent Lake",
+      "position": [-810648.4, -393963.7, 5908.8],
+      "map": "MainMap",
+      "display": [-1203, -1496]
+    },
+    {
+      "id": "FTPoint127",
+      "name": "Azure Cliffs",
+      "position": [-865524.3, -352355, -123.6],
+      "map": "MainMap",
+      "display": [-1112, -1616]
+    },
+    {
+      "id": "FTPoint128",
+      "name": "Amethyst Outcrop",
+      "position": [-923275.1, -385109.1, -258.8],
+      "map": "MainMap",
+      "display": [-1183, -1742]
+    },
+    {
+      "id": "FTPoint129",
+      "name": "Exile's Cape",
+      "position": [-886234.2, -483745.9, -1122.7],
+      "map": "MainMap",
+      "display": [-1398, -1661]
+    },
+    {
+      "id": "FTPoint13",
+      "name": "Deep Sand Dunes",
+      "position": [117624.2, 400134.8, -1949.7],
+      "map": "MainMap",
+      "display": [528, 526]
+    },
+    {
+      "id": "FTPoint14",
+      "name": "Cold Shore",
+      "position": [-119037.3, 138340.4, -1220.3],
+      "map": "MainMap",
+      "display": [-43, 11]
+    },
+    {
+      "id": "FTPoint15",
+      "name": "No Man's Trail",
+      "position": [-80506.2, 141464.8, 8131.1],
+      "map": "MainMap",
+      "display": [-36, 95]
+    },
+    {
+      "id": "FTPoint16",
+      "name": "Icy Weasel Hill",
+      "position": [-39402.4, 159611.9, 16996.2],
+      "map": "MainMap",
+      "display": [4, 184]
+    },
+    {
+      "id": "FTPoint17",
+      "name": "Unthawable Lake",
+      "position": [8000.5, 111770.5, 2554.4],
+      "map": "MainMap",
+      "display": [-101, 287]
+    },
+    {
+      "id": "FTPoint18",
+      "name": "Land of Absolute Zero",
+      "position": [102159.8, 48527, 28394.3],
+      "map": "MainMap",
+      "display": [-239, 492]
+    },
+    {
+      "id": "FTPoint20",
+      "name": "PAL Genetic Research Unit Tower Entrance",
+      "position": [89625, 94363.3, 67279.1],
+      "map": "MainMap",
+      "display": [-139, 465]
+    },
+    {
+      "id": "FTPoint21",
+      "name": "Grassy Behemoth Hills",
+      "position": [-342035, 236885, -1751.6],
+      "map": "MainMap",
+      "display": [172, -475]
+    },
+    {
+      "id": "FTPoint22",
+      "name": "Desolate Church",
+      "position": [-314840, 186850, 3270],
+      "map": "MainMap",
+      "display": [63, -416]
+    },
+    {
+      "id": "FTPoint23",
+      "name": "Hill of Beginnings",
+      "position": [-358785, 267940, 7910],
+      "map": "MainMap",
+      "display": [240, -512]
+    },
+    {
+      "id": "FTPoint24",
+      "name": "Small Settlement",
+      "position": [-346617.6, 191706.6, -308.7],
+      "map": "MainMap",
+      "display": [73, -485]
+    },
+    {
+      "id": "FTPoint25",
+      "name": "Ascetic Falls",
+      "position": [-326403.9, 55136.7, 6872],
+      "map": "MainMap",
+      "display": [-224, -441]
+    },
+    {
+      "id": "FTPoint26",
+      "name": "Foot of the Volcano",
+      "position": [-349535.5, -4035.1, 859.4],
+      "map": "MainMap",
+      "display": [-353, -492]
+    },
+    {
+      "id": "FTPoint27",
+      "name": "Sealed Realm of the Frozen Wings",
+      "position": [-278468, 212679.4, -910.3],
+      "map": "MainMap",
+      "display": [119, -337]
+    },
+    {
+      "id": "FTPoint28",
+      "name": "Fort Ruins",
+      "position": [-302825, 241060, -1089.7],
+      "map": "MainMap",
+      "display": [181, -390]
+    },
+    {
+      "id": "FTPoint29",
+      "name": "Sealed Realm of the Swordmaster",
+      "position": [-283781, 59352.7, 5226.4],
+      "map": "MainMap",
+      "display": [-215, -348]
+    },
+    {
+      "id": "FTPoint3",
+      "name": "Brothers of the Eternal Pyre Tower Entrance",
+      "position": [-367707.8, -114950.9, 61372.7],
+      "map": "MainMap",
+      "display": [-595, -531]
+    },
+    {
+      "id": "FTPoint30",
+      "name": "Investigator's Fork",
+      "position": [-218636.8, 58528.1, 3716.2],
+      "map": "MainMap",
+      "display": [-217, -206]
+    },
+    {
+      "id": "FTPoint31",
+      "name": "Ancient Ritual Site",
+      "position": [-257951.4, 151247.8, -8.3],
+      "map": "MainMap",
+      "display": [-15, -292]
+    },
+    {
+      "id": "FTPoint32",
+      "name": "Mount Flopie Summit",
+      "position": [-167684.9, 167519.2, 9175.6],
+      "map": "MainMap",
+      "display": [21, -95]
+    },
+    {
+      "id": "FTPoint33",
+      "name": "Lake Center",
+      "position": [-221230, 165130, -54],
+      "map": "MainMap",
+      "display": [16, -212]
+    },
+    {
+      "id": "FTPoint34",
+      "name": "Hypocrite Hill",
+      "position": [-237610, 190610, 3987.8],
+      "map": "MainMap",
+      "display": [71, -248]
+    },
+    {
+      "id": "FTPoint35",
+      "name": "Sealed Realm of the Mystic",
+      "position": [-151842, 213101.5, 3279.4],
+      "map": "MainMap",
+      "display": [120, -61]
+    },
+    {
+      "id": "FTPoint36",
+      "name": "Snowy Mountain Crossroads",
+      "position": [-125476, 201720, 6886],
+      "map": "MainMap",
+      "display": [95, -3]
+    },
+    {
+      "id": "FTPoint37",
+      "name": "Frostbound Mountains Summit",
+      "position": [-103435, 234761.2, 19438.5],
+      "map": "MainMap",
+      "display": [167, 45]
+    },
+    {
+      "id": "FTPoint38",
+      "name": "Sealed Realm of the Swift",
+      "position": [-115430, 289090, 3045.2],
+      "map": "MainMap",
+      "display": [286, 18]
+    },
+    {
+      "id": "FTPoint39",
+      "name": "Mossanda Forest",
+      "position": [-177770, 265010, 873.2],
+      "map": "MainMap",
+      "display": [233, -117]
+    },
+    {
+      "id": "FTPoint4",
+      "name": "Ancient Civilization Ruins",
+      "position": [-414446.7, -24603.3, 3560.1],
+      "map": "MainMap",
+      "display": [-398, -633]
+    },
+    {
+      "id": "FTPoint40",
+      "name": "Gobfin's Turf",
+      "position": [-219172.9, 226394.8, -1970.4],
+      "map": "MainMap",
+      "display": [149, -208]
+    },
+    {
+      "id": "FTPoint41",
+      "name": "Cinnamoth Forest",
+      "position": [-248770.1, 126205.8, 5847.4],
+      "map": "MainMap",
+      "display": [-69, -272]
+    },
+    {
+      "id": "FTPoint42",
+      "name": "Sealed Realm of the Ardent",
+      "position": [-338560, 107660, -1390],
+      "map": "MainMap",
+      "display": [-110, -468]
+    },
+    {
+      "id": "FTPoint43",
+      "name": "Deep Bamboo Thicket",
+      "position": [-215388.5, 8854.2, 13150.7],
+      "map": "MainMap",
+      "display": [-325, -199]
+    },
+    {
+      "id": "FTPoint44",
+      "name": "Sealed Realm of the Myriad Flames",
+      "position": [-195236.2, 36718.5, 8293.6],
+      "map": "MainMap",
+      "display": [-264, -155]
+    },
+    {
+      "id": "FTPoint45",
+      "name": "Rayne Syndicate Tower Entrance",
+      "position": [-317777.2, 212103.3, -762.6],
+      "map": "MainMap",
+      "display": [118, -422]
+    },
+    {
+      "id": "FTPoint48",
+      "name": "Pristine Snow Field",
+      "position": [6, 0, 6589],
+      "map": "MainMap",
+      "display": [-344, 270]
+    },
+    {
+      "id": "FTPoint49",
+      "name": "Isle of Silence",
+      "position": [-137210, -91340, -2090],
+      "map": "MainMap",
+      "display": [-543, -29]
+    },
+    {
+      "id": "FTPoint5",
+      "name": "Fisherman's Point",
+      "position": [-465895, -62137.8, -1834.4],
+      "map": "MainMap",
+      "display": [-480, -745]
+    },
+    {
+      "id": "FTPoint50",
+      "name": "Isle of Murmurs",
+      "position": [-88645.8, -3922.9, -876.5],
+      "map": "MainMap",
+      "display": [-353, 77]
+    },
+    {
+      "id": "FTPoint51",
+      "name": "Kelpsea Hill",
+      "position": [-170400, -29240, -1930],
+      "map": "MainMap",
+      "display": [-408, -101]
+    },
+    {
+      "id": "FTPoint52",
+      "name": "Sea Breeze Archipelago - Castaway Beach",
+      "position": [-450320, 112630, -2090],
+      "map": "MainMap",
+      "display": [-99, -711]
+    },
+    {
+      "id": "FTPoint53",
+      "name": "Sea Breeze Archipelago Church",
+      "position": [-376750, 124630, 2270],
+      "map": "MainMap",
+      "display": [-73, -551]
+    },
+    {
+      "id": "FTPoint54",
+      "name": "Small Cove",
+      "position": [-374180, 63960, -1933],
+      "map": "MainMap",
+      "display": [-205, -545]
+    },
+    {
+      "id": "FTPoint55",
+      "name": "Islandhopper Coast",
+      "position": [-265980, 268690, -1979],
+      "map": "MainMap",
+      "display": [241, -310]
+    },
+    {
+      "id": "FTPoint56",
+      "name": "Marsh Island",
+      "position": [-282110, 355570, -1940],
+      "map": "MainMap",
+      "display": [430, -345]
+    },
+    {
+      "id": "FTPoint57",
+      "name": "Eastern Wild Island",
+      "position": [-170718.7, 409753.2, 4049.2],
+      "map": "MainMap",
+      "display": [548, -102]
+    },
+    {
+      "id": "FTPoint58",
+      "name": "Natural Bridge",
+      "position": [-221399.3, 330684.5, -1744.8],
+      "map": "MainMap",
+      "display": [376, -212]
+    },
+    {
+      "id": "FTPoint59",
+      "name": "Isle of Silence Church Ruins",
+      "position": [-130060.4, -53406.7, 1715.6],
+      "map": "MainMap",
+      "display": [-461, -13]
+    },
+    {
+      "id": "FTPoint6",
+      "name": "Mount Obsidian - Anubis Statue",
+      "position": [-416557.5, -90012.2, 23301.9],
+      "map": "MainMap",
+      "display": [-540, -638]
+    },
+    {
+      "id": "FTPoint60",
+      "name": "Marsh Island Church Ruins",
+      "position": [-250506.5, 341109.6, 2293.3],
+      "map": "MainMap",
+      "display": [399, -276]
+    },
+    {
+      "id": "FTPoint61",
+      "name": "Bridge of the Twin Knights",
+      "position": [-294830, 152240, 190],
+      "map": "MainMap",
+      "display": [-13, -372]
+    },
+    {
+      "id": "FTPoint62",
+      "name": "Ravine Entrance",
+      "position": [-319000, 127170, -2049.4],
+      "map": "MainMap",
+      "display": [-67, -425]
+    },
+    {
+      "id": "FTPoint63",
+      "name": "Arena Entrance",
+      "position": [-117215, 446690, -1887.3],
+      "map": "MainMap",
+      "display": [629, 15]
+    },
+    {
+      "id": "FTPoint64",
+      "name": "Sakurajima - Mushroom Wetlands",
+      "position": [-63520.7, -55005.9, -1731.8],
+      "map": "MainMap",
+      "display": [-464, 132]
+    },
+    {
+      "id": "FTPoint65",
+      "name": "Sakurajima - Southern Sandbar",
+      "position": [-86709.6, -140441.8, -2031],
+      "map": "MainMap",
+      "display": [-650, 81]
+    },
+    {
+      "id": "FTPoint67",
+      "name": "Moonflower Tower Entrance",
+      "position": [-25522.2, -118365.3, 6257.7],
+      "map": "MainMap",
+      "display": [-602, 214]
+    },
+    {
+      "id": "FTPoint68",
+      "name": "Cherry Blossom Crossroads",
+      "position": [-25915.4, -78926.2, 3126.6],
+      "map": "MainMap",
+      "display": [-516, 213]
+    },
+    {
+      "id": "FTPoint69",
+      "name": "Sakurajima - Northern Rock Field",
+      "position": [32787.1, -81420.3, -2019.8],
+      "map": "MainMap",
+      "display": [-522, 341]
+    },
+    {
+      "id": "FTPoint7",
+      "name": "Beach of Everlasting Summer",
+      "position": [-383183.2, -210790.9, 819.8],
+      "map": "MainMap",
+      "display": [-803, -565]
+    },
+    {
+      "id": "FTPoint70",
+      "name": "Secluded Cemetery",
+      "position": [-2188.8, -148545.9, 2988.5],
+      "map": "MainMap",
+      "display": [-668, 265]
+    },
+    {
+      "id": "FTPoint71",
+      "name": "Scorched Ashland",
+      "position": [-503990, -214380, -1845],
+      "map": "MainMap",
+      "display": [-811, -828]
+    },
+    {
+      "id": "FTPoint72",
+      "name": "Stone Pillar Cave Entrance",
+      "position": [-588140, -253780, 695],
+      "map": "MainMap",
+      "display": [-897, -1011]
+    },
+    {
+      "id": "FTPoint73",
+      "name": "Loess Plains",
+      "position": [-792350, -251110, -558],
+      "map": "MainMap",
+      "display": [-891, -1456]
+    },
+    {
+      "id": "FTPoint74",
+      "name": "Hidden Passage to the Oculus Gate",
+      "position": [-698514.9, -322880.4, 15540],
+      "map": "MainMap",
+      "display": [-1048, -1252]
+    },
+    {
+      "id": "FTPoint75",
+      "name": "The Oculus Gate, Tower in Sight",
+      "position": [-760285.5, -354966.2, 4290.5],
+      "map": "MainMap",
+      "display": [-1118, -1386]
+    },
+    {
+      "id": "FTPoint76",
+      "name": "Feybreak Tower Entrance",
+      "position": [-888080, -433080, 19030],
+      "map": "MainMap",
+      "display": [-1288, -1665]
+    },
+    {
+      "id": "FTPoint78",
+      "name": "Scorched Hill",
+      "position": [-699510, -389030, 32620],
+      "map": "MainMap",
+      "display": [-1192, -1254]
+    },
+    {
+      "id": "FTPoint79",
+      "name": "Deserted Ash Plateau",
+      "position": [-591120, -484260, 6808.8],
+      "map": "MainMap",
+      "display": [-1399, -1018]
+    },
+    {
+      "id": "FTPoint8",
+      "name": "Ruined Fortress City",
+      "position": [-237086.6, -100489.9, 515.7],
+      "map": "MainMap",
+      "display": [-563, -247]
+    },
+    {
+      "id": "FTPoint80",
+      "name": "Emberstone Plateau",
+      "position": [-671901.2, -172407.6, -444],
+      "map": "MainMap",
+      "display": [-720, -1194]
+    },
+    {
+      "id": "FTPoint81",
+      "name": "Shield Dragon Tunnel",
+      "position": [-572461.6, -287224.1, 26.3],
+      "map": "MainMap",
+      "display": [-970, -977]
+    },
+    {
+      "id": "FTPoint83",
+      "name": "Feybreak Shipwreck",
+      "position": [-798776.8, -479574.8, -2050.3],
+      "map": "MainMap",
+      "display": [-1389, -1470]
+    },
+    {
+      "id": "FTPoint84",
+      "name": "Sunlit Isle",
+      "position": [-335853.8, 335361.3, -2090.1],
+      "map": "MainMap",
+      "display": [386, -462]
+    },
+    {
+      "id": "FTPoint85",
+      "name": "Oasis Isle",
+      "position": [-33882.1, 564292.5, -2106.6],
+      "map": "MainMap",
+      "display": [885, 196]
+    },
+    {
+      "id": "FTPoint86",
+      "name": "Isle of the Glacial Core",
+      "position": [168489, 221797.6, -2020.1],
+      "map": "MainMap",
+      "display": [139, 637]
+    },
+    {
+      "id": "FTPoint87",
+      "name": "Frostbitten Isle",
+      "position": [-558410.5, 121112.1, -1607.2],
+      "map": "MainMap",
+      "display": [-80, -947]
+    },
+    {
+      "id": "FTPoint88",
+      "name": "Phantom Isle",
+      "position": [-209326, -249227.6, -2090],
+      "map": "MainMap",
+      "display": [-887, -186]
+    },
+    {
+      "id": "FTPoint89",
+      "name": "Isle of Decayed Treasures",
+      "position": [-197915.2, 438001.5, -2071.7],
+      "map": "MainMap",
+      "display": [610, -161]
+    },
+    {
+      "id": "FTPoint9",
+      "name": "PIDF Tower Entrance",
+      "position": [29780.5, 406913.2, 15662.8],
+      "map": "MainMap",
+      "display": [542, 335]
+    },
+    {
+      "id": "FTPoint90",
+      "name": "Sealed Realm of Terraria",
+      "position": [-488718.2, -35724.9, -2096.7],
+      "map": "MainMap",
+      "display": [-422, -795]
+    },
+    {
+      "id": "FTPoint91",
+      "name": "Isle of Murmurs Beach",
+      "position": [-131353.9, 54481.7, -2063.9],
+      "map": "MainMap",
+      "display": [-226, -16]
+    },
+    {
+      "id": "FTPoint92",
+      "name": "Anubis Dunes",
+      "position": [-160345.2, 98540.8, 2792.8],
+      "map": "MainMap",
+      "display": [-130, -79]
+    },
+    {
+      "id": "FTPoint93",
+      "name": "Whisperwind Cliffs",
+      "position": [-266957.5, 93228.6, 5259.8],
+      "map": "MainMap",
+      "display": [-141, -312]
+    },
+    {
+      "id": "FTPoint94",
+      "name": "Whisperwind Hill",
+      "position": [-236840.5, 34772.6, 13438.9],
+      "map": "MainMap",
+      "display": [-268, -246]
+    },
+    {
+      "id": "FTPoint95",
+      "name": "Windscream Valley",
+      "position": [-311508.9, 76832.3, 7803.8],
+      "map": "MainMap",
+      "display": [-177, -409]
+    },
+    {
+      "id": "FTPoint96",
+      "name": "Sea Breeze Coast",
+      "position": [-421434.3, 29307.7, 1858.4],
+      "map": "MainMap",
+      "display": [-280, -648]
+    },
+    {
+      "id": "FTPoint97",
+      "name": "Dustview Coast",
+      "position": [-119900.9, 351109.2, -789.1],
+      "map": "MainMap",
+      "display": [421, 9]
+    },
+    {
+      "id": "FTPoint98",
+      "name": "Altar of the Windcaller",
+      "position": [-156482.2, 317415.3, -2033.8],
+      "map": "MainMap",
+      "display": [347, -71]
+    },
+    {
+      "id": "FTPoint99",
+      "name": "Mossanda Inner Coast",
+      "position": [-224958.1, 285919.2, -1124.7],
+      "map": "MainMap",
+      "display": [279, -220]
+    },
+    {
+      "id": "FootOfWorldTree",
+      "name": "Foot of the World Tree",
+      "position": [192505.8, -227006.5, 6371.9],
+      "map": "MainMap",
+      "display": [-839, 689]
+    },
+    {
+      "id": "New_SmallIsland01",
+      "name": "Islet of Circular Ruins",
+      "position": [-153135.8, 589409.5, -2038.8],
+      "map": "MainMap",
+      "display": [940, -64]
+    },
+    {
+      "id": "New_SmallIsland02",
+      "name": "Flamepulse Islet",
+      "position": [63442.5, 507395.4, -1871.4],
+      "map": "MainMap",
+      "display": [761, 408]
+    },
+    {
+      "id": "New_SmallIsland03",
+      "name": "Scouring Islet",
+      "position": [-451245, 363338.1, 12413.9],
+      "map": "MainMap",
+      "display": [447, -713]
+    },
+    {
+      "id": "New_SmallIsland04",
+      "name": "Bicornis Islet",
+      "position": [-984033.7, -371189.8, -2048.9],
+      "map": "MainMap",
+      "display": [-1153, -1874]
+    },
+    {
+      "id": "New_SmallIsland05",
+      "name": "Glacial Memento Islet",
+      "position": [-568698.6, -603451.9, -2010.9],
+      "map": "MainMap",
+      "display": [-1659, -969]
+    },
+    {
+      "id": "New_SmallIsland06",
+      "name": "Sandstone Gate Islet",
+      "position": [-426910.2, -436850.9, -134.5],
+      "map": "MainMap",
+      "display": [-1296, -660]
+    },
+    {
+      "id": "New_SmallIsland07",
+      "name": "Suncrest Islet",
+      "position": [-61819, -246053.5, -1979.9],
+      "map": "MainMap",
+      "display": [-880, 135]
+    },
+    {
+      "id": "SkyIsland_A",
+      "name": "Enchanted Firmament",
+      "position": [-818013, 59827.7, 46837.6],
+      "map": "MainMap",
+      "display": [-214, -1512]
+    },
+    {
+      "id": "SkyIsland_B",
+      "name": "Crystalline Archipelago",
+      "position": [-829095.7, -19262.8, 37892.6],
+      "map": "MainMap",
+      "display": [-386, -1536]
+    },
+    {
+      "id": "SkyIsland_BOSS",
+      "name": "Azure Covenant Tower Entrance",
+      "position": [-777490, -40589, 60158],
+      "map": "MainMap",
+      "display": [-433, -1424]
+    },
+    {
+      "id": "SkyIsland_C",
+      "name": "Waterlily Gorge",
+      "position": [-811466.5, -85874.3, 46247.6],
+      "map": "MainMap",
+      "display": [-531, -1498]
+    },
+    {
+      "id": "SkyIsland_D",
+      "name": "The Azure Tapestry",
+      "position": [-758105, -61810, 28905],
+      "map": "MainMap",
+      "display": [-479, -1382]
+    },
+    {
+      "id": "SkyIsland_E",
+      "name": "Farcry Marsh",
+      "position": [-771310, 8647.2, 43073.6],
+      "map": "MainMap",
+      "display": [-325, -1411]
+    },
+    {
+      "id": "WorldTree_A",
+      "name": "The Verdant Rootpath",
+      "position": [512111.7, -510662.7, 43480],
+      "map": "Tree",
+      "display": [-1457, 1386]
+    },
+    {
+      "id": "WorldTree_B",
+      "name": "Whimsical Wisteria Grove",
+      "position": [524166.1, -567334.4, 25453.1],
+      "map": "Tree",
+      "display": [-1580, 1412]
+    },
+    {
+      "id": "WorldTree_C_1",
+      "name": "Dusty Ravine",
+      "position": [570652.3, -558439.5, 22368.9],
+      "map": "Tree",
+      "display": [-1561, 1513]
+    },
+    {
+      "id": "WorldTree_C_2",
+      "name": "Remnant Riverside",
+      "position": [592964, -625779.6, 17596.2],
+      "map": "Tree",
+      "display": [-1708, 1562]
+    },
+    {
+      "id": "WorldTree_D",
+      "name": "Corroded Hollow",
+      "position": [600577.5, -599143, 29241.4],
+      "map": "Tree",
+      "display": [-1650, 1578]
+    },
+    {
+      "id": "WorldTree_E",
+      "name": "Alluvion Lakefront",
+      "position": [491660, -593705, 17375],
+      "map": "Tree",
+      "display": [-1638, 1341]
+    },
+    {
+      "id": "WorldTree_I",
+      "name": "Boreal Summit",
+      "position": [602911.1, -680562.4, 21863.1],
+      "map": "Tree",
+      "display": [-1827, 1583]
+    },
+    {
+      "id": "WorldTree_L",
+      "name": "Spore Cloister",
+      "position": [483205, -672790, 18210],
+      "map": "Tree",
+      "display": [-1810, 1323]
+    },
+    {
+      "id": "WorldTree_LastBoss",
+      "name": "Sealed Sanctum",
+      "position": [501010, -748555, 41485],
+      "map": "Tree",
+      "display": [-1975, 1361]
+    },
+    {
+      "id": "WorldTree_M",
+      "name": "Lacrymal Shoal",
+      "position": [477460, -724635, 19817.9],
+      "map": "Tree",
+      "display": [-1923, 1310]
+    },
+    {
+      "id": "WorldTree_MiddleBoss_1",
+      "name": "Rotmist Root",
+      "position": [628791.6, -610720.4, 28290.3],
+      "map": "Tree",
+      "display": [-1675, 1640]
+    },
+    {
+      "id": "WorldTree_MiddleBoss_2",
+      "name": "Shinespore Root",
+      "position": [405904.9, -729214.1, 22741.1],
+      "map": "Tree",
+      "display": [-1933, 1154]
+    },
+    {
+      "id": "WorldTree_MiddleBoss_3",
+      "name": "Forbidden Laboratory",
+      "position": [621794.3, -757914.5, 21127.6],
+      "map": "Tree",
+      "display": [-1995, 1625]
+    },
+    {
+      "id": "WorldTree_N",
+      "name": "Gilded City Ruins",
+      "position": [518900.3, -671976.2, 27418],
+      "map": "Tree",
+      "display": [-1808, 1400]
+    },
+    {
+      "id": "WorldTree_lab",
+      "name": "Abandoned Laboratory",
+      "position": [621850, -742575, 23205],
+      "map": "Tree",
+      "display": [-1962, 1625]
+    }
+  ],
+  "watchtowers": [
+    {
+      "id": "WatchTower_1",
+      "name": "Windswept Island Watchtower",
+      "position": [-348065.1, 151661, 11552.7],
+      "map": "MainMap",
+      "display": [-14, -488]
+    },
+    {
+      "id": "WatchTower_10",
+      "name": "Sea Breeze Archipelago Watchtower",
+      "position": [-428372, 81105, 2593.4],
+      "map": "MainMap",
+      "display": [-168, -663]
+    },
+    {
+      "id": "WatchTower_11",
+      "name": "Deep Bamboo Thicket Watchtower",
+      "position": [-194570.6, 14375.1, 17213],
+      "map": "MainMap",
+      "display": [-313, -154]
+    },
+    {
+      "id": "WatchTower_12",
+      "name": "Sakurajima Watchtower",
+      "position": [-49811.7, -104909.2, 6064.4],
+      "map": "MainMap",
+      "display": [-573, 161]
+    },
+    {
+      "id": "WatchTower_13",
+      "name": "Scorched Obsidian Watchtower",
+      "position": [-364381.7, -55619.3, 21182.7],
+      "map": "MainMap",
+      "display": [-465, -524]
+    },
+    {
+      "id": "WatchTower_15",
+      "name": "Dry Sandy Beach Watchtower",
+      "position": [-440660.5, -159426.8, 15264.5],
+      "map": "MainMap",
+      "display": [-692, -690]
+    },
+    {
+      "id": "WatchTower_17",
+      "name": "Loess Plains Watchtower",
+      "position": [-741294.8, -283378.1, 31715.2],
+      "map": "MainMap",
+      "display": [-962, -1345]
+    },
+    {
+      "id": "WatchTower_18",
+      "name": "Burning Fault Watchtower",
+      "position": [-627561.2, -208731, 20437],
+      "map": "MainMap",
+      "display": [-799, -1097]
+    },
+    {
+      "id": "WatchTower_19",
+      "name": "Scorched Plateau Watchtower",
+      "position": [-629186.6, -425621.6, 29177.3],
+      "map": "MainMap",
+      "display": [-1272, -1101]
+    },
+    {
+      "id": "WatchTower_2",
+      "name": "Eastern Wild Island Watchtower",
+      "position": [-192413.9, 393187.3, 11260.5],
+      "map": "MainMap",
+      "display": [512, -149]
+    },
+    {
+      "id": "WatchTower_20",
+      "name": "Frozen Coral Hill Watchtower",
+      "position": [-784793.9, -354726.7, 19680.8],
+      "map": "MainMap",
+      "display": [-1117, -1440]
+    },
+    {
+      "id": "WatchTower_21",
+      "name": "Arid Wasteland Watchtower",
+      "position": [-634614.8, -310380.9, 34943.3],
+      "map": "MainMap",
+      "display": [-1020, -1113]
+    },
+    {
+      "id": "WatchTower_22",
+      "name": "Sunreach Watchtower",
+      "position": [-809414.2, 23955.2, 48140.3],
+      "map": "MainMap",
+      "display": [-292, -1494]
+    },
+    {
+      "id": "WatchTower_3",
+      "name": "Crescent Moon Shore Watchtower",
+      "position": [-197247, 140509.8, 9964],
+      "map": "MainMap",
+      "display": [-38, -160]
+    },
+    {
+      "id": "WatchTower_4",
+      "name": "Searing Dunes Watchtower",
+      "position": [-30426.7, 364547.2, 9125.2],
+      "map": "MainMap",
+      "display": [450, 204]
+    },
+    {
+      "id": "WatchTower_5",
+      "name": "Sandstone Plateau Watchtower",
+      "position": [85483, 306597.1, 17835.3],
+      "map": "MainMap",
+      "display": [324, 456]
+    },
+    {
+      "id": "WatchTower_6",
+      "name": "Verdant Stream Watchtower",
+      "position": [-169159, 251231.9, 18801.8],
+      "map": "MainMap",
+      "display": [203, -99]
+    },
+    {
+      "id": "WatchTower_7",
+      "name": "Icy Weasel Hill Watchtower",
+      "position": [-26445.2, 140098.2, 24138.2],
+      "map": "MainMap",
+      "display": [-39, 212]
+    },
+    {
+      "id": "WatchTower_8",
+      "name": "Astral Mountains Garden Watchtower",
+      "position": [80120.2, 21277.3, 33829],
+      "map": "MainMap",
+      "display": [-298, 444]
+    },
+    {
+      "id": "WatchTower_9",
+      "name": "Bamboo Groves Watchtower",
+      "position": [-291317.7, 50195.6, 14675.5],
+      "map": "MainMap",
+      "display": [-235, -365]
+    },
+    {
+      "id": "WatchTower_WorldTree_1",
+      "name": "Dusty Ravine Watchtower",
+      "position": [564135, -574054.3, 37021.6],
+      "map": "Tree",
+      "display": [-1595, 1499]
+    },
+    {
+      "id": "WatchTower_WorldTree_2",
+      "name": "Gilded City Ruins Watchtower",
+      "position": [508240.5, -696869.5, 39688.4],
+      "map": "Tree",
+      "display": [-1862, 1377]
+    }
+  ],
+  "start_points": [
+    {
+      "id": "SpawnPoint_1",
+      "name": "Windswept Island - Hill of Beginnings",
+      "position": [-359965, 268835, 8568.5],
+      "map": "MainMap",
+      "display": [241, -514]
+    },
+    {
+      "id": "SpawnPoint_2",
+      "name": "Windswept Island- Flying Fish Coast",
+      "position": [-374896, 237489.9, -993.3],
+      "map": "MainMap",
+      "display": [173, -547]
+    },
+    {
+      "id": "SpawnPoint_3",
+      "name": "Sea Breeze Archipelago - Reef",
+      "position": [-403628.5, 134336.7, -1986.9],
+      "map": "MainMap",
+      "display": [-52, -609]
+    },
+    {
+      "id": "SpawnPoint_4",
+      "name": "Sea Breeze Archipelago - Castaway Beach",
+      "position": [-451212.8, 112830.1, -1878.2],
+      "map": "MainMap",
+      "display": [-98, -713]
+    },
+    {
+      "id": "SpawnPoint_5",
+      "name": "Isle of Silence",
+      "position": [-137110, -91910, -2010],
+      "map": "MainMap",
+      "display": [-544, -29]
+    },
+    {
+      "id": "SpawnPoint_6",
+      "name": "Isle of Murmurs",
+      "position": [-96298.9, -11843.1, -1831.8],
+      "map": "MainMap",
+      "display": [-370, 60]
+    },
+    {
+      "id": "SpawnPoint_7",
+      "name": "Eastern Wild Island",
+      "position": [-171295, 411000.7, 4211.3],
+      "map": "MainMap",
+      "display": [551, -103]
+    },
+    {
+      "id": "SpawnPoint_8",
+      "name": "Marsh Island",
+      "position": [-283900, 356470, -1948.2],
+      "map": "MainMap",
+      "display": [432, -349]
+    }
+  ],
+  "towers": [
+    {
+      "boss_type": "DesertBoss",
+      "class": "BP_PalBossTower_C",
+      "name": "PIDF Tower",
+      "position": [29975.3, 413325, 15514],
+      "map": "MainMap",
+      "display": [556, 335]
+    },
+    {
+      "boss_type": "ElectricBoss",
+      "class": "BP_PalBossTower_C",
+      "name": "Brothers of the Eternal Pyre Tower",
+      "position": [-361695, -112009, 61207.5],
+      "map": "MainMap",
+      "display": [-588, -518]
+    },
+    {
+      "boss_type": "ForestBoss",
+      "class": "BP_PalBossTower_C",
+      "name": "Free Pal Alliance Tower",
+      "position": [-266563.2, 174506.3, 5930.4],
+      "map": "MainMap",
+      "display": [36, -311]
+    },
+    {
+      "boss_type": "GrassBoss",
+      "class": "BP_PalBossTower_C",
+      "name": "Rayne Syndicate Tower",
+      "position": [-321596.3, 209085, -45],
+      "map": "MainMap",
+      "display": [111, -431]
+    },
+    {
+      "boss_type": "KingWhaleBoss",
+      "class": "BP_PalBossTower_KingWhale_C",
+      "name": "？？？",
+      "position": [-108093.8, 77936.1, 407.6],
+      "map": "MainMap",
+      "display": [-174, 34]
+    },
+    {
+      "boss_type": "SakurajimaBoss",
+      "class": "BP_PalBossTower_C",
+      "name": "Moonflower Tower",
+      "position": [-29427.6, -115900.1, 6225.5],
+      "map": "MainMap",
+      "display": [-597, 206]
+    },
+    {
+      "boss_type": "SnowBoss",
+      "class": "BP_PalBossTower_C",
+      "name": "PAL Genetic Research Unit Tower",
+      "position": [81363, 90183, 63796],
+      "map": "MainMap",
+      "display": [-148, 447]
+    },
+    {
+      "boss_type": "SorajimaBoss",
+      "class": "BP_PalBossTower_C",
+      "name": "Azure Covenant Tower",
+      "position": [-778215.9, -36026, 60693.3],
+      "map": "MainMap",
+      "display": [-423, -1426]
+    },
+    {
+      "boss_type": "VikingBoss",
+      "class": "BP_PalBossTower_C",
+      "name": "Feybreak Tower",
+      "position": [-889805.2, -435828, 19038.9],
+      "map": "MainMap",
+      "display": [-1294, -1669]
+    },
+    {
+      "boss_type": "WorldTreeBoss",
+      "class": "BP_PalBossTower_LastBoss_C",
+      "name": "？？？",
+      "position": [495634.3, -756824.4, 42595],
+      "map": "Tree",
+      "display": [-1993, 1350]
+    },
+    {
+      "boss_type": "WorldTreeMiddleBoss1",
+      "class": "BP_PalBossTower_MiddleBoss_C",
+      "name": "Rotmist Root",
+      "position": [630703.1, -612728.6, 28495],
+      "map": "Tree",
+      "display": [-1679, 1644]
+    },
+    {
+      "boss_type": "WorldTreeMiddleBoss2",
+      "class": "BP_PalBossTower_MiddleBoss_C",
+      "name": "Shinespore Root",
+      "position": [405135, -730345, 22845],
+      "map": "Tree",
+      "display": [-1935, 1153]
+    },
+    {
+      "boss_type": "WorldTreeMiddleBoss3",
+      "class": "BP_PalBossTower_MiddleBoss_C",
+      "name": "Forbidden Laboratory",
+      "position": [622547.5, -759171.1, 21255.8],
+      "map": "Tree",
+      "display": [-1998, 1626]
+    }
+  ],
+  "dungeons": {
+    "fixed": [
+      {
+        "id": "NAME_FixedDungeon_DarkIsland_1",
+        "name": "Sealed Realm of the Wardenstone",
+        "position": [-729794.1, -338535.5, 15500.1],
+        "map": "MainMap",
+        "display": [-1082, -1320]
+      },
+      {
+        "id": "NAME_FixedDungeon_DarkIsland_2",
+        "name": "Sealed Realm of the Little Hero",
+        "position": [-797364.2, -245386.9, 183.9],
+        "map": "MainMap",
+        "display": [-879, -1467]
+      },
+      {
+        "id": "NAME_FixedDungeon_DarkIsland_3",
+        "name": "Sealed Realm of the Indigo",
+        "position": [-568029.2, -464143.1, -1848],
+        "map": "MainMap",
+        "display": [-1355, -968]
+      },
+      {
+        "id": "NAME_FixedDungeon_DarkIsland_4",
+        "name": "Sealed Realm of the Soul",
+        "position": [-589257.2, -265874.4, 19702],
+        "map": "MainMap",
+        "display": [-923, -1014]
+      },
+      {
+        "id": "NAME_FixedDungeon_SkyIsland_01",
+        "name": "Sealed Realm of the Astral Vow",
+        "position": [-773523.9, 51495.9, 45252],
+        "map": "MainMap",
+        "display": [-232, -1415]
+      },
+      {
+        "id": "NAME_FixedDungeon_SmallIsland03",
+        "name": "Sealed Realm of the Glacial Core",
+        "position": [175142.8, 221586.5, -2024.7],
+        "map": "MainMap",
+        "display": [139, 651]
+      },
+      {
+        "id": "NAME_FixedDungeon_forest_1",
+        "name": "Sealed Realm of the Sorcerer",
+        "position": [-226362.2, 231993.3, -1897.7],
+        "map": "MainMap",
+        "display": [161, -223]
+      },
+      {
+        "id": "NAME_FixedDungeon_forest_2",
+        "name": "Sealed Realm of the Guardian",
+        "position": [-245458.9, 149122, 823],
+        "map": "MainMap",
+        "display": [-19, -265]
+      },
+      {
+        "id": "NAME_FixedDungeon_forest_3",
+        "name": "Sealed Realm of the Swift",
+        "position": [-119314.5, 288958.4, 3096.7],
+        "map": "MainMap",
+        "display": [285, 10]
+      },
+      {
+        "id": "NAME_FixedDungeon_forest_4",
+        "name": "Sealed Realm of the Esoteric",
+        "position": [-147025.5, 217379.2, 2767.2],
+        "map": "MainMap",
+        "display": [129, -50]
+      },
+      {
+        "id": "NAME_FixedDungeon_forest_5",
+        "name": "Sealed Realm of the Pristine",
+        "position": [-92059.8, 273741.9, 18877],
+        "map": "MainMap",
+        "display": [252, 69]
+      },
+      {
+        "id": "NAME_FixedDungeon_grass_1",
+        "name": "Sealed Realm of the Frozen Wings",
+        "position": [-285331.3, 210162.7, 766.8],
+        "map": "MainMap",
+        "display": [114, -352]
+      },
+      {
+        "id": "NAME_FixedDungeon_grass_2",
+        "name": "Sealed Realm of the Ardent",
+        "position": [-349072.9, 104535, -211.3],
+        "map": "MainMap",
+        "display": [-116, -491]
+      },
+      {
+        "id": "NAME_FixedDungeon_grass_3",
+        "name": "Sealed Realm of the Myriad Flames",
+        "position": [-183818.9, 40647.8, 8457.1],
+        "map": "MainMap",
+        "display": [-256, -131]
+      },
+      {
+        "id": "NAME_FixedDungeon_grass_4",
+        "name": "Sealed Realm of the Swordmaster",
+        "position": [-282853.7, 64952.2, 5267.5],
+        "map": "MainMap",
+        "display": [-203, -346]
+      },
+      {
+        "id": "NAME_FixedDungeon_grass_5",
+        "name": "Sealed Realm of the Frost Flower",
+        "position": [-149050, -30550, -1380],
+        "map": "MainMap",
+        "display": [-411, -55]
+      },
+      {
+        "id": "NAME_FixedDungeon_grass_6",
+        "name": "Sealed Realm of the Frigid Fox",
+        "position": [-276240, 268990, -1300],
+        "map": "MainMap",
+        "display": [242, -332]
+      },
+      {
+        "id": "NAME_FixedDungeon_grass_7",
+        "name": "Sealed Realm of the Luxurious Thicket",
+        "position": [-426590, 90670, 110],
+        "map": "MainMap",
+        "display": [-147, -659]
+      }
+    ],
+    "random": [
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-877132.8, -430141.7, 16598.9],
+        "map": "MainMap",
+        "display": [-1281, -1641]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-843324.4, -404753.8, -2102.6],
+        "map": "MainMap",
+        "display": [-1226, -1567]
+      },
+      {
+        "spawn_areas": ["Skyland001"],
+        "name": "Sunreach Skies",
+        "position": [-837426, -9351, 66044],
+        "map": "MainMap",
+        "display": [-365, -1555]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-817170, -461060, -600],
+        "map": "MainMap",
+        "display": [-1349, -1510]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-800228.8, -286975.7, 1958.3],
+        "map": "MainMap",
+        "display": [-969, -1474]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-798439.8, -331101.8, 9432.3],
+        "map": "MainMap",
+        "display": [-1066, -1470]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-796816.5, -365816.2, 5647.4],
+        "map": "MainMap",
+        "display": [-1141, -1466]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-778536.7, -381700.4, 3873.3],
+        "map": "MainMap",
+        "display": [-1176, -1426]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-768983.8, -257968.6, 2615.1],
+        "map": "MainMap",
+        "display": [-906, -1405]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-753200, -274400, 8591.3],
+        "map": "MainMap",
+        "display": [-942, -1371]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-744310, -372750, 25450],
+        "map": "MainMap",
+        "display": [-1156, -1352]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-740400, -345130, 870],
+        "map": "MainMap",
+        "display": [-1096, -1343]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-739658.9, -310238.8, 35274.9],
+        "map": "MainMap",
+        "display": [-1020, -1342]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-733449, -320729.5, 31032.1],
+        "map": "MainMap",
+        "display": [-1043, -1328]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-702808.5, -335070.7, 27588.1],
+        "map": "MainMap",
+        "display": [-1074, -1261]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-696510, -309770, 25630],
+        "map": "MainMap",
+        "display": [-1019, -1248]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-683335.7, -279555, 11603.9],
+        "map": "MainMap",
+        "display": [-953, -1219]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-671787, -192540, 3095.2],
+        "map": "MainMap",
+        "display": [-764, -1194]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-669586.3, -394684.1, 25288.3],
+        "map": "MainMap",
+        "display": [-1204, -1189]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-652504.4, -439189.2, 11888.7],
+        "map": "MainMap",
+        "display": [-1301, -1152]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-640033.7, -344681.7, 11471.5],
+        "map": "MainMap",
+        "display": [-1095, -1125]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-635848.6, -271258.9, 11034.8],
+        "map": "MainMap",
+        "display": [-935, -1115]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-624781.9, -247472.5, 13299.9],
+        "map": "MainMap",
+        "display": [-883, -1091]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-613348.6, -320523.1, 21844],
+        "map": "MainMap",
+        "display": [-1043, -1066]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-597250.4, -301345.4, 14454],
+        "map": "MainMap",
+        "display": [-1001, -1031]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-588020, -254710, 1050],
+        "map": "MainMap",
+        "display": [-899, -1011]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-585393.8, -338144.7, 23197.5],
+        "map": "MainMap",
+        "display": [-1081, -1005]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-563204.8, -229685.1, -316.5],
+        "map": "MainMap",
+        "display": [-845, -957]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-554303.9, -314140.6, 16585.6],
+        "map": "MainMap",
+        "display": [-1029, -938]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-512833.9, -284233.5, 1254.9],
+        "map": "MainMap",
+        "display": [-963, -847]
+      },
+      {
+        "spawn_areas": ["Viking001"],
+        "name": "Feybreak Cavern",
+        "position": [-502169.7, -346285.5, -1500.4],
+        "map": "MainMap",
+        "display": [-1099, -824]
+      },
+      {
+        "spawn_areas": ["Yakushima001"],
+        "name": "???",
+        "position": [-485315.1, -34972.2, -1469],
+        "map": "MainMap",
+        "display": [-420, -787]
+      },
+      {
+        "spawn_areas": ["Island001"],
+        "name": "Isolated Island Cavern",
+        "position": [-431538.1, 82092.4, 57.4],
+        "map": "MainMap",
+        "display": [-165, -670]
+      },
+      {
+        "spawn_areas": ["Island001"],
+        "name": "Isolated Island Cavern",
+        "position": [-429603.4, 94092.7, -948.3],
+        "map": "MainMap",
+        "display": [-139, -666]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-405155.9, -176237.4, 15502.3],
+        "map": "MainMap",
+        "display": [-728, -613]
+      },
+      {
+        "spawn_areas": ["Island001"],
+        "name": "Isolated Island Cavern",
+        "position": [-404448.4, 64664.3, -1598.9],
+        "map": "MainMap",
+        "display": [-203, -611]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-400575.6, -35335.3, 7001.2],
+        "map": "MainMap",
+        "display": [-421, -603]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-392681.6, -208957.2, -32.7],
+        "map": "MainMap",
+        "display": [-799, -586]
+      },
+      {
+        "spawn_areas": ["Island001"],
+        "name": "Isolated Island Cavern",
+        "position": [-389335.2, 108597.6, -1944.7],
+        "map": "MainMap",
+        "display": [-108, -578]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-386508.1, -12226.5, 4659.5],
+        "map": "MainMap",
+        "display": [-371, -572]
+      },
+      {
+        "spawn_areas": ["Island001"],
+        "name": "Isolated Island Cavern",
+        "position": [-383502.8, 99618, -453.2],
+        "map": "MainMap",
+        "display": [-127, -566]
+      },
+      {
+        "spawn_areas": ["Island001"],
+        "name": "Isolated Island Cavern",
+        "position": [-376218.1, 48671.7, -1670.3],
+        "map": "MainMap",
+        "display": [-238, -550]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-374132.7, -89184.6, 30822.1],
+        "map": "MainMap",
+        "display": [-539, -545]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-372111.8, 161187.7, 1083.6],
+        "map": "MainMap",
+        "display": [7, -541]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-372024.5, 278564.7, -1994.4],
+        "map": "MainMap",
+        "display": [263, -541]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-368225.3, -74478.1, 18314.8],
+        "map": "MainMap",
+        "display": [-506, -532]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-364797.3, 181681.7, 2387.3],
+        "map": "MainMap",
+        "display": [52, -525]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-363251.1, 167049.9, -1978.5],
+        "map": "MainMap",
+        "display": [20, -521]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-346468.2, 214850, -2024],
+        "map": "MainMap",
+        "display": [124, -485]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-340404.6, 58438.7, 4618.4],
+        "map": "MainMap",
+        "display": [-217, -472]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-339127.5, 193425.6, -2031.3],
+        "map": "MainMap",
+        "display": [77, -469]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-338708.5, 161823.1, 2176.8],
+        "map": "MainMap",
+        "display": [8, -468]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-337808.6, 30763, 4100.7],
+        "map": "MainMap",
+        "display": [-277, -466]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-335586.6, -104884.1, 40441.9],
+        "map": "MainMap",
+        "display": [-573, -461]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-333902.8, -205767.4, 6942.9],
+        "map": "MainMap",
+        "display": [-793, -458]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-330139, 200217, -1272.5],
+        "map": "MainMap",
+        "display": [92, -449]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-325692.1, 83869.6, 2548.6],
+        "map": "MainMap",
+        "display": [-162, -440]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-322793.1, 185433.9, -782],
+        "map": "MainMap",
+        "display": [60, -433]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-320921.7, -100230.7, 18782.3],
+        "map": "MainMap",
+        "display": [-563, -429]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-320588.1, 113800.3, -1457.8],
+        "map": "MainMap",
+        "display": [-96, -429]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-319255, 213145, -760],
+        "map": "MainMap",
+        "display": [120, -426]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-315807.8, 107247.6, -354.7],
+        "map": "MainMap",
+        "display": [-111, -418]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-315091.6, -52063.6, 14675.7],
+        "map": "MainMap",
+        "display": [-458, -417]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-315044.7, 54365.9, 7854.6],
+        "map": "MainMap",
+        "display": [-226, -416]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-311425, 151135, 35],
+        "map": "MainMap",
+        "display": [-15, -409]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-307418.3, 225000.8, -378.6],
+        "map": "MainMap",
+        "display": [146, -400]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-302529.4, 52391.5, 12481.7],
+        "map": "MainMap",
+        "display": [-230, -389]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-301121.1, 179718.2, 320],
+        "map": "MainMap",
+        "display": [47, -386]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-296998.3, 212680.8, -279.8],
+        "map": "MainMap",
+        "display": [119, -377]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-289138.2, -209876, 3435.3],
+        "map": "MainMap",
+        "display": [-801, -360]
+      },
+      {
+        "spawn_areas": ["Grass001"],
+        "name": "Hillside Cavern",
+        "position": [-288304.3, 227050, 769.3],
+        "map": "MainMap",
+        "display": [150, -358]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-287926, -191141.9, 6661.3],
+        "map": "MainMap",
+        "display": [-761, -357]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-281167.4, 88738.3, 3834.8],
+        "map": "MainMap",
+        "display": [-151, -343]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-279321.5, 101902.9, -449.1],
+        "map": "MainMap",
+        "display": [-122, -339]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-268094, -53009.2, 3558.6],
+        "map": "MainMap",
+        "display": [-460, -314]
+      },
+      {
+        "spawn_areas": ["Island002"],
+        "name": "Isolated Island Cavern",
+        "position": [-267882.5, 327448.2, -1887.2],
+        "map": "MainMap",
+        "display": [369, -314]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-265755.4, -164168.5, 9003.5],
+        "map": "MainMap",
+        "display": [-702, -309]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-265204.1, 131385.1, 2521.9],
+        "map": "MainMap",
+        "display": [-58, -308]
+      },
+      {
+        "spawn_areas": ["Island002"],
+        "name": "Isolated Island Cavern",
+        "position": [-259061, 280351.5, -1880.9],
+        "map": "MainMap",
+        "display": [267, -294]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-257638.4, 141158.6, 541.9],
+        "map": "MainMap",
+        "display": [-37, -291]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-256755.7, 26900.9, 9510.3],
+        "map": "MainMap",
+        "display": [-286, -289]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-251818.6, 164041.7, -1273.3],
+        "map": "MainMap",
+        "display": [13, -279]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-250341.3, 183436.7, 4307.5],
+        "map": "MainMap",
+        "display": [55, -275]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-250000.3, 120261.4, 5693.6],
+        "map": "MainMap",
+        "display": [-82, -275]
+      },
+      {
+        "spawn_areas": ["Island002"],
+        "name": "Isolated Island Cavern",
+        "position": [-245011.2, 335769, -1610.4],
+        "map": "MainMap",
+        "display": [387, -264]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-239159.9, 205386.8, 2115.2],
+        "map": "MainMap",
+        "display": [103, -251]
+      },
+      {
+        "spawn_areas": ["Volcano001"],
+        "name": "Volcanic Cavern",
+        "position": [-238650.7, -121688.1, -247.4],
+        "map": "MainMap",
+        "display": [-609, -250]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-231307.8, 73146.9, -1290.3],
+        "map": "MainMap",
+        "display": [-185, -234]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-230933.7, 152106.5, -555.3],
+        "map": "MainMap",
+        "display": [-13, -233]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-225251.9, -13333.9, -912.8],
+        "map": "MainMap",
+        "display": [-373, -221]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-221494.6, 27971.9, 14071.3],
+        "map": "MainMap",
+        "display": [-283, -213]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-220790, 234113, -1278.6],
+        "map": "MainMap",
+        "display": [166, -211]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-219424.8, 165811.1, 57.5],
+        "map": "MainMap",
+        "display": [17, -208]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-217124.6, 138061.4, 6128.8],
+        "map": "MainMap",
+        "display": [-43, -203]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-215213.8, 265367.6, -142.5],
+        "map": "MainMap",
+        "display": [234, -199]
+      },
+      {
+        "spawn_areas": ["Island002"],
+        "name": "Isolated Island Cavern",
+        "position": [-213940, 398860, -1930],
+        "map": "MainMap",
+        "display": [525, -196]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-211384.7, 182474.9, -486.1],
+        "map": "MainMap",
+        "display": [53, -191]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-209589.4, 163211.5, 939.5],
+        "map": "MainMap",
+        "display": [11, -187]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-203748.6, 90007.3, 17.3],
+        "map": "MainMap",
+        "display": [-148, -174]
+      },
+      {
+        "spawn_areas": ["Grass002"],
+        "name": "Ravine Grotto",
+        "position": [-202257.9, 31403.3, 7325.4],
+        "map": "MainMap",
+        "display": [-276, -171]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-196752, 176316.2, -607.2],
+        "map": "MainMap",
+        "display": [40, -159]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-194214.6, 239238.7, -1577.2],
+        "map": "MainMap",
+        "display": [177, -153]
+      },
+      {
+        "spawn_areas": ["Island002"],
+        "name": "Isolated Island Cavern",
+        "position": [-189599.5, 372690.3, 1620],
+        "map": "MainMap",
+        "display": [468, -143]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-186504.7, 268455.5, -885.2],
+        "map": "MainMap",
+        "display": [241, -136]
+      },
+      {
+        "spawn_areas": ["Island002"],
+        "name": "Isolated Island Cavern",
+        "position": [-181433, 350147.8, 3353.4],
+        "map": "MainMap",
+        "display": [419, -125]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-180769, 163430.8, 5051.6],
+        "map": "MainMap",
+        "display": [12, -124]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-176948.4, 200393.8, -1723.1],
+        "map": "MainMap",
+        "display": [92, -116]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-173408.4, 166837, 9412.8],
+        "map": "MainMap",
+        "display": [19, -108]
+      },
+      {
+        "spawn_areas": ["Forest001"],
+        "name": "Mountain Stream Grotto",
+        "position": [-164661.7, 153125.2, -1414.8],
+        "map": "MainMap",
+        "display": [-11, -89]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-163447.6, 229313.2, 5276.4],
+        "map": "MainMap",
+        "display": [155, -86]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-155066.9, 296284.7, -2102.6],
+        "map": "MainMap",
+        "display": [301, -68]
+      },
+      {
+        "spawn_areas": ["Island003"],
+        "name": "Isolated Island Cavern",
+        "position": [-137086.1, -50427.6, -1429.2],
+        "map": "MainMap",
+        "display": [-454, -29]
+      },
+      {
+        "spawn_areas": ["Island003"],
+        "name": "Isolated Island Cavern",
+        "position": [-134629.2, 6185.4, -1599.2],
+        "map": "MainMap",
+        "display": [-331, -23]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-130866.3, 230761.7, 1491.3],
+        "map": "MainMap",
+        "display": [159, -15]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-129471.9, 253439.8, -1537.6],
+        "map": "MainMap",
+        "display": [208, -12]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-125215.9, 174427.4, -1461],
+        "map": "MainMap",
+        "display": [36, -3]
+      },
+      {
+        "spawn_areas": ["Island003"],
+        "name": "Isolated Island Cavern",
+        "position": [-124929, -79963.6, -2102.6],
+        "map": "MainMap",
+        "display": [-518, -2]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-121016.9, 212487.1, 7959.5],
+        "map": "MainMap",
+        "display": [119, 6]
+      },
+      {
+        "spawn_areas": ["Island003"],
+        "name": "Isolated Island Cavern",
+        "position": [-120225, 25862.9, -1502.5],
+        "map": "MainMap",
+        "display": [-288, 8]
+      },
+      {
+        "spawn_areas": ["Island003"],
+        "name": "Isolated Island Cavern",
+        "position": [-110032.7, -71996.6, -2102.6],
+        "map": "MainMap",
+        "display": [-501, 30]
+      },
+      {
+        "spawn_areas": ["Island003"],
+        "name": "Isolated Island Cavern",
+        "position": [-107243, 24363, -20.9],
+        "map": "MainMap",
+        "display": [-291, 36]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-101785.1, 205029.2, 7157.8],
+        "map": "MainMap",
+        "display": [102, 48]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-84794, 286150.2, 9393.4],
+        "map": "MainMap",
+        "display": [279, 85]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [-74916.8, 372458.5, 3272.7],
+        "map": "MainMap",
+        "display": [467, 107]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-74146.1, -63473.7, -2090],
+        "map": "MainMap",
+        "display": [-483, 108]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [-62924, 412517, 13502.8],
+        "map": "MainMap",
+        "display": [555, 133]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-61859.9, 204435.4, 626.4],
+        "map": "MainMap",
+        "display": [101, 135]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-61090.6, -5748.1, -2102.6],
+        "map": "MainMap",
+        "display": [-357, 137]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [-58507.2, 157466.9, 12277],
+        "map": "MainMap",
+        "display": [-1, 142]
+      },
+      {
+        "spawn_areas": ["Forest002"],
+        "name": "Mountain Stream Grotto",
+        "position": [-57776.3, 228600.2, 2436.4],
+        "map": "MainMap",
+        "display": [154, 144]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-57139.2, -86089.5, -2013.3],
+        "map": "MainMap",
+        "display": [-532, 145]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-42658.5, -122726.3, 1367.7],
+        "map": "MainMap",
+        "display": [-612, 177]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-39021.6, -39231.3, -1814.7],
+        "map": "MainMap",
+        "display": [-430, 185]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-37363.3, -152096.7, 878.7],
+        "map": "MainMap",
+        "display": [-676, 189]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [-36843.1, 454971.8, -30.2],
+        "map": "MainMap",
+        "display": [647, 190]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [-36660.1, 148979, 16283.5],
+        "map": "MainMap",
+        "display": [-20, 190]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-32453.8, -106978.2, 2376],
+        "map": "MainMap",
+        "display": [-577, 199]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [-26780, 354640, 170],
+        "map": "MainMap",
+        "display": [428, 212]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [-25056.9, 113597.3, 8292.4],
+        "map": "MainMap",
+        "display": [-97, 215]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-24131.9, -110237.7, 4410],
+        "map": "MainMap",
+        "display": [-584, 217]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [-22520.6, 313714.3, 1326.1],
+        "map": "MainMap",
+        "display": [339, 221]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-17730.9, -73667.1, 854.8],
+        "map": "MainMap",
+        "display": [-505, 231]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-15641.8, -137406.4, 4600],
+        "map": "MainMap",
+        "display": [-644, 236]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-13807.6, -152803, 2880],
+        "map": "MainMap",
+        "display": [-677, 240]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [-6205.6, 255610.9, 2361.2],
+        "map": "MainMap",
+        "display": [213, 256]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [-4513, 424323.7, 10750.9],
+        "map": "MainMap",
+        "display": [580, 260]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [-3297.5, 53484.9, 19498.6],
+        "map": "MainMap",
+        "display": [-228, 263]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [-2514.6, -106358.3, 1496.4],
+        "map": "MainMap",
+        "display": [-576, 264]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [936.8, -128792.5, 1079.8],
+        "map": "MainMap",
+        "display": [-625, 272]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [2548, 172474.5, 7516.8],
+        "map": "MainMap",
+        "display": [32, 275]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [9258.2, -142072.3, 1314.5],
+        "map": "MainMap",
+        "display": [-654, 290]
+      },
+      {
+        "spawn_areas": ["Sakura001"],
+        "name": "Cherry Blossom Cave",
+        "position": [10312.3, -115227.2, 1137.1],
+        "map": "MainMap",
+        "display": [-595, 292]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [14688.7, 384880.8, 709.5],
+        "map": "MainMap",
+        "display": [494, 302]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [15729.5, 267188.9, 4439.4],
+        "map": "MainMap",
+        "display": [238, 304]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [20555.8, 102617.6, 2350.2],
+        "map": "MainMap",
+        "display": [-121, 315]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [21557.6, 309214.8, -916.3],
+        "map": "MainMap",
+        "display": [329, 317]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [26498.5, 75921.1, 24300.9],
+        "map": "MainMap",
+        "display": [-179, 328]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [41444.2, 27335.7, 11078.7],
+        "map": "MainMap",
+        "display": [-285, 360]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [42530.3, 203883.6, 8423.1],
+        "map": "MainMap",
+        "display": [100, 363]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [47436.2, -9661.4, 9924.3],
+        "map": "MainMap",
+        "display": [-365, 373]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [61320, 418400, -1460],
+        "map": "MainMap",
+        "display": [567, 404]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [63496.1, 333388.2, 447.2],
+        "map": "MainMap",
+        "display": [382, 408]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [80039, 6386.8, 30360.7],
+        "map": "MainMap",
+        "display": [-330, 444]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [85201.2, 312813.9, 12564.1],
+        "map": "MainMap",
+        "display": [337, 456]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [101576.6, 18990.6, 19538.1],
+        "map": "MainMap",
+        "display": [-303, 491]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [101675.3, 373450.7, 1058.3],
+        "map": "MainMap",
+        "display": [469, 491]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [135090.5, 64370.3, 28543.8],
+        "map": "MainMap",
+        "display": [-204, 564]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [136262.5, 88305.4, 38681.9],
+        "map": "MainMap",
+        "display": [-152, 567]
+      },
+      {
+        "spawn_areas": ["Dessert001"],
+        "name": "Cavern of the Dunes",
+        "position": [139611, 324306.5, 3399.4],
+        "map": "MainMap",
+        "display": [362, 574]
+      },
+      {
+        "spawn_areas": ["Snow001"],
+        "name": "Astral Mountains Cavern",
+        "position": [143019.1, 9658.5, 18597.2],
+        "map": "MainMap",
+        "display": [-323, 581]
+      }
+    ]
+  },
+  "boss_markers": [
+    {
+      "kind": "field_boss",
+      "spawner": "1_10_plain_F_Boss_FairyDragon",
+      "character": "BOSS_WeaselDragon",
+      "species": "WeaselDragon",
+      "name": "Chillet",
+      "title": "Dancer on the Steppe",
+      "level": 11,
+      "position": [-315583.5, 237117, 2448.4],
+      "map": "MainMap",
+      "display": [172, -418],
+      "rows": ["48"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "5_2_island_iceblock_FBOSS_1",
+      "character": "BOSS_PoseidonOrca",
+      "species": "PoseidonOrca",
+      "name": "Neptilius",
+      "title": "Legend of the Seas",
+      "level": 60,
+      "position": [175142.8, 221586.5, -2024.7],
+      "map": "MainMap",
+      "display": [139, 651],
+      "rows": ["105"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_forest_FBOSS_1",
+      "character": "BOSS_VioletFairy",
+      "species": "VioletFairy",
+      "name": "Vaelet",
+      "title": "Voice of the Violets",
+      "level": 27,
+      "position": [-245458.9, 149122, 823],
+      "map": "MainMap",
+      "display": [-19, -265],
+      "rows": ["115"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_forest_FBOSS_2",
+      "character": "BOSS_FoxMage",
+      "species": "FoxMage",
+      "name": "Wixen",
+      "title": "Fire-Licked Furball",
+      "level": 28,
+      "position": [-226362.2, 231993.3, -1897.7],
+      "map": "MainMap",
+      "display": [161, -223],
+      "rows": ["111"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_forest_FBOSS_3",
+      "character": "BOSS_GrassRabbitMan",
+      "species": "GrassRabbitMan",
+      "name": "Verdash",
+      "title": "Gale of the Forest",
+      "level": 35,
+      "position": [-119314.5, 288958.4, 3096.7],
+      "map": "MainMap",
+      "display": [285, 10],
+      "rows": ["106"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_forest_FBOSS_4",
+      "character": "BOSS_Mutant",
+      "species": "Mutant",
+      "name": "Lunaris",
+      "title": "Extraterrestrial",
+      "level": 35,
+      "position": [-147025.5, 217379.2, 2767.2],
+      "map": "MainMap",
+      "display": [129, -50],
+      "rows": ["113"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_forest_FBOSS_5",
+      "character": "BOSS_WhiteMoth",
+      "species": "WhiteMoth",
+      "name": "Sibelyx",
+      "title": "Pallid Lady",
+      "level": 40,
+      "position": [-92059.8, 273741.9, 18877],
+      "map": "MainMap",
+      "display": [252, 69],
+      "rows": ["114"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_forest_FBOSS_6",
+      "character": "BOSS_QueenBee",
+      "species": "QueenBee",
+      "name": "Elizabee",
+      "title": "Empress of the Hive",
+      "level": 39,
+      "position": [-162481.3, 233115.2, 5175.2],
+      "map": "MainMap",
+      "display": [164, -84],
+      "rows": ["65"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_forest_FBOSS_7",
+      "character": "BOSS_FairyDragon",
+      "species": "FairyDragon",
+      "name": "Elphidran",
+      "title": "Gentle Sky Dragon",
+      "level": 30,
+      "position": [-254060, 178050, 4000],
+      "map": "MainMap",
+      "display": [44, -284],
+      "rows": ["57"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_1",
+      "character": "BOSS_GrassMammoth",
+      "species": "GrassMammoth",
+      "name": "Mammorest",
+      "title": "King of the Forest",
+      "level": 38,
+      "position": [-343155, 244585, -95],
+      "map": "MainMap",
+      "display": [189, -478],
+      "rows": ["47"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_10",
+      "character": "BOSS_Manticore",
+      "species": "Manticore",
+      "name": "Blazehowl",
+      "title": "Crimson Goliath",
+      "level": 30,
+      "position": [-183818.9, 40647.8, 8457.1],
+      "map": "MainMap",
+      "display": [-256, -131],
+      "rows": ["119"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_13",
+      "character": "BOSS_Umihebi",
+      "species": "Umihebi",
+      "name": "Jormuntide",
+      "title": "Emperor of the Sea",
+      "level": 55,
+      "position": [-162910, 318720, -2382.4],
+      "map": "MainMap",
+      "display": [350, -85],
+      "rows": ["56"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_14",
+      "character": "Boss_Anubis",
+      "species": "Anubis",
+      "name": "Anubis",
+      "title": "Guardian of the Dark Sun",
+      "level": 55,
+      "position": [-167230, 96430, -1737.1],
+      "map": "MainMap",
+      "display": [-134, -94],
+      "rows": ["46"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_15",
+      "character": "BOSS_Kitsunebi_Ice",
+      "species": "Kitsunebi_Ice",
+      "name": "Foxparks Cryst",
+      "title": "Icy Blossom Voyager",
+      "level": 15,
+      "position": [-149050, -30550, -1380],
+      "map": "MainMap",
+      "display": [-411, -55],
+      "rows": ["122"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_16",
+      "character": "BOSS_FengyunDeeper",
+      "species": "FengyunDeeper",
+      "name": "Fenglope",
+      "title": "Drifting Cloud",
+      "level": 25,
+      "position": [-333940, 39610, 1600],
+      "map": "MainMap",
+      "display": [-258, -458],
+      "rows": ["49"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_18",
+      "character": "BOSS_NaughtyCat",
+      "species": "NaughtyCat",
+      "name": "Grintale",
+      "title": "Marshmallow Body",
+      "level": 17,
+      "position": [-236727.1, 321310.1, -1909.4],
+      "map": "MainMap",
+      "display": [356, -246],
+      "rows": ["53"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_2",
+      "character": "BOSS_KingAlpaca",
+      "species": "KingAlpaca",
+      "name": "Kingpaca",
+      "title": "Supreme Fluff Commander",
+      "level": 23,
+      "position": [-335225, 180735, 475],
+      "map": "MainMap",
+      "display": [50, -460],
+      "rows": ["54"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_20",
+      "character": "BOSS_IceFox",
+      "species": "IceFox",
+      "name": "Foxcicle",
+      "title": "Frostbound Fox",
+      "level": 15,
+      "position": [-276240, 268990, -1300],
+      "map": "MainMap",
+      "display": [242, -332],
+      "rows": ["112"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_21",
+      "character": "BOSS_MopKing",
+      "species": "MopKing",
+      "name": "Sweepa",
+      "title": "King of the Floof",
+      "level": 11,
+      "position": [-396003.1, 53772.2, -1575.8],
+      "map": "MainMap",
+      "display": [-227, -593],
+      "rows": ["62"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_22",
+      "character": "BOSS_HawkBird",
+      "species": "HawkBird",
+      "name": "Nitewing",
+      "title": "Wings of the Firmament",
+      "level": 18,
+      "position": [-155950, 31260, -1960],
+      "map": "MainMap",
+      "display": [-276, -70],
+      "rows": ["59"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_23",
+      "character": "BOSS_Kirin",
+      "species": "Kirin",
+      "name": "Univolt",
+      "title": "Swift Deity",
+      "level": 31,
+      "position": [-372950, 104400, -770],
+      "map": "MainMap",
+      "display": [-117, -543],
+      "rows": ["50"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_24",
+      "character": "BOSS_SakuraSaurus",
+      "species": "SakuraSaurus",
+      "name": "Broncherry",
+      "title": "Winds of Spring",
+      "level": 23,
+      "position": [-431050.4, 56140.6, -1864.8],
+      "map": "MainMap",
+      "display": [-222, -669],
+      "rows": ["55"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_25",
+      "character": "BOSS_PlantSlime",
+      "species": "PlantSlime",
+      "name": "Gumoss",
+      "title": "Suddenly Transformed",
+      "level": 11,
+      "position": [-412259.3, 106237.7, -2035.6],
+      "map": "MainMap",
+      "display": [-113, -628],
+      "rows": ["61"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_26",
+      "character": "BOSS_GrassPanda_Electric",
+      "species": "GrassPanda_Electric",
+      "name": "Mossanda Lux",
+      "title": "Inheritor of the Storm",
+      "level": 31,
+      "position": [-206970, 363810, 1140],
+      "map": "MainMap",
+      "display": [448, -181],
+      "rows": ["63"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_27",
+      "character": "BOSS_LazyCatfish",
+      "species": "LazyCatfish",
+      "name": "Dumud",
+      "title": "Perpetual Procrastinator",
+      "level": 14,
+      "position": [-122060, 15810, -1460],
+      "map": "MainMap",
+      "display": [-310, 4],
+      "rows": ["58"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_28",
+      "character": "BOSS_BerryGoat_Dark",
+      "species": "BerryGoat_Dark",
+      "name": "Caprity Noct",
+      "title": "Tainted Farm",
+      "level": 23,
+      "position": [-426590, 90670, 110],
+      "map": "MainMap",
+      "display": [-147, -659],
+      "rows": ["108"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_29",
+      "character": "BOSS_Yeti_Grass",
+      "species": "Yeti_Grass",
+      "name": "Wumpo Botan",
+      "title": "Guardian of the Grassy Fields",
+      "level": 38,
+      "position": [-147370, 364010, -1940],
+      "map": "MainMap",
+      "display": [449, -51],
+      "rows": ["64"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_30",
+      "character": "BOSS_PurpleSpider",
+      "species": "PurpleSpider",
+      "name": "Tarantriss",
+      "title": "Tactician of the Thread Realm",
+      "level": 35,
+      "position": [-239436.6, 345.7, 7166.7],
+      "map": "MainMap",
+      "display": [-343, -252],
+      "rows": ["60"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_31",
+      "character": "BOSS_BlueDragon",
+      "species": "BlueDragon",
+      "name": "Azurobe",
+      "title": "Lady of the Lake",
+      "level": 40,
+      "position": [-246100, 77200, -1460],
+      "map": "MainMap",
+      "display": [-176, -266],
+      "rows": ["52"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_4",
+      "character": "BOSS_ThunderBird",
+      "species": "ThunderBird",
+      "name": "Beakon",
+      "title": "Wings of Thunderbolt",
+      "level": 37,
+      "position": [-113197.7, 201490.5, 2063.4],
+      "map": "MainMap",
+      "display": [95, 23],
+      "rows": ["51"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_6",
+      "character": "BOSS_Ronin",
+      "species": "Ronin",
+      "name": "Bushi",
+      "title": "Vagrant Warrior",
+      "level": 25,
+      "position": [-282853.7, 64952.2, 5267.5],
+      "map": "MainMap",
+      "display": [-203, -346],
+      "rows": ["117"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_9",
+      "character": "BOSS_CaptainPenguin",
+      "species": "CaptainPenguin",
+      "name": "Penking",
+      "title": "Pioneer of the Frozen Sea",
+      "level": 15,
+      "position": [-285331.3, 210162.7, 766.8],
+      "map": "MainMap",
+      "display": [114, -352],
+      "rows": ["107"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_1_grass_FBOSS_FlameBuffalo",
+      "character": "BOSS_FlameBuffalo",
+      "species": "FlameBuffalo",
+      "name": "Arsox",
+      "title": "Blazing Brute",
+      "level": 15,
+      "position": [-349072.9, 104535, -211.3],
+      "map": "MainMap",
+      "display": [-116, -491],
+      "rows": ["120"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_2_dessert_FBOSS_1",
+      "character": "BOSS_Suzaku",
+      "species": "Suzaku",
+      "name": "Suzaku",
+      "title": "Ruler of the Crimson Dawn",
+      "level": 45,
+      "position": [97716.3, 307499.7, 17330.4],
+      "map": "MainMap",
+      "display": [326, 483],
+      "rows": ["23"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_2_dessert_FBOSS_2",
+      "character": "BOSS_SaintCentaur",
+      "species": "SaintCentaur",
+      "name": "Paladius",
+      "title": "Holy Knight of Legend",
+      "level": 60,
+      "position": [187731.2, 359897.3, 2647.3],
+      "map": "MainMap",
+      "display": [440, 679],
+      "rows": ["26"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_2_dessert_FBOSS_3",
+      "character": "BOSS_DarkScorpion",
+      "species": "DarkScorpion",
+      "name": "Menasting",
+      "title": "Unstoppable Stinger",
+      "level": 44,
+      "position": [122760, 318710, 320],
+      "map": "MainMap",
+      "display": [350, 537],
+      "rows": ["24"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_2_dessert_FBOSS_5",
+      "character": "BOSS_CubeTurtle",
+      "species": "CubeTurtle",
+      "name": "Tetroise",
+      "title": "Sandsea Monolith",
+      "level": 55,
+      "position": [50564.8, 357757.5, 29.7],
+      "map": "MainMap",
+      "display": [435, 380],
+      "rows": ["25"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_2_dessert_FBOSS_FlowerDinosaur_Electric",
+      "character": "BOSS_FlowerDinosaur_Electric",
+      "species": "FlowerDinosaur_Electric",
+      "name": "Dinossom Lux",
+      "title": "Guardian of Lightning",
+      "level": 47,
+      "position": [-46108.4, 302547.8, -1928.5],
+      "map": "MainMap",
+      "display": [315, 169],
+      "rows": ["22"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_3_snow_FBOSS_1",
+      "character": "BOSS_IceHorse",
+      "species": "IceHorse",
+      "name": "Frostallion",
+      "title": "Legendary Steed of Ice",
+      "level": 60,
+      "position": [109790, -5880, 22180],
+      "map": "MainMap",
+      "display": [-357, 509],
+      "rows": ["35"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_3_volcano_FBOSS_2",
+      "character": "BOSS_VolcanicMonster",
+      "species": "VolcanicMonster",
+      "name": "Reptyro",
+      "title": "Lava-Devouring Juggernaut",
+      "level": 50,
+      "position": [-322820, -93429.8, 18739.2],
+      "map": "MainMap",
+      "display": [-548, -433],
+      "rows": ["67"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_3_volcano_FBOSS_3",
+      "character": "BOSS_KingBahamut",
+      "species": "KingBahamut",
+      "name": "Blazamut",
+      "title": "Cursed Tyrant",
+      "level": 52,
+      "position": [-276069.5, -180093, 8181.6],
+      "map": "MainMap",
+      "display": [-737, -332],
+      "rows": ["68"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_4_Sakurajima_FBOSS_2",
+      "character": "BOSS_WingGolem",
+      "species": "WingGolem",
+      "name": "Knocklem",
+      "title": "Suit of Armor",
+      "level": 55,
+      "position": [-238811, -110487.6, -205.3],
+      "map": "MainMap",
+      "display": [-585, -250],
+      "rows": ["66"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_5_Yamijima_FBOSS_11",
+      "character": "BOSS_BlueberryFairy",
+      "species": "BlueberryFairy",
+      "name": "Prunelia",
+      "title": "Indigo Handmaiden",
+      "level": 63,
+      "position": [-568029.2, -464143.1, -1848],
+      "map": "MainMap",
+      "display": [-1355, -968],
+      "rows": ["121"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_5_Yamijima_FBOSS_16",
+      "character": "BOSS_CubeTurtle_Neutral",
+      "species": "CubeTurtle_Neutral",
+      "name": "Tetroise Primo",
+      "title": "Sandsea Wardenstone",
+      "level": 60,
+      "position": [-729794.1, -338535.5, 15500.1],
+      "map": "MainMap",
+      "display": [-1082, -1320],
+      "rows": ["118"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_5_Yamijima_FBOSS_8",
+      "character": "BOSS_BlackPuppy",
+      "species": "BlackPuppy",
+      "name": "Smokie",
+      "title": "Jet-Black Little Hero",
+      "level": 60,
+      "position": [-797364.2, -245386.9, 183.9],
+      "map": "MainMap",
+      "display": [-879, -1467],
+      "rows": ["110"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_5_Yamijima_FBOSS_9",
+      "character": "BOSS_GhostRabbit",
+      "species": "GhostRabbit",
+      "name": "Nitemary",
+      "title": "Soul of the Dark Rabbit",
+      "level": 60,
+      "position": [-589257.2, -265874.4, 19702],
+      "map": "MainMap",
+      "display": [-923, -1014],
+      "rows": ["109"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "81_6_Ocean_FBOSS_1",
+      "character": "BOSS_IceNarwhal",
+      "species": "IceNarwhal",
+      "name": "Whalaska",
+      "title": "Gentle Ice Lance",
+      "level": 55,
+      "position": [262730, 75740, -3183],
+      "map": "MainMap",
+      "display": [-179, 842],
+      "rows": ["34"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "desertisland_1_FBOSS",
+      "character": "BOSS_ScorpionMan_Electric",
+      "species": "ScorpionMan_Electric",
+      "name": "Prixter Lux",
+      "title": "Thunderboy",
+      "level": 70,
+      "position": [-404768.2, -444910.7, -695.9],
+      "map": "MainMap",
+      "display": [-1314, -612],
+      "rows": ["30"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "desertisland_2_FBOSS",
+      "character": "BOSS_CactusDoll",
+      "species": "CactusDoll",
+      "name": "Needoll",
+      "title": "Prickly Welcome",
+      "level": 40,
+      "position": [-450359.5, 356886.2, 3561.4],
+      "map": "MainMap",
+      "display": [433, -711],
+      "rows": ["29"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "remainsIsland_1_GrassGolem_FBOSS",
+      "character": "BOSS_GrassGolem",
+      "species": "GrassGolem",
+      "name": "Dualith",
+      "title": "Twinhearted Azure Construct",
+      "level": 55,
+      "position": [-169138.2, 575683.1, -1814.1],
+      "map": "MainMap",
+      "display": [910, -99],
+      "rows": ["32"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "remainsIsland_1_GrassGolem_FBOSS",
+      "character": "BOSS_GrassGolem",
+      "species": "GrassGolem",
+      "name": "Dualith",
+      "title": "Twinhearted Azure Construct",
+      "level": 75,
+      "position": [517450, -626940, 10980],
+      "map": "Tree",
+      "display": [-1710, 1397],
+      "rows": ["15"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "remainsIsland_2_GrassGolem_Dark_FBOSS",
+      "character": "BOSS_GrassGolem_Dark",
+      "species": "GrassGolem_Dark",
+      "name": "Dualith Noct",
+      "title": "Twinhearted Violet Construct",
+      "level": 70,
+      "position": [-558869.9, -619480.7, -1819.7],
+      "map": "MainMap",
+      "display": [-1694, -948],
+      "rows": ["31"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "sakura_purple_D_LilyQueen",
+      "character": "BOSS_LilyQueen",
+      "species": "LilyQueen",
+      "name": "Lyleen",
+      "title": "Empress of Lilies",
+      "level": 58,
+      "position": [14681.1, -132067.6, 2994.5],
+      "map": "MainMap",
+      "display": [-632, 302],
+      "rows": ["36"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "sakura_purple_D_LilyQueen_Dark",
+      "character": "BOSS_LilyQueen_Dark",
+      "species": "LilyQueen_Dark",
+      "name": "Lyleen Noct",
+      "title": "Empress of the Abyss",
+      "level": 58,
+      "position": [15843.5, -130382.9, 3160.8],
+      "map": "MainMap",
+      "display": [-628, 304],
+      "rows": ["38"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "sakura_red_B_BOSS",
+      "character": "BOSS_DarkScorpion_Ground",
+      "species": "DarkScorpion_Ground",
+      "name": "Menasting Terra",
+      "title": "Gold-Piercing Spear",
+      "level": 55,
+      "position": [21745.5, -109001.6, -1343.3],
+      "map": "MainMap",
+      "display": [-582, 317],
+      "rows": ["37"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "sanctuary_1_forest_FBOSS",
+      "character": "BOSS_ElecPanda",
+      "species": "ElecPanda",
+      "name": "Grizzbolt",
+      "title": "Claws of Lightning",
+      "level": 30,
+      "position": [-443860.8, 183689.4, -1496.7],
+      "map": "MainMap",
+      "display": [56, -697],
+      "rows": ["70"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "sanctuary_2_volcano_FBOSS",
+      "character": "BOSS_BlackMetalDragon",
+      "species": "BlackMetalDragon",
+      "name": "Astegon",
+      "title": "Draconic Monarch of Steel",
+      "level": 55,
+      "position": [-174579, -158213.7, -1710.3],
+      "map": "MainMap",
+      "display": [-689, -110],
+      "rows": ["69"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "sanctuary_3_dessert_FBOSS",
+      "character": "BOSS_IceHorse_Dark",
+      "species": "IceHorse_Dark",
+      "name": "Frostallion Noct",
+      "title": "Legendary Steed of Darkness",
+      "level": 65,
+      "position": [173548.3, 474295.4, 192.5],
+      "map": "MainMap",
+      "display": [689, 648],
+      "rows": ["71"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "skyisland_8_04_B_highland_FBOSS_1",
+      "character": "BOSS_JetDragon",
+      "species": "JetDragon",
+      "name": "Jetragon",
+      "title": "Legendary Celestial Dragon",
+      "level": 70,
+      "position": [-735438.4, -95932.9, 47396.8],
+      "map": "MainMap",
+      "display": [-553, -1332],
+      "rows": ["41"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "skyisland_8_06_C_lotsulake_FBOSS_1",
+      "character": "BOSS_LotusDragon",
+      "species": "LotusDragon",
+      "name": "Ophydia",
+      "title": "Pure Bloom Dragon",
+      "level": 69,
+      "position": [-802420, -112610, 51608.1],
+      "map": "MainMap",
+      "display": [-590, -1478],
+      "rows": ["44"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "skyisland_8_07_G_mountain_FBOSS_1",
+      "character": "BOSS_FoxExorcist",
+      "species": "FoxExorcist",
+      "name": "Flaracle",
+      "title": "Self-Serving Seer",
+      "level": 68,
+      "position": [-821552.1, 46132.1, 51333],
+      "map": "MainMap",
+      "display": [-244, -1520],
+      "rows": ["39"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "skyisland_8_07_G_mountain_FBOSS_2",
+      "character": "BOSS_ThunderFluffyBird",
+      "species": "ThunderFluffyBird",
+      "name": "Dynamoff",
+      "title": "Buzzy Bundle",
+      "level": 67,
+      "position": [-822824, 16747, 45679],
+      "map": "MainMap",
+      "display": [-308, -1523],
+      "rows": ["42"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "skyisland_8_09_D_forest_FBOSS_2",
+      "character": "BOSS_MoonChild",
+      "species": "MoonChild",
+      "name": "Wistella",
+      "title": "Mantle of the Night Sky",
+      "level": 66,
+      "position": [-773523.9, 51495.9, 45252],
+      "map": "MainMap",
+      "display": [-232, -1415],
+      "rows": ["116"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "skyisland_8_10_D_swamp_FBOSS_1",
+      "character": "BOSS_ElecLizard",
+      "species": "ElecLizard",
+      "name": "Slowatt",
+      "title": "Shockingly Laid-Back",
+      "level": 66,
+      "position": [-746847.1, -10678, 41413.1],
+      "map": "MainMap",
+      "display": [-367, -1357],
+      "rows": ["43"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "skyisland_8_11_E_meadow_FBOSS_1",
+      "character": "BOSS_ElecSnail",
+      "species": "ElecSnail",
+      "name": "Snock",
+      "title": "Sluggish Blue Bolt",
+      "level": 65,
+      "position": [-772844, -11173, 39727],
+      "map": "MainMap",
+      "display": [-369, -1414],
+      "rows": ["45"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "skyisland_8_15_1_lake_FBOSS_1",
+      "character": "BOSS_GhostDragon",
+      "species": "GhostDragon",
+      "name": "Eidrolon",
+      "title": "Wings of Freedom",
+      "level": 69,
+      "position": [-822007, -66402, 40122.8],
+      "map": "MainMap",
+      "display": [-489, -1521],
+      "rows": ["40"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "snow_orange_I_BOSS",
+      "character": "BOSS_KingAlpaca_Ice",
+      "species": "KingAlpaca_Ice",
+      "name": "Kingpaca Cryst",
+      "title": "Azure Fluff Commander",
+      "level": 46,
+      "position": [39324.9, -18772.7, 6701.5],
+      "map": "MainMap",
+      "display": [-385, 356],
+      "rows": ["33"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "volcanoiskand_1_FBOSS",
+      "character": "BOSS_VolcanoDragon",
+      "species": "VolcanoDragon",
+      "name": "Moldron",
+      "title": "Scorched Wanderer",
+      "level": 70,
+      "position": [-1033347.9, -358750.8, 7958.1],
+      "map": "MainMap",
+      "display": [-1126, -1981],
+      "rows": ["27"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "volcanoiskand_2_FBOSS",
+      "character": "BOSS_RockBeast",
+      "species": "RockBeast",
+      "name": "Pierdon",
+      "title": "Shambling Vein",
+      "level": 50,
+      "position": [90345.5, 534007.8, 3685.1],
+      "map": "MainMap",
+      "display": [819, 467],
+      "rows": ["28"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "worldtree_9_02_B_FBOSS_1",
+      "character": "BOSS_IceNarwhal_Fire",
+      "species": "IceNarwhal_Fire",
+      "name": "Whalaska Ignis",
+      "title": "Gentle Crimson Lance",
+      "level": 74,
+      "position": [526910.2, -581727.6, 18204.2],
+      "map": "Tree",
+      "display": [-1612, 1418],
+      "rows": ["17"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "worldtree_9_05_D_FBOSS_1",
+      "character": "BOSS_KabukiMan",
+      "species": "KabukiMan",
+      "name": "Renjishi",
+      "title": "Scorching Ovation",
+      "level": 78,
+      "position": [601096.8, -572063.1, 30180],
+      "map": "Tree",
+      "display": [-1591, 1579],
+      "rows": ["20"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "worldtree_9_07_I_FBOSS_1",
+      "character": "BOSS_VolcanoDragon_Ice",
+      "species": "VolcanoDragon_Ice",
+      "name": "Moldron Cryst",
+      "title": "Frigid Voyager",
+      "level": 78,
+      "position": [571870, -733420, 18000],
+      "map": "Tree",
+      "display": [-1942, 1516],
+      "rows": ["19"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "worldtree_9_10_L_FBOSS_1",
+      "character": "BOSS_MushroomLady",
+      "species": "MushroomLady",
+      "name": "Mycora",
+      "title": "Cute as a Button",
+      "level": 78,
+      "position": [458095, -694560, 19325],
+      "map": "Tree",
+      "display": [-1857, 1268],
+      "rows": ["18"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "worldtree_9_11_N_FBOSS_1",
+      "character": "BOSS_WhiteDeer_Dark",
+      "species": "WhiteDeer_Dark",
+      "name": "Celesdir Noct",
+      "title": "Beast of Chaos",
+      "level": 79,
+      "position": [520440, -727175, 41054.5],
+      "map": "Tree",
+      "display": [-1928, 1404],
+      "rows": ["16"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "worldtree_9_13_M_FBOSS_1",
+      "character": "BOSS_DomeArmorDragon",
+      "species": "DomeArmorDragon",
+      "name": "Aegidron",
+      "title": "Guardian of Luminous Trails",
+      "level": 79,
+      "position": [491580.8, -725697.1, 12042.8],
+      "map": "Tree",
+      "display": [-1925, 1341],
+      "rows": ["21"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_IceLand_pink_A_BOSS",
+      "character": "BOSS_Werewolf_Ice",
+      "species": "Werewolf_Ice",
+      "name": "Loupmoon Cryst",
+      "title": "Enraptured by the Frozen Moonlight",
+      "level": 66,
+      "position": [-773027.4, -368265.9, 4287.2],
+      "map": "MainMap",
+      "display": [-1147, -1414],
+      "rows": ["14"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_IceLand_pink_D_BOSS",
+      "character": "BOSS_Horus_Water",
+      "species": "Horus_Water",
+      "name": "Faleris Aqua",
+      "title": "Sentinel of the Tides",
+      "level": 66,
+      "position": [-867560.9, -441338.2, 18640.2],
+      "map": "MainMap",
+      "display": [-1306, -1620],
+      "rows": ["0"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_IceLand_pink_F_BOSS",
+      "character": "BOSS_BlueThunderHorse",
+      "species": "BlueThunderHorse",
+      "name": "Azurmane",
+      "title": "Blue Lightning Steed",
+      "level": 66,
+      "position": [-889441.3, -361294.3, -1930.8],
+      "map": "MainMap",
+      "display": [-1131, -1668],
+      "rows": ["9"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_beach_purple_BOSS",
+      "character": "BOSS_RaijinDaughter_Water",
+      "species": "RaijinDaughter_Water",
+      "name": "Dazzi Noct",
+      "title": "Born of the Thunderclouds",
+      "level": 60,
+      "position": [-516157, -393151.1, -721.9],
+      "map": "MainMap",
+      "display": [-1201, -855],
+      "rows": ["7"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_forest_pink_D_WhiteDeer",
+      "character": "BOSS_WhiteDeer",
+      "species": "WhiteDeer",
+      "name": "Celesdir",
+      "title": "Beast of Salvation",
+      "level": 65,
+      "position": [-661871.9, -284991.8, 1422.1],
+      "map": "MainMap",
+      "display": [-965, -1172],
+      "rows": ["10"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_forest_purple_A_BOSS",
+      "character": "BOSS_GoldenHorse",
+      "species": "GoldenHorse",
+      "name": "Gildane",
+      "title": "Guardian Beast of Twilight",
+      "level": 63,
+      "position": [-772213.2, -273563.5, 5318.8],
+      "map": "MainMap",
+      "display": [-940, -1412],
+      "rows": ["3"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_forest_purple_A_BOSS_2",
+      "character": "BOSS_NightBlueHorse",
+      "species": "NightBlueHorse",
+      "name": "Starryon",
+      "title": "Midnight Blue Mane",
+      "level": 63,
+      "position": [-717565.9, -251787.3, 175.2],
+      "map": "MainMap",
+      "display": [-893, -1293],
+      "rows": ["6"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_forest_purple_C_BOSS",
+      "character": "BOSS_HerculesBeetle_Ground",
+      "species": "HerculesBeetle_Ground",
+      "name": "Warsect Terra",
+      "title": "Gold-Armored Warrior",
+      "level": 64,
+      "position": [-691248.6, -309680.3, 16072.2],
+      "map": "MainMap",
+      "display": [-1019, -1236],
+      "rows": ["2"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_plateau_pink_F_BOSS",
+      "character": "BOSS_AmaterasuWolf_Dark",
+      "species": "AmaterasuWolf_Dark",
+      "name": "Kitsun Noct",
+      "title": "Guardian of the Dark Flame",
+      "level": 65,
+      "position": [-723782.7, -230996.7, 7282.1],
+      "map": "MainMap",
+      "display": [-847, -1307],
+      "rows": ["8"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_plateau_pink_G_BOSS_2",
+      "character": "BOSS_GrimGirl",
+      "species": "GrimGirl",
+      "name": "Splatterina",
+      "title": "Crimson Butcher",
+      "level": 65,
+      "position": [-791868.2, -337175.9, 35122.8],
+      "map": "MainMap",
+      "display": [-1079, -1455],
+      "rows": ["1"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_plateau_purple_BOSS",
+      "character": "BOSS_BadCatgirl",
+      "species": "BadCatgirl",
+      "name": "Nyafia",
+      "title": "Night Shade Hunter",
+      "level": 60,
+      "position": [-544943.3, -264111.9, 2902.4],
+      "map": "MainMap",
+      "display": [-920, -917],
+      "rows": ["11"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_plateau_purple_BOSS_2",
+      "character": "BOSS_WhiteShieldDragon",
+      "species": "WhiteShieldDragon",
+      "name": "Silvegis",
+      "title": "Guardian Dragon of Ironclad",
+      "level": 62,
+      "position": [-593253.1, -294034.6, 1152.6],
+      "map": "MainMap",
+      "display": [-985, -1023],
+      "rows": ["12"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_plateau_purple_C_BOSS",
+      "character": "BOSS_FengyunDeeper_Electric",
+      "species": "FengyunDeeper_Electric",
+      "name": "Fenglope Lux",
+      "title": "Drifting Thundercloud",
+      "level": 60,
+      "position": [-649837.1, -235616.7, 17616.1],
+      "map": "MainMap",
+      "display": [-858, -1146],
+      "rows": ["13"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_rock_pink_E_BOSS",
+      "character": "BOSS_WhiteTiger_Ground",
+      "species": "WhiteTiger_Ground",
+      "name": "Cryolinx Terra",
+      "title": "Predator of the Earth",
+      "level": 62,
+      "position": [-721639, -432015, 10210.9],
+      "map": "MainMap",
+      "display": [-1285, -1302],
+      "rows": ["5"]
+    },
+    {
+      "kind": "field_boss",
+      "spawner": "yamijima_rock_purple_BOSS",
+      "character": "BOSS_MysteryMask",
+      "species": "MysteryMask",
+      "name": "Omascul",
+      "title": "Hundred-Faced Apostle",
+      "level": 60,
+      "position": [-550552.1, -166886.3, -476.1],
+      "map": "MainMap",
+      "display": [-708, -930],
+      "rows": ["4"]
+    },
+    {
+      "kind": "oil_rig",
+      "spawner": "REGION_Oilrig_1",
+      "character": null,
+      "species": null,
+      "name": "Rayne Syndicate Oil Rig",
+      "title": null,
+      "level": 55,
+      "position": [-321274.9, 424944.1, -2102.6],
+      "map": "MainMap",
+      "display": [582, -430],
+      "rows": ["124"]
+    },
+    {
+      "kind": "oil_rig",
+      "spawner": "REGION_Oilrig_2",
+      "character": null,
+      "species": null,
+      "name": "Rayne Syndicate Test Drilling Rig",
+      "title": null,
+      "level": 30,
+      "position": [-250672.6, 232290.1, -2100],
+      "map": "MainMap",
+      "display": [162, -276],
+      "rows": ["125"]
+    },
+    {
+      "kind": "oil_rig",
+      "spawner": "REGION_Oilrig_3",
+      "character": null,
+      "species": null,
+      "name": "Rayne Syndicate Platform Oil Rig",
+      "title": null,
+      "level": 60,
+      "position": [-789847.9, -636231, -250],
+      "map": "MainMap",
+      "display": [-1730, -1451],
+      "rows": ["123"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Believer_CrossBow",
+      "character": "BOSS_Believer_CrossBow",
+      "species": null,
+      "name": "Ego",
+      "title": "Gloating Narcissist",
+      "level": 23,
+      "position": [-164164.2, 152549.4, -1411],
+      "map": "MainMap",
+      "display": [-12, -88],
+      "rows": ["76", "129"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Believer_Fat_GiantClub",
+      "character": "BOSS_Believer_Fat_GiantClub",
+      "species": null,
+      "name": "Brick",
+      "title": "Hostile Defender",
+      "level": 30,
+      "position": [-79599.1, 192658.3, 6188.3],
+      "map": "MainMap",
+      "display": [76, 96],
+      "rows": ["82", "133"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_DarkTrader",
+      "character": "BOSS_DarkTrader",
+      "species": null,
+      "name": "Ram",
+      "title": "Uninvited Guest",
+      "level": 59,
+      "position": [-666737.7, -409956.4, 25605.3],
+      "map": "MainMap",
+      "display": [-1237, -1183],
+      "rows": ["80", "131"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Female_DesertPeople",
+      "character": "BOSS_Female_DesertPeople",
+      "species": null,
+      "name": "Whisper",
+      "title": "Chronic Spoiler",
+      "level": 37,
+      "position": [147119.1, 347473.6, -856.4],
+      "map": "MainMap",
+      "display": [413, 590],
+      "rows": ["91", "141"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Female_People",
+      "character": "BOSS_Female_People",
+      "species": null,
+      "name": "Flare",
+      "title": "Pyromaniac",
+      "level": 38,
+      "position": [-470652, -80708.4, -2009.1],
+      "map": "MainMap",
+      "display": [-520, -755],
+      "rows": ["99", "149"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Female_People02",
+      "character": "BOSS_Female_People02",
+      "species": null,
+      "name": "Siren",
+      "title": "Serial Cheater",
+      "level": 16,
+      "position": [-304539.2, 35742.3, 2271.3],
+      "map": "MainMap",
+      "display": [-266, -394],
+      "rows": ["102", "151"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Female_People03",
+      "character": "BOSS_Female_People03",
+      "species": null,
+      "name": "Turncoat",
+      "title": "Bounty Hunter Hunter",
+      "level": 15,
+      "position": [-300962.4, 157210.7, -164.2],
+      "map": "MainMap",
+      "display": [-2, -386],
+      "rows": ["87", "137"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Female_Soldier",
+      "character": "BOSS_Female_Soldier",
+      "species": null,
+      "name": "Jade",
+      "title": "Scam Artist",
+      "level": 19,
+      "position": [-177380, 9850, 6230],
+      "map": "MainMap",
+      "display": [-323, -117],
+      "rows": ["100", "158"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Female_Soldier02",
+      "character": "BOSS_Female_Soldier02",
+      "species": null,
+      "name": "Dazzle",
+      "title": "Attention-Seeking Monster",
+      "level": 56,
+      "position": [-712045.6, -229952.9, 8893],
+      "map": "MainMap",
+      "display": [-845, -1281],
+      "rows": ["72", "126"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Female_Soldier03",
+      "character": "BOSS_Female_Soldier03",
+      "species": null,
+      "name": "Aloha",
+      "title": "Pineapple Pizza Enthusiast",
+      "level": 39,
+      "position": [-231660, -113810, -1150],
+      "map": "MainMap",
+      "display": [-592, -235],
+      "rows": ["101", "150"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Female_Soldier04",
+      "character": "BOSS_Female_Soldier04",
+      "species": null,
+      "name": "Nimble",
+      "title": "Dango Thief",
+      "level": 52,
+      "position": [-75788.1, -82305, -960],
+      "map": "MainMap",
+      "display": [-524, 105],
+      "rows": ["88", "138"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_FireCult_FlameThrower",
+      "character": "BOSS_FireCult_FlameThrower",
+      "species": null,
+      "name": "Shadow",
+      "title": "Black Magic Fanatic",
+      "level": 41,
+      "position": [-331690.2, -40407.4, 15982.1],
+      "map": "MainMap",
+      "display": [-432, -453],
+      "rows": ["92", "142"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Hunter_Fat_GatlingGun",
+      "character": "BOSS_Hunter_Fat_GatlingGun",
+      "species": null,
+      "name": "Grill",
+      "title": "Intimidating Interviewer",
+      "level": 20,
+      "position": [-242340, 36220, 13020],
+      "map": "MainMap",
+      "display": [-265, -258],
+      "rows": ["77", "155"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Hunter_Rifle",
+      "character": "BOSS_Hunter_Rifle",
+      "species": null,
+      "name": "Hawk",
+      "title": "Amateur Hunter",
+      "level": 12,
+      "position": [-359201.6, 181724.3, 5179.1],
+      "map": "MainMap",
+      "display": [52, -513],
+      "rows": ["94", "144"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_DesertPeople",
+      "character": "BOSS_Male_DesertPeople",
+      "species": null,
+      "name": "Phantom",
+      "title": "Escape Artist",
+      "level": 36,
+      "position": [-62624.9, 402438.9, 12180.7],
+      "map": "MainMap",
+      "display": [533, 133],
+      "rows": ["90", "140"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_NinjaElite",
+      "character": "BOSS_Male_NinjaElite",
+      "species": null,
+      "name": "Urchin",
+      "title": "Street Assassin",
+      "level": 53,
+      "position": [-18160, -151400, 2360],
+      "map": "MainMap",
+      "display": [-674, 230],
+      "rows": ["93", "143"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_People",
+      "character": "BOSS_Male_People",
+      "species": null,
+      "name": "Dyna",
+      "title": "Twin Bombers",
+      "level": 26,
+      "position": [-126584.2, 318232.8, -1519.1],
+      "map": "MainMap",
+      "display": [349, -6],
+      "rows": ["95", "145"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_People02",
+      "character": "BOSS_Male_People02",
+      "species": null,
+      "name": "Quill",
+      "title": "Well-Meaning Quack",
+      "level": 43,
+      "position": [97108, 68422.4, 42381],
+      "map": "MainMap",
+      "display": [-195, 481],
+      "rows": ["97", "147"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_People03",
+      "character": "BOSS_Male_People03",
+      "species": null,
+      "name": "Scoot",
+      "title": "Dine-and-Dasher",
+      "level": 10,
+      "position": [-335675.2, 148683, 6384.4],
+      "map": "MainMap",
+      "display": [-20, -461],
+      "rows": ["73", "127"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_People2",
+      "character": "BOSS_Male_People2",
+      "species": null,
+      "name": "Mite",
+      "title": "Twin Bombers",
+      "level": 26,
+      "position": [-124753.9, 318055.8, -1920.8],
+      "map": "MainMap",
+      "display": [349, -2],
+      "rows": ["104", "153"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_Soldier",
+      "character": "BOSS_Male_Soldier",
+      "species": null,
+      "name": "Crash",
+      "title": "Insurance Fraudster",
+      "level": 15,
+      "position": [-409430, 24820, 1880],
+      "map": "MainMap",
+      "display": [-290, -622],
+      "rows": ["98", "148"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_Soldier02",
+      "character": "BOSS_Male_Soldier02",
+      "species": null,
+      "name": "Dart",
+      "title": "Prolific Smoker",
+      "level": 23,
+      "position": [-224118.3, 277672.1, -864.4],
+      "map": "MainMap",
+      "display": [261, -218],
+      "rows": ["96", "146"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_Soldier03",
+      "character": "BOSS_Male_Soldier03",
+      "species": null,
+      "name": "Clint",
+      "title": "Trigger-Happy Gunslinger",
+      "level": 49,
+      "position": [21850.1, -8346.6, 6712.5],
+      "map": "MainMap",
+      "display": [-362, 318],
+      "rows": ["83", "134"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_Soldier04",
+      "character": "BOSS_Male_Soldier04",
+      "species": null,
+      "name": "Lasso",
+      "title": "Cattle Rustler",
+      "level": 21,
+      "position": [-217110.7, 127090.6, 6142],
+      "map": "MainMap",
+      "display": [-67, -203],
+      "rows": ["84", "135"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_Trader01",
+      "character": "BOSS_Male_Trader01",
+      "species": null,
+      "name": "Skim",
+      "title": "Serial Embezzler",
+      "level": 42,
+      "position": [-57544.4, 116422.5, 9060.1],
+      "map": "MainMap",
+      "display": [-91, 145],
+      "rows": ["89", "139"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_Trader02",
+      "character": "BOSS_Male_Trader02",
+      "species": null,
+      "name": "Mimic",
+      "title": "Counterfeiter",
+      "level": 57,
+      "position": [-907334.1, -389724.4, -1882.7],
+      "map": "MainMap",
+      "display": [-1193, -1707],
+      "rows": ["103", "152"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Male_Trader03",
+      "character": "BOSS_Male_Trader03",
+      "species": null,
+      "name": "Billy",
+      "title": "Horse Rustler",
+      "level": 57,
+      "position": [-538826.5, -337667.7, -426],
+      "map": "MainMap",
+      "display": [-1080, -904],
+      "rows": ["81", "132"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Ninja",
+      "character": "BOSS_Ninja",
+      "species": null,
+      "name": "Fumble",
+      "title": "Blundering Klutz",
+      "level": 28,
+      "position": [-124624, 232502.7, 7802],
+      "map": "MainMap",
+      "display": [162, -2],
+      "rows": ["78", "130"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Police_Old",
+      "character": "BOSS_Police_old",
+      "species": null,
+      "name": "Pinch",
+      "title": "Serial Borrower",
+      "level": 57,
+      "position": [-686537.5, -380252.7, 32747.4],
+      "map": "MainMap",
+      "display": [-1173, -1226],
+      "rows": ["86", "136"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Police_Rifle",
+      "character": "BOSS_Police_Rifle",
+      "species": null,
+      "name": "Whip",
+      "title": "Workplace Tyrant",
+      "level": 40,
+      "position": [45909.5, 304971.4, -1015.4],
+      "map": "MainMap",
+      "display": [320, 370],
+      "rows": ["75", "128"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Scientist_LaserRifle",
+      "character": "BOSS_Scientist_LaserRifle",
+      "species": null,
+      "name": "Whisk",
+      "title": "Kidnapper",
+      "level": 45,
+      "position": [10215.9, 153782.1, 3150],
+      "map": "MainMap",
+      "display": [-9, 292],
+      "rows": ["85", "157"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_Viking",
+      "character": "BOSS_Viking",
+      "species": null,
+      "name": "Gnaw",
+      "title": "Cannibal",
+      "level": 57,
+      "position": [-584187.7, -181661.7, 978.4],
+      "map": "MainMap",
+      "display": [-740, -1003],
+      "rows": ["74", "154"]
+    },
+    {
+      "kind": "wanted",
+      "spawner": "BOSS_VikingElite",
+      "character": "BOSS_VikingElite",
+      "species": null,
+      "name": "Cache",
+      "title": "Human Collector",
+      "level": 58,
+      "position": [-805295.1, -478475.2, -815],
+      "map": "MainMap",
+      "display": [-1387, -1485],
+      "rows": ["79", "156"]
+    }
+  ]
+}

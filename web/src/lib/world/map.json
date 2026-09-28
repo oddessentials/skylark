@@ -1,0 +1,55 @@
+{
+  "game_version": "1.0.5.102999",
+  "sources": [
+    "/Game/Pal/DataTable/WorldMapUIData/DT_WorldMapUIData",
+    "/Game/Pal/Blueprint/UI/System/BP_PalUIFunctionLibrary WorldLocationToWidgetOffset",
+    "/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Base PrintPosition"
+  ],
+  "maps": [
+    {
+      "id": "MainMap",
+      "name": "Palpagos Islands",
+      "priority": 0,
+      "min": [-1099400, -724400],
+      "max": [349400, 724400],
+      "textures": ["/Game/Pal/Texture/UI/Map/T_WorldMap"],
+      "texture_block_size": [8192, 8192]
+    },
+    {
+      "id": "Tree",
+      "name": "The World Tree",
+      "priority": 1,
+      "min": [347351.5, -818197],
+      "max": [689148.5, -476400],
+      "textures": ["/Game/Pal/Texture/UI/Map/T_TreeMap"],
+      "texture_block_size": [8192, 8192]
+    }
+  ],
+  "image": {
+    "function": "BP_PalUIFunctionLibrary.WorldLocationToWidgetOffset",
+    "u": { "axis": "y", "invert": false },
+    "v": { "axis": "x", "invert": true }
+  },
+  "display": {
+    "function": "WBP_Map_Base.PrintPosition",
+    "format": "{x} , {y}{DebugInfo}",
+    "x": {
+      "axis": "y",
+      "from": [-301000, 617000],
+      "to": [-1000, 1000],
+      "origin": 158000,
+      "scale": 459,
+      "rounding": "HalfToEven",
+      "fraction_digits": 0
+    },
+    "y": {
+      "axis": "x",
+      "from": [-582888, 335112],
+      "to": [-1000, 1000],
+      "origin": -123888,
+      "scale": 459,
+      "rounding": "HalfToEven",
+      "fraction_digits": 0
+    }
+  }
+}

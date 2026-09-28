@@ -913,6 +913,115 @@
     border-color: var(--color-accent);
   }
 
+  .map-sea {
+    fill: color-mix(in srgb, var(--color-water) 22%, var(--color-surface-raised));
+  }
+
+  .map-land {
+    fill: color-mix(in srgb, var(--color-grass) 62%, var(--color-sphere-cream));
+    opacity: 0.8;
+  }
+
+  .map-shore {
+    fill: var(--color-sphere-cream);
+    opacity: 0.9;
+  }
+
+  .map-grid {
+    stroke: var(--color-accent);
+    stroke-opacity: 0.12;
+  }
+
+  .map-region {
+    font-family: var(--font-note);
+    fill: var(--color-ink-muted);
+    text-anchor: middle;
+    pointer-events: none;
+  }
+
+  .map-statue {
+    fill: var(--color-sun);
+    stroke: var(--color-ember);
+    stroke-width: 0.6;
+  }
+
+  .map-tower {
+    fill: var(--color-sphere-band);
+    fill-opacity: 0.75;
+  }
+
+  .map-wild {
+    fill-opacity: 0.7;
+    stroke: var(--color-surface-raised);
+    stroke-width: 0.4;
+  }
+
+  .map-death {
+    stroke: var(--color-offline);
+    stroke-linecap: round;
+  }
+
+  .map-trail {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-opacity: 0.85;
+  }
+
+  .map-trail-start {
+    fill: var(--color-surface-raised);
+    stroke: var(--color-accent);
+  }
+
+  .map-trail-end {
+    fill: var(--color-accent);
+    stroke: var(--color-surface-raised);
+  }
+
+  .map-player {
+    transition: opacity 200ms ease;
+  }
+
+  .map-player[data-down='true'] circle {
+    fill: var(--color-offline);
+  }
+
+  .map-player[data-highlight='true'] circle {
+    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--color-sun) 80%, transparent));
+  }
+
+  .map-initial {
+    fill: var(--color-surface-raised);
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-anchor: middle;
+    pointer-events: none;
+  }
+
+  .map-name {
+    fill: var(--color-ink);
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-anchor: middle;
+    paint-order: stroke;
+    stroke: var(--color-surface-raised);
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    pointer-events: none;
+  }
+
+  .map-caption {
+    position: absolute;
+    bottom: 0.6rem;
+    left: 0.75rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface-raised) 86%, transparent);
+    padding: 0.15rem 0.6rem;
+    font-size: 0.68rem;
+    color: var(--color-ink-muted);
+  }
+
   .spine {
     position: relative;
   }
@@ -940,6 +1049,7 @@
   }
 
   .progress-fill {
+    display: block;
     height: 100%;
     border-radius: 999px;
     background: linear-gradient(to right, var(--color-accent), var(--color-sphere-shell));

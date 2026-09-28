@@ -1,0 +1,540 @@
+{
+  "game_version": "1.0.5.102999",
+  "sources": [
+    "/Game/Pal/Blueprint/System/BP_PalBossBattleManager",
+    "/Game/Pal/Blueprint/RaidBoss/DT_PalRaidBoss",
+    "/Game/Pal/DataTable/Character/DT_PalMonsterParameter",
+    "/Game/Pal/DataTable/Text/DT_UI_Common_Text_Common"
+  ],
+  "defeat_flag_key_format": "{EPalBossType}_{EPalBossBattleDifficulty}",
+  "hard_unlock_trigger": "SorajimaBoss",
+  "battles": [
+    {
+      "boss_type": "GrassBoss",
+      "enum": "EPalBossType::GrassBoss",
+      "category": "faction_tower",
+      "name": "Rayne Syndicate Tower",
+      "field_boss": false,
+      "tower": { "position": [-321596.3, 209085, -45], "map": "MainMap", "display": [111, -431] },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "GrassBoss_Normal",
+          "character": "GYM_ElecPanda",
+          "species": "ElecPanda",
+          "species_name": "Grizzbolt",
+          "name": "Zoe & Grizzbolt",
+          "title": "Rayne Syndicate Boss",
+          "level": 10,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        },
+        {
+          "difficulty": "Hard",
+          "defeat_flag_key": "GrassBoss_Hard",
+          "character": "GYM_ElecPanda_2",
+          "species": "ElecPanda",
+          "species_name": "Grizzbolt",
+          "name": "Zoe & Grizzbolt",
+          "title": "Rayne Syndicate Boss",
+          "level": 72,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "ForestBoss",
+      "enum": "EPalBossType::ForestBoss",
+      "category": "faction_tower",
+      "name": "Free Pal Alliance Tower",
+      "field_boss": false,
+      "tower": {
+        "position": [-266563.2, 174506.3, 5930.4],
+        "map": "MainMap",
+        "display": [36, -311]
+      },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "ForestBoss_Normal",
+          "character": "GYM_LilyQueen",
+          "species": "LilyQueen",
+          "species_name": "Lyleen",
+          "name": "Lily & Lyleen",
+          "title": "Free Pal Alliance Founder",
+          "level": 20,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        },
+        {
+          "difficulty": "Hard",
+          "defeat_flag_key": "ForestBoss_Hard",
+          "character": "GYM_LilyQueen_2",
+          "species": "LilyQueen",
+          "species_name": "Lyleen",
+          "name": "Lily & Lyleen",
+          "title": "Free Pal Alliance Founder",
+          "level": 74,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "ElectricBoss",
+      "enum": "EPalBossType::ElectricBoss",
+      "category": "faction_tower",
+      "name": "Brothers of the Eternal Pyre Tower",
+      "field_boss": false,
+      "tower": {
+        "position": [-361695, -112009, 61207.5],
+        "map": "MainMap",
+        "display": [-588, -518]
+      },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "ElectricBoss_Normal",
+          "character": "GYM_ThunderDragonMan",
+          "species": "ThunderDragonMan",
+          "species_name": "Orserk",
+          "name": "Axel & Orserk",
+          "title": "Brothers of the Eternal Pyre Soul Leader",
+          "level": 30,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        },
+        {
+          "difficulty": "Hard",
+          "defeat_flag_key": "ElectricBoss_Hard",
+          "character": "GYM_ThunderDragonMan_2",
+          "species": "ThunderDragonMan",
+          "species_name": "Orserk",
+          "name": "Axel & Orserk",
+          "title": "Brothers of the Eternal Pyre Soul Leader",
+          "level": 76,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "DesertBoss",
+      "enum": "EPalBossType::DesertBoss",
+      "category": "faction_tower",
+      "name": "PIDF Tower",
+      "field_boss": false,
+      "tower": { "position": [29975.3, 413325, 15514], "map": "MainMap", "display": [556, 335] },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "DesertBoss_Normal",
+          "character": "GYM_Horus",
+          "species": "Horus",
+          "species_name": "Faleris",
+          "name": "Marcus & Faleris",
+          "title": "PIDF Commander",
+          "level": 40,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        },
+        {
+          "difficulty": "Hard",
+          "defeat_flag_key": "DesertBoss_Hard",
+          "character": "GYM_Horus_2",
+          "species": "Horus",
+          "species_name": "Faleris",
+          "name": "Marcus & Faleris",
+          "title": "PIDF Commander",
+          "level": 78,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "SnowBoss",
+      "enum": "EPalBossType::SnowBoss",
+      "category": "faction_tower",
+      "name": "PAL Genetic Research Unit Tower",
+      "field_boss": false,
+      "tower": { "position": [81363, 90183, 63796], "map": "MainMap", "display": [-148, 447] },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "SnowBoss_Normal",
+          "character": "GYM_BlackGriffon",
+          "species": "BlackGriffon",
+          "species_name": "Shadowbeak",
+          "name": "Victor & Shadowbeak",
+          "title": "PAL Genetic Research Unit Commander",
+          "level": 50,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        },
+        {
+          "difficulty": "Hard",
+          "defeat_flag_key": "SnowBoss_Hard",
+          "character": "GYM_BlackGriffon_2",
+          "species": "BlackGriffon",
+          "species_name": "Shadowbeak",
+          "name": "Victor & Shadowbeak",
+          "title": "PAL Genetic Research Unit Commander",
+          "level": 80,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "SakurajimaBoss",
+      "enum": "EPalBossType::SakurajimaBoss",
+      "category": "faction_tower",
+      "name": "Moonflower Tower",
+      "field_boss": false,
+      "tower": {
+        "position": [-29427.6, -115900.1, 6225.5],
+        "map": "MainMap",
+        "display": [-597, 206]
+      },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "SakurajimaBoss_Normal",
+          "character": "GYM_MoonQueen",
+          "species": "MoonQueen",
+          "species_name": "Selyne",
+          "name": "Saya & Selyne",
+          "title": "Leader of the Moonflowers",
+          "level": 55,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        },
+        {
+          "difficulty": "Hard",
+          "defeat_flag_key": "SakurajimaBoss_Hard",
+          "character": "GYM_MoonQueen_2",
+          "species": "MoonQueen",
+          "species_name": "Selyne",
+          "name": "Saya & Selyne",
+          "title": "Leader of the Moonflowers",
+          "level": 80,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "VikingBoss",
+      "enum": "EPalBossType::VikingBoss",
+      "category": "faction_tower",
+      "name": "Feybreak Tower",
+      "field_boss": false,
+      "tower": {
+        "position": [-889805.2, -435828, 19038.9],
+        "map": "MainMap",
+        "display": [-1294, -1669]
+      },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "VikingBoss_Normal",
+          "character": "GYM_SnowTigerBeastman",
+          "species": "SnowTigerBeastman",
+          "species_name": "Bastigor",
+          "name": "Bjorn & Bastigor",
+          "title": "Jarl of Feybreak",
+          "level": 60,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        },
+        {
+          "difficulty": "Hard",
+          "defeat_flag_key": "VikingBoss_Hard",
+          "character": "GYM_SnowTigerBeastman_2",
+          "species": "SnowTigerBeastman",
+          "species_name": "Bastigor",
+          "name": "Bjorn & Bastigor",
+          "title": "Jarl of Feybreak",
+          "level": 80,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "SorajimaBoss",
+      "enum": "EPalBossType::SorajimaBoss",
+      "category": "faction_tower",
+      "name": "Azure Covenant Tower",
+      "field_boss": false,
+      "tower": {
+        "position": [-778215.9, -36026, 60693.3],
+        "map": "MainMap",
+        "display": [-423, -1426]
+      },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "SorajimaBoss_Normal",
+          "character": "GYM_BlueSkyDragon",
+          "species": "BlueSkyDragon",
+          "species_name": "Shaolong",
+          "name": "Auri & Shaolong",
+          "title": "High Keeper of the Azure Covenant",
+          "level": 68,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        },
+        {
+          "difficulty": "Hard",
+          "defeat_flag_key": "SorajimaBoss_Hard",
+          "character": "GYM_BlueSkyDragon_2",
+          "species": "BlueSkyDragon",
+          "species_name": "Shaolong",
+          "name": "Auri & Shaolong",
+          "title": "High Keeper of the Azure Covenant",
+          "level": 80,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "WorldTreeMiddleBoss1",
+      "enum": "EPalBossType::WorldTreeMiddleBoss1",
+      "category": "world_tree_middle",
+      "name": "Rotmist Root",
+      "field_boss": true,
+      "tower": {
+        "position": [630703.1, -612728.6, 28495],
+        "map": "Tree",
+        "display": [-1679, 1644]
+      },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "WorldTreeMiddleBoss1_Normal",
+          "character": "BOSS_FlowerPrince",
+          "species": "FlowerPrince",
+          "species_name": "Dandilord",
+          "name": "Dandilord",
+          "title": "Bewitching Lurker",
+          "level": 78,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "WorldTreeMiddleBoss2",
+      "enum": "EPalBossType::WorldTreeMiddleBoss2",
+      "category": "world_tree_middle",
+      "name": "Shinespore Root",
+      "field_boss": true,
+      "tower": { "position": [405135, -730345, 22845], "map": "Tree", "display": [-1935, 1153] },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "WorldTreeMiddleBoss2_Normal",
+          "character": "BOSS_Mothman",
+          "species": "Mothman",
+          "species_name": "Silvance",
+          "name": "Silvance",
+          "title": "Immortal Shade",
+          "level": 78,
+          "time_limit_seconds": 300,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "WorldTreeMiddleBoss3",
+      "enum": "EPalBossType::WorldTreeMiddleBoss3",
+      "category": "world_tree_middle",
+      "name": "Forbidden Laboratory",
+      "field_boss": true,
+      "tower": {
+        "position": [622547.5, -759171.1, 21255.8],
+        "map": "Tree",
+        "display": [-1998, 1626]
+      },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "WorldTreeMiddleBoss3_Normal",
+          "character": "BOSS_ElecPanda_BossRush",
+          "species": "ElecPanda",
+          "species_name": "Grizzbolt",
+          "name": "Grizzbolt",
+          "title": "Highly Modified",
+          "level": 78,
+          "time_limit_seconds": 600,
+          "unlock_condition": null
+        }
+      ]
+    },
+    {
+      "boss_type": "WorldTreeBoss",
+      "enum": "EPalBossType::WorldTreeBoss",
+      "category": "world_tree_final",
+      "name": "？？？",
+      "field_boss": false,
+      "tower": {
+        "position": [495634.3, -756824.4, 42595],
+        "map": "Tree",
+        "display": [-1993, 1350]
+      },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "WorldTreeBoss_Normal",
+          "character": "GYM_WorldTreeDragon",
+          "species": "WorldTreeDragon",
+          "species_name": "Astralym",
+          "name": "Zenara & Astralym",
+          "title": "Nullstar Calamity",
+          "level": 80,
+          "time_limit_seconds": 600,
+          "unlock_condition": null
+        },
+        {
+          "difficulty": "Hard",
+          "defeat_flag_key": "WorldTreeBoss_Hard",
+          "character": "GYM_WorldTreeDragon_2",
+          "species": "WorldTreeDragon",
+          "species_name": "Astralym",
+          "name": "Zenara & Astralym",
+          "title": "Blightstar Calamity",
+          "level": 100,
+          "time_limit_seconds": 600,
+          "unlock_condition": "DefeatSameBossNormal"
+        }
+      ]
+    },
+    {
+      "boss_type": "KingWhaleBoss",
+      "enum": "EPalBossType::KingWhaleBoss",
+      "category": "king_whale",
+      "name": "？？？",
+      "field_boss": false,
+      "tower": { "position": [-108093.8, 77936.1, 407.6], "map": "MainMap", "display": [-174, 34] },
+      "difficulties": [
+        {
+          "difficulty": "Normal",
+          "defeat_flag_key": "KingWhaleBoss_Normal",
+          "character": "BOSS_KingWhale",
+          "species": "KingWhale",
+          "species_name": "Panthalus",
+          "name": "Panthalus",
+          "title": "Legendary Ocean King",
+          "level": 70,
+          "time_limit_seconds": 600,
+          "unlock_condition": null
+        }
+      ]
+    }
+  ],
+  "raids": [
+    {
+      "id": "PalSummon_NightLady",
+      "character": "RAID_NightLady",
+      "species": "NightLady",
+      "species_name": "Bellanoir",
+      "name": "Bellanoir",
+      "title": "Eclipsed Siren",
+      "level": 35
+    },
+    {
+      "id": "PalSummon_NightLady_Dark",
+      "character": "RAID_NightLady_Dark",
+      "species": "NightLady_Dark",
+      "species_name": "Bellanoir Libero",
+      "name": "Bellanoir Libero",
+      "title": "Twilight Siren",
+      "level": 45
+    },
+    {
+      "id": "PalSummon_NightLady_Dark_2",
+      "character": "RAID_NightLady_Dark_2",
+      "species": "NightLady_Dark",
+      "species_name": "Bellanoir Libero",
+      "name": "Bellanoir Libero",
+      "title": "Twilight Siren (Ultra)",
+      "level": 80
+    },
+    {
+      "id": "PalSummon_KingBahamut_Dragon",
+      "character": "RAID_KingBahamut_Dragon",
+      "species": "KingBahamut_Dragon",
+      "species_name": "Blazamut Ryu",
+      "name": "Blazamut Ryu",
+      "title": "Incarnation of the Eternal Flame",
+      "level": 55
+    },
+    {
+      "id": "PalSummon_KingBahamut_Dragon_2",
+      "character": "RAID_KingBahamut_Dragon_2",
+      "species": "KingBahamut_Dragon",
+      "species_name": "Blazamut Ryu",
+      "name": "Blazamut Ryu",
+      "title": "Incarnation of the Eternal Flame (Ultra)",
+      "level": 80
+    },
+    {
+      "id": "PalSummon_DarkMechaDragon",
+      "character": "RAID_DarkMechaDragon",
+      "species": "DarkMechaDragon",
+      "species_name": "Xenolord",
+      "name": "Xenolord",
+      "title": "Invader from Space",
+      "level": 65
+    },
+    {
+      "id": "PalSummon_DarkMechaDragon_2",
+      "character": "RAID_DarkMechaDragon_2",
+      "species": "DarkMechaDragon",
+      "species_name": "Xenolord",
+      "name": "Xenolord",
+      "title": "Invader from Space (Ultra)",
+      "level": 80
+    },
+    {
+      "id": "PalSummon_YakushimaBoss002",
+      "character": "RAID_YakushimaBoss002",
+      "species": null,
+      "species_name": null,
+      "name": "Moon Lord",
+      "title": null,
+      "level": 50
+    },
+    {
+      "id": "PalSummon_YakushimaBoss002_2",
+      "character": "RAID_YakushimaBoss002_2",
+      "species": null,
+      "species_name": null,
+      "name": "Moon Lord",
+      "title": "[Master]",
+      "level": 80
+    },
+    {
+      "id": "PalSummon_LegendDeer",
+      "character": "RAID_LegendDeer",
+      "species": "LegendDeer",
+      "species_name": "Hartalis",
+      "name": "Hartalis",
+      "title": "King of Salvation",
+      "level": 70
+    },
+    {
+      "id": "PalSummon_LegendDeer_2",
+      "character": "RAID_LegendDeer_2",
+      "species": "LegendDeer",
+      "species_name": "Hartalis",
+      "name": "Hartalis",
+      "title": "King of Salvation (Ultra)",
+      "level": 80
+    }
+  ]
+}
