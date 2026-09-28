@@ -153,8 +153,8 @@
     "last_online_at": "2026-09-27T19:17:15.000Z",
     "palpedia": 130,
     "palpedia_total": 288,
-    "species_captured": 129,
-    "captures": 400,
+    "species_captured": 115,
+    "captures": 419,
     "tower_bosses": [
       { "id": "GrassBoss", "name": "Rayne Syndicate Tower" },
       { "id": "ForestBoss", "name": "Free Pal Alliance Tower" }
