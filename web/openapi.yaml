@@ -2701,6 +2701,8 @@ components:
           maxLength: 60
         features:
           $ref: '#/components/schemas/SiteFeatures'
+        retention:
+          $ref: '#/components/schemas/Retention'
         locked:
           type: array
           description: Settings fixed by an environment variable.
@@ -2711,7 +2713,40 @@ components:
       required:
         - site_name
         - features
+        - retention
         - locked
+      additionalProperties: false
+    Retention:
+      type: object
+      description: How long the site keeps raw data. Totals, sessions, level-ups, knockouts and chat stay regardless.
+      properties:
+        positions_days:
+          type:
+            - integer
+            - 'null'
+          minimum: 1
+          maximum: 3650
+          description: Days of player positions to keep, behind trails and distance; null keeps them forever. Older trails disappear, and a history rebuild counts only the distance that remains.
+        snapshots_hours:
+          type: integer
+          minimum: 1
+          maximum: 168
+          description: Hours of raw world snapshots to keep.
+        metrics_days:
+          type: integer
+          minimum: 1
+          maximum: 3650
+          description: Days of server metrics (FPS, players online) to keep.
+        status_samples_days:
+          type: integer
+          minimum: 1
+          maximum: 3650
+          description: Days of the five-minute status samples behind the uptime history to keep.
+      required:
+        - positions_days
+        - snapshots_hours
+        - metrics_days
+        - status_samples_days
       additionalProperties: false
     AdminSettingsUpdate:
       type: object
@@ -2733,6 +2768,28 @@ components:
               type: boolean
             pals:
               type: boolean
+          additionalProperties: false
+        retention:
+          type: object
+          properties:
+            positions_days:
+              type:
+                - integer
+                - 'null'
+              minimum: 1
+              maximum: 3650
+            snapshots_hours:
+              type: integer
+              minimum: 1
+              maximum: 168
+            metrics_days:
+              type: integer
+              minimum: 1
+              maximum: 3650
+            status_samples_days:
+              type: integer
+              minimum: 1
+              maximum: 3650
           additionalProperties: false
       additionalProperties: false
     CollectorRun:
