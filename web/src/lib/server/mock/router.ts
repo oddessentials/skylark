@@ -201,6 +201,13 @@ function answerGet(route: MockRoute, match: RegExpExecArray, url: URL): Response
       `${route.listFixture ?? 'resource'} ${id} does not exist`
     );
   }
+  const own = id === null ? null : route.fixture.replace(/\{\w+\}/, id);
+  if (own !== null && hasFixture(own)) {
+    const concrete = cloneFixture<Record<string, unknown>>(own)!;
+    const paged = paginate(filterItems(route, concrete, url), url, 50, 200);
+    if (paged instanceof Response) return paged;
+    return jsonResponse(paged, !route.template.startsWith('/api/v1/admin/'));
+  }
   let document = cloneFixture<Record<string, unknown>>(route.fixture);
   if (!document) return errorResponse(404, 'not_found', `no fixture for ${route.template}`);
   if (id !== null && route.detail && route.idField && String(document[route.idField]) !== id) {
