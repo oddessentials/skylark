@@ -90,7 +90,7 @@
               <th class="num">Level</th>
               <th class="num">Played</th>
               <th>Last seen</th>
-              <th></th>
+              <th><span class="sr-only">Edit</span></th>
             </tr>
           </thead>
           <tbody>

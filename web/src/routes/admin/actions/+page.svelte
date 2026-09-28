@@ -243,7 +243,11 @@
       <div class="overflow-x-auto">
         <table class="data-table">
           <thead>
-            <tr><th>Created</th><th>Action</th><th>Details</th><th>State</th><th></th></tr>
+            <tr
+              ><th>Created</th><th>Action</th><th>Details</th><th>State</th><th
+                ><span class="sr-only">Cancel</span></th
+              ></tr
+            >
           </thead>
           <tbody>
             {#each items as item (item.id)}

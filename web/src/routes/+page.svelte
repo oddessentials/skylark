@@ -78,7 +78,7 @@
     {/if}
   </header>
 
-  <div class="grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+  <div class="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
     <div class="flex flex-col gap-6">
       <section id="clock" class="card rise rise-2 flex flex-col items-center gap-2 p-5">
         <SunDial {status} />
@@ -178,7 +178,7 @@
   </div>
 
   {#if boards.length > 0}
-    <div class="grid gap-6 md:grid-cols-3">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
       {#each boards as board (board.title)}
         <Card title={board.title}>
           <ol class="flex flex-col gap-1.5">
