@@ -1,0 +1,920 @@
+{
+  "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+  "saved_at": "2026-09-27T20:29:00.000Z",
+  "members": [
+    { "player": { "id": 2, "name": "Wren" }, "name": "Wren", "pals": 18 },
+    { "player": null, "name": "Hollis", "pals": 11 },
+    { "player": { "id": 7, "name": "Orrin" }, "name": "Orrin", "pals": 11 },
+    { "player": { "id": 3, "name": "Tamsin" }, "name": "Tamsin", "pals": 10 }
+  ],
+  "pals": [
+    {
+      "id": "603421E68F822A45650C1CED2635F98D",
+      "member": 0,
+      "species": "CaptainPenguin",
+      "alpha": false,
+      "gender": "female",
+      "level": 7,
+      "rank": 1,
+      "talents": { "hp": 9, "shot": 75, "defense": 83 },
+      "passives": [],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "B2F5E4310ED5ACF20E320E8902228F80",
+      "member": 0,
+      "species": "CatVampire",
+      "alpha": false,
+      "gender": "female",
+      "level": 28,
+      "rank": 1,
+      "talents": { "hp": 90, "shot": 34, "defense": 63 },
+      "passives": [
+        { "id": "PAL_FullStomach_Down_1", "name": "Dainty Eater", "rank": 1 },
+        { "id": "ElementResist_Normal_1_PAL", "name": "Abnormal", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "E7540FAF2A4319C3EA69D7AFDDC112FC",
+      "member": 0,
+      "species": "GrassMinotaur_Ice",
+      "alpha": false,
+      "gender": "female",
+      "level": 2,
+      "rank": 2,
+      "talents": { "hp": 99, "shot": 55, "defense": 2 },
+      "passives": [
+        { "id": "Rare", "name": "Lucky", "rank": 4 },
+        { "id": "PAL_ALLAttack_down1", "name": "Coward", "rank": -1 },
+        { "id": "SelfDeathAddItemDrop_up_3", "name": "Lavish Hospitality", "rank": 4 }
+      ],
+      "lucky": true,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "DBBCFEC33FA6FFB286B3DF2B56733110",
+      "member": 0,
+      "species": "SharkKid",
+      "alpha": false,
+      "gender": "male",
+      "level": 18,
+      "rank": 1,
+      "talents": { "hp": 24, "shot": 9, "defense": 57 },
+      "passives": [{ "id": "PAL_Sanity_Up_2", "name": "Destructive", "rank": -2 }],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "996613D4EA0BCC3FDC01F534159204F9",
+      "member": 0,
+      "species": "SharkKid_Fire",
+      "alpha": false,
+      "gender": "female",
+      "level": 16,
+      "rank": 1,
+      "talents": { "hp": 54, "shot": 17, "defense": 40 },
+      "passives": [
+        { "id": "SelfDeathAddItemDrop_up_3", "name": "Lavish Hospitality", "rank": 4 },
+        { "id": "TrainerDEF_UP_1", "name": "Stronghold Strategist", "rank": 3 },
+        { "id": "Noukin", "name": "Musclehead", "rank": 2 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "8BD43D502C81927C058C9B2160586357",
+      "member": 0,
+      "species": "Bastet_Ice",
+      "alpha": false,
+      "gender": "male",
+      "level": 18,
+      "rank": 1,
+      "talents": { "hp": 55, "shot": 80, "defense": 37 },
+      "passives": [
+        { "id": "TrainerATK_UP_1", "name": "Vanguard", "rank": 3 },
+        { "id": "ElementBoost_Dragon_1_PAL", "name": "Blood of the Dragon", "rank": 1 },
+        { "id": "PAL_FullStomach_Up_1", "name": "Glutton", "rank": -1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "9434532E66BBB6CF21100D01D3180679",
+      "member": 0,
+      "species": "BluePlatypus",
+      "alpha": false,
+      "gender": "male",
+      "level": 9,
+      "rank": 1,
+      "talents": { "hp": 37, "shot": 30, "defense": 66 },
+      "passives": [],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "D006C878211ACB7A44FDFDB14DAD3840",
+      "member": 0,
+      "species": "Boar",
+      "alpha": false,
+      "gender": "female",
+      "level": 20,
+      "rank": 1,
+      "talents": { "hp": 74, "shot": 83, "defense": 4 },
+      "passives": [
+        { "id": "TrainerLogging_up1", "name": "Logging Foreman", "rank": 3 },
+        { "id": "PAL_Sanity_Down_2", "name": "Workaholic", "rank": 3 },
+        { "id": "TrainerATK_UP_1", "name": "Vanguard", "rank": 3 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "4927B65DB19612DA0142BDFF8B7B512C",
+      "member": 0,
+      "species": "ColorfulBird",
+      "alpha": false,
+      "gender": "male",
+      "level": 11,
+      "rank": 1,
+      "talents": { "hp": 70, "shot": 77, "defense": 21 },
+      "passives": [
+        { "id": "CraftSpeed_up3", "name": "Remarkable Craftsmanship", "rank": 4 },
+        { "id": "ElementResist_Earth_1_PAL", "name": "Earthquake Resistant", "rank": 1 },
+        { "id": "NightOwl", "name": "Night Owl", "rank": -1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "80775180EB24EDFC856CE5805B4CA001",
+      "member": 0,
+      "species": "CowPal",
+      "alpha": false,
+      "gender": "male",
+      "level": 1,
+      "rank": 1,
+      "talents": { "hp": 31, "shot": 70, "defense": 93 },
+      "passives": [
+        { "id": "ElementResist_Dark_1_PAL", "name": "Cheery", "rank": 1 },
+        { "id": "WorkSuitabilityAddRank_MonsterFarm_1", "name": "Farmhand", "rank": 3 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "6EEE18AFE1AC1CCFCF834B79569E3F28",
+      "member": 0,
+      "species": "CuteFox",
+      "alpha": false,
+      "gender": "female",
+      "level": 7,
+      "rank": 1,
+      "talents": { "hp": 25, "shot": 80, "defense": 77 },
+      "passives": [
+        { "id": "SalePrice_Down_1", "name": "Shabby", "rank": -1 },
+        { "id": "Nocturnal", "name": "Insomnia", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "669989C2CC356D0C87FDEE3AF0F2EDCE",
+      "member": 0,
+      "species": "FairyDragon",
+      "alpha": false,
+      "gender": "female",
+      "level": 26,
+      "rank": 1,
+      "talents": { "hp": 94, "shot": 92, "defense": 50 },
+      "passives": [],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "73C8521784FEB63B99504465705D3F54",
+      "member": 0,
+      "species": "FengyunDeeper",
+      "alpha": false,
+      "gender": "female",
+      "level": 7,
+      "rank": 1,
+      "talents": { "hp": 59, "shot": 35, "defense": 12 },
+      "passives": [{ "id": "Deffence_up3", "name": "Diamond Body", "rank": 4 }],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "77F3D08C04F6DEB9352745F0B9E849AE",
+      "member": 0,
+      "species": "GhostBlackCat",
+      "alpha": false,
+      "gender": "male",
+      "level": 30,
+      "rank": 1,
+      "talents": { "hp": 14, "shot": 89, "defense": 20 },
+      "passives": [
+        { "id": "CraftSpeed_up1", "name": "Serious", "rank": 1 },
+        { "id": "TrainerWorkSpeed_UP_1", "name": "Motivational Leader", "rank": 3 },
+        { "id": "PAL_CorporateSlave", "name": "Work Slave", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "7ECCB83DB6B11A4CCF67FE2561B8196E",
+      "member": 0,
+      "species": "KingAlpaca",
+      "alpha": false,
+      "gender": "male",
+      "level": 30,
+      "rank": 1,
+      "talents": { "hp": 4, "shot": 93, "defense": 91 },
+      "passives": [
+        { "id": "ElementResist_Fire_1_PAL", "name": "Suntan Lover", "rank": 1 },
+        { "id": "WorkSuitabilityAddRank_MonsterFarm_1", "name": "Farmhand", "rank": 3 },
+        { "id": "SalePrice_Up_1", "name": "Noble", "rank": 3 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "E410E544DBBEF66953D729CE98D453EA",
+      "member": 0,
+      "species": "LazyDragon",
+      "alpha": false,
+      "gender": "male",
+      "level": 14,
+      "rank": 1,
+      "talents": { "hp": 6, "shot": 55, "defense": 57 },
+      "passives": [{ "id": "MoveSpeed_up_3", "name": "Swift", "rank": 4 }],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "6A906C8A58A048C0FB4F54B7AA56B1DB",
+      "member": 0,
+      "species": "NaughtyCat",
+      "alpha": false,
+      "gender": "female",
+      "level": 17,
+      "rank": 2,
+      "talents": { "hp": 62, "shot": 49, "defense": 62 },
+      "passives": [{ "id": "CraftSpeed_up3", "name": "Remarkable Craftsmanship", "rank": 4 }],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "8C285B6C7B2DCFB112B8427AA19CC96A",
+      "member": 0,
+      "species": "Werewolf_Ice",
+      "alpha": false,
+      "gender": "female",
+      "level": 29,
+      "rank": 1,
+      "talents": { "hp": 44, "shot": 82, "defense": 39 },
+      "passives": [
+        { "id": "PAL_Sanity_Down_3", "name": "Heart of the Immovable King", "rank": 4 },
+        { "id": "PAL_Sanity_Down_2", "name": "Workaholic", "rank": 3 },
+        { "id": "ElementBoost_Aqua_1_PAL", "name": "Hydromaniac", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "9F5C1FF84CDFC75BE7512E43E7C8D729",
+      "member": 1,
+      "species": "ChickenPal",
+      "alpha": false,
+      "gender": "male",
+      "level": 4,
+      "rank": 1,
+      "talents": { "hp": 14, "shot": 46, "defense": 32 },
+      "passives": [
+        { "id": "SwimSpeed_up_2", "name": "Ace Swimmer", "rank": 3 },
+        { "id": "Stamina_Up_1", "name": "Infinite Stamina", "rank": 3 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "BFCE85A14D3B32DF5CE2797731F0A9D2",
+      "member": 1,
+      "species": "FlameBambi",
+      "alpha": false,
+      "gender": "female",
+      "level": 11,
+      "rank": 1,
+      "talents": { "hp": 85, "shot": 50, "defense": 51 },
+      "passives": [
+        { "id": "Deffence_down1", "name": "Downtrodden", "rank": -1 },
+        { "id": "TrainerDEF_UP_1", "name": "Stronghold Strategist", "rank": 3 },
+        { "id": "ElementBoost_Dragon_1_PAL", "name": "Blood of the Dragon", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "509FFE4EC8E1A88DE423A7482A38E23C",
+      "member": 1,
+      "species": "Hedgehog_Ice",
+      "alpha": false,
+      "gender": "female",
+      "level": 3,
+      "rank": 1,
+      "talents": { "hp": 70, "shot": 61, "defense": 87 },
+      "passives": [
+        { "id": "Rare", "name": "Lucky", "rank": 4 },
+        { "id": "TrainerWorkSpeed_UP_1", "name": "Motivational Leader", "rank": 3 }
+      ],
+      "lucky": true,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "B9A6BBA15E50E18B7B8F07CFCA810524",
+      "member": 1,
+      "species": "Kelpie_Fire",
+      "alpha": false,
+      "gender": "female",
+      "level": 6,
+      "rank": 2,
+      "talents": { "hp": 46, "shot": 12, "defense": 5 },
+      "passives": [{ "id": "PAL_ALLAttack_up3", "name": "Demon God", "rank": 4 }],
+      "lucky": false,
+      "name": "Pebble",
+      "where": "party"
+    },
+    {
+      "id": "529DD0A91AC9E6FA978F426C9249A610",
+      "member": 1,
+      "species": "SamuraiDog",
+      "alpha": false,
+      "gender": "female",
+      "level": 5,
+      "rank": 1,
+      "talents": { "hp": 96, "shot": 14, "defense": 83 },
+      "passives": [],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "5AC769B42027359125E26D0627507A64",
+      "member": 1,
+      "species": "FlyingManta",
+      "alpha": true,
+      "gender": "female",
+      "level": 7,
+      "rank": 1,
+      "talents": { "hp": 51, "shot": 60, "defense": 49 },
+      "passives": [
+        { "id": "Deffence_up1", "name": "Hard Skin", "rank": 1 },
+        { "id": "ElementResist_Fire_1_PAL", "name": "Suntan Lover", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "88F46A31C3228978965FC78646F81250",
+      "member": 1,
+      "species": "FlyingManta_Thunder",
+      "alpha": false,
+      "gender": "male",
+      "level": 2,
+      "rank": 1,
+      "talents": { "hp": 89, "shot": 90, "defense": 19 },
+      "passives": [
+        { "id": "CoolTimeReduction_Up_1", "name": "Serenity", "rank": 3 },
+        { "id": "SelfDeathAddItemDrop_up_3", "name": "Lavish Hospitality", "rank": 4 },
+        { "id": "PAL_Sanity_Down_3", "name": "Heart of the Immovable King", "rank": 4 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "775B22EC070601ADDB04591FBFE8BD7F",
+      "member": 1,
+      "species": "KingAlpaca",
+      "alpha": false,
+      "gender": "female",
+      "level": 4,
+      "rank": 1,
+      "talents": { "hp": 34, "shot": 43, "defense": 83 },
+      "passives": [
+        { "id": "PAL_Sanity_Down_2", "name": "Workaholic", "rank": 3 },
+        { "id": "Nocturnal", "name": "Insomnia", "rank": 1 },
+        { "id": "PAL_masochist", "name": "Masochist", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "6E0CF00685F4F925D5340E3F6C558C84",
+      "member": 1,
+      "species": "LeafMomonga",
+      "alpha": false,
+      "gender": "female",
+      "level": 5,
+      "rank": 1,
+      "talents": { "hp": 15, "shot": 92, "defense": 10 },
+      "passives": [
+        { "id": "CraftSpeed_up2", "name": "Artisan", "rank": 3 },
+        { "id": "Deffence_down2", "name": "Brittle", "rank": -3 },
+        { "id": "ElementResist_Dark_1_PAL", "name": "Cheery", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "904F3C07989C2F4455CD353C7678DEAA",
+      "member": 1,
+      "species": "PinkCat",
+      "alpha": false,
+      "gender": "male",
+      "level": 11,
+      "rank": 1,
+      "talents": { "hp": 94, "shot": 61, "defense": 54 },
+      "passives": [{ "id": "ReloadSpeedUp_Passive", "name": "Reload Master", "rank": 3 }],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "BB36624AD38DAC7C8C98376E8B72D0CB",
+      "member": 1,
+      "species": "WizardOwl",
+      "alpha": false,
+      "gender": "male",
+      "level": 1,
+      "rank": 1,
+      "talents": { "hp": 91, "shot": 87, "defense": 5 },
+      "passives": [
+        { "id": "PAL_CorporateSlave", "name": "Work Slave", "rank": 1 },
+        { "id": "ReloadSpeedUp_Passive", "name": "Reload Master", "rank": 3 },
+        { "id": "PAL_Sanity_Down_1", "name": "Positive Thinker", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "0175482856DA1043E5BD2BDE63AB14B0",
+      "member": 2,
+      "species": "DreamDemon",
+      "alpha": false,
+      "gender": "female",
+      "level": 23,
+      "rank": 1,
+      "talents": { "hp": 16, "shot": 33, "defense": 90 },
+      "passives": [{ "id": "ElementResist_Dragon_1_PAL", "name": "Dragonkiller", "rank": 1 }],
+      "lucky": false,
+      "name": "Moss",
+      "where": "party"
+    },
+    {
+      "id": "CAF86AEE582FA74145B5F788EE6A4DCB",
+      "member": 2,
+      "species": "Kitsunebi_Ice",
+      "alpha": false,
+      "gender": "female",
+      "level": 13,
+      "rank": 1,
+      "talents": { "hp": 17, "shot": 82, "defense": 42 },
+      "passives": [
+        { "id": "MoveSpeed_up_1", "name": "Nimble", "rank": 1 },
+        { "id": "TrainerLogging_up1", "name": "Logging Foreman", "rank": 3 },
+        { "id": "ElementResist_Fire_1_PAL", "name": "Suntan Lover", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": "Biscuit",
+      "where": "party"
+    },
+    {
+      "id": "3F52A8CE140DAFF0B4374BFEAFE5594E",
+      "member": 2,
+      "species": "PinkRabbit",
+      "alpha": false,
+      "gender": "male",
+      "level": 1,
+      "rank": 1,
+      "talents": { "hp": 9, "shot": 85, "defense": 21 },
+      "passives": [
+        { "id": "PAL_Sanity_Down_2", "name": "Workaholic", "rank": 3 },
+        { "id": "SelfDeathAddItemDrop_up_3", "name": "Lavish Hospitality", "rank": 4 },
+        { "id": "ElementBoost_Normal_1_PAL", "name": "Spirit of Zen", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "0ACD3E1BB7E929E16539C44BFE933DD7",
+      "member": 2,
+      "species": "PurpleSpider",
+      "alpha": false,
+      "gender": "male",
+      "level": 12,
+      "rank": 1,
+      "talents": { "hp": 10, "shot": 30, "defense": 74 },
+      "passives": [{ "id": "PAL_ALLAttack_up2", "name": "Ferocious", "rank": 3 }],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "5EEF15E16BC05DF5D5D16C5AC49D6CD2",
+      "member": 2,
+      "species": "Serpent_Ground",
+      "alpha": false,
+      "gender": "female",
+      "level": 6,
+      "rank": 1,
+      "talents": { "hp": 89, "shot": 75, "defense": 89 },
+      "passives": [
+        { "id": "SalePrice_Down_1", "name": "Shabby", "rank": -1 },
+        { "id": "PlayerSP_DecreaseRate_Passive", "name": "Wellness Watcher", "rank": 3 },
+        { "id": "ElementBoost_Dragon_1_PAL", "name": "Blood of the Dragon", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "F4992F4F9DE62A3BFBE281B4628BFA1C",
+      "member": 2,
+      "species": "Alpaca",
+      "alpha": false,
+      "gender": "female",
+      "level": 17,
+      "rank": 1,
+      "talents": { "hp": 91, "shot": 6, "defense": 57 },
+      "passives": [
+        { "id": "CraftSpeed_down1", "name": "Clumsy", "rank": -1 },
+        { "id": "NightOwl", "name": "Night Owl", "rank": -1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "A87F25F1B31380B7FAFB4E68CEC460E4",
+      "member": 2,
+      "species": "Bastet_Ice",
+      "alpha": false,
+      "gender": "female",
+      "level": 2,
+      "rank": 1,
+      "talents": { "hp": 3, "shot": 12, "defense": 69 },
+      "passives": [
+        { "id": "NonKilling", "name": "Mercy Hit", "rank": -1 },
+        { "id": "WorkSuitabilityAddRank_MonsterFarm_2", "name": "Ranch Master", "rank": 4 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "1CAC8C8575FC7CCC44C6987B2CD6B4FC",
+      "member": 2,
+      "species": "CatBat",
+      "alpha": false,
+      "gender": "female",
+      "level": 21,
+      "rank": 1,
+      "talents": { "hp": 65, "shot": 1, "defense": 75 },
+      "passives": [{ "id": "ElementBoost_Thunder_1_PAL", "name": "Capacitor", "rank": 1 }],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "793373F38B853BAE18313F517835689A",
+      "member": 2,
+      "species": "ChickenPal",
+      "alpha": false,
+      "gender": "male",
+      "level": 23,
+      "rank": 1,
+      "talents": { "hp": 3, "shot": 80, "defense": 80 },
+      "passives": [{ "id": "PAL_conceited", "name": "Conceited", "rank": 1 }],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "E4638011B31A6837C979729E2AE000FF",
+      "member": 2,
+      "species": "CuteButterfly",
+      "alpha": false,
+      "gender": "female",
+      "level": 15,
+      "rank": 1,
+      "talents": { "hp": 11, "shot": 63, "defense": 76 },
+      "passives": [
+        { "id": "PAL_ALLAttack_down2", "name": "Pacifist", "rank": -3 },
+        { "id": "PAL_ALLAttack_down1", "name": "Coward", "rank": -1 },
+        { "id": "Nocturnal", "name": "Insomnia", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "B31B457555978C4BCACDF61E86822228",
+      "member": 2,
+      "species": "OctopusGirl_Neutral",
+      "alpha": false,
+      "gender": "male",
+      "level": 2,
+      "rank": 1,
+      "talents": { "hp": 12, "shot": 2, "defense": 25 },
+      "passives": [],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "B746A2D9D828F6B0947222AB5CDECC84",
+      "member": 3,
+      "species": "ChickenPal",
+      "alpha": false,
+      "gender": "female",
+      "level": 10,
+      "rank": 1,
+      "talents": { "hp": 57, "shot": 73, "defense": 12 },
+      "passives": [{ "id": "PAL_FullStomach_Up_2", "name": "Bottomless Stomach", "rank": -2 }],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "67C10AD4547639ECB981BA186F2E4742",
+      "member": 3,
+      "species": "Kitsunebi",
+      "alpha": false,
+      "gender": "female",
+      "level": 16,
+      "rank": 1,
+      "talents": { "hp": 46, "shot": 89, "defense": 39 },
+      "passives": [{ "id": "Deffence_up1", "name": "Hard Skin", "rank": 1 }],
+      "lucky": false,
+      "name": "Ember",
+      "where": "party"
+    },
+    {
+      "id": "538DBE943AEAA9C5A6744A0A065C4B8B",
+      "member": 3,
+      "species": "OctopusGirl_Neutral",
+      "alpha": false,
+      "gender": "male",
+      "level": 14,
+      "rank": 1,
+      "talents": { "hp": 83, "shot": 62, "defense": 79 },
+      "passives": [
+        { "id": "ElementResist_Aqua_1_PAL", "name": "Waterproof", "rank": 1 },
+        { "id": "WorkSuitabilityAddRank_MonsterFarm_2", "name": "Ranch Master", "rank": 4 },
+        { "id": "PAL_rude", "name": "Hooligan", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "5CC1BCDFAD68F19B3962F2C65707E257",
+      "member": 3,
+      "species": "SamuraiDog",
+      "alpha": false,
+      "gender": "female",
+      "level": 4,
+      "rank": 2,
+      "talents": { "hp": 9, "shot": 75, "defense": 56 },
+      "passives": [
+        { "id": "CoolTimeReduction_Down_1", "name": "Easygoing", "rank": -1 },
+        { "id": "MoveSpeed_up_2", "name": "Runner", "rank": 3 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "A7DB0E1C793C59159E4FD6E39AFBFA85",
+      "member": 3,
+      "species": "SharkKid",
+      "alpha": false,
+      "gender": "female",
+      "level": 27,
+      "rank": 1,
+      "talents": { "hp": 25, "shot": 82, "defense": 55 },
+      "passives": [],
+      "lucky": false,
+      "name": null,
+      "where": "party"
+    },
+    {
+      "id": "C4B378789596076E080DFB6F881BB6E4",
+      "member": 3,
+      "species": "FairyDragon",
+      "alpha": false,
+      "gender": "female",
+      "level": 16,
+      "rank": 1,
+      "talents": { "hp": 62, "shot": 42, "defense": 13 },
+      "passives": [
+        { "id": "ElementResist_Thunder_1_PAL", "name": "Insulated Body", "rank": 1 },
+        { "id": "Vampire", "name": "Vampiric", "rank": 4 },
+        { "id": "MoveSpeed_up_3", "name": "Swift", "rank": 4 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "C4E4CF50803F5739948FA3F032EBD9EC",
+      "member": 3,
+      "species": "FengyunDeeper_Electric",
+      "alpha": false,
+      "gender": "female",
+      "level": 26,
+      "rank": 2,
+      "talents": { "hp": 29, "shot": 4, "defense": 72 },
+      "passives": [{ "id": "ElementBoost_Ice_1_PAL", "name": "Coldblooded", "rank": 1 }],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "8ADC125F20F9EB121D38964C17AA9317",
+      "member": 3,
+      "species": "FlyingManta",
+      "alpha": false,
+      "gender": "male",
+      "level": 19,
+      "rank": 1,
+      "talents": { "hp": 90, "shot": 65, "defense": 65 },
+      "passives": [
+        { "id": "CraftSpeed_down1", "name": "Clumsy", "rank": -1 },
+        { "id": "NightOwl", "name": "Night Owl", "rank": -1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "7E8AE504569BCCF7DEA3111C01050134",
+      "member": 3,
+      "species": "Garm",
+      "alpha": false,
+      "gender": "female",
+      "level": 25,
+      "rank": 1,
+      "talents": { "hp": 39, "shot": 27, "defense": 64 },
+      "passives": [],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    },
+    {
+      "id": "07CF3A24FC9C56068E025B763AB0208A",
+      "member": 3,
+      "species": "KingAlpaca_Ice",
+      "alpha": false,
+      "gender": "male",
+      "level": 13,
+      "rank": 1,
+      "talents": { "hp": 64, "shot": 88, "defense": 74 },
+      "passives": [
+        { "id": "WorkSuitabilityAddRank_MonsterFarm_1", "name": "Farmhand", "rank": 3 },
+        { "id": "SwimSpeed_up_1", "name": "Sleek Stroke", "rank": 1 }
+      ],
+      "lucky": false,
+      "name": null,
+      "where": "box"
+    }
+  ],
+  "eggs": [
+    {
+      "id": "66F011E8B71287762F435FCF439FAA58",
+      "kind": "PalEgg_Water_03",
+      "kind_name": "Large Damp Egg",
+      "species": "CaptainPenguin",
+      "alpha": false,
+      "where": "inventory",
+      "member": 0,
+      "base": null,
+      "hatched": null
+    },
+    {
+      "id": "A057E74B32EBE9D102A8694D66DAB6D4",
+      "kind": "PalEgg_Ice_01",
+      "kind_name": "Frozen Egg",
+      "species": "MopBaby",
+      "alpha": false,
+      "where": "inventory",
+      "member": 1,
+      "base": null,
+      "hatched": null
+    },
+    {
+      "id": "67AF6F28C02D8062160C5CD047D91A76",
+      "kind": "PalEgg_Normal_01",
+      "kind_name": "Common Egg",
+      "species": "PinkCat",
+      "alpha": false,
+      "where": "inventory",
+      "member": 1,
+      "base": null,
+      "hatched": null
+    },
+    {
+      "id": "1F07467F256EE561C1548A732C458796",
+      "kind": "PalEgg_Water_01",
+      "kind_name": "Damp Egg",
+      "species": "Ganesha",
+      "alpha": false,
+      "where": "inventory",
+      "member": 2,
+      "base": null,
+      "hatched": null
+    },
+    {
+      "id": "4AD6C0D03924F4B516E7DE7F0DF9CD09",
+      "kind": "PalEgg_Water_02",
+      "kind_name": "Damp Egg",
+      "species": "FlyingManta_Thunder",
+      "alpha": false,
+      "where": "inventory",
+      "member": 3,
+      "base": null,
+      "hatched": null
+    },
+    {
+      "id": "AD2B535D8A533BF73A6E2E9E9A3C98F7",
+      "kind": "PalEgg_Ice_03",
+      "kind_name": "Large Frozen Egg",
+      "species": "IceSeal",
+      "alpha": false,
+      "where": "base",
+      "member": null,
+      "base": { "id": 5, "name": "Sunreach Camp 2", "region": null },
+      "hatched": null
+    },
+    {
+      "id": "74AF62CBB7D338BA8C19CA07E1A1E350",
+      "kind": "PalEgg_Dragon_05",
+      "kind_name": "Huge Dragon Egg",
+      "species": "BlackMetalDragon",
+      "alpha": false,
+      "where": "incubator",
+      "member": null,
+      "base": { "id": 5, "name": "Sunreach Camp 2", "region": null },
+      "hatched": {
+        "species": "BlackMetalDragon",
+        "alpha": false,
+        "gender": "male",
+        "level": 1,
+        "rank": 1,
+        "talents": { "hp": 37, "shot": 76, "defense": 96 },
+        "passives": [],
+        "lucky": false
+      }
+    },
+    {
+      "id": "F04199A01945B6582D2F445487C6AE16",
+      "kind": "PalEgg_Dark_02",
+      "kind_name": "Dark Egg",
+      "species": "GrimGirl",
+      "alpha": false,
+      "where": "incubator",
+      "member": null,
+      "base": { "id": 5, "name": "Sunreach Camp 2", "region": null },
+      "hatched": null
+    }
+  ]
+}

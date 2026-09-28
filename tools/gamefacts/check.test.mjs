@@ -1,9 +1,17 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { test } from 'node:test';
+import {
+  eggSizeOf,
+  FALLBACK_CHILD,
+  MAX_RANK_BONUS,
+  MEAN_OFFSET,
+  RUNTIME
+} from './lib/facts/breeding.mjs';
 import { displayAt, mapAt } from './lib/facts/coordinates.mjs';
 import { GRID, WAYS, encodeRanges } from './lib/facts/habitats.mjs';
 import { pointInPolygon } from './lib/geometry.mjs';
+import { pngSize } from './lib/png.mjs';
 
 const GAME_VERSION = '1.0.5.102999';
 const FILES = [
@@ -14,7 +22,9 @@ const FILES = [
   'landmarks.json',
   'bosses.json',
   'names.json',
-  'habitats.json'
+  'habitats.json',
+  'breeding.json',
+  'icons.json'
 ];
 const worldDirectory = new URL('../../web/src/lib/world/', import.meta.url);
 const world = Object.fromEntries(
@@ -27,6 +37,9 @@ const landmarks = world['landmarks.json'];
 const bosses = world['bosses.json'];
 const names = world['names.json'];
 const habitats = world['habitats.json'];
+const breeding = world['breeding.json'];
+const icons = world['icons.json'];
+const iconDirectory = new URL('../../web/static/pals/', import.meta.url);
 
 function decodeRanges(text) {
   if (text === '') return [];
@@ -378,5 +391,177 @@ test('habitats match the counts read from the game', () => {
   );
   for (const entry of habitats.species) {
     assert.equal(entry.ways.includes('boss'), bosses.has(entry.id), entry.id);
+  }
+});
+
+function nearestChild(target) {
+  let best = Number.POSITIVE_INFINITY;
+  let candidates = [];
+  for (const entry of breeding.species) {
+    if (!entry.in_pool) continue;
+    const distance = Math.abs(entry.rank - target);
+    if (distance < best) {
+      best = distance;
+      candidates = [entry];
+    } else if (distance === best) candidates.push(entry);
+  }
+  return candidates.reduce((winner, entry) => (entry.priority > winner.priority ? entry : winner));
+}
+
+test('breeding species follow the Palpedia and the pool follows the native filters', () => {
+  assert.deepEqual(
+    breeding.species.map((entry) => entry.id),
+    pals.pals.map((entry) => entry.id)
+  );
+  const pool = breeding.species.filter((entry) => entry.in_pool);
+  assert.equal(pool.length, 183);
+  assert.equal(breeding.species.filter((entry) => entry.ignore_combi).length, 28);
+  const children = new Set(breeding.unique.map((row) => row.child.toLowerCase()));
+  for (const entry of breeding.species) {
+    assert.ok(entry.rank >= 10 && entry.rank <= 3080, `${entry.id} rank ${entry.rank}`);
+    assert.ok(entry.male_probability >= 0 && entry.male_probability <= 100, entry.id);
+    if (entry.in_pool) {
+      assert.ok(!entry.ignore_combi, entry.id);
+      assert.ok(!children.has(entry.id.toLowerCase()), `${entry.id} is a unique child`);
+      assert.equal(entry.priority, entry.rank * 100, entry.id);
+    } else {
+      assert.ok(entry.ignore_combi || children.has(entry.id.toLowerCase()), entry.id);
+    }
+  }
+  assert.equal(new Set(pool.map((entry) => entry.rank)).size, pool.length);
+  assert.equal(new Set(breeding.species.map((entry) => entry.rank)).size, 288);
+  assert.equal(breeding.child_rule.fallback, FALLBACK_CHILD);
+  assert.equal(breeding.child_rule.mean_offset, MEAN_OFFSET);
+  assert.equal(breeding.child_rule.max_rank_bonus, MAX_RANK_BONUS);
+});
+
+test('the 258 unique rows name Palpedia entries or unreleased tribes', () => {
+  assert.equal(breeding.unique.length, 258);
+  const ids = new Set(breeding.species.map((entry) => entry.id));
+  const selfRows = breeding.unique.filter((row) => row.parent_a === row.parent_b);
+  assert.equal(selfRows.filter((row) => ids.has(row.child)).length, 104);
+  for (const row of selfRows) assert.equal(row.child, row.parent_a);
+  const gendered = breeding.unique.filter((row) => row.gender_a || row.gender_b);
+  assert.equal(gendered.length, 30);
+  for (const row of gendered) assert.ok(ids.has(row.parent_a) && ids.has(row.parent_b), row.child);
+  const catMage = breeding.unique.find(
+    (row) => row.parent_a === 'CatMage' && row.parent_b === 'FoxMage' && row.gender_a === 'male'
+  );
+  assert.deepEqual(catMage, {
+    parent_a: 'CatMage',
+    gender_a: 'male',
+    parent_b: 'FoxMage',
+    gender_b: 'female',
+    child: 'FoxMage_Dark'
+  });
+  assert.ok(
+    breeding.unique.some(
+      (row) =>
+        row.parent_a === 'LazyDragon' &&
+        row.parent_b === 'ElecCat' &&
+        row.child === 'LazyDragon_Electric'
+    )
+  );
+  const unreleased = breeding.unique.filter((row) => !ids.has(row.child));
+  assert.ok(unreleased.length > 0);
+  for (const row of unreleased)
+    assert.ok(!ids.has(row.parent_a) || !ids.has(row.parent_b), row.child);
+});
+
+test('the child rule reproduces the samples read from the game', () => {
+  const rank = new Map(breeding.species.map((entry) => [entry.id, entry.rank]));
+  const mean = (a, b) => (rank.get(a) + rank.get(b)) / 2;
+  assert.equal(nearestChild(mean('ChickenPal', 'Boar')).id, 'BluePlatypus');
+  assert.equal(mean('SheepBall', 'Anubis'), 1765);
+  assert.equal(nearestChild(1765).id, 'HoodGhost');
+  assert.equal(nearestChild(mean('SheepBall', 'SheepBall')).id, 'SheepBall');
+});
+
+test('inheritance counts, cakes and mutation constants carry what the game and the probe gave', () => {
+  assert.deepEqual(breeding.inheritance.talent_num, [3, 2, 1]);
+  assert.deepEqual(breeding.inheritance.passive_num, [4, 3, 2, 1]);
+  assert.deepEqual(breeding.inheritance.passive_random_add_num, [4, 3, 2, 1]);
+  assert.equal(breeding.inheritance.boss_rate, 0.05);
+  assert.deepEqual(breeding.inheritance.mutation, RUNTIME.mutation);
+  assert.deepEqual(
+    breeding.cakes.map((cake) => cake.id),
+    ['Cake', 'Cake02', 'Cake03', 'Cake04', 'Cake05']
+  );
+  const byId = Object.fromEntries(breeding.cakes.map((cake) => [cake.id, cake]));
+  assert.equal(byId.Cake02.name, 'Mushroom Cake');
+  assert.deepEqual(byId.Cake02.talent_bonus, [1, 5]);
+  assert.equal(byId.Cake03.breed_count, 2);
+  assert.equal(byId.Cake04.mutation_rate_bonus_percent, 2);
+  assert.equal(byId.Cake05.inherit_all_active_skills, true);
+  assert.equal(byId.Cake05.passive_inherit_count_override, 4);
+  for (const cake of breeding.cakes) assert.equal(cake.rank_bonus, 0, cake.id);
+});
+
+test('passives carry English names and the random-add pool of 85', () => {
+  assert.equal(breeding.passives.length, 420);
+  assert.equal(breeding.passives.filter((row) => row.random_add).length, 85);
+  const byId = Object.fromEntries(breeding.passives.map((row) => [row.id, row]));
+  assert.deepEqual(byId.Rare, {
+    id: 'Rare',
+    name: 'Lucky',
+    rank: 4,
+    random_add: false,
+    weight: 100
+  });
+  assert.equal(byId.Legend.name, 'Legend');
+  assert.equal(byId.PAL_Sanity_Down_2.name, 'Workaholic');
+  for (const row of breeding.passives) assert.doesNotMatch(row.name, /[<>|]|^en Text$/, row.id);
+});
+
+test('eggs follow the element and the rarity tier, and the kinds are the 56 egg items', () => {
+  assert.equal(breeding.eggs.kinds.length, 56);
+  assert.deepEqual(
+    breeding.eggs.sizes.map((size) => size.max_rarity),
+    [2, 4, 6, 7, 99]
+  );
+  assert.equal(eggSizeOf(5, breeding.eggs.sizes), 3);
+  assert.equal(eggSizeOf(8, breeding.eggs.sizes), 5);
+  const kinds = new Map(breeding.eggs.kinds.map((kind) => [kind.id, kind]));
+  assert.equal(kinds.get('PalEgg_Normal_01').name, 'Common Egg');
+  assert.equal(kinds.get('PalEgg_Dragon_05').name, 'Huge Dragon Egg');
+  const rarity = new Map(pals.pals.map((entry) => [entry.id, entry.rarity]));
+  for (const entry of breeding.species) {
+    assert.ok(kinds.has(entry.egg), `${entry.id} egg ${entry.egg}`);
+    assert.equal(kinds.get(entry.egg).size, eggSizeOf(rarity.get(entry.id), breeding.eggs.sizes));
+    if (entry.alpha_egg) assert.ok(kinds.has(entry.alpha_egg), entry.id);
+  }
+  const eggOf = Object.fromEntries(breeding.species.map((entry) => [entry.id, entry.egg]));
+  assert.equal(eggOf.GrassMammoth, 'PalEgg_Leaf_05');
+  assert.equal(eggOf.Boar, 'PalEgg_Earth_01');
+  assert.equal(eggOf.KingBahamut, 'PalEgg_Fire_05');
+  assert.equal(eggOf.CaptainPenguin, 'PalEgg_Water_03');
+  assert.equal(eggOf.RaijinDaughter_Water, 'PalEgg_Dark_01');
+  assert.equal(eggOf.Deer, 'PalEgg_Normal_03');
+  assert.equal(breeding.species.find((entry) => entry.id === 'Deer').alpha_egg, 'PalEgg_Normal_04');
+  assert.deepEqual(breeding.eggs.hatching_speed_by_temperature, {
+    0: 2,
+    1: 1.5,
+    2: 1,
+    3: 1,
+    4: 0.75,
+    5: 0.75,
+    6: 0.75,
+    7: 0.75,
+    8: 0.75
+  });
+});
+
+test('every Palpedia entry has a 64 pixel icon from the game', () => {
+  assert.equal(icons.size, 64);
+  assert.deepEqual(
+    icons.species,
+    pals.pals.map((entry) => entry.id)
+  );
+  const files = new Set(readdirSync(iconDirectory).filter((name) => name.endsWith('.png')));
+  assert.equal(files.size, icons.species.length);
+  for (const id of icons.species) {
+    assert.ok(files.has(`${id}.png`), id);
+    const size = pngSize(readFileSync(new URL(`${id}.png`, iconDirectory)));
+    assert.deepEqual(size, { width: 64, height: 64 }, id);
   }
 });

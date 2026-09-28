@@ -30,6 +30,8 @@ type Player struct {
 	GuildID      *string    `json:"guild_id"`
 	LastOnlineAt *time.Time `json:"last_online_at"`
 	Progress     *Progress  `json:"progress"`
+	Pals         []Pal      `json:"pals"`
+	Eggs         []Egg      `json:"eggs"`
 }
 
 type Progress struct {
@@ -60,13 +62,15 @@ type Member struct {
 }
 
 type Base struct {
-	BaseID  string   `json:"base_id"`
-	GuildID *string  `json:"guild_id"`
-	Name    *string  `json:"name"`
-	X       float64  `json:"x"`
-	Y       float64  `json:"y"`
-	Z       float64  `json:"z"`
-	Workers []Worker `json:"workers"`
+	BaseID     string      `json:"base_id"`
+	GuildID    *string     `json:"guild_id"`
+	Name       *string     `json:"name"`
+	X          float64     `json:"x"`
+	Y          float64     `json:"y"`
+	Z          float64     `json:"z"`
+	Workers    []Worker    `json:"workers"`
+	Eggs       []Egg       `json:"eggs"`
+	Incubators []Incubator `json:"incubators"`
 }
 
 type Worker struct {
@@ -85,10 +89,27 @@ var levelParts = map[string]bool{
 	"worldSaveData.GroupSaveDataMap":          true,
 }
 
+var levelPaths = map[string]bool{
+	"worldSaveData.MapObjectSaveData":                                       true,
+	"worldSaveData.MapObjectSaveData.MapObjectId":                           true,
+	"worldSaveData.MapObjectSaveData.Model":                                 true,
+	"worldSaveData.MapObjectSaveData.Model.RawData":                         true,
+	"worldSaveData.MapObjectSaveData.ConcreteModel":                         true,
+	"worldSaveData.MapObjectSaveData.ConcreteModel.RawData":                 true,
+	"worldSaveData.MapObjectSaveData.ConcreteModel.ModuleMap":               true,
+	"worldSaveData.MapObjectSaveData.ConcreteModel.ModuleMap.Value.RawData": true,
+	"worldSaveData.ItemContainerSaveData":                                   true,
+	"worldSaveData.ItemContainerSaveData.Key.ID":                            true,
+	"worldSaveData.ItemContainerSaveData.Value.Slots":                       true,
+	"worldSaveData.ItemContainerSaveData.Value.Slots.RawData":               true,
+	"worldSaveData.DynamicItemSaveData":                                     true,
+	"worldSaveData.DynamicItemSaveData.RawData":                             true,
+}
+
 func levelOptions() gvas.Options {
 	return gvas.Options{
 		Skip: func(path string) bool {
-			if levelParts[path] {
+			if levelParts[path] || levelPaths[path] {
 				return false
 			}
 			for part := range levelParts {
@@ -105,7 +126,10 @@ func levelOptions() gvas.Options {
 			case "worldSaveData.CharacterSaveParameterMap.Key",
 				"worldSaveData.CharacterSaveParameterMap.Value",
 				"worldSaveData.GroupSaveDataMap.Value",
-				"worldSaveData.BaseCampSaveData.Value":
+				"worldSaveData.BaseCampSaveData.Value",
+				"worldSaveData.MapObjectSaveData.ConcreteModel.ModuleMap.Value",
+				"worldSaveData.ItemContainerSaveData.Key",
+				"worldSaveData.ItemContainerSaveData.Value":
 				return gvas.PropertyStruct
 			}
 			return gvas.GuessStruct
@@ -122,6 +146,7 @@ type character struct {
 	level     int
 	container gvas.GUID
 	group     gvas.GUID
+	save      gvas.Properties
 }
 
 func Extract(level []byte, players map[string][]byte, savedAt time.Time) (*World, error) {
@@ -137,6 +162,11 @@ func Extract(level []byte, players map[string][]byte, savedAt time.Time) (*World
 	if err != nil {
 		return nil, err
 	}
+	finder := eggFinder{
+		containers: readContainers(world.Map("ItemContainerSaveData")),
+		eggs:       readDynamicEggs(world.Array("DynamicItemSaveData")),
+	}
+	objects := readMapObjects(world.Array("MapObjectSaveData"))
 	out := &World{SavedAt: savedAt.UTC(), Players: []Player{}, Guilds: []Guild{}, Bases: []Base{}}
 	for _, entry := range world.Map("GroupSaveDataMap") {
 		fields, _ := entry.Value.(gvas.Properties)
@@ -157,6 +187,7 @@ func Extract(level []byte, players map[string][]byte, savedAt time.Time) (*World
 			return nil, fmt.Errorf("base %v: %w", entry.Key, err)
 		}
 		base.Workers = workersIn(characters, container)
+		base.Eggs, base.Incubators = baseEggs(objects, gvas.GUID(base.BaseID), finder)
 		out.Bases = append(out.Bases, base)
 	}
 	byUID := map[gvas.GUID]*character{}
@@ -195,12 +226,14 @@ func Extract(level []byte, players map[string][]byte, savedAt time.Time) (*World
 			}
 		}
 		if data := players[uid]; data != nil {
-			lastOnline, progress, err := readPlayer(data)
+			lastOnline, progress, containers, err := readPlayer(data)
 			if err != nil {
 				return nil, fmt.Errorf("player %s: %w", uid, err)
 			}
 			player.LastOnlineAt = lastOnline
 			player.Progress = progress
+			player.Pals = playerPals(characters, containers)
+			player.Eggs = playerEggs(containers, finder)
 		}
 		out.Players = append(out.Players, player)
 	}
@@ -233,6 +266,7 @@ func readCharacters(entries []gvas.MapEntry) ([]character, error) {
 			c.level = 1
 		}
 		c.container, _ = save.Fields("SlotId").GUID("ContainerId")
+		c.save = save
 		if rest := raw[consumed:]; len(rest) >= 20 {
 			c.group = guidAt(rest, 4)
 		}
@@ -261,10 +295,10 @@ func workersIn(characters []character, container gvas.GUID) []Worker {
 	return workers
 }
 
-func readPlayer(data []byte) (*time.Time, *Progress, error) {
+func readPlayer(data []byte) (*time.Time, *Progress, playerContainers, error) {
 	doc, err := gvas.Parse(data, gvas.Options{})
 	if err != nil {
-		return nil, nil, err
+		return nil, nil, playerContainers{}, err
 	}
 	save := doc.Properties.Fields("SaveData")
 	var lastOnline *time.Time
@@ -306,7 +340,7 @@ func readPlayer(data []byte) (*time.Time, *Progress, error) {
 	}
 	progress.FastTravelPoints = countTrue(record.Map("FastTravelPointUnlockFlag"))
 	progress.Technologies = len(save.Array("UnlockedRecipeTechnologyNames"))
-	return lastOnline, progress, nil
+	return lastOnline, progress, readPlayerContainers(save), nil
 }
 
 func countTrue(entries []gvas.MapEntry) int {

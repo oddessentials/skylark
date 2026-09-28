@@ -422,6 +422,33 @@ paths:
           $ref: '#/components/responses/RateLimited'
         '503':
           $ref: '#/components/responses/Unavailable'
+  /api/v1/guilds/{id}/pals:
+    get:
+      operationId: getGuildPals
+      tags:
+        - public
+      summary: A guild's Pals
+      description: The Pals in the members' boxes and parties as the world save lists them, with the eggs in their inventories and at their bases and what sits in the incubators, for the breeding calculator. Members appear by name only. Answers 404 when the Pals feature is switched off.
+      parameters:
+        - $ref: '#/components/parameters/GuildId'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GuildPals'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
   /api/v1/map:
     get:
       operationId: getMap
@@ -2536,6 +2563,265 @@ components:
         - members
         - entries
       additionalProperties: false
+    PalGender:
+      type: string
+      enum:
+        - male
+        - female
+    PalTalents:
+      type: object
+      description: The Pal's talents from the save, 1 to 100 each.
+      properties:
+        hp:
+          type: integer
+          minimum: 0
+        shot:
+          type: integer
+          minimum: 0
+        defense:
+          type: integer
+          minimum: 0
+      required:
+        - hp
+        - shot
+        - defense
+      additionalProperties: false
+    PalPassive:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The row of DT_PassiveSkill_Main.
+        name:
+          type: string
+          description: The English name from the game's text table, or the id when it has none.
+        rank:
+          type: integer
+          description: The skill's rank in the game's table, negative for a harmful one; 0 when the id is unknown.
+      required:
+        - id
+        - name
+        - rank
+      additionalProperties: false
+    GuildPalMember:
+      type: object
+      description: A member the world save lists in the guild, by name only.
+      properties:
+        player:
+          description: Their player page, when they have played while the collector watched.
+          anyOf:
+            - $ref: '#/components/schemas/PlayerRef'
+            - type: 'null'
+        name:
+          type: string
+        pals:
+          type: integer
+          minimum: 0
+          description: Pals in their box and party.
+      required:
+        - player
+        - name
+        - pals
+      additionalProperties: false
+    PalPlace:
+      type: string
+      enum:
+        - box
+        - party
+    GuildPal:
+      type: object
+      description: A Pal in a member's box or party, as the world save records it.
+      properties:
+        id:
+          type: string
+          description: The Pal's id in this list, stable across reads of the same save.
+        member:
+          type: integer
+          minimum: 0
+          description: The position in members of the Pal's keeper.
+        species:
+          type: string
+          description: The species id, for example SheepBall.
+        alpha:
+          type: boolean
+        gender:
+          anyOf:
+            - $ref: '#/components/schemas/PalGender'
+            - type: 'null'
+        level:
+          type: integer
+          minimum: 0
+        rank:
+          type: integer
+          minimum: 0
+          description: The condensed rank, 1 without stars.
+        talents:
+          $ref: '#/components/schemas/PalTalents'
+        passives:
+          type: array
+          items:
+            $ref: '#/components/schemas/PalPassive'
+        lucky:
+          type: boolean
+        name:
+          type:
+            - string
+            - 'null'
+          description: The nickname its keeper gave it.
+        where:
+          $ref: '#/components/schemas/PalPlace'
+      required:
+        - id
+        - member
+        - species
+        - alpha
+        - gender
+        - level
+        - rank
+        - talents
+        - passives
+        - lucky
+        - name
+        - where
+      additionalProperties: false
+    BaseRef:
+      type: object
+      description: A base on the guild's page.
+      properties:
+        id:
+          type: integer
+        name:
+          type:
+            - string
+            - 'null'
+        region:
+          type:
+            - string
+            - 'null'
+          description: The named area of the map the base stands in.
+      required:
+        - id
+        - name
+        - region
+      additionalProperties: false
+    EggPlace:
+      type: string
+      enum:
+        - inventory
+        - base
+        - incubator
+    GuildHatchling:
+      type: object
+      description: The Pal an incubator has rolled, waiting to be collected.
+      properties:
+        species:
+          type: string
+        alpha:
+          type: boolean
+        gender:
+          anyOf:
+            - $ref: '#/components/schemas/PalGender'
+            - type: 'null'
+        level:
+          type: integer
+          minimum: 0
+        rank:
+          type: integer
+          minimum: 0
+        talents:
+          $ref: '#/components/schemas/PalTalents'
+        passives:
+          type: array
+          items:
+            $ref: '#/components/schemas/PalPassive'
+        lucky:
+          type: boolean
+      required:
+        - species
+        - alpha
+        - gender
+        - level
+        - rank
+        - talents
+        - passives
+        - lucky
+      additionalProperties: false
+    GuildEgg:
+      type: object
+      description: An egg in a member's inventory, in a chest at a base or in an incubator.
+      properties:
+        id:
+          type: string
+        kind:
+          type: string
+          description: The egg item id, for example PalEgg_Fire_02.
+        kind_name:
+          type: string
+          description: The egg's English name, for example Scorching Egg.
+        species:
+          type: string
+          description: The species that hatches from it, fixed when the egg was made.
+        alpha:
+          type: boolean
+        where:
+          $ref: '#/components/schemas/EggPlace'
+        member:
+          type:
+            - integer
+            - 'null'
+          minimum: 0
+          description: The position in members of the keeper, for an egg in an inventory.
+        base:
+          description: The base the chest or incubator stands at, when the site has seen that base.
+          anyOf:
+            - $ref: '#/components/schemas/BaseRef'
+            - type: 'null'
+        hatched:
+          description: For an egg in an incubator, the Pal the incubator has rolled; null while it has not.
+          anyOf:
+            - $ref: '#/components/schemas/GuildHatchling'
+            - type: 'null'
+      required:
+        - id
+        - kind
+        - kind_name
+        - species
+        - alpha
+        - where
+        - member
+        - base
+        - hatched
+      additionalProperties: false
+    GuildPals:
+      type: object
+      properties:
+        guild:
+          $ref: '#/components/schemas/GuildRef'
+        saved_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+          description: When the server wrote the save the Pals come from; null without the save reader.
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/GuildPalMember'
+        pals:
+          type: array
+          items:
+            $ref: '#/components/schemas/GuildPal'
+        eggs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GuildEgg'
+      required:
+        - guild
+        - saved_at
+        - members
+        - pals
+        - eggs
+      additionalProperties: false
     TrailPoint:
       type: object
       properties:
@@ -4002,6 +4288,7 @@ components:
         - $ref: '#/components/schemas/SaveGuildEvent'
         - $ref: '#/components/schemas/SaveBaseEvent'
         - $ref: '#/components/schemas/SaveReadEvent'
+        - $ref: '#/components/schemas/SavePalsEvent'
         - $ref: '#/components/schemas/PalCapturedEvent'
         - $ref: '#/components/schemas/PalHatchedEvent'
         - $ref: '#/components/schemas/BossDefeatedEvent'
@@ -5094,6 +5381,151 @@ components:
         - guild_ids
         - base_ids
       additionalProperties: true
+    SaveTalents:
+      type: object
+      properties:
+        hp:
+          type: integer
+          minimum: 0
+        shot:
+          type: integer
+          minimum: 0
+        defense:
+          type: integer
+          minimum: 0
+      required:
+        - hp
+        - shot
+        - defense
+      additionalProperties: true
+    SavePal:
+      type: object
+      description: A Pal as the world save records it in a player's box or party, or the Pal an incubator has rolled.
+      properties:
+        instance_id:
+          type: string
+        species:
+          type: string
+          description: The species id, for example SheepBall; an alpha's BOSS_ prefix is folded into alpha.
+        alpha:
+          type: boolean
+        where:
+          type: string
+          enum:
+            - box
+            - party
+            - incubator
+        gender:
+          type:
+            - string
+            - 'null'
+          description: male or female; null when the save carries no gender.
+        level:
+          type: integer
+          minimum: 0
+        rank:
+          type: integer
+          minimum: 0
+          description: The condensed rank; 1 when the save omits it.
+        talents:
+          $ref: '#/components/schemas/SaveTalents'
+        passives:
+          type: array
+          description: Rows of DT_PassiveSkill_Main.
+          items:
+            type: string
+        lucky:
+          type: boolean
+        name:
+          type:
+            - string
+            - 'null'
+      required:
+        - instance_id
+        - species
+        - alpha
+        - where
+        - level
+        - talents
+        - passives
+      additionalProperties: true
+    SaveEgg:
+      type: object
+      description: An egg item, whose species is fixed when it is made.
+      properties:
+        egg_id:
+          type: string
+          description: The item's id in the world save.
+        item_id:
+          type: string
+          description: The egg item, for example PalEgg_Fire_02.
+        species:
+          type: string
+        alpha:
+          type: boolean
+      required:
+        - egg_id
+        - item_id
+        - species
+        - alpha
+      additionalProperties: true
+    SaveIncubator:
+      type: object
+      properties:
+        object_id:
+          type: string
+        kind:
+          type: string
+          description: The map object id, for example HatchingPalEgg.
+        eggs:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaveEgg'
+        hatched:
+          description: The Pal the incubator has rolled, or null.
+          anyOf:
+            - $ref: '#/components/schemas/SavePal'
+            - type: 'null'
+      required:
+        - object_id
+        - kind
+        - eggs
+        - hatched
+      additionalProperties: true
+    SavePalsData:
+      type: object
+      description: What a player keeps (box and party Pals, eggs in the inventory) or what a base holds (eggs in its containers, its incubators), as the world save records it. One event per player and one per base, sent when it changes and once after the collector starts.
+      properties:
+        saved_at:
+          type: string
+          format: date-time
+        player_id:
+          type:
+            - string
+            - 'null'
+          pattern: ^[0-9A-F]{32}$
+        base_id:
+          type:
+            - string
+            - 'null'
+        pals:
+          type: array
+          items:
+            $ref: '#/components/schemas/SavePal'
+        eggs:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaveEgg'
+        incubators:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaveIncubator'
+      required:
+        - saved_at
+        - pals
+        - eggs
+        - incubators
+      additionalProperties: true
     EventEnvelope:
       type: object
       description: The fields every event carries.
@@ -5411,6 +5843,19 @@ components:
           required:
             - type
             - data
+    SavePalsEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: save.pals
+            data:
+              $ref: '#/components/schemas/SavePalsData'
+          required:
+            - type
+            - data
     PalCapturedEvent:
       allOf:
         - $ref: '#/components/schemas/EventEnvelope'
@@ -5508,6 +5953,7 @@ components:
                   - save.guild
                   - save.base
                   - save.read
+                  - save.pals
                   - pal.captured
                   - pal.hatched
                   - boss.defeated

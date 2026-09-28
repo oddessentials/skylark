@@ -1,5 +1,6 @@
 <script lang="ts">
   import { baseLabel } from '$lib/ui/activity';
+  import BreedingCard from '$lib/ui/BreedingCard.svelte';
   import Card from '$lib/ui/Card.svelte';
   import ErrorNote from '$lib/ui/ErrorNote.svelte';
   import { guildColor } from '$lib/ui/map';
@@ -173,5 +174,9 @@
         </Card>
       {/if}
     </div>
+
+    {#if data.pals.ok}
+      <BreedingCard data={data.pals.data} owner={guild.name} />
+    {/if}
   </div>
 {/if}

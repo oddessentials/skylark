@@ -1,6 +1,14 @@
-import { and, inArray, isNotNull, isNull, lt, notInArray, sql } from 'drizzle-orm';
+import { and, eq, inArray, isNotNull, isNull, lt, notInArray, or, sql } from 'drizzle-orm';
 import type { components } from '$lib/api/types';
-import { baseSaves, guildSaves, guilds, playerSaves } from '../db/schema';
+import {
+  baseSaves,
+  eggSaves,
+  guildSaves,
+  guilds,
+  palSaves,
+  playerSaves,
+  type SavedHatchling
+} from '../db/schema';
 import { findPlayerByUid, parseInstant, type ProjectionContext, type StoredEvent } from './context';
 
 type Schemas = components['schemas'];
@@ -107,6 +115,116 @@ export async function applySaveBase(
   return { playerId: null, quiet: true };
 }
 
+function hatchlingOf(pal: Schemas['SavePal'] | null | undefined): SavedHatchling | null {
+  if (!pal) return null;
+  return {
+    species: pal.species,
+    alpha: pal.alpha,
+    gender: text(pal.gender),
+    level: pal.level,
+    rank: pal.rank ?? 1,
+    talents: { hp: pal.talents.hp, shot: pal.talents.shot, defense: pal.talents.defense },
+    passives: pal.passives,
+    lucky: pal.lucky ?? false
+  };
+}
+
+export async function applySavePals(
+  ctx: ProjectionContext,
+  event: StoredEvent
+): Promise<SaveOutcome> {
+  const data = event.data as unknown as Schemas['SavePalsData'];
+  const savedAt = parseInstant(data.saved_at);
+  const playerUid = text(data.player_id);
+  const baseId = text(data.base_id);
+  if (!playerUid && !baseId) return { playerId: null, quiet: true };
+  if (playerUid) {
+    for (const pal of data.pals) {
+      const values = {
+        instanceId: pal.instance_id,
+        playerUid,
+        savedAt,
+        place: pal.where === 'party' ? 'party' : 'box',
+        species: pal.species,
+        alpha: pal.alpha,
+        gender: text(pal.gender),
+        level: pal.level,
+        rank: pal.rank ?? 1,
+        talentHp: pal.talents.hp,
+        talentShot: pal.talents.shot,
+        talentDefense: pal.talents.defense,
+        passives: pal.passives,
+        lucky: pal.lucky ?? false,
+        name: text(pal.name),
+        goneAt: null
+      };
+      await ctx.tx
+        .insert(palSaves)
+        .values(values)
+        .onConflictDoUpdate({
+          target: palSaves.instanceId,
+          set: values,
+          setWhere: newer(palSaves)
+        });
+    }
+    await ctx.tx
+      .update(palSaves)
+      .set({ goneAt: savedAt })
+      .where(
+        and(
+          eq(palSaves.playerUid, playerUid),
+          isNull(palSaves.goneAt),
+          lt(palSaves.savedAt, savedAt)
+        )
+      );
+  }
+  const eggValues = [];
+  for (const egg of data.eggs) {
+    eggValues.push({
+      eggId: egg.egg_id,
+      savedAt,
+      playerUid,
+      baseId,
+      place: playerUid ? 'inventory' : 'base',
+      objectId: null,
+      itemId: egg.item_id,
+      species: egg.species,
+      alpha: egg.alpha,
+      hatched: null,
+      goneAt: null
+    });
+  }
+  for (const incubator of data.incubators) {
+    for (const egg of incubator.eggs) {
+      eggValues.push({
+        eggId: egg.egg_id,
+        savedAt,
+        playerUid,
+        baseId,
+        place: 'incubator',
+        objectId: incubator.object_id,
+        itemId: egg.item_id,
+        species: egg.species,
+        alpha: egg.alpha,
+        hatched: hatchlingOf(incubator.hatched),
+        goneAt: null
+      });
+    }
+  }
+  for (const values of eggValues) {
+    await ctx.tx
+      .insert(eggSaves)
+      .values(values)
+      .onConflictDoUpdate({ target: eggSaves.eggId, set: values, setWhere: newer(eggSaves) });
+  }
+  const owner = playerUid ? eq(eggSaves.playerUid, playerUid) : eq(eggSaves.baseId, baseId!);
+  await ctx.tx
+    .update(eggSaves)
+    .set({ goneAt: savedAt })
+    .where(and(owner, isNull(eggSaves.goneAt), lt(eggSaves.savedAt, savedAt)));
+  return { playerId: null, quiet: true };
+}
+
 export async function applySaveRead(
   ctx: ProjectionContext,
   event: StoredEvent
@@ -131,6 +249,25 @@ export async function applySaveRead(
         .where(and(inArray(key, ids), isNotNull(table.goneAt)));
     }
   }
+  const stalePals = and(isNull(palSaves.goneAt), lt(palSaves.savedAt, savedAt));
+  await ctx.tx
+    .update(palSaves)
+    .set({ goneAt: savedAt })
+    .where(
+      data.player_ids.length > 0
+        ? and(stalePals, notInArray(palSaves.playerUid, data.player_ids))
+        : stalePals
+    );
+  const staleEggs = and(isNull(eggSaves.goneAt), lt(eggSaves.savedAt, savedAt));
+  const ownerGone = or(
+    data.player_ids.length > 0
+      ? and(isNotNull(eggSaves.playerUid), notInArray(eggSaves.playerUid, data.player_ids))
+      : isNotNull(eggSaves.playerUid),
+    data.base_ids.length > 0
+      ? and(isNotNull(eggSaves.baseId), notInArray(eggSaves.baseId, data.base_ids))
+      : isNotNull(eggSaves.baseId)
+  );
+  await ctx.tx.update(eggSaves).set({ goneAt: savedAt }).where(and(staleEggs, ownerGone));
   ctx.effects.mapChanged = true;
   return { playerId: null, quiet: true };
 }

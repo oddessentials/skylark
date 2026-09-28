@@ -247,3 +247,14 @@ func Document(class string, props ...Prop) []byte {
 	b.I32(0)
 	return b.Bytes()
 }
+
+func StructArray(name, structType string, items ...[]Prop) Prop {
+	return tag(name, "ArrayProperty", func(b *Buffer) { b.String("StructProperty").U8(0) }, func(b *Buffer) {
+		var body Buffer
+		for _, fields := range items {
+			writeFields(&body, fields)
+		}
+		b.I32(int32(len(items))).String(name).String("StructProperty").I64(int64(body.Len())).String(structType).GUID("").U8(0)
+		b.Write(body.Bytes())
+	})
+}

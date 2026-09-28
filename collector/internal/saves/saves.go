@@ -30,6 +30,7 @@ type Result struct {
 	Players []event.SavePlayerData
 	Guilds  []event.SaveGuildData
 	Bases   []event.SaveBaseData
+	Pals    []event.SavePalsData
 }
 
 type output struct {
@@ -42,6 +43,8 @@ type output struct {
 		GuildID      *string             `json:"guild_id"`
 		LastOnlineAt *time.Time          `json:"last_online_at"`
 		Progress     *event.SaveProgress `json:"progress"`
+		Pals         []event.SavePal     `json:"pals"`
+		Eggs         []event.SaveEgg     `json:"eggs"`
 	} `json:"players"`
 	Guilds []struct {
 		GuildID       string                  `json:"guild_id"`
@@ -50,13 +53,15 @@ type output struct {
 		Members       []event.SaveGuildMember `json:"members"`
 	} `json:"guilds"`
 	Bases []struct {
-		BaseID  string             `json:"base_id"`
-		GuildID *string            `json:"guild_id"`
-		Name    *string            `json:"name"`
-		X       float64            `json:"x"`
-		Y       float64            `json:"y"`
-		Z       float64            `json:"z"`
-		Workers []event.SaveWorker `json:"workers"`
+		BaseID     string                `json:"base_id"`
+		GuildID    *string               `json:"guild_id"`
+		Name       *string               `json:"name"`
+		X          float64               `json:"x"`
+		Y          float64               `json:"y"`
+		Z          float64               `json:"z"`
+		Workers    []event.SaveWorker    `json:"workers"`
+		Eggs       []event.SaveEgg       `json:"eggs"`
+		Incubators []event.SaveIncubator `json:"incubators"`
 	} `json:"bases"`
 }
 
@@ -131,6 +136,12 @@ func Read(ctx context.Context, reader, dir string) (*Result, error) {
 			SavedAt: result.SavedAt, PlayerID: p.PlayerID, Name: p.Name, Level: p.Level,
 			GuildID: p.GuildID, LastOnlineAt: p.LastOnlineAt, Progress: p.Progress,
 		})
+		if p.Pals != nil || p.Eggs != nil {
+			playerID := p.PlayerID
+			result.Pals = append(result.Pals, event.SavePalsData{
+				SavedAt: result.SavedAt, PlayerID: &playerID, Pals: nonNilPals(p.Pals), Eggs: nonNilEggs(p.Eggs), Incubators: []event.SaveIncubator{},
+			})
+		}
 	}
 	for _, g := range out.Guilds {
 		members := g.Members
@@ -150,8 +161,53 @@ func Read(ctx context.Context, reader, dir string) (*Result, error) {
 			SavedAt: result.SavedAt, BaseID: b.BaseID, GuildID: b.GuildID, Name: b.Name,
 			X: b.X, Y: b.Y, Z: event.Float(b.Z), Workers: workers,
 		})
+		if b.Eggs != nil || b.Incubators != nil {
+			baseID := b.BaseID
+			incubators := b.Incubators
+			if incubators == nil {
+				incubators = []event.SaveIncubator{}
+			}
+			for i := range incubators {
+				incubators[i].Eggs = nonNilEggs(incubators[i].Eggs)
+				if incubators[i].Hatched != nil && incubators[i].Hatched.Passives == nil {
+					incubators[i].Hatched.Passives = []string{}
+				}
+			}
+			result.Pals = append(result.Pals, event.SavePalsData{
+				SavedAt: result.SavedAt, BaseID: &baseID, Pals: []event.SavePal{}, Eggs: nonNilEggs(b.Eggs), Incubators: incubators,
+			})
+		}
 	}
 	return result, nil
+}
+
+func nonNilPals(pals []event.SavePal) []event.SavePal {
+	if pals == nil {
+		return []event.SavePal{}
+	}
+	for i := range pals {
+		if pals[i].Passives == nil {
+			pals[i].Passives = []string{}
+		}
+	}
+	return pals
+}
+
+func nonNilEggs(eggs []event.SaveEgg) []event.SaveEgg {
+	if eggs == nil {
+		return []event.SaveEgg{}
+	}
+	return eggs
+}
+
+func palsKey(item event.SavePalsData) string {
+	if item.PlayerID != nil {
+		return "pals:player:" + *item.PlayerID
+	}
+	if item.BaseID != nil {
+		return "pals:base:" + *item.BaseID
+	}
+	return "pals:"
 }
 
 type Emission struct {
@@ -211,6 +267,15 @@ func (t *Tracker) Changes(result *Result) []Emission {
 		comparable.SavedAt = time.Time{}
 		if t.changed("base:"+base.BaseID, comparable) {
 			out = append(out, Emission{event.TypeSaveBase, base})
+		}
+	}
+	for _, item := range result.Pals {
+		key := palsKey(item)
+		present[key] = true
+		comparable := item
+		comparable.SavedAt = time.Time{}
+		if t.changed(key, comparable) {
+			out = append(out, Emission{event.TypeSavePals, item})
 		}
 	}
 	for key := range t.seen {

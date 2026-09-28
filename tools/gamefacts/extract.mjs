@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { buildBosses } from './lib/facts/bosses.mjs';
+import { buildBreeding } from './lib/facts/breeding.mjs';
 import { buildElements } from './lib/facts/elements.mjs';
 import { buildHabitats } from './lib/facts/habitats.mjs';
 import { buildLandmarks } from './lib/facts/landmarks.mjs';
@@ -91,7 +92,8 @@ async function main() {
         map,
         landmarks,
         gameVersion
-      )
+      ),
+      'breeding.json': buildBreeding(game, species, gameVersion)
     };
     for (const [name, data] of Object.entries(files)) {
       const size = await writeJson(out, name, data);
@@ -121,7 +123,9 @@ async function main() {
         `structures ${files['names.json'].structures.length}`,
         `humans ${files['names.json'].humans.length}`,
         `habitats ${files['habitats.json'].species.filter((entry) => entry.ways.length > 0).length}`,
-        `egg spawners ${actors.eggSpawners.length}`
+        `egg spawners ${actors.eggSpawners.length}`,
+        `breeding pool ${files['breeding.json'].species.filter((entry) => entry.in_pool).length}`,
+        `unique pairs ${files['breeding.json'].unique.length}`
       ].join(', ')
     );
     console.log(`done in ${((Date.now() - started) / 1000).toFixed(1)} s`);

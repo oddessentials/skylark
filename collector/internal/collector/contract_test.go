@@ -98,6 +98,10 @@ func TestEveryEmittedTypeMatchesTheContract(t *testing.T) {
 		},
 		Guilds: []event.SaveGuildData{{SavedAt: at, GuildID: "6011D000000000000000000000000001", Name: "Lark Riders", BaseCampLevel: 3, Members: []event.SaveGuildMember{{PlayerID: playerID, Name: "Wanderer", Role: "guild_master"}}}},
 		Bases:  []event.SaveBaseData{{SavedAt: at, BaseID: "BA5E0000000000000000000000000003", Name: event.String("Hilltop"), X: -73080.5, Y: -69035.25, Z: event.Float(-948.5), Workers: []event.SaveWorker{{InstanceID: "21000000000000000000000000000000", CharacterID: "SheepBall", Level: 9}}}},
+		Pals: []event.SavePalsData{
+			{SavedAt: at, PlayerID: event.String(playerID), Pals: []event.SavePal{{InstanceID: "23000000000000000000000000000000", Species: "PinkCat", Where: "party", Gender: event.String("male"), Level: 4, Rank: 1, Talents: event.SaveTalents{HP: 30, Shot: 40, Defense: 50}, Passives: []string{"Noukin"}}}, Eggs: []event.SaveEgg{{EggID: "E6600000000000000000000000000001", ItemID: "PalEgg_Fire_01", Species: "Kitsunebi"}}, Incubators: []event.SaveIncubator{}},
+			{SavedAt: at, BaseID: event.String("BA5E0000000000000000000000000003"), Pals: []event.SavePal{}, Eggs: []event.SaveEgg{}, Incubators: []event.SaveIncubator{{ObjectID: "0B1E000000000000000000000000000A", Kind: "HatchingPalEgg", Eggs: []event.SaveEgg{{EggID: "E6600000000000000000000000000002", ItemID: "PalEgg_Leaf_05", Species: "GrassMammoth", Alpha: true}}, Hatched: &event.SavePal{InstanceID: "0B1E000000000000000000000000000A", Species: "GrassMammoth", Alpha: true, Where: "incubator", Gender: event.String("female"), Level: 1, Rank: 1, Passives: []string{"Rare"}, Lucky: true}}}},
+		},
 	}
 	for _, item := range saves.NewTracker().Changes(saved) {
 		items = append(items, emission{item.Type, at, item.Data})
