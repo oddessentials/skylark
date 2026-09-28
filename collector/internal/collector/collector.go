@@ -422,7 +422,7 @@ func (c *Collector) beginStop() bool {
 	c.expectShutdown.Store(true)
 	wait := c.cfg.Launch.ShutdownWait
 	c.stopDeadline = time.Now().Add(wait + 90*time.Second)
-	c.log.Info("stopping: asking the server to save and shut down", "wait", wait.String())
+	c.log.Info("stopping: saving the world, then asking the server to shut down", "wait", wait.String())
 	seconds := int(wait.Round(time.Second) / time.Second)
 	if seconds < 1 {
 		seconds = 1
@@ -430,6 +430,11 @@ func (c *Collector) beginStop() bool {
 	go func() {
 		callCtx, cancel := context.WithTimeout(c.loopCtx, 15*time.Second)
 		defer cancel()
+		if err := c.rest.Save(callCtx); err != nil {
+			c.log.Warn("saving the world before the shutdown failed", "error", err)
+		} else {
+			c.log.Info("saved the world")
+		}
 		if err := c.rest.Shutdown(callCtx, seconds, c.cfg.Launch.ShutdownMessage); err != nil {
 			c.log.Warn("the REST shutdown failed; interrupting the server instead", "error", err)
 			if c.process != nil {

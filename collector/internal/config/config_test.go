@@ -173,3 +173,28 @@ func TestSplitArgs(t *testing.T) {
 		t.Fatal("expected an error")
 	}
 }
+
+func TestWindowsFileAndStdinSourcesWarnAboutBufferedOutput(t *testing.T) {
+	base := map[string]string{"SKYLARK_SITE_URL": "http://localhost:5173", "SKYLARK_SITE_SECRET": "s", "SKYLARK_PALWORLD_ADMIN_PASSWORD": "p"}
+	for _, source := range []string{SourceFile, SourceStdin} {
+		values := map[string]string{"SKYLARK_LOGS_SOURCE": source, "SKYLARK_FILE_PATH": `D:\server\console.log`}
+		for key, value := range base {
+			values[key] = value
+		}
+		for platform, want := range map[string]bool{"windows": true, "linux": false} {
+			cfg, err := Load(Options{Platform: platform, Getenv: env(values)})
+			if err != nil {
+				t.Fatal(err)
+			}
+			warned := false
+			for _, warning := range cfg.Warnings {
+				if strings.Contains(warning, "pseudo console") && strings.Contains(warning, "logs.source is "+source) {
+					warned = true
+				}
+			}
+			if warned != want {
+				t.Fatalf("%s on %s: warnings %v", source, platform, cfg.Warnings)
+			}
+		}
+	}
+}
