@@ -142,7 +142,7 @@
       {/if}
     </Card>
 
-    <div class="grid gap-6 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
       <Card title="Ingest, last 24 hours">
         <div class="grid grid-cols-2 gap-4">
           <Stat label="Batches" value={formatNumber(health.ingest.batches_24h)} />

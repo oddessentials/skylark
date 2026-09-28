@@ -38,37 +38,41 @@
       </div>
     </header>
 
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
       <Card title="Members" flush>
-        <table class="data-table">
-          <thead>
-            <tr><th>Player</th><th class="num">Level</th><th>Member since</th><th>Last seen</th></tr
-            >
-          </thead>
-          <tbody>
-            {#each guild.members as member (member.player.id)}
-              <tr>
-                <td>
-                  <span class="flex items-center gap-2">
-                    <span
-                      class="lamp {member.online ? 'text-online' : 'text-line-strong'}"
-                      aria-hidden="true"
-                    ></span>
-                    <PlayerLink player={member.player} />
-                  </span>
-                </td>
-                <td class="num">{member.level}</td>
-                <td><Time at={member.since} mode="date" /></td>
-                <td>
-                  {#if member.online}<span class="text-online">online now</span>{:else}<Time
-                      at={member.last_seen}
-                      mode="relative"
-                    />{/if}
-                </td>
-              </tr>
-            {/each}
-          </tbody>
-        </table>
+        <div class="overflow-x-auto">
+          <table class="data-table">
+            <thead>
+              <tr
+                ><th>Player</th><th class="num">Level</th><th>Member since</th><th>Last seen</th
+                ></tr
+              >
+            </thead>
+            <tbody>
+              {#each guild.members as member (member.player.id)}
+                <tr>
+                  <td>
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="lamp {member.online ? 'text-online' : 'text-line-strong'}"
+                        aria-hidden="true"
+                      ></span>
+                      <PlayerLink player={member.player} />
+                    </span>
+                  </td>
+                  <td class="num">{member.level}</td>
+                  <td><Time at={member.since} mode="date" /></td>
+                  <td>
+                    {#if member.online}<span class="text-online">online now</span>{:else}<Time
+                        at={member.last_seen}
+                        mode="relative"
+                      />{/if}
+                  </td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
+        </div>
       </Card>
 
       {#if guild.bases.length > 0}

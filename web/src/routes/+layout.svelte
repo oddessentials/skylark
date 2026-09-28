@@ -43,6 +43,11 @@
 </svelte:head>
 
 <div class="relative flex min-h-screen flex-col">
+  <a
+    href="#main"
+    class="sr-only z-50 rounded-md bg-surface-raised px-4 py-2 text-ink shadow-lg focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+    >Skip to the page</a
+  >
   <Backdrop />
   <header class="relative z-10 bg-linear-to-b from-surface/90 via-surface/60 to-transparent">
     <div class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-(--gutter) pt-4 pb-1">
@@ -64,7 +69,11 @@
     </div>
   </header>
   <StatusStrip {status} error={data.statusError} stream={live.stream} />
-  <main class="relative z-10 mx-auto w-full max-w-6xl flex-1 px-(--gutter) pt-8 pb-12">
+  <main
+    id="main"
+    tabindex="-1"
+    class="relative z-10 mx-auto w-full max-w-6xl flex-1 px-(--gutter) pt-8 pb-12 focus:outline-none"
+  >
     {#key page.url.pathname}
       <div class="pagein">
         {@render children()}

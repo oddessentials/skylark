@@ -50,7 +50,7 @@
   {#if !world && !data.map.ok}
     <ErrorNote error={data.map.error} what="the map" />
   {:else}
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_17rem]">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_17rem]">
       <WorldMap world={shown} landmarks={showLandmarks} {focus} highlight={focused} />
       <div class="flex flex-col gap-4">
         <Card title="Layers">
