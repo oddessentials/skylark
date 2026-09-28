@@ -1,5 +1,5 @@
 import { copyFileSync, existsSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 
@@ -10,6 +10,15 @@ if (existsSync(join(root, '.git'))) {
     cwd: root,
     stdio: 'inherit'
   });
+}
+
+const factsDir = join(root, 'tools', 'gamefacts');
+if (
+  existsSync(join(factsDir, 'package-lock.json')) &&
+  !existsSync(join(factsDir, 'node_modules'))
+) {
+  execSync('npm ci --no-audit --no-fund', { cwd: factsDir, stdio: 'inherit' });
+  console.log('postinstall: installed the game facts tools in tools/gamefacts');
 }
 
 const envFile = join(root, '.env');
