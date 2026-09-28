@@ -54,10 +54,16 @@ Playtime, sessions, level history, knockouts and distance travelled for everyone
   </tr>
 </table>
 
+<img src="site/assets/breeding.jpg" alt="A guild's breeding card: the pairs of kept Pals that make a chosen species, the species nobody owns with the shortest chain to each, the eggs in incubators and chests, and every kept Pal with its talents and passives" width="100%">
+
+### Breeding, from the Pals you keep
+
+Every guild page lists the Pals in its members' boxes and parties from the world save, with gender, level, talents, passives and the lucky ones, and works out what they can breed: pick a species and see which of your own pairs make it, unique pairings first and the closest pairs by shared passives on top; see the species nobody owns yet with the shortest chain of breedings from what you have; and the eggs waiting in chests and incubators with the Pal each one holds. The rule is the game's own, read from the server's code, down to how a tie between two ranks is settled, and the Pal pictures are the game's own icons.
+
 ## Also on the site
 
 - Who is online, with their level, health, guild and Pals, and everything that happened today
-- Guilds with their members, roles and bases and the Pals working there, their Palpedia, chat, and a live activity feed
+- Guilds with their members, roles and bases and the Pals working there, their Palpedia, their kept Pals with a breeding calculator, chat, and a live activity feed
 - The world's settings, the server's history and this week's leaders
 - An admin area for the collector, server actions (announce, save, shut down with a countdown, kick, ban), backups and a history rebuild
 - Switches to hide positions, bases, Pals, chat or guild chat

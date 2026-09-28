@@ -24,6 +24,7 @@ import { rebuildProjections } from '../../src/lib/server/jobs/rebuild';
 import { computeOnline, computeStatus } from '../../src/lib/server/read/status';
 import { getGuild, getMap } from '../../src/lib/server/read/community';
 import { getGuildPalpedia, getPlayerPalpedia } from '../../src/lib/server/read/palpedia';
+import { getGuildPals } from '../../src/lib/server/read/pals';
 import { getPlayer } from '../../src/lib/server/read/players';
 import { defaultSettings } from '../../src/lib/server/settings';
 import { POST as ingest } from '../../src/routes/api/ingest/+server';
@@ -279,13 +280,97 @@ describe('POST /api/ingest', () => {
       910_003
     );
     await saved(
+      'save.pals',
+      {
+        player_id: player!.playerUid,
+        base_id: null,
+        pals: [
+          {
+            instance_id: '24000000000000000000000000000000',
+            species: 'Kitsunebi',
+            alpha: true,
+            where: 'box',
+            gender: 'female',
+            level: 12,
+            rank: 2,
+            talents: { hp: 90, shot: 95, defense: 100 },
+            passives: ['Rare', 'Noukin', 'NotARow'],
+            lucky: true,
+            name: 'Blaze'
+          },
+          {
+            instance_id: '23000000000000000000000000000000',
+            species: 'Pinkcat',
+            alpha: false,
+            where: 'party',
+            gender: 'male',
+            level: 4,
+            talents: { hp: 30, shot: 40, defense: 50 },
+            passives: []
+          }
+        ],
+        eggs: [
+          {
+            egg_id: 'E6600000000000000000000000000001',
+            item_id: 'PalEgg_Fire_01',
+            species: 'Kitsunebi',
+            alpha: false
+          }
+        ],
+        incubators: []
+      },
+      910_004
+    );
+    await saved(
+      'save.pals',
+      {
+        player_id: null,
+        base_id: 'BA5E0000000000000000000000000003',
+        pals: [],
+        eggs: [
+          {
+            egg_id: 'E6600000000000000000000000000003',
+            item_id: 'PalEgg_Dark_03',
+            species: 'NightFox',
+            alpha: false
+          }
+        ],
+        incubators: [
+          {
+            object_id: '0B1E000000000000000000000000000A',
+            kind: 'HatchingPalEgg',
+            eggs: [
+              {
+                egg_id: 'E6600000000000000000000000000002',
+                item_id: 'PalEgg_Leaf_05',
+                species: 'GrassMammoth',
+                alpha: true
+              }
+            ],
+            hatched: {
+              instance_id: '0B1E000000000000000000000000000A',
+              species: 'GrassMammoth',
+              alpha: true,
+              where: 'incubator',
+              gender: 'male',
+              level: 1,
+              talents: { hp: 50, shot: 60, defense: 70 },
+              passives: ['Rare'],
+              lucky: true
+            }
+          }
+        ]
+      },
+      910_005
+    );
+    await saved(
       'save.read',
       {
         player_ids: [player!.playerUid],
         guild_ids: [guildId],
         base_ids: ['BA5E0000000000000000000000000003']
       },
-      910_004
+      910_006
     );
     const detail = await getPlayer(db, player!.id, features);
     expect(detail.progress).toMatchObject({
@@ -334,6 +419,45 @@ describe('POST /api/ingest', () => {
     const guildLamball = guildPalpedia.entries.find((entry) => entry.species === 'SheepBall')!;
     expect(guildLamball).toMatchObject({ caught: true, captures: 12, holders: [0] });
     expect(guildPalpedia.entries.filter((entry) => entry.caught)).toHaveLength(2);
+    const kept = await getGuildPals(db, guildId);
+    expect(kept.guild.id).toBe(guildId);
+    expect(kept.saved_at).toBe(at);
+    expect(kept.members.map((member) => [member.name, member.pals])).toEqual([
+      [player!.nameOverride ?? player!.name, 2],
+      ['Offline Friend', 0]
+    ]);
+    expect(
+      kept.pals.map((pal) => [pal.species, pal.where, pal.member, pal.rank, pal.name])
+    ).toEqual([
+      ['PinkCat', 'party', 0, 1, null],
+      ['Kitsunebi', 'box', 0, 2, 'Blaze']
+    ]);
+    expect(kept.pals[1]).toMatchObject({
+      alpha: true,
+      gender: 'female',
+      level: 12,
+      talents: { hp: 90, shot: 95, defense: 100 },
+      lucky: true
+    });
+    expect(kept.pals[1]!.passives).toEqual([
+      { id: 'Rare', name: 'Lucky', rank: 4 },
+      { id: 'Noukin', name: 'Musclehead', rank: 2 },
+      { id: 'NotARow', name: 'NotARow', rank: 0 }
+    ]);
+    expect(kept.eggs.map((egg) => [egg.where, egg.kind_name, egg.species, egg.member])).toEqual([
+      ['inventory', 'Scorching Egg', 'Kitsunebi', 0],
+      ['base', 'Large Dark Egg', 'NightFox', null],
+      ['incubator', 'Huge Verdant Egg', 'GrassMammoth', null]
+    ]);
+    expect(kept.eggs[1]!.base).toMatchObject({ id: base!.id, name: base!.name });
+    expect(kept.eggs[2]!.hatched).toMatchObject({
+      species: 'GrassMammoth',
+      alpha: true,
+      gender: 'male',
+      rank: 1,
+      lucky: true,
+      passives: [{ id: 'Rare', name: 'Lucky', rank: 4 }]
+    });
     const guild = await getGuild(db, guildId, features);
     expect(guild.base_camp_level).toBe(4);
     expect(guild.roster_saved_at).toBe(at);

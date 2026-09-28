@@ -412,6 +412,61 @@ export const baseSaves = pgTable('base_saves', {
   goneAt: utc('gone_at')
 });
 
+export interface SavedHatchling {
+  species: string;
+  alpha: boolean;
+  gender: string | null;
+  level: number;
+  rank: number;
+  talents: { hp: number; shot: number; defense: number };
+  passives: string[];
+  lucky: boolean;
+}
+
+export const palSaves = pgTable(
+  'pal_saves',
+  {
+    instanceId: text('instance_id').primaryKey(),
+    playerUid: text('player_uid').notNull(),
+    savedAt: utc('saved_at').notNull(),
+    place: text('place').notNull(),
+    species: text('species').notNull(),
+    alpha: boolean('alpha').notNull(),
+    gender: text('gender'),
+    level: integer('level').notNull(),
+    rank: integer('rank').notNull(),
+    talentHp: integer('talent_hp').notNull(),
+    talentShot: integer('talent_shot').notNull(),
+    talentDefense: integer('talent_defense').notNull(),
+    passives: jsonb('passives').$type<string[]>().notNull(),
+    lucky: boolean('lucky').notNull(),
+    name: text('name'),
+    goneAt: utc('gone_at')
+  },
+  (table) => [index('pal_saves_player_idx').on(table.playerUid)]
+);
+
+export const eggSaves = pgTable(
+  'egg_saves',
+  {
+    eggId: text('egg_id').primaryKey(),
+    savedAt: utc('saved_at').notNull(),
+    playerUid: text('player_uid'),
+    baseId: text('base_id'),
+    place: text('place').notNull(),
+    objectId: text('object_id'),
+    itemId: text('item_id').notNull(),
+    species: text('species').notNull(),
+    alpha: boolean('alpha').notNull(),
+    hatched: jsonb('hatched').$type<SavedHatchling | null>(),
+    goneAt: utc('gone_at')
+  },
+  (table) => [
+    index('egg_saves_player_idx').on(table.playerUid),
+    index('egg_saves_base_idx').on(table.baseId)
+  ]
+);
+
 export const worldLive = pgTable('world_live', {
   id: integer('id').primaryKey(),
   snapshotAt: utc('snapshot_at').notNull(),
@@ -500,6 +555,8 @@ export type BaseRow = typeof bases.$inferSelect;
 export type PlayerSaveRow = typeof playerSaves.$inferSelect;
 export type GuildSaveRow = typeof guildSaves.$inferSelect;
 export type BaseSaveRow = typeof baseSaves.$inferSelect;
+export type PalSaveRow = typeof palSaves.$inferSelect;
+export type EggSaveRow = typeof eggSaves.$inferSelect;
 
 export const projectionTables = [
   sessions,
@@ -509,5 +566,7 @@ export const projectionTables = [
   chatMessages,
   playerSaves,
   guildSaves,
-  baseSaves
+  baseSaves,
+  palSaves,
+  eggSaves
 ] as const;

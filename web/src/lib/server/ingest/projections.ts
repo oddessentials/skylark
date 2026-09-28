@@ -30,7 +30,13 @@ import {
   relabelAbsentSession,
   type SessionSource
 } from './sessions';
-import { applySaveBase, applySaveGuild, applySavePlayer, applySaveRead } from './saves';
+import {
+  applySaveBase,
+  applySaveGuild,
+  applySavePals,
+  applySavePlayer,
+  applySaveRead
+} from './saves';
 
 type Schemas = components['schemas'];
 
@@ -513,6 +519,8 @@ export async function applyEvent(
       return applySaveBase(ctx, event);
     case 'save.read':
       return applySaveRead(ctx, event);
+    case 'save.pals':
+      return applySavePals(ctx, event);
     case 'pal.captured':
     case 'pal.hatched':
     case 'boss.defeated':

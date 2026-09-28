@@ -25,6 +25,7 @@ const (
 	TypeSaveGuild          = "save.guild"
 	TypeSaveBase           = "save.base"
 	TypeSaveRead           = "save.read"
+	TypeSavePals           = "save.pals"
 	TypePalCaptured        = "pal.captured"
 	TypePalHatched         = "pal.hatched"
 	TypeBossDefeated       = "boss.defeated"
@@ -357,6 +358,49 @@ type SaveReadData struct {
 	PlayerIDs []string  `json:"player_ids"`
 	GuildIDs  []string  `json:"guild_ids"`
 	BaseIDs   []string  `json:"base_ids"`
+}
+
+type SaveTalents struct {
+	HP      int `json:"hp"`
+	Shot    int `json:"shot"`
+	Defense int `json:"defense"`
+}
+
+type SavePal struct {
+	InstanceID string      `json:"instance_id"`
+	Species    string      `json:"species"`
+	Alpha      bool        `json:"alpha"`
+	Where      string      `json:"where"`
+	Gender     *string     `json:"gender"`
+	Level      int         `json:"level"`
+	Rank       int         `json:"rank"`
+	Talents    SaveTalents `json:"talents"`
+	Passives   []string    `json:"passives"`
+	Lucky      bool        `json:"lucky"`
+	Name       *string     `json:"name"`
+}
+
+type SaveEgg struct {
+	EggID   string `json:"egg_id"`
+	ItemID  string `json:"item_id"`
+	Species string `json:"species"`
+	Alpha   bool   `json:"alpha"`
+}
+
+type SaveIncubator struct {
+	ObjectID string    `json:"object_id"`
+	Kind     string    `json:"kind"`
+	Eggs     []SaveEgg `json:"eggs"`
+	Hatched  *SavePal  `json:"hatched"`
+}
+
+type SavePalsData struct {
+	SavedAt    time.Time       `json:"saved_at"`
+	PlayerID   *string         `json:"player_id"`
+	BaseID     *string         `json:"base_id"`
+	Pals       []SavePal       `json:"pals"`
+	Eggs       []SaveEgg       `json:"eggs"`
+	Incubators []SaveIncubator `json:"incubators"`
 }
 
 func String(value string) *string {

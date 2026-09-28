@@ -93,6 +93,17 @@ test('guilds, activity, chat and the world page render', async ({ page }) => {
   await expect(page.getByText('Members', { exact: true }).first()).toBeVisible();
   await expect(page.getByText('Caught between them')).toBeVisible();
   await expect(page.locator('.palpedia-tile')).toHaveCount(288);
+  const breeding = page.locator('#breeding');
+  await expect(breeding.getByRole('heading', { name: 'Breeding' })).toBeVisible();
+  await expect(breeding.locator('.breeding-kept-row').first()).toBeVisible();
+  await expect(breeding.locator('.pal-portrait[src]').first()).toBeVisible();
+  await expect(breeding.locator('.breeding-pair').first()).toBeVisible();
+  await breeding.getByLabel('Filter the Pals').fill('no such pal');
+  await expect(breeding.getByText('nothing matches.')).toBeVisible();
+  await breeding.getByLabel('Filter the Pals').fill('');
+  await breeding.locator('select[name="target"]').selectOption('LazyDragon_Electric');
+  await expect(breeding.getByText('Relaxaurus Lux hatches from')).toBeVisible();
+  await expect(breeding.getByRole('list', { name: 'Wanted species' })).toBeVisible();
   expect(problems).toEqual([]);
   problems = await open(page, '/activity', 'Activity');
   await page.getByRole('link', { name: 'Progress' }).click();

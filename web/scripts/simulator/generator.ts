@@ -1,6 +1,11 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import type { CollectorEvent, IngestBatch, ServerInfo } from '../../src/lib/api/types.ts';
+import type {
+  CollectorEvent,
+  IngestBatch,
+  SavePalsData,
+  ServerInfo
+} from '../../src/lib/api/types.ts';
 
 interface PalClass {
   species?: string;
@@ -953,12 +958,121 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
       fast_travel_points: Math.min(40, 3 + Math.floor(level / 2))
     };
   };
+  const breedingFacts = readWorld<{
+    species: { id: string; egg: string | null }[];
+    passives: { id: string; random_add: boolean }[];
+  }>('breeding');
+  const eggOf = new Map(
+    breedingFacts.species.map((entry) => [entry.id, entry.egg ?? 'PalEgg_Normal_01'])
+  );
+  const randomPassives = breedingFacts.passives
+    .filter((row) => row.random_add)
+    .map((row) => row.id);
+  const nicknames = ['Pip', 'Biscuit', 'Thunder', 'Moss', 'Ember', 'Pebble'];
+  const pickBy = <T>(items: T[], key: string): T => items[draw(key, items.length)]!;
+  const talentsAt = (key: string) => ({
+    hp: 1 + draw(`${key}-hp`, 100),
+    shot: 1 + draw(`${key}-shot`, 100),
+    defense: 1 + draw(`${key}-defense`, 100)
+  });
+  const keptPals = (
+    key: string,
+    playerUid: string,
+    level: number,
+    entries: string[]
+  ): SavePalsData => {
+    const count = entries.length === 0 ? 0 : 6 + draw(`pals-${key}`, 14);
+    const pals = Array.from({ length: count }, (_, index) => {
+      const id = `${key}-${index}`;
+      const species = pickBy(entries, `pal-species-${id}`);
+      const lucky = draw(`pal-lucky-${id}`, 25) === 0;
+      const passives = Array.from({ length: draw(`pal-passives-${id}`, 4) }, (_, slot) =>
+        pickBy(randomPassives, `pal-passive-${id}-${slot}`)
+      );
+      return {
+        instance_id: hex(`save-pal-${id}`, 32),
+        species,
+        alpha: draw(`pal-alpha-${id}`, 12) === 0,
+        where: index < 5 ? ('party' as const) : ('box' as const),
+        gender: draw(`pal-gender-${id}`, 2) === 0 ? 'female' : 'male',
+        level: 1 + draw(`pal-level-${id}`, Math.max(1, level)),
+        rank: draw(`pal-rank-${id}`, 8) === 0 ? 2 : 1,
+        talents: talentsAt(`pal-${id}`),
+        passives: [...new Set(lucky ? ['Rare', ...passives] : passives)],
+        lucky,
+        name:
+          index < 2 && draw(`pal-name-${id}`, 2) === 0 ? pickBy(nicknames, `pal-nick-${id}`) : null
+      };
+    });
+    const eggs = Array.from(
+      { length: entries.length === 0 ? 0 : draw(`eggs-${key}`, 3) },
+      (_, index) => {
+        const species = pickBy(entries, `egg-species-${key}-${index}`);
+        return {
+          egg_id: hex(`save-egg-${key}-${index}`, 32),
+          item_id: eggOf.get(species) ?? 'PalEgg_Normal_01',
+          species,
+          alpha: false
+        };
+      }
+    );
+    return { saved_at: savedAt, player_id: playerUid, base_id: null, pals, eggs, incubators: [] };
+  };
+  const heldPals = (key: string, baseId: string): SavePalsData => {
+    const eggs = Array.from({ length: draw(`base-eggs-${key}`, 4) }, (_, index) => {
+      const species = pickBy(palpediaIds, `base-egg-species-${key}-${index}`);
+      return {
+        egg_id: hex(`save-base-egg-${key}-${index}`, 32),
+        item_id: eggOf.get(species) ?? 'PalEgg_Normal_01',
+        species,
+        alpha: draw(`base-egg-alpha-${key}-${index}`, 10) === 0
+      };
+    });
+    const incubators = Array.from({ length: 1 + draw(`incubators-${key}`, 3) }, (_, index) => {
+      const id = `${key}-${index}`;
+      const species = pickBy(palpediaIds, `incubator-species-${id}`);
+      const empty = draw(`incubator-empty-${id}`, 4) === 0;
+      const hatched = !empty && draw(`incubator-hatched-${id}`, 3) === 0;
+      const objectId = hex(`save-incubator-${id}`, 32);
+      return {
+        object_id: objectId,
+        kind: 'HatchingPalEgg',
+        eggs: empty
+          ? []
+          : [
+              {
+                egg_id: hex(`save-incubator-egg-${id}`, 32),
+                item_id: eggOf.get(species) ?? 'PalEgg_Normal_01',
+                species,
+                alpha: false
+              }
+            ],
+        hatched: hatched
+          ? {
+              instance_id: objectId,
+              species,
+              alpha: false,
+              where: 'incubator' as const,
+              gender: draw(`incubator-gender-${id}`, 2) === 0 ? 'female' : 'male',
+              level: 1,
+              rank: 1,
+              talents: talentsAt(`incubator-${id}`),
+              passives: [],
+              lucky: false,
+              name: null
+            }
+          : null
+      };
+    });
+    return { saved_at: savedAt, player_id: null, base_id: baseId, pals: [], eggs, incubators };
+  };
   const guest = { playerUid: playerUidOf('steam_76561190000000099'), name: 'Hollis', level: 11 };
   const rosters = new Map<string, { player_id: string; name: string; role: string }[]>();
   for (const state of states) {
     const { player } = state;
     const past = state.sessions.filter((session) => session.to <= saveMs);
     const lastOnline = past[past.length - 1];
+    const progress = progressAt(player.userId, state.level);
     push(saveMs, 'save.player', {
       saved_at: savedAt,
       player_id: player.playerUid,
@@ -966,8 +1080,13 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
       level: state.level,
       guild_id: state.guildId,
       last_online_at: lastOnline ? new Date(lastOnline.to).toISOString() : null,
-      progress: progressAt(player.userId, state.level)
+      progress
     });
+    push(
+      saveMs,
+      'save.pals',
+      keptPals(player.userId, player.playerUid, state.level, progress.palpedia_entries)
+    );
     const roster = rosters.get(state.guildId) ?? [];
     const role =
       roster.length === 0 ? 'guild_master' : roster.length === 1 ? 'sub_master' : 'member';
@@ -983,6 +1102,16 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
     last_online_at: new Date(startMs - 2 * 86_400_000).toISOString(),
     progress: progressAt('guest', guest.level)
   });
+  push(
+    saveMs,
+    'save.pals',
+    keptPals(
+      'guest',
+      guest.playerUid,
+      guest.level,
+      progressAt('guest', guest.level).palpedia_entries
+    )
+  );
   guilds.forEach((guild, index) => {
     const roster = rosters.get(guild.id) ?? [];
     if (index === 0) roster.push({ player_id: guest.playerUid, name: guest.name, role: 'guest' });
@@ -1013,6 +1142,7 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
         name: slot === 1 ? 'Pip' : null
       }))
     });
+    push(saveMs, 'save.pals', heldPals(base.key, hex(`save-base-${base.key}`, 32)));
   }
   push(saveMs, 'save.read', {
     saved_at: savedAt,

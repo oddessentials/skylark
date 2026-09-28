@@ -7,4 +7,4 @@
 5. One version number: the root `package.json` `version`. The site and the collector build read it.
 6. Work on a branch and merge through a pull request once CI is green. CI runs `npm run verify`; push branches to `origin` (`git@github.com-odd:oddessentials/skylark.git`).
 7. Public responses and pages never contain IP addresses or platform user ids.
-8. No Pocketpair artwork, logos or extracted game textures in the repository. Derived facts only, and Skylark's own art.
+8. The only Pocketpair art in the repository is the Pal icons in `web/static/pals`, written by `tools/gamefacts/icons.mjs` from the game's own icon table and textures; no other Pocketpair artwork, logos or extracted textures. Derived facts otherwise, and Skylark's own art.

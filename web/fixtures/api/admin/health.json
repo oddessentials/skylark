@@ -11,7 +11,7 @@
       "last_seen_at": "2026-09-27T20:29:52.500Z",
       "stopped_at": null,
       "lost_at": null,
-      "last_seq": 2218,
+      "last_seq": 2231,
       "layers": {
         "mod": true,
         "logs": true,
@@ -43,12 +43,12 @@
   "ingest": {
     "last_batch_at": "2026-09-27T20:29:52.500Z",
     "batches_24h": 4,
-    "events_24h": 879,
+    "events_24h": 892,
     "duplicates_24h": 0,
     "invalid_24h": 0,
     "rejected_24h": 0
   },
-  "db": { "events_total": 742, "positions_total": 2045, "size_mb": 42.5 },
+  "db": { "events_total": 755, "positions_total": 2045, "size_mb": 42.5 },
   "backup": { "last_at": "2026-09-27T18:30:10.000Z", "size_mb": 4.6, "kept": 2 },
   "jobs": [
     {

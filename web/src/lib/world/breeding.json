@@ -1,0 +1,7586 @@
+{
+  "game_version": "1.0.5.102999",
+  "sources": [
+    "/Game/Pal/DataTable/Character/DT_PalMonsterParameter",
+    "/Game/Pal/DataTable/Character/DT_PalCombiUnique",
+    "/Game/Pal/DataTable/PassiveSkill/DT_PassiveSkill_Main",
+    "/Game/Pal/DataTable/Item/DT_ItemDataTable",
+    "/Game/Pal/DataTable/Text/DT_ItemNameText_Common",
+    "/Game/Pal/DataTable/Text/DT_SkillNameText_Common",
+    "/Game/Pal/Blueprint/System/BP_PalGameSetting",
+    "/Game/Pal/DataAsset/MapObject/Breeding/DA_BreedingItemEffectData",
+    "UPalCombiMonsterParameter::FindChildCharacterID and UPalDatabaseCharacterParameter::FindNearestCombiRank in PalServer-Win64-Shipping.exe, Steam build 25247047",
+    "UPalGameSetting fields of the running dedicated server, read with a UE4SS Lua probe on 2026-09-28, Steam build 25247047"
+  ],
+  "child_rule": {
+    "read_from": "UPalCombiMonsterParameter::FindChildCharacterID and UPalDatabaseCharacterParameter::FindNearestCombiRank in PalServer-Win64-Shipping.exe, Steam build 25247047",
+    "fallback": "SheepBall",
+    "mean_offset": -0.5,
+    "max_rank_bonus": 10
+  },
+  "species": [
+    {
+      "id": "SheepBall",
+      "rank": 3050,
+      "priority": 305000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "PinkCat",
+      "rank": 2760,
+      "priority": 276000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "ChickenPal",
+      "rank": 3080,
+      "priority": 308000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "Carbunclo",
+      "rank": 3020,
+      "priority": 302000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_01",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "BluePlatypus",
+      "rank": 2980,
+      "priority": 298000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_01",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "BluePlatypus_Fire",
+      "rank": 2300,
+      "priority": 575,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_01",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "CuteFox",
+      "rank": 3060,
+      "priority": 306000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "FlyingManta",
+      "rank": 2740,
+      "priority": 274000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "FlyingManta_Thunder",
+      "rank": 2380,
+      "priority": 574,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "WoolFox",
+      "rank": 2890,
+      "priority": 289000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "KendoFrog",
+      "rank": 2600,
+      "priority": 260000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "KendoFrog_Dark",
+      "rank": 1860,
+      "priority": 186000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_03",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "LeafMomonga",
+      "rank": 2630,
+      "priority": 263000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_02",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "Ganesha",
+      "rank": 3070,
+      "priority": 307000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_01",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "PlantSlime",
+      "rank": 2950,
+      "priority": 295000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_01",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "SamuraiDog",
+      "rank": 2930,
+      "priority": 293000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_01",
+      "alpha_egg": "PalEgg_Earth_03"
+    },
+    {
+      "id": "CloverFairy",
+      "rank": 2970,
+      "priority": 297000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_01",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "Hedgehog",
+      "rank": 3030,
+      "priority": 303000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_01",
+      "alpha_egg": "PalEgg_Electricity_03"
+    },
+    {
+      "id": "Hedgehog_Ice",
+      "rank": 2850,
+      "priority": 285000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_01",
+      "alpha_egg": "PalEgg_Ice_03"
+    },
+    {
+      "id": "NegativeKoala",
+      "rank": 3000,
+      "priority": 300000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_01",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "Penguin",
+      "rank": 2960,
+      "priority": 296000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_01",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "Penguin_Electric",
+      "rank": 2490,
+      "priority": 572,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_01",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "CaptainPenguin",
+      "rank": 2070,
+      "priority": 207000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_03",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "CaptainPenguin_Black",
+      "rank": 1850,
+      "priority": 573,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_04",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "WizardOwl",
+      "rank": 2940,
+      "priority": 294000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_01",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "Alpaca",
+      "rank": 2720,
+      "priority": 272000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_02",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "KingAlpaca",
+      "rank": 2220,
+      "priority": 222000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 90,
+      "egg": "PalEgg_Normal_05",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "KingAlpaca_Ice",
+      "rank": 1530,
+      "priority": 153000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 90,
+      "egg": "PalEgg_Ice_05",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "DreamDemon",
+      "rank": 2910,
+      "priority": 291000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_01",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "Monkey",
+      "rank": 2900,
+      "priority": 290000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_01",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "Monkey_Fire",
+      "rank": 2830,
+      "priority": 283000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_01",
+      "alpha_egg": "PalEgg_Fire_03"
+    },
+    {
+      "id": "NightFox",
+      "rank": 2920,
+      "priority": 292000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "LavaGirl",
+      "rank": 2700,
+      "priority": 270000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_01",
+      "alpha_egg": "PalEgg_Fire_03"
+    },
+    {
+      "id": "FlameBambi",
+      "rank": 2870,
+      "priority": 287000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_01",
+      "alpha_egg": "PalEgg_Fire_03"
+    },
+    {
+      "id": "Bastet",
+      "rank": 3040,
+      "priority": 304000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_01",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "Bastet_Ice",
+      "rank": 2750,
+      "priority": 275000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_01",
+      "alpha_egg": "PalEgg_Ice_03"
+    },
+    {
+      "id": "Boar",
+      "rank": 2880,
+      "priority": 288000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_01",
+      "alpha_egg": "PalEgg_Earth_03"
+    },
+    {
+      "id": "Kitsunebi",
+      "rank": 2990,
+      "priority": 299000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_01",
+      "alpha_egg": "PalEgg_Fire_03"
+    },
+    {
+      "id": "Kitsunebi_Ice",
+      "rank": 2500,
+      "priority": 250000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_01",
+      "alpha_egg": "PalEgg_Ice_03"
+    },
+    {
+      "id": "NegativeOctopus",
+      "rank": 2770,
+      "priority": 277000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_01",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "NegativeOctopus_Neutral",
+      "rank": 2540,
+      "priority": 571,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "CuteMole",
+      "rank": 2790,
+      "priority": 279000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_01",
+      "alpha_egg": "PalEgg_Earth_03"
+    },
+    {
+      "id": "Deer",
+      "rank": 2710,
+      "priority": 271000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_03",
+      "alpha_egg": "PalEgg_Normal_04"
+    },
+    {
+      "id": "Deer_Ground",
+      "rank": 2580,
+      "priority": 258000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_03",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "Garm",
+      "rank": 2680,
+      "priority": 268000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "BerryGoat",
+      "rank": 2610,
+      "priority": 261000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_02",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "BerryGoat_Dark",
+      "rank": 1940,
+      "priority": 194000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "MopBaby",
+      "rank": 2840,
+      "priority": 284000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_01",
+      "alpha_egg": "PalEgg_Ice_03"
+    },
+    {
+      "id": "MopKing",
+      "rank": 2150,
+      "priority": 215000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_03",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "TentacleTurtle",
+      "rank": 2410,
+      "priority": 241000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "TentacleTurtle_Ground",
+      "rank": 1330,
+      "priority": 577,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "WindChimes",
+      "rank": 2780,
+      "priority": 278000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_01",
+      "alpha_egg": "PalEgg_Earth_03"
+    },
+    {
+      "id": "WindChimes_Ice",
+      "rank": 2510,
+      "priority": 251000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_01",
+      "alpha_egg": "PalEgg_Ice_04"
+    },
+    {
+      "id": "SweetsSheep",
+      "rank": 2820,
+      "priority": 282000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_02",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "SweetsSheep_Ground",
+      "rank": 2030,
+      "priority": 203000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_02",
+      "alpha_egg": "PalEgg_Earth_04"
+    },
+    {
+      "id": "CowPal",
+      "rank": 2800,
+      "priority": 280000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 20,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "BlueDragon",
+      "rank": 1830,
+      "priority": 183000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_04",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "BlueDragon_Ice",
+      "rank": 1220,
+      "priority": 578,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_05",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "ElecCat",
+      "rank": 3010,
+      "priority": 301000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_01",
+      "alpha_egg": "PalEgg_Electricity_03"
+    },
+    {
+      "id": "Kelpie",
+      "rank": 2810,
+      "priority": 281000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_01",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "Kelpie_Fire",
+      "rank": 2470,
+      "priority": 247000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_01",
+      "alpha_egg": "PalEgg_Fire_03"
+    },
+    {
+      "id": "PinkRabbit",
+      "rank": 2860,
+      "priority": 286000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "PinkRabbit_Grass",
+      "rank": 2460,
+      "priority": 246000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_01",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "JellyfishFairy",
+      "rank": 2650,
+      "priority": 265000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "JellyfishGhost",
+      "rank": 2590,
+      "priority": 259000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "ClioneTwins",
+      "rank": 2520,
+      "priority": 252000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Water_01",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "OctopusGirl",
+      "rank": 2530,
+      "priority": 253000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_03",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "OctopusGirl_Neutral",
+      "rank": 1630,
+      "priority": 163000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_03",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "Eagle",
+      "rank": 2570,
+      "priority": 257000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "GhostBlackCat",
+      "rank": 2250,
+      "priority": 225000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "HawkBird",
+      "rank": 2560,
+      "priority": 256000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_02",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "CatBat",
+      "rank": 2340,
+      "priority": 234000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "ColorfulBird",
+      "rank": 2730,
+      "priority": 273000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "Kirin",
+      "rank": 2270,
+      "priority": 227000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_03",
+      "alpha_egg": "PalEgg_Electricity_05"
+    },
+    {
+      "id": "Kirin_Ice",
+      "rank": 540,
+      "priority": 54000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_03",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "SharkKid",
+      "rank": 2550,
+      "priority": 255000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_01",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "SharkKid_Fire",
+      "rank": 2430,
+      "priority": 243000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_02",
+      "alpha_egg": "PalEgg_Fire_03"
+    },
+    {
+      "id": "Werewolf",
+      "rank": 2110,
+      "priority": 211000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_04"
+    },
+    {
+      "id": "Werewolf_Ice",
+      "rank": 1290,
+      "priority": 129000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_02",
+      "alpha_egg": "PalEgg_Ice_03"
+    },
+    {
+      "id": "DarkCrow",
+      "rank": 2370,
+      "priority": 237000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_04"
+    },
+    {
+      "id": "FlameBuffalo",
+      "rank": 2320,
+      "priority": 232000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_02",
+      "alpha_egg": "PalEgg_Fire_04"
+    },
+    {
+      "id": "FluffyBird",
+      "rank": 2480,
+      "priority": 248000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_01",
+      "alpha_egg": "PalEgg_Ice_03"
+    },
+    {
+      "id": "LittleBriarRose",
+      "rank": 2690,
+      "priority": 269000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_01",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "CuteButterfly",
+      "rank": 2620,
+      "priority": 262000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_02",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "ElecPomeranian",
+      "rank": 2360,
+      "priority": 236000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_01",
+      "alpha_egg": "PalEgg_Electricity_03"
+    },
+    {
+      "id": "FairyDragon",
+      "rank": 2280,
+      "priority": 228000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_04",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "FairyDragon_Water",
+      "rank": 1640,
+      "priority": 164000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "BirdDragon",
+      "rank": 1650,
+      "priority": 165000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_03",
+      "alpha_egg": "PalEgg_Fire_04"
+    },
+    {
+      "id": "BirdDragon_Ice",
+      "rank": 1430,
+      "priority": 143000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_03",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "CatVampire",
+      "rank": 1570,
+      "priority": 157000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "VioletFairy",
+      "rank": 1480,
+      "priority": 148000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "SoldierBee",
+      "rank": 2350,
+      "priority": 235000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 10,
+      "egg": "PalEgg_Leaf_02",
+      "alpha_egg": "PalEgg_Leaf_04"
+    },
+    {
+      "id": "QueenBee",
+      "rank": 1790,
+      "priority": 179000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 10,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "PinkLizard",
+      "rank": 2090,
+      "priority": 209000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 30,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "NaughtyCat",
+      "rank": 2120,
+      "priority": 212000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_03",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "PurpleSpider",
+      "rank": 1730,
+      "priority": 173000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "IceSeal",
+      "rank": 1660,
+      "priority": 166000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_03",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "IceSeal_Ground",
+      "rank": 1100,
+      "priority": 110000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_03",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "LizardMan",
+      "rank": 2670,
+      "priority": 267000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_01",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "LizardMan_Fire",
+      "rank": 2640,
+      "priority": 264000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_02",
+      "alpha_egg": "PalEgg_Fire_03"
+    },
+    {
+      "id": "Gorilla",
+      "rank": 2140,
+      "priority": 214000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_03",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "Gorilla_Ground",
+      "rank": 1880,
+      "priority": 188000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_03",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "Serpent",
+      "rank": 2440,
+      "priority": 244000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "Serpent_Ground",
+      "rank": 1840,
+      "priority": 184000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_03",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "RobinHood",
+      "rank": 2260,
+      "priority": 226000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "RobinHood_Ground",
+      "rank": 2050,
+      "priority": 205000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "FlowerRabbit",
+      "rank": 2660,
+      "priority": 266000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_01",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "FoxMage",
+      "rank": 2080,
+      "priority": 208000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_03",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "FoxMage_Dark",
+      "rank": 1490,
+      "priority": 149000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_03",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "CatMage",
+      "rank": 2040,
+      "priority": 204000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "CatMage_Fire",
+      "rank": 1800,
+      "priority": 180000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "HadesBird",
+      "rank": 1130,
+      "priority": 113000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_04",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "HadesBird_Electric",
+      "rank": 960,
+      "priority": 96000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_05",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "GrassMinotaur",
+      "rank": 2020,
+      "priority": 202000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 60,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "GrassMinotaur_Ice",
+      "rank": 440,
+      "priority": 44000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 60,
+      "egg": "PalEgg_Ice_04",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "Mutant",
+      "rank": 2010,
+      "priority": 201000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_03",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "FengyunDeeper",
+      "rank": 1960,
+      "priority": 196000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_02",
+      "alpha_egg": "PalEgg_Normal_04"
+    },
+    {
+      "id": "FengyunDeeper_Electric",
+      "rank": 900,
+      "priority": 90000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_02",
+      "alpha_egg": "PalEgg_Electricity_03"
+    },
+    {
+      "id": "FlowerDinosaur",
+      "rank": 2100,
+      "priority": 210000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "FlowerDinosaur_Electric",
+      "rank": 1890,
+      "priority": 189000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_04",
+      "alpha_egg": "PalEgg_Electricity_05"
+    },
+    {
+      "id": "Ronin",
+      "rank": 1560,
+      "priority": 156000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_04",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "Ronin_Dark",
+      "rank": 840,
+      "priority": 84000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_04",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "IceCrocodile",
+      "rank": 2130,
+      "priority": 213000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_02",
+      "alpha_egg": "PalEgg_Ice_03"
+    },
+    {
+      "id": "GrassMammoth",
+      "rank": 1340,
+      "priority": 134000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "GrassMammoth_Ice",
+      "rank": 1070,
+      "priority": 107000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_05",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "StuffedShark",
+      "rank": 2450,
+      "priority": 245000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "StuffedShark_Fire",
+      "rank": 2240,
+      "priority": 581,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "FlowerDoll",
+      "rank": 1720,
+      "priority": 172000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "FlowerDoll_Fire",
+      "rank": 820,
+      "priority": 82000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "PandaGirl",
+      "rank": 1410,
+      "priority": 141000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Leaf_04",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "Baphomet",
+      "rank": 1470,
+      "priority": 147000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_02",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "Baphomet_Dark",
+      "rank": 1310,
+      "priority": 131000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "RaijinDaughter",
+      "rank": 2400,
+      "priority": 240000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 20,
+      "egg": "PalEgg_Electricity_01",
+      "alpha_egg": "PalEgg_Electricity_03"
+    },
+    {
+      "id": "RaijinDaughter_Water",
+      "rank": 1910,
+      "priority": 191000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 20,
+      "egg": "PalEgg_Dark_01",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "FireKirin",
+      "rank": 1980,
+      "priority": 198000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_03",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "FireKirin_Dark",
+      "rank": 1870,
+      "priority": 187000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_04",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "LazyDragon",
+      "rank": 1090,
+      "priority": 109000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "LazyDragon_Electric",
+      "rank": 770,
+      "priority": 77000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "IceFox",
+      "rank": 1970,
+      "priority": 197000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_03",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "ThunderBird",
+      "rank": 1690,
+      "priority": 169000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_03",
+      "alpha_egg": "PalEgg_Electricity_05"
+    },
+    {
+      "id": "ThunderBird_Ice",
+      "rank": 580,
+      "priority": 58000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_04",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "GhostAnglerfish",
+      "rank": 880,
+      "priority": 88000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "GhostAnglerfish_Fire",
+      "rank": 720,
+      "priority": 72000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_03",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "ThunderDog",
+      "rank": 1920,
+      "priority": 192000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_03",
+      "alpha_egg": "PalEgg_Electricity_05"
+    },
+    {
+      "id": "ThunderDog_Ice",
+      "rank": 1600,
+      "priority": 160000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_03",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "DarkScorpion",
+      "rank": 1120,
+      "priority": 112000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_05",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "DarkScorpion_Ground",
+      "rank": 640,
+      "priority": 64000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_05",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "CactusDoll",
+      "rank": 2420,
+      "priority": 242000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_01",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "CactusDoll_Dark",
+      "rank": 1580,
+      "priority": 158000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "IceDeer",
+      "rank": 1930,
+      "priority": 193000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_02",
+      "alpha_egg": "PalEgg_Ice_04"
+    },
+    {
+      "id": "GrassPanda",
+      "rank": 2060,
+      "priority": 206000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "GrassPanda_Electric",
+      "rank": 1440,
+      "priority": 144000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_04",
+      "alpha_egg": "PalEgg_Electricity_05"
+    },
+    {
+      "id": "WeaselDragon",
+      "rank": 2330,
+      "priority": 233000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_02",
+      "alpha_egg": "PalEgg_Ice_04"
+    },
+    {
+      "id": "WeaselDragon_Fire",
+      "rank": 1950,
+      "priority": 195000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_03",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "RedArmorBird",
+      "rank": 1050,
+      "priority": 105000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_04",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "VolcanoDragon",
+      "rank": 750,
+      "priority": 75000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_04",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "VolcanoDragon_Ice",
+      "rank": 380,
+      "priority": 38000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_05",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "TropicalOstrich",
+      "rank": 1240,
+      "priority": 124000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "DrillGame",
+      "rank": 1550,
+      "priority": 155000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_03",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "SakuraSaurus",
+      "rank": 1380,
+      "priority": 138000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "SakuraSaurus_Water",
+      "rank": 1080,
+      "priority": 108000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "LazyCatfish",
+      "rank": 2290,
+      "priority": 229000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_02",
+      "alpha_egg": "PalEgg_Earth_04"
+    },
+    {
+      "id": "LazyCatfish_Gold",
+      "rank": 1620,
+      "priority": 576,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_03",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "Plesiosaur",
+      "rank": 1030,
+      "priority": 103000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "AmaterasuWolf",
+      "rank": 1670,
+      "priority": 167000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_03",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "AmaterasuWolf_Dark",
+      "rank": 800,
+      "priority": 80000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "Manticore",
+      "rank": 1360,
+      "priority": 136000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_04",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "Manticore_Dark",
+      "rank": 1270,
+      "priority": 127000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_05",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "HerculesBeetle",
+      "rank": 1280,
+      "priority": 128000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 85,
+      "egg": "PalEgg_Earth_05",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "HerculesBeetle_Ground",
+      "rank": 630,
+      "priority": 63000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 85,
+      "egg": "PalEgg_Earth_05",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "SnowPeafowl",
+      "rank": 860,
+      "priority": 86000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_02",
+      "alpha_egg": "PalEgg_Ice_03"
+    },
+    {
+      "id": "DarkFlameFox",
+      "rank": 1010,
+      "priority": 101000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "WhiteMoth",
+      "rank": 1810,
+      "priority": 181000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_04",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "WhiteMoth_Neutral",
+      "rank": 650,
+      "priority": 65000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_05",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "GhostBeast",
+      "rank": 1710,
+      "priority": 171000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "MushroomDragon",
+      "rank": 1520,
+      "priority": 152000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 55,
+      "egg": "PalEgg_Leaf_02",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "MushroomDragon_Dark",
+      "rank": 1450,
+      "priority": 145000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "IceWitch",
+      "rank": 1260,
+      "priority": 126000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_02",
+      "alpha_egg": "PalEgg_Ice_03"
+    },
+    {
+      "id": "MummyPal",
+      "rank": 1170,
+      "priority": 117000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "Umihebi",
+      "rank": 590,
+      "priority": 59000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "Umihebi_Fire",
+      "rank": 170,
+      "priority": 17000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "Suzaku",
+      "rank": 1200,
+      "priority": 120000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_05",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "Suzaku_Water",
+      "rank": 740,
+      "priority": 74000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_05",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "FeatherOstrich",
+      "rank": 2210,
+      "priority": 221000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_03",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "SkyDragon",
+      "rank": 1210,
+      "priority": 121000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_04",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "SkyDragon_Grass",
+      "rank": 1300,
+      "priority": 130000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "LeafPrincess",
+      "rank": 1990,
+      "priority": 199000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 30,
+      "egg": "PalEgg_Leaf_02",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "SmallArmadillo",
+      "rank": 2310,
+      "priority": 231000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_02",
+      "alpha_egg": "PalEgg_Earth_03"
+    },
+    {
+      "id": "GuardianDog",
+      "rank": 2230,
+      "priority": 223000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_02",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "SwordCutlassfish",
+      "rank": 1420,
+      "priority": 142000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_03",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "SwordCutlassfish_Fire",
+      "rank": 1590,
+      "priority": 159000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_03",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "VolcanicMonster",
+      "rank": 1060,
+      "priority": 106000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_03",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "VolcanicMonster_Ice",
+      "rank": 600,
+      "priority": 60000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_04",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "NightBlueHorse",
+      "rank": 1150,
+      "priority": 115000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_04",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "NightBlueHorse_Neutral",
+      "rank": 430,
+      "priority": 43000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_05",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "RockBeast",
+      "rank": 1110,
+      "priority": 111000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_03",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "RockBeast_Ice",
+      "rank": 460,
+      "priority": 46000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_04",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "WhiteTiger",
+      "rank": 1040,
+      "priority": 104000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_04",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "WhiteTiger_Ground",
+      "rank": 470,
+      "priority": 47000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_04",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "SmallYeti",
+      "rank": 2390,
+      "priority": 239000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_02",
+      "alpha_egg": "PalEgg_Ice_03"
+    },
+    {
+      "id": "Yeti",
+      "rank": 830,
+      "priority": 83000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_04",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "Yeti_Grass",
+      "rank": 610,
+      "priority": 61000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "CandleGhost",
+      "rank": 980,
+      "priority": 98000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_04",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "VenusFlytrap",
+      "rank": 1700,
+      "priority": 170000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "KingBahamut",
+      "rank": 410,
+      "priority": 41000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_05",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "KingBahamut_Dragon",
+      "rank": 100,
+      "priority": 10000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "GrassGolem",
+      "rank": 510,
+      "priority": 51000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_05",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "GrassGolem_Dark",
+      "rank": 250,
+      "priority": 25000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_05",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "Anubis",
+      "rank": 480,
+      "priority": 48000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_05",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "Sekhmet",
+      "rank": 870,
+      "priority": 87000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 30,
+      "egg": "PalEgg_Earth_03",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "ScorpionMan",
+      "rank": 1510,
+      "priority": 151000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "ScorpionMan_Electric",
+      "rank": 850,
+      "priority": 85000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_03",
+      "alpha_egg": "PalEgg_Electricity_05"
+    },
+    {
+      "id": "CubeTurtle",
+      "rank": 790,
+      "priority": 79000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_05",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "CubeTurtle_Neutral",
+      "rank": 200,
+      "priority": 20000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_05",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "BadCatgirl",
+      "rank": 1250,
+      "priority": 125000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "MimicDog",
+      "rank": 1740,
+      "priority": 174000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 80,
+      "egg": "PalEgg_Normal_04",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "DarkAlien",
+      "rank": 1820,
+      "priority": 182000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_04",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "WhiteAlienDragon",
+      "rank": 990,
+      "priority": 99000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "BlueberryFairy",
+      "rank": 1390,
+      "priority": 139000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "GhostRabbit",
+      "rank": 1230,
+      "priority": 123000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "GhostRabbit_Grass",
+      "rank": 1320,
+      "priority": 132000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 40,
+      "egg": "PalEgg_Leaf_04",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "BlackPuppy",
+      "rank": 1760,
+      "priority": 176000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_01",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "BlackPuppy_Ice",
+      "rank": 1610,
+      "priority": 161000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "MysteryMask",
+      "rank": 1140,
+      "priority": 114000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "IceNarwhal",
+      "rank": 710,
+      "priority": 71000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 58,
+      "egg": "PalEgg_Ice_05",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "IceNarwhal_Fire",
+      "rank": 370,
+      "priority": 37000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 42,
+      "egg": "PalEgg_Ice_05",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "GrassRabbitMan",
+      "rank": 1160,
+      "priority": 116000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "GrimGirl",
+      "rank": 780,
+      "priority": 78000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 38,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "GoldenHorse",
+      "rank": 730,
+      "priority": 73000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_05",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "SifuDog",
+      "rank": 1460,
+      "priority": 146000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_03",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "SumoDog",
+      "rank": 1190,
+      "priority": 119000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_02",
+      "alpha_egg": "PalEgg_Earth_03"
+    },
+    {
+      "id": "WhiteDeer",
+      "rank": 570,
+      "priority": 57000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_03",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "WhiteDeer_Dark",
+      "rank": 270,
+      "priority": 27000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_04",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "BlackMetalDragon",
+      "rank": 490,
+      "priority": 49000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "WingGolem",
+      "rank": 260,
+      "priority": 26000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 70,
+      "egg": "PalEgg_Earth_05",
+      "alpha_egg": "PalEgg_Earth_05"
+    },
+    {
+      "id": "WingGolem_Fire",
+      "rank": 210,
+      "priority": 21000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 70,
+      "egg": "PalEgg_Fire_05",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "WhiteShieldDragon",
+      "rank": 560,
+      "priority": 56000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "BlueThunderHorse",
+      "rank": 420,
+      "priority": 42000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_04",
+      "alpha_egg": "PalEgg_Electricity_05"
+    },
+    {
+      "id": "LongCat",
+      "rank": 1900,
+      "priority": 190000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_01",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "ElecSnail",
+      "rank": 1780,
+      "priority": 178000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_01",
+      "alpha_egg": "PalEgg_Electricity_03"
+    },
+    {
+      "id": "ElecSnail_Ground",
+      "rank": 1500,
+      "priority": 150000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_02",
+      "alpha_egg": "PalEgg_Electricity_03"
+    },
+    {
+      "id": "DandelionGirl",
+      "rank": 2000,
+      "priority": 200000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Leaf_02",
+      "alpha_egg": "PalEgg_Leaf_03"
+    },
+    {
+      "id": "BrownRabbit",
+      "rank": 1680,
+      "priority": 168000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Earth_02",
+      "alpha_egg": "PalEgg_Earth_03"
+    },
+    {
+      "id": "HoodGhost",
+      "rank": 1770,
+      "priority": 177000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "ElecLizard",
+      "rank": 1750,
+      "priority": 175000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_02",
+      "alpha_egg": "PalEgg_Electricity_03"
+    },
+    {
+      "id": "OniGhostGirl",
+      "rank": 1540,
+      "priority": 154000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Dark_02",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "KingSunfish",
+      "rank": 1370,
+      "priority": 137000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_02",
+      "alpha_egg": "PalEgg_Water_03"
+    },
+    {
+      "id": "KingSunfish_Thunder",
+      "rank": 1000,
+      "priority": 100000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_03",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "SleeveRabbit",
+      "rank": 810,
+      "priority": 81000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Normal_02",
+      "alpha_egg": "PalEgg_Normal_03"
+    },
+    {
+      "id": "GhostDragon",
+      "rank": 300,
+      "priority": 30000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_04",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "GhostDragon_Fire",
+      "rank": 140,
+      "priority": 14000,
+      "ignore_combi": false,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "ThunderFluffyBird",
+      "rank": 1400,
+      "priority": 140000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_03",
+      "alpha_egg": "PalEgg_Electricity_05"
+    },
+    {
+      "id": "RedFlowerBird",
+      "rank": 1350,
+      "priority": 135000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "FoxExorcist",
+      "rank": 390,
+      "priority": 39000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_04",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "LotusDragon",
+      "rank": 230,
+      "priority": 23000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "ClownRabbit",
+      "rank": 520,
+      "priority": 52000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_04",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "ThiefBird",
+      "rank": 530,
+      "priority": 53000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 60,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "SnakeGirl",
+      "rank": 970,
+      "priority": 97000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 40,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "MushroomLady",
+      "rank": 760,
+      "priority": 76000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 30,
+      "egg": "PalEgg_Leaf_03",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "LanternButler",
+      "rank": 890,
+      "priority": 89000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_03",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "MoonChild",
+      "rank": 1180,
+      "priority": 118000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_01",
+      "alpha_egg": "PalEgg_Dark_03"
+    },
+    {
+      "id": "MonochromeQueen",
+      "rank": 280,
+      "priority": 28000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 30,
+      "egg": "PalEgg_Dark_04",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "KabukiMan",
+      "rank": 290,
+      "priority": 29000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 60,
+      "egg": "PalEgg_Fire_04",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "DomeArmorDragon",
+      "rank": 30,
+      "priority": 3000,
+      "ignore_combi": false,
+      "in_pool": true,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "ElecPanda",
+      "rank": 1020,
+      "priority": 102000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Electricity_05",
+      "alpha_egg": "PalEgg_Electricity_05"
+    },
+    {
+      "id": "LilyQueen",
+      "rank": 240,
+      "priority": 24000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 30,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "LilyQueen_Dark",
+      "rank": 220,
+      "priority": 22000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 30,
+      "egg": "PalEgg_Dark_05",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "ThunderDragonMan",
+      "rank": 120,
+      "priority": 12000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "Horus",
+      "rank": 500,
+      "priority": 50000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Fire_05",
+      "alpha_egg": "PalEgg_Fire_05"
+    },
+    {
+      "id": "Horus_Water",
+      "rank": 450,
+      "priority": 45000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_05",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "BlackGriffon",
+      "rank": 550,
+      "priority": 55000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_05",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "MoonQueen",
+      "rank": 360,
+      "priority": 36000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 20,
+      "egg": "PalEgg_Dark_05",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "SnowTigerBeastman",
+      "rank": 50,
+      "priority": 5000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 60,
+      "egg": "PalEgg_Ice_05",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "BlueSkyDragon",
+      "rank": 40,
+      "priority": 4000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "Mothman",
+      "rank": 80,
+      "priority": 8000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "FlowerPrince",
+      "rank": 60,
+      "priority": 6000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 60,
+      "egg": "PalEgg_Leaf_05",
+      "alpha_egg": "PalEgg_Leaf_05"
+    },
+    {
+      "id": "NightLady",
+      "rank": 620,
+      "priority": 62000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 10,
+      "egg": "PalEgg_Dark_05",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "NightLady_Dark",
+      "rank": 130,
+      "priority": 13000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 10,
+      "egg": "PalEgg_Dark_05",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "DarkMechaDragon",
+      "rank": 400,
+      "priority": 40000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_05",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "LegendDeer",
+      "rank": 90,
+      "priority": 9000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_05",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "SaintCentaur",
+      "rank": 180,
+      "priority": 18000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_05",
+      "alpha_egg": "PalEgg_Normal_05"
+    },
+    {
+      "id": "BlackCentaur",
+      "rank": 190,
+      "priority": 19000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_05",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "IceHorse",
+      "rank": 150,
+      "priority": 15000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Ice_05",
+      "alpha_egg": "PalEgg_Ice_05"
+    },
+    {
+      "id": "IceHorse_Dark",
+      "rank": 110,
+      "priority": 11000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dark_05",
+      "alpha_egg": "PalEgg_Dark_05"
+    },
+    {
+      "id": "PoseidonOrca",
+      "rank": 160,
+      "priority": 16000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_05",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "JetDragon",
+      "rank": 70,
+      "priority": 7000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Dragon_05",
+      "alpha_egg": "PalEgg_Dragon_05"
+    },
+    {
+      "id": "KingWhale",
+      "rank": 20,
+      "priority": 2000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Water_05",
+      "alpha_egg": "PalEgg_Water_05"
+    },
+    {
+      "id": "WorldTreeDragon",
+      "rank": 10,
+      "priority": 1000,
+      "ignore_combi": true,
+      "in_pool": false,
+      "male_probability": 50,
+      "egg": "PalEgg_Normal_05",
+      "alpha_egg": "PalEgg_Normal_05"
+    }
+  ],
+  "unique": [
+    {
+      "parent_a": "LazyDragon",
+      "gender_a": null,
+      "parent_b": "ElecCat",
+      "gender_b": null,
+      "child": "LazyDragon_Electric"
+    },
+    {
+      "parent_a": "Baphomet",
+      "gender_a": null,
+      "parent_b": "GhostBeast",
+      "gender_b": null,
+      "child": "Baphomet_Dark"
+    },
+    {
+      "parent_a": "Bastet",
+      "gender_a": null,
+      "parent_b": "Penguin",
+      "gender_b": null,
+      "child": "Bastet_Ice"
+    },
+    {
+      "parent_a": "BirdDragon",
+      "gender_a": null,
+      "parent_b": "IceFox",
+      "gender_b": null,
+      "child": "BirdDragon_Ice"
+    },
+    {
+      "parent_a": "Deer",
+      "gender_a": null,
+      "parent_b": "WindChimes",
+      "gender_b": null,
+      "child": "Deer_Ground"
+    },
+    {
+      "parent_a": "FairyDragon",
+      "gender_a": null,
+      "parent_b": "Serpent",
+      "gender_b": null,
+      "child": "FairyDragon_Water"
+    },
+    {
+      "parent_a": "FireKirin",
+      "gender_a": null,
+      "parent_b": "CatMage",
+      "gender_b": null,
+      "child": "FireKirin_Dark"
+    },
+    {
+      "parent_a": "GrassMammoth",
+      "gender_a": null,
+      "parent_b": "Yeti",
+      "gender_b": null,
+      "child": "GrassMammoth_Ice"
+    },
+    {
+      "parent_a": "GrassPanda",
+      "gender_a": null,
+      "parent_b": "ElecPanda",
+      "gender_b": null,
+      "child": "GrassPanda_Electric"
+    },
+    {
+      "parent_a": "FlowerDinosaur",
+      "gender_a": null,
+      "parent_b": "ThunderDog",
+      "gender_b": null,
+      "child": "FlowerDinosaur_Electric"
+    },
+    {
+      "parent_a": "Hedgehog",
+      "gender_a": null,
+      "parent_b": "Penguin",
+      "gender_b": null,
+      "child": "Hedgehog_Ice"
+    },
+    {
+      "parent_a": "IceHorse",
+      "gender_a": null,
+      "parent_b": "HadesBird",
+      "gender_b": null,
+      "child": "IceHorse_Dark"
+    },
+    {
+      "parent_a": "KingAlpaca",
+      "gender_a": null,
+      "parent_b": "IceDeer",
+      "gender_b": null,
+      "child": "KingAlpaca_Ice"
+    },
+    {
+      "parent_a": "LilyQueen",
+      "gender_a": null,
+      "parent_b": "DarkScorpion",
+      "gender_b": null,
+      "child": "LilyQueen_Dark"
+    },
+    {
+      "parent_a": "LizardMan",
+      "gender_a": null,
+      "parent_b": "LavaGirl",
+      "gender_b": null,
+      "child": "LizardMan_Fire"
+    },
+    {
+      "parent_a": "Manticore",
+      "gender_a": null,
+      "parent_b": "CatVampire",
+      "gender_b": null,
+      "child": "Manticore_Dark"
+    },
+    {
+      "parent_a": "RobinHood",
+      "gender_a": null,
+      "parent_b": "CuteMole",
+      "gender_b": null,
+      "child": "RobinHood_Ground"
+    },
+    {
+      "parent_a": "SakuraSaurus",
+      "gender_a": null,
+      "parent_b": "BluePlatypus",
+      "gender_b": null,
+      "child": "SakuraSaurus_Water"
+    },
+    {
+      "parent_a": "Serpent",
+      "gender_a": null,
+      "parent_b": "LazyCatfish",
+      "gender_b": null,
+      "child": "Serpent_Ground"
+    },
+    {
+      "parent_a": "SharkKid",
+      "gender_a": null,
+      "parent_b": "FlameBambi",
+      "gender_b": null,
+      "child": "SharkKid_Fire"
+    },
+    {
+      "parent_a": "Suzaku",
+      "gender_a": null,
+      "parent_b": "Umihebi",
+      "gender_b": null,
+      "child": "Suzaku_Water"
+    },
+    {
+      "parent_a": "VolcanicMonster",
+      "gender_a": null,
+      "parent_b": "IceFox",
+      "gender_b": null,
+      "child": "VolcanicMonster_Ice"
+    },
+    {
+      "parent_a": "WindChimes",
+      "gender_a": null,
+      "parent_b": "MopBaby",
+      "gender_b": null,
+      "child": "WindChimes_Ice"
+    },
+    {
+      "parent_a": "IceHorse",
+      "gender_a": null,
+      "parent_b": "IceHorse",
+      "gender_b": null,
+      "child": "IceHorse"
+    },
+    {
+      "parent_a": "JetDragon",
+      "gender_a": null,
+      "parent_b": "JetDragon",
+      "gender_b": null,
+      "child": "JetDragon"
+    },
+    {
+      "parent_a": "SaintCentaur",
+      "gender_a": null,
+      "parent_b": "SaintCentaur",
+      "gender_b": null,
+      "child": "SaintCentaur"
+    },
+    {
+      "parent_a": "BlackCentaur",
+      "gender_a": null,
+      "parent_b": "BlackCentaur",
+      "gender_b": null,
+      "child": "BlackCentaur"
+    },
+    {
+      "parent_a": "LilyQueen",
+      "gender_a": null,
+      "parent_b": "LilyQueen",
+      "gender_b": null,
+      "child": "LilyQueen"
+    },
+    {
+      "parent_a": "Horus",
+      "gender_a": null,
+      "parent_b": "Horus",
+      "gender_b": null,
+      "child": "Horus"
+    },
+    {
+      "parent_a": "ElecPanda",
+      "gender_a": null,
+      "parent_b": "ElecPanda",
+      "gender_b": null,
+      "child": "ElecPanda"
+    },
+    {
+      "parent_a": "ThunderDragonMan",
+      "gender_a": null,
+      "parent_b": "ThunderDragonMan",
+      "gender_b": null,
+      "child": "ThunderDragonMan"
+    },
+    {
+      "parent_a": "BlackGriffon",
+      "gender_a": null,
+      "parent_b": "BlackGriffon",
+      "gender_b": null,
+      "child": "BlackGriffon"
+    },
+    {
+      "parent_a": "Umihebi_Fire",
+      "gender_a": null,
+      "parent_b": "Umihebi_Fire",
+      "gender_b": null,
+      "child": "Umihebi_Fire"
+    },
+    {
+      "parent_a": "LazyDragon_Electric",
+      "gender_a": null,
+      "parent_b": "LazyDragon_Electric",
+      "gender_b": null,
+      "child": "LazyDragon_Electric"
+    },
+    {
+      "parent_a": "Baphomet_Dark",
+      "gender_a": null,
+      "parent_b": "Baphomet_Dark",
+      "gender_b": null,
+      "child": "Baphomet_Dark"
+    },
+    {
+      "parent_a": "Bastet_Ice",
+      "gender_a": null,
+      "parent_b": "Bastet_Ice",
+      "gender_b": null,
+      "child": "Bastet_Ice"
+    },
+    {
+      "parent_a": "BirdDragon_Ice",
+      "gender_a": null,
+      "parent_b": "BirdDragon_Ice",
+      "gender_b": null,
+      "child": "BirdDragon_Ice"
+    },
+    {
+      "parent_a": "Deer_Ground",
+      "gender_a": null,
+      "parent_b": "Deer_Ground",
+      "gender_b": null,
+      "child": "Deer_Ground"
+    },
+    {
+      "parent_a": "FairyDragon_Water",
+      "gender_a": null,
+      "parent_b": "FairyDragon_Water",
+      "gender_b": null,
+      "child": "FairyDragon_Water"
+    },
+    {
+      "parent_a": "FireKirin_Dark",
+      "gender_a": null,
+      "parent_b": "FireKirin_Dark",
+      "gender_b": null,
+      "child": "FireKirin_Dark"
+    },
+    {
+      "parent_a": "GrassMammoth_Ice",
+      "gender_a": null,
+      "parent_b": "GrassMammoth_Ice",
+      "gender_b": null,
+      "child": "GrassMammoth_Ice"
+    },
+    {
+      "parent_a": "GrassPanda_Electric",
+      "gender_a": null,
+      "parent_b": "GrassPanda_Electric",
+      "gender_b": null,
+      "child": "GrassPanda_Electric"
+    },
+    {
+      "parent_a": "FlowerDinosaur_Electric",
+      "gender_a": null,
+      "parent_b": "FlowerDinosaur_Electric",
+      "gender_b": null,
+      "child": "FlowerDinosaur_Electric"
+    },
+    {
+      "parent_a": "Hedgehog_Ice",
+      "gender_a": null,
+      "parent_b": "Hedgehog_Ice",
+      "gender_b": null,
+      "child": "Hedgehog_Ice"
+    },
+    {
+      "parent_a": "IceHorse_Dark",
+      "gender_a": null,
+      "parent_b": "IceHorse_Dark",
+      "gender_b": null,
+      "child": "IceHorse_Dark"
+    },
+    {
+      "parent_a": "KingAlpaca_Ice",
+      "gender_a": null,
+      "parent_b": "KingAlpaca_Ice",
+      "gender_b": null,
+      "child": "KingAlpaca_Ice"
+    },
+    {
+      "parent_a": "LilyQueen_Dark",
+      "gender_a": null,
+      "parent_b": "LilyQueen_Dark",
+      "gender_b": null,
+      "child": "LilyQueen_Dark"
+    },
+    {
+      "parent_a": "LizardMan_Fire",
+      "gender_a": null,
+      "parent_b": "LizardMan_Fire",
+      "gender_b": null,
+      "child": "LizardMan_Fire"
+    },
+    {
+      "parent_a": "Manticore_Dark",
+      "gender_a": null,
+      "parent_b": "Manticore_Dark",
+      "gender_b": null,
+      "child": "Manticore_Dark"
+    },
+    {
+      "parent_a": "RobinHood_Ground",
+      "gender_a": null,
+      "parent_b": "RobinHood_Ground",
+      "gender_b": null,
+      "child": "RobinHood_Ground"
+    },
+    {
+      "parent_a": "SakuraSaurus_Water",
+      "gender_a": null,
+      "parent_b": "SakuraSaurus_Water",
+      "gender_b": null,
+      "child": "SakuraSaurus_Water"
+    },
+    {
+      "parent_a": "Serpent_Ground",
+      "gender_a": null,
+      "parent_b": "Serpent_Ground",
+      "gender_b": null,
+      "child": "Serpent_Ground"
+    },
+    {
+      "parent_a": "SharkKid_Fire",
+      "gender_a": null,
+      "parent_b": "SharkKid_Fire",
+      "gender_b": null,
+      "child": "SharkKid_Fire"
+    },
+    {
+      "parent_a": "Suzaku_Water",
+      "gender_a": null,
+      "parent_b": "Suzaku_Water",
+      "gender_b": null,
+      "child": "Suzaku_Water"
+    },
+    {
+      "parent_a": "VolcanicMonster_Ice",
+      "gender_a": null,
+      "parent_b": "VolcanicMonster_Ice",
+      "gender_b": null,
+      "child": "VolcanicMonster_Ice"
+    },
+    {
+      "parent_a": "WindChimes_Ice",
+      "gender_a": null,
+      "parent_b": "WindChimes_Ice",
+      "gender_b": null,
+      "child": "WindChimes_Ice"
+    },
+    {
+      "parent_a": "PinkKangaroo",
+      "gender_a": null,
+      "parent_b": "PinkKangaroo",
+      "gender_b": null,
+      "child": "PinkKangaroo"
+    },
+    {
+      "parent_a": "BeardedDragon",
+      "gender_a": null,
+      "parent_b": "BeardedDragon",
+      "gender_b": null,
+      "child": "BeardedDragon"
+    },
+    {
+      "parent_a": "BlackFurDragon",
+      "gender_a": null,
+      "parent_b": "BlackFurDragon",
+      "gender_b": null,
+      "child": "BlackFurDragon"
+    },
+    {
+      "parent_a": "WaterLizard",
+      "gender_a": null,
+      "parent_b": "WaterLizard",
+      "gender_b": null,
+      "child": "WaterLizard"
+    },
+    {
+      "parent_a": "ElecLion",
+      "gender_a": null,
+      "parent_b": "ElecLion",
+      "gender_b": null,
+      "child": "ElecLion"
+    },
+    {
+      "parent_a": "GrassDragon",
+      "gender_a": null,
+      "parent_b": "GrassDragon",
+      "gender_b": null,
+      "child": "GrassDragon"
+    },
+    {
+      "parent_a": "DarkMutant",
+      "gender_a": null,
+      "parent_b": "DarkMutant",
+      "gender_b": null,
+      "child": "DarkMutant"
+    },
+    {
+      "parent_a": "Umihebi",
+      "gender_a": null,
+      "parent_b": "Manticore",
+      "gender_b": null,
+      "child": "Umihebi_Fire"
+    },
+    {
+      "parent_a": "NightLady",
+      "gender_a": null,
+      "parent_b": "NightLady",
+      "gender_b": null,
+      "child": "NightLady"
+    },
+    {
+      "parent_a": "NightLady_Dark",
+      "gender_a": null,
+      "parent_b": "NightLady_Dark",
+      "gender_b": null,
+      "child": "NightLady_Dark"
+    },
+    {
+      "parent_a": "NightLady",
+      "gender_a": null,
+      "parent_b": "NightLady_Dark",
+      "gender_b": null,
+      "child": "NightLady"
+    },
+    {
+      "parent_a": "Gorilla_Ground",
+      "gender_a": null,
+      "parent_b": "Gorilla_Ground",
+      "gender_b": null,
+      "child": "Gorilla_Ground"
+    },
+    {
+      "parent_a": "KingBahamut_Dragon",
+      "gender_a": null,
+      "parent_b": "KingBahamut_Dragon",
+      "gender_b": null,
+      "child": "KingBahamut_Dragon"
+    },
+    {
+      "parent_a": "FoxMage_Dark",
+      "gender_a": null,
+      "parent_b": "FoxMage_Dark",
+      "gender_b": null,
+      "child": "FoxMage_Dark"
+    },
+    {
+      "parent_a": "CatMage_Fire",
+      "gender_a": null,
+      "parent_b": "CatMage_Fire",
+      "gender_b": null,
+      "child": "CatMage_Fire"
+    },
+    {
+      "parent_a": "HerculesBeetle_Ground",
+      "gender_a": null,
+      "parent_b": "HerculesBeetle_Ground",
+      "gender_b": null,
+      "child": "HerculesBeetle_Ground"
+    },
+    {
+      "parent_a": "WeaselDragon_Fire",
+      "gender_a": null,
+      "parent_b": "WeaselDragon_Fire",
+      "gender_b": null,
+      "child": "WeaselDragon_Fire"
+    },
+    {
+      "parent_a": "SkyDragon_Grass",
+      "gender_a": null,
+      "parent_b": "SkyDragon_Grass",
+      "gender_b": null,
+      "child": "SkyDragon_Grass"
+    },
+    {
+      "parent_a": "HadesBird_Electric",
+      "gender_a": null,
+      "parent_b": "HadesBird_Electric",
+      "gender_b": null,
+      "child": "HadesBird_Electric"
+    },
+    {
+      "parent_a": "Ronin_Dark",
+      "gender_a": null,
+      "parent_b": "Ronin_Dark",
+      "gender_b": null,
+      "child": "Ronin_Dark"
+    },
+    {
+      "parent_a": "DarkScorpion_Ground",
+      "gender_a": null,
+      "parent_b": "DarkScorpion_Ground",
+      "gender_b": null,
+      "child": "DarkScorpion_Ground"
+    },
+    {
+      "parent_a": "MimicDog",
+      "gender_a": null,
+      "parent_b": "MimicDog",
+      "gender_b": null,
+      "child": "MimicDog"
+    },
+    {
+      "parent_a": "CatMage",
+      "gender_a": "male",
+      "parent_b": "FoxMage",
+      "gender_b": "female",
+      "child": "FoxMage_Dark"
+    },
+    {
+      "parent_a": "CatMage",
+      "gender_a": "female",
+      "parent_b": "FoxMage",
+      "gender_b": "male",
+      "child": "CatMage_Fire"
+    },
+    {
+      "parent_a": "Gorilla",
+      "gender_a": null,
+      "parent_b": "SmallArmadillo",
+      "gender_b": null,
+      "child": "Gorilla_Ground"
+    },
+    {
+      "parent_a": "WeaselDragon",
+      "gender_a": null,
+      "parent_b": "FlameBuffalo",
+      "gender_b": null,
+      "child": "WeaselDragon_Fire"
+    },
+    {
+      "parent_a": "SkyDragon",
+      "gender_a": null,
+      "parent_b": "LeafPrincess",
+      "gender_b": null,
+      "child": "SkyDragon_Grass"
+    },
+    {
+      "parent_a": "HadesBird",
+      "gender_a": null,
+      "parent_b": "ThunderBird",
+      "gender_b": null,
+      "child": "HadesBird_Electric"
+    },
+    {
+      "parent_a": "Ronin",
+      "gender_a": null,
+      "parent_b": "CandleGhost",
+      "gender_b": null,
+      "child": "Ronin_Dark"
+    },
+    {
+      "parent_a": "DarkScorpion",
+      "gender_a": null,
+      "parent_b": "WingGolem",
+      "gender_b": null,
+      "child": "DarkScorpion_Ground"
+    },
+    {
+      "parent_a": "MoonQueen",
+      "gender_a": null,
+      "parent_b": "MoonQueen",
+      "gender_b": null,
+      "child": "MoonQueen"
+    },
+    {
+      "parent_a": "DarkAlien",
+      "gender_a": null,
+      "parent_b": "DarkAlien",
+      "gender_b": null,
+      "child": "DarkAlien"
+    },
+    {
+      "parent_a": "WhiteAlienDragon",
+      "gender_a": null,
+      "parent_b": "WhiteAlienDragon",
+      "gender_b": null,
+      "child": "WhiteAlienDragon"
+    },
+    {
+      "parent_a": "DarkMechaDragon",
+      "gender_a": null,
+      "parent_b": "DarkMechaDragon",
+      "gender_b": null,
+      "child": "DarkMechaDragon"
+    },
+    {
+      "parent_a": "SnowTigerBeastman",
+      "gender_a": null,
+      "parent_b": "SnowTigerBeastman",
+      "gender_b": null,
+      "child": "SnowTigerBeastman"
+    },
+    {
+      "parent_a": "Kitsunebi",
+      "gender_a": null,
+      "parent_b": "IceFox",
+      "gender_b": null,
+      "child": "Kitsunebi_Ice"
+    },
+    {
+      "parent_a": "RaijinDaughter",
+      "gender_a": null,
+      "parent_b": "MysteryMask",
+      "gender_b": null,
+      "child": "RaijinDaughter_Water"
+    },
+    {
+      "parent_a": "WhiteTiger",
+      "gender_a": null,
+      "parent_b": "FeatherOstrich",
+      "gender_b": null,
+      "child": "WhiteTiger_Ground"
+    },
+    {
+      "parent_a": "FengyunDeeper",
+      "gender_a": null,
+      "parent_b": "BlueThunderHorse",
+      "gender_b": null,
+      "child": "FengyunDeeper_Electric"
+    },
+    {
+      "parent_a": "BerryGoat",
+      "gender_a": null,
+      "parent_b": "PurpleSpider",
+      "gender_b": null,
+      "child": "BerryGoat_Dark"
+    },
+    {
+      "parent_a": "Werewolf",
+      "gender_a": null,
+      "parent_b": "MopKing",
+      "gender_b": null,
+      "child": "Werewolf_Ice"
+    },
+    {
+      "parent_a": "Horus",
+      "gender_a": null,
+      "parent_b": "Umihebi",
+      "gender_b": null,
+      "child": "Horus_Water"
+    },
+    {
+      "parent_a": "PinkRabbit",
+      "gender_a": null,
+      "parent_b": "LittleBriarRose",
+      "gender_b": null,
+      "child": "PinkRabbit_Grass"
+    },
+    {
+      "parent_a": "HerculesBeetle",
+      "gender_a": null,
+      "parent_b": "DrillGame",
+      "gender_b": null,
+      "child": "HerculesBeetle_Ground"
+    },
+    {
+      "parent_a": "AmaterasuWolf",
+      "gender_a": null,
+      "parent_b": "BadCatgirl",
+      "gender_b": null,
+      "child": "AmaterasuWolf_Dark"
+    },
+    {
+      "parent_a": "Kitsunebi_Ice",
+      "gender_a": null,
+      "parent_b": "Kitsunebi_Ice",
+      "gender_b": null,
+      "child": "Kitsunebi_Ice"
+    },
+    {
+      "parent_a": "RaijinDaughter_Water",
+      "gender_a": null,
+      "parent_b": "RaijinDaughter_Water",
+      "gender_b": null,
+      "child": "RaijinDaughter_Water"
+    },
+    {
+      "parent_a": "WhiteTiger_Ground",
+      "gender_a": null,
+      "parent_b": "WhiteTiger_Ground",
+      "gender_b": null,
+      "child": "WhiteTiger_Ground"
+    },
+    {
+      "parent_a": "FengyunDeeper_Electric",
+      "gender_a": null,
+      "parent_b": "FengyunDeeper_Electric",
+      "gender_b": null,
+      "child": "FengyunDeeper_Electric"
+    },
+    {
+      "parent_a": "BerryGoat_Dark",
+      "gender_a": null,
+      "parent_b": "BerryGoat_Dark",
+      "gender_b": null,
+      "child": "BerryGoat_Dark"
+    },
+    {
+      "parent_a": "Werewolf_Ice",
+      "gender_a": null,
+      "parent_b": "Werewolf_Ice",
+      "gender_b": null,
+      "child": "Werewolf_Ice"
+    },
+    {
+      "parent_a": "Horus_Water",
+      "gender_a": null,
+      "parent_b": "Horus_Water",
+      "gender_b": null,
+      "child": "Horus_Water"
+    },
+    {
+      "parent_a": "PinkRabbit_Grass",
+      "gender_a": null,
+      "parent_b": "PinkRabbit_Grass",
+      "gender_b": null,
+      "child": "PinkRabbit_Grass"
+    },
+    {
+      "parent_a": "HerculesBeetle_Ground",
+      "gender_a": null,
+      "parent_b": "HerculesBeetle_Ground",
+      "gender_b": null,
+      "child": "HerculesBeetle_Ground"
+    },
+    {
+      "parent_a": "AmaterasuWolf_Dark",
+      "gender_a": null,
+      "parent_b": "AmaterasuWolf_Dark",
+      "gender_b": null,
+      "child": "AmaterasuWolf_Dark"
+    },
+    {
+      "parent_a": "GoldenHorse",
+      "gender_a": null,
+      "parent_b": "Deer_Ground",
+      "gender_b": null,
+      "child": "WhiteDeer"
+    },
+    {
+      "parent_a": "WhiteDeer",
+      "gender_a": null,
+      "parent_b": "WhiteDeer",
+      "gender_b": null,
+      "child": "WhiteDeer"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001",
+      "gender_b": null,
+      "child": "YakushimaMonster001"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Blue",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Blue"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Red",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Red"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Purple"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Pink",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Pink"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Rainbow",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster002",
+      "gender_b": null,
+      "child": "YakushimaMonster002"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaMonster001",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001_Small"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Blue",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Blue",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Blue"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Blue",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Red",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Purple"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Blue",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Purple"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Blue",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Pink",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Pink"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Blue",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Rainbow",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Blue",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster002",
+      "gender_b": null,
+      "child": "YakushimaMonster002"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Blue",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Blue",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Blue",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Blue",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001_Small"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Red",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Red",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Red"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Red",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Purple"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Red",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Pink",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Pink"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Red",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Rainbow",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Red",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster002",
+      "gender_b": null,
+      "child": "YakushimaMonster002"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Red",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Red",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Red",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Red",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001_Small"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Purple"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Pink",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Pink"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Rainbow",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster002",
+      "gender_b": null,
+      "child": "YakushimaMonster002"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003",
+      "gender_b": null,
+      "child": "YakushimaMonster003_Purple"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster003_Purple"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001_Small"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Pink",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Pink",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Pink"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Pink",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Rainbow",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Pink",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster002",
+      "gender_b": null,
+      "child": "YakushimaMonster002"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Pink",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Pink",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Pink",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Pink",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001_Small"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Rainbow",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster001_Rainbow",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Rainbow",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster002",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Rainbow",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Rainbow",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster001_Rainbow"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Rainbow",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaMonster001_Rainbow",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001_Small"
+    },
+    {
+      "parent_a": "YakushimaMonster002",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster002",
+      "gender_b": null,
+      "child": "YakushimaMonster002"
+    },
+    {
+      "parent_a": "YakushimaMonster002",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003",
+      "gender_b": null,
+      "child": "YakushimaMonster002"
+    },
+    {
+      "parent_a": "YakushimaMonster002",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster002"
+    },
+    {
+      "parent_a": "YakushimaMonster002",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaMonster002",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001_Small"
+    },
+    {
+      "parent_a": "YakushimaMonster003",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003",
+      "gender_b": null,
+      "child": "YakushimaMonster003"
+    },
+    {
+      "parent_a": "YakushimaMonster003",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster003_Purple"
+    },
+    {
+      "parent_a": "YakushimaMonster003",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaMonster003",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001_Small"
+    },
+    {
+      "parent_a": "YakushimaMonster003_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaMonster003_Purple",
+      "gender_b": null,
+      "child": "YakushimaMonster003_Purple"
+    },
+    {
+      "parent_a": "YakushimaMonster003_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaMonster003_Purple",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001_Small"
+    },
+    {
+      "parent_a": "YakushimaBoss001",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaBoss001",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001"
+    },
+    {
+      "parent_a": "YakushimaBoss001_Small",
+      "gender_a": null,
+      "parent_b": "YakushimaBoss001_Small",
+      "gender_b": null,
+      "child": "YakushimaBoss001_Small"
+    },
+    {
+      "parent_a": "NegativeOctopus_Neutral",
+      "gender_a": null,
+      "parent_b": "NegativeOctopus_Neutral",
+      "gender_b": null,
+      "child": "NegativeOctopus_Neutral"
+    },
+    {
+      "parent_a": "Penguin_Electric",
+      "gender_a": null,
+      "parent_b": "Penguin_Electric",
+      "gender_b": null,
+      "child": "Penguin_Electric"
+    },
+    {
+      "parent_a": "CaptainPenguin_Black",
+      "gender_a": null,
+      "parent_b": "CaptainPenguin_Black",
+      "gender_b": null,
+      "child": "CaptainPenguin_Black"
+    },
+    {
+      "parent_a": "FlyingManta_Thunder",
+      "gender_a": null,
+      "parent_b": "FlyingManta_Thunder",
+      "gender_b": null,
+      "child": "FlyingManta_Thunder"
+    },
+    {
+      "parent_a": "BluePlatypus_Fire",
+      "gender_a": null,
+      "parent_b": "BluePlatypus_Fire",
+      "gender_b": null,
+      "child": "BluePlatypus_Fire"
+    },
+    {
+      "parent_a": "LazyCatfish_Gold",
+      "gender_a": null,
+      "parent_b": "LazyCatfish_Gold",
+      "gender_b": null,
+      "child": "LazyCatfish_Gold"
+    },
+    {
+      "parent_a": "TentacleTurtle_Ground",
+      "gender_a": null,
+      "parent_b": "TentacleTurtle_Ground",
+      "gender_b": null,
+      "child": "TentacleTurtle_Ground"
+    },
+    {
+      "parent_a": "KendoFrog_Dark",
+      "gender_a": null,
+      "parent_b": "KendoFrog_Dark",
+      "gender_b": null,
+      "child": "KendoFrog_Dark"
+    },
+    {
+      "parent_a": "BlueDragon_Ice",
+      "gender_a": null,
+      "parent_b": "BlueDragon_Ice",
+      "gender_b": null,
+      "child": "BlueDragon_Ice"
+    },
+    {
+      "parent_a": "IceNarwhal_Fire",
+      "gender_a": null,
+      "parent_b": "IceNarwhal_Fire",
+      "gender_b": null,
+      "child": "IceNarwhal_Fire"
+    },
+    {
+      "parent_a": "GhostAnglerfish_Fire",
+      "gender_a": null,
+      "parent_b": "GhostAnglerfish_Fire",
+      "gender_b": null,
+      "child": "GhostAnglerfish_Fire"
+    },
+    {
+      "parent_a": "StuffedShark_Fire",
+      "gender_a": null,
+      "parent_b": "StuffedShark_Fire",
+      "gender_b": null,
+      "child": "StuffedShark_Fire"
+    },
+    {
+      "parent_a": "PoseidonOrca",
+      "gender_a": null,
+      "parent_b": "PoseidonOrca",
+      "gender_b": null,
+      "child": "PoseidonOrca"
+    },
+    {
+      "parent_a": "NegativeOctopus",
+      "gender_a": null,
+      "parent_b": "PinkRabbit",
+      "gender_b": null,
+      "child": "NegativeOctopus_Neutral"
+    },
+    {
+      "parent_a": "Penguin",
+      "gender_a": null,
+      "parent_b": "ElecCat",
+      "gender_b": null,
+      "child": "Penguin_Electric"
+    },
+    {
+      "parent_a": "CaptainPenguin",
+      "gender_a": null,
+      "parent_b": "ThunderDog",
+      "gender_b": null,
+      "child": "CaptainPenguin_Black"
+    },
+    {
+      "parent_a": "FlyingManta",
+      "gender_a": null,
+      "parent_b": "Kirin",
+      "gender_b": null,
+      "child": "FlyingManta_Thunder"
+    },
+    {
+      "parent_a": "BluePlatypus",
+      "gender_a": null,
+      "parent_b": "LavaGirl",
+      "gender_b": null,
+      "child": "BluePlatypus_Fire"
+    },
+    {
+      "parent_a": "LazyCatfish",
+      "gender_a": null,
+      "parent_b": "Deer_Ground",
+      "gender_b": null,
+      "child": "LazyCatfish_Gold"
+    },
+    {
+      "parent_a": "TentacleTurtle",
+      "gender_a": null,
+      "parent_b": "DrillGame",
+      "gender_b": null,
+      "child": "TentacleTurtle_Ground"
+    },
+    {
+      "parent_a": "KendoFrog",
+      "gender_a": null,
+      "parent_b": "Ronin_Dark",
+      "gender_b": null,
+      "child": "KendoFrog_Dark"
+    },
+    {
+      "parent_a": "BlueDragon",
+      "gender_a": null,
+      "parent_b": "SnowPeafowl",
+      "gender_b": null,
+      "child": "BlueDragon_Ice"
+    },
+    {
+      "parent_a": "IceNarwhal",
+      "gender_a": null,
+      "parent_b": "WeaselDragon_Fire",
+      "gender_b": null,
+      "child": "IceNarwhal_Fire"
+    },
+    {
+      "parent_a": "GhostAnglerfish",
+      "gender_a": null,
+      "parent_b": "CandleGhost",
+      "gender_b": null,
+      "child": "GhostAnglerfish_Fire"
+    },
+    {
+      "parent_a": "StuffedShark",
+      "gender_a": null,
+      "parent_b": "SharkKid_Fire",
+      "gender_b": null,
+      "child": "StuffedShark_Fire"
+    },
+    {
+      "parent_a": "LegendDeer",
+      "gender_a": null,
+      "parent_b": "LegendDeer",
+      "gender_b": null,
+      "child": "LegendDeer"
+    },
+    {
+      "parent_a": "Monkey_Fire",
+      "gender_a": null,
+      "parent_b": "Monkey_Fire",
+      "gender_b": null,
+      "child": "Monkey_Fire"
+    },
+    {
+      "parent_a": "Kirin_Ice",
+      "gender_a": null,
+      "parent_b": "Kirin_Ice",
+      "gender_b": null,
+      "child": "Kirin_Ice"
+    },
+    {
+      "parent_a": "ThunderDog_Ice",
+      "gender_a": null,
+      "parent_b": "ThunderDog_Ice",
+      "gender_b": null,
+      "child": "ThunderDog_Ice"
+    },
+    {
+      "parent_a": "ThunderBird_Ice",
+      "gender_a": null,
+      "parent_b": "ThunderBird_Ice",
+      "gender_b": null,
+      "child": "ThunderBird_Ice"
+    },
+    {
+      "parent_a": "SweetsSheep_Ground",
+      "gender_a": null,
+      "parent_b": "SweetsSheep_Ground",
+      "gender_b": null,
+      "child": "SweetsSheep_Ground"
+    },
+    {
+      "parent_a": "ScorpionMan_Electric",
+      "gender_a": null,
+      "parent_b": "ScorpionMan_Electric",
+      "gender_b": null,
+      "child": "ScorpionMan_Electric"
+    },
+    {
+      "parent_a": "BlackPuppy_Ice",
+      "gender_a": null,
+      "parent_b": "BlackPuppy_Ice",
+      "gender_b": null,
+      "child": "BlackPuppy_Ice"
+    },
+    {
+      "parent_a": "GhostRabbit_Grass",
+      "gender_a": null,
+      "parent_b": "GhostRabbit_Grass",
+      "gender_b": null,
+      "child": "GhostRabbit_Grass"
+    },
+    {
+      "parent_a": "NightBlueHorse_Neutral",
+      "gender_a": null,
+      "parent_b": "NightBlueHorse_Neutral",
+      "gender_b": null,
+      "child": "NightBlueHorse_Neutral"
+    },
+    {
+      "parent_a": "OctopusGirl_Neutral",
+      "gender_a": null,
+      "parent_b": "OctopusGirl_Neutral",
+      "gender_b": null,
+      "child": "OctopusGirl_Neutral"
+    },
+    {
+      "parent_a": "WhiteMoth_Neutral",
+      "gender_a": null,
+      "parent_b": "WhiteMoth_Neutral",
+      "gender_b": null,
+      "child": "WhiteMoth_Neutral"
+    },
+    {
+      "parent_a": "WingGolem_Fire",
+      "gender_a": null,
+      "parent_b": "WingGolem_Fire",
+      "gender_b": null,
+      "child": "WingGolem_Fire"
+    },
+    {
+      "parent_a": "FlowerDoll_Fire",
+      "gender_a": null,
+      "parent_b": "FlowerDoll_Fire",
+      "gender_b": null,
+      "child": "FlowerDoll_Fire"
+    },
+    {
+      "parent_a": "WhiteDeer_Dark",
+      "gender_a": null,
+      "parent_b": "WhiteDeer_Dark",
+      "gender_b": null,
+      "child": "WhiteDeer_Dark"
+    },
+    {
+      "parent_a": "IceSeal_Ground",
+      "gender_a": null,
+      "parent_b": "IceSeal_Ground",
+      "gender_b": null,
+      "child": "IceSeal_Ground"
+    },
+    {
+      "parent_a": "KingSunfish_Thunder",
+      "gender_a": null,
+      "parent_b": "KingSunfish_Thunder",
+      "gender_b": null,
+      "child": "KingSunfish_Thunder"
+    },
+    {
+      "parent_a": "GrassGolem_Dark",
+      "gender_a": null,
+      "parent_b": "GrassGolem_Dark",
+      "gender_b": null,
+      "child": "GrassGolem_Dark"
+    },
+    {
+      "parent_a": "CubeTurtle_Neutral",
+      "gender_a": null,
+      "parent_b": "CubeTurtle_Neutral",
+      "gender_b": null,
+      "child": "CubeTurtle_Neutral"
+    },
+    {
+      "parent_a": "GhostDragon_Fire",
+      "gender_a": null,
+      "parent_b": "GhostDragon_Fire",
+      "gender_b": null,
+      "child": "GhostDragon_Fire"
+    },
+    {
+      "parent_a": "VolcanoDragon_Ice",
+      "gender_a": null,
+      "parent_b": "VolcanoDragon_Ice",
+      "gender_b": null,
+      "child": "VolcanoDragon_Ice"
+    },
+    {
+      "parent_a": "RockBeast_Ice",
+      "gender_a": null,
+      "parent_b": "RockBeast_Ice",
+      "gender_b": null,
+      "child": "RockBeast_Ice"
+    },
+    {
+      "parent_a": "SwordCutlassfish_Fire",
+      "gender_a": null,
+      "parent_b": "SwordCutlassfish_Fire",
+      "gender_b": null,
+      "child": "SwordCutlassfish_Fire"
+    },
+    {
+      "parent_a": "ElecSnail_Ground",
+      "gender_a": null,
+      "parent_b": "ElecSnail_Ground",
+      "gender_b": null,
+      "child": "ElecSnail_Ground"
+    },
+    {
+      "parent_a": "CactusDoll_Dark",
+      "gender_a": null,
+      "parent_b": "CactusDoll_Dark",
+      "gender_b": null,
+      "child": "CactusDoll_Dark"
+    },
+    {
+      "parent_a": "GrassMinotaur_Ice",
+      "gender_a": null,
+      "parent_b": "GrassMinotaur_Ice",
+      "gender_b": null,
+      "child": "GrassMinotaur_Ice"
+    },
+    {
+      "parent_a": "Monkey",
+      "gender_a": null,
+      "parent_b": "LavaGirl",
+      "gender_b": null,
+      "child": "Monkey_Fire"
+    },
+    {
+      "parent_a": "Kirin",
+      "gender_a": null,
+      "parent_b": "SnowPeafowl",
+      "gender_b": null,
+      "child": "Kirin_Ice"
+    },
+    {
+      "parent_a": "ThunderDog",
+      "gender_a": null,
+      "parent_b": "IceFox",
+      "gender_b": null,
+      "child": "ThunderDog_Ice"
+    },
+    {
+      "parent_a": "ThunderBird",
+      "gender_a": null,
+      "parent_b": "SnowPeafowl",
+      "gender_b": null,
+      "child": "ThunderBird_Ice"
+    },
+    {
+      "parent_a": "SweetsSheep",
+      "gender_a": null,
+      "parent_b": "SmallArmadillo",
+      "gender_b": null,
+      "child": "SweetsSheep_Ground"
+    },
+    {
+      "parent_a": "ScorpionMan",
+      "gender_a": null,
+      "parent_b": "HadesBird_Electric",
+      "gender_b": null,
+      "child": "ScorpionMan_Electric"
+    },
+    {
+      "parent_a": "BlackPuppy",
+      "gender_a": null,
+      "parent_b": "IceCrocodile",
+      "gender_b": null,
+      "child": "BlackPuppy_Ice"
+    },
+    {
+      "parent_a": "GhostRabbit",
+      "gender_a": null,
+      "parent_b": "FlowerDoll",
+      "gender_b": null,
+      "child": "GhostRabbit_Grass"
+    },
+    {
+      "parent_a": "NightBlueHorse",
+      "gender_a": null,
+      "parent_b": "WhiteDeer",
+      "gender_b": null,
+      "child": "NightBlueHorse_Neutral"
+    },
+    {
+      "parent_a": "OctopusGirl",
+      "gender_a": null,
+      "parent_b": "LongCat",
+      "gender_b": null,
+      "child": "OctopusGirl_Neutral"
+    },
+    {
+      "parent_a": "WhiteMoth",
+      "gender_a": null,
+      "parent_b": "SleeveRabbit",
+      "gender_b": null,
+      "child": "WhiteMoth_Neutral"
+    },
+    {
+      "parent_a": "WingGolem",
+      "gender_a": null,
+      "parent_b": "RedArmorBird",
+      "gender_b": null,
+      "child": "WingGolem_Fire"
+    },
+    {
+      "parent_a": "FlowerDoll",
+      "gender_a": null,
+      "parent_b": "Ronin",
+      "gender_b": null,
+      "child": "FlowerDoll_Fire"
+    },
+    {
+      "parent_a": "WhiteDeer",
+      "gender_a": null,
+      "parent_b": "AmaterasuWolf_Dark",
+      "gender_b": null,
+      "child": "WhiteDeer_Dark"
+    },
+    {
+      "parent_a": "IceSeal",
+      "gender_a": null,
+      "parent_b": "Serpent_Ground",
+      "gender_b": null,
+      "child": "IceSeal_Ground"
+    },
+    {
+      "parent_a": "KingSunfish",
+      "gender_a": null,
+      "parent_b": "ElecLizard",
+      "gender_b": null,
+      "child": "KingSunfish_Thunder"
+    },
+    {
+      "parent_a": "GrassGolem",
+      "gender_a": null,
+      "parent_b": "CandleGhost",
+      "gender_b": null,
+      "child": "GrassGolem_Dark"
+    },
+    {
+      "parent_a": "CubeTurtle",
+      "gender_a": null,
+      "parent_b": "WhiteDeer",
+      "gender_b": null,
+      "child": "CubeTurtle_Neutral"
+    },
+    {
+      "parent_a": "GhostDragon",
+      "gender_a": null,
+      "parent_b": "Suzaku",
+      "gender_b": null,
+      "child": "GhostDragon_Fire"
+    },
+    {
+      "parent_a": "VolcanoDragon",
+      "gender_a": null,
+      "parent_b": "VolcanicMonster_Ice",
+      "gender_b": null,
+      "child": "VolcanoDragon_Ice"
+    },
+    {
+      "parent_a": "RockBeast",
+      "gender_a": null,
+      "parent_b": "Yeti",
+      "gender_b": null,
+      "child": "RockBeast_Ice"
+    },
+    {
+      "parent_a": "SwordCutlassfish",
+      "gender_a": null,
+      "parent_b": "SharkKid_Fire",
+      "gender_b": null,
+      "child": "SwordCutlassfish_Fire"
+    },
+    {
+      "parent_a": "ElecSnail",
+      "gender_a": null,
+      "parent_b": "TentacleTurtle_Ground",
+      "gender_b": null,
+      "child": "ElecSnail_Ground"
+    },
+    {
+      "parent_a": "CactusDoll",
+      "gender_a": null,
+      "parent_b": "BlueberryFairy",
+      "gender_b": null,
+      "child": "CactusDoll_Dark"
+    },
+    {
+      "parent_a": "GrassMinotaur",
+      "gender_a": null,
+      "parent_b": "RockBeast_Ice",
+      "gender_b": null,
+      "child": "GrassMinotaur_Ice"
+    },
+    {
+      "parent_a": "BlueSkyDragon",
+      "gender_a": null,
+      "parent_b": "BlueSkyDragon",
+      "gender_b": null,
+      "child": "BlueSkyDragon"
+    },
+    {
+      "parent_a": "FlowerPrince",
+      "gender_a": null,
+      "parent_b": "FlowerPrince",
+      "gender_b": null,
+      "child": "FlowerPrince"
+    },
+    {
+      "parent_a": "Mothman",
+      "gender_a": null,
+      "parent_b": "Mothman",
+      "gender_b": null,
+      "child": "Mothman"
+    }
+  ],
+  "inheritance": {
+    "read_from": "/Game/Pal/Blueprint/System/BP_PalGameSetting class defaults; mutation: UPalGameSetting fields of the running dedicated server, read with a UE4SS Lua probe on 2026-09-28, Steam build 25247047",
+    "talent_num": [3, 2, 1],
+    "passive_num": [4, 3, 2, 1],
+    "passive_random_add_num": [4, 3, 2, 1],
+    "boss_rate": 0.05,
+    "mutation": {
+      "rate": 0.01,
+      "rank_coefficient": 0.5,
+      "rank_diff_penalty": 0.4,
+      "random_coefficient": 0.1,
+      "min_talent": 90,
+      "initial_rank": 3
+    }
+  },
+  "cakes": [
+    {
+      "id": "Cake",
+      "name": "Cake",
+      "talent_bonus": null,
+      "mutation_rate_bonus_percent": 0,
+      "rank_bonus": 0,
+      "breed_count": 1,
+      "inherit_all_active_skills": false,
+      "passive_inherit_count_override": 0
+    },
+    {
+      "id": "Cake02",
+      "name": "Mushroom Cake",
+      "talent_bonus": [1, 5],
+      "mutation_rate_bonus_percent": 0,
+      "rank_bonus": 0,
+      "breed_count": 1,
+      "inherit_all_active_skills": false,
+      "passive_inherit_count_override": 0
+    },
+    {
+      "id": "Cake03",
+      "name": "Vegetable Cake",
+      "talent_bonus": null,
+      "mutation_rate_bonus_percent": 0,
+      "rank_bonus": 0,
+      "breed_count": 2,
+      "inherit_all_active_skills": false,
+      "passive_inherit_count_override": 0
+    },
+    {
+      "id": "Cake04",
+      "name": "Extravagant Vegetable Cake",
+      "talent_bonus": [1, 5],
+      "mutation_rate_bonus_percent": 2,
+      "rank_bonus": 0,
+      "breed_count": 1,
+      "inherit_all_active_skills": false,
+      "passive_inherit_count_override": 0
+    },
+    {
+      "id": "Cake05",
+      "name": "Special Cake",
+      "talent_bonus": null,
+      "mutation_rate_bonus_percent": 0,
+      "rank_bonus": 0,
+      "breed_count": 1,
+      "inherit_all_active_skills": true,
+      "passive_inherit_count_override": 4
+    }
+  ],
+  "passives": [
+    {
+      "id": "HP_ACC_up1",
+      "name": "Health Up Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "HP_ACC_up2",
+      "name": "Health Up Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "HP_ACC_up3",
+      "name": "Health Up Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "HP_ACC_up4",
+      "name": "Health Up Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up1",
+      "name": "Attack Up Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up2",
+      "name": "Attack Up Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up3",
+      "name": "Attack Up Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up4",
+      "name": "Attack Up Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up1_Armor",
+      "name": "Attack Up (S) Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up2_Armor",
+      "name": "Attack Up (S) Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up3_Armor",
+      "name": "Attack Up (S) Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up4_Armor",
+      "name": "Attack Up (S) Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "defense_ACC_up1",
+      "name": "Defense Up Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "defense_ACC_up2",
+      "name": "Defense Up Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "defense_ACC_up3",
+      "name": "Defense Up Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "defense_ACC_up4",
+      "name": "Defense Up Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "WorkSpeed_ACC_up1",
+      "name": "Speedy Worker Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "WorkSpeed_ACC_up2",
+      "name": "Speedy Worker Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "WorkSpeed_ACC_up3",
+      "name": "Speedy Worker Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "WorkSpeed_ACC_up4",
+      "name": "Speedy Worker Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CraftSpeed_up3",
+      "name": "Remarkable Craftsmanship",
+      "rank": 4,
+      "random_add": true,
+      "weight": 5
+    },
+    { "id": "CraftSpeed_up2", "name": "Artisan", "rank": 3, "random_add": true, "weight": 100 },
+    { "id": "CraftSpeed_up1", "name": "Serious", "rank": 1, "random_add": true, "weight": 100 },
+    { "id": "CraftSpeed_down1", "name": "Clumsy", "rank": -1, "random_add": true, "weight": 100 },
+    { "id": "CraftSpeed_down2", "name": "Slacker", "rank": -3, "random_add": true, "weight": 100 },
+    { "id": "Deffence_up3", "name": "Diamond Body", "rank": 4, "random_add": true, "weight": 5 },
+    { "id": "Deffence_up2", "name": "Burly Body", "rank": 3, "random_add": true, "weight": 100 },
+    { "id": "Deffence_up1", "name": "Hard Skin", "rank": 1, "random_add": true, "weight": 100 },
+    {
+      "id": "Deffence_down1",
+      "name": "Downtrodden",
+      "rank": -1,
+      "random_add": true,
+      "weight": 100
+    },
+    { "id": "Deffence_down2", "name": "Brittle", "rank": -3, "random_add": true, "weight": 100 },
+    { "id": "Noukin", "name": "Musclehead", "rank": 2, "random_add": true, "weight": 100 },
+    { "id": "CollectItem_Egg", "name": "Egg Layer", "rank": 1, "random_add": false, "weight": 100 },
+    {
+      "id": "CollectItem_Milk",
+      "name": "Milk Maker",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CollectItem_Berries",
+      "name": "Berry Picker",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CollectItem_Sweets",
+      "name": "Confectioner",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CollectItem_Money",
+      "name": "Gold Digger",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CollectItem_Wool_Alpaca",
+      "name": "Wool Maker",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CollectItem_Wool_SheepBall",
+      "name": "Wool Maker",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CollectItem_Wool_WhiteMoth",
+      "name": "Silk Spinner",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "TemperatureResist_Heat1",
+      "name": "Heat Resistance Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "TemperatureResist_Heat2",
+      "name": "Heat Resistance Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "TemperatureResist_Heat3",
+      "name": "Heat Resistance Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "TemperatureResist_Cold1",
+      "name": "Cold Resistance Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "TemperatureResist_Cold2",
+      "name": "Cold Resistance Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "TemperatureResist_Cold3",
+      "name": "Cold Resistance Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "TemperatureResist_Heat1Cold1",
+      "name": "Heat Resistance Lv. 1 / Cold Resistance Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "TemperatureResist_Heat2Cold2",
+      "name": "Heat Resistance Lv. 2 / Cold Resistance Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "TemperatureResist_Heat3Cold3",
+      "name": "Heat Resistance Lv. 3 / Cold Resistance Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "Rare", "name": "Lucky", "rank": 4, "random_add": false, "weight": 100 },
+    { "id": "Legend", "name": "Legend", "rank": 4, "random_add": false, "weight": 100 },
+    { "id": "Witch", "name": "Siren of the Void", "rank": 4, "random_add": false, "weight": 100 },
+    {
+      "id": "EternalFlame",
+      "name": "Eternal Flame",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "Invader", "name": "Invader", "rank": 4, "random_add": false, "weight": 100 },
+    {
+      "id": "MaxInventoryWeight_up",
+      "name": "Max Carrying Capacity Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "MaxInventoryWeight_up2",
+      "name": "Max Carrying Capacity Lv. 2",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "MaxInventoryWeight_up3",
+      "name": "Max Carrying Capacity Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "PAL_ALLAttack_up3", "name": "Demon God", "rank": 4, "random_add": true, "weight": 5 },
+    {
+      "id": "PAL_ALLAttack_up2",
+      "name": "Ferocious",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    { "id": "PAL_ALLAttack_up1", "name": "Brave", "rank": 1, "random_add": true, "weight": 100 },
+    {
+      "id": "PAL_ALLAttack_down1",
+      "name": "Coward",
+      "rank": -1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "PAL_ALLAttack_down2",
+      "name": "Pacifist",
+      "rank": -3,
+      "random_add": true,
+      "weight": 100
+    },
+    { "id": "PAL_rude", "name": "Hooligan", "rank": 1, "random_add": true, "weight": 100 },
+    { "id": "PAL_conceited", "name": "Conceited", "rank": 1, "random_add": true, "weight": 100 },
+    {
+      "id": "PAL_SpiritualInst",
+      "name": "Mentally unstable",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "PAL_sadist", "name": "Sadist", "rank": 1, "random_add": true, "weight": 100 },
+    { "id": "PAL_masochist", "name": "Masochist", "rank": 1, "random_add": true, "weight": 100 },
+    {
+      "id": "PAL_CorporateSlave",
+      "name": "Work Slave",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    { "id": "PAL_oraora", "name": "Aggressive", "rank": 1, "random_add": true, "weight": 100 },
+    {
+      "id": "ElementResist_Normal_1",
+      "name": "Neutral Damage Reduction Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Fire_1",
+      "name": "Fire Damage Reduction Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Aqua_1",
+      "name": "Water Damage Reduction Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Thunder_1",
+      "name": "Electric Damage Reduction Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Leaf_1",
+      "name": "Grass Damage Reduction Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Ice_1",
+      "name": "Ice Damage Reduction Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Earth_1",
+      "name": "Earth Damage Reduction Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Dark_1",
+      "name": "Dark Damage Reduction Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Dragon_1",
+      "name": "Dragon Damage Reduction Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Normal_2",
+      "name": "Neutral Damage Reduction Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Fire_2",
+      "name": "Fire Damage Reduction Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Aqua_2",
+      "name": "Water Damage Reduction Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Thunder_2",
+      "name": "Electric Damage Reduction Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Leaf_2",
+      "name": "Grass Damage Reduction Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Ice_2",
+      "name": "Ice Damage Reduction Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Earth_2",
+      "name": "Earth Damage Reduction Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Dark_2",
+      "name": "Dark Damage Reduction Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Dragon_2",
+      "name": "Dragon Damage Reduction Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Normal_3",
+      "name": "Neutral Damage Reduction Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Fire_3",
+      "name": "Fire Damage Reduction Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Aqua_3",
+      "name": "Water Damage Reduction Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Thunder_3",
+      "name": "Electric Damage Reduction Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Leaf_3",
+      "name": "Grass Damage Reduction Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Ice_3",
+      "name": "Ice Damage Reduction Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Earth_3",
+      "name": "Earth Damage Reduction Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Dark_3",
+      "name": "Dark Damage Reduction Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Dragon_3",
+      "name": "Dragon Damage Reduction Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Normal_4",
+      "name": "Neutral Damage Reduction Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Fire_4",
+      "name": "Fire Damage Reduction Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Aqua_4",
+      "name": "Water Damage Reduction Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Thunder_4",
+      "name": "Electric Damage Reduction Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Leaf_4",
+      "name": "Grass Damage Reduction Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Ice_4",
+      "name": "Ice Damage Reduction Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Earth_4",
+      "name": "Ground Damage Reduction Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Dark_4",
+      "name": "Dark Damage Reduction Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Dragon_4",
+      "name": "Dragon Damage Reduction Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "TrainerATK_UP_1", "name": "Vanguard", "rank": 3, "random_add": true, "weight": 100 },
+    {
+      "id": "TrainerDEF_UP_1",
+      "name": "Stronghold Strategist",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "TrainerWorkSpeed_UP_1",
+      "name": "Motivational Leader",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "TrainerMining_up1",
+      "name": "Mine Foreman",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "TrainerLogging_up1",
+      "name": "Logging Foreman",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Normal_1_PAL",
+      "name": "Abnormal",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Fire_1_PAL",
+      "name": "Suntan Lover",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Aqua_1_PAL",
+      "name": "Waterproof",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Thunder_1_PAL",
+      "name": "Insulated Body",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Leaf_1_PAL",
+      "name": "Botanical Barrier",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Ice_1_PAL",
+      "name": "Heated Body",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Earth_1_PAL",
+      "name": "Earthquake Resistant",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Dark_1_PAL",
+      "name": "Cheery",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementResist_Dragon_1_PAL",
+      "name": "Dragonkiller",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Normal_1_PAL",
+      "name": "Spirit of Zen",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Fire_1_PAL",
+      "name": "Pyromaniac",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Aqua_1_PAL",
+      "name": "Hydromaniac",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Thunder_1_PAL",
+      "name": "Capacitor",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Leaf_1_PAL",
+      "name": "Fragrant Foliage",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Ice_1_PAL",
+      "name": "Coldblooded",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Earth_1_PAL",
+      "name": "Power of Gaia",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dark_1_PAL",
+      "name": "Veil of Darkness",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dragon_1_PAL",
+      "name": "Blood of the Dragon",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "PAL_FullStomach_Up_1",
+      "name": "Glutton",
+      "rank": -1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "PAL_FullStomach_Up_2",
+      "name": "Bottomless Stomach",
+      "rank": -2,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "PAL_FullStomach_Down_1",
+      "name": "Dainty Eater",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "PAL_FullStomach_Down_2",
+      "name": "Diet Lover",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "PAL_FullStomach_Down_3",
+      "name": "Mastery of Fasting",
+      "rank": 4,
+      "random_add": true,
+      "weight": 5
+    },
+    { "id": "PAL_Sanity_Up_1", "name": "Unstable", "rank": -1, "random_add": true, "weight": 100 },
+    {
+      "id": "PAL_Sanity_Up_2",
+      "name": "Destructive",
+      "rank": -2,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "PAL_Sanity_Down_1",
+      "name": "Positive Thinker",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "PAL_Sanity_Down_2",
+      "name": "Workaholic",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "PAL_Sanity_Down_3",
+      "name": "Heart of the Immovable King",
+      "rank": 4,
+      "random_add": true,
+      "weight": 5
+    },
+    {
+      "id": "ElementBoost_Normal_2_PAL",
+      "name": "Celestial Emperor",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Fire_2_PAL",
+      "name": "Flame Emperor",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Aqua_2_PAL",
+      "name": "Lord of the Sea",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Thunder_2_PAL",
+      "name": "Lord of Lightning",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Leaf_2_PAL",
+      "name": "Spirit Emperor",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Ice_2_PAL",
+      "name": "Ice Emperor",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Earth_2_PAL",
+      "name": "Earth Emperor",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dark_2_PAL",
+      "name": "Lord of the Underworld",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dragon_2_PAL",
+      "name": "Divine Dragon",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "MoveSpeed_up_1", "name": "Nimble", "rank": 1, "random_add": true, "weight": 100 },
+    { "id": "MoveSpeed_up_2", "name": "Runner", "rank": 3, "random_add": true, "weight": 100 },
+    { "id": "MoveSpeed_up_3", "name": "Swift", "rank": 4, "random_add": true, "weight": 5 },
+    { "id": "NonKilling", "name": "Mercy Hit", "rank": -1, "random_add": true, "weight": 100 },
+    {
+      "id": "MaxInventoryWeight_up_Equip_1",
+      "name": "Max Carrying Capacity Lv. 1",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "MaxInventoryWeight_up_Equip_2",
+      "name": "Max Carrying Capacity Lv. 2",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "MaxInventoryWeight_up_Equip_3",
+      "name": "Max Carrying Capacity Lv. 3",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "MaxInventoryWeight_up_Equip_4",
+      "name": "Max Carrying Capacity Lv. 4",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "Nocturnal", "name": "Insomnia", "rank": 1, "random_add": true, "weight": 100 },
+    {
+      "id": "Test_PalEgg_HatchingSpeed_Up",
+      "name": "Philanthropist",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "CoolTimeReduction_Up_1",
+      "name": "Serenity",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "CoolTimeReduction_Up_2",
+      "name": "Impatient",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "CoolTimeReduction_Up_3",
+      "name": "Tempest Fury",
+      "rank": 4,
+      "random_add": false,
+      "weight": 0
+    },
+    {
+      "id": "CoolTimeReduction_Down_1",
+      "name": "Easygoing",
+      "rank": -1,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "Stamina_Up_1",
+      "name": "Infinite Stamina",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "Stamina_Up_2",
+      "name": "Fit as a Fiddle",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    { "id": "Stamina_Up_3", "name": "Eternal Engine", "rank": 4, "random_add": true, "weight": 5 },
+    { "id": "Stamina_Down_1", "name": "Sickly", "rank": -1, "random_add": true, "weight": 100 },
+    { "id": "SalePrice_Up_1", "name": "Noble", "rank": 3, "random_add": true, "weight": 100 },
+    { "id": "SalePrice_Up_2", "name": "Fine Furs", "rank": 1, "random_add": true, "weight": 100 },
+    { "id": "SalePrice_Down_1", "name": "Shabby", "rank": -1, "random_add": true, "weight": 100 },
+    { "id": "Alien", "name": "Otherworldly Cells", "rank": 1, "random_add": false, "weight": 100 },
+    { "id": "Vampire", "name": "Vampiric", "rank": 4, "random_add": true, "weight": 5 },
+    {
+      "id": "ElementBoost_Normal_1_BossDefeat",
+      "name": "Neutral Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Fire_1_BossDefeat",
+      "name": "Fire Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Water_1_BossDefeat",
+      "name": "Water Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Electricity_1_BossDefeat",
+      "name": "Electric Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Leaf_1_BossDefeat",
+      "name": "Grass Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Ice_1_BossDefeat",
+      "name": "Ice Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Earth_1_BossDefeat",
+      "name": "Ground Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dark_1_BossDefeat",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dragon_1_BossDefeat",
+      "name": "Dragon Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Normal_2_BossDefeat",
+      "name": "Neutral Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Fire_2_BossDefeat",
+      "name": "Fire Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Water_2_BossDefeat",
+      "name": "Water Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Electricity_2_BossDefeat",
+      "name": "Electric Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Leaf_2_BossDefeat",
+      "name": "Grass Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Ice_2_BossDefeat",
+      "name": "Ice Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Earth_2_BossDefeat",
+      "name": "Ground Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dark_2_BossDefeat",
+      "name": "Dark Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dragon_2_BossDefeat",
+      "name": "Dragon Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Normal_3_BossDefeat",
+      "name": "Neutral Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Fire_3_BossDefeat",
+      "name": "Fire Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Water_3_BossDefeat",
+      "name": "Water Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Electricity_3_BossDefeat",
+      "name": "Electric Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Leaf_3_BossDefeat",
+      "name": "Grass Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Ice_3_BossDefeat",
+      "name": "Ice Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Earth_3_BossDefeat",
+      "name": "Ground Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dark_3_BossDefeat",
+      "name": "Dark Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dragon_3_BossDefeat",
+      "name": "Dragon Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "SphereModule_Heavy",
+      "name": "Sphere Weight +1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "SphereModule_Curve",
+      "name": "Sphere Curve +1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "SphereModule_Sniper",
+      "name": "Sphere Range +1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "SphereModule_Curve2",
+      "name": "Sphere Slider",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "SphereModule_Sniper2",
+      "name": "Sphere Range +2",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "SphereModule_Homing",
+      "name": "Sphere Homing",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CaptureLevel_Up_1",
+      "name": "Capture Strength +1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CaptureLevel_Up_2",
+      "name": "Capture Strength +2",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CaptureLevel_Up_3",
+      "name": "Capture Strength +3",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CaptureLevel_Up_4",
+      "name": "Capture Strength +4",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CaptureLevel_Up_5",
+      "name": "Capture Strength +5",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "CaptureLevel_Up_6",
+      "name": "Capture Strength +6",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "JumpPower_Increase",
+      "name": "Jump Power Boost",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "JumpCount_Increase1",
+      "name": "Jump Count Increase +1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "JumpCount_Increase2",
+      "name": "Jump Count Increase +2",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "JumpCount_Increase3",
+      "name": "Jump Count Increase +3",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "AirDash_1", "name": "Aerial Dash +1", "rank": 1, "random_add": false, "weight": 100 },
+    { "id": "AirDash_2", "name": "Aerial Dash +2", "rank": 1, "random_add": false, "weight": 100 },
+    { "id": "AirDash_3", "name": "Aerial Dash +3", "rank": 1, "random_add": false, "weight": 100 },
+    { "id": "AirDash_4", "name": "Aerial Dash +4", "rank": 1, "random_add": false, "weight": 100 },
+    {
+      "id": "BossDefeatReward_WeaselDragon",
+      "name": "Ice Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_MopKing",
+      "name": "Ice Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_PlantSlime",
+      "name": "Ground Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_LazyCatfish",
+      "name": "Ground Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_CaptainPenguin",
+      "name": "Water Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_BlueDragon",
+      "name": "Water Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_NaughtyCat",
+      "name": "Neutral Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_HawkBird",
+      "name": "Neutral Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_SkyDragon",
+      "name": "Dragon Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_CatVampire",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_KingAlpaca",
+      "name": "Neutral Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_SakuraSaurus",
+      "name": "Grass Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_CatMage",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Ronin",
+      "name": "Fire Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_FengyunDeeper",
+      "name": "Neutral Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_FlowerDoll",
+      "name": "Grass Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_ThunderBird",
+      "name": "Electric Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_HerculesBeetle",
+      "name": "Ground Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_SakuraSaurus_Water",
+      "name": "Water Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_FairyDragon",
+      "name": "Dragon Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_LazyDragon_Electric",
+      "name": "Dragon Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Kirin",
+      "name": "Electric Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_QueenBee",
+      "name": "Grass Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_GrassPanda_Electric",
+      "name": "Electric Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Mutant",
+      "name": "Neutral Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_GrassRabbitMan",
+      "name": "Grass Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Yeti_Grass",
+      "name": "Grass Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_GrassMammoth",
+      "name": "Grass Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_VioletFairy",
+      "name": "Grass Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_WhiteMoth",
+      "name": "Ice Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_DarkScorpion",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Suzaku",
+      "name": "Fire Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Umihebi",
+      "name": "Water Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_KingAlpaca_Ice",
+      "name": "Ice Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_FlowerDinosaur_Electric",
+      "name": "Electric Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Anubis",
+      "name": "Ground Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_BlackMetalDragon",
+      "name": "Dragon Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_KingBahamut",
+      "name": "Fire Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_LilyQueen_Dark",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_DarkScorpion_Ground",
+      "name": "Ground Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_WingGolem",
+      "name": "Ground Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_GrimGirl",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_BlueThunderHorse",
+      "name": "Electric Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_AmaterasuWolf_Dark",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_FengyunDeeper_Electric",
+      "name": "Electric Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_WhiteDeer",
+      "name": "Neutral Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_WhiteShieldDragon",
+      "name": "Dragon Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Horus_Water",
+      "name": "Water Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_JetDragon",
+      "name": "Dragon Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_IceHorse",
+      "name": "Ice Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_SaintCentaur_1",
+      "name": "Neutral Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_SaintCentaur_2",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_BlackPuppy",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_GhostRabbit",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_NightBlueHorse",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_BlueberryFairy",
+      "name": "Grass Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_BadCatgirl",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_GoldenHorse",
+      "name": "Ground Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_MysteryMask",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_PurpleSpider",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_IceHorse_Dark",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Kitsunebi_Ice",
+      "name": "Ice Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_RaijinDaughter_Water",
+      "name": "Dark Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_WhiteTiger_Ground",
+      "name": "Ground Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_BerryGoat_Dark",
+      "name": "Grass Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Werewolf_Ice",
+      "name": "Ice Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_PinkRabbit_Grass",
+      "name": "Grass Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_HerculesBeetle_Ground",
+      "name": "Ground Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_IceNarwhal",
+      "name": "Ice Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_IceNarwhal_Fire",
+      "name": "Fire Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_PoseidonOrca",
+      "name": "Water Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_FireKirin",
+      "name": "Fire Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_CubeTurtle",
+      "name": "Ground Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_VolcanicMonster",
+      "name": "Ground Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_KabukiMan",
+      "name": "Fire Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_VolcanoDragon_Ice",
+      "name": "Ice Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_GrassGolem",
+      "name": "Grass Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_MushroomLady",
+      "name": "Grass Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_WhiteDeer_Dark",
+      "name": "Dark Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_RockBeast_Ice",
+      "name": "Ice Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_LotusDragon",
+      "name": "Water Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_FoxExorcist",
+      "name": "Fire Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_ThunderFluffyBird",
+      "name": "Electric Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_ElecLizard",
+      "name": "Electric Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_ElecSnail",
+      "name": "Electric Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_GhostDragon",
+      "name": "Dragon Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_LilyQueen",
+      "name": "Grass Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_ElecPanda",
+      "name": "Electric Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_GrassGolem_Dark",
+      "name": "Dark Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_Manticore",
+      "name": "Fire Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_FlameBuffalo",
+      "name": "Fire Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_IceFox",
+      "name": "Ice Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_FoxMage",
+      "name": "Fire Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_CubeTurtle_Neutral",
+      "name": "Neutral Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_MoonChild",
+      "name": "Dark Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_ScorpionMan_Electric",
+      "name": "Electric Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_RockBeast",
+      "name": "Ground Damage Enhancement (Medium)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_VolcanoDragon",
+      "name": "Fire Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_CactusDoll",
+      "name": "Grass Damage Enhancement (Small)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "BossDefeatReward_DomeArmorDragon",
+      "name": "Dragon Damage Enhancement (Large)",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Normal_1_Otomo_Only_Equip",
+      "name": "Pal Neutral Damage Enhancement Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Fire_1_Otomo_Only_Equip",
+      "name": "Pal Fire Damage Enhancement Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Water_1_Otomo_Only_Equip",
+      "name": "Pal Water Damage Enhancement Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Electricity_1_Otomo_Only_Equip",
+      "name": "Pal Electric Damage Enhancement Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Leaf_1_Otomo_Only_Equip",
+      "name": "Pal Grass Damage Enhancement Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Ice_1_Otomo_Only_Equip",
+      "name": "Pal Ice Damage Enhancement Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Earth_1_Otomo_Only_Equip",
+      "name": "Pal Ground Damage Enhancement Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dark_1_Otomo_Only_Equip",
+      "name": "Pal Dark Damage Enhancement Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dragon_1_Otomo_Only_Equip",
+      "name": "Pal Dragon Damage Enhancement Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Normal_2_Otomo_Only_Equip",
+      "name": "Pal Neutral Damage Enhancement Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Fire_2_Otomo_Only_Equip",
+      "name": "Pal Fire Damage Enhancement Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Water_2_Otomo_Only_Equip",
+      "name": "Pal Water Damage Enhancement Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Electricity_2_Otomo_Only_Equip",
+      "name": "Pal Electric Damage Enhancement Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Leaf_2_Otomo_Only_Equip",
+      "name": "Pal Grass Damage Enhancement Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Ice_2_Otomo_Only_Equip",
+      "name": "Pal Ice Damage Enhancement Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Earth_2_Otomo_Only_Equip",
+      "name": "Pal Ground Damage Enhancement Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dark_2_Otomo_Only_Equip",
+      "name": "Pal Dark Damage Enhancement Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dragon_2_Otomo_Only_Equip",
+      "name": "Pal Dragon Damage Enhancement Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Normal_3_Otomo_Only_Equip",
+      "name": "Pal Neutral Damage Enhancement Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Fire_3_Otomo_Only_Equip",
+      "name": "Pal Fire Damage Enhancement Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Water_3_Otomo_Only_Equip",
+      "name": "Pal Water Damage Enhancement Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Electricity_3_Otomo_Only_Equip",
+      "name": "Pal Electric Damage Enhancement Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Leaf_3_Otomo_Only_Equip",
+      "name": "Pal Grass Damage Enhancement Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Ice_3_Otomo_Only_Equip",
+      "name": "Pal Ice Damage Enhancement Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Earth_3_Otomo_Only_Equip",
+      "name": "Pal Ground Damage Enhancement Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dark_3_Otomo_Only_Equip",
+      "name": "Pal Dark Damage Enhancement Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dragon_3_Otomo_Only_Equip",
+      "name": "Pal Dragon Damage Enhancement Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Normal_4_Otomo_Only_Equip",
+      "name": "Pal Neutral Damage Enhancement Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Fire_4_Otomo_Only_Equip",
+      "name": "Pal Fire Damage Enhancement Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Water_4_Otomo_Only_Equip",
+      "name": "Pal Water Damage Enhancement Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Electricity_4_Otomo_Only_Equip",
+      "name": "Pal Electric Damage Enhancement Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Leaf_4_Otomo_Only_Equip",
+      "name": "Pal Grass Damage Enhancement Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Ice_4_Otomo_Only_Equip",
+      "name": "Pal Ice Damage Enhancement Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Earth_4_Otomo_Only_Equip",
+      "name": "Pal Ground Damage Enhancement Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dark_4_Otomo_Only_Equip",
+      "name": "Pal Dark Damage Enhancement Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "ElementBoost_Dragon_4_Otomo_Only_Equip",
+      "name": "Pal Dragon Damage Enhancement Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up1_Otomo_Only_Equip",
+      "name": "Pal Attack Up Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up2_Otomo_Only_Equip",
+      "name": "Pal Attack Up Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up3_Otomo_Only_Equip",
+      "name": "Pal Attack Up Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Attack_ACC_up4_Otomo_Only_Equip",
+      "name": "Pal Attack Up Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Defense_ACC_up1_Otomo_Only_Equip",
+      "name": "Pal Defense Up Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Defense_ACC_up2_Otomo_Only_Equip",
+      "name": "Pal Defense Up Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Defense_ACC_up3_Otomo_Only_Equip",
+      "name": "Pal Defense Up Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Defense_ACC_up4_Otomo_Only_Equip",
+      "name": "Pal Defense Up Lv. 4",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "PalExp_Increase_1_Otomo_Only_Equip",
+      "name": "Pal EXP Up Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "PalExp_Increase_2_Otomo_Only_Equip",
+      "name": "Pal EXP Up Lv. 2",
+      "rank": 2,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "PalExp_Increase_3_Otomo_Only_Equip",
+      "name": "Pal EXP Up Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "Nushi", "name": "Lunker", "rank": 4, "random_add": false, "weight": 100 },
+    {
+      "id": "SwimSpeed_up_1",
+      "name": "Sleek Stroke",
+      "rank": 1,
+      "random_add": true,
+      "weight": 100
+    },
+    { "id": "SwimSpeed_up_2", "name": "Ace Swimmer", "rank": 3, "random_add": true, "weight": 100 },
+    {
+      "id": "SwimSpeed_up_3",
+      "name": "King of the Waves",
+      "rank": 4,
+      "random_add": true,
+      "weight": 5
+    },
+    {
+      "id": "YakushimaProtection_Equip",
+      "name": "Hallowed Guard",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "YakushimaDagameBoost_Melee_Equip",
+      "name": "Hallowed Power: Close Range",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "YakushimaDagameBoost_Ranged_Equip",
+      "name": "Hallowed Power: Ranged",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "YakushimaDagameBoost_Magic_Equip",
+      "name": "Hallowed Power: Magic",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "YakushimaDagameBoost_Summon_Equip",
+      "name": "Hallowed Power: Summon",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "GYM_NAME_Meadow",
+      "name": "Rayne Syndicate Boss",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "GYM_NAME_Forest",
+      "name": "Free Pal Alliance Founder",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "GYM_NAME_Desert",
+      "name": "PIDF Commander",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "GYM_NAME_Volcano",
+      "name": "Brothers of the Eternal Pyre Soul Leader",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "GYM_NAME_Snow",
+      "name": "PAL Genetic Research Unit Commander",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "GYM_NAME_Sakurajima",
+      "name": "Leader of the Moonflowers",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "GYM_NAME_Viking",
+      "name": "Jarl of Feybreak",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "Salvation", "name": "Savior", "rank": 4, "random_add": false, "weight": 100 },
+    {
+      "id": "OctaviaArmorVampire",
+      "name": "Blood Is Fuel",
+      "rank": 4,
+      "random_add": false,
+      "weight": 5
+    },
+    {
+      "id": "WorldTree_ATK",
+      "name": "Twin-Edged Holy Blade",
+      "rank": 5,
+      "random_add": false,
+      "weight": 5
+    },
+    {
+      "id": "WorldTree_DEF",
+      "name": "Sanctified Meat Shield",
+      "rank": 5,
+      "random_add": false,
+      "weight": 5
+    },
+    {
+      "id": "WorldTree_CraftSpeed",
+      "name": "Demon’s Hand",
+      "rank": 5,
+      "random_add": false,
+      "weight": 5
+    },
+    {
+      "id": "WorldTree_FullStomach",
+      "name": "World Tree's Bounty",
+      "rank": 5,
+      "random_add": false,
+      "weight": 5
+    },
+    {
+      "id": "WorldTree_Sanity",
+      "name": "Hermit Sage",
+      "rank": 5,
+      "random_add": false,
+      "weight": 5
+    },
+    {
+      "id": "WorldTree_MoveSpeed",
+      "name": "Dimensional Leap",
+      "rank": 5,
+      "random_add": false,
+      "weight": 5
+    },
+    {
+      "id": "WorldTree_ATK_DEF",
+      "name": "God of Destruction",
+      "rank": 5,
+      "random_add": false,
+      "weight": 5
+    },
+    { "id": "MiniNushi", "name": "Whopper", "rank": 3, "random_add": false, "weight": 100 },
+    { "id": "Deffence_up2_2", "name": "Heavyweight", "rank": 2, "random_add": true, "weight": 100 },
+    {
+      "id": "MutationPal_Babysitter",
+      "name": "Babysitter",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "MutationPal_Mutant",
+      "name": "Idiosyncratic",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    { "id": "NightOwl", "name": "Night Owl", "rank": -1, "random_add": true, "weight": 100 },
+    {
+      "id": "Defuser_ExplosiveSpore_EquipSkill",
+      "name": "Explosion Immunity",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "AvoidDurationUp_EquipSkill_2",
+      "name": "Extended Dodge Invincibility",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "SelfDeathAddItemDrop_up_1",
+      "name": "Sharing is Caring",
+      "rank": 1,
+      "random_add": false,
+      "weight": 0
+    },
+    {
+      "id": "SelfDeathAddItemDrop_up_2",
+      "name": "Service-Minded",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "SelfDeathAddItemDrop_up_3",
+      "name": "Lavish Hospitality",
+      "rank": 4,
+      "random_add": true,
+      "weight": 5
+    },
+    {
+      "id": "WorkSuitabilityAddRank_MonsterFarm_1",
+      "name": "Farmhand",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "WorkSuitabilityAddRank_MonsterFarm_2",
+      "name": "Ranch Master",
+      "rank": 4,
+      "random_add": true,
+      "weight": 5
+    },
+    {
+      "id": "MutationPal_Immortal",
+      "name": "Immortality",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "MutationPal_ExplosionResist",
+      "name": "Heavily Armored",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "WoodDrop_Boost_1",
+      "name": "Logging Yield Up Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "WoodDrop_Boost_2",
+      "name": "Logging Yield Up Lv. 2",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "WoodDrop_Boost_3",
+      "name": "Logging Yield Up Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "WoodDrop_Boost_4",
+      "name": "Logging Yield Up Lv. 4",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "WoodDrop_Boost_5",
+      "name": "Logging Yield Up Lv. 5",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "StonDrop_Boost_1",
+      "name": "Mining Yield Up Lv. 1",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "StonDrop_Boost_2",
+      "name": "Mining Yield Up Lv. 2",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "StonDrop_Boost_3",
+      "name": "Mining Yield Up Lv. 3",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "StonDrop_Boost_4",
+      "name": "Mining Yield Up Lv. 4",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "StonDrop_Boost_5",
+      "name": "Mining Yield Up Lv. 5",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "StonWoodDrop_Boost",
+      "name": "Logging/Mining Yield Up",
+      "rank": 3,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "RideJumpCount_Increase1",
+      "name": "Lightfooted",
+      "rank": 4,
+      "random_add": true,
+      "weight": 5
+    },
+    {
+      "id": "RideJumpCount_Increase2",
+      "name": "Sky Strider",
+      "rank": 4,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "FriendshipPoint_Increase_EquipSkill",
+      "name": "Party Pal Trust Boost",
+      "rank": -1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "Invalid_ToxicGas_EquipSkill",
+      "name": "Toxic Gas Immunity",
+      "rank": 1,
+      "random_add": false,
+      "weight": 100
+    },
+    {
+      "id": "PlayerSP_DecreaseRate_Passive",
+      "name": "Wellness Watcher",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "AutoHPRegeneRate_Passive",
+      "name": "Healing Coach",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    },
+    {
+      "id": "ReloadSpeedUp_Passive",
+      "name": "Reload Master",
+      "rank": 3,
+      "random_add": true,
+      "weight": 100
+    }
+  ],
+  "eggs": {
+    "families": {
+      "Normal": "PalEgg_Normal",
+      "Fire": "PalEgg_Fire",
+      "Water": "PalEgg_Water",
+      "Leaf": "PalEgg_Leaf",
+      "Electricity": "PalEgg_Electricity",
+      "Ice": "PalEgg_Ice",
+      "Earth": "PalEgg_Earth",
+      "Dark": "PalEgg_Dark",
+      "Dragon": "PalEgg_Dragon",
+      "WorldTree": "PalEgg_WorldTree",
+      "Mutation": "PalEgg_MutationPal"
+    },
+    "sizes": [
+      { "max_rarity": 2, "scale": 0.7, "hatch_divisor": 12 },
+      { "max_rarity": 4, "scale": 0.9, "hatch_divisor": 12 },
+      { "max_rarity": 6, "scale": 1.1, "hatch_divisor": 2 },
+      { "max_rarity": 7, "scale": 1.5, "hatch_divisor": 2 },
+      { "max_rarity": 99, "scale": 2, "hatch_divisor": 1 }
+    ],
+    "kinds": [
+      { "id": "PalEgg_Dark_01", "name": "Dark Egg", "family": "Dark", "size": 1 },
+      { "id": "PalEgg_Dark_02", "name": "Dark Egg", "family": "Dark", "size": 2 },
+      { "id": "PalEgg_Dark_03", "name": "Large Dark Egg", "family": "Dark", "size": 3 },
+      { "id": "PalEgg_Dark_04", "name": "Large Dark Egg", "family": "Dark", "size": 4 },
+      { "id": "PalEgg_Dark_05", "name": "Huge Dark Egg", "family": "Dark", "size": 5 },
+      { "id": "PalEgg_Dragon_01", "name": "Dragon Egg", "family": "Dragon", "size": 1 },
+      { "id": "PalEgg_Dragon_02", "name": "Dragon Egg", "family": "Dragon", "size": 2 },
+      { "id": "PalEgg_Dragon_03", "name": "Large Dragon Egg", "family": "Dragon", "size": 3 },
+      { "id": "PalEgg_Dragon_04", "name": "Large Dragon Egg", "family": "Dragon", "size": 4 },
+      { "id": "PalEgg_Dragon_05", "name": "Huge Dragon Egg", "family": "Dragon", "size": 5 },
+      { "id": "PalEgg_Earth_01", "name": "Rocky Egg", "family": "Earth", "size": 1 },
+      { "id": "PalEgg_Earth_02", "name": "Rocky Egg", "family": "Earth", "size": 2 },
+      { "id": "PalEgg_Earth_03", "name": "Large Rocky Egg", "family": "Earth", "size": 3 },
+      { "id": "PalEgg_Earth_04", "name": "Large Rocky Egg", "family": "Earth", "size": 4 },
+      { "id": "PalEgg_Earth_05", "name": "Huge Rocky Egg", "family": "Earth", "size": 5 },
+      { "id": "PalEgg_Electricity_01", "name": "Electric Egg", "family": "Electricity", "size": 1 },
+      { "id": "PalEgg_Electricity_02", "name": "Electric Egg", "family": "Electricity", "size": 2 },
+      {
+        "id": "PalEgg_Electricity_03",
+        "name": "Large Electric Egg",
+        "family": "Electricity",
+        "size": 3
+      },
+      {
+        "id": "PalEgg_Electricity_04",
+        "name": "Large Electric Egg",
+        "family": "Electricity",
+        "size": 4
+      },
+      {
+        "id": "PalEgg_Electricity_05",
+        "name": "Huge Electric Egg",
+        "family": "Electricity",
+        "size": 5
+      },
+      { "id": "PalEgg_Fire_01", "name": "Scorching Egg", "family": "Fire", "size": 1 },
+      { "id": "PalEgg_Fire_02", "name": "Scorching Egg", "family": "Fire", "size": 2 },
+      { "id": "PalEgg_Fire_03", "name": "Large Scorching Egg", "family": "Fire", "size": 3 },
+      { "id": "PalEgg_Fire_04", "name": "Large Scorching Egg", "family": "Fire", "size": 4 },
+      { "id": "PalEgg_Fire_05", "name": "Huge Scorching Egg", "family": "Fire", "size": 5 },
+      { "id": "PalEgg_Ice_01", "name": "Frozen Egg", "family": "Ice", "size": 1 },
+      { "id": "PalEgg_Ice_02", "name": "Frozen Egg", "family": "Ice", "size": 2 },
+      { "id": "PalEgg_Ice_03", "name": "Large Frozen Egg", "family": "Ice", "size": 3 },
+      { "id": "PalEgg_Ice_04", "name": "Large Frozen Egg", "family": "Ice", "size": 4 },
+      { "id": "PalEgg_Ice_05", "name": "Huge Frozen Egg", "family": "Ice", "size": 5 },
+      { "id": "PalEgg_Leaf_01", "name": "Verdant Egg", "family": "Leaf", "size": 1 },
+      { "id": "PalEgg_Leaf_02", "name": "Verdant Egg", "family": "Leaf", "size": 2 },
+      { "id": "PalEgg_Leaf_03", "name": "Large Verdant Egg", "family": "Leaf", "size": 3 },
+      { "id": "PalEgg_Leaf_04", "name": "Large Verdant Egg", "family": "Leaf", "size": 4 },
+      { "id": "PalEgg_Leaf_05", "name": "Huge Verdant Egg", "family": "Leaf", "size": 5 },
+      {
+        "id": "PalEgg_MutationPal",
+        "name": "Huge Mutated Egg",
+        "family": "Mutation",
+        "size": null
+      },
+      { "id": "PalEgg_MutationPal_01", "name": "Mutated Egg", "family": "Mutation", "size": 1 },
+      { "id": "PalEgg_MutationPal_02", "name": "Mutated Egg", "family": "Mutation", "size": 2 },
+      {
+        "id": "PalEgg_MutationPal_03",
+        "name": "Large Mutated Egg",
+        "family": "Mutation",
+        "size": 3
+      },
+      {
+        "id": "PalEgg_MutationPal_04",
+        "name": "Large Mutated Egg",
+        "family": "Mutation",
+        "size": 4
+      },
+      {
+        "id": "PalEgg_MutationPal_05",
+        "name": "Huge Mutated Egg",
+        "family": "Mutation",
+        "size": 5
+      },
+      { "id": "PalEgg_Normal_01", "name": "Common Egg", "family": "Normal", "size": 1 },
+      { "id": "PalEgg_Normal_02", "name": "Common Egg", "family": "Normal", "size": 2 },
+      { "id": "PalEgg_Normal_03", "name": "Large Common Egg", "family": "Normal", "size": 3 },
+      { "id": "PalEgg_Normal_04", "name": "Large Common Egg", "family": "Normal", "size": 4 },
+      { "id": "PalEgg_Normal_05", "name": "Huge Common Egg", "family": "Normal", "size": 5 },
+      { "id": "PalEgg_Water_01", "name": "Damp Egg", "family": "Water", "size": 1 },
+      { "id": "PalEgg_Water_02", "name": "Damp Egg", "family": "Water", "size": 2 },
+      { "id": "PalEgg_Water_03", "name": "Large Damp Egg", "family": "Water", "size": 3 },
+      { "id": "PalEgg_Water_04", "name": "Large Damp Egg", "family": "Water", "size": 4 },
+      { "id": "PalEgg_Water_05", "name": "Huge Damp Egg", "family": "Water", "size": 5 },
+      { "id": "PalEgg_WorldTree_01", "name": "Ominous Egg", "family": "WorldTree", "size": 1 },
+      { "id": "PalEgg_WorldTree_02", "name": "Ominous Egg", "family": "WorldTree", "size": 2 },
+      {
+        "id": "PalEgg_WorldTree_03",
+        "name": "Large Ominous Egg",
+        "family": "WorldTree",
+        "size": 3
+      },
+      {
+        "id": "PalEgg_WorldTree_04",
+        "name": "Large Ominous Egg",
+        "family": "WorldTree",
+        "size": 4
+      },
+      { "id": "PalEgg_WorldTree_05", "name": "Huge Ominous Egg", "family": "WorldTree", "size": 5 }
+    ],
+    "hatching_speed_by_temperature": {
+      "0": 2,
+      "1": 1.5,
+      "2": 1,
+      "3": 1,
+      "4": 0.75,
+      "5": 0.75,
+      "6": 0.75,
+      "7": 0.75,
+      "8": 0.75
+    }
+  }
+}

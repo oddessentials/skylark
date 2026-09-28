@@ -40,6 +40,7 @@ import {
 } from '../../src/lib/server/read/community';
 import { statusHistory } from '../../src/lib/server/read/history';
 import { getGuildPalpedia, getPlayerPalpedia } from '../../src/lib/server/read/palpedia';
+import { getGuildPals } from '../../src/lib/server/read/pals';
 import { getPlayer, getTrail, listPlayers, listSessions } from '../../src/lib/server/read/players';
 import { computeOnline, computeStatus } from '../../src/lib/server/read/status';
 import { defaultSettings } from '../../src/lib/server/settings';
@@ -197,9 +198,11 @@ describe('API fixtures', () => {
     await write('guilds', { items: guildList });
     await write('guilds/{id}', await getGuild(db, guildList[0]!.id, features, now));
     await write('guilds/{id}/palpedia', await getGuildPalpedia(db, guildList[0]!.id));
+    await write('guilds/{id}/pals', await getGuildPals(db, guildList[0]!.id));
     for (const guild of guildList) {
       await write(`guilds/${guild.id}`, await getGuild(db, guild.id, features, now));
       await write(`guilds/${guild.id}/palpedia`, await getGuildPalpedia(db, guild.id));
+      await write(`guilds/${guild.id}/pals`, await getGuildPals(db, guild.id));
     }
     await write('map', map);
     await write('leaderboards', await getLeaderboards(db, features, now));

@@ -367,6 +367,22 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/api/v1/guilds/{id}/pals': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations['getGuildPals'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/api/v1/health': {
     parameters: {
       query?: never;
@@ -855,6 +871,11 @@ export interface components {
       name: string | null;
       species: string;
     };
+    BaseRef: {
+      id: number;
+      name: string | null;
+      region: string | null;
+    };
     BossDefeatedData: {
       boss: string;
       difficulty?: 'normal' | 'hard' | null;
@@ -932,6 +953,7 @@ export interface components {
       | components['schemas']['SaveGuildEvent']
       | components['schemas']['SaveBaseEvent']
       | components['schemas']['SaveReadEvent']
+      | components['schemas']['SavePalsEvent']
       | components['schemas']['PalCapturedEvent']
       | components['schemas']['PalHatchedEvent']
       | components['schemas']['BossDefeatedEvent']
@@ -1031,6 +1053,7 @@ export interface components {
       x: number | null;
       y: number | null;
     };
+    EggPlace: 'inventory' | 'base' | 'incubator';
     Error: {
       error: {
         code:
@@ -1072,6 +1095,27 @@ export interface components {
       roster: components['schemas']['GuildRosterEntry'][];
       roster_saved_at: string | null;
     };
+    GuildEgg: {
+      alpha: boolean;
+      base: components['schemas']['BaseRef'] | null;
+      hatched: components['schemas']['GuildHatchling'] | null;
+      id: string;
+      kind: string;
+      kind_name: string;
+      member: number | null;
+      species: string;
+      where: components['schemas']['EggPlace'];
+    };
+    GuildHatchling: {
+      alpha: boolean;
+      gender: components['schemas']['PalGender'] | null;
+      level: number;
+      lucky: boolean;
+      passives: components['schemas']['PalPassive'][];
+      rank: number;
+      species: string;
+      talents: components['schemas']['PalTalents'];
+    };
     GuildList: {
       items: components['schemas']['GuildSummary'][];
     };
@@ -1082,6 +1126,25 @@ export interface components {
       player: components['schemas']['PlayerRef'];
       role: components['schemas']['GuildRole'] | null;
       since: string;
+    };
+    GuildPal: {
+      alpha: boolean;
+      gender: components['schemas']['PalGender'] | null;
+      id: string;
+      level: number;
+      lucky: boolean;
+      member: number;
+      name: string | null;
+      passives: components['schemas']['PalPassive'][];
+      rank: number;
+      species: string;
+      talents: components['schemas']['PalTalents'];
+      where: components['schemas']['PalPlace'];
+    };
+    GuildPalMember: {
+      name: string;
+      pals: number;
+      player: components['schemas']['PlayerRef'] | null;
     };
     GuildPalpedia: {
       entries: components['schemas']['GuildPalpediaEntry'][];
@@ -1104,6 +1167,13 @@ export interface components {
       name: string;
       player: components['schemas']['PlayerRef'] | null;
       unlocked: number;
+    };
+    GuildPals: {
+      eggs: components['schemas']['GuildEgg'][];
+      guild: components['schemas']['GuildRef'];
+      members: components['schemas']['GuildPalMember'][];
+      pals: components['schemas']['GuildPal'][];
+      saved_at: string | null;
     };
     GuildRef: {
       id: string;
@@ -1261,6 +1331,7 @@ export interface components {
       data: components['schemas']['PalCapturedData'];
       type: 'pal.captured';
     };
+    PalGender: 'male' | 'female';
     PalHatchedData: {
       level?: number | null;
       name: string;
@@ -1274,6 +1345,11 @@ export interface components {
       data: components['schemas']['PalHatchedData'];
       type: 'pal.hatched';
     };
+    PalPassive: {
+      id: string;
+      name: string;
+      rank: number;
+    };
     PalpediaEntry: {
       captures: number;
       caught: boolean;
@@ -1281,6 +1357,12 @@ export interface components {
       night_only: boolean;
       species: string;
       ways: components['schemas']['HabitatWay'][];
+    };
+    PalPlace: 'box' | 'party';
+    PalTalents: {
+      defense: number;
+      hp: number;
+      shot: number;
     };
     PartyPal: {
       level: number;
@@ -1478,6 +1560,14 @@ export interface components {
       data: components['schemas']['SaveBaseData'];
       type: 'save.base';
     };
+    SaveEgg: {
+      alpha: boolean;
+      egg_id: string;
+      item_id: string;
+      species: string;
+    } & {
+      [key: string]: unknown;
+    };
     SaveGuildData: {
       base_camp_level?: number;
       guild_id: string;
@@ -1497,6 +1587,43 @@ export interface components {
       role: string;
     } & {
       [key: string]: unknown;
+    };
+    SaveIncubator: {
+      eggs: components['schemas']['SaveEgg'][];
+      hatched: components['schemas']['SavePal'] | null;
+      kind: string;
+      object_id: string;
+    } & {
+      [key: string]: unknown;
+    };
+    SavePal: {
+      alpha: boolean;
+      gender?: string | null;
+      instance_id: string;
+      level: number;
+      lucky?: boolean;
+      name?: string | null;
+      passives: string[];
+      rank?: number;
+      species: string;
+      talents: components['schemas']['SaveTalents'];
+      where: 'box' | 'party' | 'incubator';
+    } & {
+      [key: string]: unknown;
+    };
+    SavePalsData: {
+      base_id?: string | null;
+      eggs: components['schemas']['SaveEgg'][];
+      incubators: components['schemas']['SaveIncubator'][];
+      pals: components['schemas']['SavePal'][];
+      player_id?: string | null;
+      saved_at: string;
+    } & {
+      [key: string]: unknown;
+    };
+    SavePalsEvent: components['schemas']['EventEnvelope'] & {
+      data: components['schemas']['SavePalsData'];
+      type: 'save.pals';
     };
     SavePlayerData: {
       guild_id?: string | null;
@@ -1541,6 +1668,13 @@ export interface components {
     SaveReadEvent: components['schemas']['EventEnvelope'] & {
       data: components['schemas']['SaveReadData'];
       type: 'save.read';
+    };
+    SaveTalents: {
+      defense: number;
+      hp: number;
+      shot: number;
+    } & {
+      [key: string]: unknown;
     };
     SaveWorker: {
       character_id: string;
@@ -1950,6 +2084,7 @@ export type Backup = components['schemas']['Backup'];
 export type BackupList = components['schemas']['BackupList'];
 export type Base = components['schemas']['Base'];
 export type BasePal = components['schemas']['BasePal'];
+export type BaseRef = components['schemas']['BaseRef'];
 export type BossDefeatedData = components['schemas']['BossDefeatedData'];
 export type BossDefeatedEvent = components['schemas']['BossDefeatedEvent'];
 export type ChatChannel = components['schemas']['ChatChannel'];
@@ -1971,15 +2106,21 @@ export type CollectorStartedData = components['schemas']['CollectorStartedData']
 export type CollectorStartedEvent = components['schemas']['CollectorStartedEvent'];
 export type CurrentSession = components['schemas']['CurrentSession'];
 export type Death = components['schemas']['Death'];
+export type EggPlace = components['schemas']['EggPlace'];
 export type Error = components['schemas']['Error'];
 export type EventEnvelope = components['schemas']['EventEnvelope'];
 export type EventPage = components['schemas']['EventPage'];
 export type Guild = components['schemas']['Guild'];
+export type GuildEgg = components['schemas']['GuildEgg'];
+export type GuildHatchling = components['schemas']['GuildHatchling'];
 export type GuildList = components['schemas']['GuildList'];
 export type GuildMember = components['schemas']['GuildMember'];
+export type GuildPal = components['schemas']['GuildPal'];
+export type GuildPalMember = components['schemas']['GuildPalMember'];
 export type GuildPalpedia = components['schemas']['GuildPalpedia'];
 export type GuildPalpediaEntry = components['schemas']['GuildPalpediaEntry'];
 export type GuildPalpediaMember = components['schemas']['GuildPalpediaMember'];
+export type GuildPals = components['schemas']['GuildPals'];
 export type GuildRef = components['schemas']['GuildRef'];
 export type GuildRole = components['schemas']['GuildRole'];
 export type GuildRosterEntry = components['schemas']['GuildRosterEntry'];
@@ -2006,9 +2147,13 @@ export type OnlinePlayer = components['schemas']['OnlinePlayer'];
 export type OtherEvent = components['schemas']['OtherEvent'];
 export type PalCapturedData = components['schemas']['PalCapturedData'];
 export type PalCapturedEvent = components['schemas']['PalCapturedEvent'];
+export type PalGender = components['schemas']['PalGender'];
 export type PalHatchedData = components['schemas']['PalHatchedData'];
 export type PalHatchedEvent = components['schemas']['PalHatchedEvent'];
+export type PalPassive = components['schemas']['PalPassive'];
 export type PalpediaEntry = components['schemas']['PalpediaEntry'];
+export type PalPlace = components['schemas']['PalPlace'];
+export type PalTalents = components['schemas']['PalTalents'];
 export type PartyPal = components['schemas']['PartyPal'];
 export type Platform = components['schemas']['Platform'];
 export type Player = components['schemas']['Player'];
@@ -2041,14 +2186,20 @@ export type Point = components['schemas']['Point'];
 export type Retention = components['schemas']['Retention'];
 export type SaveBaseData = components['schemas']['SaveBaseData'];
 export type SaveBaseEvent = components['schemas']['SaveBaseEvent'];
+export type SaveEgg = components['schemas']['SaveEgg'];
 export type SaveGuildData = components['schemas']['SaveGuildData'];
 export type SaveGuildEvent = components['schemas']['SaveGuildEvent'];
 export type SaveGuildMember = components['schemas']['SaveGuildMember'];
+export type SaveIncubator = components['schemas']['SaveIncubator'];
+export type SavePal = components['schemas']['SavePal'];
+export type SavePalsData = components['schemas']['SavePalsData'];
+export type SavePalsEvent = components['schemas']['SavePalsEvent'];
 export type SavePlayerData = components['schemas']['SavePlayerData'];
 export type SavePlayerEvent = components['schemas']['SavePlayerEvent'];
 export type SaveProgress = components['schemas']['SaveProgress'];
 export type SaveReadData = components['schemas']['SaveReadData'];
 export type SaveReadEvent = components['schemas']['SaveReadEvent'];
+export type SaveTalents = components['schemas']['SaveTalents'];
 export type SaveWorker = components['schemas']['SaveWorker'];
 export type ServerInfo = components['schemas']['ServerInfo'];
 export type ServerMetricsData = components['schemas']['ServerMetricsData'];
@@ -2772,6 +2923,32 @@ export interface operations {
         };
         content: {
           'application/json': components['schemas']['GuildPalpedia'];
+        };
+      };
+      404: components['responses']['NotFound'];
+      429: components['responses']['RateLimited'];
+      503: components['responses']['Unavailable'];
+    };
+  };
+  getGuildPals: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: components['parameters']['GuildId'];
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          'Cache-Control': components['headers']['CacheControl'];
+          ETag: components['headers']['ETag'];
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['GuildPals'];
         };
       };
       404: components['responses']['NotFound'];
