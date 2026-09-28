@@ -54,14 +54,18 @@ jobs:
       - uses: actions/setup-go@v7
         with:
           go-version-file: collector/go.mod
-          cache-dependency-path: collector/go.sum
-      - run: npm run collector:build
-      - run: sha256sum skylark-collector-* > SHA256SUMS
-        working-directory: collector/dist
+          cache-dependency-path: |
+            collector/go.sum
+            savereader/go.sum
+      - run: npm run collector:build && npm run savereader:build
+      - run: |
+          mkdir -p dist
+          cp collector/dist/skylark-collector-* savereader/dist/skylark-savereader-* dist/
+          cd dist && sha256sum skylark-* > SHA256SUMS
       - uses: actions/upload-artifact@v7
         with:
-          name: collector-binaries
-          path: collector/dist
+          name: binaries
+          path: dist
           retention-days: 7
 
   images:
@@ -119,7 +123,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v8
         with:
-          name: collector-binaries
+          name: binaries
           path: dist
       - run: >
           gh release create "$GITHUB_REF_NAME" dist/*

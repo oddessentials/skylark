@@ -41,12 +41,12 @@ func TestReadPrintsTheWorldAsJSON(t *testing.T) {
 	}
 }
 
-func TestACompressedSaveNeedsTheDecoder(t *testing.T) {
+func TestReadsACompressedSave(t *testing.T) {
 	dir := t.TempDir()
 	copyFixture(t, "Level.sav", filepath.Join(dir, "Level.sav"))
 	var stdout, stderr bytes.Buffer
-	if code := run([]string{"read", dir}, &stdout, &stderr); code != 3 || !strings.Contains(stderr.String(), "no Oodle decoder") {
-		t.Fatalf("exit %d: %s", code, stderr.String())
+	if code := run([]string{"read", dir}, &stdout, &stderr); code != 0 || !strings.Contains(stdout.String(), "\"saved_at\"") {
+		t.Fatalf("exit %d: %s %s", code, stderr.String(), stdout.String())
 	}
 	if code := run([]string{"read"}, &stdout, &stderr); code != 2 {
 		t.Fatalf("usage exit %d", code)

@@ -1,21 +1,19 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"io"
 	"os"
 
+	"github.com/oddessentials/skylark/savereader/internal/ooz"
 	"github.com/oddessentials/skylark/savereader/internal/palworld"
-	"github.com/oddessentials/skylark/savereader/internal/savefile"
 )
 
 const format = 1
 
 var version = "dev"
-
-var decoder savefile.Decoder
 
 const usage = `skylark-savereader %s
 
@@ -45,12 +43,15 @@ func run(args []string, stdout, stderr io.Writer) int {
 		fmt.Fprintf(stderr, usage, version)
 		return 2
 	}
-	world, err := palworld.ReadDir(args[1], decoder)
+	decoder, err := ooz.New(context.Background())
 	if err != nil {
 		fmt.Fprintln(stderr, err)
-		if errors.Is(err, savefile.ErrNoDecoder) {
-			return 3
-		}
+		return 1
+	}
+	defer decoder.Close()
+	world, err := palworld.ReadDir(args[1], decoder.Decode)
+	if err != nil {
+		fmt.Fprintln(stderr, err)
 		return 1
 	}
 	encoder := json.NewEncoder(stdout)
