@@ -45,7 +45,7 @@
       "left_at": "2026-09-22T20:01:55.000Z",
       "duration_s": 4873,
       "end_reason": "left",
-      "level_start": null,
+      "level_start": 8,
       "level_end": 15,
       "distance_m": 21020,
       "deaths": 0

@@ -184,4 +184,19 @@ describe('player presence from world snapshots', () => {
     expect(rows[1]).toMatchObject({ source: 'site', joinedAt: second(t1, 45), leftAt: null });
     expect((await playerOf(moss.userId))!.online).toBe(true);
   });
+
+  it('keeps a position from every snapshot when they arrive a few ms early', async () => {
+    const fern = person('steam_76561190000000903', 'A0000903000000000000000000000000', 'Fern');
+    const t2 = new Date(Date.now() - 5 * 60_000);
+    await send('player.joined', fern.presence('log'), t2);
+    const offsets = [1, 10.994, 20.986, 30.99];
+    for (const [index, offset] of offsets.entries()) {
+      const at = second(t2, offset);
+      await send('world.snapshot', snapshot('gamedata', [fern.loaded(9, index * 2000, 0)]), at);
+    }
+    const player = (await playerOf(fern.userId))!;
+    const samples = await getDb().select().from(positions).where(eq(positions.playerId, player.id));
+    expect(samples).toHaveLength(4);
+    expect(player.distanceM).toBeCloseTo(60, 5);
+  });
 });
