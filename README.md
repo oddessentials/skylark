@@ -33,7 +33,7 @@ Skylark gives your Palworld dedicated server its own website. A small collector 
   </tr>
 </table>
 
-<img src="site/assets/player.jpg" alt="A player page with the Pals out with them, their level over time and the trail of their session" width="100%">
+<img src="site/assets/player.jpg" alt="A player page with the Pals out with them, their progress from the world save and the trail of their session" width="100%">
 
 ### Player pages
 
