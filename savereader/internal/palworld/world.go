@@ -33,15 +33,17 @@ type Player struct {
 }
 
 type Progress struct {
-	Palpedia           int      `json:"palpedia"`
-	SpeciesCaptured    int      `json:"species_captured"`
-	Captures           int      `json:"captures"`
-	TowerBosses        []string `json:"tower_bosses"`
-	FieldBosses        int      `json:"field_bosses"`
-	DungeonClears      int      `json:"dungeon_clears"`
-	FixedDungeonClears int      `json:"fixed_dungeon_clears"`
-	Technologies       int      `json:"technologies"`
-	FastTravelPoints   int      `json:"fast_travel_points"`
+	Palpedia           int            `json:"palpedia"`
+	PalpediaEntries    []string       `json:"palpedia_entries"`
+	SpeciesCaptured    int            `json:"species_captured"`
+	Captures           int            `json:"captures"`
+	SpeciesCaptures    map[string]int `json:"species_captures"`
+	TowerBosses        []string       `json:"tower_bosses"`
+	FieldBosses        int            `json:"field_bosses"`
+	DungeonClears      int            `json:"dungeon_clears"`
+	FixedDungeonClears int            `json:"fixed_dungeon_clears"`
+	Technologies       int            `json:"technologies"`
+	FastTravelPoints   int            `json:"fast_travel_points"`
 }
 
 type Guild struct {
@@ -271,12 +273,21 @@ func readPlayer(data []byte) (*time.Time, *Progress, error) {
 		lastOnline = &at
 	}
 	record := save.Fields("RecordData")
-	progress := &Progress{TowerBosses: []string{}}
-	progress.Palpedia = countTrue(record.Map("PaldeckUnlockFlag"))
+	progress := &Progress{PalpediaEntries: []string{}, SpeciesCaptures: map[string]int{}, TowerBosses: []string{}}
+	for _, entry := range record.Map("PaldeckUnlockFlag") {
+		name, _ := entry.Key.(string)
+		if done, _ := entry.Value.(bool); done && name != "" {
+			progress.PalpediaEntries = append(progress.PalpediaEntries, name)
+		}
+	}
+	sort.Strings(progress.PalpediaEntries)
+	progress.Palpedia = len(progress.PalpediaEntries)
 	for _, entry := range record.Map("PalCaptureCount") {
-		if count, ok := entry.Value.(int64); ok && count > 0 {
+		name, _ := entry.Key.(string)
+		if count, ok := entry.Value.(int64); ok && count > 0 && name != "" {
 			progress.SpeciesCaptured++
 			progress.Captures += int(count)
+			progress.SpeciesCaptures[name] = int(count)
 		}
 	}
 	for _, entry := range record.Map("TowerBossDefeatFlag") {

@@ -1450,7 +1450,11 @@ export interface components {
       field_bosses: number;
       fixed_dungeon_clears: number;
       palpedia: number;
+      palpedia_entries?: string[];
       species_captured: number;
+      species_captures?: {
+        [key: string]: number;
+      };
       technologies: number;
       tower_bosses: string[];
     } & {

@@ -93,7 +93,7 @@ func TestEveryEmittedTypeMatchesTheContract(t *testing.T) {
 	saved := &saves.Result{
 		SavedAt: at,
 		Players: []event.SavePlayerData{
-			{SavedAt: at, PlayerID: playerID, Name: event.String("Wanderer"), Level: &level, GuildID: event.String("6011D000000000000000000000000001"), LastOnlineAt: &at, Progress: &event.SaveProgress{Palpedia: 3, SpeciesCaptured: 2, Captures: 4, TowerBosses: []string{"GrassBoss"}, FieldBosses: 2, DungeonClears: 5, FixedDungeonClears: 2, Technologies: 3, FastTravelPoints: 1}},
+			{SavedAt: at, PlayerID: playerID, Name: event.String("Wanderer"), Level: &level, GuildID: event.String("6011D000000000000000000000000001"), LastOnlineAt: &at, Progress: &event.SaveProgress{Palpedia: 3, PalpediaEntries: &[]string{"ChickenPal", "PinkCat", "SheepBall"}, SpeciesCaptured: 2, Captures: 4, SpeciesCaptures: &map[string]int{"PinkCat": 1, "SheepBall": 3}, TowerBosses: []string{"GrassBoss"}, FieldBosses: 2, DungeonClears: 5, FixedDungeonClears: 2, Technologies: 3, FastTravelPoints: 1}},
 			{SavedAt: at, PlayerID: "7A3B22D1000000000000000000000000"},
 		},
 		Guilds: []event.SaveGuildData{{SavedAt: at, GuildID: "6011D000000000000000000000000001", Name: "Lark Riders", BaseCampLevel: 3, Members: []event.SaveGuildMember{{PlayerID: playerID, Name: "Wanderer", Role: "guild_master"}}}},
