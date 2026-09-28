@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { ActivityDetails, ActivityItem, ActivityType } from '$lib/api/types';
-import { describeActivity, knockoutPhrase } from '$lib/ui/activity';
+import { describeActivity, knockoutPhrase, mergeActivity, upsertActivity } from '$lib/ui/activity';
 import { bossName, characterName, killerOf, technologyName } from '$lib/server/read/names';
 
 const player = { id: 3, name: 'Moss', online: true, guild: null };
@@ -58,6 +58,34 @@ describe('lines for the server mod', () => {
     expect(line('technology.unlocked', { technology: 'Unknown', technology_name: null })).toBe(
       'Moss unlocked a new technology'
     );
+  });
+});
+
+describe('the live feed on an open page', () => {
+  const knockout = (id: string, ts: string, killer: string | null = null): ActivityItem => ({
+    id,
+    type: 'player.died',
+    ts,
+    player,
+    details: { killer, killer_kind: killer ? 'pal' : null }
+  });
+  const first = knockout('a', '2026-09-28T15:00:00Z');
+  const merged = knockout('a', '2026-09-28T15:00:00Z', 'Mammorest');
+  const later = knockout('b', '2026-09-28T15:01:00Z');
+
+  it('replaces an item it already holds by id and puts new items first', () => {
+    expect(upsertActivity([], first, 3)).toEqual([first]);
+    expect(upsertActivity([later, first], merged, 3)).toEqual([later, merged]);
+    expect(upsertActivity([first], later, 3)).toEqual([later, first]);
+    expect(upsertActivity([later, first], knockout('c', '2026-09-28T15:02:00Z'), 2)).toEqual([
+      knockout('c', '2026-09-28T15:02:00Z'),
+      later
+    ]);
+  });
+
+  it('keeps the live copy of an item over the loaded one', () => {
+    expect(mergeActivity([merged], [later, first])).toEqual([later, merged]);
+    expect(mergeActivity([], [later, first])).toEqual([later, first]);
   });
 });
 

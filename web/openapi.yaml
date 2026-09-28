@@ -441,7 +441,7 @@ paths:
       tags:
         - stream
       summary: Live stream
-      description: 'Server-sent events. Event names: status (the Status object, on connect and whenever it changes), online (the OnlineList, on connect and on change), map (the MapState, on connect and after each world snapshot, at most every 5 s) and activity (one ActivityItem per new feed item, with the frame id set to the event id). A comment frame every 15 s keeps the connection alive. A reconnect with Last-Event-ID first replays up to 100 newer activity items.'
+      description: "Server-sent events. Event names: status (the Status object, on connect and whenever it changes), online (the OnlineList, on connect and on change), map (the MapState, on connect and after each world snapshot, at most every 5 s) and activity (one ActivityItem per new feed item, with the frame id set to the event id). When a later event changes a feed item that was already sent, for example the server mod's knockout merging into a snapshot knockout, the item is sent again with the same ActivityItem id and no frame id; clients replace the item they hold with that id. A comment frame every 15 s keeps the connection alive. A reconnect with Last-Event-ID first replays up to 100 newer activity items."
       parameters:
         - $ref: '#/components/parameters/LastEventId'
         - name: last_event_id

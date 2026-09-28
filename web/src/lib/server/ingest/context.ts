@@ -28,6 +28,7 @@ export interface ProjectionEffects {
   onlineChanged: boolean;
   mapChanged: boolean;
   siteEvents: StoredEvent[];
+  changedEvents: string[];
 }
 
 export interface ProjectionContext {
@@ -46,7 +47,13 @@ export function createContext(tx: Tx, receivedAt: Date, rebuild = false): Projec
     rebuild,
     players: new Map(),
     state: null,
-    effects: { statusChanged: false, onlineChanged: false, mapChanged: false, siteEvents: [] }
+    effects: {
+      statusChanged: false,
+      onlineChanged: false,
+      mapChanged: false,
+      siteEvents: [],
+      changedEvents: []
+    }
   };
 }
 

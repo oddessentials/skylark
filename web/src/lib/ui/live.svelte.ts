@@ -1,6 +1,7 @@
 import { getContext, setContext } from 'svelte';
 import { connectStream, type StreamConnection, type StreamState } from '$lib/api/sse';
 import type { ActivityItem, MapState, OnlineList, Status } from '$lib/api/types';
+import { upsertActivity } from './activity';
 
 export type LiveStreamState = StreamState | 'off';
 
@@ -41,8 +42,7 @@ export class LiveState {
   }
 
   private push(item: ActivityItem): void {
-    if (this.activity.some((entry) => entry.id === item.id)) return;
-    this.activity = [item, ...this.activity].slice(0, 200);
+    this.activity = upsertActivity(this.activity, item, 200);
   }
 }
 

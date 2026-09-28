@@ -214,6 +214,16 @@ export function describeActivity(item: ActivityItem): ActivityView {
   }
 }
 
+export function upsertActivity(
+  items: ActivityItem[],
+  item: ActivityItem,
+  limit: number
+): ActivityItem[] {
+  const index = items.findIndex((entry) => entry.id === item.id);
+  if (index === -1) return [item, ...items].slice(0, limit);
+  return items.map((entry, at) => (at === index ? item : entry));
+}
+
 export function mergeActivity(live: ActivityItem[], loaded: ActivityItem[]): ActivityItem[] {
   const seen = new Set<string>();
   const merged: ActivityItem[] = [];
