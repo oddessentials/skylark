@@ -4652,6 +4652,11 @@ components:
           type: integer
           minimum: 0
           description: Palpedia entries unlocked.
+        palpedia_entries:
+          type: array
+          description: The unlocked Palpedia entries by the game's species id, for example SheepBall, sorted; absent from a save reader that only counts them.
+          items:
+            type: string
         species_captured:
           type: integer
           minimum: 0
@@ -4659,6 +4664,12 @@ components:
           type: integer
           minimum: 0
           description: Pals captured in all, across species.
+        species_captures:
+          type: object
+          description: Captures per species id, for the species captured at least once; absent from a save reader that only counts them.
+          additionalProperties:
+            type: integer
+            minimum: 1
         tower_bosses:
           type: array
           description: Tower bosses defeated at least once, by the game's id, for example GrassBoss.

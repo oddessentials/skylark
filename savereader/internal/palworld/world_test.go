@@ -156,7 +156,8 @@ func TestExtractReadsPlayersGuildsAndBases(t *testing.T) {
 	lastOnline := Time(savedTick)
 	want := []Player{
 		{PlayerID: wanderer, Name: name("Wanderer"), Level: number(24), GuildID: name(guildID), LastOnlineAt: &lastOnline, Progress: &Progress{
-			Palpedia: 3, SpeciesCaptured: 2, Captures: 4, TowerBosses: []string{"GrassBoss"}, FieldBosses: 2,
+			Palpedia: 3, PalpediaEntries: []string{"ChickenPal", "PinkCat", "SheepBall"}, SpeciesCaptured: 2, Captures: 4,
+			SpeciesCaptures: map[string]int{"PinkCat": 1, "SheepBall": 3}, TowerBosses: []string{"GrassBoss"}, FieldBosses: 2,
 			DungeonClears: 5, FixedDungeonClears: 2, Technologies: 3, FastTravelPoints: 1,
 		}},
 		{PlayerID: fisher, Name: name("Fisher"), Level: number(7), GuildID: name(guildID)},

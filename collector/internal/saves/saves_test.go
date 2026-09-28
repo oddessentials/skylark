@@ -14,7 +14,7 @@ import (
 
 const cannedWorld = `{"format":1,"saved_at":"2026-09-28T05:30:00Z",
 "players":[{"player_id":"5E7A11C0000000000000000000000000","name":"Wanderer","level":24,"guild_id":"6011D000000000000000000000000001","last_online_at":"2026-09-28T05:10:00Z",
-"progress":{"palpedia":3,"species_captured":2,"captures":4,"tower_bosses":["GrassBoss"],"field_bosses":2,"dungeon_clears":5,"fixed_dungeon_clears":2,"technologies":3,"fast_travel_points":1}}],
+"progress":{"palpedia":3,"palpedia_entries":["ChickenPal","PinkCat","SheepBall"],"species_captured":2,"captures":4,"species_captures":{"PinkCat":1,"SheepBall":3},"tower_bosses":["GrassBoss"],"field_bosses":2,"dungeon_clears":5,"fixed_dungeon_clears":2,"technologies":3,"fast_travel_points":1}}],
 "guilds":[{"guild_id":"6011D000000000000000000000000001","name":"Lark Riders","base_camp_level":3,"members":[{"player_id":"5E7A11C0000000000000000000000000","name":"Wanderer","role":"guild_master"}]}],
 "bases":[{"base_id":"BA5E0000000000000000000000000003","guild_id":"6011D000000000000000000000000001","name":"Hilltop","x":-73080.5,"y":-69035.25,"z":-948.5,"workers":[{"instance_id":"21000000000000000000000000000000","character_id":"SheepBall","level":9,"name":null}]}]}`
 
@@ -82,6 +82,9 @@ func TestReadRunsTheSaveReader(t *testing.T) {
 	player := result.Players[0]
 	if !player.SavedAt.Equal(savedAt) || *player.Level != 24 || player.Progress.Palpedia != 3 || player.Progress.TowerBosses[0] != "GrassBoss" {
 		t.Fatalf("player %+v", player)
+	}
+	if entries := *player.Progress.PalpediaEntries; len(entries) != 3 || entries[0] != "ChickenPal" || (*player.Progress.SpeciesCaptures)["SheepBall"] != 3 {
+		t.Fatalf("progress %+v", player.Progress)
 	}
 	base := result.Bases[0]
 	if *base.Z != -948.5 || len(base.Workers) != 1 || base.Workers[0].CharacterID != "SheepBall" {

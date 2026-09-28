@@ -355,8 +355,10 @@ export const pals = pgTable(
 
 export interface SavedProgress {
   palpedia: number;
+  palpedia_entries?: string[];
   species_captured: number;
   captures: number;
+  species_captures?: Record<string, number>;
   tower_bosses: string[];
   field_bosses: number;
   dungeon_clears: number;
