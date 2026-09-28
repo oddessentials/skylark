@@ -198,3 +198,37 @@ func TestWindowsFileAndStdinSourcesWarnAboutBufferedOutput(t *testing.T) {
 		}
 	}
 }
+
+func TestPlainRestToAPublicAddressWarns(t *testing.T) {
+	cases := map[string]bool{
+		"http://127.0.0.1:8212":            false,
+		"http://localhost:8212":            false,
+		"http://palworld:8212":             false,
+		"http://192.168.1.20:8212":         false,
+		"http://10.0.0.5:8212":             false,
+		"http://[::1]:8212":                false,
+		"http://web.railway.internal:8212": false,
+		"http://server.home.arpa:8212":     false,
+		"https://203.0.113.10:8212":        false,
+		"http://203.0.113.10:8212":         true,
+		"http://palworld.example.com:8212": true,
+	}
+	for restURL, warns := range cases {
+		cfg, err := Load(Options{DryRun: true, Platform: "linux", Getenv: env(map[string]string{
+			"SKYLARK_PALWORLD_ADMIN_PASSWORD": "p",
+			"SKYLARK_PALWORLD_REST_URL":       restURL,
+		})})
+		if err != nil {
+			t.Fatal(restURL, err)
+		}
+		found := false
+		for _, warning := range cfg.Warnings {
+			if strings.Contains(warning, "plain HTTP to a public address") {
+				found = true
+			}
+		}
+		if found != warns {
+			t.Errorf("%s: warned %v, want %v (%v)", restURL, found, warns, cfg.Warnings)
+		}
+	}
+}

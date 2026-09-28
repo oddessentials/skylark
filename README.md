@@ -61,7 +61,9 @@ Playtime, sessions, level history, knockouts and distance travelled for everyone
 2. Open `/admin` on port 3000, set the password, and copy the collector secret from the Collector page.
 3. Download the collector for your platform from a [release](https://github.com/oddessentials/skylark/releases) or pull `ghcr.io/oddessentials/skylark-collector`, or build it with `npm run collector:build` (Go 1.27). Run it beside the Palworld server with that secret and the server's admin password. On Windows it starts the server itself; on Linux it follows the server's Docker container or console output.
 
-The server needs its REST API on (`RESTAPIEnabled=True` and an `AdminPassword`), the launch argument `-enable-gamedata-api` for positions, Pals and bases, and `LogFormatType=Json` for joins and chat as they happen. The collector sends only to your site, and the site never shows IP addresses or platform ids publicly.
+The server needs its REST API on (`RESTAPIEnabled=True` and an `AdminPassword`), the launch argument `-enable-gamedata-api` for Pals, bases and knockouts, and `LogFormatType=Json` for joins and chat as they happen. The collector sends only to your site, and the site never shows IP addresses or platform ids publicly.
+
+**Rented servers.** Most hosts let you run nothing beside the server. If yours exposes the server's REST API, run the collector next to the site instead: set `COLLECTOR_SECRET`, `PALWORLD_REST_URL` and `PALWORLD_ADMIN_PASSWORD` in `.env` and start both with `docker compose --profile site --profile remote up -d --build`. Over the network the collector sees who is online, joins and leaves within about 5 s, levels, positions and trails, the server's settings and metrics, and it carries out admin actions. Pals, bases, knockouts and the in-game clock also need the host to accept the launch argument `-enable-gamedata-api`, and chat needs the server's log, which a remote collector cannot read. The REST API is plain HTTP, so prefer a host that serves it over https or through a VPN; the collector warns when the admin password would cross the internet unencrypted.
 
 <details>
 <summary><b>Site settings</b></summary>
@@ -151,6 +153,15 @@ docker run -d --name skylark-collector --network palworld \
   -e SKYLARK_SITE_URL=https://skylark.example.com -e SKYLARK_SITE_SECRET=... \
   -e SKYLARK_PALWORLD_REST_URL=http://palworld:8212 -e SKYLARK_PALWORLD_ADMIN_PASSWORD=... \
   -e SKYLARK_DOCKER_CONTAINER=palworld ghcr.io/oddessentials/skylark-collector
+```
+
+To run it away from the server, for a host that exposes the REST API:
+
+```sh
+docker run -d --name skylark-collector -v skylark-journal:/data \
+  -e SKYLARK_SITE_URL=https://skylark.example.com -e SKYLARK_SITE_SECRET=... \
+  -e SKYLARK_PALWORLD_REST_URL=https://palworld.example.net:8212 -e SKYLARK_PALWORLD_ADMIN_PASSWORD=... \
+  -e SKYLARK_LOGS_SOURCE=none ghcr.io/oddessentials/skylark-collector
 ```
 
 IP addresses stay on the server unless `send_ips` is on. Platform user ids go only to your own site, which never shows them publicly. Every event is written to the journal before it is sent and stays there until the site confirms it, so a crash, a restart or a site outage loses nothing. Actions from the site run through the REST API once each, even across restarts.
