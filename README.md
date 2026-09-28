@@ -4,6 +4,40 @@ Skylark gives your Palworld dedicated server its own website. A small collector 
 
 Skylark is in early development.
 
+## What the site shows
+
+- **Today:** who is out in the world with their level, guild, health and the Pals out with them; the in-game clock on a sun dial that counts down to nightfall and dawn; a live map; the latest activity; this week's leaders; players over the last day.
+- **The map:** an original map drawn from the game's own region data, with the Great Eagle Statues and towers, players moving live, bases, the wild Pals near players and the day's knockouts. It is not the in-game map; Skylark ships no Pocketpair art.
+- **Players:** every player with playtime, sessions, level history, knockouts and distance travelled, and a trail of each session on the map.
+- **Guilds, activity, chat and the world:** guild members and bases; joins, leaves, level-ups, knockouts, chat, new bases and guild changes as they happen; the world settings and the server's history.
+- **Admin:** the collector connection and its health, server actions (announce, save, shut down with a countdown, kick, ban, unban) that the collector carries out, player renames and hiding, raw events, backups and a history rebuild. Switches decide whether positions, bases, Pals, chat and guild chat are public.
+
+The site keeps everything it records and never shows IP addresses or platform ids publicly.
+
+## Running the site
+
+The site is a SvelteKit app on Node 24 with PostgreSQL 18. With Docker:
+
+```sh
+cp .env.example .env
+docker compose --profile site up -d --build
+```
+
+It listens on port 3000. Open `/admin` to set the admin password (or set `ADMIN_PASSWORD`), then copy the collector secret from the Collector page into the collector's configuration.
+
+| Variable | Default | Meaning |
+| --- | --- | --- |
+| `DATABASE_URL` | | PostgreSQL connection string. The site migrates the database when it starts. |
+| `COLLECTOR_SECRET` | generated | The secret the collector signs its batches with. When unset the site generates one and shows it on the admin Collector page. |
+| `ADMIN_PASSWORD` | | The admin password. When unset the first visitor to `/admin` sets it. |
+| `ADMIN_SESSION_SECRET` | generated | Signs admin sessions. |
+| `PUBLIC_SITE_NAME` | `Palworld server` | The site name; also settable on the admin Settings page. |
+| `ORIGIN` | | The address people use, for example `https://skylark.example.com`. Admin changes must come from it. |
+| `BACKUP_DIR`, `BACKUPS_KEPT` | `/backups`, `14` | Nightly `pg_dump` backups. |
+| `API_MOCK` | `0` | `1` serves the recorded fixtures instead of a database, for trying the pages. |
+
+The API is described in `web/openapi.yaml` and served at `/api/v1/openapi.json`. `/api/v1/stream` sends live updates as server-sent events.
+
 ## Collector
 
 The collector is one binary for Windows x64, Linux x64 and Linux arm64 that runs beside a Palworld dedicated server. It reads the server's REST API and console log, turns what it sees into events and posts them in signed batches to your Skylark site. The server needs no mods.
@@ -78,5 +112,17 @@ docker run -d --name skylark-collector --network palworld \
 ### Privacy and delivery
 
 IP addresses stay on the server unless `send_ips` is on. Platform user ids go only to your own site, which never shows them publicly. Every event is written to the journal before it is sent and stays there until the site confirms it, so a crash, a restart or a site outage loses nothing. Actions from the site (announce, kick, ban, unban, save, shutdown) run through the REST API once each, even across restarts.
+
+## Development
+
+```sh
+npm install
+docker compose up -d db
+npm run dev
+```
+
+`npm run dev:mock` runs the pages on recorded fixtures without a database or a server. The fixtures come from a simulated week of server life run through the real ingest (`npm run fixtures:generate`); `web/scripts/simulator` produces the same batches for tests. `npm run verify` runs every check, test and build, and must pass before a branch is merged.
+
+Facts about the game come from the free dedicated server's own files: `npm run facts:extract -- --pak <path to Pal-WindowsServer.pak>` rebuilds `web/src/lib/world` and records the game version each file was read from.
 
 <sub>Skylark is an unofficial fan project, not affiliated with or endorsed by Pocketpair, Inc. Palworld is a trademark of Pocketpair, Inc.</sub>

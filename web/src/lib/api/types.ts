@@ -640,6 +640,7 @@ export interface components {
       old_name?: string;
       previous_guild?: components['schemas']['GuildRef'] | null;
       reason?: string;
+      region?: string | null;
       session_s?: number | null;
       text?: string;
       to?: number;
@@ -787,6 +788,7 @@ export interface components {
       id: number;
       last_seen: string;
       name: string | null;
+      region: string | null;
       workers: number;
       workers_seen_at: string | null;
       x: number;

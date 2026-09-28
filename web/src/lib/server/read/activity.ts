@@ -1,4 +1,5 @@
 import { and, asc, desc, eq, gt, inArray, isNull, lt, not, or, sql, type SQL } from 'drizzle-orm';
+import { baseNameOf, regionAt } from '$lib/world/regions';
 import type { Database } from '../db/client';
 import { events, players, sessions, type EventRow } from '../db/schema';
 import { badRequest, type KeysetPage } from '../http/respond';
@@ -125,6 +126,7 @@ export async function buildActivityItems(
         if (features.positions && x !== null && y !== null) {
           details.x = x;
           details.y = y;
+          details.region = regionAt(x, y);
         }
         break;
       }
@@ -138,10 +140,11 @@ export async function buildActivityItems(
       case 'base.established':
       case 'base.removed':
         details.base_id = numberOf(data.base_id) ?? 0;
-        details.base_name = stringOf(data.name);
+        details.base_name = baseNameOf(stringOf(data.name));
         details.guild = guildOf(data.guild_id, data.guild_name, names);
         details.x = numberOf(data.x) ?? 0;
         details.y = numberOf(data.y) ?? 0;
+        details.region = regionAt(details.x, details.y);
         break;
       case 'guild.renamed':
         details.guild = guildOf(data.guild_id, data.to, names);

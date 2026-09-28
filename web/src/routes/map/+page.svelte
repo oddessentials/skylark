@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { baseLabel } from '$lib/ui/activity';
   import Card from '$lib/ui/Card.svelte';
   import ErrorNote from '$lib/ui/ErrorNote.svelte';
   import { useLive } from '$lib/ui/live.svelte';
@@ -113,14 +114,16 @@
                     }}
                   >
                     <span
-                      class="inline-block size-2.5 rounded-sm"
+                      class="mt-1.5 inline-block size-2.5 shrink-0 self-start rounded-sm"
                       style="background: {guildColor(base.guild?.id)}"
                       aria-hidden="true"
                     ></span>
-                    <span class="truncate">{base.name ?? 'Base'}</span>
-                    <span class="ml-auto shrink-0 text-[0.7rem] text-ink-muted"
-                      >{base.guild?.name ?? ''}</span
-                    >
+                    <span class="flex min-w-0 flex-col">
+                      <span>{baseLabel(base)}</span>
+                      {#if base.guild}<span class="text-[0.7rem] text-ink-muted"
+                          >{base.guild.name}</span
+                        >{/if}
+                    </span>
                   </button>
                 </li>
               {/each}

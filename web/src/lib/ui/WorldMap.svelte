@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { baseLabel } from '$lib/ui/activity';
   import type { MapState, TrailPoint } from '$lib/api/types';
   import { formatDisplay, type MapId } from '$lib/world/map';
   import { primaryColor, speciesInfo } from '$lib/world/species';
@@ -325,7 +326,7 @@
         class="map-base"
         role="presentation"
         onpointerenter={() =>
-          (hovered = `${base.name ?? 'Base'}${base.guild ? `, ${base.guild.name}` : ''}, ${base.workers} workers`)}
+          (hovered = `${baseLabel(base)}${base.guild ? `, ${base.guild.name}` : ''}, ${base.workers} workers`)}
         onpointerleave={() => (hovered = null)}
       >
         <rect

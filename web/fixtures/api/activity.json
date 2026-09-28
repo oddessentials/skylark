@@ -47,7 +47,13 @@
       "type": "player.died",
       "ts": "2026-09-27T19:50:00.999Z",
       "player": { "id": 7, "name": "Orrin" },
-      "details": { "cause": null, "killer": null, "x": -562545.0543181442, "y": 121391.15593724685 }
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -562545.0543181442,
+        "y": 121391.15593724685,
+        "region": "Frostbitten Isle"
+      }
     },
     {
       "id": "5d84f0c1-e235-4b11-a9cc-67cf1b0077e4",
@@ -93,7 +99,8 @@
         "cause": null,
         "killer": null,
         "x": -316727.90378875245,
-        "y": 222222.97536642052
+        "y": 222222.97536642052,
+        "region": "Windswept Island"
       }
     },
     {
@@ -101,7 +108,13 @@
       "type": "player.died",
       "ts": "2026-09-27T19:10:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
-      "details": { "cause": null, "killer": null, "x": -28774.98780931857, "y": 146935.85787619717 }
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -28774.98780931857,
+        "y": 146935.85787619717,
+        "region": "Foot of the Astral Mountains"
+      }
     },
     {
       "id": "07061bc3-865c-4241-82ba-1425a674b408",
@@ -112,7 +125,8 @@
         "cause": null,
         "killer": null,
         "x": -379316.49519706797,
-        "y": 181908.98856584157
+        "y": 181908.98856584157,
+        "region": "Windswept Island"
       }
     },
     {
@@ -155,7 +169,13 @@
       "type": "player.died",
       "ts": "2026-09-27T18:26:00.999Z",
       "player": { "id": 4, "name": "Sable" },
-      "details": { "cause": null, "killer": null, "x": -236286.6, "y": -99689.9 }
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -236286.6,
+        "y": -99689.9,
+        "region": "Ruined Fortress City"
+      }
     },
     {
       "id": "da88bce6-e0bf-49ab-bcfa-f2f29d082bbf",
@@ -229,7 +249,8 @@
         "cause": null,
         "killer": null,
         "x": -815943.6365383795,
-        "y": -403438.80221904325
+        "y": -403438.80221904325,
+        "region": "Frozen Coral Hill"
       }
     },
     {
@@ -307,7 +328,8 @@
         "cause": null,
         "killer": null,
         "x": -158490.81595252588,
-        "y": -33398.17911123649
+        "y": -33398.17911123649,
+        "region": "Isle of Silence"
       }
     },
     {
@@ -320,7 +342,8 @@
         "base_name": "Moss Camp 2",
         "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
         "x": -314377.2,
-        "y": 211003.3
+        "y": 211003.3,
+        "region": "Windswept Island"
       }
     },
     {
@@ -370,7 +393,13 @@
       "type": "player.died",
       "ts": "2026-09-26T14:25:00.999Z",
       "player": { "id": 2, "name": "Wren" },
-      "details": { "cause": null, "killer": null, "x": -293687.095221578, "y": 314448.37820014096 }
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -293687.095221578,
+        "y": 314448.37820014096,
+        "region": "Marsh Island"
+      }
     },
     {
       "id": "d11740dd-7dae-46e0-96f1-58738152ed90",
@@ -416,7 +445,8 @@
         "cause": null,
         "killer": null,
         "x": -509806.4831120554,
-        "y": -333590.92039320467
+        "y": -333590.92039320467,
+        "region": null
       }
     },
     {
@@ -477,7 +507,8 @@
         "cause": null,
         "killer": null,
         "x": -196434.95157660227,
-        "y": -63723.84992059379
+        "y": -63723.84992059379,
+        "region": "Sealed Realm of the Frost Flower"
       }
     },
     {
@@ -665,7 +696,8 @@
         "base_name": "Sunreach Camp 2",
         "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
         "x": 15556.8,
-        "y": 248101.4
+        "y": 248101.4,
+        "region": null
       }
     },
     {
@@ -757,7 +789,13 @@
       "type": "player.died",
       "ts": "2026-09-24T18:45:00.999Z",
       "player": { "id": 4, "name": "Sable" },
-      "details": { "cause": null, "killer": null, "x": -691653.9658831968, "y": -316238.5209778878 }
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -691653.9658831968,
+        "y": -316238.5209778878,
+        "region": "Scorched Hill"
+      }
     },
     {
       "id": "e5787056-541a-4fa7-9f4c-4d51958e557b",
@@ -897,14 +935,26 @@
       "type": "player.died",
       "ts": "2026-09-24T14:34:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
-      "details": { "cause": null, "killer": null, "x": -278286.1264798476, "y": 219247.21042643982 }
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -278286.1264798476,
+        "y": 219247.21042643982,
+        "region": "Autumn Rocks"
+      }
     },
     {
       "id": "b2b4726f-65fd-4157-a798-1a4b5473e75a",
       "type": "player.died",
       "ts": "2026-09-24T14:30:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
-      "details": { "cause": null, "killer": null, "x": -631179.0348109547, "y": -271765.0842319913 }
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -631179.0348109547,
+        "y": -271765.0842319913,
+        "region": "Scorched Hill"
+      }
     },
     {
       "id": "246faa48-f42f-4410-ab9c-4fe2019bd472",
@@ -929,7 +979,8 @@
         "cause": null,
         "killer": null,
         "x": -313884.81074639753,
-        "y": 233624.43033072533
+        "y": 233624.43033072533,
+        "region": "Windswept Island"
       }
     },
     {
@@ -958,7 +1009,13 @@
       "type": "player.died",
       "ts": "2026-09-24T13:30:00.999Z",
       "player": { "id": 1, "name": "Juniper" },
-      "details": { "cause": null, "killer": null, "x": -312425.7100247271, "y": 47421.429056291745 }
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -312425.7100247271,
+        "y": 47421.429056291745,
+        "region": "Bamboo Groves"
+      }
     },
     {
       "id": "0e69bdb4-9379-4208-9740-5ca80689b0d2",
@@ -1018,7 +1075,8 @@
         "cause": null,
         "killer": null,
         "x": -344408.2837671854,
-        "y": -16449.591088789646
+        "y": -16449.591088789646,
+        "region": "Foot of the Volcano"
       }
     },
     {
@@ -1033,7 +1091,13 @@
       "type": "player.died",
       "ts": "2026-09-23T20:00:00.999Z",
       "player": { "id": 4, "name": "Sable" },
-      "details": { "cause": null, "killer": null, "x": -187511.3507834371, "y": -38029.1955551356 }
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -187511.3507834371,
+        "y": -38029.1955551356,
+        "region": "Sealed Realm of the Frost Flower"
+      }
     },
     {
       "id": "19eb7f58-d0e8-4a33-87bd-19e5f3df3d1b",
@@ -1112,7 +1176,8 @@
         "base_name": "Moss Camp 2",
         "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
         "x": -314377.2,
-        "y": 211003.3
+        "y": 211003.3,
+        "region": "Windswept Island"
       }
     },
     {
@@ -1152,7 +1217,8 @@
         "cause": null,
         "killer": null,
         "x": -19770.709944594408,
-        "y": 238545.11379813886
+        "y": 238545.11379813886,
+        "region": null
       }
     },
     {
@@ -1363,7 +1429,13 @@
       "type": "player.died",
       "ts": "2026-09-22T16:57:00.999Z",
       "player": { "id": 3, "name": "Tamsin" },
-      "details": { "cause": null, "killer": null, "x": -234590.94709845723, "y": 47581.78012566597 }
+      "details": {
+        "cause": null,
+        "killer": null,
+        "x": -234590.94709845723,
+        "y": 47581.78012566597,
+        "region": "Deep Bamboo Thicket"
+      }
     },
     {
       "id": "7e8e8891-e1e8-4fdd-bf75-07d3428e595c",

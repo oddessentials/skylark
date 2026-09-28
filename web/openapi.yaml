@@ -1729,7 +1729,7 @@ components:
         - other
     ActivityDetails:
       type: object
-      description: 'Type-specific details. player.level_up: from, to. player.died: cause, killer, and x, y with the positions feature. player.left: session_s. chat.message: channel, text. base.established and base.removed: base_id, base_name, guild, x, y. guild.renamed: guild, old_name, new_name. player.guild_joined: guild, previous_guild. server.online: version. server.offline: reason. collector.lost: last_seen_at.'
+      description: 'Type-specific details. player.level_up: from, to. player.died: cause, killer, and x, y, region with the positions feature. player.left: session_s. chat.message: channel, text. base.established and base.removed: base_id, base_name, region, guild, x, y. guild.renamed: guild, old_name, new_name. player.guild_joined: guild, previous_guild. server.online: version. server.offline: reason. collector.lost: last_seen_at.'
       properties:
         from:
           type: integer
@@ -1747,6 +1747,11 @@ components:
           type: number
         y:
           type: number
+        region:
+          type:
+            - string
+            - 'null'
+          description: The named area of the map at x, y.
         session_s:
           type:
             - number
@@ -2198,6 +2203,12 @@ components:
           type:
             - string
             - 'null'
+          description: The name players gave the base; null while it has the game's placeholder name.
+        region:
+          type:
+            - string
+            - 'null'
+          description: The named area of the map the base stands in.
         guild:
           anyOf:
             - $ref: '#/components/schemas/GuildRef'
@@ -2229,6 +2240,7 @@ components:
       required:
         - id
         - name
+        - region
         - guild
         - x
         - y
