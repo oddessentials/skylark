@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { baseLabel } from '$lib/ui/activity';
   import Card from '$lib/ui/Card.svelte';
   import ErrorNote from '$lib/ui/ErrorNote.svelte';
   import { guildColor } from '$lib/ui/map';
@@ -76,7 +77,7 @@
           <ul class="flex flex-col divide-y divide-line px-5 py-2 text-[0.8125rem]">
             {#each guild.bases as base (base.id)}
               <li class="flex flex-wrap items-baseline gap-x-3 py-2">
-                <span class="font-semibold">{base.name ?? 'Base'}</span>
+                <span class="font-semibold">{baseLabel(base)}</span>
                 <span class="text-ink-muted">at {formatDisplay(base.x, base.y)}</span>
                 <span class="ml-auto text-[0.72rem] text-ink-muted"
                   >{base.workers} workers{#if base.workers_seen_at}, seen <Time

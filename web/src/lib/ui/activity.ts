@@ -99,7 +99,8 @@ export function describeActivity(item: ActivityItem): ActivityView {
     case 'player.died':
       return view('bad', [
         who(item.player),
-        text(details.killer ? ` was knocked out by ${details.killer}` : ' was knocked out')
+        text(details.killer ? ` was knocked out by ${details.killer}` : ' was knocked out'),
+        ...(details.region ? [text(` in ${details.region}`)] : [])
       ]);
     case 'chat.message':
       return view(
@@ -110,12 +111,24 @@ export function describeActivity(item: ActivityItem): ActivityView {
     case 'base.established':
       return view('good', [
         guildPart(details.guild, 'A guild'),
-        text(details.base_name ? ` set up a base, ${details.base_name}` : ' set up a new base')
+        text(
+          details.base_name
+            ? ` set up a base, ${details.base_name}`
+            : details.region
+              ? ` set up a base in ${details.region}`
+              : ' set up a new base'
+        )
       ]);
     case 'base.removed':
       return view('neutral', [
         guildPart(details.guild, 'A guild'),
-        text(details.base_name ? ` packed up ${details.base_name}` : ' packed up a base')
+        text(
+          details.base_name
+            ? ` packed up ${details.base_name}`
+            : details.region
+              ? ` packed up their base in ${details.region}`
+              : ' packed up a base'
+        )
       ]);
     case 'guild.renamed':
       return view('info', [
@@ -145,4 +158,9 @@ export function mergeActivity(live: ActivityItem[], loaded: ActivityItem[]): Act
     merged.push(item);
   }
   return merged.sort((a, b) => Date.parse(b.ts) - Date.parse(a.ts));
+}
+
+export function baseLabel(base: { name: string | null; region: string | null }): string {
+  if (base.name) return base.name;
+  return base.region ? `Base in ${base.region}` : 'Base';
 }

@@ -39,6 +39,7 @@ export const stationaryMeters = 1;
 export const absentAfterMs = 90_000;
 export const baseGoneAfterMs = 60_000;
 export const baselineKey = 'world.baseline_at';
+export const settleMs = 5 * 60_000;
 
 export function baseKey(x: number, y: number): string {
   return `${Math.round(x / 10)}:${Math.round(y / 10)}`;
@@ -238,14 +239,23 @@ async function closeAbsentPlayers(
   }
 }
 
-async function worldBaseline(ctx: ProjectionContext, ts: Date): Promise<boolean> {
+async function worldBaseline(ctx: ProjectionContext, ts: Date): Promise<Date> {
   const rows = await ctx.tx.select().from(meta).where(eq(meta.key, baselineKey)).limit(1);
-  if (rows[0]) return false;
+  const stored = rows[0] ? new Date(rows[0].value) : null;
+  if (stored && !Number.isNaN(stored.getTime())) return stored;
   await ctx.tx
     .insert(meta)
     .values({ key: baselineKey, value: ts.toISOString(), updatedAt: ts })
     .onConflictDoNothing();
-  return true;
+  return ts;
+}
+
+async function settling(ctx: ProjectionContext, ts: Date): Promise<boolean> {
+  const baselineAt = await worldBaseline(ctx, ts);
+  if (ts.getTime() - baselineAt.getTime() < settleMs) return true;
+  const state = await loadServerState(ctx);
+  if (state.onlineSince && ts.getTime() - state.onlineSince.getTime() < settleMs) return true;
+  return state.uptimeS !== null && state.uptimeS * 1000 < settleMs;
 }
 
 function baseEventData(row: BaseRow, guildName: string | null): Record<string, unknown> {
@@ -262,7 +272,7 @@ function baseEventData(row: BaseRow, guildName: string | null): Record<string, u
 
 async function applyPalboxes(scope: SnapshotScope, data: SnapshotData): Promise<BaseRow[]> {
   const { ctx, event, ts } = scope;
-  const baseline = await worldBaseline(ctx, ts);
+  const quiet = await settling(ctx, ts);
   const existing = new Map((await ctx.tx.select().from(bases)).map((row) => [row.key, row]));
   const present = new Map<string, BaseRow>();
   for (const box of data.palboxes) {
@@ -288,7 +298,7 @@ async function applyPalboxes(scope: SnapshotScope, data: SnapshotData): Promise<
         .returning();
       const row = inserted[0]!;
       present.set(key, row);
-      if (guildId && !baseline) {
+      if (guildId && !quiet) {
         await emitSiteEvent(
           ctx,
           'base.established',
@@ -316,7 +326,7 @@ async function applyPalboxes(scope: SnapshotScope, data: SnapshotData): Promise<
     const row = updated[0]!;
     present.set(key, row);
     const established = (before.goneAt !== null || before.guildId === null) && guildId !== null;
-    if (established && !baseline) {
+    if (established && !quiet) {
       await emitSiteEvent(
         ctx,
         'base.established',
@@ -328,7 +338,7 @@ async function applyPalboxes(scope: SnapshotScope, data: SnapshotData): Promise<
     }
   }
   for (const row of existing.values()) {
-    if (present.has(row.key) || row.goneAt !== null) continue;
+    if (quiet || present.has(row.key) || row.goneAt !== null) continue;
     if (ts.getTime() - row.lastSeen.getTime() < baseGoneAfterMs) continue;
     await ctx.tx.update(bases).set({ goneAt: ts }).where(eq(bases.id, row.id));
     if (row.guildId) {

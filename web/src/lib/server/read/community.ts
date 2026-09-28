@@ -14,6 +14,7 @@ import {
   type BaseRow,
   events
 } from '../db/schema';
+import { baseNameOf, regionAt } from '$lib/world/regions';
 import { notFound, type KeysetPage } from '../http/respond';
 import type { Features } from '../settings';
 import {
@@ -76,7 +77,8 @@ export async function listChat(
 export function baseOf(row: BaseRow, names: Map<string, string>): Base {
   return {
     id: row.id,
-    name: row.name,
+    name: baseNameOf(row.name),
+    region: regionAt(row.x, row.y),
     guild: guildRef(row.guildId, names),
     x: row.x,
     y: row.y,
@@ -99,12 +101,9 @@ async function standingBases(db: Database, guildId: string | null = null): Promi
 }
 
 export async function listGuilds(db: Database, features: Features): Promise<GuildSummary[]> {
-  const rows = await db
+  const memberRows = await db
     .select({
       id: guilds.id,
-      name: guilds.name,
-      firstSeen: guilds.firstSeen,
-      lastSeen: guilds.lastSeen,
       members: sql<number>`count(${players.id})::int`,
       online: sql<number>`count(${players.id}) filter (where ${players.online})::int`,
       topLevel: sql<number | null>`max(${players.level})::int`
@@ -115,24 +114,37 @@ export async function listGuilds(db: Database, features: Features): Promise<Guil
       and(eq(guildMembers.guildId, guilds.id), eq(guildMembers.current, true))
     )
     .innerJoin(players, and(eq(players.id, guildMembers.playerId), eq(players.hidden, false)))
-    .groupBy(guilds.id)
-    .orderBy(desc(sql`count(${players.id})`), asc(guilds.name), asc(guilds.id));
+    .groupBy(guilds.id);
+  const counts = new Map(memberRows.map((row) => [row.id, row]));
   const baseCounts = new Map<string, number>();
   if (features.bases) {
     for (const base of await standingBases(db)) {
       if (base.guildId) baseCounts.set(base.guildId, (baseCounts.get(base.guildId) ?? 0) + 1);
     }
   }
-  return rows.map((row) => ({
-    id: row.id,
-    name: row.name,
-    members: row.members,
-    online: row.online,
-    top_level: row.topLevel,
-    bases: features.bases ? (baseCounts.get(row.id) ?? 0) : null,
-    first_seen: row.firstSeen.toISOString(),
-    last_seen: row.lastSeen.toISOString()
-  }));
+  const all = await db.select().from(guilds);
+  return all
+    .filter((guild) => counts.has(guild.id) || baseCounts.has(guild.id))
+    .map((guild) => {
+      const members = counts.get(guild.id);
+      return {
+        id: guild.id,
+        name: guild.name,
+        members: members?.members ?? 0,
+        online: members?.online ?? 0,
+        top_level: members?.topLevel ?? null,
+        bases: features.bases ? (baseCounts.get(guild.id) ?? 0) : null,
+        first_seen: guild.firstSeen.toISOString(),
+        last_seen: guild.lastSeen.toISOString()
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.members - a.members ||
+        (b.bases ?? 0) - (a.bases ?? 0) ||
+        a.name.localeCompare(b.name) ||
+        a.id.localeCompare(b.id)
+    );
 }
 
 export async function getGuild(
