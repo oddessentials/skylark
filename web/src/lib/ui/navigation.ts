@@ -17,6 +17,7 @@ export const navigation: NavigationEntry[] = [
   },
   { label: 'Players', href: '/players', group: 'site' },
   { label: 'Guilds', href: '/guilds', group: 'site' },
+  { label: 'Progression', href: '/progression', group: 'site' },
   { label: 'Activity', href: '/activity', group: 'site' },
   { label: 'Chat', href: '/chat', group: 'site', needs: (features) => features.chat },
   { label: 'World', href: '/world', group: 'site' },

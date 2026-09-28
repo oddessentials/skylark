@@ -1,0 +1,2015 @@
+{
+  "saved_at": "2026-09-27T20:29:00.000Z",
+  "towers": [
+    {
+      "id": "GrassBoss",
+      "name": "Rayne Syndicate Tower",
+      "category": "faction_tower",
+      "level": 10,
+      "hard": true
+    },
+    {
+      "id": "ForestBoss",
+      "name": "Free Pal Alliance Tower",
+      "category": "faction_tower",
+      "level": 20,
+      "hard": true
+    },
+    {
+      "id": "ElectricBoss",
+      "name": "Brothers of the Eternal Pyre Tower",
+      "category": "faction_tower",
+      "level": 30,
+      "hard": true
+    },
+    {
+      "id": "DesertBoss",
+      "name": "PIDF Tower",
+      "category": "faction_tower",
+      "level": 40,
+      "hard": true
+    },
+    {
+      "id": "SnowBoss",
+      "name": "PAL Genetic Research Unit Tower",
+      "category": "faction_tower",
+      "level": 50,
+      "hard": true
+    },
+    {
+      "id": "SakurajimaBoss",
+      "name": "Moonflower Tower",
+      "category": "faction_tower",
+      "level": 55,
+      "hard": true
+    },
+    {
+      "id": "VikingBoss",
+      "name": "Feybreak Tower",
+      "category": "faction_tower",
+      "level": 60,
+      "hard": true
+    },
+    {
+      "id": "SorajimaBoss",
+      "name": "Azure Covenant Tower",
+      "category": "faction_tower",
+      "level": 68,
+      "hard": true
+    },
+    {
+      "id": "WorldTreeMiddleBoss1",
+      "name": "Rotmist Root",
+      "category": "world_tree_middle",
+      "level": 78,
+      "hard": false
+    },
+    {
+      "id": "WorldTreeMiddleBoss2",
+      "name": "Shinespore Root",
+      "category": "world_tree_middle",
+      "level": 78,
+      "hard": false
+    },
+    {
+      "id": "WorldTreeMiddleBoss3",
+      "name": "Forbidden Laboratory",
+      "category": "world_tree_middle",
+      "level": 78,
+      "hard": false
+    },
+    {
+      "id": "WorldTreeBoss",
+      "name": "Astralym",
+      "category": "world_tree_final",
+      "level": 80,
+      "hard": true
+    },
+    {
+      "id": "KingWhaleBoss",
+      "name": "Panthalus",
+      "category": "king_whale",
+      "level": 70,
+      "hard": false
+    }
+  ],
+  "players": [
+    {
+      "player": { "id": 4, "name": "Sable" },
+      "name": "Sable",
+      "guild": { "id": "1077E95B45C893698D10D137B8FF9D0A", "name": "Night Market" },
+      "level": 31,
+      "playtime_s": 52018,
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "towers": [
+        {
+          "tower": "GrassBoss",
+          "difficulty": "normal",
+          "count": 2,
+          "first_seen_at": "2026-09-21T19:03:00.999Z"
+        },
+        {
+          "tower": "ForestBoss",
+          "difficulty": "normal",
+          "count": 2,
+          "first_seen_at": "2026-09-22T19:03:00.999Z"
+        }
+      ],
+      "story": {
+        "completed": 16,
+        "total": 31,
+        "stage": { "id": "Main_TalkGrassBoss", "title": "Zoe Rayne", "stage": 15 },
+        "current": [
+          { "id": "Main_DefeatForestBoss", "title": "Thou Shalt Not Harm Pals", "stage": 16 }
+        ]
+      },
+      "technology": {
+        "unlocked": 167,
+        "total": 588,
+        "tier": 31,
+        "boss_unlocked": 4,
+        "boss_total": 51,
+        "points": 24,
+        "boss_points": 1,
+        "last_unlocked": {
+          "id": "FragGrenade_Fire",
+          "name": "Incendiary Grenade",
+          "at": "2026-09-27T19:06:00.999Z"
+        }
+      },
+      "field_bosses": 29,
+      "raids": 0,
+      "fast_travel": 18,
+      "areas": 33,
+      "world_tree": false
+    },
+    {
+      "player": { "id": 2, "name": "Wren" },
+      "name": "Wren",
+      "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+      "level": 30,
+      "playtime_s": 42996,
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "towers": [
+        {
+          "tower": "GrassBoss",
+          "difficulty": "normal",
+          "count": 2,
+          "first_seen_at": "2026-09-21T14:30:00.999Z"
+        },
+        {
+          "tower": "ForestBoss",
+          "difficulty": "normal",
+          "count": 1,
+          "first_seen_at": "2026-09-22T16:09:00.999Z"
+        }
+      ],
+      "story": {
+        "completed": 16,
+        "total": 31,
+        "stage": { "id": "Main_TalkGrassBoss", "title": "Zoe Rayne", "stage": 15 },
+        "current": [
+          { "id": "Main_DefeatForestBoss", "title": "Thou Shalt Not Harm Pals", "stage": 16 }
+        ]
+      },
+      "technology": {
+        "unlocked": 169,
+        "total": 588,
+        "tier": 30,
+        "boss_unlocked": 7,
+        "boss_total": 51,
+        "points": 35,
+        "boss_points": 4,
+        "last_unlocked": {
+          "id": "Special_PalRankUp",
+          "name": "Pal Essence Condenser",
+          "at": "2026-09-27T20:25:50.999Z"
+        }
+      },
+      "field_bosses": 28,
+      "raids": 0,
+      "fast_travel": 18,
+      "areas": 32,
+      "world_tree": false
+    },
+    {
+      "player": { "id": 1, "name": "Juniper" },
+      "name": "Juniper",
+      "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
+      "level": 27,
+      "playtime_s": 33694,
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "towers": [
+        {
+          "tower": "GrassBoss",
+          "difficulty": "normal",
+          "count": 3,
+          "first_seen_at": "2026-09-21T14:24:00.999Z"
+        },
+        {
+          "tower": "ForestBoss",
+          "difficulty": "normal",
+          "count": 2,
+          "first_seen_at": "2026-09-22T13:31:00.999Z"
+        }
+      ],
+      "story": {
+        "completed": 14,
+        "total": 31,
+        "stage": { "id": "Main_RayneSyndicate", "title": "The Rayne Syndicate", "stage": 13 },
+        "current": [{ "id": "Main_ReturnSmallVillage", "title": "The Key Sphere", "stage": 14 }]
+      },
+      "technology": {
+        "unlocked": 154,
+        "total": 588,
+        "tier": 27,
+        "boss_unlocked": 8,
+        "boss_total": 51,
+        "points": 28,
+        "boss_points": 5,
+        "last_unlocked": {
+          "id": "FurnitureSet_9",
+          "name": "Houseplant Set",
+          "at": "2026-09-27T20:04:00.999Z"
+        }
+      },
+      "field_bosses": 21,
+      "raids": 0,
+      "fast_travel": 16,
+      "areas": 29,
+      "world_tree": false
+    },
+    {
+      "player": { "id": 3, "name": "Tamsin" },
+      "name": "Tamsin",
+      "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+      "level": 27,
+      "playtime_s": 32535,
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "towers": [
+        {
+          "tower": "GrassBoss",
+          "difficulty": "normal",
+          "count": 2,
+          "first_seen_at": "2026-09-21T14:26:00.999Z"
+        },
+        {
+          "tower": "ForestBoss",
+          "difficulty": "normal",
+          "count": 1,
+          "first_seen_at": "2026-09-23T14:43:00.999Z"
+        }
+      ],
+      "story": {
+        "completed": 14,
+        "total": 31,
+        "stage": { "id": "Main_RayneSyndicate", "title": "The Rayne Syndicate", "stage": 13 },
+        "current": [{ "id": "Main_ReturnSmallVillage", "title": "The Key Sphere", "stage": 14 }]
+      },
+      "technology": {
+        "unlocked": 143,
+        "total": 588,
+        "tier": 27,
+        "boss_unlocked": 5,
+        "boss_total": 51,
+        "points": 29,
+        "boss_points": 3,
+        "last_unlocked": {
+          "id": "Lantern",
+          "name": "Hip Lantern",
+          "at": "2026-09-27T20:06:00.999Z"
+        }
+      },
+      "field_bosses": 30,
+      "raids": 0,
+      "fast_travel": 16,
+      "areas": 29,
+      "world_tree": false
+    },
+    {
+      "player": { "id": 7, "name": "Orrin" },
+      "name": "Orrin",
+      "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+      "level": 24,
+      "playtime_s": 22865,
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "towers": [
+        {
+          "tower": "GrassBoss",
+          "difficulty": "normal",
+          "count": 1,
+          "first_seen_at": "2026-09-22T15:43:00.999Z"
+        },
+        {
+          "tower": "ForestBoss",
+          "difficulty": "normal",
+          "count": 1,
+          "first_seen_at": "2026-09-24T18:25:00.999Z"
+        }
+      ],
+      "story": {
+        "completed": 12,
+        "total": 31,
+        "stage": { "id": "Main_SmallVillage", "title": "Small Settlement", "stage": 11 },
+        "current": [{ "id": "Main_CraftPalGear", "title": "Crafting Pal Gear", "stage": 12 }]
+      },
+      "technology": {
+        "unlocked": 129,
+        "total": 588,
+        "tier": 24,
+        "boss_unlocked": 5,
+        "boss_total": 51,
+        "points": 3,
+        "boss_points": 8,
+        "last_unlocked": {
+          "id": "MedicalPalBed_04",
+          "name": "Large Pal Bed",
+          "at": "2026-09-27T20:06:00.999Z"
+        }
+      },
+      "field_bosses": 21,
+      "raids": 0,
+      "fast_travel": 15,
+      "areas": 26,
+      "world_tree": false
+    },
+    {
+      "player": { "id": 6, "name": "Bramble" },
+      "name": "Bramble",
+      "guild": { "id": "1077E95B45C893698D10D137B8FF9D0A", "name": "Night Market" },
+      "level": 19,
+      "playtime_s": 13504,
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "towers": [
+        {
+          "tower": "GrassBoss",
+          "difficulty": "normal",
+          "count": 1,
+          "first_seen_at": "2026-09-22T12:57:00.999Z"
+        }
+      ],
+      "story": {
+        "completed": 10,
+        "total": 31,
+        "stage": { "id": "Main_CaptureSheepBall", "title": "The Weakest Pal", "stage": 9 },
+        "current": [{ "id": "Main_PrepareEquipment", "title": "Gearing Up", "stage": 10 }]
+      },
+      "technology": {
+        "unlocked": 102,
+        "total": 588,
+        "tier": 19,
+        "boss_unlocked": 3,
+        "boss_total": 51,
+        "points": 26,
+        "boss_points": 1,
+        "last_unlocked": {
+          "id": "SphereModule_Sniper2",
+          "name": "Sniper Module II",
+          "at": "2026-09-27T15:35:00.999Z"
+        }
+      },
+      "field_bosses": 13,
+      "raids": 0,
+      "fast_travel": 12,
+      "areas": 21,
+      "world_tree": false
+    },
+    {
+      "player": { "id": 8, "name": "Kestrel" },
+      "name": "Kestrel",
+      "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
+      "level": 18,
+      "playtime_s": 9122,
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "towers": [
+        {
+          "tower": "GrassBoss",
+          "difficulty": "normal",
+          "count": 3,
+          "first_seen_at": "2026-09-22T18:55:00.999Z"
+        }
+      ],
+      "story": {
+        "completed": 9,
+        "total": 31,
+        "stage": { "id": "Main_EatFood", "title": "Filling Your Belly", "stage": 8 },
+        "current": [{ "id": "Main_CaptureSheepBall", "title": "The Weakest Pal", "stage": 9 }]
+      },
+      "technology": {
+        "unlocked": 89,
+        "total": 588,
+        "tier": 18,
+        "boss_unlocked": 5,
+        "boss_total": 51,
+        "points": 22,
+        "boss_points": 0,
+        "last_unlocked": {
+          "id": "Product_Farm_Berries",
+          "name": "Berry Plantation",
+          "at": "2026-09-25T18:15:00.999Z"
+        }
+      },
+      "field_bosses": 13,
+      "raids": 0,
+      "fast_travel": 12,
+      "areas": 20,
+      "world_tree": false
+    },
+    {
+      "player": { "id": 5, "name": "Mossbrook" },
+      "name": "Mossbrook",
+      "guild": { "id": "1077E95B45C893698D10D137B8FF9D0A", "name": "Night Market" },
+      "level": 16,
+      "playtime_s": 8534,
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "towers": [
+        {
+          "tower": "GrassBoss",
+          "difficulty": "normal",
+          "count": 3,
+          "first_seen_at": "2026-09-22T11:46:00.999Z"
+        }
+      ],
+      "story": {
+        "completed": 8,
+        "total": 31,
+        "stage": { "id": "Main_WorkPal", "title": "Putting Pals to Work", "stage": 7 },
+        "current": [{ "id": "Main_EatFood", "title": "Filling Your Belly", "stage": 8 }]
+      },
+      "technology": {
+        "unlocked": 76,
+        "total": 588,
+        "tier": 16,
+        "boss_unlocked": 1,
+        "boss_total": 51,
+        "points": 12,
+        "boss_points": 7,
+        "last_unlocked": {
+          "id": "Trap_LegHold_Big",
+          "name": "Bear Trap (Large)",
+          "at": "2026-09-26T13:11:00.999Z"
+        }
+      },
+      "field_bosses": 12,
+      "raids": 0,
+      "fast_travel": 11,
+      "areas": 18,
+      "world_tree": false
+    },
+    {
+      "player": null,
+      "name": "Hollis",
+      "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+      "level": 11,
+      "playtime_s": null,
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "towers": [],
+      "story": {
+        "completed": 5,
+        "total": 31,
+        "stage": { "id": "Main_CraftTools", "title": "Crafting an Axe and a Pickaxe", "stage": 4 },
+        "current": [{ "id": "Main_StatusUp", "title": "Enhance Stats", "stage": 5 }]
+      },
+      "technology": {
+        "unlocked": 54,
+        "total": 588,
+        "tier": 11,
+        "boss_unlocked": 0,
+        "boss_total": 51,
+        "points": 25,
+        "boss_points": 7,
+        "last_unlocked": null
+      },
+      "field_bosses": 10,
+      "raids": 0,
+      "fast_travel": 8,
+      "areas": 13,
+      "world_tree": false
+    }
+  ],
+  "field_bosses": [
+    {
+      "spawner": "1_10_plain_F_Boss_FairyDragon",
+      "name": "Chillet",
+      "title": "Dancer on the Steppe",
+      "species": "WeaselDragon",
+      "kind": "field_boss",
+      "level": 11,
+      "x": -315583.5,
+      "y": 237117,
+      "map": "MainMap",
+      "beaten_by": [1, 3, 4, 6, 7, 8]
+    },
+    {
+      "spawner": "5_2_island_iceblock_FBOSS_1",
+      "name": "Neptilius",
+      "title": "Legend of the Seas",
+      "species": "PoseidonOrca",
+      "kind": "field_boss",
+      "level": 60,
+      "x": 175142.8,
+      "y": 221586.5,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_1_forest_FBOSS_1",
+      "name": "Vaelet",
+      "title": "Voice of the Violets",
+      "species": "VioletFairy",
+      "kind": "field_boss",
+      "level": 27,
+      "x": -245458.9,
+      "y": 149122,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3]
+    },
+    {
+      "spawner": "81_1_forest_FBOSS_2",
+      "name": "Wixen",
+      "title": "Fire-Licked Furball",
+      "species": "FoxMage",
+      "kind": "field_boss",
+      "level": 28,
+      "x": -226362.2,
+      "y": 231993.3,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3, 4]
+    },
+    {
+      "spawner": "81_1_forest_FBOSS_3",
+      "name": "Verdash",
+      "title": "Gale of the Forest",
+      "species": "GrassRabbitMan",
+      "kind": "field_boss",
+      "level": 35,
+      "x": -119314.5,
+      "y": 288958.4,
+      "map": "MainMap",
+      "beaten_by": [0]
+    },
+    {
+      "spawner": "81_1_forest_FBOSS_4",
+      "name": "Lunaris",
+      "title": "Extraterrestrial",
+      "species": "Mutant",
+      "kind": "field_boss",
+      "level": 35,
+      "x": -147025.5,
+      "y": 217379.2,
+      "map": "MainMap",
+      "beaten_by": [0, 1]
+    },
+    {
+      "spawner": "81_1_forest_FBOSS_5",
+      "name": "Sibelyx",
+      "title": "Pallid Lady",
+      "species": "WhiteMoth",
+      "kind": "field_boss",
+      "level": 40,
+      "x": -92059.8,
+      "y": 273741.9,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_1_forest_FBOSS_6",
+      "name": "Elizabee",
+      "title": "Empress of the Hive",
+      "species": "QueenBee",
+      "kind": "field_boss",
+      "level": 39,
+      "x": -162481.3,
+      "y": 233115.2,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_1_forest_FBOSS_7",
+      "name": "Elphidran",
+      "title": "Gentle Sky Dragon",
+      "species": "FairyDragon",
+      "kind": "field_boss",
+      "level": 30,
+      "x": -254060,
+      "y": 178050,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_1",
+      "name": "Mammorest",
+      "title": "King of the Forest",
+      "species": "GrassMammoth",
+      "kind": "field_boss",
+      "level": 38,
+      "x": -343155,
+      "y": 244585,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_10",
+      "name": "Blazehowl",
+      "title": "Crimson Goliath",
+      "species": "Manticore",
+      "kind": "field_boss",
+      "level": 30,
+      "x": -183818.9,
+      "y": 40647.8,
+      "map": "MainMap",
+      "beaten_by": [1, 3]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_13",
+      "name": "Jormuntide",
+      "title": "Emperor of the Sea",
+      "species": "Umihebi",
+      "kind": "field_boss",
+      "level": 55,
+      "x": -162910,
+      "y": 318720,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_14",
+      "name": "Anubis",
+      "title": "Guardian of the Dark Sun",
+      "species": "Anubis",
+      "kind": "field_boss",
+      "level": 55,
+      "x": -167230,
+      "y": 96430,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_15",
+      "name": "Foxparks Cryst",
+      "title": "Icy Blossom Voyager",
+      "species": "Kitsunebi_Ice",
+      "kind": "field_boss",
+      "level": 15,
+      "x": -149050,
+      "y": -30550,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 3, 4, 5, 6, 7, 8]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_16",
+      "name": "Fenglope",
+      "title": "Drifting Cloud",
+      "species": "FengyunDeeper",
+      "kind": "field_boss",
+      "level": 25,
+      "x": -333940,
+      "y": 39610,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 4]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_18",
+      "name": "Grintale",
+      "title": "Marshmallow Body",
+      "species": "NaughtyCat",
+      "kind": "field_boss",
+      "level": 17,
+      "x": -236727.1,
+      "y": 321310.1,
+      "map": "MainMap",
+      "beaten_by": [3, 4, 5, 6]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_2",
+      "name": "Kingpaca",
+      "title": "Supreme Fluff Commander",
+      "species": "KingAlpaca",
+      "kind": "field_boss",
+      "level": 23,
+      "x": -335225,
+      "y": 180735,
+      "map": "MainMap",
+      "beaten_by": [1, 3]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_20",
+      "name": "Foxcicle",
+      "title": "Frostbound Fox",
+      "species": "IceFox",
+      "kind": "field_boss",
+      "level": 15,
+      "x": -276240,
+      "y": 268990,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3, 4, 5, 6, 8]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_21",
+      "name": "Sweepa",
+      "title": "King of the Floof",
+      "species": "MopKing",
+      "kind": "field_boss",
+      "level": 11,
+      "x": -396003.1,
+      "y": 53772.2,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 6, 8]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_22",
+      "name": "Nitewing",
+      "title": "Wings of the Firmament",
+      "species": "HawkBird",
+      "kind": "field_boss",
+      "level": 18,
+      "x": -155950,
+      "y": 31260,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3, 4, 5, 7]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_23",
+      "name": "Univolt",
+      "title": "Swift Deity",
+      "species": "Kirin",
+      "kind": "field_boss",
+      "level": 31,
+      "x": -372950,
+      "y": 104400,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_24",
+      "name": "Broncherry",
+      "title": "Winds of Spring",
+      "species": "SakuraSaurus",
+      "kind": "field_boss",
+      "level": 23,
+      "x": -431050.4,
+      "y": 56140.6,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 4]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_25",
+      "name": "Gumoss",
+      "title": "Suddenly Transformed",
+      "species": "PlantSlime",
+      "kind": "field_boss",
+      "level": 11,
+      "x": -412259.3,
+      "y": 106237.7,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3, 4, 7, 8]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_26",
+      "name": "Mossanda Lux",
+      "title": "Inheritor of the Storm",
+      "species": "GrassPanda_Electric",
+      "kind": "field_boss",
+      "level": 31,
+      "x": -206970,
+      "y": 363810,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 3]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_27",
+      "name": "Dumud",
+      "title": "Perpetual Procrastinator",
+      "species": "LazyCatfish",
+      "kind": "field_boss",
+      "level": 14,
+      "x": -122060,
+      "y": 15810,
+      "map": "MainMap",
+      "beaten_by": [1, 2, 3, 4, 5, 7, 8]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_28",
+      "name": "Caprity Noct",
+      "title": "Tainted Farm",
+      "species": "BerryGoat_Dark",
+      "kind": "field_boss",
+      "level": 23,
+      "x": -426590,
+      "y": 90670,
+      "map": "MainMap",
+      "beaten_by": [2, 3, 4, 6]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_29",
+      "name": "Wumpo Botan",
+      "title": "Guardian of the Grassy Fields",
+      "species": "Yeti_Grass",
+      "kind": "field_boss",
+      "level": 38,
+      "x": -147370,
+      "y": 364010,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_30",
+      "name": "Tarantriss",
+      "title": "Tactician of the Thread Realm",
+      "species": "PurpleSpider",
+      "kind": "field_boss",
+      "level": 35,
+      "x": -239436.6,
+      "y": 345.7,
+      "map": "MainMap",
+      "beaten_by": [0]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_31",
+      "name": "Azurobe",
+      "title": "Lady of the Lake",
+      "species": "BlueDragon",
+      "kind": "field_boss",
+      "level": 40,
+      "x": -246100,
+      "y": 77200,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_4",
+      "name": "Beakon",
+      "title": "Wings of Thunderbolt",
+      "species": "ThunderBird",
+      "kind": "field_boss",
+      "level": 37,
+      "x": -113197.7,
+      "y": 201490.5,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_6",
+      "name": "Bushi",
+      "title": "Vagrant Warrior",
+      "species": "Ronin",
+      "kind": "field_boss",
+      "level": 25,
+      "x": -282853.7,
+      "y": 64952.2,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 3]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_9",
+      "name": "Penking",
+      "title": "Pioneer of the Frozen Sea",
+      "species": "CaptainPenguin",
+      "kind": "field_boss",
+      "level": 15,
+      "x": -285331.3,
+      "y": 210162.7,
+      "map": "MainMap",
+      "beaten_by": [0, 2, 3, 4, 6, 7]
+    },
+    {
+      "spawner": "81_1_grass_FBOSS_FlameBuffalo",
+      "name": "Arsox",
+      "title": "Blazing Brute",
+      "species": "FlameBuffalo",
+      "kind": "field_boss",
+      "level": 15,
+      "x": -349072.9,
+      "y": 104535,
+      "map": "MainMap",
+      "beaten_by": [0, 3, 5]
+    },
+    {
+      "spawner": "81_2_dessert_FBOSS_1",
+      "name": "Suzaku",
+      "title": "Ruler of the Crimson Dawn",
+      "species": "Suzaku",
+      "kind": "field_boss",
+      "level": 45,
+      "x": 97716.3,
+      "y": 307499.7,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_2_dessert_FBOSS_2",
+      "name": "Paladius",
+      "title": "Holy Knight of Legend",
+      "species": "SaintCentaur",
+      "kind": "field_boss",
+      "level": 60,
+      "x": 187731.2,
+      "y": 359897.3,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_2_dessert_FBOSS_3",
+      "name": "Menasting",
+      "title": "Unstoppable Stinger",
+      "species": "DarkScorpion",
+      "kind": "field_boss",
+      "level": 44,
+      "x": 122760,
+      "y": 318710,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_2_dessert_FBOSS_5",
+      "name": "Tetroise",
+      "title": "Sandsea Monolith",
+      "species": "CubeTurtle",
+      "kind": "field_boss",
+      "level": 55,
+      "x": 50564.8,
+      "y": 357757.5,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_2_dessert_FBOSS_FlowerDinosaur_Electric",
+      "name": "Dinossom Lux",
+      "title": "Guardian of Lightning",
+      "species": "FlowerDinosaur_Electric",
+      "kind": "field_boss",
+      "level": 47,
+      "x": -46108.4,
+      "y": 302547.8,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_3_snow_FBOSS_1",
+      "name": "Frostallion",
+      "title": "Legendary Steed of Ice",
+      "species": "IceHorse",
+      "kind": "field_boss",
+      "level": 60,
+      "x": 109790,
+      "y": -5880,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_3_volcano_FBOSS_2",
+      "name": "Reptyro",
+      "title": "Lava-Devouring Juggernaut",
+      "species": "VolcanicMonster",
+      "kind": "field_boss",
+      "level": 50,
+      "x": -322820,
+      "y": -93429.8,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_3_volcano_FBOSS_3",
+      "name": "Blazamut",
+      "title": "Cursed Tyrant",
+      "species": "KingBahamut",
+      "kind": "field_boss",
+      "level": 52,
+      "x": -276069.5,
+      "y": -180093,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_4_Sakurajima_FBOSS_2",
+      "name": "Knocklem",
+      "title": "Suit of Armor",
+      "species": "WingGolem",
+      "kind": "field_boss",
+      "level": 55,
+      "x": -238811,
+      "y": -110487.6,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_5_Yamijima_FBOSS_11",
+      "name": "Prunelia",
+      "title": "Indigo Handmaiden",
+      "species": "BlueberryFairy",
+      "kind": "field_boss",
+      "level": 63,
+      "x": -568029.2,
+      "y": -464143.1,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_5_Yamijima_FBOSS_16",
+      "name": "Tetroise Primo",
+      "title": "Sandsea Wardenstone",
+      "species": "CubeTurtle_Neutral",
+      "kind": "field_boss",
+      "level": 60,
+      "x": -729794.1,
+      "y": -338535.5,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_5_Yamijima_FBOSS_8",
+      "name": "Smokie",
+      "title": "Jet-Black Little Hero",
+      "species": "BlackPuppy",
+      "kind": "field_boss",
+      "level": 60,
+      "x": -797364.2,
+      "y": -245386.9,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_5_Yamijima_FBOSS_9",
+      "name": "Nitemary",
+      "title": "Soul of the Dark Rabbit",
+      "species": "GhostRabbit",
+      "kind": "field_boss",
+      "level": 60,
+      "x": -589257.2,
+      "y": -265874.4,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "81_6_Ocean_FBOSS_1",
+      "name": "Whalaska",
+      "title": "Gentle Ice Lance",
+      "species": "IceNarwhal",
+      "kind": "field_boss",
+      "level": 55,
+      "x": 262730,
+      "y": 75740,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "desertisland_1_FBOSS",
+      "name": "Prixter Lux",
+      "title": "Thunderboy",
+      "species": "ScorpionMan_Electric",
+      "kind": "field_boss",
+      "level": 70,
+      "x": -404768.2,
+      "y": -444910.7,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "desertisland_2_FBOSS",
+      "name": "Needoll",
+      "title": "Prickly Welcome",
+      "species": "CactusDoll",
+      "kind": "field_boss",
+      "level": 40,
+      "x": -450359.5,
+      "y": 356886.2,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "remainsIsland_1_GrassGolem_FBOSS",
+      "name": "Dualith",
+      "title": "Twinhearted Azure Construct",
+      "species": "GrassGolem",
+      "kind": "field_boss",
+      "level": 55,
+      "x": -169138.2,
+      "y": 575683.1,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "remainsIsland_1_GrassGolem_FBOSS",
+      "name": "Dualith",
+      "title": "Twinhearted Azure Construct",
+      "species": "GrassGolem",
+      "kind": "field_boss",
+      "level": 75,
+      "x": 517450,
+      "y": -626940,
+      "map": "Tree",
+      "beaten_by": []
+    },
+    {
+      "spawner": "remainsIsland_2_GrassGolem_Dark_FBOSS",
+      "name": "Dualith Noct",
+      "title": "Twinhearted Violet Construct",
+      "species": "GrassGolem_Dark",
+      "kind": "field_boss",
+      "level": 70,
+      "x": -558869.9,
+      "y": -619480.7,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "sakura_purple_D_LilyQueen",
+      "name": "Lyleen",
+      "title": "Empress of Lilies",
+      "species": "LilyQueen",
+      "kind": "field_boss",
+      "level": 58,
+      "x": 14681.1,
+      "y": -132067.6,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "sakura_purple_D_LilyQueen_Dark",
+      "name": "Lyleen Noct",
+      "title": "Empress of the Abyss",
+      "species": "LilyQueen_Dark",
+      "kind": "field_boss",
+      "level": 58,
+      "x": 15843.5,
+      "y": -130382.9,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "sakura_red_B_BOSS",
+      "name": "Menasting Terra",
+      "title": "Gold-Piercing Spear",
+      "species": "DarkScorpion_Ground",
+      "kind": "field_boss",
+      "level": 55,
+      "x": 21745.5,
+      "y": -109001.6,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "sanctuary_1_forest_FBOSS",
+      "name": "Grizzbolt",
+      "title": "Claws of Lightning",
+      "species": "ElecPanda",
+      "kind": "field_boss",
+      "level": 30,
+      "x": -443860.8,
+      "y": 183689.4,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3]
+    },
+    {
+      "spawner": "sanctuary_2_volcano_FBOSS",
+      "name": "Astegon",
+      "title": "Draconic Monarch of Steel",
+      "species": "BlackMetalDragon",
+      "kind": "field_boss",
+      "level": 55,
+      "x": -174579,
+      "y": -158213.7,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "sanctuary_3_dessert_FBOSS",
+      "name": "Frostallion Noct",
+      "title": "Legendary Steed of Darkness",
+      "species": "IceHorse_Dark",
+      "kind": "field_boss",
+      "level": 65,
+      "x": 173548.3,
+      "y": 474295.4,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "skyisland_8_04_B_highland_FBOSS_1",
+      "name": "Jetragon",
+      "title": "Legendary Celestial Dragon",
+      "species": "JetDragon",
+      "kind": "field_boss",
+      "level": 70,
+      "x": -735438.4,
+      "y": -95932.9,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "skyisland_8_06_C_lotsulake_FBOSS_1",
+      "name": "Ophydia",
+      "title": "Pure Bloom Dragon",
+      "species": "LotusDragon",
+      "kind": "field_boss",
+      "level": 69,
+      "x": -802420,
+      "y": -112610,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "skyisland_8_07_G_mountain_FBOSS_1",
+      "name": "Flaracle",
+      "title": "Self-Serving Seer",
+      "species": "FoxExorcist",
+      "kind": "field_boss",
+      "level": 68,
+      "x": -821552.1,
+      "y": 46132.1,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "skyisland_8_07_G_mountain_FBOSS_2",
+      "name": "Dynamoff",
+      "title": "Buzzy Bundle",
+      "species": "ThunderFluffyBird",
+      "kind": "field_boss",
+      "level": 67,
+      "x": -822824,
+      "y": 16747,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "skyisland_8_09_D_forest_FBOSS_2",
+      "name": "Wistella",
+      "title": "Mantle of the Night Sky",
+      "species": "MoonChild",
+      "kind": "field_boss",
+      "level": 66,
+      "x": -773523.9,
+      "y": 51495.9,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "skyisland_8_10_D_swamp_FBOSS_1",
+      "name": "Slowatt",
+      "title": "Shockingly Laid-Back",
+      "species": "ElecLizard",
+      "kind": "field_boss",
+      "level": 66,
+      "x": -746847.1,
+      "y": -10678,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "skyisland_8_11_E_meadow_FBOSS_1",
+      "name": "Snock",
+      "title": "Sluggish Blue Bolt",
+      "species": "ElecSnail",
+      "kind": "field_boss",
+      "level": 65,
+      "x": -772844,
+      "y": -11173,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "skyisland_8_15_1_lake_FBOSS_1",
+      "name": "Eidrolon",
+      "title": "Wings of Freedom",
+      "species": "GhostDragon",
+      "kind": "field_boss",
+      "level": 69,
+      "x": -822007,
+      "y": -66402,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "snow_orange_I_BOSS",
+      "name": "Kingpaca Cryst",
+      "title": "Azure Fluff Commander",
+      "species": "KingAlpaca_Ice",
+      "kind": "field_boss",
+      "level": 46,
+      "x": 39324.9,
+      "y": -18772.7,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "volcanoiskand_1_FBOSS",
+      "name": "Moldron",
+      "title": "Scorched Wanderer",
+      "species": "VolcanoDragon",
+      "kind": "field_boss",
+      "level": 70,
+      "x": -1033347.9,
+      "y": -358750.8,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "volcanoiskand_2_FBOSS",
+      "name": "Pierdon",
+      "title": "Shambling Vein",
+      "species": "RockBeast",
+      "kind": "field_boss",
+      "level": 50,
+      "x": 90345.5,
+      "y": 534007.8,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "worldtree_9_02_B_FBOSS_1",
+      "name": "Whalaska Ignis",
+      "title": "Gentle Crimson Lance",
+      "species": "IceNarwhal_Fire",
+      "kind": "field_boss",
+      "level": 74,
+      "x": 526910.2,
+      "y": -581727.6,
+      "map": "Tree",
+      "beaten_by": []
+    },
+    {
+      "spawner": "worldtree_9_05_D_FBOSS_1",
+      "name": "Renjishi",
+      "title": "Scorching Ovation",
+      "species": "KabukiMan",
+      "kind": "field_boss",
+      "level": 78,
+      "x": 601096.8,
+      "y": -572063.1,
+      "map": "Tree",
+      "beaten_by": []
+    },
+    {
+      "spawner": "worldtree_9_07_I_FBOSS_1",
+      "name": "Moldron Cryst",
+      "title": "Frigid Voyager",
+      "species": "VolcanoDragon_Ice",
+      "kind": "field_boss",
+      "level": 78,
+      "x": 571870,
+      "y": -733420,
+      "map": "Tree",
+      "beaten_by": []
+    },
+    {
+      "spawner": "worldtree_9_10_L_FBOSS_1",
+      "name": "Mycora",
+      "title": "Cute as a Button",
+      "species": "MushroomLady",
+      "kind": "field_boss",
+      "level": 78,
+      "x": 458095,
+      "y": -694560,
+      "map": "Tree",
+      "beaten_by": []
+    },
+    {
+      "spawner": "worldtree_9_11_N_FBOSS_1",
+      "name": "Celesdir Noct",
+      "title": "Beast of Chaos",
+      "species": "WhiteDeer_Dark",
+      "kind": "field_boss",
+      "level": 79,
+      "x": 520440,
+      "y": -727175,
+      "map": "Tree",
+      "beaten_by": []
+    },
+    {
+      "spawner": "worldtree_9_13_M_FBOSS_1",
+      "name": "Aegidron",
+      "title": "Guardian of Luminous Trails",
+      "species": "DomeArmorDragon",
+      "kind": "field_boss",
+      "level": 79,
+      "x": 491580.8,
+      "y": -725697.1,
+      "map": "Tree",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_IceLand_pink_A_BOSS",
+      "name": "Loupmoon Cryst",
+      "title": "Enraptured by the Frozen Moonlight",
+      "species": "Werewolf_Ice",
+      "kind": "field_boss",
+      "level": 66,
+      "x": -773027.4,
+      "y": -368265.9,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_IceLand_pink_D_BOSS",
+      "name": "Faleris Aqua",
+      "title": "Sentinel of the Tides",
+      "species": "Horus_Water",
+      "kind": "field_boss",
+      "level": 66,
+      "x": -867560.9,
+      "y": -441338.2,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_IceLand_pink_F_BOSS",
+      "name": "Azurmane",
+      "title": "Blue Lightning Steed",
+      "species": "BlueThunderHorse",
+      "kind": "field_boss",
+      "level": 66,
+      "x": -889441.3,
+      "y": -361294.3,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_beach_purple_BOSS",
+      "name": "Dazzi Noct",
+      "title": "Born of the Thunderclouds",
+      "species": "RaijinDaughter_Water",
+      "kind": "field_boss",
+      "level": 60,
+      "x": -516157,
+      "y": -393151.1,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_forest_pink_D_WhiteDeer",
+      "name": "Celesdir",
+      "title": "Beast of Salvation",
+      "species": "WhiteDeer",
+      "kind": "field_boss",
+      "level": 65,
+      "x": -661871.9,
+      "y": -284991.8,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_forest_purple_A_BOSS",
+      "name": "Gildane",
+      "title": "Guardian Beast of Twilight",
+      "species": "GoldenHorse",
+      "kind": "field_boss",
+      "level": 63,
+      "x": -772213.2,
+      "y": -273563.5,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_forest_purple_A_BOSS_2",
+      "name": "Starryon",
+      "title": "Midnight Blue Mane",
+      "species": "NightBlueHorse",
+      "kind": "field_boss",
+      "level": 63,
+      "x": -717565.9,
+      "y": -251787.3,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_forest_purple_C_BOSS",
+      "name": "Warsect Terra",
+      "title": "Gold-Armored Warrior",
+      "species": "HerculesBeetle_Ground",
+      "kind": "field_boss",
+      "level": 64,
+      "x": -691248.6,
+      "y": -309680.3,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_plateau_pink_F_BOSS",
+      "name": "Kitsun Noct",
+      "title": "Guardian of the Dark Flame",
+      "species": "AmaterasuWolf_Dark",
+      "kind": "field_boss",
+      "level": 65,
+      "x": -723782.7,
+      "y": -230996.7,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_plateau_pink_G_BOSS_2",
+      "name": "Splatterina",
+      "title": "Crimson Butcher",
+      "species": "GrimGirl",
+      "kind": "field_boss",
+      "level": 65,
+      "x": -791868.2,
+      "y": -337175.9,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_plateau_purple_BOSS",
+      "name": "Nyafia",
+      "title": "Night Shade Hunter",
+      "species": "BadCatgirl",
+      "kind": "field_boss",
+      "level": 60,
+      "x": -544943.3,
+      "y": -264111.9,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_plateau_purple_BOSS_2",
+      "name": "Silvegis",
+      "title": "Guardian Dragon of Ironclad",
+      "species": "WhiteShieldDragon",
+      "kind": "field_boss",
+      "level": 62,
+      "x": -593253.1,
+      "y": -294034.6,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_plateau_purple_C_BOSS",
+      "name": "Fenglope Lux",
+      "title": "Drifting Thundercloud",
+      "species": "FengyunDeeper_Electric",
+      "kind": "field_boss",
+      "level": 60,
+      "x": -649837.1,
+      "y": -235616.7,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_rock_pink_E_BOSS",
+      "name": "Cryolinx Terra",
+      "title": "Predator of the Earth",
+      "species": "WhiteTiger_Ground",
+      "kind": "field_boss",
+      "level": 62,
+      "x": -721639,
+      "y": -432015,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "yamijima_rock_purple_BOSS",
+      "name": "Omascul",
+      "title": "Hundred-Faced Apostle",
+      "species": "MysteryMask",
+      "kind": "field_boss",
+      "level": 60,
+      "x": -550552.1,
+      "y": -166886.3,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Believer_CrossBow",
+      "name": "Ego",
+      "title": "Gloating Narcissist",
+      "species": null,
+      "kind": "wanted",
+      "level": 23,
+      "x": -164164.2,
+      "y": 152549.4,
+      "map": "MainMap",
+      "beaten_by": [4, 5]
+    },
+    {
+      "spawner": "BOSS_Believer_Fat_GiantClub",
+      "name": "Brick",
+      "title": "Hostile Defender",
+      "species": null,
+      "kind": "wanted",
+      "level": 30,
+      "x": -79599.1,
+      "y": 192658.3,
+      "map": "MainMap",
+      "beaten_by": [2, 3]
+    },
+    {
+      "spawner": "BOSS_DarkTrader",
+      "name": "Ram",
+      "title": "Uninvited Guest",
+      "species": null,
+      "kind": "wanted",
+      "level": 59,
+      "x": -666737.7,
+      "y": -409956.4,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Female_DesertPeople",
+      "name": "Whisper",
+      "title": "Chronic Spoiler",
+      "species": null,
+      "kind": "wanted",
+      "level": 37,
+      "x": 147119.1,
+      "y": 347473.6,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Female_People",
+      "name": "Flare",
+      "title": "Pyromaniac",
+      "species": null,
+      "kind": "wanted",
+      "level": 38,
+      "x": -470652,
+      "y": -80708.4,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Female_People02",
+      "name": "Siren",
+      "title": "Serial Cheater",
+      "species": null,
+      "kind": "wanted",
+      "level": 16,
+      "x": -304539.2,
+      "y": 35742.3,
+      "map": "MainMap",
+      "beaten_by": [0, 2, 3, 5, 6, 7, 8]
+    },
+    {
+      "spawner": "BOSS_Female_People03",
+      "name": "Turncoat",
+      "title": "Bounty Hunter Hunter",
+      "species": null,
+      "kind": "wanted",
+      "level": 15,
+      "x": -300962.4,
+      "y": 157210.7,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 3, 4, 6, 7, 8]
+    },
+    {
+      "spawner": "BOSS_Female_Soldier",
+      "name": "Jade",
+      "title": "Scam Artist",
+      "species": null,
+      "kind": "wanted",
+      "level": 19,
+      "x": -177380,
+      "y": 9850,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 3, 4, 5, 7]
+    },
+    {
+      "spawner": "BOSS_Female_Soldier02",
+      "name": "Dazzle",
+      "title": "Attention-Seeking Monster",
+      "species": null,
+      "kind": "wanted",
+      "level": 56,
+      "x": -712045.6,
+      "y": -229952.9,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Female_Soldier03",
+      "name": "Aloha",
+      "title": "Pineapple Pizza Enthusiast",
+      "species": null,
+      "kind": "wanted",
+      "level": 39,
+      "x": -231660,
+      "y": -113810,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Female_Soldier04",
+      "name": "Nimble",
+      "title": "Dango Thief",
+      "species": null,
+      "kind": "wanted",
+      "level": 52,
+      "x": -75788.1,
+      "y": -82305,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_FireCult_FlameThrower",
+      "name": "Shadow",
+      "title": "Black Magic Fanatic",
+      "species": null,
+      "kind": "wanted",
+      "level": 41,
+      "x": -331690.2,
+      "y": -40407.4,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Hunter_Fat_GatlingGun",
+      "name": "Grill",
+      "title": "Intimidating Interviewer",
+      "species": null,
+      "kind": "wanted",
+      "level": 20,
+      "x": -242340,
+      "y": 36220,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "spawner": "BOSS_Hunter_Rifle",
+      "name": "Hawk",
+      "title": "Amateur Hunter",
+      "species": null,
+      "kind": "wanted",
+      "level": 12,
+      "x": -359201.6,
+      "y": 181724.3,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3, 6, 8]
+    },
+    {
+      "spawner": "BOSS_Male_DesertPeople",
+      "name": "Phantom",
+      "title": "Escape Artist",
+      "species": null,
+      "kind": "wanted",
+      "level": 36,
+      "x": -62624.9,
+      "y": 402438.9,
+      "map": "MainMap",
+      "beaten_by": [0]
+    },
+    {
+      "spawner": "BOSS_Male_NinjaElite",
+      "name": "Urchin",
+      "title": "Street Assassin",
+      "species": null,
+      "kind": "wanted",
+      "level": 53,
+      "x": -18160,
+      "y": -151400,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Male_People",
+      "name": "Dyna",
+      "title": "Twin Bombers",
+      "species": null,
+      "kind": "wanted",
+      "level": 26,
+      "x": -126584.2,
+      "y": 318232.8,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3, 4]
+    },
+    {
+      "spawner": "BOSS_Male_People02",
+      "name": "Quill",
+      "title": "Well-Meaning Quack",
+      "species": null,
+      "kind": "wanted",
+      "level": 43,
+      "x": 97108,
+      "y": 68422.4,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Male_People03",
+      "name": "Scoot",
+      "title": "Dine-and-Dasher",
+      "species": null,
+      "kind": "wanted",
+      "level": 10,
+      "x": -335675.2,
+      "y": 148683,
+      "map": "MainMap",
+      "beaten_by": [1, 2, 5, 7, 8]
+    },
+    {
+      "spawner": "BOSS_Male_People2",
+      "name": "Mite",
+      "title": "Twin Bombers",
+      "species": null,
+      "kind": "wanted",
+      "level": 26,
+      "x": -124753.9,
+      "y": 318055.8,
+      "map": "MainMap",
+      "beaten_by": [0, 4]
+    },
+    {
+      "spawner": "BOSS_Male_Soldier",
+      "name": "Crash",
+      "title": "Insurance Fraudster",
+      "species": null,
+      "kind": "wanted",
+      "level": 15,
+      "x": -409430,
+      "y": 24820,
+      "map": "MainMap",
+      "beaten_by": [0, 1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "spawner": "BOSS_Male_Soldier02",
+      "name": "Dart",
+      "title": "Prolific Smoker",
+      "species": null,
+      "kind": "wanted",
+      "level": 23,
+      "x": -224118.3,
+      "y": 277672.1,
+      "map": "MainMap",
+      "beaten_by": [0, 2, 3, 4]
+    },
+    {
+      "spawner": "BOSS_Male_Soldier03",
+      "name": "Clint",
+      "title": "Trigger-Happy Gunslinger",
+      "species": null,
+      "kind": "wanted",
+      "level": 49,
+      "x": 21850.1,
+      "y": -8346.6,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Male_Soldier04",
+      "name": "Lasso",
+      "title": "Cattle Rustler",
+      "species": null,
+      "kind": "wanted",
+      "level": 21,
+      "x": -217110.7,
+      "y": 127090.6,
+      "map": "MainMap",
+      "beaten_by": [1, 3, 5, 6]
+    },
+    {
+      "spawner": "BOSS_Male_Trader01",
+      "name": "Skim",
+      "title": "Serial Embezzler",
+      "species": null,
+      "kind": "wanted",
+      "level": 42,
+      "x": -57544.4,
+      "y": 116422.5,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Male_Trader02",
+      "name": "Mimic",
+      "title": "Counterfeiter",
+      "species": null,
+      "kind": "wanted",
+      "level": 57,
+      "x": -907334.1,
+      "y": -389724.4,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Male_Trader03",
+      "name": "Billy",
+      "title": "Horse Rustler",
+      "species": null,
+      "kind": "wanted",
+      "level": 57,
+      "x": -538826.5,
+      "y": -337667.7,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Ninja",
+      "name": "Fumble",
+      "title": "Blundering Klutz",
+      "species": null,
+      "kind": "wanted",
+      "level": 28,
+      "x": -124624,
+      "y": 232502.7,
+      "map": "MainMap",
+      "beaten_by": [1, 2, 3, 4]
+    },
+    {
+      "spawner": "BOSS_Police_Old",
+      "name": "Pinch",
+      "title": "Serial Borrower",
+      "species": null,
+      "kind": "wanted",
+      "level": 57,
+      "x": -686537.5,
+      "y": -380252.7,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Police_Rifle",
+      "name": "Whip",
+      "title": "Workplace Tyrant",
+      "species": null,
+      "kind": "wanted",
+      "level": 40,
+      "x": 45909.5,
+      "y": 304971.4,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Scientist_LaserRifle",
+      "name": "Whisk",
+      "title": "Kidnapper",
+      "species": null,
+      "kind": "wanted",
+      "level": 45,
+      "x": 10215.9,
+      "y": 153782.1,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_Viking",
+      "name": "Gnaw",
+      "title": "Cannibal",
+      "species": null,
+      "kind": "wanted",
+      "level": 57,
+      "x": -584187.7,
+      "y": -181661.7,
+      "map": "MainMap",
+      "beaten_by": []
+    },
+    {
+      "spawner": "BOSS_VikingElite",
+      "name": "Cache",
+      "title": "Human Collector",
+      "species": null,
+      "kind": "wanted",
+      "level": 58,
+      "x": -805295.1,
+      "y": -478475.2,
+      "map": "MainMap",
+      "beaten_by": []
+    }
+  ],
+  "guilds": [
+    {
+      "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "done": 4,
+      "total": 168,
+      "current": {
+        "id": "Handcraft1_4",
+        "name": "Handiwork Speed 4",
+        "work": 600000,
+        "required_work": 1500000,
+        "share": 0.4
+      },
+      "completed": [
+        { "id": "Handcraft1", "name": "Handiwork Speed 1" },
+        { "id": "Handcraft1_2", "name": "Handiwork Speed 2" },
+        { "id": "Handcraft1_3", "name": "Handiwork Speed 3" },
+        { "id": "Handcraft5", "name": "Large Toolbox Development" }
+      ]
+    },
+    {
+      "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+      "saved_at": "2026-09-27T20:29:00.000Z",
+      "done": 2,
+      "total": 168,
+      "current": {
+        "id": "Handcraft5",
+        "name": "Large Toolbox Development",
+        "work": 80000,
+        "required_work": 200000,
+        "share": 0.4
+      },
+      "completed": [
+        { "id": "Handcraft1", "name": "Handiwork Speed 1" },
+        { "id": "Handcraft1_2", "name": "Handiwork Speed 2" }
+      ]
+    }
+  ],
+  "totals": {
+    "story": 31,
+    "technology": 588,
+    "boss_technology": 51,
+    "fast_travel": 174,
+    "areas": 123,
+    "field_bosses": 123,
+    "research": 168
+  }
+}

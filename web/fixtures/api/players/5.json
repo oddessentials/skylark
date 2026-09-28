@@ -83,9 +83,9 @@
     "captures": 190,
     "tower_bosses": [{ "id": "GrassBoss", "name": "Rayne Syndicate Tower" }],
     "tower_bosses_total": 8,
-    "field_bosses": 5,
+    "field_bosses": 12,
     "dungeon_clears": 5,
-    "technologies": 44,
+    "technologies": 76,
     "fast_travel_points": 11
   },
   "feats": { "captures": 11, "hatches": 3, "bosses": 1, "technologies": 13, "builds": 6 }

@@ -92,6 +92,15 @@ function regionShapes(id: MapId): RegionShape[] {
   });
 }
 
+export interface BossMarker {
+  id: string;
+  x: number;
+  y: number;
+  color: string;
+  label: string;
+  beaten: boolean;
+}
+
 export interface Landmark {
   id: string;
   name: string;

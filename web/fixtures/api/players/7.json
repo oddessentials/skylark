@@ -107,9 +107,9 @@
       { "id": "ForestBoss", "name": "Free Pal Alliance Tower" }
     ],
     "tower_bosses_total": 8,
-    "field_bosses": 8,
+    "field_bosses": 21,
     "dungeon_clears": 7,
-    "technologies": 60,
+    "technologies": 129,
     "fast_travel_points": 15
   },
   "feats": { "captures": 7, "hatches": 3, "bosses": 2, "technologies": 18, "builds": 11 }

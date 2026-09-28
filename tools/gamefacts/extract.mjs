@@ -4,13 +4,17 @@ import { parseArgs } from 'node:util';
 import { buildBosses } from './lib/facts/bosses.mjs';
 import { buildBreeding } from './lib/facts/breeding.mjs';
 import { buildElements } from './lib/facts/elements.mjs';
+import { buildExp } from './lib/facts/exp.mjs';
 import { buildHabitats } from './lib/facts/habitats.mjs';
+import { buildLab } from './lib/facts/lab.mjs';
 import { buildLandmarks } from './lib/facts/landmarks.mjs';
 import { buildMap } from './lib/facts/map.mjs';
 import { buildNames } from './lib/facts/names.mjs';
 import { buildPals } from './lib/facts/pals.mjs';
+import { buildQuests } from './lib/facts/quests.mjs';
 import { buildRegions } from './lib/facts/regions.mjs';
 import { Species } from './lib/facts/species.mjs';
+import { buildTechnology } from './lib/facts/technology.mjs';
 import { Game } from './lib/game.mjs';
 import { World } from './lib/level.mjs';
 import { writeJson } from './lib/output.mjs';
@@ -93,7 +97,11 @@ async function main() {
         landmarks,
         gameVersion
       ),
-      'breeding.json': buildBreeding(game, species, gameVersion)
+      'breeding.json': buildBreeding(game, species, gameVersion),
+      'technology.json': buildTechnology(game, species, gameVersion),
+      'exp.json': buildExp(game, gameVersion),
+      'lab.json': buildLab(game, gameVersion),
+      'quests.json': buildQuests(game, species, gameVersion)
     };
     for (const [name, data] of Object.entries(files)) {
       const size = await writeJson(out, name, data);
@@ -125,7 +133,11 @@ async function main() {
         `habitats ${files['habitats.json'].species.filter((entry) => entry.ways.length > 0).length}`,
         `egg spawners ${actors.eggSpawners.length}`,
         `breeding pool ${files['breeding.json'].species.filter((entry) => entry.in_pool).length}`,
-        `unique pairs ${files['breeding.json'].unique.length}`
+        `unique pairs ${files['breeding.json'].unique.length}`,
+        `technology rows ${files['technology.json'].technologies.length}`,
+        `exp levels ${files['exp.json'].levels.length}`,
+        `lab research ${files['lab.json'].research.length}`,
+        `main quests ${files['quests.json'].main.length}`
       ].join(', ')
     );
     console.log(`done in ${((Date.now() - started) / 1000).toFixed(1)} s`);

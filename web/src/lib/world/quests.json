@@ -1,0 +1,336 @@
+{
+  "game_version": "1.0.5.102999",
+  "sources": [
+    "/Game/Pal/DataTable/Quest/DT_PalQuestData",
+    "/Game/Pal/DataTable/Text/DT_UI_Common_Text_Common (en)",
+    "/Game/Pal/Blueprint/System/BP_PalQuestManager",
+    "/Game/Pal/Blueprint/Quest/MainQuest/BP_MainQuest_* class defaults"
+  ],
+  "story": 31,
+  "initial": [
+    "Main_UnlockFastTravel",
+    "Hidden_ChangeWeaponBulletTutorialTrigger",
+    "Hidden_WhaleWhistleTrigger"
+  ],
+  "completed_by_tower": {
+    "GrassBoss": [
+      "Main_SmallVillage",
+      "Main_CraftPalGear",
+      "Main_RayneSyndicate",
+      "Main_ReturnSmallVillage"
+    ],
+    "ForestBoss": ["Main_DefeatForestBoss"],
+    "ElectricBoss": ["Main_DefeatVolcanoBoss"],
+    "DesertBoss": ["Main_DefeatDesertBoss"],
+    "SnowBoss": ["Main_DefeatSnowyMountainBoss"],
+    "SakurajimaBoss": ["Main_DefeatSakurajimaBoss"],
+    "VikingBoss": ["Main_DefeatVikingBoss"],
+    "SorajimaBoss": ["Main_DefeatSkyIslandBoss"],
+    "KingWhaleBoss": [],
+    "WorldTreeBoss": ["Main_TalkWorldTreeNPC", "Main_WorldTreeAbyss", "Main_DefeatWorldTreeDragon"]
+  },
+  "main": [
+    {
+      "id": "Main_UnlockFastTravel",
+      "title": "Activate Great Eagle Statue",
+      "stage": 0,
+      "next": ["Main_TutorialStart"]
+    },
+    {
+      "id": "Main_TutorialStart",
+      "title": "The First Islander",
+      "stage": 1,
+      "next": ["Main_OpenSurvivalGuide"]
+    },
+    {
+      "id": "Main_OpenSurvivalGuide",
+      "title": "How to Stay Alive",
+      "stage": 2,
+      "next": ["Main_BuildWorkbench"]
+    },
+    {
+      "id": "Main_BuildWorkbench",
+      "title": "Set Up a Workbench",
+      "stage": 3,
+      "next": ["Main_CraftTools"]
+    },
+    {
+      "id": "Main_CraftTools",
+      "title": "Crafting an Axe and a Pickaxe",
+      "stage": 4,
+      "next": ["Main_StatusUp"]
+    },
+    { "id": "Main_StatusUp", "title": "Enhance Stats", "stage": 5, "next": ["Main_CatchPal"] },
+    { "id": "Main_CatchPal", "title": "Catching a Pal", "stage": 6, "next": ["Main_WorkPal"] },
+    { "id": "Main_WorkPal", "title": "Putting Pals to Work", "stage": 7, "next": ["Main_EatFood"] },
+    {
+      "id": "Main_EatFood",
+      "title": "Filling Your Belly",
+      "stage": 8,
+      "next": ["Main_CaptureSheepBall"]
+    },
+    {
+      "id": "Main_CaptureSheepBall",
+      "title": "The Weakest Pal",
+      "stage": 9,
+      "next": ["Main_PrepareEquipment"]
+    },
+    {
+      "id": "Main_PrepareEquipment",
+      "title": "Gearing Up",
+      "stage": 10,
+      "next": ["Main_SmallVillage"]
+    },
+    {
+      "id": "Main_SmallVillage",
+      "title": "Small Settlement",
+      "stage": 11,
+      "next": ["Main_CraftPalGear"]
+    },
+    {
+      "id": "Main_CraftPalGear",
+      "title": "Crafting Pal Gear",
+      "stage": 12,
+      "next": ["Main_RayneSyndicate"]
+    },
+    {
+      "id": "Main_RayneSyndicate",
+      "title": "The Rayne Syndicate",
+      "stage": 13,
+      "next": ["Main_ReturnSmallVillage"]
+    },
+    {
+      "id": "Main_ReturnSmallVillage",
+      "title": "The Key Sphere",
+      "stage": 14,
+      "next": ["Main_TalkGrassBoss"]
+    },
+    {
+      "id": "Main_TalkGrassBoss",
+      "title": "Zoe Rayne",
+      "stage": 15,
+      "next": ["Main_DefeatForestBoss", "Main_CollectKeySpheres"]
+    },
+    {
+      "id": "Main_DefeatForestBoss",
+      "title": "Thou Shalt Not Harm Pals",
+      "stage": 16,
+      "next": ["Main_DefeatVolcanoBoss"]
+    },
+    {
+      "id": "Main_DefeatVolcanoBoss",
+      "title": "Flawless Victory Fixation",
+      "stage": 17,
+      "next": ["Main_DefeatDesertBoss"]
+    },
+    {
+      "id": "Main_DefeatDesertBoss",
+      "title": "Ruler of the Sands",
+      "stage": 18,
+      "next": ["Main_DefeatSnowyMountainBoss"]
+    },
+    {
+      "id": "Main_DefeatSnowyMountainBoss",
+      "title": "Interspecies Experiments",
+      "stage": 19,
+      "next": ["Main_DefeatSakurajimaBoss"]
+    },
+    {
+      "id": "Main_DefeatSakurajimaBoss",
+      "title": "A Fine Night for a Drink",
+      "stage": 20,
+      "next": ["Main_DefeatVikingBoss"]
+    },
+    {
+      "id": "Main_DefeatVikingBoss",
+      "title": "Bearer of All Burdens",
+      "stage": 21,
+      "next": ["Main_DefeatSkyIslandBoss"]
+    },
+    {
+      "id": "Main_DefeatSkyIslandBoss",
+      "title": "Hope Springs Eternal",
+      "stage": 22,
+      "next": ["Main_TalkSkyBoss"]
+    },
+    {
+      "id": "Main_TalkSkyBoss",
+      "title": "The Sunreacher",
+      "stage": 23,
+      "next": ["Main_TalkSkyBossAgain"]
+    },
+    {
+      "id": "Main_TalkSkyBossAgain",
+      "title": "The Calamity",
+      "stage": 24,
+      "next": ["Main_DefeatKingWhale"]
+    },
+    {
+      "id": "Main_DefeatKingWhale",
+      "title": "Panthalus",
+      "stage": 25,
+      "next": ["Main_ReachWorldTree"]
+    },
+    {
+      "id": "Main_ReachWorldTree",
+      "title": "To the World Tree",
+      "stage": 26,
+      "next": ["Main_TalkWorldTreeNPC"]
+    },
+    { "id": "Main_TalkWorldTreeNPC", "title": "Sin", "stage": 27, "next": ["Main_WorldTreeAbyss"] },
+    { "id": "Main_WorldTreeAbyss", "title": "The Sealed Calamity", "stage": 28, "next": [] },
+    {
+      "id": "Main_DefeatWorldTreeMiddleBoss",
+      "title": "Path to the Abyss",
+      "stage": 29,
+      "next": []
+    },
+    { "id": "Main_DefeatWorldTreeDragon", "title": "Awakening", "stage": 30, "next": [] },
+    {
+      "id": "Main_PickupWood",
+      "title": "First Gathering Run",
+      "stage": null,
+      "next": ["Main_GainStatus"]
+    },
+    {
+      "id": "Main_BuildWorkBench_Old",
+      "title": "Base of Operations",
+      "stage": null,
+      "next": ["Main_UnlockPalSphere"]
+    },
+    {
+      "id": "Main_UnlockPalSphere",
+      "title": "Unlock Technology",
+      "stage": null,
+      "next": ["Main_CollectCrystal"]
+    },
+    {
+      "id": "Main_CollectCrystal",
+      "title": "Paldium",
+      "stage": null,
+      "next": ["Main_CraftPalSphere"]
+    },
+    {
+      "id": "Main_CraftPalSphere",
+      "title": "Capturing Device",
+      "stage": null,
+      "next": ["Main_CapturePal"]
+    },
+    {
+      "id": "Main_CapturePal",
+      "title": "Your First Pal",
+      "stage": null,
+      "next": ["Main_UnlockPalBox"]
+    },
+    { "id": "Main_UnlockPalBox", "title": "Palbox", "stage": null, "next": ["Main_BuildPalBox"] },
+    {
+      "id": "Main_BuildPalBox",
+      "title": "Starting Base",
+      "stage": null,
+      "next": ["Main_WorkerPal"]
+    },
+    { "id": "Main_WorkerPal", "title": "Put Pals to Work", "stage": null, "next": ["Main_Meal"] },
+    {
+      "id": "Main_Meal",
+      "title": "Fill Your Belly",
+      "stage": null,
+      "next": ["Main_EquipClothArmor"]
+    },
+    {
+      "id": "Main_EquipClothArmor",
+      "title": "Protect Yourself",
+      "stage": null,
+      "next": ["Main_CaptureSheepBall"]
+    },
+    {
+      "id": "Main_GainStatus",
+      "title": "Enhance Stats",
+      "stage": null,
+      "next": ["Main_BuildWorkBench"]
+    },
+    {
+      "id": "Main_CaptureSheepBall_Old",
+      "title": "The Weakest Pal",
+      "stage": null,
+      "next": ["Main_CraftShield"]
+    },
+    {
+      "id": "Main_CraftShield",
+      "title": "Mining Paldium",
+      "stage": null,
+      "next": ["Main_UseGlider"]
+    },
+    {
+      "id": "Main_UseGlider",
+      "title": "Safety Measures",
+      "stage": null,
+      "next": ["Main_Capture30Pal"]
+    },
+    {
+      "id": "Main_Capture30Pal",
+      "title": "Capture any 30 Pals.",
+      "stage": null,
+      "next": ["Main_Craft_PalGear"]
+    },
+    {
+      "id": "Main_Craft_PalGear",
+      "title": "Partner Skills",
+      "stage": null,
+      "next": ["Main_DefeatWildBoss"]
+    },
+    {
+      "id": "Main_DefeatWildBoss",
+      "title": "First Boss Battle",
+      "stage": null,
+      "next": ["Main_CraftMealPouch"]
+    },
+    {
+      "id": "Main_CraftMealPouch",
+      "title": "Hunger is the Greatest Foe",
+      "stage": null,
+      "next": ["Main_DefeatDungeonBoss"]
+    },
+    {
+      "id": "Main_DefeatDungeonBoss",
+      "title": "Sealed Pals",
+      "stage": null,
+      "next": ["Main_BuildHatchingMachine"]
+    },
+    {
+      "id": "Main_BuildHatchingMachine",
+      "title": "Pal Eggs",
+      "stage": null,
+      "next": ["Main_BaseCampLevel"]
+    },
+    {
+      "id": "Main_BaseCampLevel",
+      "title": "A Cozy Base",
+      "stage": null,
+      "next": ["Main_DefeatGrassBoss"]
+    },
+    {
+      "id": "Main_DefeatGrassBoss",
+      "title": "The Girl and the Tower",
+      "stage": null,
+      "next": ["Main_ReturnSmallVillage"]
+    },
+    {
+      "id": "Main_CaptureDeerGround",
+      "title": "Wildlife Sanctuaries",
+      "stage": null,
+      "next": ["Main_DefeatForestBoss"]
+    },
+    {
+      "id": "Main_BeginAdventure",
+      "title": "The Adventure Begins",
+      "stage": null,
+      "next": ["Main_SmallVillage"]
+    },
+    {
+      "id": "Main_CollectKeySpheres",
+      "title": "Gathering the Key Spheres",
+      "stage": null,
+      "next": []
+    }
+  ]
+}

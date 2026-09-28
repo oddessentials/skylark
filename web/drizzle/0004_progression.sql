@@ -1,0 +1,1 @@
+ALTER TABLE "guild_saves" ADD COLUMN "lab" jsonb;

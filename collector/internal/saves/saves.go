@@ -51,6 +51,7 @@ type output struct {
 		Name          string                  `json:"name"`
 		BaseCampLevel int                     `json:"base_camp_level"`
 		Members       []event.SaveGuildMember `json:"members"`
+		Lab           *event.SaveGuildLab     `json:"lab"`
 	} `json:"guilds"`
 	Bases []struct {
 		BaseID     string                `json:"base_id"`
@@ -148,8 +149,11 @@ func Read(ctx context.Context, reader, dir string) (*Result, error) {
 		if members == nil {
 			members = []event.SaveGuildMember{}
 		}
+		if g.Lab != nil && g.Lab.Research == nil {
+			g.Lab.Research = []event.SaveGuildResearch{}
+		}
 		result.Guilds = append(result.Guilds, event.SaveGuildData{
-			SavedAt: result.SavedAt, GuildID: g.GuildID, Name: g.Name, BaseCampLevel: g.BaseCampLevel, Members: members,
+			SavedAt: result.SavedAt, GuildID: g.GuildID, Name: g.Name, BaseCampLevel: g.BaseCampLevel, Members: members, Lab: g.Lab,
 		})
 	}
 	for _, b := range out.Bases {

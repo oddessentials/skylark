@@ -130,6 +130,7 @@ export function createApi(options: ApiOptions = {}) {
     getGuild: (id: string) =>
       unwrap(client.GET('/api/v1/guilds/{id}', { params: { path: { id } } })),
     getMap: () => unwrap(client.GET('/api/v1/map')),
+    getProgression: () => unwrap(client.GET('/api/v1/progression')),
     getLeaderboards: () => unwrap(client.GET('/api/v1/leaderboards')),
     getWorld: () => unwrap(client.GET('/api/v1/world')),
     getHealth: () => unwrap(client.GET('/api/v1/health')),

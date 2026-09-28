@@ -17,6 +17,7 @@ export const endpoints = {
   guildPalpedia: `${API_BASE}/guilds/{id}/palpedia`,
   guildPals: `${API_BASE}/guilds/{id}/pals`,
   map: `${API_BASE}/map`,
+  progression: `${API_BASE}/progression`,
   leaderboards: `${API_BASE}/leaderboards`,
   world: `${API_BASE}/world`,
   stream: `${API_BASE}/stream`,

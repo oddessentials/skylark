@@ -20,7 +20,11 @@ export const TABLES = {
   cagedPals: '/Game/Pal/DataTable/Character/DT_CapturedCagePal',
   uniqueCombinations: '/Game/Pal/DataTable/Character/DT_PalCombiUnique',
   passiveSkills: '/Game/Pal/DataTable/PassiveSkill/DT_PassiveSkill_Main',
-  characterIcons: '/Game/Pal/DataTable/Character/DT_PalCharacterIconDataTable'
+  characterIcons: '/Game/Pal/DataTable/Character/DT_PalCharacterIconDataTable',
+  buildObjects: '/Game/Pal/DataTable/MapObject/Building/DT_BuildObjectDataTable',
+  labResearch: '/Game/Pal/DataTable/Lab/DT_LabResearchDataTable',
+  exp: '/Game/Pal/DataTable/Exp/DT_PalExpTable',
+  quests: '/Game/Pal/DataTable/Quest/DT_PalQuestData'
 };
 
 export const TEXTS = {
@@ -35,14 +39,20 @@ export const TEXTS = {
   mapObjectNames: '/Game/Pal/DataTable/Text/DT_MapObjectNameText_Common',
   technologyNames: '/Game/Pal/DataTable/Text/DT_TechnologyNameText_Common',
   itemNames: '/Game/Pal/DataTable/Text/DT_ItemNameText_Common',
-  skillNames: '/Game/Pal/DataTable/Text/DT_SkillNameText_Common'
+  skillNames: '/Game/Pal/DataTable/Text/DT_SkillNameText_Common',
+  technologyDescriptions: '/Game/Pal/DataTable/Text/DT_TechnologyDescText_Common',
+  buildObjectDescriptions: '/Game/Pal/DataTable/Text/DT_BuildObjectDescText_Common',
+  itemDescriptions: '/Game/Pal/DataTable/Text/DT_ItemDescriptionText_Common',
+  buildObjectCategories: '/Game/Pal/DataTable/Text/DT_BuildObjectCategoryText',
+  labResearch: '/Game/Pal/DataTable/Text/DT_LabResearchText'
 };
 
 export const BLUEPRINTS = {
   mapWidget: '/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Base',
   uiFunctions: '/Game/Pal/Blueprint/UI/System/BP_PalUIFunctionLibrary',
   bossBattleManager: '/Game/Pal/Blueprint/System/BP_PalBossBattleManager',
-  gameSetting: '/Game/Pal/Blueprint/System/BP_PalGameSetting'
+  gameSetting: '/Game/Pal/Blueprint/System/BP_PalGameSetting',
+  questManager: '/Game/Pal/Blueprint/System/BP_PalQuestManager'
 };
 
 export const DATA_ASSETS = {

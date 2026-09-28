@@ -12,6 +12,16 @@ function place(world, level, index, map) {
   };
 }
 
+export function saveKeyOf(guid) {
+  const hex = String(guid);
+  if (!/^[0-9a-f]{32}$/i.test(hex)) throw new Error(`${hex} is not a GUID`);
+  return hex
+    .match(/.{8}/g)
+    .map((group) => group.match(/.{2}/g).reverse().join(''))
+    .join('')
+    .toUpperCase();
+}
+
 function byId(a, b) {
   return compareText(a.id, b.id);
 }
@@ -25,15 +35,19 @@ export function buildLandmarks(game, world, actors, species, map, gameVersion) {
 
   const fastTravel = actors.fastTravel
     .map(({ level, index }) => {
-      const id = need(world.properties(level, index).FastTravelPointID, 'FastTravelPointID');
-      return { id, name: respawnText(id), ...place(world, level, index, map) };
+      const properties = world.properties(level, index);
+      const id = need(properties.FastTravelPointID, 'FastTravelPointID');
+      const guid = saveKeyOf(need(properties.LevelObjectInstanceId, `${id} LevelObjectInstanceId`));
+      return { id, name: respawnText(id), guid, ...place(world, level, index, map) };
     })
     .sort(byId);
 
   const watchtowers = actors.watchtowers
     .map(({ level, index }) => {
-      const id = need(world.properties(level, index).FastTravelPointID, 'FastTravelPointID');
-      return { id, name: respawnText(id), ...place(world, level, index, map) };
+      const properties = world.properties(level, index);
+      const id = need(properties.FastTravelPointID, 'FastTravelPointID');
+      const guid = saveKeyOf(need(properties.LevelObjectInstanceId, `${id} LevelObjectInstanceId`));
+      return { id, name: respawnText(id), guid, ...place(world, level, index, map) };
     })
     .sort(byId);
 
@@ -142,6 +156,7 @@ export function buildLandmarks(game, world, actors, species, map, gameVersion) {
     game_version: gameVersion,
     sources: [
       '/Game/Pal/Maps/MainWorld_5/PL_MainWorld5 and its World Partition cells',
+      'guid: the actor LevelObjectInstanceId with each 4-byte group byte-swapped, the key of RecordData.FastTravelPointUnlockFlag',
       TABLES.bossMarkers,
       TABLES.dungeonSpawnAreas,
       TEXTS.respawnPoints,

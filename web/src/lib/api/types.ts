@@ -543,6 +543,22 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/api/v1/progression': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations['getProgression'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/api/v1/site': {
     parameters: {
       query?: never;
@@ -1538,6 +1554,109 @@ export interface components {
       x: number;
       y: number;
     };
+    Progression: {
+      field_bosses: components['schemas']['ProgressionFieldBoss'][];
+      guilds: components['schemas']['ProgressionGuild'][];
+      players: components['schemas']['ProgressionPlayer'][];
+      saved_at: string | null;
+      totals: components['schemas']['ProgressionTotals'];
+      towers: components['schemas']['ProgressionTower'][];
+    };
+    ProgressionCurrentResearch: {
+      id: string;
+      name: string;
+      required_work: number;
+      share: number;
+      work: number;
+    };
+    ProgressionFieldBoss: {
+      beaten_by: number[];
+      kind: 'field_boss' | 'wanted';
+      level: number;
+      map: 'MainMap' | 'Tree';
+      name: string;
+      spawner: string;
+      species: string | null;
+      title: string | null;
+      x: number;
+      y: number;
+    };
+    ProgressionGuild: {
+      completed: components['schemas']['ProgressionResearchRef'][];
+      current: components['schemas']['ProgressionCurrentResearch'] | null;
+      done: number;
+      guild: components['schemas']['GuildRef'];
+      saved_at: string;
+      total: number;
+    };
+    ProgressionLastTechnology: {
+      at: string;
+      id: string;
+      name: string;
+    };
+    ProgressionPlayer: {
+      areas: number;
+      fast_travel: number;
+      field_bosses: number;
+      guild: components['schemas']['GuildRef'] | null;
+      level: number | null;
+      name: string;
+      player: components['schemas']['PlayerRef'] | null;
+      playtime_s: number | null;
+      raids: number;
+      saved_at: string;
+      story: components['schemas']['ProgressionStory'];
+      technology: components['schemas']['ProgressionTechnology'];
+      towers: components['schemas']['ProgressionTowerClear'][];
+      world_tree: boolean;
+    };
+    ProgressionQuest: {
+      id: string;
+      stage: number;
+      title: string;
+    };
+    ProgressionResearchRef: {
+      id: string;
+      name: string;
+    };
+    ProgressionStory: {
+      completed: number;
+      current: components['schemas']['ProgressionQuest'][];
+      stage: components['schemas']['ProgressionQuest'] | null;
+      total: number;
+    };
+    ProgressionTechnology: {
+      boss_points: number;
+      boss_total: number;
+      boss_unlocked: number;
+      last_unlocked: components['schemas']['ProgressionLastTechnology'] | null;
+      points: number;
+      tier: number;
+      total: number;
+      unlocked: number;
+    };
+    ProgressionTotals: {
+      areas: number;
+      boss_technology: number;
+      fast_travel: number;
+      field_bosses: number;
+      research: number;
+      story: number;
+      technology: number;
+    };
+    ProgressionTower: {
+      category: 'faction_tower' | 'world_tree_middle' | 'world_tree_final' | 'king_whale';
+      hard: boolean;
+      id: string;
+      level: number;
+      name: string;
+    };
+    ProgressionTowerClear: {
+      count: number;
+      difficulty: 'normal' | 'hard';
+      first_seen_at: string | null;
+      tower: string;
+    };
     Retention: {
       metrics_days: number;
       positions_days: number | null;
@@ -1571,6 +1690,7 @@ export interface components {
     SaveGuildData: {
       base_camp_level?: number;
       guild_id: string;
+      lab?: components['schemas']['SaveGuildLab'] | null;
       members: components['schemas']['SaveGuildMember'][];
       name: string;
       saved_at: string;
@@ -1581,10 +1701,22 @@ export interface components {
       data: components['schemas']['SaveGuildData'];
       type: 'save.guild';
     };
+    SaveGuildLab: {
+      current: string | null;
+      research: components['schemas']['SaveGuildResearch'][];
+    } & {
+      [key: string]: unknown;
+    };
     SaveGuildMember: {
       name: string;
       player_id: string;
       role: string;
+    } & {
+      [key: string]: unknown;
+    };
+    SaveGuildResearch: {
+      id: string;
+      work: number;
     } & {
       [key: string]: unknown;
     };
@@ -1593,6 +1725,12 @@ export interface components {
       hatched: components['schemas']['SavePal'] | null;
       kind: string;
       object_id: string;
+    } & {
+      [key: string]: unknown;
+    };
+    SaveOrderedQuest: {
+      block: number;
+      id: string;
     } & {
       [key: string]: unknown;
     };
@@ -1641,19 +1779,34 @@ export interface components {
       type: 'save.player';
     };
     SaveProgress: {
+      area_keys?: string[];
+      boss_technology_points?: number;
       captures: number;
+      completed_quests?: string[];
       dungeon_clears: number;
+      fast_travel_keys?: string[];
       fast_travel_points: number;
+      field_boss_keys?: string[];
       field_bosses: number;
       fixed_dungeon_clears: number;
+      ordered_quests?: components['schemas']['SaveOrderedQuest'][];
       palpedia: number;
       palpedia_entries?: string[];
+      raid_defeats?: {
+        [key: string]: number;
+      };
       species_captured: number;
       species_captures?: {
         [key: string]: number;
       };
       technologies: number;
+      technology_ids?: string[];
+      technology_points?: number;
       tower_bosses: string[];
+      tower_defeats?: {
+        [key: string]: number;
+      };
+      world_maps?: string[];
     } & {
       [key: string]: unknown;
     };
@@ -2183,14 +2336,30 @@ export type PlayerUid = components['schemas']['PlayerUid'];
 export type PlayerUnbannedData = components['schemas']['PlayerUnbannedData'];
 export type PlayerUnbannedEvent = components['schemas']['PlayerUnbannedEvent'];
 export type Point = components['schemas']['Point'];
+export type Progression = components['schemas']['Progression'];
+export type ProgressionCurrentResearch = components['schemas']['ProgressionCurrentResearch'];
+export type ProgressionFieldBoss = components['schemas']['ProgressionFieldBoss'];
+export type ProgressionGuild = components['schemas']['ProgressionGuild'];
+export type ProgressionLastTechnology = components['schemas']['ProgressionLastTechnology'];
+export type ProgressionPlayer = components['schemas']['ProgressionPlayer'];
+export type ProgressionQuest = components['schemas']['ProgressionQuest'];
+export type ProgressionResearchRef = components['schemas']['ProgressionResearchRef'];
+export type ProgressionStory = components['schemas']['ProgressionStory'];
+export type ProgressionTechnology = components['schemas']['ProgressionTechnology'];
+export type ProgressionTotals = components['schemas']['ProgressionTotals'];
+export type ProgressionTower = components['schemas']['ProgressionTower'];
+export type ProgressionTowerClear = components['schemas']['ProgressionTowerClear'];
 export type Retention = components['schemas']['Retention'];
 export type SaveBaseData = components['schemas']['SaveBaseData'];
 export type SaveBaseEvent = components['schemas']['SaveBaseEvent'];
 export type SaveEgg = components['schemas']['SaveEgg'];
 export type SaveGuildData = components['schemas']['SaveGuildData'];
 export type SaveGuildEvent = components['schemas']['SaveGuildEvent'];
+export type SaveGuildLab = components['schemas']['SaveGuildLab'];
 export type SaveGuildMember = components['schemas']['SaveGuildMember'];
+export type SaveGuildResearch = components['schemas']['SaveGuildResearch'];
 export type SaveIncubator = components['schemas']['SaveIncubator'];
+export type SaveOrderedQuest = components['schemas']['SaveOrderedQuest'];
 export type SavePal = components['schemas']['SavePal'];
 export type SavePalsData = components['schemas']['SavePalsData'];
 export type SavePalsEvent = components['schemas']['SavePalsEvent'];
@@ -3202,6 +3371,29 @@ export interface operations {
       };
       400: components['responses']['BadRequest'];
       404: components['responses']['NotFound'];
+      429: components['responses']['RateLimited'];
+      503: components['responses']['Unavailable'];
+    };
+  };
+  getProgression: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          'Cache-Control': components['headers']['CacheControl'];
+          ETag: components['headers']['ETag'];
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['Progression'];
+        };
+      };
       429: components['responses']['RateLimited'];
       503: components['responses']['Unavailable'];
     };

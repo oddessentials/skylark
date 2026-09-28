@@ -931,6 +931,23 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
   const towerOrder = ['GrassBoss', 'ForestBoss', 'ElectricBoss', 'DesertBoss', 'SnowBoss'];
   const draw = (text: string, span: number) => parseInt(hex(text, 8), 16) % span;
   const palpediaIds = readWorld<{ pals: { id: string }[] }>('pals').pals.map((entry) => entry.id);
+  const technologyFacts = readWorld<{
+    technologies: { id: string; level: number; boss: boolean }[];
+  }>('technology').technologies;
+  const storyQuests = readWorld<{ main: { id: string; stage: number | null }[] }>('quests')
+    .main.filter((quest) => quest.stage !== null)
+    .sort((a, b) => a.stage! - b.stage!);
+  const places = readWorld<{
+    boss_markers: { kind: string; spawner: string; level: number }[];
+    fast_travel: { guid: string }[];
+    watchtowers: { guid: string }[];
+  }>('landmarks');
+  const fieldBosses = places.boss_markers.filter((marker) => marker.kind !== 'oil_rig');
+  const pointGuids = [...places.fast_travel, ...places.watchtowers].map((point) => point.guid);
+  const areaIds = readWorld<{ regions: { id: string }[] }>('regions').regions.map((r) => r.id);
+  const researchFacts = readWorld<{ research: { id: string; required_work: number }[] }>(
+    'lab'
+  ).research;
   const progressAt = (key: string, level: number) => {
     const palpedia = Math.min(288, level * 4 + draw(`palpedia-${key}`, 9));
     const entries = palpediaIds
@@ -944,19 +961,81 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
         .filter((id) => draw(`caught-${key}-${id}`, 9) > 0)
         .map((id) => [id, 1 + draw(`count-${key}-${id}`, 6)])
     );
+    const towers = towerOrder.slice(0, Math.min(towerOrder.length, Math.floor(level / 12)));
+    const towerDefeats: Record<string, number> = {};
+    towers.forEach((tower, index) => {
+      towerDefeats[`${tower}_Normal`] = 1 + draw(`tower-${key}-${tower}`, 3);
+      if (index === 0 && level >= 40) towerDefeats[`${tower}_Hard`] = 1;
+    });
+    const technologyIds = technologyFacts
+      .filter(
+        (entry) =>
+          entry.level <= level &&
+          (entry.boss
+            ? draw(`tech-${key}-${entry.id}`, 3) === 0
+            : draw(`tech-${key}-${entry.id}`, 4) > 0)
+      )
+      .map((entry) => entry.id)
+      .sort();
+    const fieldBossKeys = fieldBosses
+      .filter((marker) => marker.level <= level + 5 && draw(`boss-${key}-${marker.spawner}`, 3) > 0)
+      .map((marker) => marker.spawner)
+      .sort();
+    const fastTravelKeys = pointGuids
+      .map((guid) => ({ guid, rank: draw(`point-${key}-${guid}`, 1000) }))
+      .sort((a, b) => a.rank - b.rank || a.guid.localeCompare(b.guid))
+      .slice(0, Math.min(40, 3 + Math.floor(level / 2)))
+      .map((point) => point.guid)
+      .sort();
+    const areaKeys = areaIds
+      .map((id) => ({ id, rank: draw(`area-${key}-${id}`, 1000) }))
+      .sort((a, b) => a.rank - b.rank || a.id.localeCompare(b.id))
+      .slice(0, Math.min(areaIds.length, 2 + level))
+      .map((area) => area.id)
+      .sort();
+    const stage = Math.min(storyQuests.length, Math.floor((level * (storyQuests.length + 1)) / 60));
+    const completedQuests = storyQuests.slice(0, stage).map((quest) => quest.id);
+    completedQuests.splice(
+      Math.min(3, completedQuests.length),
+      0,
+      'Hidden_ChangeWeaponBulletTutorialTrigger'
+    );
+    const nextQuest = storyQuests[stage];
+    const orderedQuests = [{ id: 'Sub_Farmer02', block: 0 }];
+    if (nextQuest) orderedQuests.unshift({ id: nextQuest.id, block: draw(`block-${key}`, 3) });
     return {
       palpedia,
       palpedia_entries: entries,
       species_captured: Object.keys(speciesCaptures).length,
       captures: Object.values(speciesCaptures).reduce((sum, count) => sum + count, 0),
       species_captures: speciesCaptures,
-      tower_bosses: towerOrder.slice(0, Math.min(towerOrder.length, Math.floor(level / 12))),
-      field_bosses: Math.floor(level / 3),
+      tower_bosses: towers,
+      field_bosses: fieldBossKeys.length,
       dungeon_clears: Math.floor(level / 5),
       fixed_dungeon_clears: Math.floor(level / 8),
-      technologies: 12 + level * 2,
-      fast_travel_points: Math.min(40, 3 + Math.floor(level / 2))
+      technologies: technologyIds.length,
+      fast_travel_points: fastTravelKeys.length,
+      technology_ids: technologyIds,
+      technology_points: draw(`points-${key}`, 40),
+      boss_technology_points: draw(`boss-points-${key}`, 10),
+      tower_defeats: towerDefeats,
+      raid_defeats: {},
+      field_boss_keys: fieldBossKeys,
+      fast_travel_keys: fastTravelKeys,
+      area_keys: areaKeys,
+      world_maps: level >= 60 ? ['MainMap', 'Tree'] : ['MainMap'],
+      completed_quests: completedQuests,
+      ordered_quests: orderedQuests
     };
+  };
+  const labAt = (index: number) => {
+    const done = 2 + index * 2;
+    const research = researchFacts
+      .slice(0, done)
+      .map((entry, slot) => ({ id: entry.id, work: entry.required_work + slot * 3.5 }));
+    const current = researchFacts[done];
+    if (current) research.push({ id: current.id, work: Math.round(current.required_work * 0.4) });
+    return { current: current ? current.id : null, research };
   };
   const breedingFacts = readWorld<{
     species: { id: string; egg: string | null }[];
@@ -1120,7 +1199,8 @@ export function generateHistory(options: GeneratorOptions = {}): SimulatedHistor
       guild_id: guild.id,
       name: saveMs < renameAt ? guild.firstName : guild.name,
       base_camp_level: 3 + index * 2,
-      members: roster
+      members: roster,
+      lab: index === 2 ? null : labAt(index)
     });
   });
   const savedBases = bases.filter(

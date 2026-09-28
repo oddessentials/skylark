@@ -14,11 +14,11 @@ import (
 
 const cannedWorld = `{"format":1,"saved_at":"2026-09-28T05:30:00Z",
 "players":[{"player_id":"5E7A11C0000000000000000000000000","name":"Wanderer","level":24,"guild_id":"6011D000000000000000000000000001","last_online_at":"2026-09-28T05:10:00Z",
-"progress":{"palpedia":3,"palpedia_entries":["ChickenPal","PinkCat","SheepBall"],"species_captured":2,"captures":4,"species_captures":{"PinkCat":1,"SheepBall":3},"tower_bosses":["GrassBoss"],"field_bosses":2,"dungeon_clears":5,"fixed_dungeon_clears":2,"technologies":3,"fast_travel_points":1},
+"progress":{"palpedia":3,"palpedia_entries":["ChickenPal","PinkCat","SheepBall"],"species_captured":2,"captures":4,"species_captures":{"PinkCat":1,"SheepBall":3},"tower_bosses":["GrassBoss"],"field_bosses":2,"dungeon_clears":5,"fixed_dungeon_clears":2,"technologies":3,"fast_travel_points":1,"technology_ids":["PalBox","Product_Axe_Grade_01","Workbench"],"technology_points":12,"boss_technology_points":3,"tower_defeats":{"GrassBoss_Normal":2},"raid_defeats":{},"field_boss_keys":["81_1_grass_FBOSS_20","81_1_grass_FBOSS_9"],"fast_travel_keys":["6E03F846"],"area_keys":["Grass_001"],"world_maps":["MainMap"],"completed_quests":["Main_UnlockFastTravel"],"ordered_quests":[{"id":"Main_OpenSurvivalGuide","block":1}]},
 "pals":[{"instance_id":"23000000000000000000000000000000","species":"PinkCat","alpha":false,"where":"party","gender":"male","level":4,"rank":1,"talents":{"hp":30,"shot":40,"defense":50},"passives":["Noukin"],"lucky":false,"name":null}],
 "eggs":[{"egg_id":"E6600000000000000000000000000001","item_id":"PalEgg_Fire_01","species":"Kitsunebi","alpha":false}]},
 {"player_id":"7A3B22D1000000000000000000000000","name":"Fisher","level":7,"guild_id":"6011D000000000000000000000000001","last_online_at":null,"progress":null,"pals":null,"eggs":null}],
-"guilds":[{"guild_id":"6011D000000000000000000000000001","name":"Lark Riders","base_camp_level":3,"members":[{"player_id":"5E7A11C0000000000000000000000000","name":"Wanderer","role":"guild_master"}]}],
+"guilds":[{"guild_id":"6011D000000000000000000000000001","name":"Lark Riders","base_camp_level":3,"members":[{"player_id":"5E7A11C0000000000000000000000000","name":"Wanderer","role":"guild_master"}],"lab":{"current":"Seeding2","research":[{"id":"Handcraft1","work":50014}]}}],
 "bases":[{"base_id":"BA5E0000000000000000000000000003","guild_id":"6011D000000000000000000000000001","name":"Hilltop","x":-73080.5,"y":-69035.25,"z":-948.5,"workers":[{"instance_id":"21000000000000000000000000000000","character_id":"SheepBall","level":9,"name":null}],
 "eggs":[],"incubators":[{"object_id":"0B1E000000000000000000000000000A","kind":"HatchingPalEgg","eggs":[{"egg_id":"E6600000000000000000000000000002","item_id":"PalEgg_Leaf_05","species":"GrassMammoth","alpha":true}],"hatched":null}]}]}`
 
@@ -95,6 +95,12 @@ func TestReadRunsTheSaveReader(t *testing.T) {
 	}
 	if entries := *player.Progress.PalpediaEntries; len(entries) != 3 || entries[0] != "ChickenPal" || (*player.Progress.SpeciesCaptures)["SheepBall"] != 3 {
 		t.Fatalf("progress %+v", player.Progress)
+	}
+	if defeats := *player.Progress.TowerDefeats; defeats["GrassBoss_Normal"] != 2 || len(*player.Progress.TechnologyIDs) != 3 || *player.Progress.TechnologyPoints != 12 || (*player.Progress.OrderedQuests)[0].ID != "Main_OpenSurvivalGuide" || len(*player.Progress.FastTravelKeys) != 1 {
+		t.Fatalf("progression %+v", player.Progress)
+	}
+	if lab := result.Guilds[0].Lab; lab == nil || lab.Current == nil || *lab.Current != "Seeding2" || len(lab.Research) != 1 || lab.Research[0].Work != 50014 {
+		t.Fatalf("lab %+v", lab)
 	}
 	base := result.Bases[0]
 	if *base.Z != -948.5 || len(base.Workers) != 1 || base.Workers[0].CharacterID != "SheepBall" {

@@ -1,0 +1,3774 @@
+{
+  "game_version": "1.0.5.102999",
+  "sources": [
+    "/Game/Pal/DataTable/Lab/DT_LabResearchDataTable",
+    "/Game/Pal/DataTable/Technology/DT_TechnologyRecipeUnlock",
+    "/Game/Pal/DataTable/Text/DT_LabResearchText",
+    "/Game/Pal/DataTable/Text/DT_ItemNameText_Common",
+    "/Game/Pal/DataTable/Text/DT_UI_Common_Text_Common"
+  ],
+  "research": [
+    {
+      "id": "Handcraft1",
+      "name": "Handiwork Speed 1",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "CraftSpeed_Handcraft",
+      "required_work": 50000,
+      "requires": null,
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 50 },
+        { "id": "Stone", "name": "Stone", "count": 40 },
+        { "id": "Cloth", "name": "Cloth", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Handcraft",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft1_2",
+      "name": "Handiwork Speed 2",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "CraftSpeed_Handcraft",
+      "required_work": 200000,
+      "requires": "Handcraft1",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 100 },
+        { "id": "Cement", "name": "Cement", "count": 10 },
+        { "id": "Cloth", "name": "Cloth", "count": 20 },
+        { "id": "MachineParts", "name": "Nail", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Handcraft",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft5",
+      "name": "Large Toolbox Development",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "TechnologyUnlock",
+      "required_work": 200000,
+      "requires": "Handcraft1_2",
+      "materials": [
+        { "id": "CopperIngot", "name": "Ingot", "count": 20 },
+        { "id": "MachineParts", "name": "Nail", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": null,
+      "effect_description": "Unlock Technology: Large Toolbox",
+      "essential": false,
+      "unlocks": ["ToolBoxV1"]
+    },
+    {
+      "id": "Handcraft1_3",
+      "name": "Handiwork Speed 3",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "CraftSpeed_Handcraft",
+      "required_work": 500000,
+      "requires": "Handcraft5",
+      "materials": [
+        { "id": "Cement", "name": "Cement", "count": 30 },
+        { "id": "Gunpowder2", "name": "Gunpowder", "count": 30 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Handcraft",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft1_4",
+      "name": "Handiwork Speed 4",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "CraftSpeed_Handcraft",
+      "required_work": 1500000,
+      "requires": "Handcraft1_3",
+      "materials": [
+        { "id": "Gunpowder2", "name": "Gunpowder", "count": 100 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 15 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Handcraft",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft1_5",
+      "name": "Handiwork Speed 5",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "CraftSpeed_Handcraft",
+      "required_work": 5000000,
+      "requires": "Handcraft1_4",
+      "materials": [
+        { "id": "Gunpowder2", "name": "Gunpowder", "count": 300 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Handcraft",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft2",
+      "name": "Armor Crafting Optimization 1",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "ProductItemConsumeMaterialNumRate",
+      "required_work": 200000,
+      "requires": "Handcraft1",
+      "materials": [
+        { "id": "Cloth", "name": "Cloth", "count": 30 },
+        { "id": "MachineParts", "name": "Nail", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 3 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "ProductItemConsumeMaterialNumRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": "ArmorBody"
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft2_2",
+      "name": "Pal Gear Crafting Cost-Saving Technique 1",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "ProductItemConsumeMaterialNumRate",
+      "required_work": 150000,
+      "requires": "Handcraft2",
+      "materials": [
+        { "id": "Leather", "name": "Leather", "count": 30 },
+        { "id": "MachineParts", "name": "Nail", "count": 15 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "ProductItemConsumeMaterialNumRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": "PalGear"
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft2_3",
+      "name": "Weapon Crafting Optimization Technique 1",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "ProductItemConsumeMaterialNumRate",
+      "required_work": 500000,
+      "requires": "Handcraft2_2",
+      "materials": [
+        { "id": "Gunpowder2", "name": "Gunpowder", "count": 50 },
+        { "id": "Polymer", "name": "Polymer", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 7 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "ProductItemConsumeMaterialNumRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": "Weapon"
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft2_4",
+      "name": "Armor Crafting Optimization Technique 2",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "ProductItemConsumeMaterialNumRate",
+      "required_work": 1500000,
+      "requires": "Handcraft2_3",
+      "materials": [
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 20 },
+        { "id": "Cloth2", "name": "High Quality Cloth", "count": 30 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 15 }
+      ],
+      "effect": {
+        "type": "ProductItemConsumeMaterialNumRate",
+        "value": -10,
+        "work_suitability": null,
+        "item_type": "ArmorBody"
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft2_5",
+      "name": "Pal Gear Crafting Optimization Technique 2",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "ProductItemConsumeMaterialNumRate",
+      "required_work": 2000000,
+      "requires": "Handcraft2_4",
+      "materials": [
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 30 },
+        { "id": "Cloth2", "name": "High Quality Cloth", "count": 35 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "ProductItemConsumeMaterialNumRate",
+        "value": -10,
+        "work_suitability": null,
+        "item_type": "PalGear"
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft2_6",
+      "name": "Weapon Crafting Optimization Technique 2",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "ProductItemConsumeMaterialNumRate",
+      "required_work": 5000000,
+      "requires": "Handcraft2_5",
+      "materials": [
+        { "id": "Gunpowder2", "name": "Gunpowder", "count": 300 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "ProductItemConsumeMaterialNumRate",
+        "value": -10,
+        "work_suitability": null,
+        "item_type": "Weapon"
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft3",
+      "name": "Handiwork Research Tips 1",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "LabResearchSpeed",
+      "required_work": 200000,
+      "requires": "Handcraft1",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 50 },
+        { "id": "Cement", "name": "Cement", "count": 10 },
+        { "id": "Cloth", "name": "Cloth", "count": 15 },
+        { "id": "MachineParts", "name": "Nail", "count": 10 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Handcraft",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft3_2",
+      "name": "Handiwork Research Tips 2",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "LabResearchSpeed",
+      "required_work": 500000,
+      "requires": "Handcraft3",
+      "materials": [
+        { "id": "Cement", "name": "Cement", "count": 30 },
+        { "id": "Gunpowder2", "name": "Gunpowder", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 3 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Handcraft",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft3_3",
+      "name": "Base Pal Enhancement 1",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "DefenseRateBaseCampWorker",
+      "required_work": 2500000,
+      "requires": "Handcraft3_2",
+      "materials": [
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 30 },
+        { "id": "Cloth2", "name": "High Quality Cloth", "count": 35 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft3_4",
+      "name": "Base Pal Enhancement 2",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 5000000,
+      "requires": "Handcraft3_3",
+      "materials": [
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 50 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft4",
+      "name": "Sphere Duplication Technique 1",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "ProductExtraItemProbability_Sphere",
+      "required_work": 200000,
+      "requires": "Handcraft1_2",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 100 },
+        { "id": "Cement", "name": "Cement", "count": 10 },
+        { "id": "Pal_crystal_S", "name": "Paldium Fragment", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "ProductExtraItemProbability",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": "CaptureBall"
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft4_2",
+      "name": "Ammunition Duplication Technique 1",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "ProductExtraItemProbability_Bullet",
+      "required_work": 500000,
+      "requires": "Handcraft4",
+      "materials": [
+        { "id": "Gunpowder2", "name": "Gunpowder", "count": 30 },
+        { "id": "MachineParts", "name": "Nail", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "ProductExtraItemProbability",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": "Bullet"
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft4_3",
+      "name": "Sphere Duplication Technique 2",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "ProductExtraItemProbability_Sphere",
+      "required_work": 2500000,
+      "requires": "Handcraft4_2",
+      "materials": [
+        { "id": "Pal_crystal_S", "name": "Paldium Fragment", "count": 150 },
+        { "id": "Cement", "name": "Cement", "count": 100 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 15 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 15 }
+      ],
+      "effect": {
+        "type": "ProductExtraItemProbability",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": "CaptureBall"
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft4_4",
+      "name": "Ammunition Duplication Technique 2",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "ProductExtraItemProbability_Bullet",
+      "required_work": 5000000,
+      "requires": "Handcraft4_3",
+      "materials": [
+        { "id": "Gunpowder2", "name": "Gunpowder", "count": 200 },
+        { "id": "MachineParts", "name": "Nail", "count": 150 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "ProductExtraItemProbability",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": "Bullet"
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft1_6",
+      "name": "Handiwork Speed 6",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "CraftSpeed_Handcraft",
+      "required_work": 10000000,
+      "requires": "Handcraft1_5",
+      "materials": [
+        { "id": "Computer", "name": "Computer", "count": 30 },
+        { "id": "Cloth2", "name": "High Quality Cloth", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Handcraft",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Handcraft3_5",
+      "name": "Base Pal Enhancement 3",
+      "work": { "suitability": "Handcraft", "name": "Handiwork" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 10000000,
+      "requires": "Handcraft3_4",
+      "materials": [
+        { "id": "Computer", "name": "Computer", "count": 30 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame1",
+      "name": "Kindling Research 1",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "CraftSpeed_EmitFlame",
+      "required_work": 50000,
+      "requires": null,
+      "materials": [
+        { "id": "Charcoal", "name": "Charcoal", "count": 30 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "EmitFlame",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame1_2",
+      "name": "Kindling Research 2",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "CraftSpeed_EmitFlame",
+      "required_work": 200000,
+      "requires": "EmitFlame1",
+      "materials": [
+        { "id": "Charcoal", "name": "Charcoal", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 15 },
+        { "id": "CopperIngot", "name": "Ingot", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "EmitFlame",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame5",
+      "name": "Flame Cauldron Development",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "TechnologyUnlock",
+      "required_work": 200000,
+      "requires": "EmitFlame1_2",
+      "materials": [
+        { "id": "Charcoal", "name": "Charcoal", "count": 35 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 20 },
+        { "id": "CopperIngot", "name": "Ingot", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": null,
+      "effect_description": "Unlock Technology: Flame Cauldron",
+      "essential": false,
+      "unlocks": ["OlympicCauldron"]
+    },
+    {
+      "id": "EmitFlame1_3",
+      "name": "Kindling Research 3",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "CraftSpeed_EmitFlame",
+      "required_work": 500000,
+      "requires": "EmitFlame5",
+      "materials": [
+        { "id": "IronIngot", "name": "Refined Ingot", "count": 40 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 70 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "EmitFlame",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame1_4",
+      "name": "Kindling Research 4",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "CraftSpeed_EmitFlame",
+      "required_work": 1500000,
+      "requires": "EmitFlame1_3",
+      "materials": [
+        { "id": "StealIngot", "name": "Pal Metal Ingot", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 120 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "EmitFlame",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame1_5",
+      "name": "Kindling Research 5",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "CraftSpeed_EmitFlame",
+      "required_work": 5000000,
+      "requires": "EmitFlame1_4",
+      "materials": [
+        { "id": "Plastic", "name": "Plasteel", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 200 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "EmitFlame",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame2",
+      "name": "Incubation Acceleration 1",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "PalEggHatchingSpeed",
+      "required_work": 200000,
+      "requires": "EmitFlame1",
+      "materials": [
+        { "id": "Charcoal", "name": "Charcoal", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 20 },
+        { "id": "CopperIngot", "name": "Ingot", "count": 15 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "PalEggHatchingSpeed",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame2_2",
+      "name": "Incubation Acceleration 2",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "PalEggHatchingSpeed",
+      "required_work": 500000,
+      "requires": "EmitFlame2",
+      "materials": [
+        { "id": "IronIngot", "name": "Refined Ingot", "count": 30 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 80 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "PalEggHatchingSpeed",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame2_3",
+      "name": "Incubation Acceleration 3",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "PalEggHatchingSpeed",
+      "required_work": 1500000,
+      "requires": "EmitFlame2_2",
+      "materials": [
+        { "id": "StealIngot", "name": "Pal Metal Ingot", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 120 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "PalEggHatchingSpeed",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame2_4",
+      "name": "Incubation Acceleration 4",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "PalEggHatchingSpeed",
+      "required_work": 5000000,
+      "requires": "EmitFlame2_3",
+      "materials": [
+        { "id": "Plastic", "name": "Plasteel", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 200 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "PalEggHatchingSpeed",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame3",
+      "name": "Kindling Research Tips 1",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "LabResearchSpeed",
+      "required_work": 200000,
+      "requires": "EmitFlame1",
+      "materials": [
+        { "id": "Charcoal", "name": "Charcoal", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 10 },
+        { "id": "CopperIngot", "name": "Ingot", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "EmitFlame",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame3_2",
+      "name": "Kindling Research Tips 2",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "LabResearchSpeed",
+      "required_work": 500000,
+      "requires": "EmitFlame3",
+      "materials": [
+        { "id": "Charcoal", "name": "Charcoal", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 80 },
+        { "id": "IronIngot", "name": "Refined Ingot", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "EmitFlame",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame3_3",
+      "name": "Base Pal Enhancement 1",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "DefenseRateBaseCampWorker",
+      "required_work": 2500000,
+      "requires": "EmitFlame3_2",
+      "materials": [
+        { "id": "StealIngot", "name": "Pal Metal Ingot", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 120 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame3_4",
+      "name": "Base Pal Enhancement 2",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 5000000,
+      "requires": "EmitFlame3_3",
+      "materials": [
+        { "id": "Plastic", "name": "Plasteel", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 50 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame4",
+      "name": "Mass Cooking Technique 1",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "ProductExtraItemProbability_Food",
+      "required_work": 200000,
+      "requires": "EmitFlame1_2",
+      "materials": [
+        { "id": "Baked_Berries", "name": "Baked Berries", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 20 },
+        { "id": "CopperIngot", "name": "Ingot", "count": 15 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "ProductExtraItemProbability",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": "Dish"
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame4_2",
+      "name": "Refinement Technique 1",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "ProductExtraItemProbability_Ingot",
+      "required_work": 500000,
+      "requires": "EmitFlame4",
+      "materials": [
+        { "id": "IronIngot", "name": "Refined Ingot", "count": 50 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 80 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "ProductExtraItemProbability",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": "Ingot"
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame4_3",
+      "name": "Mass Cooking Technique 2",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "ProductExtraItemProbability_Food",
+      "required_work": 2500000,
+      "requires": "EmitFlame4_2",
+      "materials": [
+        { "id": "Baked_Berries", "name": "Baked Berries", "count": 200 },
+        { "id": "FireOrgan", "name": "Flame Organ", "count": 120 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "ProductExtraItemProbability",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": "Dish"
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame4_4",
+      "name": "Refinement Technique 2",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "ProductExtraItemProbability_Ingot",
+      "required_work": 5000000,
+      "requires": "EmitFlame4_3",
+      "materials": [
+        { "id": "Plastic", "name": "Plasteel", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 5 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "ProductExtraItemProbability",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": "Ingot"
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame1_6",
+      "name": "Kindling Research 6",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "CraftSpeed_EmitFlame",
+      "required_work": 10000000,
+      "requires": "EmitFlame1_5",
+      "materials": [
+        { "id": "StainlessSteel", "name": "Hexolite", "count": 50 },
+        { "id": "Thermal_Core", "name": "Thermal Core", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "EmitFlame",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "EmitFlame3_5",
+      "name": "Base Pal Enhancement 3",
+      "work": { "suitability": "EmitFlame", "name": "Kindling" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 10000000,
+      "requires": "EmitFlame3_4",
+      "materials": [
+        { "id": "StainlessSteel", "name": "Hexolite", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Watering1",
+      "name": "Watering Research 1",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "CraftSpeed_Watering",
+      "required_work": 50000,
+      "requires": null,
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Watering",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Watering1_2",
+      "name": "Watering Research 2",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "CraftSpeed_Watering",
+      "required_work": 150000,
+      "requires": "Watering1",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 30 },
+        { "id": "PalOil", "name": "High Quality Pal Oil", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Watering",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Watering5",
+      "name": "Fountain Development",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "TechnologyUnlock",
+      "required_work": 150000,
+      "requires": "Watering1_2",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 30 },
+        { "id": "PalOil", "name": "High Quality Pal Oil", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": null,
+      "effect_description": "Unlock Technology: Fountain",
+      "essential": false,
+      "unlocks": ["Fountain"]
+    },
+    {
+      "id": "Watering1_3",
+      "name": "Watering Research 3",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "CraftSpeed_Watering",
+      "required_work": 300000,
+      "requires": "Watering5",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 50 },
+        { "id": "PalOil", "name": "High Quality Pal Oil", "count": 30 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Watering",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Watering1_4",
+      "name": "Watering Research 4",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "CraftSpeed_Watering",
+      "required_work": 750000,
+      "requires": "Watering1_3",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 100 },
+        { "id": "PalOil", "name": "High Quality Pal Oil", "count": 90 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Watering",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Watering1_5",
+      "name": "Watering Research 5",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "CraftSpeed_Watering",
+      "required_work": 1500000,
+      "requires": "Watering1_4",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 200 },
+        { "id": "PalOil", "name": "High Quality Pal Oil", "count": 130 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Watering",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Watering2",
+      "name": "Crop Knowledge 1",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "FarmCropGrowupSpeed",
+      "required_work": 150000,
+      "requires": "Watering1",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 35 },
+        { "id": "Wheat", "name": "Wheat", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "FarmCropGrowupSpeed",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Watering2_2",
+      "name": "Harvest Knowledge 1",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "FarmCropHarvestNumRate",
+      "required_work": 300000,
+      "requires": "Watering2",
+      "materials": [
+        { "id": "Tomato", "name": "Tomato", "count": 50 },
+        { "id": "Lettuce", "name": "Lettuce", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "FarmCropHarvestNumRate",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Watering2_3",
+      "name": "Crop Knowledge 2",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "FarmCropGrowupSpeed",
+      "required_work": 750000,
+      "requires": "Watering2_2",
+      "materials": [
+        { "id": "Potato", "name": "Potato", "count": 100 },
+        { "id": "Carrot", "name": "Carrot", "count": 100 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "FarmCropGrowupSpeed",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Watering2_4",
+      "name": "Harvest Knowledge 2",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "FarmCropHarvestNumRate",
+      "required_work": 1500000,
+      "requires": "Watering2_3",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 200 },
+        { "id": "Onion", "name": "Onion", "count": 130 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "FarmCropHarvestNumRate",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Watering3",
+      "name": "Watering Research Tips 1",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "LabResearchSpeed",
+      "required_work": 200000,
+      "requires": "Watering1",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 25 },
+        { "id": "PalOil", "name": "High Quality Pal Oil", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Watering",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Watering3_2",
+      "name": "Watering Research Tips 2",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "LabResearchSpeed",
+      "required_work": 750000,
+      "requires": "Watering3",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 50 },
+        { "id": "PalOil", "name": "High Quality Pal Oil", "count": 25 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Watering",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Watering3_3",
+      "name": "Base Pal Enhancement 1",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "DefenseRateBaseCampWorker",
+      "required_work": 1000000,
+      "requires": "Watering3_2",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 100 },
+        { "id": "Onion", "name": "Onion", "count": 200 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Watering3_4",
+      "name": "Base Pal Enhancement 2",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 1500000,
+      "requires": "Watering3_3",
+      "materials": [
+        { "id": "PalFluid", "name": "Aquatic Pal Fluids", "count": 200 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 50 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Watering4",
+      "name": "Paldium Crushing Technique 1",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "ProductExtraItemProbability_Ore",
+      "required_work": 500000,
+      "requires": "Watering1_2",
+      "materials": [
+        { "id": "Pal_crystal_S", "name": "Paldium Fragment", "count": 40 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "ProductExtraItemProbability",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": "Ore"
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Watering4_2",
+      "name": "Paldium Crushing Technique 2",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "ProductExtraItemProbability_Ore",
+      "required_work": 1000000,
+      "requires": "Watering4",
+      "materials": [
+        { "id": "Pal_crystal_S", "name": "Paldium Fragment", "count": 150 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 5 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "ProductExtraItemProbability",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": "Ore"
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Watering1_6",
+      "name": "Watering Research 6",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "CraftSpeed_Watering",
+      "required_work": 3000000,
+      "requires": "Watering1_5",
+      "materials": [
+        { "id": "Bio_Coolant", "name": "Cryogenic Coolant", "count": 50 },
+        { "id": "PalOil", "name": "High Quality Pal Oil", "count": 130 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Watering",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Watering3_5",
+      "name": "Base Pal Enhancement 3",
+      "work": { "suitability": "Watering", "name": "Watering" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 3000000,
+      "requires": "Watering3_4",
+      "materials": [
+        { "id": "Bio_Coolant", "name": "Cryogenic Coolant", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding1",
+      "name": "Planting Research 1",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "CraftSpeed_Seeding",
+      "required_work": 50000,
+      "requires": null,
+      "materials": [
+        { "id": "Berries", "name": "Red Berries", "count": 30 },
+        { "id": "Wood", "name": "Wood", "count": 50 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Seeding",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding1_2",
+      "name": "Planting Research 2",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "CraftSpeed_Seeding",
+      "required_work": 150000,
+      "requires": "Seeding1",
+      "materials": [
+        { "id": "Flour", "name": "Flour", "count": 20 },
+        { "id": "PalItem_PlantSlime", "name": "Gumoss Leaf", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Seeding",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding4",
+      "name": "Flower Bed Development",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "TechnologyUnlock",
+      "required_work": 150000,
+      "requires": "Seeding1_2",
+      "materials": [
+        { "id": "Poppy", "name": "Beautiful Flower", "count": 20 },
+        { "id": "Cement", "name": "Cement", "count": 10 },
+        { "id": "PalItem_PlantSlime", "name": "Gumoss Leaf", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": null,
+      "effect_description": "Unlock Technology: Flower Bed",
+      "essential": false,
+      "unlocks": ["FlowerBed"]
+    },
+    {
+      "id": "Seeding5",
+      "name": "Silo Development",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "TechnologyUnlock",
+      "required_work": 200000,
+      "requires": "Seeding4",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 100 },
+        { "id": "Stone", "name": "Stone", "count": 50 },
+        { "id": "Fiber", "name": "Fiber", "count": 50 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": null,
+      "effect_description": "Unlock Technology: Silo",
+      "essential": false,
+      "unlocks": ["Silo"]
+    },
+    {
+      "id": "Seeding1_3",
+      "name": "Planting Research 3",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "CraftSpeed_Seeding",
+      "required_work": 300000,
+      "requires": "Seeding5",
+      "materials": [
+        { "id": "Tomato", "name": "Tomato", "count": 30 },
+        { "id": "Lettuce", "name": "Lettuce", "count": 30 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Seeding",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding1_4",
+      "name": "Planting Research 4",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "CraftSpeed_Seeding",
+      "required_work": 750000,
+      "requires": "Seeding1_3",
+      "materials": [
+        { "id": "Potato", "name": "Potato", "count": 30 },
+        { "id": "Carrot", "name": "Carrot", "count": 30 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Seeding",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding1_5",
+      "name": "Planting Research 5",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "CraftSpeed_Seeding",
+      "required_work": 1500000,
+      "requires": "Seeding1_4",
+      "materials": [
+        { "id": "Onion", "name": "Onion", "count": 100 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 5 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Seeding",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding2",
+      "name": "Crop Knowledge 1",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "FarmCropGrowupSpeed",
+      "required_work": 150000,
+      "requires": "Seeding1",
+      "materials": [
+        { "id": "Berries", "name": "Red Berries", "count": 40 },
+        { "id": "Wood", "name": "Wood", "count": 70 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "FarmCropGrowupSpeed",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding2_2",
+      "name": "Harvest Knowledge 1",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "FarmCropHarvestNumRate",
+      "required_work": 300000,
+      "requires": "Seeding2",
+      "materials": [
+        { "id": "Berries", "name": "Red Berries", "count": 100 },
+        { "id": "PalItem_PlantSlime", "name": "Gumoss Leaf", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "FarmCropHarvestNumRate",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding2_3",
+      "name": "Crop Knowledge 2",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "FarmCropGrowupSpeed",
+      "required_work": 750000,
+      "requires": "Seeding2",
+      "materials": [
+        { "id": "Flour", "name": "Flour", "count": 30 },
+        { "id": "Cement", "name": "Cement", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "FarmCropGrowupSpeed",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding2_4",
+      "name": "Crop Knowledge 3",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "FarmCropGrowupSpeed",
+      "required_work": 1500000,
+      "requires": "Seeding2_3",
+      "materials": [
+        { "id": "Tomato", "name": "Tomato", "count": 50 },
+        { "id": "Lettuce", "name": "Lettuce", "count": 30 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "FarmCropGrowupSpeed",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding2_5",
+      "name": "Harvest Knowledge 2",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "FarmCropHarvestNumRate",
+      "required_work": 750000,
+      "requires": "Seeding2_2",
+      "materials": [
+        { "id": "Potato", "name": "Potato", "count": 30 },
+        { "id": "Carrot", "name": "Carrot", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "FarmCropHarvestNumRate",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding2_6",
+      "name": "Harvest Knowledge 3",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "FarmCropHarvestNumRate",
+      "required_work": 1500000,
+      "requires": "Seeding2_5",
+      "materials": [
+        { "id": "Onion", "name": "Onion", "count": 200 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 5 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "FarmCropHarvestNumRate",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding3",
+      "name": "Planting Research Tips 1",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "LabResearchSpeed",
+      "required_work": 150000,
+      "requires": "Seeding1",
+      "materials": [
+        { "id": "Berries", "name": "Red Berries", "count": 40 },
+        { "id": "Wood", "name": "Wood", "count": 50 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Seeding",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding3_2",
+      "name": "Planting Research Tips 2",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "LabResearchSpeed",
+      "required_work": 300000,
+      "requires": "Seeding3",
+      "materials": [
+        { "id": "Flour", "name": "Flour", "count": 30 },
+        { "id": "PalItem_PlantSlime", "name": "Gumoss Leaf", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Seeding",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding3_3",
+      "name": "Base Pal Enhancement 1",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "DefenseRateBaseCampWorker",
+      "required_work": 1000000,
+      "requires": "Seeding3_2",
+      "materials": [
+        { "id": "Tomato", "name": "Tomato", "count": 100 },
+        { "id": "Lettuce", "name": "Lettuce", "count": 100 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding3_4",
+      "name": "Base Pal Enhancement 2",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 1500000,
+      "requires": "Seeding3_3",
+      "materials": [
+        { "id": "Onion", "name": "Onion", "count": 300 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 50 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding1_6",
+      "name": "Planting Research 6",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "CraftSpeed_Seeding",
+      "required_work": 3000000,
+      "requires": "Seeding1_5",
+      "materials": [
+        { "id": "Onion", "name": "Onion", "count": 150 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 5 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Seeding",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Seeding3_5",
+      "name": "Base Pal Enhancement 3",
+      "work": { "suitability": "Seeding", "name": "Planting" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 3000000,
+      "requires": "Seeding3_4",
+      "materials": [
+        { "id": "Carrot", "name": "Carrot", "count": 300 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy1",
+      "name": "Generating Electricity Research 1",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "CraftSpeed_GenerateElectricity",
+      "required_work": 150000,
+      "requires": null,
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 30 },
+        { "id": "CopperIngot", "name": "Ingot", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "GenerateElectricity",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy1_2",
+      "name": "Generating Electricity Research 2",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "CraftSpeed_GenerateElectricity",
+      "required_work": 200000,
+      "requires": "GenerateEnergy1",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 50 },
+        { "id": "PalItem_RaijinDaughter", "name": "Dazzi Cloud", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "GenerateElectricity",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy1_3",
+      "name": "Generating Electricity Research 3",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "CraftSpeed_GenerateElectricity",
+      "required_work": 1000000,
+      "requires": "GenerateEnergy1_2",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 80 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "GenerateElectricity",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy5",
+      "name": "Electric Pylon Development",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "TechnologyUnlock",
+      "required_work": 500000,
+      "requires": "GenerateEnergy1_3",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 30 },
+        { "id": "IronIngot", "name": "Refined Ingot", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": null,
+      "effect_description": "Unlock Technology: Electric Pylon",
+      "essential": false,
+      "unlocks": ["TransmissionTower"]
+    },
+    {
+      "id": "GenerateEnergy1_4",
+      "name": "Generating Electricity Research 4",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "CraftSpeed_GenerateElectricity",
+      "required_work": 2000000,
+      "requires": "GenerateEnergy5",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 120 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "GenerateElectricity",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy1_5",
+      "name": "Generating Electricity Research 5",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "CraftSpeed_GenerateElectricity",
+      "required_work": 5000000,
+      "requires": "GenerateEnergy1_4",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 200 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "GenerateElectricity",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy2",
+      "name": "Power Storage Solutions 1",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "EnergyStorageRate",
+      "required_work": 500000,
+      "requires": "GenerateEnergy1",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 50 },
+        { "id": "PalItem_RaijinDaughter", "name": "Dazzi Cloud", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "EnergyStorageRate",
+        "value": 20,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy2_2",
+      "name": "Power Storage Solutions 2",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "EnergyStorageRate",
+      "required_work": 1000000,
+      "requires": "GenerateEnergy2",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 80 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "EnergyStorageRate",
+        "value": 20,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy2_3",
+      "name": "Power Storage Solutions 3",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "EnergyStorageRate",
+      "required_work": 2000000,
+      "requires": "GenerateEnergy2_2",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 120 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "EnergyStorageRate",
+        "value": 30,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy3",
+      "name": "Generating Electricity Research Tips 1",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "LabResearchSpeed",
+      "required_work": 500000,
+      "requires": "GenerateEnergy1",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 50 },
+        { "id": "PalItem_RaijinDaughter", "name": "Dazzi Cloud", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "GenerateElectricity",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy3_2",
+      "name": "Generating Electricity Research Tips 2",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "LabResearchSpeed",
+      "required_work": 1000000,
+      "requires": "GenerateEnergy3",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 80 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "GenerateElectricity",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy3_3",
+      "name": "Base Pal Enhancement 1",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "DefenseRateBaseCampWorker",
+      "required_work": 3000000,
+      "requires": "GenerateEnergy3_2",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 120 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy3_4",
+      "name": "Base Pal Enhancement 2",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 5000000,
+      "requires": "GenerateEnergy3_3",
+      "materials": [
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 50 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy4",
+      "name": "Power Saving Mastery 1",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "ConsumeEnergyRate",
+      "required_work": 1000000,
+      "requires": "GenerateEnergy1_2",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 80 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "ConsumeEnergyRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy4_2",
+      "name": "Power Saving Mastery 2",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "ConsumeEnergyRate",
+      "required_work": 2000000,
+      "requires": "GenerateEnergy4",
+      "materials": [
+        { "id": "ElectricOrgan", "name": "Electric Organ", "count": 120 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "ConsumeEnergyRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy4_3",
+      "name": "Power Saving Mastery 3",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "ConsumeEnergyRate",
+      "required_work": 5000000,
+      "requires": "GenerateEnergy4_2",
+      "materials": [
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 5 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "ConsumeEnergyRate",
+        "value": -10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy1_6",
+      "name": "Generating Electricity Research 6",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "CraftSpeed_GenerateElectricity",
+      "required_work": 10000000,
+      "requires": "GenerateEnergy1_5",
+      "materials": [
+        { "id": "Bio_Battery", "name": "Bio Battery", "count": 50 },
+        { "id": "MachineParts2", "name": "Circuit Board", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "GenerateElectricity",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "GenerateEnergy3_5",
+      "name": "Base Pal Enhancement 3",
+      "work": { "suitability": "GenerateElectricity", "name": "Generating Electricity" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 10000000,
+      "requires": "GenerateEnergy3_4",
+      "materials": [
+        { "id": "Bio_Battery", "name": "Bio Battery", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest1",
+      "name": "Lumbering Research 1",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "CraftSpeed_Deforest",
+      "required_work": 50000,
+      "requires": null,
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 50 },
+        { "id": "Mushroom", "name": "Mushroom", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Deforest",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest1_2",
+      "name": "Lumbering Research 2",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "CraftSpeed_Deforest",
+      "required_work": 150000,
+      "requires": "Deforest1",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 150 },
+        { "id": "Mushroom", "name": "Mushroom", "count": 30 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Deforest",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest4",
+      "name": "Stump and Axe Development",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "TechnologyUnlock",
+      "required_work": 150000,
+      "requires": "Deforest1_2",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 50 },
+        { "id": "CopperIngot", "name": "Ingot", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": null,
+      "effect_description": "Unlock Technology: Stump and Axe",
+      "essential": false,
+      "unlocks": ["Stump"]
+    },
+    {
+      "id": "Deforest1_3",
+      "name": "Lumbering Research 3",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "CraftSpeed_Deforest",
+      "required_work": 300000,
+      "requires": "Deforest4",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 400 },
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 30 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Deforest",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest1_4",
+      "name": "Lumbering Research 4",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "CraftSpeed_Deforest",
+      "required_work": 750000,
+      "requires": "Deforest1_3",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 900 },
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 100 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Deforest",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest1_5",
+      "name": "Lumbering Research 5",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "CraftSpeed_Deforest",
+      "required_work": 1500000,
+      "requires": "Deforest1_4",
+      "materials": [
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 300 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Deforest",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest2",
+      "name": "Time-Saving Expedition 1",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "ExpeditionTimeCostRate",
+      "required_work": 150000,
+      "requires": "Deforest1",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 150 },
+        { "id": "Mushroom", "name": "Mushroom", "count": 30 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "ExpeditionTimeCostRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest2_2",
+      "name": "Mastery of Expeditions 1",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "ExpeditionRewardRate",
+      "required_work": 300000,
+      "requires": "Deforest2",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 300 },
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "ExpeditionRewardRate",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest2_3",
+      "name": "Time-Saving Expedition 2",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "ExpeditionTimeCostRate",
+      "required_work": 300000,
+      "requires": "Deforest2",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 400 },
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 30 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "ExpeditionTimeCostRate",
+        "value": -10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest2_4",
+      "name": "Mastery of Expeditions 2",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "ExpeditionRewardRate",
+      "required_work": 750000,
+      "requires": "Deforest2_2",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 600 },
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 7 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 15 }
+      ],
+      "effect": {
+        "type": "ExpeditionRewardRate",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest2_5",
+      "name": "Time-Saving Expedition 3",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "ExpeditionTimeCostRate",
+      "required_work": 1000000,
+      "requires": "Deforest2_3",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 800 },
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 80 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "ExpeditionTimeCostRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest2_6",
+      "name": "Mastery of Expeditions 3",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "ExpeditionRewardRate",
+      "required_work": 1500000,
+      "requires": "Deforest2_4",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 800 },
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 80 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "ExpeditionRewardRate",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest3",
+      "name": "Lumbering Research Tips 1",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "LabResearchSpeed",
+      "required_work": 150000,
+      "requires": "Deforest1",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 150 },
+        { "id": "Mushroom", "name": "Mushroom", "count": 25 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Deforest",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest3_2",
+      "name": "Lumbering Research Tips 2",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "LabResearchSpeed",
+      "required_work": 300000,
+      "requires": "Deforest3",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 300 },
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 30 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Deforest",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest3_3",
+      "name": "Base Pal Enhancement 1",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "DefenseRateBaseCampWorker",
+      "required_work": 1000000,
+      "requires": "Deforest3_2",
+      "materials": [
+        { "id": "Wood", "name": "Wood", "count": 800 },
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 80 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest3_4",
+      "name": "Base Pal Enhancement 2",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 1500000,
+      "requires": "Deforest3_3",
+      "materials": [
+        { "id": "CarbonFiber", "name": "Carbon Fiber", "count": 300 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 50 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest1_6",
+      "name": "Lumbering Research 6",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "CraftSpeed_Deforest",
+      "required_work": 3000000,
+      "requires": "Deforest1_5",
+      "materials": [
+        { "id": "Wood_Fine", "name": "Hardwood", "count": 500 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Deforest",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Deforest3_5",
+      "name": "Base Pal Enhancement 3",
+      "work": { "suitability": "Deforest", "name": "Lumbering" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 3000000,
+      "requires": "Deforest3_4",
+      "materials": [
+        { "id": "Wood_Fine", "name": "Hardwood", "count": 500 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Mining1",
+      "name": "Mining Research 1",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "CraftSpeed_Mining",
+      "required_work": 50000,
+      "requires": null,
+      "materials": [
+        { "id": "Stone", "name": "Stone", "count": 50 },
+        { "id": "CopperOre", "name": "Ore", "count": 30 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Mining",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Mining1_2",
+      "name": "Mining Research 2",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "CraftSpeed_Mining",
+      "required_work": 150000,
+      "requires": "Mining1",
+      "materials": [
+        { "id": "Stone", "name": "Stone", "count": 150 },
+        { "id": "CopperOre", "name": "Ore", "count": 50 },
+        { "id": "Coal", "name": "Coal", "count": 20 },
+        { "id": "Sulfur", "name": "Sulfur", "count": 20 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Mining",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining5",
+      "name": "Mining Cart Development",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "TechnologyUnlock",
+      "required_work": 150000,
+      "requires": "Mining1_2",
+      "materials": [
+        { "id": "Stone", "name": "Stone", "count": 100 },
+        { "id": "CopperOre", "name": "Ore", "count": 40 },
+        { "id": "Coal", "name": "Coal", "count": 25 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": null,
+      "effect_description": "Unlock Technology: Mining Cart",
+      "essential": false,
+      "unlocks": ["MiningTool"]
+    },
+    {
+      "id": "Mining1_3",
+      "name": "Mining Research 3",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "CraftSpeed_Mining",
+      "required_work": 300000,
+      "requires": "Mining5",
+      "materials": [
+        { "id": "Stone", "name": "Stone", "count": 400 },
+        { "id": "IronIngot", "name": "Refined Ingot", "count": 35 },
+        { "id": "Sulfur", "name": "Sulfur", "count": 110 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Mining",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining1_4",
+      "name": "Mining Research 4",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "CraftSpeed_Mining",
+      "required_work": 750000,
+      "requires": "Mining1_3",
+      "materials": [
+        { "id": "StealIngot", "name": "Pal Metal Ingot", "count": 50 },
+        { "id": "Sulfur", "name": "Sulfur", "count": 150 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "Mining",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining1_5",
+      "name": "Mining Research 5",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "CraftSpeed_Mining",
+      "required_work": 1500000,
+      "requires": "Mining1_4",
+      "materials": [
+        { "id": "Plastic", "name": "Plasteel", "count": 50 },
+        { "id": "Quartz", "name": "Pure Quartz", "count": 200 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Mining",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Mining2",
+      "name": "Time-Saving Expedition 1",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "ExpeditionTimeCostRate",
+      "required_work": 150000,
+      "requires": "Mining1",
+      "materials": [
+        { "id": "Stone", "name": "Stone", "count": 150 },
+        { "id": "CopperOre", "name": "Ore", "count": 60 },
+        { "id": "Coal", "name": "Coal", "count": 30 },
+        { "id": "Sulfur", "name": "Sulfur", "count": 30 }
+      ],
+      "effect": {
+        "type": "ExpeditionTimeCostRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining2_2",
+      "name": "Mastery of Expeditions 1",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "ExpeditionRewardRate",
+      "required_work": 300000,
+      "requires": "Mining2",
+      "materials": [
+        { "id": "Stone", "name": "Stone", "count": 300 },
+        { "id": "Coal", "name": "Coal", "count": 60 },
+        { "id": "Sulfur", "name": "Sulfur", "count": 60 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "ExpeditionRewardRate",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining2_3",
+      "name": "Time-Saving Expedition 2",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "ExpeditionTimeCostRate",
+      "required_work": 750000,
+      "requires": "Mining2_2",
+      "materials": [
+        { "id": "IronIngot", "name": "Refined Ingot", "count": 50 },
+        { "id": "Sulfur", "name": "Sulfur", "count": 150 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "ExpeditionTimeCostRate",
+        "value": -10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Mining2_4",
+      "name": "Mastery of Expeditions 2",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "ExpeditionRewardRate",
+      "required_work": 1000000,
+      "requires": "Mining2_3",
+      "materials": [
+        { "id": "StealIngot", "name": "Pal Metal Ingot", "count": 50 },
+        { "id": "Quartz", "name": "Pure Quartz", "count": 150 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "ExpeditionRewardRate",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Mining3",
+      "name": "Mining Research Tips 1",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "LabResearchSpeed",
+      "required_work": 150000,
+      "requires": "Mining1",
+      "materials": [
+        { "id": "Stone", "name": "Stone", "count": 120 },
+        { "id": "CopperOre", "name": "Ore", "count": 40 },
+        { "id": "Coal", "name": "Coal", "count": 20 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Mining",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining3_2",
+      "name": "Mining Research Tips 2",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "LabResearchSpeed",
+      "required_work": 300000,
+      "requires": "Mining3",
+      "materials": [
+        { "id": "Stone", "name": "Stone", "count": 400 },
+        { "id": "IronIngot", "name": "Refined Ingot", "count": 30 },
+        { "id": "Sulfur", "name": "Sulfur", "count": 100 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Mining",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining3_3",
+      "name": "Base Pal Enhancement 1",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "DefenseRateBaseCampWorker",
+      "required_work": 1000000,
+      "requires": "Mining3_2",
+      "materials": [
+        { "id": "StealIngot", "name": "Pal Metal Ingot", "count": 50 },
+        { "id": "Quartz", "name": "Pure Quartz", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining3_4",
+      "name": "Base Pal Enhancement 2",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 1500000,
+      "requires": "Mining3_3",
+      "materials": [
+        { "id": "Plastic", "name": "Plasteel", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining4",
+      "name": "Crude Oil Extraction Efficiency 1",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "OilExtractionSpeedRate",
+      "required_work": 750000,
+      "requires": "Mining1_3",
+      "materials": [
+        { "id": "StealIngot", "name": "Pal Metal Ingot", "count": 50 },
+        { "id": "Sulfur", "name": "Sulfur", "count": 200 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "OilExtractionSpeedRate",
+        "value": 20,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining4_2",
+      "name": "Crude Oil Extraction Efficiency 2",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "OilExtractionSpeedRate",
+      "required_work": 1000000,
+      "requires": "Mining4",
+      "materials": [
+        { "id": "StealIngot", "name": "Pal Metal Ingot", "count": 100 },
+        { "id": "Quartz", "name": "Pure Quartz", "count": 100 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 15 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 25 }
+      ],
+      "effect": {
+        "type": "OilExtractionSpeedRate",
+        "value": 30,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Mining4_3",
+      "name": "Crude Oil Extraction Efficiency 3",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "OilExtractionSpeedRate",
+      "required_work": 1500000,
+      "requires": "Mining4_2",
+      "materials": [
+        { "id": "Plastic", "name": "Plasteel", "count": 30 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 5 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "OilExtractionSpeedRate",
+        "value": 40,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Mining1_6",
+      "name": "Mining Research 6",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "CraftSpeed_Mining",
+      "required_work": 3000000,
+      "requires": "Mining1_5",
+      "materials": [
+        { "id": "StainlessSteel", "name": "Hexolite", "count": 50 },
+        { "id": "RainbowCrystal", "name": "Hexolite Quartz", "count": 100 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Mining",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Mining3_5",
+      "name": "Base Pal Enhancement 3",
+      "work": { "suitability": "Mining", "name": "Mining" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 3000000,
+      "requires": "Mining3_4",
+      "materials": [
+        { "id": "StainlessSteel", "name": "Hexolite", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Cool1",
+      "name": "Cooling Storage 1",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "ItemCorruptionSpeedRate",
+      "required_work": 5000,
+      "requires": null,
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 30 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "ItemCorruptionSpeedRate",
+        "value": -10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Cool1_2",
+      "name": "Cooling Research 1",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "CraftSpeed_Cool",
+      "required_work": 15000,
+      "requires": "Cool1",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 50 },
+        { "id": "PalItem_MopBaby", "name": "Swee Hair", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Cool",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Cool5",
+      "name": "Snowman Development",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "TechnologyUnlock",
+      "required_work": 15000,
+      "requires": "Cool1_2",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 40 },
+        { "id": "Wood", "name": "Wood", "count": 30 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": null,
+      "effect_description": "Technology Unlock: Snowman",
+      "essential": true,
+      "unlocks": ["Snowman"]
+    },
+    {
+      "id": "Cool1_3",
+      "name": "Cooling Research 2",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "CraftSpeed_Cool",
+      "required_work": 30000,
+      "requires": "Cool5",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 80 },
+        { "id": "Quartz", "name": "Pure Quartz", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": { "type": "CraftSpeed", "value": 5, "work_suitability": "Cool", "item_type": null },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Cool1_4",
+      "name": "Cooling Research 3",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "CraftSpeed_Cool",
+      "required_work": 75000,
+      "requires": "Cool1_3",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 120 },
+        { "id": "PalItem_MopBaby", "name": "Swee Hair", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": { "type": "CraftSpeed", "value": 5, "work_suitability": "Cool", "item_type": null },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Cool1_5",
+      "name": "Cooling Research 4",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "CraftSpeed_Cool",
+      "required_work": 150000,
+      "requires": "Cool1_4",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 200 },
+        { "id": "Quartz", "name": "Pure Quartz", "count": 150 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Cool",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Cool2",
+      "name": "Incubation Acceleration 1",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "PalEggHatchingSpeed",
+      "required_work": 15000,
+      "requires": "Cool1",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 50 },
+        { "id": "PalItem_MopBaby", "name": "Swee Hair", "count": 5 },
+        { "id": "CopperIngot", "name": "Ingot", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "PalEggHatchingSpeed",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Cool2_2",
+      "name": "Incubation Acceleration 2",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "PalEggHatchingSpeed",
+      "required_work": 30000,
+      "requires": "Cool2",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 80 },
+        { "id": "Quartz", "name": "Pure Quartz", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "PalEggHatchingSpeed",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Cool2_3",
+      "name": "Incubation Acceleration 3",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "PalEggHatchingSpeed",
+      "required_work": 75000,
+      "requires": "Cool2_2",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 120 },
+        { "id": "PalItem_MopBaby", "name": "Swee Hair", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "PalEggHatchingSpeed",
+        "value": 5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Cool2_4",
+      "name": "Incubation Acceleration 4",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "PalEggHatchingSpeed",
+      "required_work": 150000,
+      "requires": "Cool2_3",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 200 },
+        { "id": "Quartz", "name": "Pure Quartz", "count": 150 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "PalEggHatchingSpeed",
+        "value": 10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Cool3",
+      "name": "Cooling Research Tips 1",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "LabResearchSpeed",
+      "required_work": 15000,
+      "requires": "Cool1",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 50 },
+        { "id": "PalItem_MopBaby", "name": "Swee Hair", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Cool",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Cool3_2",
+      "name": "Cooling Research Tips 2",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "LabResearchSpeed",
+      "required_work": 30000,
+      "requires": "Cool3",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 80 },
+        { "id": "Quartz", "name": "Pure Quartz", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "Cool",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Cool3_3",
+      "name": "Pals at Base Enhancement 1",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "DefenseRateBaseCampWorker",
+      "required_work": 100000,
+      "requires": "Cool3_2",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 120 },
+        { "id": "PalItem_MopBaby", "name": "Swee Hair", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Cool3_4",
+      "name": "Pals at Base Enhancement 2",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 150000,
+      "requires": "Cool3_3",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 200 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 50 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Cool4",
+      "name": "Cooling Storage 2",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "ItemCorruptionSpeedRate",
+      "required_work": 15000,
+      "requires": "Cool1_2",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 50 },
+        { "id": "PalItem_MopBaby", "name": "Swee Hair", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "ItemCorruptionSpeedRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Cool4_2",
+      "name": "Cooling Storage 3",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "ItemCorruptionSpeedRate",
+      "required_work": 30000,
+      "requires": "Cool4",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 80 },
+        { "id": "Quartz", "name": "Pure Quartz", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 5 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "ItemCorruptionSpeedRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Cool4_3",
+      "name": "Cooling Storage 4",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "ItemCorruptionSpeedRate",
+      "required_work": 75000,
+      "requires": "Cool4_2",
+      "materials": [
+        { "id": "IceOrgan", "name": "Ice Organ", "count": 120 },
+        { "id": "PalItem_MopBaby", "name": "Swee Hair", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "ItemCorruptionSpeedRate",
+        "value": -10,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Cool1_6",
+      "name": "Cooling Research 5",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "CraftSpeed_Cool",
+      "required_work": 300000,
+      "requires": "Cool1_5",
+      "materials": [
+        { "id": "Bio_Coolant", "name": "Cryogenic Coolant", "count": 50 },
+        { "id": "RainbowCrystal", "name": "Hexolite Quartz", "count": 100 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "Cool",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Cool3_5",
+      "name": "Pals at Base Enhancement 3",
+      "work": { "suitability": "Cool", "name": "Cooling" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 300000,
+      "requires": "Cool3_4",
+      "materials": [
+        { "id": "Bio_Coolant", "name": "Cryogenic Coolant", "count": 50 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine1",
+      "name": "Medicine Production Research 1",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "CraftSpeed_ProductMedicine",
+      "required_work": 50000,
+      "requires": null,
+      "materials": [
+        { "id": "Poppy", "name": "Beautiful Flower", "count": 10 },
+        { "id": "CaveMushroom", "name": "Cavern Mushroom", "count": 10 },
+        { "id": "Herbs", "name": "Low Grade Medical Supplies", "count": 5 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "ProductMedicine",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine1_2",
+      "name": "Medicine Production Research 2",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "CraftSpeed_ProductMedicine",
+      "required_work": 200000,
+      "requires": "Medicine1",
+      "materials": [
+        { "id": "Poppy", "name": "Beautiful Flower", "count": 20 },
+        { "id": "CaveMushroom", "name": "Cavern Mushroom", "count": 20 },
+        { "id": "Medicines", "name": "Medical Supplies", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "ProductMedicine",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine4",
+      "name": "Witch's Cauldron Development",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "TechnologyUnlock",
+      "required_work": 200000,
+      "requires": "Medicine1_2",
+      "materials": [
+        { "id": "Poppy", "name": "Beautiful Flower", "count": 15 },
+        { "id": "CaveMushroom", "name": "Cavern Mushroom", "count": 15 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": null,
+      "effect_description": "Technology Unlock: Witch's Cauldron",
+      "essential": false,
+      "unlocks": ["Cauldron"]
+    },
+    {
+      "id": "Medicine1_3",
+      "name": "Medicine Production Research 3",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "CraftSpeed_ProductMedicine",
+      "required_work": 500000,
+      "requires": "Medicine4",
+      "materials": [
+        { "id": "Poppy", "name": "Beautiful Flower", "count": 30 },
+        { "id": "PoisonMushroom", "name": "Mysterious Mushroom", "count": 20 },
+        { "id": "LuxuryMedicines", "name": "High Grade Medical Supplies", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 10 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "ProductMedicine",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine1_4",
+      "name": "Medicine Production Research 4",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "CraftSpeed_ProductMedicine",
+      "required_work": 1500000,
+      "requires": "Medicine1_3",
+      "materials": [
+        { "id": "Potion", "name": "Recovery Meds", "count": 20 },
+        { "id": "LuxuryMedicines", "name": "High Grade Medical Supplies", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 5,
+        "work_suitability": "ProductMedicine",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine1_5",
+      "name": "Medicine Production Research 5",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "CraftSpeed_ProductMedicine",
+      "required_work": 5000000,
+      "requires": "Medicine1_4",
+      "materials": [
+        { "id": "Potion_High", "name": "High Quality Recovery Meds", "count": 20 },
+        { "id": "LuxuryMedicines", "name": "High Grade Medical Supplies", "count": 40 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "ProductMedicine",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine2",
+      "name": "Medicine Production Research Tips 1",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "CraftSpeed_ProductMedicine",
+      "required_work": 200000,
+      "requires": "Medicine1",
+      "materials": [
+        { "id": "Poppy", "name": "Beautiful Flower", "count": 20 },
+        { "id": "CaveMushroom", "name": "Cavern Mushroom", "count": 20 },
+        { "id": "Medicines", "name": "Medical Supplies", "count": 10 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "ProductMedicine",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine2_2",
+      "name": "Medicine Production Research Tips 2",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "CraftSpeed_ProductMedicine",
+      "required_work": 500000,
+      "requires": "Medicine2",
+      "materials": [
+        { "id": "Poppy", "name": "Beautiful Flower", "count": 30 },
+        { "id": "PoisonMushroom", "name": "Mysterious Mushroom", "count": 20 },
+        { "id": "LuxuryMedicines", "name": "High Grade Medical Supplies", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 5 }
+      ],
+      "effect": {
+        "type": "LabResearchSpeed",
+        "value": 10,
+        "work_suitability": "ProductMedicine",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine2_3",
+      "name": "Pals at Base Enhancement 1",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "DefenseRateBaseCampWorker",
+      "required_work": 1500000,
+      "requires": "Medicine2_2",
+      "materials": [
+        { "id": "Potion", "name": "Recovery Meds", "count": 30 },
+        { "id": "LuxuryMedicines", "name": "High Grade Medical Supplies", "count": 30 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 30 }
+      ],
+      "effect": {
+        "type": "DefenseRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine2_4",
+      "name": "Pals at Base Enhancement 2",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 5000000,
+      "requires": "Medicine2_3",
+      "materials": [
+        { "id": "Potion_High", "name": "High Quality Recovery Meds", "count": 30 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 50 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine3",
+      "name": "Pharmaceutical Cost-Saving Technique 1",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "ProductItemConsumeMaterialNumRate",
+      "required_work": 500000,
+      "requires": "Medicine1_2",
+      "materials": [
+        { "id": "Poppy", "name": "Beautiful Flower", "count": 30 },
+        { "id": "PoisonMushroom", "name": "Mysterious Mushroom", "count": 20 },
+        { "id": "LuxuryMedicines", "name": "High Grade Medical Supplies", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 7 }
+      ],
+      "effect": {
+        "type": "ProductItemConsumeMaterialNumRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": "Medicine"
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine3_2",
+      "name": "Pharmaceutical Cost-Saving Technique 2",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "ProductItemConsumeMaterialNumRate",
+      "required_work": 1500000,
+      "requires": "Medicine3",
+      "materials": [
+        { "id": "Potion", "name": "Recovery Meds", "count": 20 },
+        { "id": "LuxuryMedicines", "name": "High Grade Medical Supplies", "count": 20 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 10 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 20 }
+      ],
+      "effect": {
+        "type": "ProductItemConsumeMaterialNumRate",
+        "value": -5,
+        "work_suitability": null,
+        "item_type": "Medicine"
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine3_3",
+      "name": "Pharmaceutical Cost-Saving Technique 3",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "ProductItemConsumeMaterialNumRate",
+      "required_work": 5000000,
+      "requires": "Medicine3_2",
+      "materials": [
+        { "id": "Potion_High", "name": "High Quality Recovery Meds", "count": 30 },
+        { "id": "LuxuryMedicines", "name": "High Grade Medical Supplies", "count": 50 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 35 }
+      ],
+      "effect": {
+        "type": "ProductItemConsumeMaterialNumRate",
+        "value": -10,
+        "work_suitability": null,
+        "item_type": "Medicine"
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine1_6",
+      "name": "Medicine Production Research 6",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "CraftSpeed_ProductMedicine",
+      "required_work": 10000000,
+      "requires": "Medicine1_5",
+      "materials": [
+        { "id": "Corrosive_Solvent", "name": "Corrosive Solvent", "count": 100 },
+        { "id": "LuxuryMedicines", "name": "High Grade Medical Supplies", "count": 60 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "CraftSpeed",
+        "value": 10,
+        "work_suitability": "ProductMedicine",
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": true,
+      "unlocks": []
+    },
+    {
+      "id": "Medicine2_5",
+      "name": "Pals at Base Enhancement 3",
+      "work": { "suitability": "ProductMedicine", "name": "Medicine Production" },
+      "kind": "AttackRateBaseCampWorker",
+      "required_work": 10000000,
+      "requires": "Medicine2_4",
+      "materials": [
+        { "id": "Corrosive_Solvent", "name": "Corrosive Solvent", "count": 100 },
+        { "id": "AncientParts2", "name": "Ancient Civilization Core", "count": 10 },
+        { "id": "PalCrystal_Ex", "name": "Ancient Civilization Parts", "count": 20 },
+        { "id": "AncientParts3", "name": "Ancient Pal Manuscript", "count": 70 }
+      ],
+      "effect": {
+        "type": "AttackRateBaseCampWorker",
+        "value": 2,
+        "work_suitability": null,
+        "item_type": null
+      },
+      "effect_description": null,
+      "essential": false,
+      "unlocks": []
+    }
+  ]
+}
