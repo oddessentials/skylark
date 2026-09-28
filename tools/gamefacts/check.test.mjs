@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { displayAt, mapAt } from './lib/facts/coordinates.mjs';
+import { GRID, WAYS, encodeRanges } from './lib/facts/habitats.mjs';
 import { pointInPolygon } from './lib/geometry.mjs';
 
 const GAME_VERSION = '1.0.5.102999';
@@ -12,7 +13,8 @@ const FILES = [
   'regions.json',
   'landmarks.json',
   'bosses.json',
-  'names.json'
+  'names.json',
+  'habitats.json'
 ];
 const worldDirectory = new URL('../../web/src/lib/world/', import.meta.url);
 const world = Object.fromEntries(
@@ -24,6 +26,15 @@ const regions = world['regions.json'];
 const landmarks = world['landmarks.json'];
 const bosses = world['bosses.json'];
 const names = world['names.json'];
+const habitats = world['habitats.json'];
+
+function decodeRanges(text) {
+  if (text === '') return [];
+  return text.split(',').flatMap((part) => {
+    const [from, to = from] = part.split('-').map(Number);
+    return Array.from({ length: to - from + 1 }, (_, index) => from + index);
+  });
+}
 
 function regionAt(x, y) {
   let best = null;
@@ -284,5 +295,88 @@ test('technologies, buildable structures and human characters carry English name
   assert.ok(human.get('Hunter_Rifle'));
   for (const entry of [...names.technologies, ...names.structures, ...names.humans]) {
     assert.doesNotMatch(entry.name, /[<>|]|^en Text$/, entry.id);
+  }
+});
+
+test('habitat cells round-trip through the range encoding', () => {
+  assert.equal(encodeRanges([]), '');
+  assert.equal(encodeRanges([5, 3, 4, 9, 4]), '3-5,9');
+  assert.deepEqual(decodeRanges('3-5,9'), [3, 4, 5, 9]);
+});
+
+test('every Palpedia entry has a habitat record in Palpedia order', () => {
+  assert.equal(habitats.grid, GRID);
+  assert.deepEqual(habitats.ways, WAYS);
+  assert.deepEqual(
+    habitats.species.map((entry) => entry.id),
+    pals.pals.map((entry) => entry.id)
+  );
+  const ranges = /^(\d+(-\d+)?)(,\d+(-\d+)?)*$/;
+  for (const entry of habitats.species) {
+    for (const way of entry.ways) assert.ok(WAYS.includes(way), `${entry.id} ${way}`);
+    assert.ok(!(entry.ways.includes('wild') && entry.ways.includes('alpha')), entry.id);
+    if (entry.levels) assert.ok(entry.levels[0] >= 1 && entry.levels[1] >= entry.levels[0]);
+    for (const [mapId, cells] of Object.entries(entry.maps)) {
+      assert.ok(
+        map.maps.some((rect) => rect.id === mapId),
+        `${entry.id} ${mapId}`
+      );
+      const seen = new Set();
+      for (const period of ['both', 'day', 'night']) {
+        assert.ok(cells[period] === '' || ranges.test(cells[period]), `${entry.id} ${period}`);
+        for (const cell of decodeRanges(cells[period])) {
+          assert.ok(cell >= 0 && cell < GRID * GRID, `${entry.id} cell ${cell}`);
+          assert.ok(!seen.has(cell), `${entry.id} cell ${cell} in two periods`);
+          seen.add(cell);
+        }
+      }
+      assert.ok(seen.size > 0, `${entry.id} ${mapId} has no cells`);
+    }
+    if (entry.ways.includes('wild') || entry.ways.includes('alpha')) {
+      assert.ok(Object.keys(entry.maps).length > 0, `${entry.id} has no map`);
+    } else {
+      assert.deepEqual(entry.maps, {}, entry.id);
+    }
+  }
+});
+
+test('habitats match the counts read from the game', () => {
+  const counts = {};
+  for (const entry of habitats.species) {
+    for (const way of entry.ways) counts[way] = (counts[way] ?? 0) + 1;
+  }
+  assert.deepEqual(counts, {
+    wild: 258,
+    alpha: 16,
+    boss: 89,
+    egg: 237,
+    fished: 40,
+    caged: 86,
+    raid: 5,
+    bred: 81
+  });
+  const nightOnly = habitats.species.filter((entry) => {
+    const maps = Object.values(entry.maps);
+    return maps.length > 0 && maps.every((cells) => cells.both === '' && cells.day === '');
+  });
+  assert.equal(nightOnly.length, 12);
+  assert.ok(nightOnly.some((entry) => entry.id === 'NightFox'));
+  assert.equal(habitats.species.filter((entry) => entry.maps.Tree).length, 45);
+  assert.equal(habitats.species.filter((entry) => entry.levels).length, 263);
+  assert.deepEqual(
+    habitats.species.filter((entry) => entry.ways.length === 0).map((entry) => entry.id),
+    ['WhiteAlienDragon', 'Mothman', 'FlowerPrince', 'KingWhale', 'WorldTreeDragon']
+  );
+  const lamball = habitats.species.find((entry) => entry.id === 'SheepBall');
+  assert.deepEqual(lamball.ways, ['wild', 'egg', 'caged']);
+  assert.deepEqual(lamball.levels, [1, 9]);
+  assert.ok(decodeRanges(lamball.maps.MainMap.both).length > 50);
+  const bellanoir = habitats.species.find((entry) => entry.id === 'NightLady');
+  assert.deepEqual(bellanoir.ways, ['raid', 'bred']);
+  const bosses = new Set(
+    landmarks.boss_markers.filter((marker) => marker.kind === 'field_boss').map((m) => m.species)
+  );
+  for (const entry of habitats.species) {
+    assert.equal(entry.ways.includes('boss'), bosses.has(entry.id), entry.id);
   }
 });
