@@ -11,6 +11,7 @@ const roots = [
   'web/openapi.yaml',
   'collector',
   'scripts',
+  'tools',
   'art',
   'site',
   '.github',
