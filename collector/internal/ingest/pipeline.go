@@ -17,6 +17,7 @@ type Options struct {
 	URL              string
 	Secret           string
 	FlushInterval    time.Duration
+	ActionPoll       time.Duration
 	RequestTimeout   time.Duration
 	MaxPendingBytes  int
 	MaxPendingEvents int
@@ -55,6 +56,7 @@ type Pipeline struct {
 	inflight     map[string]bool
 	maxEvents    int
 	nextAttempt  time.Time
+	lastContact  time.Time
 	skew         time.Duration
 	stats        Stats
 }
@@ -193,7 +195,36 @@ func (p *Pipeline) Run(ctx context.Context) {
 		case <-p.wake:
 		}
 		p.sendReady(ctx)
+		p.pollActions(ctx)
 	}
+}
+
+func (p *Pipeline) pollActions(ctx context.Context) {
+	if p.options.ActionPoll <= 0 || p.options.DryRun != nil || ctx.Err() != nil {
+		return
+	}
+	p.mu.Lock()
+	now := p.options.Now()
+	idle := len(p.pending) == 0 && now.Sub(p.lastContact) >= p.options.ActionPoll && !now.Before(p.nextAttempt)
+	skew := p.skew
+	p.mu.Unlock()
+	if !idle {
+		return
+	}
+	p.sendMu.Lock()
+	defer p.sendMu.Unlock()
+	prefix, err := p.prefix()
+	if err != nil {
+		return
+	}
+	status, body, _, sendErr := p.post(ctx, append(prefix, ']', '}'), skew)
+	p.mu.Lock()
+	defer p.mu.Unlock()
+	p.lastContact = p.options.Now()
+	if sendErr != nil || Classify(status, false) != Accepted {
+		return
+	}
+	p.handleResult(body)
 }
 
 func (p *Pipeline) sendReady(ctx context.Context) {
@@ -268,6 +299,7 @@ func (p *Pipeline) sendOnce(ctx context.Context) bool {
 		p.stats.AcceptedBatches++
 		p.stats.LastError = ""
 		p.stats.LastAccepted = p.options.Now()
+		p.lastContact = p.stats.LastAccepted
 		p.stats.UnauthorizedSeen = false
 		p.maxEvents = MaxBatchEvents
 		p.nextAttempt = time.Time{}

@@ -9,7 +9,7 @@
 />
 
 <div
-  class="card mx-auto grid max-w-4xl items-center gap-8 p-6 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:p-8"
+  class="card mx-auto grid max-w-4xl grid-cols-1 items-center gap-8 p-6 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:p-8"
 >
   <picture class="rise order-last md:order-first">
     <source type="image/avif" srcset="/art/perch-700.avif" />

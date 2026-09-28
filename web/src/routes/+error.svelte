@@ -8,7 +8,7 @@
   <title>{missing ? 'Nothing on the perch' : 'Something went wrong'}</title>
 </svelte:head>
 
-<div class="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+<div class="grid grid-cols-1 items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
   <picture>
     <source type="image/avif" srcset="/art/perch-700.avif" />
     <img

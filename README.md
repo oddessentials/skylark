@@ -3,6 +3,7 @@
 </p>
 
 <p align="center">
+  <a href="https://oddessentials.github.io/skylark/"><b>Website</b></a> &nbsp;·&nbsp;
   <a href="#install"><b>Install</b></a> &nbsp;·&nbsp;
   <a href="#collector-reference"><b>Collector</b></a> &nbsp;·&nbsp;
   <a href="web/openapi.yaml"><b>API</b></a> &nbsp;·&nbsp;
@@ -45,6 +46,7 @@ Playtime, sessions, level history, knockouts and distance travelled for everyone
 - The world's settings, the server's history and this week's leaders
 - An admin area for the collector, server actions (announce, save, shut down with a countdown, kick, ban), backups and a history rebuild
 - Switches to hide positions, bases, Pals, chat or guild chat
+- A stream overlay with the sun dial and who is on
 
 ## Install
 
@@ -76,6 +78,8 @@ The site is a SvelteKit app on Node 24 with PostgreSQL 18. It migrates the datab
 | `ORIGIN` | | The address people use, for example `https://skylark.example.com`. Admin changes must come from it. |
 | `BACKUP_DIR`, `BACKUPS_KEPT` | `/backups`, `14` | Nightly `pg_dump` backups. |
 | `API_MOCK` | `0` | `1` serves the recorded fixtures instead of a database, for trying the pages. |
+
+`/watch` is a stream overlay for OBS or any browser source: the sun dial and who is on, over a transparent background. `?show=clock` or `?show=players` shows one of them, `?size=` sets the dial from 120 to 480 px (the countdown shows above 250), `?limit=` caps the list, `?layout=row` puts them side by side and `?solid` makes the list opaque.
 
 The API is described in `web/openapi.yaml` and served at `/api/v1/openapi.json`. `/api/v1/stream` sends live updates as server-sent events.
 
@@ -131,7 +135,7 @@ args = ["-port=8211", "-publiclobby"]
 | `launch.enable_gamedata` | `true` | Add `-enable-gamedata-api` when it is missing. |
 | `docker.container`, `docker.host` | | The container to follow and the Docker endpoint. |
 | `file.path` | | The file to follow. |
-| `intervals.players`, `snapshot`, `snapshot_idle`, `metrics`, `heartbeat`, `flush` | `5s`, `10s`, `60s`, `30s`, `60s`, `2s` | Polling and sending periods. With nobody online a world snapshot goes out every `snapshot_idle`. |
+| `intervals.players`, `snapshot`, `snapshot_idle`, `metrics`, `heartbeat`, `flush`, `actions` | `5s`, `10s`, `60s`, `30s`, `60s`, `2s`, `5s` | Polling and sending periods. With nobody online a world snapshot goes out every `snapshot_idle`, and with nothing else to send the collector asks the site for admin actions every `actions`. |
 | `send_ips` | `false` | Send players' IP addresses with `player.connected`. |
 | `journal_dir` | `skylark-journal` beside the config file | Where events wait until the site confirms them. |
 
@@ -164,7 +168,7 @@ npm run dev
 
 Pushing a tag `v<version>` that matches the `package.json` version publishes `ghcr.io/oddessentials/skylark` and `ghcr.io/oddessentials/skylark-collector` for amd64 and arm64, and a GitHub release with the collector binaries and their checksums. Pull requests that change the Dockerfiles or the release workflow build all of it without publishing.
 
-Facts about the game come from the free dedicated server's own files: `npm run facts:extract -- --pak <path to Pal-WindowsServer.pak>` rebuilds `web/src/lib/world` and records the game version each file was read from.
+Facts about the game come from the free dedicated server's own files: `npm run facts:extract -- --pak <path to Pal-WindowsServer.pak>` rebuilds `web/src/lib/world` and records the game version each file was read from, and the Steam build in `build.json`. A daily workflow compares that build with the server's public build and opens an issue with the checks to repeat when a patch is out; `npm run facts:build` runs the same comparison. The extractor in `tools/gamefacts` is licensed GPL-3.0-or-later (its own `LICENSE`), because it decodes the pak with ooz-wasm; the rest of Skylark stays MIT.
 
 </details>
 

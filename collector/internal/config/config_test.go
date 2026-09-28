@@ -84,7 +84,7 @@ func TestLoadFileEnvAndServerIni(t *testing.T) {
 	if cfg.Palworld.AdminPassword != "ini-secret" || cfg.Palworld.RestURL != "http://127.0.0.1:8313" {
 		t.Fatalf("palworld %+v", cfg.Palworld)
 	}
-	if cfg.Intervals.Players != 3*time.Second || cfg.Intervals.Snapshot != 9*time.Second || cfg.Intervals.Metrics != 45*time.Second || cfg.Intervals.Heartbeat != time.Minute || cfg.Intervals.Flush != 2*time.Second {
+	if cfg.Intervals.Players != 3*time.Second || cfg.Intervals.Snapshot != 9*time.Second || cfg.Intervals.Metrics != 45*time.Second || cfg.Intervals.Heartbeat != time.Minute || cfg.Intervals.Flush != 2*time.Second || cfg.Intervals.Actions != 5*time.Second {
 		t.Fatalf("intervals %+v", cfg.Intervals)
 	}
 	if cfg.Logs.Timezone != "UTC" || cfg.Location != time.UTC || !cfg.SendIPs {
@@ -133,11 +133,11 @@ func TestLaunchModeReadsTheUserDirAndArguments(t *testing.T) {
 }
 
 func TestValidationErrors(t *testing.T) {
-	_, err := Load(Options{Getenv: env(map[string]string{"SKYLARK_LOGS_SOURCE": "syslog", "SKYLARK_INTERVALS_PLAYERS": "500ms"})})
+	_, err := Load(Options{Getenv: env(map[string]string{"SKYLARK_LOGS_SOURCE": "syslog", "SKYLARK_INTERVALS_PLAYERS": "500ms", "SKYLARK_INTERVALS_ACTIONS": "200ms"})})
 	if err == nil {
 		t.Fatal("expected errors")
 	}
-	for _, part := range []string{"site.url is required", "site.secret is required", "admin_password is required", `logs.source "syslog"`, "intervals.players must be at least 1s"} {
+	for _, part := range []string{"site.url is required", "site.secret is required", "admin_password is required", `logs.source "syslog"`, "intervals.players must be at least 1s", "intervals.actions must be at least 1s"} {
 		if !strings.Contains(err.Error(), part) {
 			t.Errorf("missing %q in %v", part, err)
 		}

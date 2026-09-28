@@ -1,0 +1,94 @@
+{
+  "id": 6,
+  "name": "Bramble",
+  "level": 19,
+  "platform": "steam",
+  "guild": { "id": "1077E95B45C893698D10D137B8FF9D0A", "name": "Night Market" },
+  "online": false,
+  "first_seen": "2026-09-22T12:15:58.000Z",
+  "last_seen": "2026-09-27T15:35:11.000Z",
+  "playtime_s": 13504,
+  "sessions": 3,
+  "deaths": 1,
+  "current_session": null,
+  "distance_m": 54781,
+  "chat_messages": 4,
+  "position": { "x": -137811.93, "y": 44451.43, "at": "2026-09-27T15:35:01.000Z" },
+  "party": [],
+  "level_history": [
+    { "at": "2026-09-22T12:23:00.999Z", "level": 4 },
+    { "at": "2026-09-22T12:27:00.999Z", "level": 5 },
+    { "at": "2026-09-22T12:31:00.999Z", "level": 6 },
+    { "at": "2026-09-22T12:39:00.999Z", "level": 7 },
+    { "at": "2026-09-22T12:47:00.999Z", "level": 8 },
+    { "at": "2026-09-22T12:53:00.999Z", "level": 9 },
+    { "at": "2026-09-22T12:57:00.999Z", "level": 10 },
+    { "at": "2026-09-23T12:00:00.999Z", "level": 11 },
+    { "at": "2026-09-23T12:18:00.999Z", "level": 12 },
+    { "at": "2026-09-23T12:26:00.999Z", "level": 13 },
+    { "at": "2026-09-23T12:38:00.999Z", "level": 14 },
+    { "at": "2026-09-27T14:15:00.999Z", "level": 15 },
+    { "at": "2026-09-27T14:35:00.999Z", "level": 16 },
+    { "at": "2026-09-27T14:53:00.999Z", "level": 17 },
+    { "at": "2026-09-27T15:13:00.999Z", "level": 18 },
+    { "at": "2026-09-27T15:35:00.999Z", "level": 19 }
+  ],
+  "recent_sessions": [
+    {
+      "id": 32,
+      "joined_at": "2026-09-27T13:43:19.000Z",
+      "left_at": "2026-09-27T15:35:11.000Z",
+      "duration_s": 6712,
+      "end_reason": "left",
+      "level_start": 14,
+      "level_end": 19,
+      "distance_m": 36508,
+      "deaths": 1
+    },
+    {
+      "id": 13,
+      "joined_at": "2026-09-23T11:37:11.000Z",
+      "left_at": "2026-09-23T12:46:54.000Z",
+      "duration_s": 4183,
+      "end_reason": "left",
+      "level_start": 10,
+      "level_end": 14,
+      "distance_m": 13513,
+      "deaths": 0
+    },
+    {
+      "id": 6,
+      "joined_at": "2026-09-22T12:16:10.000Z",
+      "left_at": "2026-09-22T12:59:39.000Z",
+      "duration_s": 2609,
+      "end_reason": "left",
+      "level_start": 3,
+      "level_end": 10,
+      "distance_m": 4760,
+      "deaths": 0
+    }
+  ],
+  "recent_deaths": [
+    {
+      "at": "2026-09-27T14:09:00.999Z",
+      "x": -815943.6365383795,
+      "y": -403438.80221904325,
+      "cause": null,
+      "killer": null
+    }
+  ],
+  "progress": {
+    "saved_at": "2026-09-27T20:29:00.000Z",
+    "last_online_at": "2026-09-27T15:35:11.000Z",
+    "palpedia": 78,
+    "palpedia_total": 288,
+    "species_captured": 77,
+    "captures": 235,
+    "tower_bosses": [{ "id": "GrassBoss", "name": "Rayne Syndicate Tower" }],
+    "tower_bosses_total": 8,
+    "field_bosses": 6,
+    "dungeon_clears": 5,
+    "technologies": 50,
+    "fast_travel_points": 12
+  }
+}

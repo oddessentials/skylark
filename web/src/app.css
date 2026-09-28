@@ -260,6 +260,7 @@
     font-weight: 800;
     font-size: clamp(1.55rem, 1rem + 2.4vw, 2.4rem);
     line-height: 1.08;
+    overflow-wrap: anywhere;
     text-shadow:
       0 1px 0 rgba(255, 253, 246, 0.85),
       0 2px 18px rgba(255, 253, 246, 0.6);
@@ -554,7 +555,6 @@
 
   .field:focus {
     border-color: var(--color-accent);
-    outline: none;
   }
 
   @media (max-width: 640px) {
@@ -801,6 +801,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.6cqw;
+    padding-bottom: 6cqw;
     text-align: center;
     pointer-events: none;
   }
@@ -837,6 +838,33 @@
     font-size: max(3.1cqw, 0.6rem);
     line-height: 1.25;
     color: var(--color-ink-muted);
+  }
+
+  @container (max-width: 265px) {
+    .sun-dial-readout {
+      gap: 0;
+      padding-bottom: 5cqw;
+    }
+
+    .sun-dial-time {
+      font-size: 13cqw;
+    }
+
+    .sun-dial-day,
+    .sun-dial-phase,
+    .sun-dial-note {
+      font-size: max(3cqw, 0.56rem);
+    }
+  }
+
+  @container (max-width: 250px) {
+    .sun-dial-readout {
+      padding-bottom: 0;
+    }
+
+    .sun-dial-note {
+      display: none;
+    }
   }
 
   .sun-dial:not([data-state='live']) .sun-dial-marker {
@@ -983,11 +1011,11 @@
     transition: opacity 200ms ease;
   }
 
-  .map-player[data-down='true'] circle {
+  .map-player[data-down='true'] .map-dot {
     fill: var(--color-offline);
   }
 
-  .map-player[data-highlight='true'] circle {
+  .map-player[data-highlight='true'] .map-dot {
     filter: drop-shadow(0 0 4px color-mix(in srgb, var(--color-sun) 80%, transparent));
   }
 
@@ -1138,4 +1166,98 @@
       transform: none;
     }
   }
+}
+
+html[data-watch],
+html[data-watch] body {
+  background: transparent;
+  scrollbar-width: none;
+}
+
+.watch {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+}
+
+.watch[data-row='true'] {
+  flex-direction: row;
+  align-items: center;
+}
+
+.watch .sun-dial {
+  width: var(--watch-dial);
+}
+
+.watch-card {
+  min-width: 13rem;
+  max-width: 22rem;
+  border: 1px solid color-mix(in srgb, var(--color-line) 70%, transparent);
+  border-radius: var(--radius-card);
+  background: color-mix(in srgb, var(--color-surface-raised) 86%, transparent);
+  padding: 0.7rem 0.9rem;
+  box-shadow: 0 12px 28px -18px rgba(36, 31, 24, 0.7);
+}
+
+.watch[data-solid='true'] .watch-card {
+  background: var(--color-surface-raised);
+}
+
+.watch-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.watch-players {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.watch-players li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+}
+
+.watch-initial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  flex: none;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: var(--color-surface-raised);
+}
+
+.watch-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.watch-level {
+  margin-left: auto;
+  padding-left: 0.75rem;
+  color: var(--color-ink-muted);
+}
+
+.watch-more {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
 }

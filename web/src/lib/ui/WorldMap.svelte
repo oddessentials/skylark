@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { baseLabel } from '$lib/ui/activity';
   import type { MapState, TrailPoint } from '$lib/api/types';
   import { formatDisplay, type MapId } from '$lib/world/map';
@@ -30,7 +31,28 @@
   let view = $state({ x: 0, y: 0, w: mapSize });
   let svg: SVGSVGElement | undefined = $state();
   let drag: { x: number; y: number; vx: number; vy: number; id: number } | null = null;
+  const pointers: { id: number; x: number; y: number }[] = [];
+  let pinch: {
+    distance: number;
+    start: { x: number; y: number; w: number };
+    center: { x: number; y: number };
+  } | null = null;
+  let touch = $state(false);
   let hovered = $state<string | null>(null);
+
+  onMount(() => {
+    touch = window.matchMedia('(pointer: coarse)').matches;
+  });
+
+  function track(event: PointerEvent) {
+    const known = pointers.find((pointer) => pointer.id === event.pointerId);
+    if (known) {
+      known.x = event.clientX;
+      known.y = event.clientY;
+    } else {
+      pointers.push({ id: event.pointerId, x: event.clientX, y: event.clientY });
+    }
+  }
 
   $effect(() => {
     if (!focus) return;
@@ -151,13 +173,44 @@
     zoomAt(event.deltaY > 0 ? 1.2 : 1 / 1.2, toSvg(event.clientX, event.clientY));
   }
 
+  function startDrag(id: number, x: number, y: number) {
+    drag = { x, y, vx: view.x, vy: view.y, id };
+  }
+
   function onPointerDown(event: PointerEvent) {
     if (compact || event.button !== 0) return;
-    drag = { x: event.clientX, y: event.clientY, vx: view.x, vy: view.y, id: event.pointerId };
+    track(event);
+    if (pointers.length === 2) {
+      const a = pointers[0]!;
+      const b = pointers[1]!;
+      pinch = {
+        distance: Math.hypot(a.x - b.x, a.y - b.y),
+        start: { ...view },
+        center: toSvg((a.x + b.x) / 2, (a.y + b.y) / 2)
+      };
+      drag = null;
+    } else if (pointers.length === 1) {
+      startDrag(event.pointerId, event.clientX, event.clientY);
+    }
     svg?.setPointerCapture(event.pointerId);
   }
 
   function onPointerMove(event: PointerEvent) {
+    if (!pointers.some((pointer) => pointer.id === event.pointerId)) return;
+    track(event);
+    if (pinch && pointers.length >= 2) {
+      const a = pointers[0]!;
+      const b = pointers[1]!;
+      const distance = Math.hypot(a.x - b.x, a.y - b.y);
+      if (distance <= 0 || pinch.distance <= 0) return;
+      const w = pinch.start.w * (pinch.distance / distance);
+      view = clampView({
+        w,
+        x: pinch.center.x - ((pinch.center.x - pinch.start.x) / pinch.start.w) * w,
+        y: pinch.center.y - ((pinch.center.y - pinch.start.y) / pinch.start.w) * w
+      });
+      return;
+    }
     if (!drag || !svg || event.pointerId !== drag.id) return;
     const box = svg.getBoundingClientRect();
     const scale = view.w / box.width;
@@ -169,7 +222,14 @@
   }
 
   function onPointerUp(event: PointerEvent) {
+    const index = pointers.findIndex((pointer) => pointer.id === event.pointerId);
+    if (index >= 0) pointers.splice(index, 1);
+    if (pointers.length < 2) pinch = null;
     if (drag && event.pointerId === drag.id) drag = null;
+    const remaining = pointers[0];
+    if (pointers.length === 1 && !drag && remaining) {
+      startDrag(remaining.id, remaining.x, remaining.y);
+    }
   }
 
   function reset() {
@@ -343,33 +403,40 @@
       </g>
     {/each}
     {#each players as player (player.id)}
-      <a href="/players/{player.id}" aria-label="{player.name}, level {player.level}">
-        <g
-          class="map-player"
-          data-down={player.down ? 'true' : undefined}
-          data-highlight={highlight === player.id ? 'true' : undefined}
-          role="presentation"
-          onpointerenter={() => (hovered = `${player.name}, level ${player.level}`)}
-          onpointerleave={() => (hovered = null)}
+      {@const radius = (highlight === player.id ? 10 : 8) * k}
+      <g
+        class="map-player"
+        data-down={player.down ? 'true' : undefined}
+        data-highlight={highlight === player.id ? 'true' : undefined}
+        role="presentation"
+        onpointerenter={() => (hovered = `${player.name}, level ${player.level}`)}
+        onpointerleave={() => (hovered = null)}
+      >
+        <circle
+          cx={player.at.x}
+          cy={player.at.y}
+          r={radius}
+          fill={guildColor(player.guild_id)}
+          stroke="var(--color-surface-raised)"
+          stroke-width={2 * k}
+          class="map-dot"
+        />
+        <text
+          x={player.at.x}
+          y={player.at.y + 3.4 * k}
+          font-size={9 * k}
+          class="map-initial"
+          aria-hidden="true">{initialOf(player.name)}</text
         >
-          <circle
-            cx={player.at.x}
-            cy={player.at.y}
-            r={(highlight === player.id ? 10 : 8) * k}
-            fill={guildColor(player.guild_id)}
-            stroke="var(--color-surface-raised)"
-            stroke-width={2 * k}
-          />
-          <text x={player.at.x} y={player.at.y + 3.4 * k} font-size={9 * k} class="map-initial"
-            >{initialOf(player.name)}</text
-          >
+        <a href="/players/{player.id}" aria-label="{player.name}, level {player.level}">
+          <circle cx={player.at.x} cy={player.at.y} r={radius + k} fill="transparent" />
           {#if !compact}
             <text x={player.at.x} y={player.at.y - 12 * k} font-size={11 * k} class="map-name"
               >{player.name}</text
             >
           {/if}
-        </g>
-      </a>
+        </a>
+      </g>
     {/each}
   </svg>
   {#if !compact}
@@ -409,7 +476,7 @@
       {:else if elsewhere.length > 0}
         {elsewhere.length} on the {mapId === 'MainMap' ? 'World Tree map' : 'Palpagos map'}
       {:else}
-        Drag to pan, scroll to zoom
+        {touch ? 'Drag to pan, pinch to zoom' : 'Drag to pan, scroll to zoom'}
       {/if}
     </p>
   {/if}

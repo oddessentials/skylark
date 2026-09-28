@@ -1,0 +1,64 @@
+{
+  "id": "C7FDE24B1575F6DC520D3114D76FD075",
+  "name": "Moss and Ember",
+  "members": [
+    {
+      "player": { "id": 1, "name": "Juniper" },
+      "level": 27,
+      "online": true,
+      "since": "2026-09-21T14:00:01.000Z",
+      "last_seen": "2026-09-27T20:30:05.000Z",
+      "role": "guild_master"
+    },
+    {
+      "player": { "id": 8, "name": "Kestrel" },
+      "level": 18,
+      "online": false,
+      "since": "2026-09-22T18:41:01.000Z",
+      "last_seen": "2026-09-25T18:20:08.000Z",
+      "role": "sub_master"
+    }
+  ],
+  "bases": [
+    {
+      "id": 2,
+      "name": "Moss Camp 1",
+      "region": "Autumn Rocks",
+      "guild": { "id": "C7FDE24B1575F6DC520D3114D76FD075", "name": "Moss and Ember" },
+      "x": -275968,
+      "y": 210879.4,
+      "workers": 3,
+      "workers_seen_at": "2026-09-27T20:29:00.000Z",
+      "first_seen": "2026-09-20T20:30:01.000Z",
+      "last_seen": "2026-09-27T20:29:51.000Z",
+      "gone_at": null,
+      "worker_pals": [
+        { "species": "Monkey", "alpha": false, "name": null, "level": 5 },
+        { "species": "BlackCentaur", "alpha": false, "name": "Pip", "level": 8 },
+        { "species": "NegativeKoala", "alpha": true, "name": null, "level": 11 }
+      ]
+    }
+  ],
+  "first_seen": "2026-09-20T20:30:01.000Z",
+  "last_seen": "2026-09-27T20:29:51.000Z",
+  "base_camp_level": 5,
+  "roster": [
+    {
+      "player": { "id": 1, "name": "Juniper" },
+      "name": "Juniper",
+      "role": "guild_master",
+      "level": 27,
+      "online": true,
+      "last_online_at": "2026-09-27T20:30:05.000Z"
+    },
+    {
+      "player": { "id": 8, "name": "Kestrel" },
+      "name": "Kestrel",
+      "role": "sub_master",
+      "level": 18,
+      "online": false,
+      "last_online_at": "2026-09-25T18:20:08.000Z"
+    }
+  ],
+  "roster_saved_at": "2026-09-27T20:29:00.000Z"
+}

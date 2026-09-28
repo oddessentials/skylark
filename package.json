@@ -25,6 +25,7 @@
     "fixtures:generate": "npm run fixtures -w web",
     "facts:extract": "node tools/gamefacts/extract.mjs --out web/src/lib/world",
     "facts:check": "node --test tools/gamefacts",
+    "facts:build": "node scripts/palworld-build.mjs",
     "test": "npm run test -w web",
     "test:e2e": "npm run test:e2e -w web",
     "db:migrate": "npm run db:migrate -w web",

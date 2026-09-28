@@ -1,0 +1,113 @@
+{
+  "id": 7,
+  "name": "Orrin",
+  "level": 24,
+  "platform": "gdk",
+  "guild": { "id": "5E3C9395AAD2C6C4002A16291A9A24DE", "name": "Sunreach Wayfarers" },
+  "online": true,
+  "first_seen": "2026-09-22T15:12:20.000Z",
+  "last_seen": "2026-09-27T20:30:05.000Z",
+  "playtime_s": 22865,
+  "sessions": 4,
+  "deaths": 1,
+  "current_session": { "id": 35, "joined_at": "2026-09-27T19:16:00.000Z" },
+  "distance_m": 127301,
+  "chat_messages": 7,
+  "position": { "x": -305276.08, "y": -133529.89, "at": "2026-09-27T20:29:51.000Z" },
+  "party": [
+    { "species": "JellyfishGhost", "name": "Jellroy", "level": 21 },
+    { "species": "Mutant", "name": "Lunaris", "level": 10 }
+  ],
+  "level_history": [
+    { "at": "2026-09-22T15:21:00.999Z", "level": 7 },
+    { "at": "2026-09-22T15:27:00.999Z", "level": 8 },
+    { "at": "2026-09-22T15:35:00.999Z", "level": 9 },
+    { "at": "2026-09-22T15:43:00.999Z", "level": 10 },
+    { "at": "2026-09-22T15:51:00.999Z", "level": 11 },
+    { "at": "2026-09-22T15:59:00.999Z", "level": 12 },
+    { "at": "2026-09-22T16:13:00.999Z", "level": 13 },
+    { "at": "2026-09-22T16:25:00.999Z", "level": 14 },
+    { "at": "2026-09-22T16:37:00.999Z", "level": 15 },
+    { "at": "2026-09-24T17:01:00.999Z", "level": 16 },
+    { "at": "2026-09-24T17:21:00.999Z", "level": 17 },
+    { "at": "2026-09-24T17:41:00.999Z", "level": 18 },
+    { "at": "2026-09-24T18:01:00.999Z", "level": 19 },
+    { "at": "2026-09-24T18:25:00.999Z", "level": 20 },
+    { "at": "2026-09-25T17:35:00.999Z", "level": 21 },
+    { "at": "2026-09-25T18:05:00.999Z", "level": 22 },
+    { "at": "2026-09-25T18:41:00.999Z", "level": 23 },
+    { "at": "2026-09-27T20:06:00.999Z", "level": 24 }
+  ],
+  "recent_sessions": [
+    {
+      "id": 35,
+      "joined_at": "2026-09-27T19:16:00.000Z",
+      "left_at": null,
+      "duration_s": null,
+      "end_reason": null,
+      "level_start": 23,
+      "level_end": null,
+      "distance_m": 33079,
+      "deaths": 1
+    },
+    {
+      "id": 25,
+      "joined_at": "2026-09-25T16:55:47.000Z",
+      "left_at": "2026-09-25T18:48:47.000Z",
+      "duration_s": 6780,
+      "end_reason": "left",
+      "level_start": 20,
+      "level_end": 23,
+      "distance_m": 28762,
+      "deaths": 0
+    },
+    {
+      "id": 20,
+      "joined_at": "2026-09-24T16:52:24.000Z",
+      "left_at": "2026-09-24T18:36:43.000Z",
+      "duration_s": 6259,
+      "end_reason": "left",
+      "level_start": 15,
+      "level_end": 20,
+      "distance_m": 35117,
+      "deaths": 0
+    },
+    {
+      "id": 9,
+      "joined_at": "2026-09-22T15:12:32.000Z",
+      "left_at": "2026-09-22T16:42:13.000Z",
+      "duration_s": 5381,
+      "end_reason": "left",
+      "level_start": 6,
+      "level_end": 15,
+      "distance_m": 30343,
+      "deaths": 0
+    }
+  ],
+  "recent_deaths": [
+    {
+      "at": "2026-09-27T19:50:00.999Z",
+      "x": -562545.0543181442,
+      "y": 121391.15593724685,
+      "cause": null,
+      "killer": null
+    }
+  ],
+  "progress": {
+    "saved_at": "2026-09-27T20:29:00.000Z",
+    "last_online_at": "2026-09-25T18:48:47.000Z",
+    "palpedia": 102,
+    "palpedia_total": 288,
+    "species_captured": 101,
+    "captures": 318,
+    "tower_bosses": [
+      { "id": "GrassBoss", "name": "Rayne Syndicate Tower" },
+      { "id": "ForestBoss", "name": "Free Pal Alliance Tower" }
+    ],
+    "tower_bosses_total": 8,
+    "field_bosses": 8,
+    "dungeon_clears": 7,
+    "technologies": 60,
+    "fast_travel_points": 15
+  }
+}

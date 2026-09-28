@@ -1,0 +1,158 @@
+{
+  "id": 4,
+  "name": "Sable",
+  "level": 31,
+  "platform": "steam",
+  "guild": { "id": "1077E95B45C893698D10D137B8FF9D0A", "name": "Night Market" },
+  "online": false,
+  "first_seen": "2026-09-21T18:25:14.000Z",
+  "last_seen": "2026-09-27T19:17:15.000Z",
+  "playtime_s": 52018,
+  "sessions": 7,
+  "deaths": 9,
+  "current_session": null,
+  "distance_m": 275076,
+  "chat_messages": 15,
+  "position": { "x": -312889.67, "y": 131002.53, "at": "2026-09-27T19:16:01.000Z" },
+  "party": [],
+  "level_history": [
+    { "at": "2026-09-21T18:35:00.999Z", "level": 5 },
+    { "at": "2026-09-21T18:41:00.999Z", "level": 6 },
+    { "at": "2026-09-21T18:45:00.999Z", "level": 7 },
+    { "at": "2026-09-21T18:51:00.999Z", "level": 8 },
+    { "at": "2026-09-21T18:57:00.999Z", "level": 9 },
+    { "at": "2026-09-21T19:03:00.999Z", "level": 10 },
+    { "at": "2026-09-21T19:11:00.999Z", "level": 11 },
+    { "at": "2026-09-21T19:19:00.999Z", "level": 12 },
+    { "at": "2026-09-21T19:31:00.999Z", "level": 13 },
+    { "at": "2026-09-21T19:41:00.999Z", "level": 14 },
+    { "at": "2026-09-21T19:55:00.999Z", "level": 15 },
+    { "at": "2026-09-21T20:15:00.999Z", "level": 16 },
+    { "at": "2026-09-22T17:21:00.999Z", "level": 17 },
+    { "at": "2026-09-22T18:05:00.999Z", "level": 18 },
+    { "at": "2026-09-22T18:33:00.999Z", "level": 19 },
+    { "at": "2026-09-22T19:03:00.999Z", "level": 20 },
+    { "at": "2026-09-23T19:16:00.999Z", "level": 21 },
+    { "at": "2026-09-23T19:54:00.999Z", "level": 22 },
+    { "at": "2026-09-23T20:42:00.999Z", "level": 23 },
+    { "at": "2026-09-24T17:17:00.999Z", "level": 24 },
+    { "at": "2026-09-24T18:05:00.999Z", "level": 25 },
+    { "at": "2026-09-24T18:51:00.999Z", "level": 26 },
+    { "at": "2026-09-24T19:47:00.999Z", "level": 27 },
+    { "at": "2026-09-25T21:03:00.999Z", "level": 28 },
+    { "at": "2026-09-26T17:51:00.999Z", "level": 29 },
+    { "at": "2026-09-26T18:53:00.999Z", "level": 30 },
+    { "at": "2026-09-27T19:06:00.999Z", "level": 31 }
+  ],
+  "recent_sessions": [
+    {
+      "id": 33,
+      "joined_at": "2026-09-27T18:10:44.000Z",
+      "left_at": "2026-09-27T19:17:15.000Z",
+      "duration_s": 3991,
+      "end_reason": "left",
+      "level_start": 30,
+      "level_end": 31,
+      "distance_m": 21503,
+      "deaths": 3
+    },
+    {
+      "id": 31,
+      "joined_at": "2026-09-26T17:24:20.000Z",
+      "left_at": "2026-09-26T19:23:08.000Z",
+      "duration_s": 7128,
+      "end_reason": "left",
+      "level_start": 28,
+      "level_end": 30,
+      "distance_m": 33164,
+      "deaths": 1
+    },
+    {
+      "id": 27,
+      "joined_at": "2026-09-25T19:44:27.000Z",
+      "left_at": "2026-09-25T21:55:24.000Z",
+      "duration_s": 7857,
+      "end_reason": "left",
+      "level_start": 27,
+      "level_end": 28,
+      "distance_m": 27292,
+      "deaths": 1
+    },
+    {
+      "id": 21,
+      "joined_at": "2026-09-24T17:10:36.000Z",
+      "left_at": "2026-09-24T19:47:38.000Z",
+      "duration_s": 9422,
+      "end_reason": "left",
+      "level_start": 23,
+      "level_end": 27,
+      "distance_m": 72801,
+      "deaths": 1
+    },
+    {
+      "id": 16,
+      "joined_at": "2026-09-23T18:41:03.000Z",
+      "left_at": "2026-09-23T21:10:40.000Z",
+      "duration_s": 8977,
+      "end_reason": "left",
+      "level_start": 20,
+      "level_end": 23,
+      "distance_m": 51225,
+      "deaths": 2
+    }
+  ],
+  "recent_deaths": [
+    {
+      "at": "2026-09-27T19:12:00.999Z",
+      "x": -316727.90378875245,
+      "y": 222222.97536642052,
+      "cause": null,
+      "killer": null
+    },
+    {
+      "at": "2026-09-27T19:08:00.999Z",
+      "x": -379316.49519706797,
+      "y": 181908.98856584157,
+      "cause": null,
+      "killer": null
+    },
+    {
+      "at": "2026-09-27T18:26:00.999Z",
+      "x": -236286.6,
+      "y": -99689.9,
+      "cause": null,
+      "killer": null
+    },
+    {
+      "at": "2026-09-26T17:39:00.999Z",
+      "x": -158490.81595252588,
+      "y": -33398.17911123649,
+      "cause": null,
+      "killer": null
+    },
+    {
+      "at": "2026-09-25T20:31:00.999Z",
+      "x": -196434.95157660227,
+      "y": -63723.84992059379,
+      "cause": null,
+      "killer": null
+    }
+  ],
+  "progress": {
+    "saved_at": "2026-09-27T20:29:00.000Z",
+    "last_online_at": "2026-09-27T19:17:15.000Z",
+    "palpedia": 130,
+    "palpedia_total": 288,
+    "species_captured": 129,
+    "captures": 400,
+    "tower_bosses": [
+      { "id": "GrassBoss", "name": "Rayne Syndicate Tower" },
+      { "id": "ForestBoss", "name": "Free Pal Alliance Tower" }
+    ],
+    "tower_bosses_total": 8,
+    "field_bosses": 10,
+    "dungeon_clears": 9,
+    "technologies": 74,
+    "fast_travel_points": 18
+  }
+}

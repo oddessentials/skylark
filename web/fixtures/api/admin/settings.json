@@ -1,5 +1,11 @@
 {
   "site_name": "Palworld server",
   "features": { "chat": true, "guild_chat": false, "positions": true, "bases": true, "pals": true },
+  "retention": {
+    "positions_days": null,
+    "snapshots_hours": 1,
+    "metrics_days": 30,
+    "status_samples_days": 90
+  },
   "locked": []
 }

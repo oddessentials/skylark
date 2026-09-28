@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "id": 28,
+      "joined_at": "2026-09-26T11:47:51.000Z",
+      "left_at": "2026-09-26T13:13:02.000Z",
+      "duration_s": 5111,
+      "end_reason": "left",
+      "level_start": 12,
+      "level_end": 16,
+      "distance_m": 23563,
+      "deaths": 1
+    },
+    {
+      "id": 5,
+      "joined_at": "2026-09-22T11:07:03.000Z",
+      "left_at": "2026-09-22T12:04:06.000Z",
+      "duration_s": 3423,
+      "end_reason": "left",
+      "level_start": 3,
+      "level_end": 12,
+      "distance_m": 14281,
+      "deaths": 1
+    }
+  ],
+  "next_cursor": null
+}

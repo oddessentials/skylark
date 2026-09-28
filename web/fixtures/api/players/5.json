@@ -1,0 +1,87 @@
+{
+  "id": 5,
+  "name": "Mossbrook",
+  "level": 16,
+  "platform": "gdk",
+  "guild": { "id": "1077E95B45C893698D10D137B8FF9D0A", "name": "Night Market" },
+  "online": false,
+  "first_seen": "2026-09-22T11:06:51.000Z",
+  "last_seen": "2026-09-26T13:13:02.000Z",
+  "playtime_s": 8534,
+  "sessions": 2,
+  "deaths": 2,
+  "current_session": null,
+  "distance_m": 37844,
+  "chat_messages": 0,
+  "position": { "x": -87122.17, "y": 176382.83, "at": "2026-09-26T13:13:01.000Z" },
+  "party": [],
+  "level_history": [
+    { "at": "2026-09-22T11:18:00.999Z", "level": 4 },
+    { "at": "2026-09-22T11:22:00.999Z", "level": 5 },
+    { "at": "2026-09-22T11:26:00.999Z", "level": 6 },
+    { "at": "2026-09-22T11:28:00.999Z", "level": 7 },
+    { "at": "2026-09-22T11:34:00.999Z", "level": 8 },
+    { "at": "2026-09-22T11:40:00.999Z", "level": 9 },
+    { "at": "2026-09-22T11:46:00.999Z", "level": 10 },
+    { "at": "2026-09-22T11:52:00.999Z", "level": 11 },
+    { "at": "2026-09-22T12:02:00.999Z", "level": 12 },
+    { "at": "2026-09-26T12:09:00.999Z", "level": 13 },
+    { "at": "2026-09-26T12:21:00.999Z", "level": 14 },
+    { "at": "2026-09-26T12:37:00.999Z", "level": 15 },
+    { "at": "2026-09-26T13:11:00.999Z", "level": 16 }
+  ],
+  "recent_sessions": [
+    {
+      "id": 28,
+      "joined_at": "2026-09-26T11:47:51.000Z",
+      "left_at": "2026-09-26T13:13:02.000Z",
+      "duration_s": 5111,
+      "end_reason": "left",
+      "level_start": 12,
+      "level_end": 16,
+      "distance_m": 23563,
+      "deaths": 1
+    },
+    {
+      "id": 5,
+      "joined_at": "2026-09-22T11:07:03.000Z",
+      "left_at": "2026-09-22T12:04:06.000Z",
+      "duration_s": 3423,
+      "end_reason": "left",
+      "level_start": 3,
+      "level_end": 12,
+      "distance_m": 14281,
+      "deaths": 1
+    }
+  ],
+  "recent_deaths": [
+    {
+      "at": "2026-09-26T12:45:00.999Z",
+      "x": -509806.4831120554,
+      "y": -333590.92039320467,
+      "cause": null,
+      "killer": null
+    },
+    {
+      "at": "2026-09-22T11:36:00.999Z",
+      "x": -264486.2559723269,
+      "y": 85198.02748828642,
+      "cause": null,
+      "killer": null
+    }
+  ],
+  "progress": {
+    "saved_at": "2026-09-27T20:29:00.000Z",
+    "last_online_at": "2026-09-26T13:13:02.000Z",
+    "palpedia": 65,
+    "palpedia_total": 288,
+    "species_captured": 64,
+    "captures": 196,
+    "tower_bosses": [{ "id": "GrassBoss", "name": "Rayne Syndicate Tower" }],
+    "tower_bosses_total": 8,
+    "field_bosses": 5,
+    "dungeon_clears": 5,
+    "technologies": 44,
+    "fast_travel_points": 11
+  }
+}

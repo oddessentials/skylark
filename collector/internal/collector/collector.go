@@ -219,6 +219,7 @@ func New(options Options) (*Collector, error) {
 		URL:           cfg.IngestURL(),
 		Secret:        cfg.Site.Secret,
 		FlushInterval: cfg.Intervals.Flush,
+		ActionPoll:    cfg.Intervals.Actions,
 		UserAgent:     CollectorName + "/" + buildinfo.Version,
 		DryRun:        options.DryRun,
 		Client:        options.IngestHTTP,
