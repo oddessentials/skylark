@@ -168,7 +168,7 @@ npm run dev
 
 Pushing a tag `v<version>` that matches the `package.json` version publishes `ghcr.io/oddessentials/skylark` and `ghcr.io/oddessentials/skylark-collector` for amd64 and arm64, and a GitHub release with the collector binaries and their checksums. Pull requests that change the Dockerfiles or the release workflow build all of it without publishing.
 
-Facts about the game come from the free dedicated server's own files: `npm run facts:extract -- --pak <path to Pal-WindowsServer.pak>` rebuilds `web/src/lib/world` and records the game version each file was read from.
+Facts about the game come from the free dedicated server's own files: `npm run facts:extract -- --pak <path to Pal-WindowsServer.pak>` rebuilds `web/src/lib/world` and records the game version each file was read from. The extractor in `tools/gamefacts` is licensed GPL-3.0-or-later (its own `LICENSE`), because it decodes the pak with ooz-wasm; the rest of Skylark stays MIT.
 
 </details>
 
