@@ -229,6 +229,36 @@ func TestPipelineDeliversSignedBatchesAndActions(t *testing.T) {
 	reopened.Close()
 }
 
+func TestPipelineAsksForActionsWhenIdle(t *testing.T) {
+	site := &fakeSite{secret: "s3cret", actions: `[{"id":9,"kind":"unban","message":null,"user_id":"steam_76561190000000101","waittime_s":null}]`}
+	pipeline, _, _ := newPipeline(t, site, t.TempDir())
+	pipeline.options.ActionPoll = 50 * time.Millisecond
+	ctx, cancel := context.WithCancel(context.Background())
+	done := make(chan struct{})
+	go func() {
+		pipeline.Run(ctx)
+		close(done)
+	}()
+	defer func() {
+		cancel()
+		<-done
+	}()
+	select {
+	case actions := <-pipeline.Actions():
+		if len(actions) != 1 || actions[0].ID != 9 || actions[0].Kind != ActionUnban {
+			t.Fatalf("actions %+v", actions)
+		}
+	case <-time.After(5 * time.Second):
+		t.Fatal("an idle pipeline did not ask the site for actions")
+	}
+	site.mu.Lock()
+	polled := len(site.batches)
+	site.mu.Unlock()
+	if polled == 0 || site.eventCount() != 0 {
+		t.Fatalf("polls %d events %d", polled, site.eventCount())
+	}
+}
+
 func TestFlushWhileTheSenderRunsDeliversEachEventOnce(t *testing.T) {
 	site := &fakeSite{secret: "s3cret"}
 	pipeline, _, _ := newPipeline(t, site, t.TempDir())

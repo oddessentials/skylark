@@ -135,7 +135,7 @@ args = ["-port=8211", "-publiclobby"]
 | `launch.enable_gamedata` | `true` | Add `-enable-gamedata-api` when it is missing. |
 | `docker.container`, `docker.host` | | The container to follow and the Docker endpoint. |
 | `file.path` | | The file to follow. |
-| `intervals.players`, `snapshot`, `snapshot_idle`, `metrics`, `heartbeat`, `flush` | `5s`, `10s`, `60s`, `30s`, `60s`, `2s` | Polling and sending periods. With nobody online a world snapshot goes out every `snapshot_idle`. |
+| `intervals.players`, `snapshot`, `snapshot_idle`, `metrics`, `heartbeat`, `flush`, `actions` | `5s`, `10s`, `60s`, `30s`, `60s`, `2s`, `5s` | Polling and sending periods. With nobody online a world snapshot goes out every `snapshot_idle`, and with nothing else to send the collector asks the site for admin actions every `actions`. |
 | `send_ips` | `false` | Send players' IP addresses with `player.connected`. |
 | `journal_dir` | `skylark-journal` beside the config file | Where events wait until the site confirms them. |
 
