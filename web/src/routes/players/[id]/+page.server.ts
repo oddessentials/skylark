@@ -10,13 +10,14 @@ export const load: PageServerLoad = async ({ fetch, url, params, parent }) => {
   const { features } = await parent();
   const { api } = serverApi(fetch, url);
   const session = pickInt(url.searchParams, 'session');
-  const [player, sessions, trail] = await Promise.all([
+  const [player, sessions, trail, palpedia] = await Promise.all([
     attempt(api.getPlayer(id)),
     attempt(api.listPlayerSessions(id, { limit: 20 })),
     features && !features.positions
       ? Promise.resolve(null)
-      : attempt(api.getPlayerTrail(id, session))
+      : attempt(api.getPlayerTrail(id, session)),
+    attempt(api.getPlayerPalpedia(id))
   ]);
   if (!player.ok && player.error.status === 404) error(404, 'No such player');
-  return { player, sessions, trail, session: session ?? null };
+  return { player, sessions, trail, palpedia, session: session ?? null };
 };

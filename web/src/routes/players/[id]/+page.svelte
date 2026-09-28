@@ -11,6 +11,7 @@
   import { guildColor, initialOf } from '$lib/ui/map';
   import Meta from '$lib/ui/Meta.svelte';
   import PalChip from '$lib/ui/PalChip.svelte';
+  import PalpediaCard from '$lib/ui/PalpediaCard.svelte';
   import PlatformTag from '$lib/ui/PlatformTag.svelte';
   import ProgressCard from '$lib/ui/ProgressCard.svelte';
   import { withParams } from '$lib/ui/query';
@@ -214,6 +215,16 @@
               label="{player.name}'s trail"
             />
           </Card>
+        {/if}
+
+        {#if data.palpedia.ok}
+          <PalpediaCard
+            entries={data.palpedia.data.entries}
+            unlocked={data.palpedia.data.unlocked}
+            total={data.palpedia.data.total}
+            savedAt={data.palpedia.data.saved_at}
+            owner={player.name}
+          />
         {/if}
 
         <Card title="Recent knockouts">

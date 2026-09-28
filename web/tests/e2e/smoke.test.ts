@@ -55,6 +55,19 @@ test('the map lists the players out and the bases', async ({ page }) => {
   expect(problems).toEqual([]);
 });
 
+test('the map shows where a Pal lives from the habitat facts', async ({ page }) => {
+  const problems = await open(page, '/map?species=SheepBall', 'The islands');
+  await expect(page.locator('.map-frame rect.map-habitat').first()).toBeVisible();
+  await expect(page.locator('.map-caption')).toContainText('Lamball #001');
+  await expect(page.locator('select[name="species"]')).toHaveValue('SheepBall');
+  await page.getByRole('link', { name: 'clear' }).click();
+  await expect(page).toHaveURL(/\/map$/);
+  await expect(page.locator('.map-frame rect.map-habitat')).toHaveCount(0);
+  expect(problems).toEqual([]);
+  const missing = await page.goto('/map?species=NotAPal');
+  expect(missing?.status()).toBe(404);
+});
+
 test('players sort through the query string and open their page', async ({ page }) => {
   const problems = await open(page, '/players', 'Players');
   await expect(page.locator('main tbody tr')).not.toHaveCount(0);
@@ -64,6 +77,13 @@ test('players sort through the query string and open their page', async ({ page 
   await expect(page.locator('main h1')).not.toHaveText('Players');
   await expect(page.getByText('Level over time')).toBeVisible();
   await expect(page.getByText('Sessions', { exact: true }).first()).toBeVisible();
+  const palpedia = page.locator('section', { hasText: 'Palpedia' }).last();
+  await expect(palpedia.locator('.palpedia-tile')).toHaveCount(288);
+  await palpedia.getByRole('button', { name: /^Missing/ }).click();
+  await expect(palpedia.locator('.palpedia-tile[data-caught="true"]')).toHaveCount(0);
+  await palpedia.locator('a.palpedia-tile').first().click();
+  await expect(page).toHaveURL(/\/map\?species=/);
+  await expect(page.locator('.map-frame rect.map-habitat').first()).toBeVisible();
   expect(problems).toEqual([]);
 });
 
@@ -71,6 +91,8 @@ test('guilds, activity, chat and the world page render', async ({ page }) => {
   let problems = await open(page, '/guilds', 'Guilds');
   await page.locator('main a.card').first().click();
   await expect(page.getByText('Members', { exact: true }).first()).toBeVisible();
+  await expect(page.getByText('Caught between them')).toBeVisible();
+  await expect(page.locator('.palpedia-tile')).toHaveCount(288);
   expect(problems).toEqual([]);
   problems = await open(page, '/activity', 'Activity');
   await page.getByRole('link', { name: 'Progress' }).click();
